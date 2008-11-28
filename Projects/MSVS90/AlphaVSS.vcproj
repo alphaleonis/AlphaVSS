@@ -5,6 +5,10 @@
 	Name="AlpahVSS"
 	ProjectGUID="{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}"
 	RootNamespace="Temp"
+	SccProjectName="SAK"
+	SccAuxPath="SAK"
+	SccLocalPath="SAK"
+	SccProvider="SAK"
 	Keyword="ManagedCProj"
 	TargetFrameworkVersion="196613"
 	>

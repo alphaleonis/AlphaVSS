@@ -4,6 +4,14 @@ Microsoft Visual Studio Solution File, Format Version 10.00
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AlpahVSS", "AlphaVSS.vcproj", "{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}"
 EndProject
 Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs02.codeplex.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = AlphaVSS.vcproj
+		SccLocalPath1 = .
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug - WinXP|Any CPU = Debug - WinXP|Any CPU
 		Debug - WinXP|Mixed Platforms = Debug - WinXP|Mixed Platforms
