@@ -1,0 +1,53 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AlpahVSS", "AlphaVSS.vcproj", "{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug - WinXP|Any CPU = Debug - WinXP|Any CPU
+		Debug - WinXP|Mixed Platforms = Debug - WinXP|Mixed Platforms
+		Debug - WinXP|Win32 = Debug - WinXP|Win32
+		Debug - Vista|Any CPU = Debug - Vista|Any CPU
+		Debug - Vista|Mixed Platforms = Debug - Vista|Mixed Platforms
+		Debug - Vista|Win32 = Debug - Vista|Win32
+		Release - WinXP|Any CPU = Release - WinXP|Any CPU
+		Release - WinXP|Mixed Platforms = Release - WinXP|Mixed Platforms
+		Release - WinXP|Win32 = Release - WinXP|Win32
+		Release - Vista|Any CPU = Release - Vista|Any CPU
+		Release - Vista|Mixed Platforms = Release - Vista|Mixed Platforms
+		Release - Vista|Win32 = Release - Vista|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Debug - WinXP|Any CPU.ActiveCfg = Debug - WinXP|Win32
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Debug - WinXP|Any CPU.Build.0 = Debug - WinXP|Win32
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Debug - WinXP|Mixed Platforms.ActiveCfg = Debug - WinXP|Win32
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Debug - WinXP|Mixed Platforms.Build.0 = Debug - WinXP|Win32
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Debug - WinXP|Win32.ActiveCfg = Debug - WinXP|Win32
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Debug - WinXP|Win32.Build.0 = Debug - WinXP|Win32
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Debug - Vista|Any CPU.ActiveCfg = Debug - Vista|Win32
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Debug - Vista|Any CPU.Build.0 = Debug - Vista|Win32
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Debug - Vista|Mixed Platforms.ActiveCfg = Debug - Vista|Win32
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Debug - Vista|Mixed Platforms.Build.0 = Debug - Vista|Win32
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Debug - Vista|Win32.ActiveCfg = Debug - Vista|Win32
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Debug - Vista|Win32.Build.0 = Debug - Vista|Win32
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Release - WinXP|Any CPU.ActiveCfg = Release - WinXP|Win32
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Release - WinXP|Any CPU.Build.0 = Release - WinXP|Win32
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Release - WinXP|Mixed Platforms.ActiveCfg = Release - WinXP|Win32
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Release - WinXP|Mixed Platforms.Build.0 = Release - WinXP|Win32
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Release - WinXP|Win32.ActiveCfg = Release - WinXP|Win32
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Release - WinXP|Win32.Build.0 = Release - WinXP|Win32
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Release - Vista|Any CPU.ActiveCfg = Release - Vista|Win32
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Release - Vista|Any CPU.Build.0 = Release - Vista|Win32
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Release - Vista|Mixed Platforms.ActiveCfg = Release - Vista|Win32
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Release - Vista|Mixed Platforms.Build.0 = Release - Vista|Win32
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Release - Vista|Win32.ActiveCfg = Release - Vista|Win32
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Release - Vista|Win32.Build.0 = Release - Vista|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		VisualSVNWorkingCopyRoot = ..\..
+	EndGlobalSection
+EndGlobal
