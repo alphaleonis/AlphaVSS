@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AlpahVSS", "AlphaVSS.vcproj", "{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AlphaVSS", "AlphaVSS.vcproj", "{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}"
 EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
@@ -13,44 +13,44 @@ Global
 		SccLocalPath1 = .
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug - WinXP|Any CPU = Debug - WinXP|Any CPU
-		Debug - WinXP|Mixed Platforms = Debug - WinXP|Mixed Platforms
-		Debug - WinXP|Win32 = Debug - WinXP|Win32
-		Debug - Vista|Any CPU = Debug - Vista|Any CPU
-		Debug - Vista|Mixed Platforms = Debug - Vista|Mixed Platforms
-		Debug - Vista|Win32 = Debug - Vista|Win32
-		Release - WinXP|Any CPU = Release - WinXP|Any CPU
-		Release - WinXP|Mixed Platforms = Release - WinXP|Mixed Platforms
-		Release - WinXP|Win32 = Release - WinXP|Win32
-		Release - Vista|Any CPU = Release - Vista|Any CPU
-		Release - Vista|Mixed Platforms = Release - Vista|Mixed Platforms
-		Release - Vista|Win32 = Release - Vista|Win32
+		Win2003.Debug|Win32 = Win2003.Debug|Win32
+		Win2003.Debug|x64 = Win2003.Debug|x64
+		Win2003|Win32 = Win2003|Win32
+		Win2003|x64 = Win2003|x64
+		WinVista.Debug|Win32 = WinVista.Debug|Win32
+		WinVista.Debug|x64 = WinVista.Debug|x64
+		WinVista|Win32 = WinVista|Win32
+		WinVista|x64 = WinVista|x64
+		WinXP.Debug|Win32 = WinXP.Debug|Win32
+		WinXP.Debug|x64 = WinXP.Debug|x64
+		WinXP|Win32 = WinXP|Win32
+		WinXP|x64 = WinXP|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Debug - WinXP|Any CPU.ActiveCfg = Debug - WinXP|Win32
-		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Debug - WinXP|Any CPU.Build.0 = Debug - WinXP|Win32
-		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Debug - WinXP|Mixed Platforms.ActiveCfg = Debug - WinXP|Win32
-		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Debug - WinXP|Mixed Platforms.Build.0 = Debug - WinXP|Win32
-		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Debug - WinXP|Win32.ActiveCfg = Debug - WinXP|Win32
-		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Debug - WinXP|Win32.Build.0 = Debug - WinXP|Win32
-		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Debug - Vista|Any CPU.ActiveCfg = Debug - Vista|Win32
-		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Debug - Vista|Any CPU.Build.0 = Debug - Vista|Win32
-		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Debug - Vista|Mixed Platforms.ActiveCfg = Debug - Vista|Win32
-		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Debug - Vista|Mixed Platforms.Build.0 = Debug - Vista|Win32
-		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Debug - Vista|Win32.ActiveCfg = Debug - Vista|Win32
-		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Debug - Vista|Win32.Build.0 = Debug - Vista|Win32
-		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Release - WinXP|Any CPU.ActiveCfg = Release - WinXP|Win32
-		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Release - WinXP|Any CPU.Build.0 = Release - WinXP|Win32
-		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Release - WinXP|Mixed Platforms.ActiveCfg = Release - WinXP|Win32
-		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Release - WinXP|Mixed Platforms.Build.0 = Release - WinXP|Win32
-		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Release - WinXP|Win32.ActiveCfg = Release - WinXP|Win32
-		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Release - WinXP|Win32.Build.0 = Release - WinXP|Win32
-		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Release - Vista|Any CPU.ActiveCfg = Release - Vista|Win32
-		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Release - Vista|Any CPU.Build.0 = Release - Vista|Win32
-		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Release - Vista|Mixed Platforms.ActiveCfg = Release - Vista|Win32
-		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Release - Vista|Mixed Platforms.Build.0 = Release - Vista|Win32
-		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Release - Vista|Win32.ActiveCfg = Release - Vista|Win32
-		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Release - Vista|Win32.Build.0 = Release - Vista|Win32
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Win2003.Debug|Win32.ActiveCfg = Win2003.Debug|Win32
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Win2003.Debug|Win32.Build.0 = Win2003.Debug|Win32
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Win2003.Debug|x64.ActiveCfg = Win2003|x64
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Win2003.Debug|x64.Build.0 = Win2003|x64
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Win2003|Win32.ActiveCfg = Win2003|Win32
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Win2003|Win32.Build.0 = Win2003|Win32
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Win2003|x64.ActiveCfg = Win2003|x64
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Win2003|x64.Build.0 = Win2003|x64
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.WinVista.Debug|Win32.ActiveCfg = WinVista.Debug|Win32
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.WinVista.Debug|Win32.Build.0 = WinVista.Debug|Win32
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.WinVista.Debug|x64.ActiveCfg = WinVista.Debug|x64
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.WinVista.Debug|x64.Build.0 = WinVista.Debug|x64
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.WinVista|Win32.ActiveCfg = WinVista|Win32
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.WinVista|Win32.Build.0 = WinVista|Win32
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.WinVista|x64.ActiveCfg = WinVista|x64
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.WinVista|x64.Build.0 = WinVista|x64
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.WinXP.Debug|Win32.ActiveCfg = WinXP.Debug|Win32
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.WinXP.Debug|Win32.Build.0 = WinXP.Debug|Win32
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.WinXP.Debug|x64.ActiveCfg = WinXP.Debug|x64
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.WinXP.Debug|x64.Build.0 = WinXP.Debug|x64
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.WinXP|Win32.ActiveCfg = WinXP|Win32
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.WinXP|Win32.Build.0 = WinXP|Win32
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.WinXP|x64.ActiveCfg = WinXP|x64
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.WinXP|x64.Build.0 = WinXP|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

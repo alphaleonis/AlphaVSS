@@ -21,6 +21,8 @@
 
 #pragma once
 
+#include "Config.h"
+
 #include <windows.h>
 #include <winbase.h>
 
@@ -55,3 +57,8 @@
 #include "Exceptions/VssSnapshotSetInProgressException.h"
 #include "Exceptions/VssObjectAlreadyExistsException.h"
 #include "Exceptions/VssWriterInfrastructureException.h"
+
+#if ALPHAVSS_TARGET == ALPHAVSS_TARGET_WIN2003
+// For some reason this method does not seem to be defined in the VSS header files.
+HRESULT APIENTRY ShouldBlockRevert(IN LPCWSTR wszVolumeName, OUT bool* pbBlock);
+#endif

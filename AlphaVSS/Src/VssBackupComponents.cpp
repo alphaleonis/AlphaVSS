@@ -20,6 +20,7 @@
  */
 #include "StdAfx.h"
 
+#include "VsBackup.h"
 #include "VssBackupComponents.h"
 #include "VssAsync.h"
 #include "VssEnumObjectEnumerable.h"
