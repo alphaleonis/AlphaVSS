@@ -18,22 +18,36 @@
  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  *  THE SOFTWARE.
  */
-#pragma once
+#include "StdAfx.h"
 
+#include "Exceptions/VssDeleteSnapshotsFailedException.h"
 
 namespace Alphaleonis { namespace Win32 { namespace Vss
-{
-	Exception ^GetExceptionForHr(HRESULT errorCode, const wchar_t *message);
-	void ThrowException(HRESULT errorCode, const wchar_t *message);
-
-	inline void ThrowException(HRESULT errorCode)
+{		
+	VssDeleteSnapshotsFailedException::VssDeleteSnapshotsFailedException(int deletedSnapshotsCount, Guid %nonDeletedSnapshotId, Exception ^innerException)
+		: VssException(
+		dynamic_cast<VssException^>(innerException) != nullptr ? safe_cast<VssException^>(innerException)->ErrorCode : 0,
+		L"Failed to delete all specified snapshots")
 	{
-		ThrowException(errorCode, 0);
+		mDeletedSnapshotsCount = deletedSnapshotsCount;
+		mNonDeletedSnapshotId = nonDeletedSnapshotId;
 	}
 
-	inline Exception ^GetExceptionForHr(HRESULT errorCode)
+
+	VssDeleteSnapshotsFailedException::VssDeleteSnapshotsFailedException(System::Runtime::Serialization::SerializationInfo ^ info, System::Runtime::Serialization::StreamingContext context)
+		: VssException(info, context)
 	{
-		return GetExceptionForHr(errorCode, 0);
 	}
-}	
+
+	int VssDeleteSnapshotsFailedException::DeletedSnapshotsCount::get()
+	{
+		return mDeletedSnapshotsCount;
+	}
+
+	Guid VssDeleteSnapshotsFailedException::NonDeletedSnapshotId::get()
+	{
+		return mNonDeletedSnapshotId;
+	}
+
+}
 } }

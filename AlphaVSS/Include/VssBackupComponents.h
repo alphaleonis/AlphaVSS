@@ -70,7 +70,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		/// </list></param>
 		/// <returns><see langword="true"/> if the volume has a shadow copy, and <see langword="false"/> if the volume does not have a shadow copy.</returns>
 		/// <remarks>
-		///	If this method returns <see langword="true"/>, use <see cref="VssSnapshotCompatibility"/> to find out the capabilities of that volume.
+		///	If this method returns <see langword="true"/>, use <see cref="GetSnapshotCompatibility"/> to find out the capabilities of that volume.
 		/// <note>This method is not supported until Windows Vista.</note>
 		/// </remarks>
 		/// <exception cref="UnauthorizedAccessException">The caller does not have sufficient backup privileges or is not an administrator.</exception>
@@ -361,19 +361,16 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		void BreakSnapshotSet(Guid snapshotSetId);
 
 		/// <summary>
-		/// The <see cref="DeleteSnapshots"/> method deletes one or more shadow copies or a shadow copy set. 
+		///		The <see cref="DeleteSnapshots"/> method deletes one or more shadow copies or a shadow copy set. 
 		/// </summary>
 		/// <param name="sourceObjectId">Identifier of the shadow copy or a shadow copy set to be deleted.</param>
 		/// <param name="sourceObjectType">Type of the object on which all shadow copies will be deleted. The value of this parameter is <see dref="F:Alphaleonis.Win32.Vss.VssObjectType.Snapshot" /> or <see dref="F:Alphaleonis.Win32.Vss.VssObjectType.SnapshotSet" />.</param>
 		/// <param name="forceDelete">If the value of this parameter is <see langword="true"/>, the provider will do everything possible to delete the shadow copy or shadow copies in a shadow copy set. If it is <see langword="false"/>, no additional effort will be made.</param>
-		/// <param name="deletedSnapshotsCount">This parameter will receive the number of deleted shadow copies.</param>
-		/// <param name="nonDeletedSnapshotId">If an error occurs, the value of this parameter is set to the identifier of the first shadow copy that could not be deleted. Otherwise, it is <see cref="Guid::Empty" />. </param>
-		/// <returns>Value indicating the status of the operation.</returns>
 		/// <remarks>
 		/// 	<para>
 		/// 		Multiple shadow copies in a shadow copy set are deleted sequentially. If an error occurs during one of these individual 
-		/// 		deletions, <b>DeleteSnapshots</b> will return immediately; no attempt will be made to delete any remaining shadow copies. 
-		/// 		The identifier of the undeleted shadow copy is returned in <paramref name="nonDeletedSnapshotId"/>
+		/// 		deletions, <b>DeleteSnapshots</b> will throw an exception immediately; no attempt will be made to delete any remaining shadow copies. 
+		/// 		The identifier of the undeleted shadow copy can be found in the instance of <see cref="VssDeleteSnapshotsFailedException"/> thrown.
 		/// 	</para>
 		/// 	<para>
 		/// 		The requester is responsible for serializing the delete shadow copy operation.
@@ -383,6 +380,8 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		/// 		disposed. In this case, it is not necessary to explicitly delete shadow copies. 
 		/// 	</para>
 		/// </remarks>
+		/// <exception cref="VssDeleteSnapshotsFailedException">The deletion failed. This is the only exception actually thrown by this method. It 
+		/// wraps one of the other exceptions listed in this section as its inner exception.</exception>
 		/// <exception cref="UnauthorizedAccessException">The caller does not have sufficient backup privileges or is not an administrator.</exception>
 		/// <exception cref="ArgumentException">One of the parameters is not valid.</exception>
 		/// <exception cref="OutOfMemoryException">Out of memory or other system resources.</exception>
@@ -390,7 +389,8 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		/// <exception cref="VssObjectNotFoundException">The specified shadow copy does not exist.</exception>
 		/// <exception cref="VssProviderVetoException">Expected provider error. The provider logged the error in the event log.</exception>
 		/// <exception cref="VssUnexpectedProviderError">Unexpected provider error. The error code is logged in the error log.</exception>
-		VssError DeleteSnapshots(Guid sourceObjectId, VssObjectType sourceObjectType, bool forceDelete, [Runtime::InteropServices::Out] Int64 %deletedSnapshotsCount, [Runtime::InteropServices::Out] Guid %nonDeletedSnapshotId);
+		/// <returns>The total number of snapshots that were deleted</returns>
+		int DeleteSnapshots(Guid sourceObjectId, VssObjectType sourceObjectType, bool forceDelete);
 		
 		/// <summary>
 		/// The <see cref="DisableWriterClasses"/> method prevents a specific class of writers from receiving any events.

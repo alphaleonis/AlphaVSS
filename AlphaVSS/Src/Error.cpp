@@ -25,6 +25,11 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 
 	void ThrowException(HRESULT errorCode, const wchar_t *message)
 	{
+		throw GetExceptionForHr(errorCode, message);
+	}
+
+	Exception ^ GetExceptionForHr(HRESULT errorCode, const wchar_t *message)
+	{
 		String^ msg;
 		if (message == 0)
 			msg = String::Empty;
@@ -34,66 +39,66 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		switch (errorCode)
 		{
 		case E_ACCESSDENIED:
-			throw gcnew UnauthorizedAccessException();
+			return gcnew UnauthorizedAccessException();
 		case E_INVALIDARG:
-			throw gcnew ArgumentException();
+			return gcnew ArgumentException();
 		case E_OUTOFMEMORY:
-			throw gcnew OutOfMemoryException();
+			return gcnew OutOfMemoryException();
 		case E_NOTIMPL:
-			throw gcnew NotImplementedException();
+			return gcnew NotImplementedException();
 		case E_UNEXPECTED:
-			throw gcnew SystemException(L"Unexpected system error.");
+			return gcnew SystemException(L"Unexpected system error.");
 		case VSS_E_INVALID_XML_DOCUMENT:
-			throw gcnew VssInvalidXmlDocumentException();
+			return gcnew VssInvalidXmlDocumentException();
 		case VSS_E_BAD_STATE:
-			throw gcnew VssBadStateException(msg);
+			return gcnew VssBadStateException(msg);
 		case VSS_E_OBJECT_NOT_FOUND:
-			throw gcnew VssObjectNotFoundException();
+			return gcnew VssObjectNotFoundException();
 		case VSS_E_PROVIDER_VETO:
-			throw gcnew VssProviderVetoException();
+			return gcnew VssProviderVetoException();
 		case VSS_E_UNEXPECTED_PROVIDER_ERROR:
-			throw gcnew VssUnexpectedProviderError();
+			return gcnew VssUnexpectedProviderError();
 		case VSS_E_MAXIMUM_NUMBER_OF_VOLUMES_REACHED:
-			throw gcnew VssMaximumNumberOfVolumesReachedException();
+			return gcnew VssMaximumNumberOfVolumesReachedException();
 		case VSS_E_MAXIMUM_NUMBER_OF_SNAPSHOTS_REACHED:
-			throw gcnew VssMaximumNumberOfSnapshotsReachedException();
+			return gcnew VssMaximumNumberOfSnapshotsReachedException();
 		case VSS_E_PROVIDER_NOT_REGISTERED:
-			throw gcnew VssProviderNotRegisteredException();
+			return gcnew VssProviderNotRegisteredException();
 		case VSS_E_VOLUME_NOT_SUPPORTED:
-			throw gcnew VssVolumeNotSupportedException();
+			return gcnew VssVolumeNotSupportedException();
 		case VSS_E_VOLUME_NOT_SUPPORTED_BY_PROVIDER:
-			throw gcnew VssVolumeNotSupportedByProviderException();
+			return gcnew VssVolumeNotSupportedByProviderException();
 		case VSS_E_UNEXPECTED_WRITER_ERROR:
-			throw gcnew VssUnexpectedWriterError();
+			return gcnew VssUnexpectedWriterError();
 		case VSS_E_INSUFFICIENT_STORAGE:
-			throw gcnew VssInsufficientStorageException();
+			return gcnew VssInsufficientStorageException();
 		case VSS_E_FLUSH_WRITES_TIMEOUT:
-			throw gcnew VssFlushWritesTimeoutException();
+			return gcnew VssFlushWritesTimeoutException();
 		case VSS_E_HOLD_WRITES_TIMEOUT:
-			throw gcnew VssHoldWritesTimeoutException();
+			return gcnew VssHoldWritesTimeoutException();
 		case VSS_E_OBJECT_ALREADY_EXISTS:
-			throw gcnew VssObjectAlreadyExistsException();
+			return gcnew VssObjectAlreadyExistsException();
 #if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WIN2003
 // Skip these if not supported
 		case VSS_E_REBOOT_REQUIRED:
-			throw gcnew VssRebootRequiredException();
+			return gcnew VssRebootRequiredException();
 		case VSS_E_REVERT_IN_PROGRESS:
-			throw gcnew VssRevertInProgressException();
+			return gcnew VssRevertInProgressException();
 #if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WIN2008
 		case VSS_E_TRANSACTION_FREEZE_TIMEOUT:
-			throw gcnew VssTransactionFreezeTimeoutException();
+			return gcnew VssTransactionFreezeTimeoutException();
 		case VSS_E_TRANSACTION_THAW_TIMEOUT:
-			throw gcnew VssTransactionThawTimeoutException();
+			return gcnew VssTransactionThawTimeoutException();
 #endif
 #endif
 		case VSS_E_UNSUPPORTED_CONTEXT:
-			throw gcnew VssUnsupportedContextException();
+			return gcnew VssUnsupportedContextException();
 		case VSS_E_VOLUME_IN_USE:
-			throw gcnew VssVolumeInUseException();
+			return gcnew VssVolumeInUseException();
 		case VSS_E_SNAPSHOT_SET_IN_PROGRESS:
-			throw gcnew VssSnapshotSetInProgressException();
+			return gcnew VssSnapshotSetInProgressException();
 		default:
-			System::Runtime::InteropServices::Marshal::ThrowExceptionForHR(errorCode);
+			return System::Runtime::InteropServices::Marshal::GetExceptionForHR(errorCode);
 		}
 	}
 }	

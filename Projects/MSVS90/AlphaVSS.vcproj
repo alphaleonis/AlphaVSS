@@ -1161,6 +1161,10 @@
 					>
 				</File>
 				<File
+					RelativePath="..\..\AlphaVSS\Src\Exceptions\VssDeleteSnapshotsFailedException.cpp"
+					>
+				</File>
+				<File
 					RelativePath="..\..\AlphaVSS\Src\Exceptions\VssException.cpp"
 					>
 				</File>
@@ -1460,6 +1464,10 @@
 				>
 				<File
 					RelativePath="..\..\AlphaVSS\Include\Exceptions\VssBadStateException.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\AlphaVSS\Include\Exceptions\VssDeleteSnapshotsFailedException.h"
 					>
 				</File>
 				<File

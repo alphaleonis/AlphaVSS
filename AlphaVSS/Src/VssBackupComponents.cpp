@@ -154,26 +154,21 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		CheckCom(mBackup->BreakSnapshotSet(ToVssId(snapshotSetId)));
 	}
 
-	VssError VssBackupComponents::DeleteSnapshots(Guid sourceObjectId, VssObjectType sourceObjectType, bool forceDelete, [Runtime::InteropServices::Out] Int64 %deletedSnapshotsCount, [Runtime::InteropServices::Out] Guid %nonDeletedSnapshotId)
+	int VssBackupComponents::DeleteSnapshots(Guid sourceObjectId, VssObjectType sourceObjectType, bool forceDelete)
 	{
+		if (sourceObjectType != VssObjectType::Snapshot && sourceObjectType != VssObjectType::SnapshotSet)
+			throw gcnew ArgumentException(L"Invalid object type. Must be Snapshot or SnapshotSet", L"sourceObjectType");
+
 		LONG lDeletedSnapshots;
 		VSS_ID nonDeletedSnapshotID;
 		HRESULT hr = mBackup->DeleteSnapshots(ToVssId(sourceObjectId), (VSS_OBJECT_TYPE)sourceObjectType, forceDelete, &lDeletedSnapshots, &nonDeletedSnapshotID);
 		
-		deletedSnapshotsCount = lDeletedSnapshots;
-		nonDeletedSnapshotId = ToGuid(nonDeletedSnapshotID);
-
-		switch (hr)
+		if (FAILED(hr))
 		{
-		case VSS_E_OBJECT_NOT_FOUND:
-		case E_UNEXPECTED:
-		case VSS_E_PROVIDER_VETO:
-		case VSS_E_UNEXPECTED_PROVIDER_ERROR:
-			return (VssError)hr;	
-		default:
-			CheckComError(hr, DeleteSnapshots);
-		};
-		return (VssError)S_OK;
+			throw gcnew VssDeleteSnapshotsFailedException(lDeletedSnapshots, ToGuid(nonDeletedSnapshotID), GetExceptionForHr(hr));
+		}
+
+		return lDeletedSnapshots;
 	}
 
 	void VssBackupComponents::DisableWriterClasses(array<Guid> ^ writerClassIds)

@@ -58,3 +58,4 @@
 #include "Exceptions/VssSnapshotSetInProgressException.h"
 #include "Exceptions/VssObjectAlreadyExistsException.h"
 #include "Exceptions/VssWriterInfrastructureException.h"
+#include "Exceptions/VssDeleteSnapshotsFailedException.h"
