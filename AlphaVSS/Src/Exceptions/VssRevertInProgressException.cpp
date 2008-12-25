@@ -21,7 +21,7 @@
 #include "StdAfx.h"
 
 // If not on Vista or later, this error code is not defined, we define it to a bogus value.
-#if NTDDI_VERSION < NTDDI_WS03
+#if ALPHAVSS_TARGET < ALPHAVSS_TARGET_WIN2003
 #define VSS_E_REVERT_IN_PROGRESS E_UNEXPECTED
 #endif
 
@@ -49,6 +49,6 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 }
 } }
 
-#if NTDDI_VERSION < NTDDI_WS03
+#if ALPHAVSS_TARGET < ALPHAVSS_TARGET_WIN2003
 #undef VSS_E_REVERT_IN_PROGRESS
 #endif

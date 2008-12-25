@@ -24,7 +24,7 @@
 
 namespace Alphaleonis { namespace Win32 { namespace Vss
 {
-#if NTDDI_VERSION >= NTDDI_WS03
+#if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WIN2003
 	VssWMDependency^ VssWMDependency::Adopt(IVssWMDependency *dependency)
 	{
 		try

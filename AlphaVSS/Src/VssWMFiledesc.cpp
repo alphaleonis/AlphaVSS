@@ -36,7 +36,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 			AutoBStr bstrAlternateLocation;
 			CheckCom(vssWMFiledesc->GetAlternateLocation(&bstrAlternateLocation));
 
-#if NTDDI_VERSION >= NTDDI_LONGHORN
+#if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WIN2008
 			DWORD dwTypeMask;
 			CheckCom(vssWMFiledesc->GetBackupTypeMask(&dwTypeMask));
 			mBackupTypeMask = (VssFileSpecBackupType)dwTypeMask;
@@ -71,7 +71,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 
 	VssFileSpecBackupType VssWMFiledesc::BackupTypeMask::get()
 	{
-#if NTDDI_VERSION < NTDDI_WS03
+#if ALPHAVSS_TARGET < ALPHAVSS_TARGET_WIN2003
 		return mBackupTypeMask;
 #else
 		throw gcnew NotSupportedException(L"This method is not supported in Windows XP");

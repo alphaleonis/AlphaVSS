@@ -93,7 +93,9 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		/// <item><description>A unique volume name of the form \\?\Volume{GUID}\ (where GUID is the unique global identifier of the volume) with a backslash (\)</description></item>
 		/// </list></param>
 		/// <returns>A bit mask (or bitwise OR) of <see cref="VssSnapshotCompatibility"/> values that indicates whether certain volume control or file I/O operations are disabled for the given volume if a shadow copy of it exists.</returns>
-		/// <remarks><note>This method is not supported until Windows Vista.</note></remarks>
+		/// <remarks>
+		///		<note>This method is not supported until Windows Vista.</note>
+		/// </remarks>
 		/// <exception cref="InvalidOperationException">No snapshot exists for the specified volume.</exception>
 		/// <exception cref="UnauthorizedAccessException">The caller does not have sufficient backup privileges or is not an administrator.</exception>
 		/// <exception cref="ArgumentException">One of the parameters is not valid.</exception>
@@ -103,7 +105,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		/// <exception cref="VssObjectNotFoundException">The specified volume was not found.</exception>
 		/// <exception cref="VssUnexpectedProviderError">Unexpected provider error. The error code is logged in the event log file. For more information, see <see href="http://msdn.microsoft.com/en-us/library/aa381605(VS.85).aspx">Event and Error Handling Under VSS</see>.</exception>
 		/// <exception cref="NotSupportedException">The operation is not supported on the current operating system.</exception>
-		static VssSnapshotCompatibility GetSnapshotComaptibility(String^ volumeName);
+		static VssSnapshotCompatibility GetSnapshotCompatibility(String^ volumeName);
 
 		/// <summary>Checks the registry for writers that should block revert operations on the specified volume.</summary>
 		/// <param name="volumeName">Name of the volume. The name of the volume to be checked must be in one of the following formats:

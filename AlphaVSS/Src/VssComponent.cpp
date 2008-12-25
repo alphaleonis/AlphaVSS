@@ -42,7 +42,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		: mVssComponent(vssComponent), 
 		mAlternateLocationMappings(nullptr),
 		mDirectedTargets(nullptr),
-#if NTDDI_VERSION >= NTDDI_WS03
+#if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WIN2003
 		mDifferencedFiles(nullptr),
 #endif
 		mRestoreSubcomponents(nullptr),
@@ -51,7 +51,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	{
 		mAlternateLocationMappings = gcnew AlternateLocationMappingList(this);
 		mDirectedTargets = gcnew DirectedTargetList(this);
-#if NTDDI_VERSION >= NTDDI_WS03
+#if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WIN2003
 		mDifferencedFiles = gcnew DifferencedFileList(this);
 #endif
 		mRestoreSubcomponents = gcnew RestoreSubcomponentList(this);
@@ -274,7 +274,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 
 	IVssListAdapter<DifferencedFileInfo^>^ VssComponent::DifferencedFiles::get()
 	{
-#if NTDDI_VERSION >= NTDDI_WS03
+#if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WIN2003
 		return mDifferencedFiles;
 #else
 		throw gcnew NotSupportedException(L"This method requires Windows Server 2003 or later");
@@ -394,7 +394,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	{
 	}
 
-#if NTDDI_VERSION >= NTDDI_WS03
+#if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WIN2003
 	//
 	// DifferencedFileList 
 	//

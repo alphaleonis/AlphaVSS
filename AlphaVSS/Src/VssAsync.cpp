@@ -74,7 +74,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	
 	void VssAsync::Wait()
 	{
-#if NTDDI_VERSION >= NTDDI_WS03
+#if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WIN2003
 		CheckCom(mVssAsync->Wait(INFINITE));
 #else
 		CheckCom(mVssAsync->Wait());

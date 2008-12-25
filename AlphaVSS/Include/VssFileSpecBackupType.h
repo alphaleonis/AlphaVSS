@@ -22,7 +22,7 @@
 
 #include <vss.h>
 
-#if NTDDI_VERSION < NTDDI_WS03
+#if ALPHAVSS_TARGET < ALPHAVSS_TARGET_WIN2003
 // Dummy values when not defined by the vss headers
 #define VSS_FSBT_FULL_BACKUP_REQUIRED			1
 #define VSS_FSBT_DIFFERENTIAL_BACKUP_REQUIRED	2

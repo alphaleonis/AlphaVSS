@@ -22,7 +22,7 @@
 
 #include <vss.h>
 
-#if NTDDI_VERSION < NTDDI_LONGHORN
+#if ALPHAVSS_TARGET < ALPHAVSS_TARGET_WIN2008
 // Dummy value
 #define VSS_RT_ORIGINAL_LOCATION 1000
 #endif

@@ -52,11 +52,11 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		/// </summary>
 		property String^ ComponentName { String^ get(); }
 	internal:
-#if NTDDI_VERSION >= NTDDI_WS03
+#if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WIN2003
 		static VssWMDependency^ Adopt(IVssWMDependency *dependency);
 #endif
 	private:
-#if NTDDI_VERSION >= NTDDI_WS03
+#if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WIN2003
 		VssWMDependency(IVssWMDependency *dependency);
 #endif
 		Guid mWriterId;

@@ -21,7 +21,7 @@
 #include "StdAfx.h"
 
 // If not on vista or later, this error code is not defined, we define it to a bogus value.
-#if NTDDI_VERSION < NTDDI_LONGHORN
+#if ALPHAVSS_TARGET < ALPHAVSS_TARGET_WIN2008
 #define VSS_E_TRANSACTION_THAW_TIMEOUT E_UNEXPECTED
 #endif
 
@@ -49,6 +49,6 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 }
 } }
 
-#if NTDDI_VERSION < NTDDI_LONGHORN
+#if ALPHAVSS_TARGET < ALPHAVSS_TARGET_WIN2008
 #undef VSS_E_REBOOT_REQUIRED 
 #endif

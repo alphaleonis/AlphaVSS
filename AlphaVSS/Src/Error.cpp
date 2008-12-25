@@ -73,13 +73,13 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 			throw gcnew VssHoldWritesTimeoutException();
 		case VSS_E_OBJECT_ALREADY_EXISTS:
 			throw gcnew VssObjectAlreadyExistsException();
-#if NTDDI_VERSION >= NTDDI_WS03
+#if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WIN2003
 // Skip these if not supported
 		case VSS_E_REBOOT_REQUIRED:
 			throw gcnew VssRebootRequiredException();
 		case VSS_E_REVERT_IN_PROGRESS:
 			throw gcnew VssRevertInProgressException();
-#if NTDDI_VERSION >= NTDDI_LONGHORN
+#if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WIN2008
 		case VSS_E_TRANSACTION_FREEZE_TIMEOUT:
 			throw gcnew VssTransactionFreezeTimeoutException();
 		case VSS_E_TRANSACTION_THAW_TIMEOUT:

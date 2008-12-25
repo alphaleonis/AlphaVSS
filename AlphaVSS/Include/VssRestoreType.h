@@ -22,7 +22,7 @@
 
 #include <vss.h>
 
-#if NTDDI_VERSION <= NTDDI_WS03
+#if ALPHAVSS_TARGET < ALPHAVSS_TARGET_WIN2003
 #define VSS_RTYPE_UNDEFINED 0
 #define VSS_RTYPE_BY_COPY 1
 #define VSS_RTYPE_IMPORT 2
@@ -61,7 +61,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 }
 } }
 
-#if NTDDI_VERSION <= NTDDI_WS03
+#if ALPHAVSS_TARGET <= ALPHAVSS_TARGET_WIN2003
 #undef VSS_RTYPE_UNDEFINED
 #undef VSS_RTYPE_BY_COPY 
 #undef VSS_RTYPE_IMPORT

@@ -58,9 +58,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		/// 		<b>Windows Vista, Windows Server 2003, and Windows XP:</b> This value is not supported.
 		/// 	</para>
 		/// </summary>
-#if NTDDI_VERSION >= NTDDI_WINVISTA
 		StatusNotAvailable = VSS_E_WRITER_STATUS_NOT_AVAILABLE
-#endif
 	};
 }
 } }

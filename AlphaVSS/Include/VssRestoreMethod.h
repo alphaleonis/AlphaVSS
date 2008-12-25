@@ -22,11 +22,11 @@
 
 #include <vss.h>
 
-#if NTDDI_VERSION < NTDDI_LONGHORN
+#if ALPHAVSS_TARGET < ALPHAVSS_TARGET_WIN2008
 #define VSS_RME_RESTORE_STOP_START 123
 #endif
 
-#if NTDDI_VERSION < NTDDI_WS03
+#if ALPHAVSS_TARGET < ALPHAVSS_TARGET_WIN2003
 // Dummy value
 #define VSS_RME_RESTORE_AT_REBOOT_IF_CANNOT_REPLACE 12345
 #endif
@@ -112,9 +112,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		/// <para>The service to be stopped is specified by the writer beforehand when it calls the IVssCreateWriterMetadata::SetRestoreMethod method. 
 		/// The requester can obtain the name of the service by examining the <see dref="P:Alphaleonis.Win32.Vss.VssExamineWriterMetadata.RestoreMethod"/> property.</para>
 		/// </summary>
-#if NTDDI_VERSION >= NTDDI_WINVISTA
 		RestoreStopStart = VSS_RME_RESTORE_STOP_START
-#endif
 	};
 }
 } }

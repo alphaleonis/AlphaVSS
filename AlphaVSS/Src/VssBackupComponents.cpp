@@ -63,39 +63,34 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 
 	bool VssBackupComponents::IsVolumeSnapshotted(String ^ volumeName)
 	{
-#if NTDDI_VERSION >= NTDDI_WS03SP1
 		LONG lSnapshotCapability = 0;
 		BOOL bSnapshotsPresent = 0;
 		CheckCom(::IsVolumeSnapshotted((VSS_PWSZ)((const wchar_t *)NoNullAutoMStr(volumeName)), &bSnapshotsPresent, &lSnapshotCapability));	
 		return bSnapshotsPresent != 0;
-#else
-		throw gcnew NotSupportedException(L"This method is not supported on Windows XP");
-#endif
 	}
 
-	VssSnapshotCompatibility VssBackupComponents::GetSnapshotComaptibility(String^ volumeName)
+	VssSnapshotCompatibility VssBackupComponents::GetSnapshotCompatibility(String^ volumeName)
 	{
-#if NTDDI_VERSION >= NTDDI_WS03SP1
 		LONG lSnapshotCapability = 0;
 		BOOL bSnapshotsPresent = 0;
 		CheckCom(::IsVolumeSnapshotted((VSS_PWSZ)((const wchar_t *)NoNullAutoMStr(volumeName)), &bSnapshotsPresent, &lSnapshotCapability));
 		if (!bSnapshotsPresent)
 			throw gcnew InvalidOperationException("No snapshot exists for the specified volume");
 		return (VssSnapshotCompatibility)lSnapshotCapability;
-#else
-		throw gcnew NotSupportedException(L"This method is not supported on Windows XP");
-#endif
 	}
 
 	bool VssBackupComponents::ShouldBlockRevert(String ^ volumeName)
 	{
-// Method required Windows Server 2008 or Windows Server 2003 SP1
-#if NTDDI_VERSION > NTDDI_LONGHORN || NTDDI_VERSION == NTDDI_WS03SP1
+		// According to MSDN this method is supported also on Windows 2003, however it is not 
+		// present in the header-files or library files, except for the library files for ws03 
+		// in the vshadow sample directory in the VSSSDK72. Requiring WS08 here.
+#if ALPHAVSS_TARGET == ALPHAVSS_TARGET_WIN2008
+		OsInfo::RequireAtLeastInFamily(OsVersion::Win2008);
 		bool bBlock = 0;
 		CheckCom(::ShouldBlockRevert(NoNullAutoMStr(volumeName), &bBlock));
 		return bBlock != 0;
 #else
-		throw gcnew NotSupportedException(L"This method requires Windows Server 2008 or Windows Server 2003 SP1");
+		throw gcnew NotSupportedException(L"This method requires Windows Server 2008.");
 #endif
 	}
 
@@ -119,13 +114,14 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 
 	void VssBackupComponents::AddNewTarget(Guid writerId, VssComponentType componentType, String ^ logicalPath, String ^ componentName, String ^ path, String ^ fileName, bool recursive, String ^ alternatePath)
 	{
-#if NTDDI_VERSION >= NTDDI_WS03
+#if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WIN2003
+		OsInfo::RequireAtLeast(OsVersion::Win2003);		
 		CheckCom(mBackup->AddNewTarget(ToVssId(writerId), (VSS_COMPONENT_TYPE)componentType,
 			AutoMStr(logicalPath), NoNullAutoMStr(componentName),
 			NoNullAutoMStr(path), NoNullAutoMStr(fileName),
 			recursive, NoNullAutoMStr(alternatePath)));
 #else
-		throw gcnew NotSupportedException(L"This method is not supported in Windows XP");
+		UnsupportedOs();
 #endif
 	}
 
@@ -401,21 +397,23 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 
 	VssAsync^ VssBackupComponents::QueryRevertStatus(String^ volume)
 	{
-#if NTDDI_VERSION > NTDDI_LONGHORN || NTDDI_VERSION == NTDDI_WS03SP1
+#if ALPHAVSS_TARGET == ALPHAVSS_TARGET_WIN2003 || ALPHAVSS_TARGET == ALPHAVSS_TARGET_WIN2008
+		OsInfo::RequireAtLeastInFamily(OsVersion::Win2003SP1, OsVersion::Win2008);
 		IVssAsync *pAsync;
 		CheckCom(mBackup->QueryRevertStatus(NoNullAutoMStr(volume), &pAsync));
 		return VssAsync::Adopt(pAsync);
 #else
-		throw gcnew NotSupportedException(L"This method requires Windows Server 2008 or Windows 2003 SP1");
+		UnsupportedOs();
 #endif
 	}
 
 	void VssBackupComponents::RevertToSnapshot(Guid snapshotId, bool forceDismount)
 	{
-#if NTDDI_VERSION > NTDDI_LONGHORN || NTDDI_VERSION == NTDDI_WS03SP1
+#if ALPHAVSS_TARGET == ALPHAVSS_TARGET_WIN2003 || ALPHAVSS_TARGET == ALPHAVSS_TARGET_WIN2008
+		OsInfo::RequireAtLeastInFamily(OsVersion::Win2003SP1, OsVersion::Win2008);		
 		CheckCom(mBackup->RevertToSnapshot(ToVssId(snapshotId), forceDismount));
 #else
-		throw gcnew NotSupportedException(L"This method requires Windows Server 2008 or Windows 2003 SP1");
+		UnsupportedOs();
 #endif
 	}
 
@@ -463,10 +461,11 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 
 	void VssBackupComponents::SetRangesFilePath(Guid writerId, VssComponentType componentType, String^ logicalPath, String^ componentName, int partialFileIndex, String^ rangesFile)
 	{
-#if NTDDI_VERSION > NTDDI_LONGHORN || NTDDI_VERSION == NTDDI_WS03 || NTDDI_VERSION == NTDDI_WS03SP1
+#if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WIN2003
+		OsInfo::RequireAtLeast(OsVersion::Win2003);		
 		CheckCom(mBackup->SetRangesFilePath(ToVssId(writerId), (VSS_COMPONENT_TYPE)componentType, AutoMStr(logicalPath), NoNullAutoMStr(componentName), partialFileIndex, NoNullAutoMStr(rangesFile)));
 #else
-		throw gcnew NotSupportedException(L"This method requires Windows Server 2008 or Windows 2003");
+		UnsupportedOs();
 #endif
 	}
 
@@ -477,10 +476,11 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 
 	void VssBackupComponents::SetRestoreState(VssRestoreType restoreType)
 	{
-#if NTDDI_VERSION >= NTDDI_WS03
+#if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WIN2003
+		OsInfo::RequireAtLeast(OsVersion::Win2003);		
 		CheckCom(mBackup->SetRestoreState((VSS_RESTORE_TYPE)restoreType));
 #else
-		throw gcnew NotSupportedException(L"This method is not supported on Windows XP");
+		UnsupportedOs();
 #endif
 	}
 

@@ -45,13 +45,9 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 
 	VssExamineWriterMetadata^ VssExamineWriterMetadata::Create(String^ xml)
 	{
-#if NTDDI_VERSION >= NTDDI_WS03SP1
 		IVssExamineWriterMetadata *pMetadata;
 		CheckCom(CreateVssExamineWriterMetadata(NoNullAutoMBStr(xml), &pMetadata));
 		return VssExamineWriterMetadata::Adopt(pMetadata);
-#else
-		throw gcnew NotSupportedException(L"This method is not supported on Windows XP");
-#endif
 
 	}
 
@@ -220,7 +216,8 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 
 	VssBackupSchema VssExamineWriterMetadata::BackupSchema::get()
 	{
-#if NTDDI_VERSION >= NTDDI_WS03
+#if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WIN2003
+		OsInfo::RequireAtLeast(OsVersion::Win2003);
 		DWORD schema;
 		CheckCom(mExamineWriterMetadata->GetBackupSchema(&schema));
 		return (VssBackupSchema)schema;

@@ -24,7 +24,7 @@
 	</ToolFiles>
 	<Configurations>
 		<Configuration
-			Name="WinVista.Debug|Win32"
+			Name="Win2008.Debug|Win32"
 			OutputDirectory="$(ProjectDir)\..\..\Bin\$(ConfigurationName)"
 			IntermediateDirectory="$(ProjectDir)\..\..\Obj\$(ConfigurationName)"
 			ConfigurationType="2"
@@ -50,7 +50,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="0"
 				AdditionalIncludeDirectories="&quot;$(ProjectDir)\..\..\AlphaVSS\include&quot;"
-				PreprocessorDefinitions="WIN32;_DEBUG;ALPHAVSS_TARGET=ALPHAVSS_TARGET_WINVISTA"
+				PreprocessorDefinitions="WIN32;_DEBUG;ALPHAVSS_TARGET=ALPHAVSS_TARGET_WIN2008"
 				RuntimeLibrary="3"
 				UsePrecompiledHeader="2"
 				GenerateXMLDocumentationFiles="true"
@@ -101,7 +101,85 @@
 			/>
 		</Configuration>
 		<Configuration
-			Name="WinVista|Win32"
+			Name="Win2008.Debug|x64"
+			OutputDirectory="$(ProjectDir)\..\..\Bin\$(ConfigurationName)"
+			IntermediateDirectory="$(ProjectDir)\..\..\Obj\$(ConfigurationName)"
+			ConfigurationType="2"
+			CharacterSet="1"
+			ManagedExtensions="1"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+				TargetEnvironment="3"
+			/>
+			<Tool
+				Name="VCCLCompilerTool"
+				Optimization="0"
+				AdditionalIncludeDirectories="&quot;$(ProjectDir)\..\..\AlphaVSS\include&quot;"
+				PreprocessorDefinitions="WIN32;_DEBUG;ALPHAVSS_TARGET=ALPHAVSS_TARGET_WIN2008"
+				RuntimeLibrary="3"
+				UsePrecompiledHeader="2"
+				GenerateXMLDocumentationFiles="true"
+				XMLDocumentationFileName="$(OutDir)\"
+				WarningLevel="3"
+				DebugInformationFormat="3"
+			/>
+			<Tool
+				Name="VCManagedResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
+			<Tool
+				Name="VCLinkerTool"
+				AdditionalDependencies="vssapi.lib"
+				OutputFile="$(OutDir)\..\AlphaVSS.$(ConfigurationName).$(PlatformName).dll"
+				LinkIncremental="2"
+				GenerateDebugInformation="true"
+				AssemblyDebug="1"
+				TargetMachine="17"
+			/>
+			<Tool
+				Name="VCALinkTool"
+			/>
+			<Tool
+				Name="VCManifestTool"
+			/>
+			<Tool
+				Name="VCXDCMakeTool"
+				SuppressStartupBanner="false"
+				ValidateIntelliSense="false"
+			/>
+			<Tool
+				Name="VCBscMakeTool"
+			/>
+			<Tool
+				Name="VCFxCopTool"
+			/>
+			<Tool
+				Name="VCAppVerifierTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+			/>
+		</Configuration>
+		<Configuration
+			Name="Win2008|Win32"
 			OutputDirectory="$(ProjectDir)\..\..\Bin\$(ConfigurationName)"
 			IntermediateDirectory="$(ProjectDir)\..\..\Obj\$(ConfigurationName)"
 			ConfigurationType="2"
@@ -127,7 +205,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				AdditionalIncludeDirectories="$(ProjectDir)\..\..\AlphaVSS\include"
-				PreprocessorDefinitions="WIN32;NDEBUG;ALPHAVSS_TARGET=ALPHAVSS_TARGET_WINVISTA"
+				PreprocessorDefinitions="WIN32;NDEBUG;ALPHAVSS_TARGET=ALPHAVSS_TARGET_WIN2008"
 				RuntimeLibrary="2"
 				UsePrecompiledHeader="2"
 				WarningLevel="3"
@@ -149,6 +227,79 @@
 				LinkIncremental="1"
 				GenerateDebugInformation="true"
 				TargetMachine="1"
+			/>
+			<Tool
+				Name="VCALinkTool"
+			/>
+			<Tool
+				Name="VCManifestTool"
+			/>
+			<Tool
+				Name="VCXDCMakeTool"
+			/>
+			<Tool
+				Name="VCBscMakeTool"
+			/>
+			<Tool
+				Name="VCFxCopTool"
+			/>
+			<Tool
+				Name="VCAppVerifierTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+			/>
+		</Configuration>
+		<Configuration
+			Name="Win2008|x64"
+			OutputDirectory="$(ProjectDir)\..\..\Bin\$(ConfigurationName)"
+			IntermediateDirectory="$(ProjectDir)\..\..\Obj\$(ConfigurationName)"
+			ConfigurationType="2"
+			CharacterSet="1"
+			ManagedExtensions="1"
+			WholeProgramOptimization="1"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+				TargetEnvironment="3"
+			/>
+			<Tool
+				Name="VCCLCompilerTool"
+				AdditionalIncludeDirectories="$(ProjectDir)\..\..\AlphaVSS\include"
+				PreprocessorDefinitions="WIN32;NDEBUG;ALPHAVSS_TARGET=ALPHAVSS_TARGET_WIN2008"
+				RuntimeLibrary="2"
+				UsePrecompiledHeader="2"
+				WarningLevel="3"
+				DebugInformationFormat="3"
+			/>
+			<Tool
+				Name="VCManagedResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
+			<Tool
+				Name="VCLinkerTool"
+				AdditionalDependencies="vssapi.lib"
+				OutputFile="$(OutDir)\..\AlphaVSS.$(ConfigurationName).$(PlatformName).dll"
+				LinkIncremental="1"
+				GenerateDebugInformation="true"
+				TargetMachine="17"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -201,6 +352,7 @@
 				AdditionalIncludeDirectories="&quot;C:\Program Files\Microsoft\VSSSDK72\inc\winxp&quot;;&quot;$(ProjectDir)\..\..\AlphaVSS\include&quot;"
 				PreprocessorDefinitions="WIN32;_DEBUG;ALPHAVSS_TARGET=ALPHAVSS_TARGET_WINXP"
 				RuntimeLibrary="3"
+				TreatWChar_tAsBuiltInType="false"
 				UsePrecompiledHeader="2"
 				XMLDocumentationFileName="$(OutDir)\"
 				WarningLevel="3"
@@ -223,6 +375,85 @@
 				GenerateDebugInformation="true"
 				AssemblyDebug="1"
 				TargetMachine="1"
+			/>
+			<Tool
+				Name="VCALinkTool"
+			/>
+			<Tool
+				Name="VCManifestTool"
+			/>
+			<Tool
+				Name="VCXDCMakeTool"
+				DocumentLibraryDependencies="false"
+				SuppressStartupBanner="false"
+				ValidateIntelliSense="false"
+			/>
+			<Tool
+				Name="VCBscMakeTool"
+			/>
+			<Tool
+				Name="VCFxCopTool"
+			/>
+			<Tool
+				Name="VCAppVerifierTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+			/>
+		</Configuration>
+		<Configuration
+			Name="WinXP.Debug|x64"
+			OutputDirectory="$(ProjectDir)\..\..\Bin\$(ConfigurationName)"
+			IntermediateDirectory="$(ProjectDir)\..\..\Obj\$(ConfigurationName)"
+			ConfigurationType="2"
+			CharacterSet="1"
+			ManagedExtensions="1"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+				TargetEnvironment="3"
+			/>
+			<Tool
+				Name="VCCLCompilerTool"
+				Optimization="0"
+				AdditionalIncludeDirectories="&quot;C:\Program Files\Microsoft\VSSSDK72\inc\winxp&quot;;&quot;$(ProjectDir)\..\..\AlphaVSS\include&quot;"
+				PreprocessorDefinitions="WIN32;_DEBUG;ALPHAVSS_TARGET=ALPHAVSS_TARGET_WINXP"
+				RuntimeLibrary="3"
+				TreatWChar_tAsBuiltInType="false"
+				UsePrecompiledHeader="2"
+				XMLDocumentationFileName="$(OutDir)\"
+				WarningLevel="3"
+				DebugInformationFormat="3"
+			/>
+			<Tool
+				Name="VCManagedResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
+			<Tool
+				Name="VCLinkerTool"
+				AdditionalDependencies="&quot;C:\Program Files\Microsoft\VSSSDK72\lib\win2003\obj\amd64\vssapi.lib&quot; &quot;C:\Program Files\Microsoft\VSSSDK72\lib\win2003\obj\amd64\vss_uuid.lib&quot;"
+				OutputFile="$(OutDir)\..\AlphaVSS.$(ConfigurationName).$(PlatformName).dll"
+				LinkIncremental="2"
+				GenerateDebugInformation="true"
+				AssemblyDebug="1"
+				TargetMachine="17"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -276,8 +507,9 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				AdditionalIncludeDirectories="&quot;C:\Program Files\Microsoft\VSSSDK72\inc\winxp&quot;;$(ProjectDir)\..\..\AlphaVSS\include"
-				PreprocessorDefinitions="WIN32;ALPHAVSS_TARGET=ALPHAVSS_TARGET_WINXP"
+				PreprocessorDefinitions="WIN32;NDEBUG;ALPHAVSS_TARGET=ALPHAVSS_TARGET_WINXP"
 				RuntimeLibrary="2"
+				TreatWChar_tAsBuiltInType="false"
 				UsePrecompiledHeader="2"
 				WarningLevel="3"
 				DebugInformationFormat="3"
@@ -298,6 +530,80 @@
 				LinkIncremental="1"
 				GenerateDebugInformation="true"
 				TargetMachine="1"
+			/>
+			<Tool
+				Name="VCALinkTool"
+			/>
+			<Tool
+				Name="VCManifestTool"
+			/>
+			<Tool
+				Name="VCXDCMakeTool"
+			/>
+			<Tool
+				Name="VCBscMakeTool"
+			/>
+			<Tool
+				Name="VCFxCopTool"
+			/>
+			<Tool
+				Name="VCAppVerifierTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+			/>
+		</Configuration>
+		<Configuration
+			Name="WinXP|x64"
+			OutputDirectory="$(ProjectDir)\..\..\Bin\$(ConfigurationName)"
+			IntermediateDirectory="$(ProjectDir)\..\..\Obj\$(ConfigurationName)"
+			ConfigurationType="2"
+			CharacterSet="1"
+			ManagedExtensions="1"
+			WholeProgramOptimization="1"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+				TargetEnvironment="3"
+			/>
+			<Tool
+				Name="VCCLCompilerTool"
+				AdditionalIncludeDirectories="&quot;C:\Program Files\Microsoft\VSSSDK72\inc\winxp&quot;;$(ProjectDir)\..\..\AlphaVSS\include"
+				PreprocessorDefinitions="WIN32;NDEBUG;ALPHAVSS_TARGET=ALPHAVSS_TARGET_WINXP"
+				RuntimeLibrary="2"
+				TreatWChar_tAsBuiltInType="false"
+				UsePrecompiledHeader="2"
+				WarningLevel="3"
+				DebugInformationFormat="3"
+			/>
+			<Tool
+				Name="VCManagedResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
+			<Tool
+				Name="VCLinkerTool"
+				AdditionalDependencies="&quot;C:\Program Files\Microsoft\VSSSDK72\lib\win2003\obj\amd64\vssapi.lib&quot; &quot;C:\Program Files\Microsoft\VSSSDK72\lib\win2003\obj\amd64\vss_uuid.lib&quot;"
+				OutputFile="$(OutDir)\..\AlphaVSS.$(ConfigurationName).$(PlatformName).dll"
+				LinkIncremental="1"
+				GenerateDebugInformation="true"
+				TargetMachine="17"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -350,6 +656,7 @@
 				AdditionalIncludeDirectories="&quot;C:\Program Files\Microsoft\VSSSDK72\inc\win2003&quot;;&quot;$(ProjectDir)\..\..\AlphaVSS\include&quot;"
 				PreprocessorDefinitions="WIN32;_DEBUG;ALPHAVSS_TARGET=ALPHAVSS_TARGET_WIN2003"
 				RuntimeLibrary="3"
+				TreatWChar_tAsBuiltInType="false"
 				UsePrecompiledHeader="2"
 				XMLDocumentationFileName="$(OutDir)\"
 				WarningLevel="3"
@@ -372,6 +679,85 @@
 				GenerateDebugInformation="true"
 				AssemblyDebug="1"
 				TargetMachine="1"
+			/>
+			<Tool
+				Name="VCALinkTool"
+			/>
+			<Tool
+				Name="VCManifestTool"
+			/>
+			<Tool
+				Name="VCXDCMakeTool"
+				DocumentLibraryDependencies="false"
+				SuppressStartupBanner="false"
+				ValidateIntelliSense="false"
+			/>
+			<Tool
+				Name="VCBscMakeTool"
+			/>
+			<Tool
+				Name="VCFxCopTool"
+			/>
+			<Tool
+				Name="VCAppVerifierTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+			/>
+		</Configuration>
+		<Configuration
+			Name="Win2003.Debug|x64"
+			OutputDirectory="$(ProjectDir)\..\..\Bin\$(ConfigurationName)"
+			IntermediateDirectory="$(ProjectDir)\..\..\Obj\$(ConfigurationName)"
+			ConfigurationType="2"
+			CharacterSet="1"
+			ManagedExtensions="1"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+				TargetEnvironment="3"
+			/>
+			<Tool
+				Name="VCCLCompilerTool"
+				Optimization="0"
+				AdditionalIncludeDirectories="&quot;C:\Program Files\Microsoft\VSSSDK72\inc\win2003&quot;;&quot;$(ProjectDir)\..\..\AlphaVSS\include&quot;"
+				PreprocessorDefinitions="WIN32;_DEBUG;ALPHAVSS_TARGET=ALPHAVSS_TARGET_WIN2003"
+				RuntimeLibrary="3"
+				TreatWChar_tAsBuiltInType="false"
+				UsePrecompiledHeader="2"
+				XMLDocumentationFileName="$(OutDir)\"
+				WarningLevel="3"
+				DebugInformationFormat="3"
+			/>
+			<Tool
+				Name="VCManagedResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
+			<Tool
+				Name="VCLinkerTool"
+				AdditionalDependencies="&quot;C:\Program Files\Microsoft\VSSSDK72\lib\win2003\obj\amd64\vssapi.lib&quot; &quot;C:\Program Files\Microsoft\VSSSDK72\lib\win2003\obj\amd64\vss_uuid.lib&quot;"
+				OutputFile="$(OutDir)\..\AlphaVSS.$(ConfigurationName).$(PlatformName).dll"
+				LinkIncremental="2"
+				GenerateDebugInformation="true"
+				AssemblyDebug="1"
+				TargetMachine="17"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -427,6 +813,7 @@
 				AdditionalIncludeDirectories="&quot;C:\Program Files\Microsoft\VSSSDK72\inc\win2003&quot;;$(ProjectDir)\..\..\AlphaVSS\include"
 				PreprocessorDefinitions="WIN32;NDEBUG;ALPHAVSS_TARGET=ALPHAVSS_TARGET_WIN2003"
 				RuntimeLibrary="2"
+				TreatWChar_tAsBuiltInType="false"
 				UsePrecompiledHeader="2"
 				WarningLevel="3"
 				DebugInformationFormat="3"
@@ -471,386 +858,6 @@
 			/>
 		</Configuration>
 		<Configuration
-			Name="WinVista.Debug|x64"
-			OutputDirectory="$(ProjectDir)\..\..\Bin\$(ConfigurationName)"
-			IntermediateDirectory="$(ProjectDir)\..\..\Obj\$(ConfigurationName)"
-			ConfigurationType="2"
-			CharacterSet="1"
-			ManagedExtensions="1"
-			>
-			<Tool
-				Name="VCPreBuildEventTool"
-			/>
-			<Tool
-				Name="VCCustomBuildTool"
-			/>
-			<Tool
-				Name="VCXMLDataGeneratorTool"
-			/>
-			<Tool
-				Name="VCWebServiceProxyGeneratorTool"
-			/>
-			<Tool
-				Name="VCMIDLTool"
-				TargetEnvironment="3"
-			/>
-			<Tool
-				Name="VCCLCompilerTool"
-				Optimization="0"
-				AdditionalIncludeDirectories="&quot;$(ProjectDir)\..\..\AlphaVSS\include&quot;"
-				PreprocessorDefinitions="WIN32;_DEBUG;ALPHAVSS_TARGET=ALPHAVSS_TARGET_WINVISTA"
-				RuntimeLibrary="3"
-				UsePrecompiledHeader="2"
-				GenerateXMLDocumentationFiles="true"
-				XMLDocumentationFileName="$(OutDir)\"
-				WarningLevel="3"
-				DebugInformationFormat="3"
-			/>
-			<Tool
-				Name="VCManagedResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCPreLinkEventTool"
-			/>
-			<Tool
-				Name="VCLinkerTool"
-				AdditionalDependencies="vssapi.lib"
-				OutputFile="$(OutDir)\..\AlphaVSS.$(ConfigurationName).$(PlatformName).dll"
-				LinkIncremental="2"
-				GenerateDebugInformation="true"
-				AssemblyDebug="1"
-				TargetMachine="17"
-			/>
-			<Tool
-				Name="VCALinkTool"
-			/>
-			<Tool
-				Name="VCManifestTool"
-			/>
-			<Tool
-				Name="VCXDCMakeTool"
-				SuppressStartupBanner="false"
-				ValidateIntelliSense="false"
-			/>
-			<Tool
-				Name="VCBscMakeTool"
-			/>
-			<Tool
-				Name="VCFxCopTool"
-			/>
-			<Tool
-				Name="VCAppVerifierTool"
-			/>
-			<Tool
-				Name="VCPostBuildEventTool"
-			/>
-		</Configuration>
-		<Configuration
-			Name="WinVista|x64"
-			OutputDirectory="$(ProjectDir)\..\..\Bin\$(ConfigurationName)"
-			IntermediateDirectory="$(ProjectDir)\..\..\Obj\$(ConfigurationName)"
-			ConfigurationType="2"
-			CharacterSet="1"
-			ManagedExtensions="1"
-			WholeProgramOptimization="1"
-			>
-			<Tool
-				Name="VCPreBuildEventTool"
-			/>
-			<Tool
-				Name="VCCustomBuildTool"
-			/>
-			<Tool
-				Name="VCXMLDataGeneratorTool"
-			/>
-			<Tool
-				Name="VCWebServiceProxyGeneratorTool"
-			/>
-			<Tool
-				Name="VCMIDLTool"
-				TargetEnvironment="3"
-			/>
-			<Tool
-				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="$(ProjectDir)\..\..\AlphaVSS\include"
-				PreprocessorDefinitions="WIN32;NDEBUG;ALPHAVSS_TARGET=ALPHAVSS_TARGET_WINVISTA"
-				RuntimeLibrary="2"
-				UsePrecompiledHeader="2"
-				WarningLevel="3"
-				DebugInformationFormat="3"
-			/>
-			<Tool
-				Name="VCManagedResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCPreLinkEventTool"
-			/>
-			<Tool
-				Name="VCLinkerTool"
-				AdditionalDependencies="vssapi.lib"
-				OutputFile="$(OutDir)\..\AlphaVSS.$(ConfigurationName).$(PlatformName).dll"
-				LinkIncremental="1"
-				GenerateDebugInformation="true"
-				TargetMachine="17"
-			/>
-			<Tool
-				Name="VCALinkTool"
-			/>
-			<Tool
-				Name="VCManifestTool"
-			/>
-			<Tool
-				Name="VCXDCMakeTool"
-			/>
-			<Tool
-				Name="VCBscMakeTool"
-			/>
-			<Tool
-				Name="VCFxCopTool"
-			/>
-			<Tool
-				Name="VCAppVerifierTool"
-			/>
-			<Tool
-				Name="VCPostBuildEventTool"
-			/>
-		</Configuration>
-		<Configuration
-			Name="WinXP.Debug|x64"
-			OutputDirectory="$(ProjectDir)\..\..\Bin\$(ConfigurationName)"
-			IntermediateDirectory="$(ProjectDir)\..\..\Obj\$(ConfigurationName)"
-			ConfigurationType="2"
-			CharacterSet="1"
-			ManagedExtensions="1"
-			>
-			<Tool
-				Name="VCPreBuildEventTool"
-			/>
-			<Tool
-				Name="VCCustomBuildTool"
-			/>
-			<Tool
-				Name="VCXMLDataGeneratorTool"
-			/>
-			<Tool
-				Name="VCWebServiceProxyGeneratorTool"
-			/>
-			<Tool
-				Name="VCMIDLTool"
-				TargetEnvironment="3"
-			/>
-			<Tool
-				Name="VCCLCompilerTool"
-				Optimization="0"
-				AdditionalIncludeDirectories="&quot;C:\Program Files\Microsoft\VSSSDK72\inc\winxp&quot;;&quot;$(ProjectDir)\..\..\AlphaVSS\include&quot;"
-				PreprocessorDefinitions="WIN32;_DEBUG;ALPHAVSS_TARGET=ALPHAVSS_TARGET_WINXP"
-				RuntimeLibrary="3"
-				UsePrecompiledHeader="2"
-				XMLDocumentationFileName="$(OutDir)\"
-				WarningLevel="3"
-				DebugInformationFormat="3"
-			/>
-			<Tool
-				Name="VCManagedResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCPreLinkEventTool"
-			/>
-			<Tool
-				Name="VCLinkerTool"
-				AdditionalDependencies="&quot;C:\Program Files\Microsoft\VSSSDK72\lib\win2003\obj\amd64\vssapi.lib&quot; &quot;C:\Program Files\Microsoft\VSSSDK72\lib\win2003\obj\amd64\vss_uuid.lib&quot;"
-				OutputFile="$(OutDir)\..\AlphaVSS.$(ConfigurationName).$(PlatformName).dll"
-				LinkIncremental="2"
-				GenerateDebugInformation="true"
-				AssemblyDebug="1"
-				TargetMachine="17"
-			/>
-			<Tool
-				Name="VCALinkTool"
-			/>
-			<Tool
-				Name="VCManifestTool"
-			/>
-			<Tool
-				Name="VCXDCMakeTool"
-				DocumentLibraryDependencies="false"
-				SuppressStartupBanner="false"
-				ValidateIntelliSense="false"
-			/>
-			<Tool
-				Name="VCBscMakeTool"
-			/>
-			<Tool
-				Name="VCFxCopTool"
-			/>
-			<Tool
-				Name="VCAppVerifierTool"
-			/>
-			<Tool
-				Name="VCPostBuildEventTool"
-			/>
-		</Configuration>
-		<Configuration
-			Name="WinXP|x64"
-			OutputDirectory="$(ProjectDir)\..\..\Bin\$(ConfigurationName)"
-			IntermediateDirectory="$(ProjectDir)\..\..\Obj\$(ConfigurationName)"
-			ConfigurationType="2"
-			CharacterSet="1"
-			ManagedExtensions="1"
-			WholeProgramOptimization="1"
-			>
-			<Tool
-				Name="VCPreBuildEventTool"
-			/>
-			<Tool
-				Name="VCCustomBuildTool"
-			/>
-			<Tool
-				Name="VCXMLDataGeneratorTool"
-			/>
-			<Tool
-				Name="VCWebServiceProxyGeneratorTool"
-			/>
-			<Tool
-				Name="VCMIDLTool"
-				TargetEnvironment="3"
-			/>
-			<Tool
-				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="&quot;C:\Program Files\Microsoft\VSSSDK72\inc\winxp&quot;;$(ProjectDir)\..\..\AlphaVSS\include"
-				PreprocessorDefinitions="WIN32;NDEBUG;ALPHAVSS_TARGET=ALPHAVSS_TARGET_WINXP"
-				RuntimeLibrary="2"
-				UsePrecompiledHeader="2"
-				WarningLevel="3"
-				DebugInformationFormat="3"
-			/>
-			<Tool
-				Name="VCManagedResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCPreLinkEventTool"
-			/>
-			<Tool
-				Name="VCLinkerTool"
-				AdditionalDependencies="&quot;C:\Program Files\Microsoft\VSSSDK72\lib\win2003\obj\amd64\vssapi.lib&quot; &quot;C:\Program Files\Microsoft\VSSSDK72\lib\win2003\obj\amd64\vss_uuid.lib&quot;"
-				OutputFile="$(OutDir)\..\AlphaVSS.$(ConfigurationName).$(PlatformName).dll"
-				LinkIncremental="1"
-				GenerateDebugInformation="true"
-				TargetMachine="17"
-			/>
-			<Tool
-				Name="VCALinkTool"
-			/>
-			<Tool
-				Name="VCManifestTool"
-			/>
-			<Tool
-				Name="VCXDCMakeTool"
-			/>
-			<Tool
-				Name="VCBscMakeTool"
-			/>
-			<Tool
-				Name="VCFxCopTool"
-			/>
-			<Tool
-				Name="VCAppVerifierTool"
-			/>
-			<Tool
-				Name="VCPostBuildEventTool"
-			/>
-		</Configuration>
-		<Configuration
-			Name="Win2003.Debug|x64"
-			OutputDirectory="$(ProjectDir)\..\..\Bin\$(ConfigurationName)"
-			IntermediateDirectory="$(ProjectDir)\..\..\Obj\$(ConfigurationName)"
-			ConfigurationType="2"
-			CharacterSet="1"
-			ManagedExtensions="1"
-			>
-			<Tool
-				Name="VCPreBuildEventTool"
-			/>
-			<Tool
-				Name="VCCustomBuildTool"
-			/>
-			<Tool
-				Name="VCXMLDataGeneratorTool"
-			/>
-			<Tool
-				Name="VCWebServiceProxyGeneratorTool"
-			/>
-			<Tool
-				Name="VCMIDLTool"
-				TargetEnvironment="3"
-			/>
-			<Tool
-				Name="VCCLCompilerTool"
-				Optimization="0"
-				AdditionalIncludeDirectories="&quot;C:\Program Files\Microsoft\VSSSDK72\inc\win2003&quot;;&quot;$(ProjectDir)\..\..\AlphaVSS\include&quot;"
-				PreprocessorDefinitions="WIN32;_DEBUG;ALPHAVSS_TARGET=ALPHAVSS_TARGET_WIN2003"
-				RuntimeLibrary="3"
-				UsePrecompiledHeader="2"
-				XMLDocumentationFileName="$(OutDir)\"
-				WarningLevel="3"
-				DebugInformationFormat="3"
-			/>
-			<Tool
-				Name="VCManagedResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCPreLinkEventTool"
-			/>
-			<Tool
-				Name="VCLinkerTool"
-				AdditionalDependencies="&quot;C:\Program Files\Microsoft\VSSSDK72\lib\win2003\obj\amd64\vssapi.lib&quot; &quot;C:\Program Files\Microsoft\VSSSDK72\lib\win2003\obj\amd64\vss_uuid.lib&quot;"
-				OutputFile="$(OutDir)\..\AlphaVSS.$(ConfigurationName).$(PlatformName).dll"
-				LinkIncremental="2"
-				GenerateDebugInformation="true"
-				AssemblyDebug="1"
-				TargetMachine="17"
-			/>
-			<Tool
-				Name="VCALinkTool"
-			/>
-			<Tool
-				Name="VCManifestTool"
-			/>
-			<Tool
-				Name="VCXDCMakeTool"
-				DocumentLibraryDependencies="false"
-				SuppressStartupBanner="false"
-				ValidateIntelliSense="false"
-			/>
-			<Tool
-				Name="VCBscMakeTool"
-			/>
-			<Tool
-				Name="VCFxCopTool"
-			/>
-			<Tool
-				Name="VCAppVerifierTool"
-			/>
-			<Tool
-				Name="VCPostBuildEventTool"
-			/>
-		</Configuration>
-		<Configuration
 			Name="Win2003|x64"
 			OutputDirectory="$(ProjectDir)\..\..\Bin\$(ConfigurationName)"
 			IntermediateDirectory="$(ProjectDir)\..\..\Obj\$(ConfigurationName)"
@@ -880,6 +887,7 @@
 				AdditionalIncludeDirectories="&quot;C:\Program Files\Microsoft\VSSSDK72\inc\win2003&quot;;$(ProjectDir)\..\..\AlphaVSS\include"
 				PreprocessorDefinitions="WIN32;NDEBUG;ALPHAVSS_TARGET=ALPHAVSS_TARGET_WIN2003"
 				RuntimeLibrary="2"
+				TreatWChar_tAsBuiltInType="false"
 				UsePrecompiledHeader="2"
 				WarningLevel="3"
 				DebugInformationFormat="3"
@@ -974,6 +982,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\..\AlphaVSS\Src\OsInfo.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\..\AlphaVSS\Src\PartialFileInfo.cpp"
 				>
 			</File>
@@ -985,7 +997,7 @@
 				RelativePath="..\..\AlphaVSS\src\Stdafx.cpp"
 				>
 				<FileConfiguration
-					Name="WinVista.Debug|Win32"
+					Name="Win2008.Debug|Win32"
 					>
 					<Tool
 						Name="VCCLCompilerTool"
@@ -993,7 +1005,23 @@
 					/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="WinVista|Win32"
+					Name="Win2008.Debug|x64"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						UsePrecompiledHeader="1"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Win2008|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						UsePrecompiledHeader="1"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Win2008|x64"
 					>
 					<Tool
 						Name="VCCLCompilerTool"
@@ -1009,47 +1037,15 @@
 					/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="WinXP|Win32"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-						UsePrecompiledHeader="1"
-					/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Win2003.Debug|Win32"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-						UsePrecompiledHeader="1"
-					/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Win2003|Win32"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-						UsePrecompiledHeader="1"
-					/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="WinVista.Debug|x64"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-						UsePrecompiledHeader="1"
-					/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="WinVista|x64"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-						UsePrecompiledHeader="1"
-					/>
-				</FileConfiguration>
-				<FileConfiguration
 					Name="WinXP.Debug|x64"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						UsePrecompiledHeader="1"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="WinXP|Win32"
 					>
 					<Tool
 						Name="VCCLCompilerTool"
@@ -1065,7 +1061,23 @@
 					/>
 				</FileConfiguration>
 				<FileConfiguration
+					Name="Win2003.Debug|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						UsePrecompiledHeader="1"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
 					Name="Win2003.Debug|x64"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						UsePrecompiledHeader="1"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Win2003|Win32"
 					>
 					<Tool
 						Name="VCCLCompilerTool"
@@ -1273,6 +1285,10 @@
 			</File>
 			<File
 				RelativePath="..\..\AlphaVSS\include\Macros.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\AlphaVSS\Include\OsInfo.h"
 				>
 			</File>
 			<File

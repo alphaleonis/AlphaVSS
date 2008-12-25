@@ -52,10 +52,13 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 			mNotifyOnBackupComplete = (info->bNotifyOnBackupComplete);
 			mSelectable = (info->bSelectable);
 
-#if NTDDI_VERSION >= NTDDI_WS03
+
+#if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WIN2003
+			// The following should be available in WinXP version as well supposedly, but does not 
+			// appear to be.
 			mSelectableForRestore = (info->bSelectableForRestore);
-			mComponentFlags = ((VssComponentFlags)info->dwComponentFlags);
 			mDependencyCount = (info->cDependencies);
+			mComponentFlags = ((VssComponentFlags)info->dwComponentFlags);
 #endif
 			mFileCount = (info->cFileCount);
 			mDatabaseFileCount = (info->cDatabases);
@@ -128,7 +131,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 
 	bool VssWMComponent::SelectableForRestore::get()
 	{
-#if NTDDI_VERSION >= NTDDI_WS03
+#if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WIN2003
 		return mSelectableForRestore;
 #else
 		throw gcnew NotSupportedException(L"This method requires Windows Server 2003 or later");
@@ -137,7 +140,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 
 	VssComponentFlags VssWMComponent::ComponentFlags::get()
 	{
-#if NTDDI_VERSION >= NTDDI_WS03
+#if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WIN2003
 		return mComponentFlags;
 #else
 		throw gcnew NotSupportedException(L"This method requires Windows Server 2003 or later");
@@ -198,7 +201,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 
 	IList<VssWMDependency^>^ VssWMComponent::Dependencies::get()
 	{
-#if NTDDI_VERSION >= NTDDI_WS03
+#if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WIN2003
 		if (mDependencies != nullptr)
 			return mDependencies;
 

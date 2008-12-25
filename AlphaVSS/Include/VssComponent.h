@@ -264,7 +264,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 			VssComponent^ mComponent;
 		};
 
-#if NTDDI_VERSION >= NTDDI_WS03
+#if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WIN2003
 		ref class DifferencedFileList sealed : VssListAdapter<DifferencedFileInfo^>
 		{
 		public:
@@ -290,7 +290,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 
 		AlternateLocationMappingList^ mAlternateLocationMappings;
 		DirectedTargetList^ mDirectedTargets;
-#if NTDDI_VERSION >= NTDDI_WS03
+#if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WIN2003
 		DifferencedFileList^ mDifferencedFiles;
 #endif
 		RestoreSubcomponentList^ mRestoreSubcomponents;
