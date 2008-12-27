@@ -22,16 +22,16 @@
 
 #include <vss.h>
 
-#include "VssWMFiledesc.h"
+#include "VssWMFileDescription.h"
 #include "VssComponentType.h"
 #include "VssFileRestoreStatus.h"
-#include "VssWMFiledesc.h"
+#include "VssWMFileDescription.h"
 #include "VssRestoreTarget.h"
-#include "DirectedTargetInfo.h"
+#include "VssDirectedTargetInfo.h"
 #include "VssListAdapter.h"
-#include "PartialFileInfo.h"
-#include "DifferencedFileInfo.h"
-#include "RestoreSubcomponentInfo.h"
+#include "VssPartialFileInfo.h"
+#include "VssDifferencedFileInfo.h"
+#include "VssRestoreSubcomponentInfo.h"
 
 using namespace System::Collections::Generic;
 
@@ -70,12 +70,12 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		#if 0
 		// These methods are specific to writers, only supporting requesters at this time, so these are not included.
 		void AddDifferencedFilesByLastModifyTime(String^ path, String^ fileSpec, bool recursive, DateTime lastModifyTime);
-		void AddDifferencedFilesByLastModifyTime(DifferencedFileInfo^ differencedFile);
+		void AddDifferencedFilesByLastModifyTime(VssDifferencedFileInfo^ differencedFile);
 
-		void AddDirectedTarget(DirectedTargetInfo ^directedTarget);
+		void AddDirectedTarget(VssDirectedTargetInfo ^directedTarget);
 		void AddDirectedTarget(String ^ sourcePath, String^ sourceFileName, String^ sourceRangeList, String^ destinationPath, String^ destinationFileName, String^ destinationRangeList);
 
-		void AddParitalFile(PartialFileInfo^ partialFile);
+		void AddParitalFile(VssPartialFileInfo^ partialFile);
 		void AddPartialFile(String^ path, String^ filename, String^ ranges, String^ metaData);
 
 		property String^ RestoreMetadata { String^ get(); }
@@ -177,7 +177,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		/// <summary>A collection of mapping information for the file set's alternate location for file restoration.</summary>
 		/// <value>A read-only list containing the alternate location to which files were actually restored. <note type="caution">This list must not be accessed after the <see cref="VssComponent"/> from which it was obtained has been disposed.</note></value>
 		/// <remarks>See <see href="http://msdn.microsoft.com/en-us/library/aa383473(VS.85).aspx">the MSDN documentation on the IVssComponent::GetAlternateLocationMapping method</see> for more information.</remarks>
-		property IVssListAdapter<VssWMFiledesc^>^ AlternateLocationMappings { IVssListAdapter<VssWMFiledesc^>^ get(); }
+		property IVssListAdapter<VssWMFileDescription^>^ AlternateLocationMappings { IVssListAdapter<VssWMFileDescription^>^ get(); }
 
 
 		/// <summary>
@@ -186,19 +186,19 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		/// 	restored to different locations with the restore target.
 		/// </summary>
 		/// <value>A read-only list containing the directed targets of this component. <note type="caution">This list must not be accessed after the <see cref="VssComponent"/> from which it was obtained has been disposed.</note></value>
-		property IVssListAdapter<DirectedTargetInfo^>^ DirectedTargets { IVssListAdapter<DirectedTargetInfo^>^ get(); }
+		property IVssListAdapter<VssDirectedTargetInfo^>^ DirectedTargets { IVssListAdapter<VssDirectedTargetInfo^>^ get(); }
 
 		/// <summary>
 		/// 	The new file restoration locations for the selected component or component set. 
 		/// </summary>
 		/// <value>A read-only list contianing the new file restoration locations for the selected component or component set. <note type="caution">This list must not be accessed after the <see cref="VssComponent"/> from which it was obtained has been disposed.</note></value>
-		property IVssListAdapter<VssWMFiledesc^>^ NewTargets { IVssListAdapter<VssWMFiledesc^>^ get(); }
+		property IVssListAdapter<VssWMFileDescription^>^ NewTargets { IVssListAdapter<VssWMFileDescription^>^ get(); }
 
 		/// <summary>
 		///		Information about any partial files associated with this component.
 		/// </summary>
 		/// <value>A read-only list containing information about any partial files associated with this component. <note type="caution">This list must not be accessed after the <see cref="VssComponent"/> from which it was obtained has been disposed.</note></value>
-		property IVssListAdapter<PartialFileInfo^>^ PartialFiles { IVssListAdapter<PartialFileInfo^>^ get(); }
+		property IVssListAdapter<VssPartialFileInfo^>^ PartialFiles { IVssListAdapter<VssPartialFileInfo^>^ get(); }
 
 		/// <summary>
 		/// 	Information about the file sets (specified file or files) to participate in an incremental or differential backup or restore as a 
@@ -209,81 +209,81 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		/// <value>
 		/// 	A read only list containing the diffrenced files associated with this component. <note type="caution">This list must not be accessed after the <see cref="VssComponent"/> from which it was obtained has been disposed.</note>
 		/// </value>
-		property IVssListAdapter<DifferencedFileInfo^>^ DifferencedFiles { IVssListAdapter<DifferencedFileInfo^>^ get(); }
+		property IVssListAdapter<VssDifferencedFileInfo^>^ DifferencedFiles { IVssListAdapter<VssDifferencedFileInfo^>^ get(); }
 
 		/// <summary>The subcomponents associated with this component.</summary>
 		/// <value>A read only list containing the subcomponents associated with this component. <note type="caution">This list must not be accessed after the <see cref="VssComponent"/> from which it was obtained has been disposed.</note></value>
-		property IVssListAdapter<RestoreSubcomponentInfo^>^ RestoreSubcomponents { IVssListAdapter<RestoreSubcomponentInfo^>^ get(); }
+		property IVssListAdapter<VssRestoreSubcomponentInfo^>^ RestoreSubcomponents { IVssListAdapter<VssRestoreSubcomponentInfo^>^ get(); }
 	internal:
 		static VssComponent^ Adopt(IVssComponent *vssWriterComponents);
 	private:
 		VssComponent(IVssComponent *vssWriterComponents);
 		IVssComponent *mVssComponent;
 
-		ref class DirectedTargetList sealed : VssListAdapter<DirectedTargetInfo^>
+		ref class DirectedTargetList sealed : VssListAdapter<VssDirectedTargetInfo^>
 		{
 		public:
 			DirectedTargetList(VssComponent^ component);
 
 			property int Count { virtual int get() override; }
-			property DirectedTargetInfo^ default[int] { virtual DirectedTargetInfo^ get(int index) override; }
+			property VssDirectedTargetInfo^ default[int] { virtual VssDirectedTargetInfo^ get(int index) override; }
 		private:
 			VssComponent^ mComponent;
 		};
 
-		ref class NewTargetList sealed : VssListAdapter<VssWMFiledesc^>
+		ref class NewTargetList sealed : VssListAdapter<VssWMFileDescription^>
 		{
 		public:
 			NewTargetList(VssComponent^ component);
 
 			property int Count { virtual int get() override; }
-			property VssWMFiledesc^ default[int] { virtual VssWMFiledesc^ get(int index) override; }
+			property VssWMFileDescription^ default[int] { virtual VssWMFileDescription^ get(int index) override; }
 		private:
 			VssComponent^ mComponent;
 		};
 
-		ref class AlternateLocationMappingList sealed : VssListAdapter<VssWMFiledesc^>
+		ref class AlternateLocationMappingList sealed : VssListAdapter<VssWMFileDescription^>
 		{
 		public:
 			AlternateLocationMappingList(VssComponent^ component);
 
 			property int Count { virtual int get() override; }
-			property VssWMFiledesc^ default[int] { virtual VssWMFiledesc^ get(int index) override; }
+			property VssWMFileDescription^ default[int] { virtual VssWMFileDescription^ get(int index) override; }
 		private:
 			VssComponent^ mComponent;
 		};
 
-		ref class PartialFileList sealed : VssListAdapter<PartialFileInfo^>
+		ref class PartialFileList sealed : VssListAdapter<VssPartialFileInfo^>
 		{
 		public:
 			PartialFileList(VssComponent^ component);
 
 			property int Count { virtual int get() override; }
-			property PartialFileInfo^ default[int] { virtual PartialFileInfo^ get(int index) override; }
+			property VssPartialFileInfo^ default[int] { virtual VssPartialFileInfo^ get(int index) override; }
 		private:
 			VssComponent^ mComponent;
 		};
 
 #if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WIN2003
-		ref class DifferencedFileList sealed : VssListAdapter<DifferencedFileInfo^>
+		ref class DifferencedFileList sealed : VssListAdapter<VssDifferencedFileInfo^>
 		{
 		public:
 			DifferencedFileList(VssComponent^ component);
 
 			property int Count { virtual int get() override; }
-			property DifferencedFileInfo^ default[int] { virtual DifferencedFileInfo^ get(int index) override; }
+			property VssDifferencedFileInfo^ default[int] { virtual VssDifferencedFileInfo^ get(int index) override; }
 		private:
 			VssComponent^ mComponent;
 		};
 #endif
 
-		ref class RestoreSubcomponentList sealed : VssListAdapter<RestoreSubcomponentInfo^>
+		ref class RestoreSubcomponentList sealed : VssListAdapter<VssRestoreSubcomponentInfo^>
 		{
 		public:
 			RestoreSubcomponentList(VssComponent^ component);
 
 			property int Count { virtual int get() override; }
-			property RestoreSubcomponentInfo^ default[int] { virtual RestoreSubcomponentInfo^ get(int index) override; }
+			property VssRestoreSubcomponentInfo^ default[int] { virtual VssRestoreSubcomponentInfo^ get(int index) override; }
 		private:
 			VssComponent^ mComponent;
 		};

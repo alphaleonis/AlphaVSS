@@ -24,21 +24,21 @@
 #include <VsWriter.h>
 #include <vsBackup.h>
 
-#include "VssFileSpecBackupType.h"
+#include "VssFileSpecificationBackupType.h"
 
 namespace Alphaleonis { namespace Win32 { namespace Vss
 {
 	/// <summary>
-	/// An instance of the <see cref="VssWMFiledesc"/> class provides detailed information about a file or set of files (a file set)
+	/// An instance of the <see cref="VssWMFileDescription"/> class provides detailed information about a file or set of files (a file set)
 	/// </summary>
 	/// <remarks>VSS API: <c>IVssWMFiledesc</c></remarks>
-	public ref class VssWMFiledesc 
+	public ref class VssWMFileDescription 
 	{
 	public:
 		/// <summary>
 		/// Destructor.
 		/// </summary>
-		~VssWMFiledesc();
+		~VssWMFileDescription();
 
 		/// <summary>
 		/// Obtains the alternate backup location of the component files.
@@ -49,12 +49,12 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		/// Obtains the file backup specification for a file or set of files.
 		/// </summary>
 		/// <remarks><note><b>Windows XP:</b> This value is not supported in Windows XP</note></remarks>
-		property VssFileSpecBackupType BackupTypeMask { VssFileSpecBackupType get(); }
+		property VssFileSpecificationBackupType BackupTypeMask { VssFileSpecificationBackupType get(); }
 
 		/// <summary>
 		/// Obtains the file specification for the list of files provided.
 		/// </summary>
-		property String^ FileSpec { String^ get(); };
+		property String^ FileSpecification { String^ get(); };
 		/// <summary>
 		/// Obtains the fully qualified directory path for the list of files provided.
 		/// </summary>
@@ -71,14 +71,14 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		/// class and releases the IVssWMFiledesc instance.  The IVssWMFiledesc instance is 
 		/// released even if an exception is thrown during the creation of this object.
 		/// </summary>
-		static VssWMFiledesc^ Adopt(IVssWMFiledesc *vssWMFiledesc);
+		static VssWMFileDescription^ Adopt(IVssWMFiledesc *vssWMFiledesc);
 	
 	private:
-		VssWMFiledesc(IVssWMFiledesc *vssWMFiledesc);
+		VssWMFileDescription(IVssWMFiledesc *vssWMFiledesc);
 
 		String^ mAlternateLocation;
-		VssFileSpecBackupType mBackupTypeMask;
-		String^ mFileSpec;
+		VssFileSpecificationBackupType mBackupTypeMask;
+		String^ mFileSpecification;
 		String^ mPath;
 		bool mRecursive;
 	};

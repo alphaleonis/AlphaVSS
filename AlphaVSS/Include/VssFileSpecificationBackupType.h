@@ -40,11 +40,11 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 {
 	/// <summary>
 	/// 	<para>
-	/// 		The <see cref="VssFileSpecBackupType"/> enumeration is used by writers to indicate their support of certain backup 
+	/// 		The <see cref="VssFileSpecificationBackupType"/> enumeration is used by writers to indicate their support of certain backup 
 	/// 		operations—such as incremental or differential backup—on the basis of file sets (a specified file or files).
 	/// 	</para>
 	/// 	<para>
-	/// 		File sets stored in the Writer Metadata Document are tagged with a bit mask (or bitwise OR) of <see cref="VssFileSpecBackupType"/>
+	/// 		File sets stored in the Writer Metadata Document are tagged with a bit mask (or bitwise OR) of <see cref="VssFileSpecificationBackupType"/>
 	/// 		values indicating the following:
 	/// 		<list type="bullet">
 	/// 			<item>
@@ -66,7 +66,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	/// 	<see href="http://msdn.microsoft.com/en-us/library/aa384951(VS.85).aspx">VSS_FILE_SPEC_BACKUP_TYPE Enumeration</see>
 	/// </remarks>
 	[System::Flags]
-	public enum class VssFileSpecBackupType
+	public enum class VssFileSpecificationBackupType
 	{
 		/// <summary>
 		/// 	<para>

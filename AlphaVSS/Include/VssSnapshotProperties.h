@@ -23,21 +23,15 @@
 
 #include "VssVolumeSnapshotAttributes.h"
 #include "VssSnapshotState.h"
-#include "IVssObjectProp.h"
 #include <vss.h>
 
 namespace Alphaleonis { namespace Win32 { namespace Vss
 {
 
-	/// <summary>The <see cref="VssSnapshotProp"/> class contains the properties of a shadow copy or shadow copy set.</summary>
-	public ref class VssSnapshotProp : IVssObjectProp
+	/// <summary>The <see cref="VssSnapshotProperties"/> class contains the properties of a shadow copy or shadow copy set.</summary>
+	public ref class VssSnapshotProperties sealed
 	{
 	public:
-		/// <summary>Indicates the type of this property object as <see dref="F:Alphaleonis.Win32.Vss.VssObjectType.Snapshot"/> or 
-		/// <see dref="F:Alphaleonis.Win32.Vss.VssObjectType.Snapshot"/>.</summary>
-		/// <value>The value of the <see cref="VssObjectType"/> enumeration representing the type of data contained in this instance.</value>
-		virtual property VssObjectType Type { VssObjectType get(); }
-
 		/// <summary>A <see cref="Guid" /> uniquely identifying the shadow copy identifier.</summary>
 		property Guid SnapshotId { Guid get(); };
 
@@ -99,9 +93,9 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		property VssSnapshotState^ Status { VssSnapshotState^ get(); }
 
 	internal:
-		static VssSnapshotProp^ Adopt(VSS_SNAPSHOT_PROP *pProp);
+		static VssSnapshotProperties^ Adopt(VSS_SNAPSHOT_PROP *pProp);
 	private:
-		VssSnapshotProp(const VSS_SNAPSHOT_PROP &snap);
+		VssSnapshotProperties(const VSS_SNAPSHOT_PROP &snap);
 
 		Guid mSnapshotId;
 		Guid mSnapshotSetId;

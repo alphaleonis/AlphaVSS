@@ -20,15 +20,15 @@
  */
 
 #include <StdAfx.h>
-#include "VssProviderProp.h"
+#include "VssProviderProperties.h"
 
 namespace Alphaleonis { namespace Win32 { namespace Vss
 {
-	VssProviderProp^ VssProviderProp::Adopt(VSS_PROVIDER_PROP *pProp)
+	VssProviderProperties^ VssProviderProperties::Adopt(VSS_PROVIDER_PROP *pProp)
 	{
 		try
 		{
-			return gcnew VssProviderProp(pProp);
+			return gcnew VssProviderProperties(pProp);
 		}
 		finally
 		{
@@ -37,7 +37,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		}
 	}
 
-	VssProviderProp::VssProviderProp(VSS_PROVIDER_PROP *pProp)
+	VssProviderProperties::VssProviderProperties(VSS_PROVIDER_PROP *pProp)
 		:	mProviderId(ToGuid(pProp->m_ProviderId)),
 			mProviderName(gcnew String(pProp->m_pwszProviderName)),
 			mProviderType((VssProviderType)pProp->m_eProviderType),
@@ -46,37 +46,32 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	{
 	}
 
-	VssObjectType VssProviderProp::Type::get()
-	{
-		return VssObjectType::Provider;
-	}
-
-	Guid VssProviderProp::ProviderId::get()
+	Guid VssProviderProperties::ProviderId::get()
 	{
 		return mProviderId;
 	}
 
-	String^ VssProviderProp::ProviderName::get()
+	String^ VssProviderProperties::ProviderName::get()
 	{
 		return mProviderName;
 	}
 
-	VssProviderType VssProviderProp::ProviderType::get()
+	VssProviderType VssProviderProperties::ProviderType::get()
 	{
 		return mProviderType;
 	}
 
-	String^ VssProviderProp::ProviderVersion::get()
+	String^ VssProviderProperties::ProviderVersion::get()
 	{
 		return mProviderVersion;
 	}
 
-	Guid VssProviderProp::ProviderVersionId::get()
+	Guid VssProviderProperties::ProviderVersionId::get()
 	{
 		return mProviderVersionId;
 	}
 
-	Guid VssProviderProp::ClassId::get()
+	Guid VssProviderProperties::ClassId::get()
 	{
 		return mClassId;
 	}

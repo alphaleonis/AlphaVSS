@@ -22,19 +22,14 @@
 
 #include <vss.h>
 #include "VssObjectType.h"
-#include "IVssObjectProp.h"
 #include "VssProviderType.h"
 
 namespace Alphaleonis { namespace Win32 { namespace Vss
 {
-	/// <summary>The <see cref="VssProviderProp"/> structure specifies shadow copy provider properties.</summary>
-	public ref class VssProviderProp :  IVssObjectProp
+	/// <summary>The <see cref="VssProviderProperties"/> structure specifies shadow copy provider properties.</summary>
+	public ref class VssProviderProperties
 	{
 	public:
-		/// <summary>Indicates the type of this property object as <see dref="F:Alphaleonis.Win32.Vss.VssObjectType.Provider"/>.</summary>
-		/// <value>The <see dref="F:Alphaleonis.Win32.Vss.VssObjectType.Provider"/> value of the <see cref="VssObjectType"/> enumeration.</value>
-		virtual property VssObjectType Type { VssObjectType get(); }
-
 		/// <summary>Identifies the provider who supports shadow copies of this class.</summary>
 		property Guid ProviderId { Guid get(); }
 
@@ -53,9 +48,9 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		/// <summary>Class identifier of the component registered in the local machine's COM catalog.</summary>
 		property Guid ClassId { Guid get(); }
 	internal:
-		static VssProviderProp^ Adopt(VSS_PROVIDER_PROP *pProp);
+		static VssProviderProperties^ Adopt(VSS_PROVIDER_PROP *pProp);
 	private:
-		VssProviderProp(VSS_PROVIDER_PROP *pProp);
+		VssProviderProperties(VSS_PROVIDER_PROP *pProp);
 
 		Guid mProviderId;
 		String^ mProviderName;

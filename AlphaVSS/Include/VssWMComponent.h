@@ -21,7 +21,7 @@
 #pragma once
 
 #include <vss.h>
-#include "VssWMFiledesc.h"
+#include "VssWMFileDescription.h"
 #include "VssWMDependency.h"
 #include "VssComponentType.h"
 #include "VssComponentFlags.h"
@@ -100,17 +100,17 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		/// The file descriptors associated with this component.
 		/// </summary>
 		/// <remarks>This collection represents the method <c>GetFile()</c> of <c>IVssWMComponent</c> in the VSS API</remarks>
-		property IList<VssWMFiledesc^>^ Files { IList<VssWMFiledesc^>^ get(); }
+		property IList<VssWMFileDescription^>^ Files { IList<VssWMFileDescription^>^ get(); }
 
 		/// <summary>
-		/// A list of <see cref="VssWMFiledesc"/> instances containing information about the database backup component files.
+		/// A list of <see cref="VssWMFileDescription"/> instances containing information about the database backup component files.
 		/// </summary>
-		property IList<VssWMFiledesc^>^ DatabaseFiles { IList<VssWMFiledesc^>^ get(); }
+		property IList<VssWMFileDescription^>^ DatabaseFiles { IList<VssWMFileDescription^>^ get(); }
 		
 		/// <summary>
 		/// A list of file descriptors for the log files associated with the specified database backup component.
 		/// </summary>
-		property IList<VssWMFiledesc^>^ DatabaseLogFiles { IList<VssWMFiledesc^>^ get(); }
+		property IList<VssWMFileDescription^>^ DatabaseLogFiles { IList<VssWMFileDescription^>^ get(); }
 
 		/// <summary>
 		/// A list of  <see cref="VssWMDependency"/> instances containing accessors for obtaining information about explicit writer-component 
@@ -141,9 +141,9 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		UInt32 mDatabaseLogFileCount;
 		UInt32 mDependencyCount;
 
-		IList<VssWMFiledesc^>^ mFiles;
-		IList<VssWMFiledesc^>^ mDatabaseFiles;
-		IList<VssWMFiledesc^>^ mDatabaseLogFiles;
+		IList<VssWMFileDescription^>^ mFiles;
+		IList<VssWMFileDescription^>^ mDatabaseFiles;
+		IList<VssWMFileDescription^>^ mDatabaseLogFiles;
 		IList<VssWMDependency^>^ mDependencies;
 	};
 }

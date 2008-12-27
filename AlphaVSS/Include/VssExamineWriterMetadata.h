@@ -24,7 +24,7 @@
 #include "VssUsageType.h"
 #include "VssSourceType.h"
 #include "VssBackupSchema.h"
-#include "VssWMFiledesc.h"
+#include "VssWMFileDescription.h"
 #include "VssWMComponent.h"
 #include "VssRestoreMethod.h"
 #include "VssWriterRestore.h"
@@ -87,7 +87,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		/// The alternate location mappings of the file sets.
 		/// </summary>
 		/// <value>A read-only list containing the alternate location mappings of the file sets.</value>
-		property IList<VssWMFiledesc^>^ AlternateLocationMappings { IList<VssWMFiledesc^>^ get(); }
+		property IList<VssWMFileDescription^>^ AlternateLocationMappings { IList<VssWMFileDescription^>^ get(); }
 
 		/// <summary>
 		/// Information about how a writer wants its data to be restored.
@@ -102,7 +102,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 
 		/// <summary>Information about files that have been explicitly excluded from backup.</summary>
 		/// <value>a read-only list containing information about files that have been explicitly excluded from backup.</value>
-		property IList<VssWMFiledesc^>^ ExcludeFiles { IList<VssWMFiledesc^>^ get(); }
+		property IList<VssWMFileDescription^>^ ExcludeFiles { IList<VssWMFileDescription^>^ get(); }
 
 		/// <summary>The instance identifier of the writer</summary>
 		property Guid InstanceId { Guid get(); }
@@ -130,10 +130,10 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		String^ mWriterName;
 		VssUsageType mUsage;
 		VssSourceType mSource;
-		IList<VssWMFiledesc^> ^mExcludeFiles;
+		IList<VssWMFileDescription^> ^mExcludeFiles;
 		IList<VssWMComponent^> ^mComponents;
 		VssWMRestoreMethod^ mRestoreMethod;
-		IList<VssWMFiledesc^>^ mAlternateLocationMappings;
+		IList<VssWMFileDescription^>^ mAlternateLocationMappings;
 	};
 }
 } }

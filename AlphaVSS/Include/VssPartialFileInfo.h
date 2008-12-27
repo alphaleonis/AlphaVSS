@@ -25,17 +25,17 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	///		Representation of information on a partial file associated with a component.
 	/// </summary>
 	/// <remarks>See <see href="http://msdn.microsoft.com/en-us/library/aa383529(VS.85).aspx">MSDN documentation on IVssComponent::GetPartialFile Method</see> for more information.</remarks>
-	public ref class PartialFileInfo sealed 
+	public ref class VssPartialFileInfo sealed 
 	{
 	public:
-		/// <summary>Initializes a new instance of the <see cref="PartialFileInfo"/> class</summary>
+		/// <summary>Initializes a new instance of the <see cref="VssPartialFileInfo"/> class</summary>
 		/// <param name="path">The path of the partial file.</param>
 		/// <param name="fileName">The name of the partial file.</param>
 		/// <param name="range">Either a listing of file offsets and lengths that make up the partial file support range 
 		/// 	(the sections of the file that were backed up), or the name of a file containing such a list.</param>
 		/// <param name="metadata">Any additional metadata required by a writer to validate a partial file restore operation. The information in this 
 		/// 		metadata string will be opaque to requesters. May be <see langword="null"/></param>
-		PartialFileInfo(String^ path, String^ fileName, String^ range, String^ metadata);
+		VssPartialFileInfo(String^ path, String^ fileName, String^ range, String^ metadata);
 
 		/// <summary>
 		/// 	<para>

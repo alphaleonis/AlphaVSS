@@ -19,31 +19,31 @@
  *  THE SOFTWARE.
  */
 #include "StdAfx.h"
-#include "PartialFileInfo.h"
+#include "VssPartialFileInfo.h"
 
 namespace Alphaleonis { namespace Win32 { namespace Vss
 {
-	PartialFileInfo::PartialFileInfo(String^ path, String^ fileName, String^ range, String^ metadata)
+	VssPartialFileInfo::VssPartialFileInfo(String^ path, String^ fileName, String^ range, String^ metadata)
 		: mPath(path), mFileName(fileName), mRange(range), mMetadata(metadata)
 	{
 	}
 
-	String^ PartialFileInfo::Path::get()
+	String^ VssPartialFileInfo::Path::get()
 	{
 		return mPath;
 	}
 
-	String^ PartialFileInfo::FileName::get()
+	String^ VssPartialFileInfo::FileName::get()
 	{
 		return mFileName;
 	}
 
-	String^ PartialFileInfo::Range::get()
+	String^ VssPartialFileInfo::Range::get()
 	{
 		return mRange;
 	}
 
-	String^ PartialFileInfo::Metadata::get()
+	String^ VssPartialFileInfo::Metadata::get()
 	{
 		return mMetadata;
 	}

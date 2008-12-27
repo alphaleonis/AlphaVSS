@@ -23,11 +23,11 @@
 #include "VsBackup.h"
 #include "VssBackupComponents.h"
 #include "VssAsync.h"
-#include "VssEnumObjectEnumerable.h"
 
 #include "Utils.h"
 #include "Macros.h"
 #include "VssSnapshotContext.h"
+#include "VssProviderProperties.h"
 
 using namespace System::Collections::Generic;
 
@@ -227,11 +227,11 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		return VssAsync::Adopt(vssAsync);
 	}
 
-	VssSnapshotProp ^ VssBackupComponents::GetSnapshotProperties(Guid snapshotId)
+	VssSnapshotProperties ^ VssBackupComponents::GetSnapshotProperties(Guid snapshotId)
 	{
 		VSS_SNAPSHOT_PROP prop;
 		CheckCom(mBackup->GetSnapshotProperties(ToVssId(snapshotId), &prop));
-		return VssSnapshotProp::Adopt(&prop);
+		return VssSnapshotProperties::Adopt(&prop);
 	}
 
 	VssBackupComponents::WriterStatusList::WriterStatusList(VssBackupComponents^ backupComponents)
@@ -383,12 +383,68 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		return VssAsync::Adopt(pAsync);
 	}
 
-	IEnumerable<IVssObjectProp^>^ VssBackupComponents::Query(VssObjectType returnedObjectsType)
+	IEnumerable<VssSnapshotProperties ^>^ VssBackupComponents::QuerySnapshots()
 	{
 		IVssEnumObject *pEnum;
-		CheckCom(mBackup->Query(GUID_NULL, VSS_OBJECT_NONE, (VSS_OBJECT_TYPE)returnedObjectsType, &pEnum));
-		return VssEnumObjectEnumerable::Adopt(pEnum);
+		VSS_OBJECT_PROP rgelt;
+		ULONG celtFetched = 0;
+		IList<VssSnapshotProperties^> ^list = gcnew List<VssSnapshotProperties^>();
+
+		CheckCom(mBackup->Query(GUID_NULL, VSS_OBJECT_NONE, VSS_OBJECT_SNAPSHOT, &pEnum));
+
+		try
+		{
+			while (true)
+			{
+				CheckCom(pEnum->Next(1, &rgelt, &celtFetched));
+				
+				if (celtFetched > 0)
+					return list;
+
+				// Should always be snapshot, but just in case it isn't, we simply skip it.
+				if (rgelt.Type == VSS_OBJECT_SNAPSHOT)
+				{
+					list->Add(VssSnapshotProperties::Adopt(&rgelt.Obj.Snap));
+				}
+			}
+		}
+		finally
+		{
+			pEnum->Release();
+		}
 	}
+
+	IEnumerable<VssProviderProperties ^>^ VssBackupComponents::QueryProviders()
+	{
+		IVssEnumObject *pEnum;
+		VSS_OBJECT_PROP rgelt;
+		ULONG celtFetched = 0;
+		IList<VssProviderProperties^> ^list = gcnew List<VssProviderProperties^>();
+
+		CheckCom(mBackup->Query(GUID_NULL, VSS_OBJECT_NONE, VSS_OBJECT_PROVIDER, &pEnum));
+
+		try
+		{
+			while (true)
+			{
+				CheckCom(pEnum->Next(1, &rgelt, &celtFetched));
+				
+				if (celtFetched > 0)
+					return list;
+
+				// Should always be a provider, but just in case it isn't, we simply skip it.
+				if (rgelt.Type == VSS_OBJECT_PROVIDER)
+				{
+					list->Add(VssProviderProperties::Adopt(&rgelt.Obj.Prov));
+				}
+			}
+		}
+		finally
+		{
+			pEnum->Release();
+		}
+	}
+
 
 	VssAsync^ VssBackupComponents::QueryRevertStatus(String^ volume)
 	{

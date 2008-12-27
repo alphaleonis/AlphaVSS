@@ -132,7 +132,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		return mSource;
 	}
 
-	IList<VssWMFiledesc^>^ VssExamineWriterMetadata::ExcludeFiles::get()
+	IList<VssWMFileDescription^>^ VssExamineWriterMetadata::ExcludeFiles::get()
 	{
 		if (mExcludeFiles != nullptr)
 			return mExcludeFiles;
@@ -140,12 +140,12 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		UINT cIncludeFiles, cExcludeFiles, cComponents;
 		CheckCom(mExamineWriterMetadata->GetFileCounts(&cIncludeFiles, &cExcludeFiles, &cComponents));
 
-		IList<VssWMFiledesc^>^ list = gcnew List<VssWMFiledesc^>(cExcludeFiles);
+		IList<VssWMFileDescription^>^ list = gcnew List<VssWMFileDescription^>(cExcludeFiles);
 		for (UINT i = 0; i < cExcludeFiles; i++)
 		{
 			IVssWMFiledesc *filedesc;
 			CheckCom(mExamineWriterMetadata->GetExcludeFile(i, &filedesc));
-			list->Add(VssWMFiledesc::Adopt(filedesc));
+			list->Add(VssWMFileDescription::Adopt(filedesc));
 		}
 		mExcludeFiles = list;
 		return mExcludeFiles;
@@ -193,22 +193,22 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 
 	}
 
-	IList<VssWMFiledesc^>^ VssExamineWriterMetadata::AlternateLocationMappings::get()
+	IList<VssWMFileDescription^>^ VssExamineWriterMetadata::AlternateLocationMappings::get()
 	{
 		if (mAlternateLocationMappings != nullptr)
 			return mAlternateLocationMappings;
 
 		// Return an empty list if no restore method is available
 		if (this->RestoreMethod == nullptr)
-			return (gcnew List<VssWMFiledesc^>(0))->AsReadOnly();
+			return (gcnew List<VssWMFileDescription^>(0))->AsReadOnly();
 
-		IList<VssWMFiledesc^>^ list = gcnew List<VssWMFiledesc^>(this->RestoreMethod->MappingCount);
+		IList<VssWMFileDescription^>^ list = gcnew List<VssWMFileDescription^>(this->RestoreMethod->MappingCount);
 
 		for (int i = 0; i < this->RestoreMethod->MappingCount; i++)
 		{
 			IVssWMFiledesc *filedesc;
 			CheckCom(mExamineWriterMetadata->GetAlternateLocationMapping(i, &filedesc));
-			list->Add(VssWMFiledesc::Adopt(filedesc));
+			list->Add(VssWMFileDescription::Adopt(filedesc));
 		}
 		mAlternateLocationMappings = list;
 		return mAlternateLocationMappings;

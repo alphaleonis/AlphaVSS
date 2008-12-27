@@ -80,7 +80,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 			NoNullAutoMStr(fileSpec), recursive,ToFileTime(lastModifyTime)));
 	}
 
-	void VssComponent::AddDifferencedFilesByLastModifyTime(DifferencedFileInfo^ differencedFile)
+	void VssComponent::AddDifferencedFilesByLastModifyTime(VssDifferencedFileInfo^ differencedFile)
 	{
 		AddDifferencedFilesByLastModifyTime(differencedFile->Path, differencedFile->FileSpec, differencedFile->IsRecursive, differencedFile->LastModifyTime);
 	}
@@ -97,13 +97,13 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		CheckCom(mVssComponent->AddPartialFile(NoNullAutoMStr(path), NoNullAutoMStr(filename), NoNullAutoMStr(ranges), AutoMStr(metaData)));
 	}
 
-	void VssComponent::AddDirectedTarget(DirectedTargetInfo ^directedTarget)
+	void VssComponent::AddDirectedTarget(VssDirectedTargetInfo ^directedTarget)
 	{
 		AddDirectedTarget(directedTarget->SourcePath, directedTarget->SourceFileName, directedTarget->SourceRangeList, 
 			directedTarget->DestinationPath, directedTarget->DestinationFileName, directedTarget->DestinationRangeList);
 	}
 
-	void VssComponent::AddParitalFile(PartialFileInfo^ partialFile)
+	void VssComponent::AddParitalFile(VssPartialFileInfo^ partialFile)
 	{
 		AddPartialFile(partialFile->Path, partialFile->FileName, partialFile->Range, partialFile->Metadata);
 	}
@@ -257,22 +257,22 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	}
 
 
-	IVssListAdapter<DirectedTargetInfo^>^ VssComponent::DirectedTargets::get()
+	IVssListAdapter<VssDirectedTargetInfo^>^ VssComponent::DirectedTargets::get()
 	{
 		return mDirectedTargets;
 	}
 
-	IVssListAdapter<PartialFileInfo^>^ VssComponent::PartialFiles::get()
+	IVssListAdapter<VssPartialFileInfo^>^ VssComponent::PartialFiles::get()
 	{
 		return mPartialFiles;
 	}
 
-	IVssListAdapter<VssWMFiledesc^>^ VssComponent::NewTargets::get()
+	IVssListAdapter<VssWMFileDescription^>^ VssComponent::NewTargets::get()
 	{
 		return mNewTargets;
 	}
 
-	IVssListAdapter<DifferencedFileInfo^>^ VssComponent::DifferencedFiles::get()
+	IVssListAdapter<VssDifferencedFileInfo^>^ VssComponent::DifferencedFiles::get()
 	{
 #if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WIN2003
 		return mDifferencedFiles;
@@ -282,12 +282,12 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	}
 
 
-	IVssListAdapter<RestoreSubcomponentInfo^>^ VssComponent::RestoreSubcomponents::get()
+	IVssListAdapter<VssRestoreSubcomponentInfo^>^ VssComponent::RestoreSubcomponents::get()
 	{
 		return mRestoreSubcomponents;
 	}
 
-	IVssListAdapter<VssWMFiledesc^>^ VssComponent::AlternateLocationMappings::get()
+	IVssListAdapter<VssWMFileDescription^>^ VssComponent::AlternateLocationMappings::get()
 	{
 		return mNewTargets;
 	}
@@ -311,7 +311,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		return count;
 	}
 
-	DirectedTargetInfo^ VssComponent::DirectedTargetList::default::get(int index)
+	VssDirectedTargetInfo^ VssComponent::DirectedTargetList::default::get(int index)
 	{
 		if (mComponent->mVssComponent == 0)
 			throw gcnew ObjectDisposedException("Instance of IVssListAdapter used after the object creating it was disposed.");
@@ -325,7 +325,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		CheckCom(mComponent->mVssComponent->GetDirectedTarget(index, &bsSourcePath, &bsSourceFileName, &bsSourceRangeList, &bsDestPath, 
 			&bsDestFileName, &bsDestRangeList));
 		
-		return gcnew DirectedTargetInfo(bsSourcePath, bsSourceFileName, bsSourceRangeList, bsDestPath, bsDestFileName, bsDestRangeList);
+		return gcnew VssDirectedTargetInfo(bsSourcePath, bsSourceFileName, bsSourceRangeList, bsDestPath, bsDestFileName, bsDestRangeList);
 	}
 
 
@@ -344,7 +344,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	}
 
 	
-	VssWMFiledesc^ VssComponent::NewTargetList::default::get(int index)
+	VssWMFileDescription^ VssComponent::NewTargetList::default::get(int index)
 	{
 		if (mComponent->mVssComponent == 0)
 			throw gcnew ObjectDisposedException("Instance of IVssListAdapter used after the object creating it was disposed.");
@@ -354,7 +354,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 
 		IVssWMFiledesc *vssWMFiledesc;
 		CheckCom(mComponent->mVssComponent->GetNewTarget(index, &vssWMFiledesc));
-		return VssWMFiledesc::Adopt(vssWMFiledesc);
+		return VssWMFileDescription::Adopt(vssWMFiledesc);
 	}
 
 	VssComponent::NewTargetList::NewTargetList(VssComponent^ component)
@@ -376,7 +376,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	}
 
 	
-	PartialFileInfo^ VssComponent::PartialFileList::default::get(int index)
+	VssPartialFileInfo^ VssComponent::PartialFileList::default::get(int index)
 	{
 		if (mComponent->mVssComponent == 0)
 			throw gcnew ObjectDisposedException("Instance of IVssListAdapter used after the object creating it was disposed.");
@@ -386,7 +386,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 
 		AutoBStr bsPath, bsFileName, bsRange, bsMetadata;
 		CheckCom(mComponent->mVssComponent->GetPartialFile(index, &bsPath, &bsFileName, &bsRange, &bsMetadata));
-		return gcnew PartialFileInfo(bsPath, bsFileName, bsRange, bsMetadata);
+		return gcnew VssPartialFileInfo(bsPath, bsFileName, bsRange, bsMetadata);
 	}
 
 	VssComponent::PartialFileList::PartialFileList(VssComponent^ component)
@@ -408,7 +408,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		return count;
 	}
 
-	DifferencedFileInfo^ VssComponent::DifferencedFileList::default::get(int index)
+	VssDifferencedFileInfo^ VssComponent::DifferencedFileList::default::get(int index)
 	{
 		if (mComponent->mVssComponent == 0)
 			throw gcnew ObjectDisposedException("Instance of IVssListAdapter used after the object creating it was disposed.");
@@ -420,7 +420,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		BOOL bRecursive;
 		FILETIME ftLastModifyTime;
 		CheckCom(mComponent->mVssComponent->GetDifferencedFile(index, &bstrPath, &bstrFilespec, &bRecursive, &bstrLsnString, &ftLastModifyTime));
-		return gcnew DifferencedFileInfo(bstrPath, bstrFilespec, bRecursive != 0, ToDateTime(ftLastModifyTime));
+		return gcnew VssDifferencedFileInfo(bstrPath, bstrFilespec, bRecursive != 0, ToDateTime(ftLastModifyTime));
 	}
 
 	VssComponent::DifferencedFileList::DifferencedFileList(VssComponent^ component)
@@ -443,7 +443,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		return count;
 	}
 
-	RestoreSubcomponentInfo^ VssComponent::RestoreSubcomponentList::default::get(int index)
+	VssRestoreSubcomponentInfo^ VssComponent::RestoreSubcomponentList::default::get(int index)
 	{
 		if (mComponent->mVssComponent == 0)
 			throw gcnew ObjectDisposedException("Instance of IVssListAdapter used after the object creating it was disposed.");
@@ -454,7 +454,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		AutoBStr bsLogicalPath, bsComponentName;
 		bool bRepair;
 		CheckCom(mComponent->mVssComponent->GetRestoreSubcomponent(index, &bsLogicalPath, &bsComponentName, &bRepair));
-		return gcnew RestoreSubcomponentInfo(bsLogicalPath, bsComponentName);
+		return gcnew VssRestoreSubcomponentInfo(bsLogicalPath, bsComponentName);
 	}
 
 	VssComponent::RestoreSubcomponentList::RestoreSubcomponentList(VssComponent^ component)
@@ -477,7 +477,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	}
 
 	
-	VssWMFiledesc^ VssComponent::AlternateLocationMappingList::default::get(int index)
+	VssWMFileDescription^ VssComponent::AlternateLocationMappingList::default::get(int index)
 	{
 		if (mComponent->mVssComponent == 0)
 			throw gcnew ObjectDisposedException("Instance of IVssListAdapter used after the object creating it was disposed.");
@@ -487,7 +487,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 
 		IVssWMFiledesc *vssWMFiledesc;
 		CheckCom(mComponent->mVssComponent->GetAlternateLocationMapping(index, &vssWMFiledesc));
-		return VssWMFiledesc::Adopt(vssWMFiledesc);
+		return VssWMFileDescription::Adopt(vssWMFiledesc);
 	}
 
 	VssComponent::AlternateLocationMappingList::AlternateLocationMappingList(VssComponent^ component)

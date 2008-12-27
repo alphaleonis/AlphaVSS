@@ -18,32 +18,25 @@
  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  *  THE SOFTWARE.
  */
+#include "StdAfx.h"
+#include "VssRestoreSubcomponentInfo.h"
 
 namespace Alphaleonis { namespace Win32 { namespace Vss 
 {
-	/// <summary>
-	///		Represents information about a Subcomponent associated with a given component.
-	/// </summary>
-	public ref class RestoreSubcomponentInfo sealed
+	VssRestoreSubcomponentInfo::VssRestoreSubcomponentInfo(String^ logicalPath, String^ componentName)
+		: mLogicalPath(logicalPath), mComponentName(componentName)
 	{
-	public:
-		/// <summary>
-		///     Initializes a new instance of <see cref="RestoreSubcomponentInfo" />.
-		/// </summary>
-		/// <param name="logicalPath">The logical path of the Subcomponent. This can not be empty when working with Subcomponents.</param>
-		/// <param name="componentName">The name of the Subcomponent. This can not be empty.</param>
-		RestoreSubcomponentInfo(String^ logicalPath, String^ componentName);
+	}
 
-		/// <summary>The logical path of the Subcomponent. This can not be empty when working with Subcomponents.</summary>
-		property String^ LogicalPath { String^ get(); }
+	String^ VssRestoreSubcomponentInfo::LogicalPath::get()
+	{
+		return mLogicalPath;
+	}
 
-		/// <summary>The name of the Subcomponent. This can not be empty.</summary>
-		property String^ ComponentName { String^ get(); }
-	private:
-		String^ mLogicalPath;
-		String^ mComponentName;
-	};
-
+	String^ VssRestoreSubcomponentInfo::ComponentName::get()
+	{
+		return mComponentName;
+	}
 
 
 } } }

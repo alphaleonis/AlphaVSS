@@ -18,25 +18,34 @@
  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  *  THE SOFTWARE.
  */
-#pragma once
-
-#include <vss.h>
-#include "VssObjectType.h"
+#include "StdAfx.h"
+#include "VssDifferencedFileInfo.h"
 
 namespace Alphaleonis { namespace Win32 { namespace Vss
 {
-	ref class VssSnapshotProp;
-	ref class VssProviderProp;
-
-	/// <summary>
-	/// Common interface for <see cref="VssSnapshotProp"/> and <see cref="VssProviderProp" />.
-	/// </summary>
-	public interface class IVssObjectProp 
+	VssDifferencedFileInfo::VssDifferencedFileInfo(String^ path, String^ fileSpec, bool isRecursive, DateTime lastModifyTime)
+		: mPath(path), mFileSpec(fileSpec), mIsRecursive(isRecursive), mLastModifyTime(lastModifyTime)
 	{
-		/// <summary>
-		/// 	Indicates the concrete type of the object. See <see dref="T:Alphaleonis.Win32.Vss.VssObjectType"/>
-		/// </summary>
-		property VssObjectType Type { VssObjectType get(); }
-	};
-}
-} }
+	}
+
+	String^ VssDifferencedFileInfo::Path::get()
+	{
+		return mPath;
+	}
+
+	String^ VssDifferencedFileInfo::FileSpec::get()
+	{
+		return mFileSpec;
+	}
+
+	bool VssDifferencedFileInfo::IsRecursive::get()
+	{
+		return mIsRecursive;
+	}
+
+	DateTime VssDifferencedFileInfo::LastModifyTime::get()
+	{
+		return mLastModifyTime;
+	}
+
+}}}

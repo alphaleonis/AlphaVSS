@@ -18,45 +18,32 @@
  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  *  THE SOFTWARE.
  */
-#include "StdAfx.h"
-#include "DirectedTargetInfo.h"
 
-namespace Alphaleonis { namespace Win32 { namespace Vss
+namespace Alphaleonis { namespace Win32 { namespace Vss 
 {
-	DirectedTargetInfo::DirectedTargetInfo(String^ sourcePath, String^ sourceFileName, String^ sourceRangeList, String^ destinationPath, 
-		String^ destinationFileName, String^ destinationRangeList)
-		: mSourcePath(sourcePath), mSourceFileName(sourceFileName), mSourceRangeList(sourceRangeList),
-		mDestinationPath(destinationPath), mDestinationFileName(destinationFileName), mDestinationRangeList(destinationRangeList)
+	/// <summary>
+	///		Represents information about a Subcomponent associated with a given component.
+	/// </summary>
+	public ref class VssRestoreSubcomponentInfo sealed
 	{
-	}
+	public:
+		/// <summary>
+		///     Initializes a new instance of <see cref="VssRestoreSubcomponentInfo" />.
+		/// </summary>
+		/// <param name="logicalPath">The logical path of the Subcomponent. This can not be empty when working with Subcomponents.</param>
+		/// <param name="componentName">The name of the Subcomponent. This can not be empty.</param>
+		VssRestoreSubcomponentInfo(String^ logicalPath, String^ componentName);
 
-	String^ DirectedTargetInfo::SourcePath::get()
-	{
-		return mSourcePath;
-	}
+		/// <summary>The logical path of the Subcomponent. This can not be empty when working with Subcomponents.</summary>
+		property String^ LogicalPath { String^ get(); }
 
-	String^ DirectedTargetInfo::SourceFileName::get()
-	{
-		return mSourceFileName;
-	}
+		/// <summary>The name of the Subcomponent. This can not be empty.</summary>
+		property String^ ComponentName { String^ get(); }
+	private:
+		String^ mLogicalPath;
+		String^ mComponentName;
+	};
 
-	String^ DirectedTargetInfo::SourceRangeList::get()
-	{
-		return mSourceRangeList;
-	}
 
-	String^ DirectedTargetInfo::DestinationPath::get() 
-	{
-		return mDestinationPath;
-	}
 
-	String^ DirectedTargetInfo::DestinationFileName::get()
-	{
-		return mDestinationFileName;
-	}
-
-	String^ DirectedTargetInfo::DestinationRangeList::get() 
-	{
-		return mDestinationRangeList;
-	}
-}}}
+} } }

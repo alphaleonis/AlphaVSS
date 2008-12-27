@@ -26,17 +26,17 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	///		file is to be restored, it (the source file) should be remapped. The file may be restored to a new restore target 
 	///		and/or ranges of its data restored to different locations with the restore target.
 	/// </summary>
-	public ref class DirectedTargetInfo sealed
+	public ref class VssDirectedTargetInfo sealed
 	{
 	public:
-		/// <summary>Initializes a new instance of the <see cref="DirectedTargetInfo"/> class.</summary>
+		/// <summary>Initializes a new instance of the <see cref="VssDirectedTargetInfo"/> class.</summary>
 		/// <param name="sourcePath">The source path.</param>
 		/// <param name="sourceFileName">The source file name.</param>
 		/// <param name="sourceRangeList">The source range list.</param>
 		/// <param name="destinationPath">The destination path.</param>
 		/// <param name="destinationFileName">The destination file name.</param>
 		/// <param name="destinationRangeList">The destination range list.</param>
-		DirectedTargetInfo(String^ sourcePath, String^ sourceFileName, 
+		VssDirectedTargetInfo(String^ sourcePath, String^ sourceFileName, 
 			String^ sourceRangeList, String^ destinationPath, 
 			String^ destinationFileName, String^ destinationRangeList);
 		

@@ -147,52 +147,52 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 #endif
 	}
 
-	IList<VssWMFiledesc^>^ VssWMComponent::Files::get()
+	IList<VssWMFileDescription^>^ VssWMComponent::Files::get()
 	{
 		if (mFiles != nullptr)
 			return mFiles;
 
-		List<VssWMFiledesc^>^ list = gcnew List<VssWMFiledesc^>(mFileCount);
+		List<VssWMFileDescription^>^ list = gcnew List<VssWMFileDescription^>(mFileCount);
 
 		for (UINT i = 0; i < mFileCount; i++)
 		{
 			IVssWMFiledesc *filedesc;
 			CheckCom(mComponent->GetFile(i, &filedesc));
-			list->Add(VssWMFiledesc::Adopt(filedesc));
+			list->Add(VssWMFileDescription::Adopt(filedesc));
 		}
 		mFiles = list->AsReadOnly();
 		return mFiles;
 	}
 
-	IList<VssWMFiledesc^>^ VssWMComponent::DatabaseFiles::get()
+	IList<VssWMFileDescription^>^ VssWMComponent::DatabaseFiles::get()
 	{
 		if (mDatabaseFiles != nullptr)
 			return mDatabaseFiles;
 
-		List<VssWMFiledesc^>^ list = gcnew List<VssWMFiledesc^>(mDatabaseFileCount);
+		List<VssWMFileDescription^>^ list = gcnew List<VssWMFileDescription^>(mDatabaseFileCount);
 
 		for (UINT i = 0; i < mDatabaseFileCount; i++)
 		{
 			IVssWMFiledesc *filedesc;
 			CheckCom(mComponent->GetDatabaseFile(i, &filedesc));
-			list->Add(VssWMFiledesc::Adopt(filedesc));
+			list->Add(VssWMFileDescription::Adopt(filedesc));
 		}
 		mDatabaseFiles = list->AsReadOnly();
 		return mDatabaseFiles;
 	}
 
-	IList<VssWMFiledesc^>^ VssWMComponent::DatabaseLogFiles::get()
+	IList<VssWMFileDescription^>^ VssWMComponent::DatabaseLogFiles::get()
 	{
 		if (mDatabaseLogFiles != nullptr)
 			return mDatabaseLogFiles;
 
-		List<VssWMFiledesc^>^ list = gcnew List<VssWMFiledesc^>(mDatabaseLogFileCount);
+		List<VssWMFileDescription^>^ list = gcnew List<VssWMFileDescription^>(mDatabaseLogFileCount);
 
 		for (UINT i = 0; i < mDatabaseLogFileCount; i++)
 		{
 			IVssWMFiledesc *filedesc;
 			CheckCom(mComponent->GetDatabaseLogFile(i, &filedesc));
-			list->Add(VssWMFiledesc::Adopt(filedesc));
+			list->Add(VssWMFileDescription::Adopt(filedesc));
 		}
 		mDatabaseLogFiles = list->AsReadOnly();
 		return mDatabaseLogFiles;

@@ -26,7 +26,8 @@
 #include "VssObjectType.h"
 #include "VssError.h"
 #include "VssVolumeSnapshotAttributes.h"
-#include "VssSnapshotProp.h"
+#include "VssSnapshotProperties.h"
+#include "VssProviderProperties.h"
 #include "VssWriterComponents.h"
 #include "VssExamineWriterMetadata.h"
 #include "VssWriterFailure.h"
@@ -559,7 +560,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		/// 	The <see cref="GetSnapshotProperties"/> method gets the properties of the specified shadow copy. 
 		/// </summary>
 		/// <param name="snapshotId">The identifier of the shadow copy of a volume as returned by <see cref="AddToSnapshotSet"/>. </param>
-		/// <returns>A <see cref="VssSnapshotProp"/> instance containing the shadow copy properties.</returns>
+		/// <returns>A <see cref="VssSnapshotProperties"/> instance containing the shadow copy properties.</returns>
 		/// <exception cref="UnauthorizedAccessException">The caller does not have sufficient backup privileges or is not an administrator.</exception>
 		/// <exception cref="ArgumentException">One of the parameter values is not valid.</exception>
 		/// <exception cref="OutOfMemoryException">Out of memory or other system resources.</exception>
@@ -568,7 +569,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		/// <exception cref="VssObjectNotFoundException">The specified shadow copy does not exist.</exception>
 		/// <exception cref="VssProviderVetoException">Expected provider error. The provider logged the error in the event log.</exception>
 		/// <exception cref="VssUnexpectedProviderError">Unexpected provider error. The error code is logged in the error log.</exception>
-		VssSnapshotProp^ GetSnapshotProperties(Guid snapshotId);
+		VssSnapshotProperties^ GetSnapshotProperties(Guid snapshotId);
 
 		/// <summary>A read-only list containing information about the components of each writer that has been stored in a requester's Backup Components Document.</summary>
 		/// <remarks>
@@ -798,17 +799,13 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		VssAsync^ PreRestore();
 
 		/// <summary>
-		/// 	The <see cref="Query"/> method queries providers on the system and/or the completed shadow copies in the system that reside in the current context. 
+		/// 	The <see cref="QuerySnapshots"/> method queries the completed shadow copies in the system that reside in the current context. 
 		/// 	The method can be called only during backup operations.
 		/// </summary>
-		/// <param name="returnedObjectsType">
-		/// 	Object types to be returned. 
-		/// 	The value of this parameter must be either <see dref="F:Alphaleonis.Win32.Vss.VssObjectType.Snapshot"/> or <see dref="F:Alphaleonis.Win32.Vss.VssObjectType.Provider"/>.
-		/// </param>
-		/// <returns>An enumerable instance of <see cref="IVssObjectProp"/> instances, representing the requested information.</returns>
+		/// <returns>A list of <see cref="VssSnapshotProperties"/> objects representing the requested information.</returns>
 		/// <remarks>
 		/// 	 <para>
-		/// 		Because <see cref="Query"/> returns only information on completed shadow copies, the only shadow copy state it can disclose 
+		/// 		Because <see cref="QuerySnapshots"/> returns only information on completed shadow copies, the only shadow copy state it can disclose 
 		/// 		is <see dref="F:Alphaleonis.Win32.Vss.VssSnapshotState.Created"/>.
 		/// 	 </para>
 		/// 	 <para>
@@ -816,14 +813,31 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		/// 		<see cref="SetContext"/>.
 		/// 	 </para>
 		/// 	 <para>
-		/// 		While <see cref="Query" /> can return information on all of the providers available on a system, it will return only information 
+		/// 		The method will return only information 
 		/// 		about shadow copies with the current context (set by <see cref="SetContext"/>). For instance, if the 
-		/// 		<see cref="VssSnapshotContext"/> context is set to <see dref="F:Alphaleonis.Win32.Vss.VssSnapshotContext.Backup"/>, <see cref="Query"/> will not 
+		/// 		<see cref="VssSnapshotContext"/> context is set to <see dref="F:Alphaleonis.Win32.Vss.VssSnapshotContext.Backup"/>, <see cref="QuerySnapshots"/> will not 
 		/// 		return information on a shadow copy created with a context of <see dref="F:Alphaleonis.Win32.Vss.VssSnapshotContext.FileShareBackup" />.
 		/// 	 </para>
+		/// </remarks>
+		/// <exception cref="ArgumentException">One of the parameter values is not valid.</exception>
+		/// <exception cref="UnauthorizedAccessException">The caller is not an administrator or a backup operator.</exception>
+		/// <exception cref="OutOfMemoryException">Out of memory or other system resources.</exception>
+		/// <exception cref="SystemException">Unexpected VSS system error. The error code is logged in the event log.</exception>
+		/// <exception cref="VssBadStateException">The backup components object is not initialized, this method has been called during a restore operation, or this method has not been called within the correct sequence.</exception>		
+		/// <exception cref="VssObjectNotFoundException">The queried object is not found.</exception>
+		/// <exception cref="VssProviderVetoException">Expected provider error. The provider logged the error in the event log.</exception>
+		/// <exception cref="VssUnexpectedProviderError">Unexpected provider error. The error code is logged in the error log.</exception>		
+		System::Collections::Generic::IEnumerable<VssSnapshotProperties^> ^QuerySnapshots();
+
+		/// <summary>
+		/// 	The <see cref="QueryProviders"/> method queries providers on the system. 
+		/// 	The method can be called only during backup operations.
+		/// </summary>
+		/// <returns>A list of <see cref="VssProviderProperties"/> objects representing the requested information.</returns>
+		/// <remarks>
 		/// 	 <para>
-		/// 		While this method currently returns a lists of all available providers and/or all completed shadow copies, in the future, 
-		/// 		specialized queries may be supported: for instance, querying all shadow copies associated with a provider. 
+		/// 		The method may be called only during backup operations and must be preceded by calls to <see cref="InitializeForBackup"/> and 
+		/// 		<see cref="SetContext"/>.
 		/// 	 </para>
 		/// </remarks>
 		/// <exception cref="ArgumentException">One of the parameter values is not valid.</exception>
@@ -834,7 +848,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		/// <exception cref="VssObjectNotFoundException">The queried object is not found.</exception>
 		/// <exception cref="VssProviderVetoException">Expected provider error. The provider logged the error in the event log.</exception>
 		/// <exception cref="VssUnexpectedProviderError">Unexpected provider error. The error code is logged in the error log.</exception>
-		System::Collections::Generic::IEnumerable<IVssObjectProp^>^ Query(VssObjectType returnedObjectsType);
+		System::Collections::Generic::IEnumerable<VssProviderProperties^> ^QueryProviders();
 
 		/// <summary>
 		/// 	The <see cref="QueryRevertStatus"/> method returns an <see cref="VssAsync"/> instance that can be used to determine the status of 

@@ -19,33 +19,44 @@
  *  THE SOFTWARE.
  */
 #include "StdAfx.h"
-#include "DifferencedFileInfo.h"
+#include "VssDirectedTargetInfo.h"
 
 namespace Alphaleonis { namespace Win32 { namespace Vss
 {
-	DifferencedFileInfo::DifferencedFileInfo(String^ path, String^ fileSpec, bool isRecursive, DateTime lastModifyTime)
-		: mPath(path), mFileSpec(fileSpec), mIsRecursive(isRecursive), mLastModifyTime(lastModifyTime)
+	VssDirectedTargetInfo::VssDirectedTargetInfo(String^ sourcePath, String^ sourceFileName, String^ sourceRangeList, String^ destinationPath, 
+		String^ destinationFileName, String^ destinationRangeList)
+		: mSourcePath(sourcePath), mSourceFileName(sourceFileName), mSourceRangeList(sourceRangeList),
+		mDestinationPath(destinationPath), mDestinationFileName(destinationFileName), mDestinationRangeList(destinationRangeList)
 	{
 	}
 
-	String^ DifferencedFileInfo::Path::get()
+	String^ VssDirectedTargetInfo::SourcePath::get()
 	{
-		return mPath;
+		return mSourcePath;
 	}
 
-	String^ DifferencedFileInfo::FileSpec::get()
+	String^ VssDirectedTargetInfo::SourceFileName::get()
 	{
-		return mFileSpec;
+		return mSourceFileName;
 	}
 
-	bool DifferencedFileInfo::IsRecursive::get()
+	String^ VssDirectedTargetInfo::SourceRangeList::get()
 	{
-		return mIsRecursive;
+		return mSourceRangeList;
 	}
 
-	DateTime DifferencedFileInfo::LastModifyTime::get()
+	String^ VssDirectedTargetInfo::DestinationPath::get() 
 	{
-		return mLastModifyTime;
+		return mDestinationPath;
 	}
 
+	String^ VssDirectedTargetInfo::DestinationFileName::get()
+	{
+		return mDestinationFileName;
+	}
+
+	String^ VssDirectedTargetInfo::DestinationRangeList::get() 
+	{
+		return mDestinationRangeList;
+	}
 }}}

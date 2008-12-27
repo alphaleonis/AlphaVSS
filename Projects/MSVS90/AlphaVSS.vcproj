@@ -970,27 +970,11 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\AlphaVSS\Src\DifferencedFileInfo.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\AlphaVSS\Src\DirectedTargetInfo.cpp"
-				>
-			</File>
-			<File
 				RelativePath="..\..\AlphaVSS\Src\Error.cpp"
 				>
 			</File>
 			<File
 				RelativePath="..\..\AlphaVSS\Src\OsInfo.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\AlphaVSS\Src\PartialFileInfo.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\AlphaVSS\Src\RestoreSubComponentInfo.cpp"
 				>
 			</File>
 			<File
@@ -1106,11 +1090,11 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\AlphaVSS\Src\VssEnumObjectEnumerable.cpp"
+				RelativePath="..\..\AlphaVSS\Src\VssDifferencedFileInfo.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\AlphaVSS\Src\VssEnumObjectEnumerator.cpp"
+				RelativePath="..\..\AlphaVSS\Src\VssDirectedTargetInfo.cpp"
 				>
 			</File>
 			<File
@@ -1122,11 +1106,19 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\AlphaVSS\src\VssProviderProp.cpp"
+				RelativePath="..\..\AlphaVSS\Src\VssPartialFileInfo.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\AlphaVSS\src\VssSnapshotProp.cpp"
+				RelativePath="..\..\AlphaVSS\src\VssProviderProperties.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\AlphaVSS\Src\VssRestoreSubComponentInfo.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\AlphaVSS\src\VssSnapshotProperties.cpp"
 				>
 			</File>
 			<File
@@ -1138,7 +1130,7 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\AlphaVSS\src\VssWMFiledesc.cpp"
+				RelativePath="..\..\AlphaVSS\src\VssWMFileDescription.cpp"
 				>
 			</File>
 			<File
@@ -1268,23 +1260,11 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\AlphaVSS\Include\DifferencedFileInfo.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\AlphaVSS\Include\DirectedTargetInfo.h"
-				>
-			</File>
-			<File
 				RelativePath="..\..\AlphaVSS\Include\Error.h"
 				>
 			</File>
 			<File
 				RelativePath="..\..\AlphaVSS\Include\IVssListAdapter.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\AlphaVSS\include\IVssObjectProp.h"
 				>
 			</File>
 			<File
@@ -1296,15 +1276,7 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\AlphaVSS\Include\PartialFileInfo.h"
-				>
-			</File>
-			<File
 				RelativePath="..\..\AlphaVSS\Resources\resource.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\AlphaVSS\Include\RestoreSubComponentInfo.h"
 				>
 			</File>
 			<File
@@ -1344,11 +1316,11 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\AlphaVSS\Include\VssEnumObjectEnumerable.h"
+				RelativePath="..\..\AlphaVSS\Include\VssDifferencedFileInfo.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\AlphaVSS\Include\VssEnumObjectEnumerator.h"
+				RelativePath="..\..\AlphaVSS\Include\VssDirectedTargetInfo.h"
 				>
 			</File>
 			<File
@@ -1364,7 +1336,7 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\AlphaVSS\include\VssFileSpecBackupType.h"
+				RelativePath="..\..\AlphaVSS\include\VssFileSpecificationBackupType.h"
 				>
 			</File>
 			<File
@@ -1376,7 +1348,11 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\AlphaVSS\include\VssProviderProp.h"
+				RelativePath="..\..\AlphaVSS\Include\VssPartialFileInfo.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\AlphaVSS\include\VssProviderProperties.h"
 				>
 			</File>
 			<File
@@ -1385,6 +1361,10 @@
 			</File>
 			<File
 				RelativePath="..\..\AlphaVSS\include\VssRestoreMethod.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\AlphaVSS\Include\VssRestoreSubComponentInfo.h"
 				>
 			</File>
 			<File
@@ -1404,7 +1384,7 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\AlphaVSS\include\VssSnapshotProp.h"
+				RelativePath="..\..\AlphaVSS\include\VssSnapshotProperties.h"
 				>
 			</File>
 			<File
@@ -1432,7 +1412,7 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\AlphaVSS\include\VssWMFiledesc.h"
+				RelativePath="..\..\AlphaVSS\include\VssWMFileDescription.h"
 				>
 			</File>
 			<File

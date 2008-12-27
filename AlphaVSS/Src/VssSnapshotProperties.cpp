@@ -20,16 +20,16 @@
  */
 #include "StdAfx.h"
 
-#include "VssSnapshotProp.h"
+#include "VssSnapshotProperties.h"
 
 
 namespace Alphaleonis { namespace Win32 { namespace Vss
 {
-	VssSnapshotProp^ VssSnapshotProp::Adopt(VSS_SNAPSHOT_PROP *pProp)
+	VssSnapshotProperties^ VssSnapshotProperties::Adopt(VSS_SNAPSHOT_PROP *pProp)
 	{
 		try
 		{
-			return gcnew VssSnapshotProp(*pProp);
+			return gcnew VssSnapshotProperties(*pProp);
 		}
 		finally
 		{
@@ -37,7 +37,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		}
 	}
 
-	VssSnapshotProp::VssSnapshotProp(const VSS_SNAPSHOT_PROP &prop)
+	VssSnapshotProperties::VssSnapshotProperties(const VSS_SNAPSHOT_PROP &prop)
 		: mSnapshotId(ToGuid(prop.m_SnapshotId)),
 		  mSnapshotSetId(ToGuid(prop.m_SnapshotSetId)),
 		  mSnapshotsCount(prop.m_lSnapshotsCount),
@@ -54,72 +54,69 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	{
 	}
 
-	VssObjectType VssSnapshotProp::Type::get()
-	{ 
-		return VssObjectType::Snapshot;
-	}
 
-	System::Guid VssSnapshotProp::SnapshotId::get()
+
+	System::Guid VssSnapshotProperties::SnapshotId::get()
 	{
 		return mSnapshotId;
 	}
 
-	 System::Guid VssSnapshotProp::SnapshotSetId::get()
+	 System::Guid VssSnapshotProperties::SnapshotSetId::get()
 	 {
 		 return mSnapshotSetId;
 	 }
 
-	long VssSnapshotProp::SnapshotsCount::get()
+	long VssSnapshotProperties::SnapshotsCount::get()
 	{
 		return mSnapshotsCount;
 	}
 
-	System::String^ VssSnapshotProp::SnapshotDeviceObject::get()
+	System::String^ VssSnapshotProperties::SnapshotDeviceObject::get()
 	{
 		return mSnapshotDeviceObject;
 	}
 
-    System::String^ VssSnapshotProp::OriginalVolumeName::get()
+    System::String^ VssSnapshotProperties::OriginalVolumeName::get()
 	{
 		return mOriginalVolumeName;
 	}
 
-	System::String^ VssSnapshotProp::OriginatingMachine::get()
+	System::String^ VssSnapshotProperties::OriginatingMachine::get()
 	{
 		return mOriginatingMachine;
 	}
 
-	System::String^ VssSnapshotProp::ServiceMachine::get()
+	System::String^ VssSnapshotProperties::ServiceMachine::get()
 	{
 		return mServiceMachine;
 	}
 
-	System::String^ VssSnapshotProp::ExposedName::get()
+	System::String^ VssSnapshotProperties::ExposedName::get()
 	{
 		return mExposedName;
 	}
 
-	System::String^ VssSnapshotProp::ExposedPath::get()
+	System::String^ VssSnapshotProperties::ExposedPath::get()
 	{
 		return mExposedPath;
 	}
 	
-	System::Guid VssSnapshotProp::ProviderId::get()
+	System::Guid VssSnapshotProperties::ProviderId::get()
 	{
 		return mProviderId;
 	}
 
-	VssVolumeSnapshotAttributes ^VssSnapshotProp::SnapshotAttributes::get()
+	VssVolumeSnapshotAttributes ^VssSnapshotProperties::SnapshotAttributes::get()
 	{
 		return mSnapshotAttributes;
 	}
 
-	System::DateTime VssSnapshotProp::CreationTimestamp::get()
+	System::DateTime VssSnapshotProperties::CreationTimestamp::get()
 	{
 		return mCreationTimestamp;
 	}
 
-	VssSnapshotState^ VssSnapshotProp::Status::get()
+	VssSnapshotState^ VssSnapshotProperties::Status::get()
 	{
 		return mStatus;
 	}

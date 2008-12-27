@@ -20,16 +20,16 @@
  */
 #include "StdAfx.h"
 
-#include "VssWMFiledesc.h"
+#include "VssWMFileDescription.h"
 
 namespace Alphaleonis { namespace Win32 { namespace Vss
 {
-	VssWMFiledesc^ VssWMFiledesc::Adopt(IVssWMFiledesc *vssWMFiledesc)
+	VssWMFileDescription^ VssWMFileDescription::Adopt(IVssWMFiledesc *vssWMFiledesc)
 	{
-		return gcnew VssWMFiledesc(vssWMFiledesc);
+		return gcnew VssWMFileDescription(vssWMFiledesc);
 	}
 
-	VssWMFiledesc::VssWMFiledesc(IVssWMFiledesc *vssWMFiledesc)
+	VssWMFileDescription::VssWMFileDescription(IVssWMFiledesc *vssWMFiledesc)
 	{
 		try
 		{
@@ -39,7 +39,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 #if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WIN2008
 			DWORD dwTypeMask;
 			CheckCom(vssWMFiledesc->GetBackupTypeMask(&dwTypeMask));
-			mBackupTypeMask = (VssFileSpecBackupType)dwTypeMask;
+			mBackupTypeMask = (VssFileSpecificationBackupType)dwTypeMask;
 #endif
 			AutoBStr bstrFilespec;
 			CheckCom(vssWMFiledesc->GetFilespec(&bstrFilespec));
@@ -49,7 +49,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 			CheckCom(vssWMFiledesc->GetRecursive(&bRecursive));
 
 			mAlternateLocation = bstrAlternateLocation;
-			mFileSpec = bstrFilespec;
+			mFileSpecification = bstrFilespec;
 			mPath = bstrPath;
 			mRecursive = bRecursive;
 		}
@@ -60,16 +60,16 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 
 	}
 
-	VssWMFiledesc::~VssWMFiledesc()
+	VssWMFileDescription::~VssWMFileDescription()
 	{
 	}
 
-	String^ VssWMFiledesc::AlternateLocation::get()
+	String^ VssWMFileDescription::AlternateLocation::get()
 	{
 		return mAlternateLocation;
 	}
 
-	VssFileSpecBackupType VssWMFiledesc::BackupTypeMask::get()
+	VssFileSpecificationBackupType VssWMFileDescription::BackupTypeMask::get()
 	{
 #if ALPHAVSS_TARGET < ALPHAVSS_TARGET_WIN2003
 		return mBackupTypeMask;
@@ -78,17 +78,17 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 #endif
 	}
 
-	String^ VssWMFiledesc::FileSpec::get()
+	String^ VssWMFileDescription::FileSpecification::get()
 	{
-		return mFileSpec;
+		return mFileSpecification;
 	}
 
-	String^ VssWMFiledesc::Path::get()
+	String^ VssWMFileDescription::Path::get()
 	{
 		return mPath;
 	}
 
-	bool VssWMFiledesc::IsRecursive::get()
+	bool VssWMFileDescription::IsRecursive::get()
 	{
 		return mRecursive;
 	}

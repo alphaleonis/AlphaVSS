@@ -26,15 +26,15 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	/// 	or restore as a differenced file, that is, backup and restores associated with it are to be implemented as if 
 	/// 	entire files are copied to and from backup media (as opposed to using partial files).
 	/// </summary>
-	public ref class DifferencedFileInfo sealed
+	public ref class VssDifferencedFileInfo sealed
 	{
 	public:
-		/// <summary>Initializes a new instance of the <see cref="DifferencedFileInfo"/> class.</summary>
+		/// <summary>Initializes a new instance of the <see cref="VssDifferencedFileInfo"/> class.</summary>
 		/// <param name="path">The path to the differenced files.</param>
 		/// <param name="fileSpec">The file specification of the differenced files.</param>
 		/// <param name="lastModifyTime">The time of last modification for the difference files.</param>
 		/// <param name="isRecursive"><see langword="true"/> if the filespec for the differenced files should be interpreted recursively, <see langword="false"/> otherwise.</param>
-		DifferencedFileInfo(String^ path, String^ fileSpec, bool isRecursive, DateTime lastModifyTime);
+		VssDifferencedFileInfo(String^ path, String^ fileSpec, bool isRecursive, DateTime lastModifyTime);
 
 		/// <summary>
 		/// 	<para>
