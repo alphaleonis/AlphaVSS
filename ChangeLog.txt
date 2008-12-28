@@ -1,0 +1,20 @@
+Version 0.8 (alpha)
+-------------------
+* New build targets and dll-naming to support more versions 
+  of windows (WinXP, Win2003, Vista, Win 2008, all in both x86 and x64 versions)
+  
+* DeleteSnapshots modified to remove out parameters and remove return of 
+  error code. Errors now handled through exceptions.
+  
+* VssBackupComponents.Query was removed and replaced with the methods
+  QuerySnapshots and QueryProviders. 
+
+* VssSnapshotProp and VssProviderProp renamed and no longer implements the  
+  IVssObjectProp interface which in turn was removed.
+  
+* Vss-prefix added to classes that previously did not have it.
+
+* Multiple classes renamed to remove abbreviations, to follow the .NET 
+  naming guidelines.
+  
+* ChangeLog.txt file added to keep track of changes between releases.
