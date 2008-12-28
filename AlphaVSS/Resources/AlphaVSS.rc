@@ -53,8 +53,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 0,7,0,24
- PRODUCTVERSION 0,7,0,24
+ FILEVERSION 0,8,0,8526
+ PRODUCTVERSION 0,8,0,8256
  FILEFLAGSMASK 0x17L
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -69,13 +69,14 @@ BEGIN
     BEGIN
         BLOCK "000904b0"
         BEGIN
-            VALUE "FileDescription", "Alpha Leonis VSS .NET Library"
-            VALUE "FileVersion", "0, 7, 0, 24"
+            VALUE "CompanyName", "Alphaleonis"
+            VALUE "FileDescription", "Alphaleonis Windows Volume Shadow Copy Service .NET Library"
+            VALUE "FileVersion", "0, 8, 0, 8526"
             VALUE "InternalName", "AlphaVSS"
             VALUE "LegalCopyright", "Copyright (C) Peter Palotas 2008"
             VALUE "OriginalFilename", "AlphaVSS.dll"
-            VALUE "ProductName", "Alpha Leonis VSS .NET Library"
-            VALUE "ProductVersion", "0, 7, 0, 24"
+            VALUE "ProductName", "AlphaVSS"
+            VALUE "ProductVersion", "0, 8, 0, 8256"
         END
     END
     BLOCK "VarFileInfo"

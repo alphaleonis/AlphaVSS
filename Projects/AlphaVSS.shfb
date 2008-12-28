@@ -1,6 +1,6 @@
 ﻿<project schemaVersion="1.6.0.7">
     <assemblies>
-        <assembly assemblyPath="..\Bin\AlphaVSSw06d.dll" xmlCommentsPath="..\Bin\AlphaVSSw06d.xml" commentsOnly="False" />
+        <assembly assemblyPath="..\Bin\AlphaVSS.Win2008.x86.dll" xmlCommentsPath="..\Bin\AlphaVSS.Win2008.x86.xml" commentsOnly="False" />
     </assemblies>
     <namespaceSummaries>
         <namespaceSummaryItem name="" isDocumented="False" />
@@ -72,7 +72,7 @@ The documentation provided here is provided for convenience only, and the offici
     <HtmlHelp1xCompilerPath path="" />
     <HtmlHelp2xCompilerPath path="" />
     <OutputPath>..\Docs\API\</OutputPath>
-    <SandcastlePath path="" />
+    <SandcastlePath path="C:\Program Files (x86)\Sandcastle\" />
     <WorkingPath path="..\Docs\Work\" />
     <CleanIntermediates>True</CleanIntermediates>
     <KeepLogFile>True</KeepLogFile>
@@ -92,7 +92,7 @@ The documentation provided here is provided for convenience only, and the offici
     <FeedbackEMailAddress />
     <FeedbackEMailLinkText />
     <HeaderText />
-    <FooterText>AlphaVSS - http://www.alphaleonis.com/</FooterText>
+    <FooterText>AlphaVSS - http://www.codeplex.com/alphavss</FooterText>
     <ProjectLinkType>Local</ProjectLinkType>
     <SdkLinkType>Msdn</SdkLinkType>
     <SdkLinkTarget>Blank</SdkLinkTarget>
@@ -105,6 +105,6 @@ The documentation provided here is provided for convenience only, and the offici
     <CollectionTocStyle>Hierarchical</CollectionTocStyle>
     <IncludeStopWordList>True</IncludeStopWordList>
     <PlugInNamespaces>ms.vsipcc+, ms.vsexpresscc+</PlugInNamespaces>
-    <HelpFileVersion>0.7.0.24</HelpFileVersion>
+    <HelpFileVersion>0.8.0.8526</HelpFileVersion>
     <ContentPlacement>AboveNamespaces</ContentPlacement>
 </project>

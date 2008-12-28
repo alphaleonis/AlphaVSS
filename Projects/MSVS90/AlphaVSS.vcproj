@@ -25,7 +25,7 @@
 	<Configurations>
 		<Configuration
 			Name="Win2008.Debug|Win32"
-			OutputDirectory="$(ProjectDir)\..\..\Bin\$(ConfigurationName)"
+			OutputDirectory="$(ProjectDir)\..\..\Bin"
 			IntermediateDirectory="$(ProjectDir)\..\..\Obj\$(ConfigurationName)"
 			ConfigurationType="2"
 			CharacterSet="1"
@@ -54,7 +54,7 @@
 				RuntimeLibrary="3"
 				UsePrecompiledHeader="2"
 				GenerateXMLDocumentationFiles="true"
-				XMLDocumentationFileName="$(OutDir)\"
+				XMLDocumentationFileName="$(IntDir)\"
 				WarningLevel="3"
 				DebugInformationFormat="3"
 			/>
@@ -70,8 +70,9 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="vssapi.lib"
-				OutputFile="$(OutDir)\..\AlphaVSS.WinVista.x86.Debug.dll"
-				LinkIncremental="2"
+				OutputFile="$(OutDir)\AlphaVSS.$(ConfigurationName).x86.dll"
+				Version="0.8.0.8526"
+				LinkIncremental="1"
 				GenerateDebugInformation="true"
 				AssemblyDebug="1"
 				TargetMachine="1"
@@ -131,7 +132,6 @@
 				PreprocessorDefinitions="WIN32;_DEBUG;ALPHAVSS_TARGET=ALPHAVSS_TARGET_WIN2008"
 				RuntimeLibrary="3"
 				UsePrecompiledHeader="2"
-				GenerateXMLDocumentationFiles="true"
 				WarningLevel="3"
 				DebugInformationFormat="3"
 			/>
@@ -147,8 +147,9 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="vssapi.lib"
-				OutputFile="$(OutDir)\AlphaVSS.$(ConfigurationName).$(PlatformName).dll"
-				LinkIncremental="2"
+				OutputFile="$(OutDir)\AlphaVSS.$(ConfigurationName).x64.dll"
+				Version="0.8.0.8526"
+				LinkIncremental="1"
 				GenerateDebugInformation="true"
 				AssemblyDebug="1"
 				TargetMachine="17"
@@ -179,7 +180,7 @@
 		</Configuration>
 		<Configuration
 			Name="Win2008|Win32"
-			OutputDirectory="$(ProjectDir)\..\..\Bin\$(ConfigurationName)"
+			OutputDirectory="$(ProjectDir)\..\..\Bin"
 			IntermediateDirectory="$(ProjectDir)\..\..\Obj\$(ConfigurationName)"
 			ConfigurationType="2"
 			CharacterSet="1"
@@ -207,6 +208,7 @@
 				PreprocessorDefinitions="WIN32;NDEBUG;ALPHAVSS_TARGET=ALPHAVSS_TARGET_WIN2008"
 				RuntimeLibrary="2"
 				UsePrecompiledHeader="2"
+				GenerateXMLDocumentationFiles="true"
 				WarningLevel="3"
 				DebugInformationFormat="3"
 			/>
@@ -222,7 +224,8 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="vssapi.lib"
-				OutputFile="$(OutDir)\..\AlphaVSS.WinVista.x86.dll"
+				OutputFile="$(OutDir)\AlphaVSS.$(ConfigurationName).x86.dll"
+				Version="0.8.0.8526"
 				LinkIncremental="1"
 				GenerateDebugInformation="true"
 				TargetMachine="1"
@@ -295,7 +298,8 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="vssapi.lib"
-				OutputFile="$(OutDir)\AlphaVSS.$(ConfigurationName).$(PlatformName).dll"
+				OutputFile="$(OutDir)\AlphaVSS.$(ConfigurationName).x64.dll"
+				Version="0.8.0.8526"
 				LinkIncremental="1"
 				GenerateDebugInformation="true"
 				TargetMachine="17"
@@ -324,7 +328,7 @@
 		</Configuration>
 		<Configuration
 			Name="WinXP.Debug|Win32"
-			OutputDirectory="$(ProjectDir)\..\..\Bin\$(ConfigurationName)"
+			OutputDirectory="$(ProjectDir)\..\..\Bin"
 			IntermediateDirectory="$(ProjectDir)\..\..\Obj\$(ConfigurationName)"
 			ConfigurationType="2"
 			CharacterSet="1"
@@ -369,8 +373,9 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="&quot;C:\Program Files\Microsoft\VSSSDK72\lib\winxp\obj\i386\vssapi.lib&quot; &quot;C:\Program Files\Microsoft\VSSSDK72\lib\winxp\obj\i386\vss_uuid.lib&quot;"
-				OutputFile="$(OutDir)\..\AlphaVSS.WinXP.x86.Debug.dll"
-				LinkIncremental="2"
+				OutputFile="$(OutDir)\AlphaVSS.$(ConfigurationName).x86.dll"
+				Version="0.8.0.8526"
+				LinkIncremental="1"
 				GenerateDebugInformation="true"
 				AssemblyDebug="1"
 				TargetMachine="1"
@@ -447,8 +452,9 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="&quot;C:\Program Files\Microsoft\VSSSDK72\TestApps\vshadow\lib\ws03\amd64\vssapi.lib&quot; &quot;C:\Program Files\Microsoft\VSSSDK72\TestApps\vshadow\lib\ws03\amd64\vss_uuid.lib&quot;"
-				OutputFile="$(OutDir)\AlphaVSS.$(ConfigurationName).$(PlatformName).dll"
-				LinkIncremental="2"
+				OutputFile="$(OutDir)\AlphaVSS.$(ConfigurationName).x64.dll"
+				Version="0.8.0.8526"
+				LinkIncremental="1"
 				GenerateDebugInformation="true"
 				AssemblyDebug="1"
 				TargetMachine="17"
@@ -480,7 +486,7 @@
 		</Configuration>
 		<Configuration
 			Name="WinXP|Win32"
-			OutputDirectory="$(ProjectDir)\..\..\Bin\$(ConfigurationName)"
+			OutputDirectory="$(ProjectDir)\..\..\Bin"
 			IntermediateDirectory="$(ProjectDir)\..\..\Obj\$(ConfigurationName)"
 			ConfigurationType="2"
 			CharacterSet="1"
@@ -524,7 +530,8 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="&quot;C:\Program Files\Microsoft\VSSSDK72\lib\winxp\obj\i386\vssapi.lib&quot; &quot;C:\Program Files\Microsoft\VSSSDK72\lib\winxp\obj\i386\vss_uuid.lib&quot;"
-				OutputFile="$(OutDir)\..\AlphaVSS.WinXP.x86.dll"
+				OutputFile="$(OutDir)\AlphaVSS.$(ConfigurationName).x86.dll"
+				Version="0.8.0.8526"
 				LinkIncremental="1"
 				GenerateDebugInformation="true"
 				TargetMachine="1"
@@ -598,7 +605,8 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="&quot;C:\Program Files\Microsoft\VSSSDK72\lib\win2003\obj\amd64\vssapi.lib&quot; &quot;C:\Program Files\Microsoft\VSSSDK72\lib\win2003\obj\amd64\vss_uuid.lib&quot;"
-				OutputFile="$(OutDir)\AlphaVSS.$(ConfigurationName).$(PlatformName).dll"
+				OutputFile="$(OutDir)\AlphaVSS.$(ConfigurationName).x64.dll"
+				Version="0.8.0.8526"
 				LinkIncremental="1"
 				GenerateDebugInformation="true"
 				TargetMachine="17"
@@ -627,7 +635,7 @@
 		</Configuration>
 		<Configuration
 			Name="Win2003.Debug|Win32"
-			OutputDirectory="$(ProjectDir)\..\..\Bin\$(ConfigurationName)"
+			OutputDirectory="$(ProjectDir)\..\..\Bin"
 			IntermediateDirectory="$(ProjectDir)\..\..\Obj\$(ConfigurationName)"
 			ConfigurationType="2"
 			CharacterSet="1"
@@ -672,8 +680,9 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="&quot;C:\Program Files\Microsoft\VSSSDK72\lib\win2003\obj\i386\vssapi.lib&quot; &quot;C:\Program Files\Microsoft\VSSSDK72\lib\win2003\obj\i386\vss_uuid.lib&quot;"
-				OutputFile="$(OutDir)\..\AlphaVSS.Win2003.x86.Debug.dll"
-				LinkIncremental="2"
+				OutputFile="$(OutDir)\AlphaVSS.$(ConfigurationName).x86.dll"
+				Version="0.8.0.8526"
+				LinkIncremental="1"
 				GenerateDebugInformation="true"
 				AssemblyDebug="1"
 				TargetMachine="1"
@@ -750,7 +759,8 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="&quot;C:\Program Files\Microsoft\VSSSDK72\lib\win2003\obj\amd64\vssapi.lib&quot; &quot;C:\Program Files\Microsoft\VSSSDK72\lib\win2003\obj\amd64\vss_uuid.lib&quot;"
-				OutputFile="$(OutDir)\AlphaVSS.$(ConfigurationName).$(PlatformName).dll"
+				OutputFile="$(OutDir)\AlphaVSS.$(ConfigurationName).x64.dll"
+				Version="0.8.0.8526"
 				LinkIncremental="1"
 				GenerateDebugInformation="true"
 				AssemblyDebug="1"
@@ -783,7 +793,7 @@
 		</Configuration>
 		<Configuration
 			Name="Win2003|Win32"
-			OutputDirectory="$(ProjectDir)\..\..\Bin\$(ConfigurationName)"
+			OutputDirectory="$(ProjectDir)\..\..\Bin"
 			IntermediateDirectory="$(ProjectDir)\..\..\Obj\$(ConfigurationName)"
 			ConfigurationType="2"
 			CharacterSet="1"
@@ -827,7 +837,8 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="&quot;C:\Program Files\Microsoft\VSSSDK72\lib\win2003\obj\i386\vssapi.lib&quot; &quot;C:\Program Files\Microsoft\VSSSDK72\lib\win2003\obj\i386\vss_uuid.lib&quot;"
-				OutputFile="$(OutDir)\..\AlphaVSS.Win2003.x86.dll"
+				OutputFile="$(OutDir)\AlphaVSS.$(ConfigurationName).x86.dll"
+				Version="0.8.0.8526"
 				LinkIncremental="1"
 				GenerateDebugInformation="true"
 				TargetMachine="1"
@@ -901,7 +912,8 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="&quot;C:\Program Files\Microsoft\VSSSDK72\lib\win2003\obj\amd64\vssapi.lib&quot; &quot;C:\Program Files\Microsoft\VSSSDK72\lib\win2003\obj\amd64\vss_uuid.lib&quot;"
-				OutputFile="$(OutDir)\AlphaVSS.$(ConfigurationName).$(PlatformName).dll"
+				OutputFile="$(OutDir)\AlphaVSS.$(ConfigurationName).x64.dll"
+				Version="0.8.0.8526"
 				LinkIncremental="1"
 				GenerateDebugInformation="true"
 				TargetMachine="17"

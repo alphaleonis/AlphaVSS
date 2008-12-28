@@ -32,11 +32,11 @@ using namespace System::Security::Permissions;
 // associated with an assembly.
 //
 [assembly:AssemblyTitleAttribute("AlphaVSS")];
-[assembly:AssemblyDescriptionAttribute("Alphaleonis .NET Volume Shadow Copy Service Wrapper")];
+[assembly:AssemblyDescriptionAttribute("Alphaleonis .NET Volume Shadow Copy Service Library")];
 [assembly:AssemblyConfigurationAttribute("")];
-[assembly:AssemblyCompanyAttribute("")];
+[assembly:AssemblyCompanyAttribute("Alphaleonis")];
 [assembly:AssemblyProductAttribute("AlphaVSS")];
-[assembly:AssemblyCopyrightAttribute("Copyright (c) Peter Palotass 2008")];
+[assembly:AssemblyCopyrightAttribute("Copyright (c) Peter Palotas 2008")];
 [assembly:AssemblyTrademarkAttribute("")];
 [assembly:AssemblyCultureAttribute("")];
 
@@ -51,8 +51,8 @@ using namespace System::Security::Permissions;
 // You can specify all the value or you can default the Revision and Build Numbers
 // by using the '*' as shown below:
 
-[assembly:AssemblyVersionAttribute("0.7.0.24")];
-[assembly:AssemblyFileVersionAttribute("0.7.0.24")];
+[assembly:AssemblyVersionAttribute("0.8.0.8526")];
+[assembly:AssemblyFileVersionAttribute("0.8.0.8526")];
 [assembly:ComVisible(false)];
 
 [assembly:CLSCompliantAttribute(true)];
