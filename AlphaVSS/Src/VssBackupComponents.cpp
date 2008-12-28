@@ -398,7 +398,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 			{
 				CheckCom(pEnum->Next(1, &rgelt, &celtFetched));
 				
-				if (celtFetched > 0)
+				if (celtFetched == 0)
 					return list;
 
 				// Should always be snapshot, but just in case it isn't, we simply skip it.
@@ -429,7 +429,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 			{
 				CheckCom(pEnum->Next(1, &rgelt, &celtFetched));
 				
-				if (celtFetched > 0)
+				if (celtFetched == 0)
 					return list;
 
 				// Should always be a provider, but just in case it isn't, we simply skip it.
