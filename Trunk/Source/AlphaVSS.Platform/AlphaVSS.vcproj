@@ -2,7 +2,7 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="9,00"
-	Name="AlphaVSS"
+	Name="AlphaVSS.Platform.vcproj"
 	ProjectGUID="{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}"
 	RootNamespace="Temp"
 	SccProjectName="SAK"
@@ -26,7 +26,7 @@
 		<Configuration
 			Name="Win2008.Debug|Win32"
 			OutputDirectory="$(ProjectDir)\..\..\Bin"
-			IntermediateDirectory="$(ProjectDir)\..\..\Obj\$(ConfigurationName)"
+			IntermediateDirectory="$(ProjectDir)\..\..\Obj\$(ConfigurationName)\$(PlatformName)"
 			ConfigurationType="2"
 			CharacterSet="1"
 			ManagedExtensions="1"
@@ -49,11 +49,10 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="&quot;$(ProjectDir)\..\..\AlphaVSS\include&quot;"
+				AdditionalIncludeDirectories="&quot;$(ProjectDir)\include&quot;"
 				PreprocessorDefinitions="WIN32;_DEBUG;ALPHAVSS_TARGET=ALPHAVSS_TARGET_WIN2008"
 				RuntimeLibrary="3"
 				UsePrecompiledHeader="2"
-				GenerateXMLDocumentationFiles="true"
 				XMLDocumentationFileName="$(IntDir)\"
 				WarningLevel="3"
 				DebugInformationFormat="3"
@@ -104,7 +103,7 @@
 		<Configuration
 			Name="Win2008.Debug|x64"
 			OutputDirectory="$(ProjectDir)\..\..\Bin"
-			IntermediateDirectory="$(ProjectDir)\..\..\Obj\$(ConfigurationName)"
+			IntermediateDirectory="$(ProjectDir)\..\..\Obj\$(ConfigurationName)\$(PlatformName)"
 			ConfigurationType="2"
 			CharacterSet="1"
 			ManagedExtensions="1"
@@ -128,7 +127,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="&quot;$(ProjectDir)\..\..\AlphaVSS\include&quot;"
+				AdditionalIncludeDirectories="&quot;$(ProjectDir)\include&quot;"
 				PreprocessorDefinitions="WIN32;_DEBUG;ALPHAVSS_TARGET=ALPHAVSS_TARGET_WIN2008"
 				RuntimeLibrary="3"
 				UsePrecompiledHeader="2"
@@ -181,7 +180,7 @@
 		<Configuration
 			Name="Win2008|Win32"
 			OutputDirectory="$(ProjectDir)\..\..\Bin"
-			IntermediateDirectory="$(ProjectDir)\..\..\Obj\$(ConfigurationName)"
+			IntermediateDirectory="$(ProjectDir)\..\..\Obj\$(ConfigurationName)\$(PlatformName)"
 			ConfigurationType="2"
 			CharacterSet="1"
 			ManagedExtensions="1"
@@ -204,7 +203,7 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="$(ProjectDir)\..\..\AlphaVSS\include"
+				AdditionalIncludeDirectories="$(ProjectDir)\include"
 				PreprocessorDefinitions="WIN32;NDEBUG;ALPHAVSS_TARGET=ALPHAVSS_TARGET_WIN2008"
 				RuntimeLibrary="2"
 				UsePrecompiledHeader="2"
@@ -255,7 +254,7 @@
 		<Configuration
 			Name="Win2008|x64"
 			OutputDirectory="$(ProjectDir)\..\..\Bin"
-			IntermediateDirectory="$(ProjectDir)\..\..\Obj\$(ConfigurationName)"
+			IntermediateDirectory="$(ProjectDir)\..\..\Obj\$(ConfigurationName)\$(PlatformName)"
 			ConfigurationType="2"
 			CharacterSet="1"
 			ManagedExtensions="1"
@@ -279,7 +278,7 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="$(ProjectDir)\..\..\AlphaVSS\include"
+				AdditionalIncludeDirectories="$(ProjectDir)\include"
 				PreprocessorDefinitions="WIN32;NDEBUG;ALPHAVSS_TARGET=ALPHAVSS_TARGET_WIN2008"
 				RuntimeLibrary="2"
 				UsePrecompiledHeader="2"
@@ -329,7 +328,7 @@
 		<Configuration
 			Name="WinXP.Debug|Win32"
 			OutputDirectory="$(ProjectDir)\..\..\Bin"
-			IntermediateDirectory="$(ProjectDir)\..\..\Obj\$(ConfigurationName)"
+			IntermediateDirectory="$(ProjectDir)\..\..\Obj\$(ConfigurationName)\$(PlatformName)"
 			ConfigurationType="2"
 			CharacterSet="1"
 			ManagedExtensions="1"
@@ -352,7 +351,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="&quot;C:\Program Files\Microsoft\VSSSDK72\inc\winxp&quot;;&quot;$(ProjectDir)\..\..\AlphaVSS\include&quot;"
+				AdditionalIncludeDirectories="&quot;C:\Program Files\Microsoft\VSSSDK72\inc\winxp&quot;;&quot;$(ProjectDir)\include&quot;"
 				PreprocessorDefinitions="WIN32;_DEBUG;ALPHAVSS_TARGET=ALPHAVSS_TARGET_WINXP"
 				RuntimeLibrary="3"
 				TreatWChar_tAsBuiltInType="false"
@@ -408,7 +407,7 @@
 		<Configuration
 			Name="WinXP.Debug|x64"
 			OutputDirectory="$(ProjectDir)\..\..\Bin"
-			IntermediateDirectory="$(ProjectDir)\..\..\Obj\$(ConfigurationName)"
+			IntermediateDirectory="$(ProjectDir)\..\..\Obj\$(ConfigurationName)\$(PlatformName)"
 			ConfigurationType="2"
 			CharacterSet="1"
 			ManagedExtensions="1"
@@ -432,7 +431,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="&quot;C:\Program Files\Microsoft\VSSSDK72\inc\win2003&quot;;&quot;$(ProjectDir)\..\..\AlphaVSS\include&quot;"
+				AdditionalIncludeDirectories="&quot;C:\Program Files\Microsoft\VSSSDK72\inc\win2003&quot;;&quot;$(ProjectDir)\include&quot;"
 				PreprocessorDefinitions="WIN32;_DEBUG;ALPHAVSS_TARGET=ALPHAVSS_TARGET_WIN2003"
 				RuntimeLibrary="3"
 				TreatWChar_tAsBuiltInType="false"
@@ -487,7 +486,7 @@
 		<Configuration
 			Name="WinXP|Win32"
 			OutputDirectory="$(ProjectDir)\..\..\Bin"
-			IntermediateDirectory="$(ProjectDir)\..\..\Obj\$(ConfigurationName)"
+			IntermediateDirectory="$(ProjectDir)\..\..\Obj\$(ConfigurationName)\$(PlatformName)"
 			ConfigurationType="2"
 			CharacterSet="1"
 			ManagedExtensions="1"
@@ -510,7 +509,7 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="&quot;C:\Program Files\Microsoft\VSSSDK72\inc\winxp&quot;;$(ProjectDir)\..\..\AlphaVSS\include"
+				AdditionalIncludeDirectories="&quot;C:\Program Files\Microsoft\VSSSDK72\inc\winxp&quot;;$(ProjectDir)\include"
 				PreprocessorDefinitions="WIN32;NDEBUG;ALPHAVSS_TARGET=ALPHAVSS_TARGET_WINXP"
 				RuntimeLibrary="2"
 				TreatWChar_tAsBuiltInType="false"
@@ -561,7 +560,7 @@
 		<Configuration
 			Name="WinXP|x64"
 			OutputDirectory="$(ProjectDir)\..\..\Bin"
-			IntermediateDirectory="$(ProjectDir)\..\..\Obj\$(ConfigurationName)"
+			IntermediateDirectory="$(ProjectDir)\..\..\Obj\$(ConfigurationName)\$(PlatformName)"
 			ConfigurationType="2"
 			CharacterSet="1"
 			ManagedExtensions="1"
@@ -585,7 +584,7 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="&quot;C:\Program Files\Microsoft\VSSSDK72\inc\win2003&quot;;$(ProjectDir)\..\..\AlphaVSS\include"
+				AdditionalIncludeDirectories="&quot;C:\Program Files\Microsoft\VSSSDK72\inc\win2003&quot;;$(ProjectDir)\include"
 				PreprocessorDefinitions="WIN32;NDEBUG;ALPHAVSS_TARGET=ALPHAVSS_TARGET_WIN2003"
 				RuntimeLibrary="2"
 				TreatWChar_tAsBuiltInType="false"
@@ -636,7 +635,7 @@
 		<Configuration
 			Name="Win2003.Debug|Win32"
 			OutputDirectory="$(ProjectDir)\..\..\Bin"
-			IntermediateDirectory="$(ProjectDir)\..\..\Obj\$(ConfigurationName)"
+			IntermediateDirectory="$(ProjectDir)\..\..\Obj\$(ConfigurationName)\$(PlatformName)"
 			ConfigurationType="2"
 			CharacterSet="1"
 			ManagedExtensions="1"
@@ -659,7 +658,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="&quot;C:\Program Files\Microsoft\VSSSDK72\inc\win2003&quot;;&quot;$(ProjectDir)\..\..\AlphaVSS\include&quot;"
+				AdditionalIncludeDirectories="&quot;C:\Program Files\Microsoft\VSSSDK72\inc\win2003&quot;;&quot;$(ProjectDir)\include&quot;"
 				PreprocessorDefinitions="WIN32;_DEBUG;ALPHAVSS_TARGET=ALPHAVSS_TARGET_WIN2003"
 				RuntimeLibrary="3"
 				TreatWChar_tAsBuiltInType="false"
@@ -715,7 +714,7 @@
 		<Configuration
 			Name="Win2003.Debug|x64"
 			OutputDirectory="$(ProjectDir)\..\..\Bin"
-			IntermediateDirectory="$(ProjectDir)\..\..\Obj\$(ConfigurationName)"
+			IntermediateDirectory="$(ProjectDir)\..\..\Obj\$(ConfigurationName)\$(PlatformName)"
 			ConfigurationType="2"
 			CharacterSet="1"
 			ManagedExtensions="1"
@@ -739,7 +738,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="&quot;C:\Program Files\Microsoft\VSSSDK72\inc\win2003&quot;;&quot;$(ProjectDir)\..\..\AlphaVSS\include&quot;"
+				AdditionalIncludeDirectories="&quot;C:\Program Files\Microsoft\VSSSDK72\inc\win2003&quot;;&quot;$(ProjectDir)\include&quot;"
 				PreprocessorDefinitions="WIN32;_DEBUG;ALPHAVSS_TARGET=ALPHAVSS_TARGET_WIN2003"
 				RuntimeLibrary="3"
 				TreatWChar_tAsBuiltInType="false"
@@ -794,7 +793,7 @@
 		<Configuration
 			Name="Win2003|Win32"
 			OutputDirectory="$(ProjectDir)\..\..\Bin"
-			IntermediateDirectory="$(ProjectDir)\..\..\Obj\$(ConfigurationName)"
+			IntermediateDirectory="$(ProjectDir)\..\..\Obj\$(ConfigurationName)\$(PlatformName)"
 			ConfigurationType="2"
 			CharacterSet="1"
 			ManagedExtensions="1"
@@ -817,7 +816,7 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="&quot;C:\Program Files\Microsoft\VSSSDK72\inc\win2003&quot;;$(ProjectDir)\..\..\AlphaVSS\include"
+				AdditionalIncludeDirectories="&quot;C:\Program Files\Microsoft\VSSSDK72\inc\win2003&quot;;$(ProjectDir)\include"
 				PreprocessorDefinitions="WIN32;NDEBUG;ALPHAVSS_TARGET=ALPHAVSS_TARGET_WIN2003"
 				RuntimeLibrary="2"
 				TreatWChar_tAsBuiltInType="false"
@@ -868,7 +867,7 @@
 		<Configuration
 			Name="Win2003|x64"
 			OutputDirectory="$(ProjectDir)\..\..\Bin"
-			IntermediateDirectory="$(ProjectDir)\..\..\Obj\$(ConfigurationName)"
+			IntermediateDirectory="$(ProjectDir)\..\..\Obj\$(ConfigurationName)\$(PlatformName)"
 			ConfigurationType="2"
 			CharacterSet="1"
 			ManagedExtensions="1"
@@ -892,7 +891,7 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="&quot;C:\Program Files\Microsoft\VSSSDK72\inc\win2003&quot;;$(ProjectDir)\..\..\AlphaVSS\include"
+				AdditionalIncludeDirectories="&quot;C:\Program Files\Microsoft\VSSSDK72\inc\win2003&quot;;$(ProjectDir)\include"
 				PreprocessorDefinitions="WIN32;NDEBUG;ALPHAVSS_TARGET=ALPHAVSS_TARGET_WIN2003"
 				RuntimeLibrary="2"
 				TreatWChar_tAsBuiltInType="false"
@@ -975,19 +974,19 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath="..\..\AlphaVSS\src\AssemblyInfo.cpp"
+				RelativePath=".\Src\AssemblyInfo.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\AlphaVSS\Src\Error.cpp"
+				RelativePath=".\Src\Error.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\AlphaVSS\Src\OsInfo.cpp"
+				RelativePath=".\Src\OsInfo.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\AlphaVSS\src\Stdafx.cpp"
+				RelativePath=".\Src\Stdafx.cpp"
 				>
 				<FileConfiguration
 					Name="Win2008.Debug|Win32"
@@ -1087,174 +1086,174 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="..\..\AlphaVSS\src\VssAsync.cpp"
+				RelativePath=".\Src\VssAsync.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\AlphaVSS\src\VssBackupComponents.cpp"
+				RelativePath=".\Src\VssBackupComponents.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\AlphaVSS\src\VssComponent.cpp"
+				RelativePath=".\Src\VssComponent.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\AlphaVSS\Src\VssDifferencedFileInfo.cpp"
+				RelativePath=".\Src\VssDifferencedFileInfo.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\AlphaVSS\Src\VssDirectedTargetInfo.cpp"
+				RelativePath=".\Src\VssDirectedTargetInfo.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\AlphaVSS\src\VssExamineWriterMetadata.cpp"
+				RelativePath=".\Src\VssExamineWriterMetadata.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\AlphaVSS\Src\VssListAdapter.cpp"
+				RelativePath=".\Src\VssListAdapter.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\AlphaVSS\Src\VssPartialFileInfo.cpp"
+				RelativePath=".\Src\VssPartialFileInfo.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\AlphaVSS\src\VssProviderProperties.cpp"
+				RelativePath=".\Src\VssProviderProperties.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\AlphaVSS\Src\VssRestoreSubComponentInfo.cpp"
+				RelativePath=".\Src\VssRestoreSubComponentInfo.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\AlphaVSS\src\VssSnapshotProperties.cpp"
+				RelativePath=".\Src\VssSnapshotProperties.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\AlphaVSS\src\VssWMComponent.cpp"
+				RelativePath=".\Src\VssWMComponent.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\AlphaVSS\src\VssWMDependency.cpp"
+				RelativePath=".\Src\VssWMDependency.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\AlphaVSS\src\VssWMFileDescription.cpp"
+				RelativePath=".\Src\VssWMFileDescription.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\AlphaVSS\Src\VssWMRestoreMethod.cpp"
+				RelativePath=".\Src\VssWMRestoreMethod.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\AlphaVSS\src\VssWriterComponents.cpp"
+				RelativePath=".\Src\VssWriterComponents.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\AlphaVSS\Src\VssWriterStatus.cpp"
+				RelativePath=".\Src\VssWriterStatus.cpp"
 				>
 			</File>
 			<Filter
 				Name="Exceptions"
 				>
 				<File
-					RelativePath="..\..\AlphaVSS\Src\Exceptions\VssBadStateException.cpp"
+					RelativePath=".\Src\Exceptions\VssBadStateException.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\AlphaVSS\Src\Exceptions\VssDeleteSnapshotsFailedException.cpp"
+					RelativePath=".\Src\Exceptions\VssDeleteSnapshotsFailedException.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\AlphaVSS\Src\Exceptions\VssException.cpp"
+					RelativePath=".\Src\Exceptions\VssException.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\AlphaVSS\Src\Exceptions\VssFlushWritesTimeoutException.cpp"
+					RelativePath=".\Src\Exceptions\VssFlushWritesTimeoutException.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\AlphaVSS\Src\Exceptions\VssHoldWritesTimeoutException.cpp"
+					RelativePath=".\Src\Exceptions\VssHoldWritesTimeoutException.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\AlphaVSS\Src\Exceptions\VssInsufficientStorageException.cpp"
+					RelativePath=".\Src\Exceptions\VssInsufficientStorageException.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\AlphaVSS\Src\Exceptions\VssInvalidXmlDocumentException.cpp"
+					RelativePath=".\Src\Exceptions\VssInvalidXmlDocumentException.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\AlphaVSS\Src\Exceptions\VssMaximumNumberOfSnapshotsReachedException.cpp"
+					RelativePath=".\Src\Exceptions\VssMaximumNumberOfSnapshotsReachedException.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\AlphaVSS\Src\Exceptions\VssMaximumNumberOfVolumesReachedException.cpp"
+					RelativePath=".\Src\Exceptions\VssMaximumNumberOfVolumesReachedException.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\AlphaVSS\Src\Exceptions\VssObjectAlreadyExistsException.cpp"
+					RelativePath=".\Src\Exceptions\VssObjectAlreadyExistsException.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\AlphaVSS\Src\Exceptions\VssObjectNotFoundException.cpp"
+					RelativePath=".\Src\Exceptions\VssObjectNotFoundException.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\AlphaVSS\Src\Exceptions\VssProviderNotRegisteredException.cpp"
+					RelativePath=".\Src\Exceptions\VssProviderNotRegisteredException.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\AlphaVSS\Src\Exceptions\VssProviderVetoException.cpp"
+					RelativePath=".\Src\Exceptions\VssProviderVetoException.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\AlphaVSS\Src\Exceptions\VssRebootRequiredException.cpp"
+					RelativePath=".\Src\Exceptions\VssRebootRequiredException.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\AlphaVSS\Src\Exceptions\VssRevertInProgressException.cpp"
+					RelativePath=".\Src\Exceptions\VssRevertInProgressException.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\AlphaVSS\Src\Exceptions\VssSnapshotSetInProgressException.cpp"
+					RelativePath=".\Src\Exceptions\VssSnapshotSetInProgressException.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\AlphaVSS\Src\Exceptions\VssTransactionFreezeTimeoutException.cpp"
+					RelativePath=".\Src\Exceptions\VssTransactionFreezeTimeoutException.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\AlphaVSS\Src\Exceptions\VssTransactionThawTimeoutException.cpp"
+					RelativePath=".\Src\Exceptions\VssTransactionThawTimeoutException.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\AlphaVSS\Src\Exceptions\VssUnexpectedProviderErrorException.cpp"
+					RelativePath=".\Src\Exceptions\VssUnexpectedProviderErrorException.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\AlphaVSS\Src\Exceptions\VssUnexpectedWriterError.cpp"
+					RelativePath=".\Src\Exceptions\VssUnexpectedWriterError.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\AlphaVSS\Src\Exceptions\VssUnsupportedContextException.cpp"
+					RelativePath=".\Src\Exceptions\VssUnsupportedContextException.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\AlphaVSS\Src\Exceptions\VssVolumeInUseException.cpp"
+					RelativePath=".\Src\Exceptions\VssVolumeInUseException.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\AlphaVSS\Src\Exceptions\VssVolumeNotSupportedByProviderException.cpp"
+					RelativePath=".\Src\Exceptions\VssVolumeNotSupportedByProviderException.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\AlphaVSS\Src\Exceptions\VssVolumeNotSupportedException.cpp"
+					RelativePath=".\Src\Exceptions\VssVolumeNotSupportedException.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\AlphaVSS\Src\Exceptions\VssWriterInfrastructureException.cpp"
+					RelativePath=".\Src\Exceptions\VssWriterInfrastructureException.cpp"
 					>
 				</File>
 			</Filter>
@@ -1265,290 +1264,286 @@
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
-				RelativePath="..\..\AlphaVSS\Include\Config.h"
+				RelativePath=".\Include\Config.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\AlphaVSS\Include\Error.h"
+				RelativePath=".\Include\Error.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\AlphaVSS\Include\IVssListAdapter.h"
+				RelativePath=".\Include\IVssListAdapter.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\AlphaVSS\include\Macros.h"
+				RelativePath=".\Include\Macros.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\AlphaVSS\Include\OsInfo.h"
+				RelativePath=".\Include\OsInfo.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\AlphaVSS\Resources\resource.h"
+				RelativePath=".\Include\Stdafx.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\AlphaVSS\include\Stdafx.h"
+				RelativePath=".\Include\Utils.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\AlphaVSS\include\Utils.h"
+				RelativePath=".\Include\VssAsync.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\AlphaVSS\include\VssAsync.h"
+				RelativePath=".\Include\VssBackupComponents.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\AlphaVSS\include\VssBackupComponents.h"
+				RelativePath=".\Include\VssBackupSchema.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\AlphaVSS\include\VssBackupSchema.h"
+				RelativePath=".\Include\VssBackupType.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\AlphaVSS\include\VssBackupType.h"
+				RelativePath=".\Include\VssComponent.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\AlphaVSS\include\VssComponent.h"
+				RelativePath=".\Include\VssComponentFlags.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\AlphaVSS\include\VssComponentFlags.h"
+				RelativePath=".\Include\VssComponentType.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\AlphaVSS\include\VssComponentType.h"
+				RelativePath=".\Include\VssDifferencedFileInfo.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\AlphaVSS\Include\VssDifferencedFileInfo.h"
+				RelativePath=".\Include\VssDirectedTargetInfo.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\AlphaVSS\Include\VssDirectedTargetInfo.h"
+				RelativePath=".\Include\VssError.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\AlphaVSS\include\VssError.h"
+				RelativePath=".\Include\VssExamineWriterMetadata.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\AlphaVSS\include\VssExamineWriterMetadata.h"
+				RelativePath=".\Include\VssFileRestoreStatus.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\AlphaVSS\include\VssFileRestoreStatus.h"
+				RelativePath=".\Include\VssFileSpecificationBackupType.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\AlphaVSS\include\VssFileSpecificationBackupType.h"
+				RelativePath=".\Include\VssListAdapter.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\AlphaVSS\Include\VssListAdapter.h"
+				RelativePath=".\Include\VssObjectType.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\AlphaVSS\include\VssObjectType.h"
+				RelativePath=".\Include\VssPartialFileInfo.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\AlphaVSS\Include\VssPartialFileInfo.h"
+				RelativePath=".\Include\VssProviderProperties.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\AlphaVSS\include\VssProviderProperties.h"
+				RelativePath=".\Include\VssProviderType.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\AlphaVSS\include\VssProviderType.h"
+				RelativePath=".\Include\VssRestoreMethod.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\AlphaVSS\include\VssRestoreMethod.h"
+				RelativePath=".\Include\VssRestoreSubComponentInfo.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\AlphaVSS\Include\VssRestoreSubComponentInfo.h"
+				RelativePath=".\Include\VssRestoreTarget.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\AlphaVSS\include\VssRestoreTarget.h"
+				RelativePath=".\Include\VssRestoreType.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\AlphaVSS\include\VssRestoreType.h"
+				RelativePath=".\Include\VssSnapshotCompatibility.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\AlphaVSS\include\VssSnapshotCompatibility.h"
+				RelativePath=".\Include\VssSnapshotContext.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\AlphaVSS\include\VssSnapshotContext.h"
+				RelativePath=".\Include\VssSnapshotProperties.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\AlphaVSS\include\VssSnapshotProperties.h"
+				RelativePath=".\Include\VssSnapshotState.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\AlphaVSS\include\VssSnapshotState.h"
+				RelativePath=".\Include\VssSourceType.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\AlphaVSS\include\VssSourceType.h"
+				RelativePath=".\Include\VssUsageType.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\AlphaVSS\include\VssUsageType.h"
+				RelativePath=".\Include\VssVolumeSnapshotAttributes.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\AlphaVSS\include\VssVolumeSnapshotAttributes.h"
+				RelativePath=".\Include\VssWMComponent.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\AlphaVSS\include\VssWMComponent.h"
+				RelativePath=".\Include\VssWMDependency.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\AlphaVSS\include\VssWMDependency.h"
+				RelativePath=".\Include\VssWMFileDescription.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\AlphaVSS\include\VssWMFileDescription.h"
+				RelativePath=".\Include\VssWMRestoreMethod.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\AlphaVSS\Include\VssWMRestoreMethod.h"
+				RelativePath=".\Include\VssWriterComponents.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\AlphaVSS\include\VssWriterComponents.h"
+				RelativePath=".\Include\VssWriterFailure.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\AlphaVSS\include\VssWriterFailure.h"
+				RelativePath=".\Include\VssWriterRestore.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\AlphaVSS\include\VssWriterRestore.h"
+				RelativePath=".\Include\VssWriterState.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\AlphaVSS\include\VssWriterState.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\AlphaVSS\Include\VssWriterStatus.h"
+				RelativePath=".\Include\VssWriterStatus.h"
 				>
 			</File>
 			<Filter
 				Name="Exceptions"
 				>
 				<File
-					RelativePath="..\..\AlphaVSS\Include\Exceptions\VssBadStateException.h"
+					RelativePath=".\Include\Exceptions\VssBadStateException.h"
 					>
 				</File>
 				<File
-					RelativePath="..\..\AlphaVSS\Include\Exceptions\VssDeleteSnapshotsFailedException.h"
+					RelativePath=".\Include\Exceptions\VssDeleteSnapshotsFailedException.h"
 					>
 				</File>
 				<File
-					RelativePath="..\..\AlphaVSS\Include\Exceptions\VssException.h"
+					RelativePath=".\Include\Exceptions\VssException.h"
 					>
 				</File>
 				<File
-					RelativePath="..\..\AlphaVSS\Include\Exceptions\VssFlushWritesTimeoutException.h"
+					RelativePath=".\Include\Exceptions\VssFlushWritesTimeoutException.h"
 					>
 				</File>
 				<File
-					RelativePath="..\..\AlphaVSS\Include\Exceptions\VssHoldWritesTimeoutException.h"
+					RelativePath=".\Include\Exceptions\VssHoldWritesTimeoutException.h"
 					>
 				</File>
 				<File
-					RelativePath="..\..\AlphaVSS\Include\Exceptions\VssInsufficientStorageException.h"
+					RelativePath=".\Include\Exceptions\VssInsufficientStorageException.h"
 					>
 				</File>
 				<File
-					RelativePath="..\..\AlphaVSS\Include\Exceptions\VssInvalidXmlDocumentException.h"
+					RelativePath=".\Include\Exceptions\VssInvalidXmlDocumentException.h"
 					>
 				</File>
 				<File
-					RelativePath="..\..\AlphaVSS\Include\Exceptions\VssMaximumNumberOfSnapshotsReachedException.h"
+					RelativePath=".\Include\Exceptions\VssMaximumNumberOfSnapshotsReachedException.h"
 					>
 				</File>
 				<File
-					RelativePath="..\..\AlphaVSS\Include\Exceptions\VssMaximumNumberOfVolumesReachedException.h"
+					RelativePath=".\Include\Exceptions\VssMaximumNumberOfVolumesReachedException.h"
 					>
 				</File>
 				<File
-					RelativePath="..\..\AlphaVSS\Include\Exceptions\VssObjectAlreadyExistsException.h"
+					RelativePath=".\Include\Exceptions\VssObjectAlreadyExistsException.h"
 					>
 				</File>
 				<File
-					RelativePath="..\..\AlphaVSS\Include\Exceptions\VssObjectNotFoundException.h"
+					RelativePath=".\Include\Exceptions\VssObjectNotFoundException.h"
 					>
 				</File>
 				<File
-					RelativePath="..\..\AlphaVSS\Include\Exceptions\VssProviderNotRegisteredException.h"
+					RelativePath=".\Include\Exceptions\VssProviderNotRegisteredException.h"
 					>
 				</File>
 				<File
-					RelativePath="..\..\AlphaVSS\Include\Exceptions\VssProviderVetoException.h"
+					RelativePath=".\Include\Exceptions\VssProviderVetoException.h"
 					>
 				</File>
 				<File
-					RelativePath="..\..\AlphaVSS\Include\Exceptions\VssRebootRequiredException.h"
+					RelativePath=".\Include\Exceptions\VssRebootRequiredException.h"
 					>
 				</File>
 				<File
-					RelativePath="..\..\AlphaVSS\Include\Exceptions\VssRevertInProgressException.h"
+					RelativePath=".\Include\Exceptions\VssRevertInProgressException.h"
 					>
 				</File>
 				<File
-					RelativePath="..\..\AlphaVSS\Include\Exceptions\VssSnapshotSetInProgressException.h"
+					RelativePath=".\Include\Exceptions\VssSnapshotSetInProgressException.h"
 					>
 				</File>
 				<File
-					RelativePath="..\..\AlphaVSS\Include\Exceptions\VssTransactionFreezeTimeoutException.h"
+					RelativePath=".\Include\Exceptions\VssTransactionFreezeTimeoutException.h"
 					>
 				</File>
 				<File
-					RelativePath="..\..\AlphaVSS\Include\Exceptions\VssTransactionThawTimeoutException.h"
+					RelativePath=".\Include\Exceptions\VssTransactionThawTimeoutException.h"
 					>
 				</File>
 				<File
-					RelativePath="..\..\AlphaVSS\Include\Exceptions\VssUnexpectedProviderError.h"
+					RelativePath=".\Include\Exceptions\VssUnexpectedProviderError.h"
 					>
 				</File>
 				<File
-					RelativePath="..\..\AlphaVSS\Include\Exceptions\VssUnexpectedWriterError.h"
+					RelativePath=".\Include\Exceptions\VssUnexpectedWriterError.h"
 					>
 				</File>
 				<File
-					RelativePath="..\..\AlphaVSS\Include\Exceptions\VssUnsupportedContextException.h"
+					RelativePath=".\Include\Exceptions\VssUnsupportedContextException.h"
 					>
 				</File>
 				<File
-					RelativePath="..\..\AlphaVSS\Include\Exceptions\VssVolumeInUseException.h"
+					RelativePath=".\Include\Exceptions\VssVolumeInUseException.h"
 					>
 				</File>
 				<File
-					RelativePath="..\..\AlphaVSS\Include\Exceptions\VssVolumeNotSupportedByProviderException.h"
+					RelativePath=".\Include\Exceptions\VssVolumeNotSupportedByProviderException.h"
 					>
 				</File>
 				<File
-					RelativePath="..\..\AlphaVSS\Include\Exceptions\VssVolumeNotSupportedException.h"
+					RelativePath=".\Include\Exceptions\VssVolumeNotSupportedException.h"
 					>
 				</File>
 				<File
-					RelativePath="..\..\AlphaVSS\Include\Exceptions\VssWriterInfrastructureException.h"
+					RelativePath=".\Include\Exceptions\VssWriterInfrastructureException.h"
 					>
 				</File>
 			</Filter>
@@ -1559,7 +1554,7 @@
 			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}"
 			>
 			<File
-				RelativePath="..\..\AlphaVSS\Resources\AlphaVSS.rc"
+				RelativePath=".\Resources\AlphaVSS.rc"
 				>
 			</File>
 		</Filter>
