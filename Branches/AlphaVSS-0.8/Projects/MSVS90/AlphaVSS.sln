@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AlphaVSS", "AlphaVSS.vcproj", "{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs02.codeplex.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = AlphaVSS.vcproj
+		SccLocalPath1 = .
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Win2003.Debug|x64 = Win2003.Debug|x64
+		Win2003.Debug|x86 = Win2003.Debug|x86
+		Win2003|x64 = Win2003|x64
+		Win2003|x86 = Win2003|x86
+		Win2008.Debug|x64 = Win2008.Debug|x64
+		Win2008.Debug|x86 = Win2008.Debug|x86
+		Win2008|x64 = Win2008|x64
+		Win2008|x86 = Win2008|x86
+		WinXP.Debug|x64 = WinXP.Debug|x64
+		WinXP.Debug|x86 = WinXP.Debug|x86
+		WinXP|x64 = WinXP|x64
+		WinXP|x86 = WinXP|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Win2003.Debug|x64.ActiveCfg = Win2003.Debug|x64
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Win2003.Debug|x64.Build.0 = Win2003.Debug|x64
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Win2003.Debug|x86.ActiveCfg = Win2003.Debug|Win32
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Win2003.Debug|x86.Build.0 = Win2003.Debug|Win32
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Win2003|x64.ActiveCfg = Win2003|x64
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Win2003|x64.Build.0 = Win2003|x64
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Win2003|x86.ActiveCfg = Win2003|Win32
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Win2003|x86.Build.0 = Win2003|Win32
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Win2008.Debug|x64.ActiveCfg = Win2008.Debug|x64
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Win2008.Debug|x64.Build.0 = Win2008.Debug|x64
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Win2008.Debug|x86.ActiveCfg = Win2008.Debug|Win32
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Win2008.Debug|x86.Build.0 = Win2008.Debug|Win32
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Win2008|x64.ActiveCfg = Win2008|x64
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Win2008|x64.Build.0 = Win2008|x64
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Win2008|x86.ActiveCfg = Win2008|Win32
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Win2008|x86.Build.0 = Win2008|Win32
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.WinXP.Debug|x64.ActiveCfg = WinXP.Debug|x64
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.WinXP.Debug|x64.Build.0 = WinXP.Debug|x64
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.WinXP.Debug|x86.ActiveCfg = WinXP.Debug|Win32
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.WinXP.Debug|x86.Build.0 = WinXP.Debug|Win32
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.WinXP|x64.ActiveCfg = WinXP|x64
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.WinXP|x64.Build.0 = WinXP|x64
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.WinXP|x86.ActiveCfg = WinXP|Win32
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.WinXP|x86.Build.0 = WinXP|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		VisualSVNWorkingCopyRoot = ..\..
+	EndGlobalSection
+EndGlobal
