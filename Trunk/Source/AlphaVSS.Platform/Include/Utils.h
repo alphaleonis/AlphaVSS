@@ -20,8 +20,6 @@
  */
 #pragma once
 
-#include "Exceptions/VssBadStateException.h"
-
 using namespace System;
 
 

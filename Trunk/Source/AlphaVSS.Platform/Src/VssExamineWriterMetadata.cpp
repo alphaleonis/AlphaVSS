@@ -100,7 +100,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		return true;
 	}
 
-	String^ VssExamineWriterMetadata::SaveAsXML()
+	String^ VssExamineWriterMetadata::SaveAsXml()
 	{
 		AutoBStr xml;
 		CheckCom(mExamineWriterMetadata->SaveAsXML(&xml));

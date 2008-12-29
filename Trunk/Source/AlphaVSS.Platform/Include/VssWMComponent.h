@@ -94,6 +94,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		/// features this component supports.</para>
 		/// <para><b>Windows Server 2003 and Windows XP:</b>  Before Windows Server 2003 SP1, this member is reserved for system use.</para>
 		/// </summary>
+		CA_SUPPRESS_MESSAGE("Microsoft.Naming", "CA1726:UsePreferredTerms", MessageId="Flags")
 		property VssComponentFlags ComponentFlags { VssComponentFlags get(); }
 
 		/// <summary>

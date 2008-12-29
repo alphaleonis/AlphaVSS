@@ -1,3 +1,8 @@
+Version X.X (alpha)
+-------------------
+* Source folder structure changed
+
+
 Version 0.8 (alpha)
 -------------------
 * New build targets and dll-naming to support more versions 

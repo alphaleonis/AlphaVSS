@@ -50,12 +50,14 @@
 				Name="VCCLCompilerTool"
 				Optimization="0"
 				AdditionalIncludeDirectories="&quot;$(ProjectDir)\include&quot;"
-				PreprocessorDefinitions="WIN32;_DEBUG;ALPHAVSS_TARGET=ALPHAVSS_TARGET_WIN2008"
+				PreprocessorDefinitions="WIN32;_DEBUG;ALPHAVSS_TARGET=ALPHAVSS_TARGET_WIN2008;CODE_ANALYSIS"
 				RuntimeLibrary="3"
 				UsePrecompiledHeader="2"
 				XMLDocumentationFileName="$(IntDir)\"
 				WarningLevel="3"
 				DebugInformationFormat="3"
+				ForcedIncludeFiles="CodeAnalysis\SourceAnnotations.h"
+				EnablePREfast="true"
 			/>
 			<Tool
 				Name="VCManagedResourceCompilerTool"
@@ -92,6 +94,9 @@
 			/>
 			<Tool
 				Name="VCFxCopTool"
+				Rules="-Microsoft.Naming#CA1704;-Microsoft.Naming#CA1703"
+				EnableFxCop="true"
+				IgnoreGeneratedCode="false"
 			/>
 			<Tool
 				Name="VCAppVerifierTool"
@@ -133,6 +138,8 @@
 				UsePrecompiledHeader="2"
 				WarningLevel="3"
 				DebugInformationFormat="3"
+				ForcedIncludeFiles="CodeAnalysis\SourceAnnotations.h"
+				EnablePREfast="false"
 			/>
 			<Tool
 				Name="VCManagedResourceCompilerTool"
@@ -210,6 +217,7 @@
 				GenerateXMLDocumentationFiles="true"
 				WarningLevel="3"
 				DebugInformationFormat="3"
+				ForcedIncludeFiles="CodeAnalysis\SourceAnnotations.h"
 			/>
 			<Tool
 				Name="VCManagedResourceCompilerTool"
@@ -284,6 +292,7 @@
 				UsePrecompiledHeader="2"
 				WarningLevel="3"
 				DebugInformationFormat="3"
+				ForcedIncludeFiles="CodeAnalysis\SourceAnnotations.h"
 			/>
 			<Tool
 				Name="VCManagedResourceCompilerTool"
@@ -359,6 +368,7 @@
 				XMLDocumentationFileName="$(OutDir)\"
 				WarningLevel="3"
 				DebugInformationFormat="3"
+				ForcedIncludeFiles="CodeAnalysis\SourceAnnotations.h"
 			/>
 			<Tool
 				Name="VCManagedResourceCompilerTool"
@@ -438,6 +448,7 @@
 				UsePrecompiledHeader="2"
 				WarningLevel="3"
 				DebugInformationFormat="3"
+				ForcedIncludeFiles="CodeAnalysis\SourceAnnotations.h"
 			/>
 			<Tool
 				Name="VCManagedResourceCompilerTool"
@@ -516,6 +527,7 @@
 				UsePrecompiledHeader="2"
 				WarningLevel="3"
 				DebugInformationFormat="3"
+				ForcedIncludeFiles="CodeAnalysis\SourceAnnotations.h"
 			/>
 			<Tool
 				Name="VCManagedResourceCompilerTool"
@@ -591,6 +603,7 @@
 				UsePrecompiledHeader="2"
 				WarningLevel="3"
 				DebugInformationFormat="3"
+				ForcedIncludeFiles="CodeAnalysis\SourceAnnotations.h"
 			/>
 			<Tool
 				Name="VCManagedResourceCompilerTool"
@@ -666,6 +679,7 @@
 				XMLDocumentationFileName="$(OutDir)\"
 				WarningLevel="3"
 				DebugInformationFormat="3"
+				ForcedIncludeFiles="CodeAnalysis\SourceAnnotations.h"
 			/>
 			<Tool
 				Name="VCManagedResourceCompilerTool"
@@ -745,6 +759,7 @@
 				UsePrecompiledHeader="2"
 				WarningLevel="3"
 				DebugInformationFormat="3"
+				ForcedIncludeFiles="CodeAnalysis\SourceAnnotations.h"
 			/>
 			<Tool
 				Name="VCManagedResourceCompilerTool"
@@ -823,6 +838,7 @@
 				UsePrecompiledHeader="2"
 				WarningLevel="3"
 				DebugInformationFormat="3"
+				ForcedIncludeFiles="CodeAnalysis\SourceAnnotations.h"
 			/>
 			<Tool
 				Name="VCManagedResourceCompilerTool"
@@ -898,6 +914,7 @@
 				UsePrecompiledHeader="2"
 				WarningLevel="3"
 				DebugInformationFormat="3"
+				ForcedIncludeFiles="CodeAnalysis\SourceAnnotations.h"
 			/>
 			<Tool
 				Name="VCManagedResourceCompilerTool"
@@ -966,6 +983,10 @@
 			AssemblyName="System.Windows.Forms, Version=2.0.0.0, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL"
 			MinFrameworkVersion="131072"
 		/>
+		<ProjectReference
+			ReferencedProjectIdentifier="{2FB97B30-1050-4F6B-B729-B94AAA178EE4}"
+			RelativePathToProject=".\AlphaVSS.Common\AlphaVSS.Common.csproj"
+		/>
 	</References>
 	<Files>
 		<Filter
@@ -980,6 +1001,106 @@
 			<File
 				RelativePath=".\Src\Error.cpp"
 				>
+			</File>
+			<File
+				RelativePath=".\GlobalSuppressions.cpp"
+				>
+				<FileConfiguration
+					Name="Win2008.Debug|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						UsePrecompiledHeader="0"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Win2008.Debug|x64"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						UsePrecompiledHeader="0"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Win2008|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						UsePrecompiledHeader="0"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Win2008|x64"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						UsePrecompiledHeader="0"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="WinXP.Debug|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						UsePrecompiledHeader="0"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="WinXP.Debug|x64"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						UsePrecompiledHeader="0"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="WinXP|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						UsePrecompiledHeader="0"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="WinXP|x64"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						UsePrecompiledHeader="0"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Win2003.Debug|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						UsePrecompiledHeader="0"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Win2003.Debug|x64"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						UsePrecompiledHeader="0"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Win2003|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						UsePrecompiledHeader="0"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Win2003|x64"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						UsePrecompiledHeader="0"
+					/>
+				</FileConfiguration>
 			</File>
 			<File
 				RelativePath=".\Src\OsInfo.cpp"
@@ -1156,106 +1277,6 @@
 			<Filter
 				Name="Exceptions"
 				>
-				<File
-					RelativePath=".\Src\Exceptions\VssBadStateException.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\Src\Exceptions\VssDeleteSnapshotsFailedException.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\Src\Exceptions\VssException.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\Src\Exceptions\VssFlushWritesTimeoutException.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\Src\Exceptions\VssHoldWritesTimeoutException.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\Src\Exceptions\VssInsufficientStorageException.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\Src\Exceptions\VssInvalidXmlDocumentException.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\Src\Exceptions\VssMaximumNumberOfSnapshotsReachedException.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\Src\Exceptions\VssMaximumNumberOfVolumesReachedException.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\Src\Exceptions\VssObjectAlreadyExistsException.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\Src\Exceptions\VssObjectNotFoundException.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\Src\Exceptions\VssProviderNotRegisteredException.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\Src\Exceptions\VssProviderVetoException.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\Src\Exceptions\VssRebootRequiredException.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\Src\Exceptions\VssRevertInProgressException.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\Src\Exceptions\VssSnapshotSetInProgressException.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\Src\Exceptions\VssTransactionFreezeTimeoutException.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\Src\Exceptions\VssTransactionThawTimeoutException.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\Src\Exceptions\VssUnexpectedProviderErrorException.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\Src\Exceptions\VssUnexpectedWriterError.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\Src\Exceptions\VssUnsupportedContextException.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\Src\Exceptions\VssVolumeInUseException.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\Src\Exceptions\VssVolumeNotSupportedByProviderException.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\Src\Exceptions\VssVolumeNotSupportedException.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\Src\Exceptions\VssWriterInfrastructureException.cpp"
-					>
-				</File>
 			</Filter>
 		</Filter>
 		<Filter
@@ -1446,106 +1467,6 @@
 			<Filter
 				Name="Exceptions"
 				>
-				<File
-					RelativePath=".\Include\Exceptions\VssBadStateException.h"
-					>
-				</File>
-				<File
-					RelativePath=".\Include\Exceptions\VssDeleteSnapshotsFailedException.h"
-					>
-				</File>
-				<File
-					RelativePath=".\Include\Exceptions\VssException.h"
-					>
-				</File>
-				<File
-					RelativePath=".\Include\Exceptions\VssFlushWritesTimeoutException.h"
-					>
-				</File>
-				<File
-					RelativePath=".\Include\Exceptions\VssHoldWritesTimeoutException.h"
-					>
-				</File>
-				<File
-					RelativePath=".\Include\Exceptions\VssInsufficientStorageException.h"
-					>
-				</File>
-				<File
-					RelativePath=".\Include\Exceptions\VssInvalidXmlDocumentException.h"
-					>
-				</File>
-				<File
-					RelativePath=".\Include\Exceptions\VssMaximumNumberOfSnapshotsReachedException.h"
-					>
-				</File>
-				<File
-					RelativePath=".\Include\Exceptions\VssMaximumNumberOfVolumesReachedException.h"
-					>
-				</File>
-				<File
-					RelativePath=".\Include\Exceptions\VssObjectAlreadyExistsException.h"
-					>
-				</File>
-				<File
-					RelativePath=".\Include\Exceptions\VssObjectNotFoundException.h"
-					>
-				</File>
-				<File
-					RelativePath=".\Include\Exceptions\VssProviderNotRegisteredException.h"
-					>
-				</File>
-				<File
-					RelativePath=".\Include\Exceptions\VssProviderVetoException.h"
-					>
-				</File>
-				<File
-					RelativePath=".\Include\Exceptions\VssRebootRequiredException.h"
-					>
-				</File>
-				<File
-					RelativePath=".\Include\Exceptions\VssRevertInProgressException.h"
-					>
-				</File>
-				<File
-					RelativePath=".\Include\Exceptions\VssSnapshotSetInProgressException.h"
-					>
-				</File>
-				<File
-					RelativePath=".\Include\Exceptions\VssTransactionFreezeTimeoutException.h"
-					>
-				</File>
-				<File
-					RelativePath=".\Include\Exceptions\VssTransactionThawTimeoutException.h"
-					>
-				</File>
-				<File
-					RelativePath=".\Include\Exceptions\VssUnexpectedProviderError.h"
-					>
-				</File>
-				<File
-					RelativePath=".\Include\Exceptions\VssUnexpectedWriterError.h"
-					>
-				</File>
-				<File
-					RelativePath=".\Include\Exceptions\VssUnsupportedContextException.h"
-					>
-				</File>
-				<File
-					RelativePath=".\Include\Exceptions\VssVolumeInUseException.h"
-					>
-				</File>
-				<File
-					RelativePath=".\Include\Exceptions\VssVolumeNotSupportedByProviderException.h"
-					>
-				</File>
-				<File
-					RelativePath=".\Include\Exceptions\VssVolumeNotSupportedException.h"
-					>
-				</File>
-				<File
-					RelativePath=".\Include\Exceptions\VssWriterInfrastructureException.h"
-					>
-				</File>
 			</Filter>
 		</Filter>
 		<Filter

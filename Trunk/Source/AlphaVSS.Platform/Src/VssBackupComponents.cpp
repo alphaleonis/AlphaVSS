@@ -30,6 +30,7 @@
 #include "VssProviderProperties.h"
 
 using namespace System::Collections::Generic;
+using namespace System::Security::Permissions;
 
 namespace Alphaleonis { namespace Win32 { namespace Vss
 {
@@ -125,13 +126,13 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 #endif
 	}
 
-	void VssBackupComponents::AddRestoreSubcomponent(Guid writerId, VssComponentType componentType, String^ logicalPath, String ^componentName, String^ SubcomponentLogicalPath, String^ SubcomponentName)
+	void VssBackupComponents::AddRestoreSubcomponent(Guid writerId, VssComponentType componentType, String^ logicalPath, String ^componentName, String^ subcomponentLogicalPath, String^ subcomponentName)
 	{
 		CheckCom(mBackup->AddRestoreSubcomponent(ToVssId(writerId), (VSS_COMPONENT_TYPE)componentType,
 			AutoMStr(logicalPath),
 			NoNullAutoMStr(componentName),
-			NoNullAutoMStr(SubcomponentLogicalPath),
-			NoNullAutoMStr(SubcomponentName),
+			NoNullAutoMStr(subcomponentLogicalPath),
+			NoNullAutoMStr(subcomponentName),
 			false));
 	}
 
@@ -142,6 +143,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		return ToGuid(idSnapshot);
 	}
 
+	[SecurityPermissionAttribute(SecurityAction::LinkDemand)]
 	VssAsync ^ VssBackupComponents::BackupComplete()
 	{
 		IVssAsync *pAsync;
@@ -468,7 +470,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 #endif
 	}
 
-	String^ VssBackupComponents::SaveAsXML()
+	String^ VssBackupComponents::SaveAsXml()
 	{
 		AutoBStr bstrXML;
 		CheckCom(mBackup->SaveAsXML(&bstrXML));

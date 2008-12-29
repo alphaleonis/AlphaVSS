@@ -50,6 +50,8 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	/// <summary>The <see cref="VssBackupSchema"/> enumeration is used by a writer to indicate the types of backup operations it can participate in. 
 	/// The supported kinds of backup are expressed as a bit mask (or bitwise OR) of <see cref="VssBackupSchema"/> values.</summary>
 	/// <remarks><b>Windows XP:</b> This enumeration is not available until Windows Server 2003 or later.</remarks>
+	CA_SUPPRESS_MESSAGE("Microsoft.Design", "CA1008:EnumsShouldHaveZeroValue")
+	CA_SUPPRESS_MESSAGE("Microsoft.Naming", "CA1714:FlagsEnumsShouldHavePluralNames")
 	[Flags]
 	public enum class VssBackupSchema
 	{

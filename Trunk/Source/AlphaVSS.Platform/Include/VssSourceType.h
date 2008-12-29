@@ -31,10 +31,10 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		Undefined = VSS_ST_UNDEFINED,
 		
 		/// <summary>The source of the data is a database that supports transactions, such as Microsoft SQL Server.</summary>
-		TransactedDb = VSS_ST_TRANSACTEDDB,
+		TransactedDB = VSS_ST_TRANSACTEDDB,
 		
 		/// <summary>The source of the data is a database that does not support transactions.</summary>
-		NonTransactedDb = VSS_ST_NONTRANSACTEDDB,
+		NonTransactedDB = VSS_ST_NONTRANSACTEDDB,
 
 		/// <summary>
 		///     <para>Unclassified source type—data will be in a file group.</para>

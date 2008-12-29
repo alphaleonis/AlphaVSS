@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2FB97B30-1050-4F6B-B729-B94AAA178EE4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Alphaleonis.Win32.Vss</RootNamespace>
+    <AssemblyName>AlphaVSS.Common</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\x86\Release\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
+    <OutputPath>..\..\Bin\</OutputPath>
+    <PlatformTarget>x64</PlatformTarget>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
+    <OutputPath>..\..\Bin\</OutputPath>
+    <PlatformTarget>x64</PlatformTarget>
+    <DocumentationFile>..\..\Bin\AlphaVSS.Common.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>..\..\Bin\</OutputPath>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <CodeAnalysisRules>-Microsoft.Naming#CA1704;-Microsoft.Naming#CA1703</CodeAnalysisRules>
+    <DocumentationFile>..\..\Bin\AlphaVSS.Common.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>..\..\Bin\</OutputPath>
+    <DocumentationFile>..\..\Bin\AlphaVSS.Common.XML</DocumentationFile>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Exceptions\VssUnsupportedContextException.cs" />
+    <Compile Include="Exceptions\VssBadStateException.cs" />
+    <Compile Include="Exceptions\VssDeleteSnapshotsFailedException.cs" />
+    <Compile Include="Exceptions\VssFlushWritesTimeoutException.cs" />
+    <Compile Include="Exceptions\VssHoldWritesTimeoutException.cs" />
+    <Compile Include="Exceptions\VssInsufficientStorageException.cs" />
+    <Compile Include="Exceptions\VssInvalidXmlDocumentException.cs" />
+    <Compile Include="Exceptions\VssMaximumNumberOfSnapshotsReachedException.cs" />
+    <Compile Include="Exceptions\VssMaximumNumberOfVolumesReachedException.cs" />
+    <Compile Include="Exceptions\VssObjectAlreadyExistsException.cs" />
+    <Compile Include="Exceptions\VssObjectNotFoundException.cs" />
+    <Compile Include="Exceptions\VssProviderNotRegisteredException.cs" />
+    <Compile Include="Exceptions\VssProviderVetoException.cs" />
+    <Compile Include="Exceptions\VssRebootRequiredException.cs" />
+    <Compile Include="Exceptions\VssRevertInProgressException.cs" />
+    <Compile Include="Exceptions\VssSnapshotSetInProgressException.cs" />
+    <Compile Include="Exceptions\VssTransactionFreezeTimeoutException.cs" />
+    <Compile Include="Exceptions\VssTransactionThawTimeoutException.cs" />
+    <Compile Include="Exceptions\VssUnexpectedProviderError.cs" />
+    <Compile Include="Exceptions\VssUnexpectedWriterError.cs" />
+    <Compile Include="Exceptions\VssVolumeInUseException.cs" />
+    <Compile Include="Exceptions\VssVolumeNotSupportedByProviderException.cs" />
+    <Compile Include="Exceptions\VssVolumeNotSupportedException.cs" />
+    <Compile Include="Exceptions\VssWriterInfrastructureException.cs" />
+    <Compile Include="GlobalSuppression.cs" />
+    <Compile Include="Exceptions\VssException.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\LocalizedStrings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LocalizedStrings.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\LocalizedStrings.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>LocalizedStrings.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

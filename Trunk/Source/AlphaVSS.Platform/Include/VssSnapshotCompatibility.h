@@ -29,6 +29,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	/// <summary>
 	///	The <see cref="VssSnapshotCompatibility"/> enumeration indicates which volume control or file I/O operations are disabled for the 
 	///	volume that has been shadow copied.</summary>
+	CA_SUPPRESS_MESSAGE("Microsoft.Naming", "CA1714:FlagsEnumsShouldHavePluralNames")
 	[Flags]
 	public enum class VssSnapshotCompatibility
 	{

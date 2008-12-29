@@ -102,6 +102,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss {
 		}
 
 	private:
+		OsInfo() {}
 		static OsVersion GetFamily(OsVersion osVersion);
 		static OsVersion GetSp(OsVersion osVersion);
 		static OsArchitecture mArchitecture;

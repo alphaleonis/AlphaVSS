@@ -56,7 +56,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		/// <param name="xml">A string containing a Writer Metadata Document with which to initialize the returned <see cref="VssExamineWriterMetadata"/> object.</param>
 		/// <remarks>
 		/// 	This method attempts to load the returned <see cref="VssExamineWriterMetadata"/> object with metadata previously stored by a call to 
-		/// 	<see cref="VssExamineWriterMetadata::SaveAsXML"/>. Users should not tamper with this metadata document.
+		/// 	<see cref="VssExamineWriterMetadata::SaveAsXml"/>. Users should not tamper with this metadata document.
 		/// </remarks>
 		/// <returns>a <see cref="VssExamineWriterMetadata"/> instance initialized with the specified XML document.</returns>
 		static VssExamineWriterMetadata^ Create(String^ xml);
@@ -71,11 +71,11 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		bool LoadFromXML(String^ xml);
 
 		/// <summary>
-		/// The <see cref="SaveAsXML"/> method saves the Writer Metadata Document that contains a writer's state information to a specified string. 
+		/// The <see cref="SaveAsXml"/> method saves the Writer Metadata Document that contains a writer's state information to a specified string. 
 		/// This string can be saved as part of a backup operation.
 		/// </summary>
 		/// <returns>The Writer Metadata Document that contains a writer's state information.</returns>
-		String^ SaveAsXML();
+		String^ SaveAsXml();
 
 		/// <summary>
 		/// The <see cref="BackupSchema"/> property is examined by a requester to determine from the 

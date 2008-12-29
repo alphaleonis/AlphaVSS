@@ -24,6 +24,7 @@
 
 namespace Alphaleonis { namespace Win32 { namespace Vss
 {
+	[System::Security::Permissions::SecurityPermissionAttribute(System::Security::Permissions::SecurityAction::LinkDemand)]
 	VssAsync^ VssAsync::Adopt(IVssAsync *vssAsync)
 	{
 		try
