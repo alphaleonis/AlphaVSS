@@ -1,4 +1,4 @@
-/* Copyright (c) 2008 Peter Palotas
+﻿/* Copyright (c) 2008 Peter Palotas
  *  
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -18,23 +18,20 @@
  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  *  THE SOFTWARE.
  */
-#pragma once
-
-#include <vss.h>
-
-namespace Alphaleonis { namespace Win32 { namespace Vss
+namespace Alphaleonis.Win32.Vss
 {
-	/// <summary>The <see cref="VssWriterRestore"/> enumeration is used by a writer to indicate to a requester the conditions under which it will handle events generated during a restore operation.</summary>
-	public enum class VssWriterRestore
+	/// <summary>The <see cref="VssWriterRestore"/> enumeration is used by a writer to indicate to a requester the 
+    /// conditions under which it will handle events generated during a restore operation.</summary>
+	public enum VssWriterRestore
 	{
 		/// <summary>
 		/// 	<para>It is not known whether the writer will perform special operations during the restore operation.</para>
 		/// 	<para>This state indicates a writer error.</para>
 		/// </summary>
-		Undefined = VSS_WRE_UNDEFINED,
+		Undefined = 0,
 
 		/// <summary>The writer does not require restore events.</summary>
-		Never = VSS_WRE_NEVER,
+		Never = 1,
 
 		/// <summary>
 		/// 	Indicates that the writer always expects to handle a <c>PreRestore</c> event, but expects to handle a 
@@ -42,10 +39,9 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		/// 	<see dref="F:Alphaleonis.Win32.Vss.VssRestoreMethod.RestoreIfNotThere"/> or
 		/// 	<see dref="F:Alphaleonis.Win32.Vss.VssRestoreMethod.RestoreIfCanReplace"/> restore method (<see dref="T:Alphaleonis.Win32.Vss.VssRestoreMethod"/>)
 		/// </summary>
-		IfReplaceFails = VSS_WRE_IF_REPLACE_FAILS,
+		IfReplaceFails = 2,
 
 		/// <summary>The writer always performs special operations during the restore operation.</summary>
-		Always = VSS_WRE_ALWAYS
-	};
+		Always = 3
+	}
 }
-} }

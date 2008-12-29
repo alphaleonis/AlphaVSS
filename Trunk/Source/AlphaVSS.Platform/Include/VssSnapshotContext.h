@@ -21,8 +21,6 @@
 #pragma once
 
 
-#include "VssVolumeSnapshotAttributes.h"
-
 #include <vss.h>
 
 namespace Alphaleonis { namespace Win32 { namespace Vss

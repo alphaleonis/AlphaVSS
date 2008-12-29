@@ -20,9 +20,6 @@
  */
 #pragma once
 
-
-#include "VssVolumeSnapshotAttributes.h"
-#include "VssSnapshotState.h"
 #include <vss.h>
 
 namespace Alphaleonis { namespace Win32 { namespace Vss

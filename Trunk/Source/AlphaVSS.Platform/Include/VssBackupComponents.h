@@ -21,14 +21,10 @@
 #pragma once
 
 #include "VssError.h"
-#include "VssVolumeSnapshotAttributes.h"
 #include "VssSnapshotProperties.h"
 #include "VssProviderProperties.h"
 #include "VssWriterComponents.h"
 #include "VssExamineWriterMetadata.h"
-#include "VssWriterFailure.h"
-#include "VssWriterState.h"
-#include "VssWriterStatus.h"
 
 using namespace System;
 using namespace System::Collections::Generic;
@@ -655,7 +651,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		/// <exception cref="SystemException">Unexpected VSS system error. The error code is logged in the event log.</exception>
 		/// <exception cref="VssBadStateException">The backup components object is not initialized, this method has been called during a restore operation, or this method has not been called within the correct sequence.</exception>		
 		/// <exception cref="VssObjectNotFoundException">The specified shadow copy does not exist.</exception>
-		property IList<VssWriterStatus^>^ WriterStatus { IList<VssWriterStatus^>^ get(); }
+		property IList<VssWriterStatusInfo^>^ WriterStatus { IList<VssWriterStatusInfo^>^ get(); }
 
 
 		/// <summary>The ImportSnapshots method imports shadow copies transported from a different machine.</summary>
@@ -1439,13 +1435,13 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 			VssBackupComponents^ mBackupComponents;
 		};
 
-		ref class WriterStatusList : VssListAdapter<VssWriterStatus^>
+		ref class WriterStatusList : VssListAdapter<VssWriterStatusInfo^>
 		{
 		public:
 			WriterStatusList(VssBackupComponents^ backupComponents);
 
 			property int Count { virtual int get() override; }
-			property VssWriterStatus^ default[int] { virtual VssWriterStatus^ get(int index) override; }
+			property VssWriterStatusInfo^ default[int] { virtual VssWriterStatusInfo^ get(int index) override; }
 		private:
 			VssBackupComponents^ mBackupComponents;
 		};

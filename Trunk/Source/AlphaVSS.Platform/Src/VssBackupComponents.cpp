@@ -251,7 +251,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		return (int)cWriters;
 	}
 
-	VssWriterStatus^ VssBackupComponents::WriterStatusList::default::get(int index)
+	VssWriterStatusInfo^ VssBackupComponents::WriterStatusList::default::get(int index)
 	{
 		if (index < 0 || index > Count)
 			throw gcnew ArgumentOutOfRangeException("index");
@@ -264,7 +264,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		VSS_WRITER_STATE eState;
 		HRESULT hrResultFailure;
 		CheckCom(mBackupComponents->mBackup->GetWriterStatus(index, &idInstance, &idWriter, &bstrWriter, &eState, &hrResultFailure));
-		return gcnew VssWriterStatus(ToGuid(idInstance), ToGuid(idWriter), bstrWriter, (VssWriterState)eState, (VssWriterFailure)hrResultFailure);
+		return gcnew VssWriterStatusInfo(ToGuid(idInstance), ToGuid(idWriter), bstrWriter, (VssWriterState)eState, (VssWriterFailure)hrResultFailure);
 	}
 
 
@@ -335,7 +335,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		return mWriterComponents;
 	}
 
-	IList<VssWriterStatus^>^ VssBackupComponents::WriterStatus::get()
+	IList<VssWriterStatusInfo^>^ VssBackupComponents::WriterStatus::get()
 	{
 		return mWriterStatus;
 	}

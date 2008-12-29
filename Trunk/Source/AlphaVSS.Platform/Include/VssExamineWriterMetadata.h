@@ -21,11 +21,8 @@
 #pragma once
 
 #include <vss.h>
-#include "VssUsageType.h"
-#include "VssSourceType.h"
 #include "VssWMFileDescription.h"
 #include "VssWMComponent.h"
-#include "VssWriterRestore.h"
 #include "VssWMRestoreMethod.h"
 
 using namespace System::Text;

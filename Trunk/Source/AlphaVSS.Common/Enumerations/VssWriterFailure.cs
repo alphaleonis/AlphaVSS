@@ -1,4 +1,4 @@
-/* Copyright (c) 2008 Peter Palotas
+﻿/* Copyright (c) 2008 Peter Palotas
  *  
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -18,36 +18,32 @@
  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  *  THE SOFTWARE.
  */
-#pragma once
 
-#include <vss.h>
-#include "VssError.h"
-
-namespace Alphaleonis { namespace Win32 { namespace Vss
+namespace Alphaleonis.Win32.Vss
 {
 	/// <summary>Enumeration representing the status of a writer.</summary>
-	public enum class VssWriterFailure
+	public enum VssWriterFailure : long
 	{
 		/// <summary>Indication of a successful operation.</summary>
-		Ok = S_OK,
+		Ok = 0L,
 
 		/// <summary>The shadow copy contains only a subset of the volumes needed by the writer to correctly back up the application component.</summary>
-		InconsistenSnapshot = VSS_E_WRITERERROR_INCONSISTENTSNAPSHOT,
+        InconsistenSnapshot = 0x800423F0L,
 
 		/// <summary>The writer ran out of memory or other system resources. The recommended way to handle this error code is to wait ten minutes and then repeat the operation, up to three times.</summary>
-		OutOfResources = VSS_E_WRITERERROR_OUTOFRESOURCES,
+        OutOfResources = 0x800423F1L,
 
 		/// <summary>The writer operation failed because of a time-out between the Freeze and Thaw events. The recommended way to handle this error code is to wait ten minutes and then repeat the operation, up to three times.</summary>
-		Timeout = VSS_E_WRITERERROR_TIMEOUT,
+        Timeout = 0x800423F2L,
 
 		/// <summary>The writer failed due to an error that would likely not occur if the entire backup, restore, or shadow copy creation process was restarted. The recommended way to handle this error code is to wait ten minutes and then repeat the operation, up to three times.</summary>
-		Retryable = VSS_E_WRITERERROR_RETRYABLE,
+        Retryable = 0x800423F3L,
 
 		/// <summary>The writer operation failed because of an error that might recur if another shadow copy is created.</summary>
-		NonRetryable = VSS_E_WRITERERROR_NONRETRYABLE,
+        NonRetryable = 0x800423F4L,
 
 		/// <summary>The writer is not responding.</summary>
-		NotResponding = VSS_E_WRITER_NOT_RESPONDING,
+        NotResponding = 0x80042319L,
 
 		/// <summary>
 		/// 	<para>
@@ -58,8 +54,8 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		/// 		<b>Windows Vista, Windows Server 2003, and Windows XP:</b> This value is not supported.
 		/// 	</para>
 		/// </summary>
-		StatusNotAvailable = VSS_E_WRITER_STATUS_NOT_AVAILABLE
+        StatusNotAvailable = 0x80042409L
 	};
 }
-} }
+
 

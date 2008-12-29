@@ -1,4 +1,4 @@
-/* Copyright (c) 2008 Peter Palotas
+﻿/* Copyright (c) 2008 Peter Palotas
  *  
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -18,14 +18,11 @@
  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  *  THE SOFTWARE.
  */
-#pragma once
 
-
-
-namespace Alphaleonis { namespace Win32 { namespace Vss
+namespace Alphaleonis.Win32.Vss
 {
 	/// <summary>The <see cref="VssSnapshotState"/> enumeration is returned by a provider to specify the state of a given shadow copy operation.</summary>
-	public enum class VssSnapshotState
+	public enum VssSnapshotState
 	{
 		/// <summary><para>Reserved for system use.</para><para>Unknown shadow copy state.</para></summary>
 		Unknown						= 0x00,
@@ -59,8 +56,5 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		Deleted						= 0x0E,
 		/// <summary><para>Reserved value.</para></summary>
 		PostCommitted				= 0x0F,
-		/// <summary><para>Reserved value..</para></summary>
-		Count						= 0x10
-	};
+	}
 }
-} }

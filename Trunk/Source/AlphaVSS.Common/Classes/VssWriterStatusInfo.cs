@@ -1,4 +1,4 @@
-/* Copyright (c) 2008 Peter Palotas
+﻿/* Copyright (c) 2008 Peter Palotas
  *  
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -18,12 +18,9 @@
  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  *  THE SOFTWARE.
  */
-#pragma once
 
-#include "VssWriterState.h"
-#include "VssWriterFailure.h"
-
-namespace Alphaleonis { namespace Win32 { namespace Vss
+using System;
+namespace Alphaleonis.Win32.Vss
 {
 	/// <summary>
 	/// Represenation of the status for a specific writer.
@@ -31,37 +28,42 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	/// <remarks>This class acts as a container for the information returned from 
 	/// <see href="http://msdn.microsoft.com/en-us/library/aa382680(VS.85).aspx">IVssBackupComponents::GetWriterStatus</see> in the original
 	/// VSS API</remarks>
-	public ref class VssWriterStatus
+	public class VssWriterStatusInfo
 	{
-	public:
-		/// <summary>
+        public VssWriterStatusInfo(Guid instanceId, Guid writerId, string writerName, VssWriterState state, VssWriterFailure failure)
+        {
+            mInstanceId = instanceId;
+            mClassId = writerId;
+            mName = writerName;
+            mState = state;
+            mFailure = failure;
+        }
+
+	    /// <summary>
 		/// The instance id of the writer.
 		/// </summary>
-		property Guid InstanceId { Guid get(); }
+		public Guid InstanceId { get { return mInstanceId; } }
 		/// <summary>
 		/// The identifier of the writer class.
 		/// </summary>
-		property Guid ClassId { Guid get(); }
+		public Guid ClassId { get { return mClassId; } }
 		/// <summary>
 		/// The name of the writer.
 		/// </summary>
-		property String^ Name { String^ get(); }
+		public string Name { get { return mName; } }
 		/// <summary>
 		/// A <see cref="VssWriterState"/> value containing the state of the writer.
 		/// </summary>
-		property VssWriterState State { VssWriterState get(); }
+		public VssWriterState State { get { return mState; } }
 		/// <summary>
 		/// A <see cref="VssWriterFailure"/> value indicating the failure code (if any) of the writer.
 		/// </summary>
-		property VssWriterFailure Failure { VssWriterFailure get(); }
-	internal:
-		VssWriterStatus(Guid instanceId, Guid writerId, String^ writerName, VssWriterState state, VssWriterFailure failure);
-	private:
-		Guid mInstanceId;
-		Guid mClassId;
-		String^ mName;
-		VssWriterState mState;
-		VssWriterFailure mFailure;
+		public VssWriterFailure Failure { get { return mFailure; } }
+	
+		private Guid mInstanceId;
+        private Guid mClassId;
+        private string mName;
+        private VssWriterState mState;
+        private VssWriterFailure mFailure;
 	};
 }
-} }

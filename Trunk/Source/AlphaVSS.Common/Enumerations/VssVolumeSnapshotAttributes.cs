@@ -1,4 +1,4 @@
-/* Copyright (c) 2008 Peter Palotas
+﻿/* Copyright (c) 2008 Peter Palotas
  *  
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -18,16 +18,9 @@
  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  *  THE SOFTWARE.
  */
-#pragma once
 
-using namespace System;
-
-namespace Alphaleonis { namespace Win32 { namespace Vss
+namespace Alphaleonis.Win32.Vss
 {
-	ref class VssBackupComponents;
-	ref class VssSnapshotContext;
-
-	[FlagsAttribute]
 	/// <summary>
 	/// Allows additional attributes to be specified for a shadow copy. The context of a shadow copy (as set by the SetContext method in <see cref="VssBackupComponents" /> method) 
 	/// may be modified by a bitmask that contains a valid combination of <see cref="VssVolumeSnapshotAttributes" /> and 
@@ -35,7 +28,8 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	/// </summary>
 	/// <remarks>In the VSS API, these values are represented by the enumeration 
 	/// <seealso cref="VssSnapshotContext" /> </remarks>
-	public enum class VssVolumeSnapshotAttributes 
+    [System.Flags]
+	public enum VssVolumeSnapshotAttributes 
 	{
 		/// <summary>The shadow copy is persistent across reboots.
 		/// This attribute is automatically set for <see cref="VssSnapshotContext" /> contexts of <c>AppRollback</c>
@@ -63,7 +57,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		ClientAccessible	= 0x00000004,
 		/// <summary>
 		/// <para>The shadow copy is not automatically deleted when the shadow copy requester process ends. 
-		/// The shadow copy can be deleted only by a call to <see dref="M:Alphaleonis.Win32.Vss.VssBackupComponents.DeleteSnapshots(System.Guid,Alphaleonis.Win32.Vss.VssObjectType,System.Boolean,System.Int64@,System.Guid@)"/>.</para>
+		/// The shadow copy can be deleted only by a call to <see cref="IVssBackupComponents.DeleteSnapshots(System.Guid,Alphaleonis.Win32.Vss.VssObjectType,System.Boolean,System.Int64@,System.Guid@)"/>.</para>
 		/// <para>This attribute is automatically set for <see cref="VssSnapshotContext"/> contexts of <c>Rollback</c>,
 		/// <c>ClientAccessible</c>, <c>ClientAccessibleWriters</c> and <c>Rollback</c>.</para>
 		/// </summary>
@@ -93,7 +87,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		/// <para>The shadow copy is not transacted.</para>
 		/// <para>A requester can modify a shadow copy context with a bitwise OR of this attribute. By doing this, the requester instructs VSS to 
 		/// disable built-in integration between VSS and transaction and resource managers.</para>
-		/// <para>Setting this attribute guarantees that the requester will not receive VSS_E_TRANSACTION_FREEZE_TIMEOUT errors. However, it may 
+		/// <para>Setting this attribute guarantees that the requester will not receive <see cref="VssTransactionFreezeTimeoutException"/> errors. However, it may 
 		/// cause unwanted consequences, such as the loss of transactional integrity or even data loss.</para>
 		/// <para><b>Windows Server 2003 and Windows XP:</b>  This value is not supported until Windows Vista.</para>
 		/// </summary>
@@ -110,18 +104,18 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		/// <para>Indicates that a given provider uses differential data or a copy-on-write mechanism to implement shadow copies. </para>
 		/// <para>A requester can modify a shadow copy context with a bitwise OR of this attribute. By doing this, the requester instructs providers 
 		/// to create a shadow copy using a differential implementation. If no shadow copy provider installed on the system supports the 
-		/// requested attributes, a VSS_E_VOLUME_NOT_SUPPORTED error will be returned to <see dref="M:Alphaleonis.Win32.Vss.VssBackupComponents.AddToSnapshotSet(System.String,System.Guid)"/>.</para>
+		/// requested attributes, a <see cref="VssVolumeNotSupported"/> error will be returned to <see cref="IVssBackupComponents.AddToSnapshotSet(System.String,System.Guid)"/>.</para>
 		/// </summary>
 		Differential		= 0x00020000,
 		/// <summary>
 		/// <para>Indicates that a given provider uses a PLEX or mirrored split mechanism to implement shadow copies. </para>
 		/// <para>A requester can modify a shadow copy context with a bitwise OR of this attribute. By doing this, the requester instructs the providers to create a shadow copy using a PLEX implementation. If no shadow copy provider installed on the system supports the requested 
-		/// attributes, a VSS_E_VOLUME_NOT_SUPPORTED error will be returned to <see dref="M:Alphaleonis.Win32.Vss.VssBackupComponents.AddToSnapshotSet(System.String,System.Guid)"/>.</para>
+        /// attributes, a <see cref="VssVolumeNotSupported"/> error will be returned to <see cref="IVssBackupComponents.AddToSnapshotSet(System.String,System.Guid)"/>.</para>
 		/// </summary>
 		Plex				= 0x00040000,
 		/// <summary>
 		/// <para>The shadow copy of the volume was imported onto this machine using the <see dref="M:Alphaleonis.Win32.Vss.VssBackupComponents.ImportSnapshots"/> method 
-		/// rather than created using the <see dref="M:Alphaleonis.Win32.Vss.VssBackupComponents.DoSnapshotSet"/> method. </para>
+		/// rather than created using the <see cref="IVssBackupComponents.DoSnapshotSet"/> method. </para>
 		/// <para>This attribute is automatically set if a shadow copy is imported.</para>
 		/// <para>This attribute should not be used explicitly by requesters when setting the context of a shadow copy.</para>
 		/// </summary>
@@ -163,7 +157,5 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		/// <para><b>Windows Vista, Windows Server 2003, and Windows XP:</b>  This value is not supported until Windows Server 2008.</para>
 		/// </summary>
 		TxFRecovery			= 0x02000000
-	};
-
+	}
 }
-} }

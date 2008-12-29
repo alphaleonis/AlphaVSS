@@ -1254,10 +1254,6 @@
 				RelativePath=".\Src\VssWriterComponents.cpp"
 				>
 			</File>
-			<File
-				RelativePath=".\Src\VssWriterStatus.cpp"
-				>
-			</File>
 		</Filter>
 		<Filter
 			Name="Header Files"
@@ -1329,22 +1325,6 @@
 				>
 			</File>
 			<File
-				RelativePath=".\Include\VssSnapshotState.h"
-				>
-			</File>
-			<File
-				RelativePath=".\Include\VssSourceType.h"
-				>
-			</File>
-			<File
-				RelativePath=".\Include\VssUsageType.h"
-				>
-			</File>
-			<File
-				RelativePath=".\Include\VssVolumeSnapshotAttributes.h"
-				>
-			</File>
-			<File
 				RelativePath=".\Include\VssWMComponent.h"
 				>
 			</File>
@@ -1362,22 +1342,6 @@
 			</File>
 			<File
 				RelativePath=".\Include\VssWriterComponents.h"
-				>
-			</File>
-			<File
-				RelativePath=".\Include\VssWriterFailure.h"
-				>
-			</File>
-			<File
-				RelativePath=".\Include\VssWriterRestore.h"
-				>
-			</File>
-			<File
-				RelativePath=".\Include\VssWriterState.h"
-				>
-			</File>
-			<File
-				RelativePath=".\Include\VssWriterStatus.h"
 				>
 			</File>
 		</Filter>

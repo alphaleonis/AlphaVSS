@@ -65,6 +65,7 @@
     <Compile Include="Classes\VssDifferencedFileInfo.cs" />
     <Compile Include="Classes\VssDirectedTargetInfo.cs" />
     <Compile Include="Classes\VssRestoreSubComponentInfo.cs" />
+    <Compile Include="Classes\VssWriterStatusInfo.cs" />
     <Compile Include="Enumerations\VssBackupSchema.cs" />
     <Compile Include="Enumerations\VssBackupType.cs" />
     <Compile Include="Enumerations\VssComponentFlags.cs" />
@@ -78,6 +79,13 @@
     <Compile Include="Enumerations\VssRestoreTarget.cs" />
     <Compile Include="Enumerations\VssRestoreType.cs" />
     <Compile Include="Enumerations\VssSnapshotCompatibility.cs" />
+    <Compile Include="Enumerations\VssSnapshotState.cs" />
+    <Compile Include="Enumerations\VssSourceType.cs" />
+    <Compile Include="Enumerations\VssUsageType.cs" />
+    <Compile Include="Enumerations\VssVolumeSnapshotAttributes.cs" />
+    <Compile Include="Enumerations\VssWriterRestore.cs" />
+    <Compile Include="Enumerations\VssWriterState.cs" />
+    <Compile Include="Enumerations\VssWriterFailure.cs" />
     <Compile Include="Exceptions\VssUnsupportedContextException.cs" />
     <Compile Include="Exceptions\VssBadStateException.cs" />
     <Compile Include="Exceptions\VssDeleteSnapshotsFailedException.cs" />

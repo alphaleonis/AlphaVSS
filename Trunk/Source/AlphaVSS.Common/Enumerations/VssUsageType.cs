@@ -1,4 +1,4 @@
-/* Copyright (c) 2008 Peter Palotas
+ï»¿/* Copyright (c) 2008 Peter Palotas
  *  
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -18,30 +18,22 @@
  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  *  THE SOFTWARE.
  */
-#pragma once
-
-#include <vss.h>
-
-namespace Alphaleonis { namespace Win32 { namespace Vss
+namespace Alphaleonis.Win32.Vss
 {
-	/// <summary>The <see cref="VssSourceType"/> enumeration specifies the type of data that a writer manages.</summary>
-	public enum class VssSourceType
+	/// <summary>The <see cref="VssUsageType"/> enumeration specifies how the host system uses the data managed by a writer involved in a VSS operation.</summary>
+	/// <remarks>Requester applications that are interested in backing up system state should look for writers with the 
+	/// <see cref="VssUsageType.BootableSystemState"/> or <see cref="VssUsageType.SystemService"/> usage type.</remarks>
+	public enum VssUsageType
 	{
-		/// <summary><para>The source of the data is not known.</para><para>This indicates a writer error, and the requester should report it.</para></summary>
-		Undefined = VSS_ST_UNDEFINED,
-		
-		/// <summary>The source of the data is a database that supports transactions, such as Microsoft SQL Server.</summary>
-		TransactedDB = VSS_ST_TRANSACTEDDB,
-		
-		/// <summary>The source of the data is a database that does not support transactions.</summary>
-		NonTransactedDB = VSS_ST_NONTRANSACTEDDB,
-
-		/// <summary>
-		///     <para>Unclassified source type—data will be in a file group.</para>
-		///		<para>This is the default source type.</para>
-		/// </summary>
-		Other = VSS_ST_OTHER
-
+		/// <summary><para>The usage type is not known.</para><para>This indicates an error on the part of the writer.</para></summary>
+		Undefined = 0,
+		/// <summary>The data stored by the writer is part of the bootable system state.</summary>
+		BootableSystemState = 1,
+		/// <summary>The writer either stores data used by a system service or is a system service itself.</summary>
+		SystemService = 2,
+		/// <summary>The data is user data.</summary>
+		UserData = 3,
+		/// <summary>Unclassified data.</summary>
+		Other = 4
 	};
 }
-} }
