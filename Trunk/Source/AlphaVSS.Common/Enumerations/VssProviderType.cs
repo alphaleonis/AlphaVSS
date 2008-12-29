@@ -1,4 +1,4 @@
-/* Copyright (c) 2008 Peter Palotas
+﻿/* Copyright (c) 2008 Peter Palotas
  *  
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -18,25 +18,29 @@
  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  *  THE SOFTWARE.
  */
-#include "StdAfx.h"
-#include "VssRestoreSubcomponentInfo.h"
 
-namespace Alphaleonis { namespace Win32 { namespace Vss 
+namespace Alphaleonis.Win32.Vss
 {
-	VssRestoreSubcomponentInfo::VssRestoreSubcomponentInfo(String^ logicalPath, String^ componentName)
-		: mLogicalPath(logicalPath), mComponentName(componentName)
+	/// <summary>The <see cref="VssProviderType"/> enumeration specifies the provider type.</summary>
+	public enum VssProviderType
 	{
-	}
+		/// <summary>
+		/// 	<para>
+		/// 	    The provider type is unknown.
+		/// 	</para>
+		/// 	<para>
+		/// 		This indicates an error in the application or the VSS service, or that no provider is available.
+		/// 	</para>
+		/// </summary>
+		Unknown = 0,
 
-	String^ VssRestoreSubcomponentInfo::LogicalPath::get()
-	{
-		return mLogicalPath;
-	}
+		/// <summary>The default provider that ships with Windows.</summary>
+		System = 1,
 
-	String^ VssRestoreSubcomponentInfo::ComponentName::get()
-	{
-		return mComponentName;
-	}
-
-
-} } }
+		/// <summary>A software-based provider.</summary>
+		Software = 2,
+		
+		/// <summary>A hardware-based provider.</summary>
+		Hardware = 3
+	};
+}

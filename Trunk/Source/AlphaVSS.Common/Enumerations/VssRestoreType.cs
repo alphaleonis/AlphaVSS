@@ -1,4 +1,4 @@
-/* Copyright (c) 2008 Peter Palotas
+﻿/* Copyright (c) 2008 Peter Palotas
  *  
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -18,30 +18,24 @@
  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  *  THE SOFTWARE.
  */
-#pragma once
 
-#include <vss.h>
-
-#if ALPHAVSS_TARGET < ALPHAVSS_TARGET_WIN2003
-#define VSS_RTYPE_UNDEFINED 0
-#define VSS_RTYPE_BY_COPY 1
-#define VSS_RTYPE_IMPORT 2
-#define VSS_RTYPE_OTHER 3
-#endif
-
-namespace Alphaleonis { namespace Win32 { namespace Vss
+namespace Alphaleonis.Win32.Vss
 {
 	/// <summary>The <see cref="VssRestoreType"/> enumeration is used by a requester to indicate the type of restore operation it is about to perform.</summary>
-	public enum class VssRestoreType
+    /// <remarks>
+    ///     <para>A requester sets the type of a restore operation using <see cref="IVssBackupComponents.SetRestoreState"/>.</para>
+    ///     <!-- <para>A writer can retrieve the type of a restore operation by calling CVssWriter::GetRestoreType.</para> -->
+    /// </remarks>
+	public enum VssRestoreType
 	{
 		/// <summary>
 		/// 	<para>No restore type is defined.</para>
 		/// 	<para>This indicates an error on the part of the requester.</para>
 		/// </summary>
-		Undefined = VSS_RTYPE_UNDEFINED,
+		Undefined = 0,
 
 		/// <summary>The default restore type: A requester restores backed-up data to the original volume from a backup medium.</summary>
-		ByCopy = VSS_RTYPE_BY_COPY,
+		ByCopy = 1,
 
 		/// <summary>
 		/// 	<para>
@@ -52,19 +46,10 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		/// 		<b>Windows Server 2003, Standard Edition and Windows Server 2003, Web Edition:</b> This value is not supported. All editions of Windows Server 2003 SP1 support this value.
 		/// 	</para>
 		/// </summary>
-		Import = VSS_RTYPE_IMPORT,
+		Import = 2,
 
 		/// <summary>A restore type not currently enumerated. This value indicates an application error.</summary>
-		Other = VSS_RTYPE_OTHER 
+		Other = 3 
 
 	};
 }
-} }
-
-#if ALPHAVSS_TARGET <= ALPHAVSS_TARGET_WIN2003
-#undef VSS_RTYPE_UNDEFINED
-#undef VSS_RTYPE_BY_COPY 
-#undef VSS_RTYPE_IMPORT
-#undef VSS_RTYPE_OTHER 
-#endif
-

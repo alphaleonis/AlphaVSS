@@ -1,4 +1,4 @@
-/* Copyright (c) 2008 Peter Palotas
+﻿/* Copyright (c) 2008 Peter Palotas
  *  
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -19,16 +19,15 @@
  *  THE SOFTWARE.
  */
 
-namespace Alphaleonis { namespace Win32 { namespace Vss
+namespace Alphaleonis.Win32.Vss
 {
 	/// <summary>
 	///		Represents information stored by a writer, at backup time, to the Backup Components Document to indicate that when a 
 	///		file is to be restored, it (the source file) should be remapped. The file may be restored to a new restore target 
 	///		and/or ranges of its data restored to different locations with the restore target.
 	/// </summary>
-	public ref class VssDirectedTargetInfo sealed
+	public sealed class VssDirectedTargetInfo 
 	{
-	public:
 		/// <summary>Initializes a new instance of the <see cref="VssDirectedTargetInfo"/> class.</summary>
 		/// <param name="sourcePath">The source path.</param>
 		/// <param name="sourceFileName">The source file name.</param>
@@ -36,23 +35,31 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		/// <param name="destinationPath">The destination path.</param>
 		/// <param name="destinationFileName">The destination file name.</param>
 		/// <param name="destinationRangeList">The destination range list.</param>
-		VssDirectedTargetInfo(String^ sourcePath, String^ sourceFileName, 
-			String^ sourceRangeList, String^ destinationPath, 
-			String^ destinationFileName, String^ destinationRangeList);
+		public VssDirectedTargetInfo(string sourcePath, string sourceFileName, 
+			string sourceRangeList, string destinationPath, 
+			string destinationFileName, string destinationRangeList)
+        {
+            mSourcePath = sourcePath;
+            mSourceFileName = sourceFileName;
+            mSourceRangeList = sourceRangeList;
+            mDestinationPath = destinationPath;
+            mDestinationFileName = destinationFileName;
+            mDestinationRangeList = destinationRangeList;
+        }
 		
 		/// <summary>
 		/// 	The path to the directory that at backup time contained the file to be restored (the source file). This path should 
 		/// 	match or be beneath the path of a file set already in the component or one of its Subcomponents 
 		/// 	(if the component defines a component set).
 		/// </summary>
-		property String^ SourcePath { String^ get(); }
+        public string SourcePath { get { return mSourcePath; } }
 		
 		/// <summary>
 		/// 	The name of the file (at backup time) that is to be remapped during a restore (the source file). 
 		/// 	The name of this file should not contain any wildcard characters, and must be a member of the same 
 		/// 	file set as the source path (<see cref="SourcePath" />).
 		/// </summary>
-		property String^ SourceFileName { String^ get(); }
+		public string SourceFileName { get { return mSourceFileName; } }
 
 		/// <summary>
 		/// 	<para>
@@ -63,17 +70,17 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		/// 		The number and length of the source file support ranges must match the number and size of destination file support ranges.
 		/// 	</para>
 		/// </summary>
-		property String^ SourceRangeList { String^ get(); }
+		public string SourceRangeList { get { return mSourceRangeList; } }
 
 		/// <summary>
 		/// 	The path to which source file data will be remapped at restore time.
 		/// </summary>
-		property String^ DestinationPath { String^ get(); }
+		public string DestinationPath { get { return mDestinationPath; } }
 		
 		/// <summary>
 		/// 	The name of the file to which source file data will be remapped at restore time.
 		/// </summary>
-		property String^ DestinationFileName { String^ get(); }
+		public string DestinationFileName { get { return mDestinationFileName; } }
 		
 		/// <summary>
 		/// 	<para>
@@ -84,14 +91,13 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		/// 		The number and length of the destination file support ranges must match the number and size of source file support ranges.
 		/// 	</para>
 		/// </summary>
-		property String^ DestinationRangeList { String^ get(); }
-	private:
-		String^ mSourcePath;
-		String^ mSourceFileName;
-		String^ mSourceRangeList; 
-		String^ mDestinationPath; 
-		String^ mDestinationFileName;
-		String^ mDestinationRangeList; 
+		public string DestinationRangeList { get { return mDestinationRangeList; } }
+	
+		private string mSourcePath;
+		private string mSourceFileName;
+		private string mSourceRangeList; 
+		private string mDestinationPath; 
+		private string mDestinationFileName;
+		private string mDestinationRangeList; 
 	};
-
-} } }
+} 

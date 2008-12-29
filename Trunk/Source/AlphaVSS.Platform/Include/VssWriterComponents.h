@@ -46,7 +46,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		/// <value>A read-only collection of <see cref="VssComponent"/> instances to the a given writer's 
 		/// 	components explicitly stored in the Backup Components Document. <note type="caution">This list must not be accessed after the <see cref="VssComponent"/> from which it was obtained has been disposed.</note>
 		/// </value>
-		property IVssListAdapter<VssComponent^>^ Components { IVssListAdapter<VssComponent^>^ get(); }
+		property IList<VssComponent^>^ Components { IList<VssComponent^>^ get(); }
 
 		/// <summary>Identifier of the writer instance responsible for the components.</summary>
 		property Guid InstanceId { Guid get(); }

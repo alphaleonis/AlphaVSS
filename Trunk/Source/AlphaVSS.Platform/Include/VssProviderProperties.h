@@ -21,8 +21,6 @@
 #pragma once
 
 #include <vss.h>
-#include "VssObjectType.h"
-#include "VssProviderType.h"
 
 namespace Alphaleonis { namespace Win32 { namespace Vss
 {

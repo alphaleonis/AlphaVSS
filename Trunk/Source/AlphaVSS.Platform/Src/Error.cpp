@@ -57,7 +57,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		case VSS_E_PROVIDER_VETO:
 			return gcnew VssProviderVetoException();
 		case VSS_E_UNEXPECTED_PROVIDER_ERROR:
-			return gcnew VssUnexpectedProviderError();
+			return gcnew VssUnexpectedProviderErrorException();
 		case VSS_E_MAXIMUM_NUMBER_OF_VOLUMES_REACHED:
 			return gcnew VssMaximumNumberOfVolumesReachedException();
 		case VSS_E_MAXIMUM_NUMBER_OF_SNAPSHOTS_REACHED:
@@ -69,7 +69,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		case VSS_E_VOLUME_NOT_SUPPORTED_BY_PROVIDER:
 			return gcnew VssVolumeNotSupportedByProviderException();
 		case VSS_E_UNEXPECTED_WRITER_ERROR:
-			return gcnew VssUnexpectedWriterError();
+			return gcnew VssUnexpectedWriterErrorException();
 		case VSS_E_INSUFFICIENT_STORAGE:
 			return gcnew VssInsufficientStorageException();
 		case VSS_E_FLUSH_WRITES_TIMEOUT:

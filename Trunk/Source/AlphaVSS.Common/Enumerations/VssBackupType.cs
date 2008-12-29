@@ -1,4 +1,4 @@
-/* Copyright (c) 2008 Peter Palotas
+﻿/* Copyright (c) 2008 Peter Palotas
  *  
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -18,24 +18,33 @@
  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  *  THE SOFTWARE.
  */
-#pragma once
-
-#include <vss.h>
-
-namespace Alphaleonis { namespace Win32 { namespace Vss
+namespace Alphaleonis.Win32.Vss
 {
-	/// <summary>The <see cref="VssBackupType"/> enumeration indicates the type of backup to be performed using VSS writer/requester coordination.</summary>
-	/// <remarks>For more information see <see href="http://msdn.microsoft.com/en-us/library/aa384679(VS.85).aspx">MSDN documentation on VSS_BACKUP_TYPE Enumeration</see></remarks>
-	public enum class VssBackupType
+	/// <summary>
+    ///     The <see cref="VssBackupType"/> enumeration indicates the type of backup to be performed using VSS writer/requester 
+    ///     coordination.
+    /// </summary>
+	/// <remarks>
+    ///     For more information see <see href="http://msdn.microsoft.com/en-us/library/aa384679(VS.85).aspx">MSDN documentation on 
+    ///     VSS_BACKUP_TYPE Enumeration</see>
+    /// </remarks>
+	public enum VssBackupType
 	{
-		/// <summary><para>The backup type is not known.</para><para>This value indicates an application error.</para></summary>
-		Undefined = VSS_BT_UNDEFINED,
+		/// <summary>
+        ///     <para>
+        ///         The backup type is not known.
+        ///     </para>
+        ///     <para>
+        ///         This value indicates an application error.
+        ///      </para>
+        ///  </summary>
+		Undefined = 0,
 
 		/// <summary>
 		///		<para>Full backup: all files, regardless of whether they have been marked as backed up or not, are saved. This is the default backup type and schema, and all writers support it.</para>
 		///		<para>Each file's backup history will be updated to reflect that it was backed up.</para>
 		/// </summary>
-		Full = VSS_BT_FULL,
+		Full = 1,
 
 		/// <summary>
 		///	<para>
@@ -48,7 +57,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		///		If a requester's backup type is <see cref="Incremental"/> and a particular writer's backup schema does not support that sort of backup, the requester will always perform a full (<see cref="Full"/>) backup on that writer's data.
 		///	</para>
 		/// </summary>
-		Incremental = VSS_BT_INCREMENTAL,
+		Incremental = 2,
 
 		/// <summary>
 		/// 	<para>
@@ -61,7 +70,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		/// 		If a requester's backup type is <see cref="Differential"/> and a particular writer's backup schema does not support that sort of backup, the requester will always perform a full (<see cref="Full"/>) backup on that writer's data.
 		/// 	</para>
 		/// </summary>
-		Differential = VSS_BT_DIFFERENTIAL,
+		Differential = 3,
 		
 
 		/// <summary>
@@ -75,7 +84,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		/// 		If a requester's backup type is <see cref="Log"/> and a particular writer's backup schema does not support that sort of backup, the requester will always perform a full (<see cref="Full"/>) backup on that writer's data.
 		/// 	</para>
 		/// </summary>
-		Log = VSS_BT_LOG,
+		Log = 4,
 		
 		/// <summary>
 		/// 	<para>
@@ -88,10 +97,9 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		/// 		If a requester's backup type is <see cref="Copy"/> and a particular writer's backup schema does not support that sort of backup, the requester will always perform a full (<see cref="Full"/>) backup on that writer's data.
 		/// 	</para>
 		/// </summary>
-		Copy = VSS_BT_COPY,
+		Copy = 5,
 
 		/// <summary>Backup type that is not full, copy, log, incremental, or differential.</summary>
-		Other = VSS_BT_OTHER
+		Other = 6
 	};
 }
-} }

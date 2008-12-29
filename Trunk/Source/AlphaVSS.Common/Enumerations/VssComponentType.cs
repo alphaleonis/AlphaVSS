@@ -1,4 +1,4 @@
-/* Copyright (c) 2008 Peter Palotas
+﻿/* Copyright (c) 2008 Peter Palotas
  *  
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -18,28 +18,43 @@
  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  *  THE SOFTWARE.
  */
-#pragma once
 
-#include <vss.h>
-
-namespace Alphaleonis { namespace Win32 { namespace Vss
+namespace Alphaleonis.Win32.Vss
 {
 	/// <summary>
 	/// The <see cref="VssComponentType"/> enumeration is used by both the requester and the writer to specify the type of component being used 
 	/// with a shadow copy backup operation.
 	/// </summary>
-	public enum class VssComponentType
+    /// <remarks>
+    ///     <para>
+    ///         A writer sets a component's type when it adds the component to its Writer Metadata Document using 
+    ///         <see cref="IVssCreateWriterMetadata.AddComponent"/>
+    ///     </para>
+    ///     <para>
+    ///         Writers and requesters can find the type information of components selected for inclusion in a Backup 
+    ///         Components Document through calls to <see cref="IVssComponent.GetComponentType"/> to return a component type directly.
+    ///     </para>
+    ///     <para>
+    ///         A requester can obtain the type of any component in a given writer's Writer Metadata Document by doing the following:
+    ///         <list type="number">
+    ///             <item><description>Using <see cref="IVssExamineWriterMetadata.GetComponent"/> to obtain a <see cref="IVssWMComponent"/> interface</description></item>
+    ///             <item><description>Using <see cref="IVssWMComponent.GetComponentInfo"/> to return a <see cref="VssComponentInfo"/> structure</description></item>
+    ///             <item><description>Examining the Type member of the <see cref="VssComponentInfo"/> object</description></item>
+    ///         </list>
+    ///     </para>
+    /// </remarks>
+	public enum VssComponentType
 	{
 		/// <summary><para>Undefined component type.</para>
 		/// <para>This value indicates an application error.</para>
 		/// </summary>
-		Undefined = VSS_CT_UNDEFINED,
+		Undefined = 0,
 
 		/// <summary>Database component.</summary>
-		Database = VSS_CT_DATABASE,
+		Database = 1,
 
 		/// <summary>File group component. This is any component other than a database.</summary>
-		FileGroup = VSS_CT_FILEGROUP 
+		FileGroup = 2 
 	};
 }
-} }
+

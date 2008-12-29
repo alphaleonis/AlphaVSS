@@ -23,10 +23,8 @@
 #include <vss.h>
 #include "VssUsageType.h"
 #include "VssSourceType.h"
-#include "VssBackupSchema.h"
 #include "VssWMFileDescription.h"
 #include "VssWMComponent.h"
-#include "VssRestoreMethod.h"
 #include "VssWriterRestore.h"
 #include "VssWMRestoreMethod.h"
 

@@ -1,4 +1,4 @@
-/* Copyright (c) 2008 Peter Palotas
+﻿/* Copyright (c) 2008 Peter Palotas
  *  
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -19,31 +19,34 @@
  *  THE SOFTWARE.
  */
 
-namespace Alphaleonis { namespace Win32 { namespace Vss 
+namespace Alphaleonis.Win32.Vss
 {
 	/// <summary>
 	///		Represents information about a Subcomponent associated with a given component.
 	/// </summary>
-	public ref class VssRestoreSubcomponentInfo sealed
+	public sealed class VssRestoreSubcomponentInfo 
 	{
-	public:
 		/// <summary>
 		///     Initializes a new instance of <see cref="VssRestoreSubcomponentInfo" />.
 		/// </summary>
 		/// <param name="logicalPath">The logical path of the Subcomponent. This can not be empty when working with Subcomponents.</param>
 		/// <param name="componentName">The name of the Subcomponent. This can not be empty.</param>
-		VssRestoreSubcomponentInfo(String^ logicalPath, String^ componentName);
+		public VssRestoreSubcomponentInfo(string logicalPath, string componentName)
+        {
+            mLogicalPath = logicalPath;
+            mComponentName = componentName;
+        }
 
 		/// <summary>The logical path of the Subcomponent. This can not be empty when working with Subcomponents.</summary>
-		property String^ LogicalPath { String^ get(); }
+		public string LogicalPath { get { return mLogicalPath; } }
 
 		/// <summary>The name of the Subcomponent. This can not be empty.</summary>
-		property String^ ComponentName { String^ get(); }
-	private:
-		String^ mLogicalPath;
-		String^ mComponentName;
+		public string ComponentName { get { return mComponentName; } }
+	
+		private string mLogicalPath;
+		private string mComponentName;
 	};
 
 
 
-} } }
+}

@@ -1,4 +1,4 @@
-/* Copyright (c) 2008 Peter Palotas
+﻿/* Copyright (c) 2008 Peter Palotas
  *  
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -18,16 +18,8 @@
  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  *  THE SOFTWARE.
  */
-#pragma once
 
-#include <vss.h>
-
-#if ALPHAVSS_TARGET < ALPHAVSS_TARGET_WIN2008
-// Dummy value
-#define VSS_RT_ORIGINAL_LOCATION 1000
-#endif
-
-namespace Alphaleonis { namespace Win32 { namespace Vss
+namespace Alphaleonis.Win32.Vss
 {
 	/// <summary>
 	/// 	<para>
@@ -36,16 +28,17 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	/// 		component set it defines, are to be restored.
 	/// 	</para>
 	/// 	<para>
-	/// 		Setting a restore target modifies or overrides the restore method set during backup (see <see dref="T:Alphaleonis.Win32.Vss.VssRestoreMethod"/>).
+	/// 		Setting a restore target modifies or overrides the restore method set during backup (see <see cref="VssRestoreMethod"/>).
 	/// 	</para>
 	/// </summary>
-	public enum class VssRestoreTarget
+    /// <remarks>For more information see the MSDN documentation on the VSS_RESTORE_TARGET enumeration.</remarks>
+	public enum VssRestoreTarget
 	{
 		/// <summary>
 		///	<para>No target is defined.</para>
 		/// <para>This value indicates an error on the part of the writer.</para>
 		/// </summary>
-		Undefined = VSS_RT_UNDEFINED,
+		Undefined = 0,
 
 		/// <summary>
 		/// 	<para>	
@@ -57,7 +50,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		/// 		restore method specified at backup time by a <see dref="T:Alphaleonis.Win32.Vss.VssRestoreMethod"/> value.
 		/// 	</para>
 		/// </summary>
-		Original = VSS_RT_ORIGINAL,
+		Original = 1,
 
 		/// <summary>
 		/// 	<para>
@@ -69,7 +62,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		/// 		a selected component or component set.
 		/// 	</para>
 		/// </summary>
-		Alternate = VSS_RT_ALTERNATE,
+		Alternate = 2,
 
 		/// <summary>
 		/// 	<para>
@@ -77,10 +70,10 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		/// 	</para>
 		/// 	<para>
 		/// 		Directed targeting allows a writer to control, on a file-by-file basis, how a file is 
-		/// 		restored�indicating how much of a file is to be restored and into which files the backed-up file is to be restored.
+		/// 		restored—indicating how much of a file is to be restored and into which files the backed-up file is to be restored.
 		/// 	</para>
 		/// </summary>
-		Directed = VSS_RT_DIRECTED,
+		Directed = 3,
 
 		/// <summary>
 		/// 	<para>
@@ -91,7 +84,6 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		/// 		<b>Windows Server 2003 and Windows XP:</b> This value is not supported.
 		/// 	</para>
 		/// </summary>
-		OriginalLocation = VSS_RT_ORIGINAL_LOCATION
+		OriginalLocation = 4
 	};
 }
-} }

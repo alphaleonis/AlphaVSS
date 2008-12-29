@@ -1,4 +1,4 @@
-/* Copyright (c) 2008 Peter Palotas
+﻿/* Copyright (c) 2008 Peter Palotas
  *  
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -18,20 +18,16 @@
  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  *  THE SOFTWARE.
  */
-#pragma once
 
+using System;
 
-#include <vss.h>
-
-using namespace System;
-
-namespace Alphaleonis { namespace Win32 { namespace Vss
+namespace Alphaleonis.Win32.Vss
 {
 	/// <summary>
 	///		The <see cref="VssObjectType"/> enumeration is used by requesters to identify an object as 
 	///		a shadow copy set, shadow copy, or provider.
 	/// </summary>
-	public enum class VssObjectType
+	public enum VssObjectType
 	{
 		/// <summary>
 		/// 	<para>
@@ -41,7 +37,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		/// 		This indicates an application error.
 		/// 	</para>
 		/// </summary>
-		Unknown = VSS_OBJECT_UNKNOWN,
+		Unknown = 0,
 
 		/// <summary>
 		/// 	<para>
@@ -59,19 +55,15 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		/// 		there has been an application error.
 		/// 	</para>
 		/// </summary>
-		None = VSS_OBJECT_NONE,
+		None = 1,
 
 		/// <summary>Shadow copy set.</summary>
-		SnapshotSet = VSS_OBJECT_SNAPSHOT_SET,
+		SnapshotSet = 2,
 
 		/// <summary>Shadow copy.</summary>
-		Snapshot = VSS_OBJECT_SNAPSHOT,
+		Snapshot = 3,
 
 		/// <summary>Shadow copy provider.</summary>		
-		Provider = VSS_OBJECT_PROVIDER,
-		
-		/// <summary>Reserved value.</summary>
-		TypeCount = VSS_OBJECT_TYPE_COUNT
+		Provider = 4,		
 	};
 }
-} }

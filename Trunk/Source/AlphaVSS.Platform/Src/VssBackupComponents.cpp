@@ -244,7 +244,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	int VssBackupComponents::WriterStatusList::Count::get()
 	{
 		if (mBackupComponents->mBackup == 0)
-			throw gcnew ObjectDisposedException("Instance of IVssListAdapter used after the object creating it was disposed.");
+			throw gcnew ObjectDisposedException("Instance of IList used after the object creating it was disposed.");
 
 		UINT cWriters;
 		CheckCom(mBackupComponents->mBackup->GetWriterStatusCount(&cWriters));
@@ -257,7 +257,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 			throw gcnew ArgumentOutOfRangeException("index");
 
 		if (mBackupComponents->mBackup == 0)
-			throw gcnew ObjectDisposedException("Instance of IVssListAdapter used after the object creating it was disposed.");
+			throw gcnew ObjectDisposedException("Instance of IList used after the object creating it was disposed.");
 
 		VSS_ID idInstance, idWriter;
 		AutoBStr bstrWriter;
@@ -276,7 +276,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	int VssBackupComponents::WriterComponentsList::Count::get()
 	{
 		if (mBackupComponents->mBackup == 0)
-			throw gcnew ObjectDisposedException("Instance of IVssListAdapter used after the object creating it was disposed.");
+			throw gcnew ObjectDisposedException("Instance of IList used after the object creating it was disposed.");
 
 		UINT cComponent = 0;
 		CheckCom(mBackupComponents->mBackup->GetWriterComponentsCount(&cComponent));
@@ -289,7 +289,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 			throw gcnew ArgumentOutOfRangeException("index");
 
 		if (mBackupComponents->mBackup == 0)
-			throw gcnew ObjectDisposedException("Instance of IVssListAdapter used after the object creating it was disposed.");
+			throw gcnew ObjectDisposedException("Instance of IList used after the object creating it was disposed.");
 
 		IVssWriterComponentsExt *pWriterComponents;
 		CheckCom(mBackupComponents->mBackup->GetWriterComponents(index, &pWriterComponents));
@@ -304,7 +304,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	int VssBackupComponents::WriterMetadataList::Count::get()
 	{
 		if (mBackupComponents->mBackup == 0)
-			throw gcnew ObjectDisposedException("Instance of IVssListAdapter used after the object creating it was disposed.");
+			throw gcnew ObjectDisposedException("Instance of IList used after the object creating it was disposed.");
 
 		UINT iCount;
 		CheckCom(mBackupComponents->mBackup->GetWriterMetadataCount(&iCount));
@@ -317,7 +317,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 			throw gcnew ArgumentOutOfRangeException("index");
 
 		if (mBackupComponents->mBackup == 0)
-			throw gcnew ObjectDisposedException("Instance of IVssListAdapter used after the object creating it was disposed.");
+			throw gcnew ObjectDisposedException("Instance of IList used after the object creating it was disposed.");
 
 		VSS_ID idWriterInstance;
 		IVssExamineWriterMetadata *ewm;
@@ -325,17 +325,17 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		return VssExamineWriterMetadata::Adopt(ewm);
 	}
 
-	IVssListAdapter<VssExamineWriterMetadata^>^ VssBackupComponents::WriterMetadata::get()
+	IList<VssExamineWriterMetadata^>^ VssBackupComponents::WriterMetadata::get()
 	{
 		return mWriterMetadata;
 	}
 
-	IVssListAdapter<VssWriterComponents^>^ VssBackupComponents::WriterComponents::get()
+	IList<VssWriterComponents^>^ VssBackupComponents::WriterComponents::get()
 	{
 		return mWriterComponents;
 	}
 
-	IVssListAdapter<VssWriterStatus^>^ VssBackupComponents::WriterStatus::get()
+	IList<VssWriterStatus^>^ VssBackupComponents::WriterStatus::get()
 	{
 		return mWriterStatus;
 	}

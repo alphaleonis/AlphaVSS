@@ -1,4 +1,4 @@
-/* Copyright (c) 2008 Peter Palotas
+﻿/* Copyright (c) 2008 Peter Palotas
  *  
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -18,34 +18,23 @@
  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  *  THE SOFTWARE.
  */
-#include "StdAfx.h"
-#include "VssPartialFileInfo.h"
 
-namespace Alphaleonis { namespace Win32 { namespace Vss
+using System;
+
+namespace Alphaleonis.Win32.Vss
 {
-	VssPartialFileInfo::VssPartialFileInfo(String^ path, String^ fileName, String^ range, String^ metadata)
-		: mPath(path), mFileName(fileName), mRange(range), mMetadata(metadata)
+	/// <summary>
+	///	The <see cref="VssSnapshotCompatibility"/> enumeration indicates which volume control or file I/O operations are disabled for the 
+	///	volume that has been shadow copied.</summary>
+	[Flags]
+	public enum VssSnapshotCompatibility
 	{
+		/// <summary>None of the other flags.</summary>
+		None = 0x00,
+		/// <summary>The provider managing the shadow copies for a specified volume does not support defragmentation operations on that volume.</summary>
+		DisableDefrag = 0x01,
+		/// <summary>The provider managing the shadow copies for a specified volume does not support content index operations on that volume.</summary>
+		DisableContentIndex = 0x02
 	}
 
-	String^ VssPartialFileInfo::Path::get()
-	{
-		return mPath;
-	}
-
-	String^ VssPartialFileInfo::FileName::get()
-	{
-		return mFileName;
-	}
-
-	String^ VssPartialFileInfo::Range::get()
-	{
-		return mRange;
-	}
-
-	String^ VssPartialFileInfo::Metadata::get()
-	{
-		return mMetadata;
-	}
-
-}}}
+}

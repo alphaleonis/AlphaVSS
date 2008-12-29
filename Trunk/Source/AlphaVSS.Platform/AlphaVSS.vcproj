@@ -1219,14 +1219,6 @@
 				>
 			</File>
 			<File
-				RelativePath=".\Src\VssDifferencedFileInfo.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\Src\VssDirectedTargetInfo.cpp"
-				>
-			</File>
-			<File
 				RelativePath=".\Src\VssExamineWriterMetadata.cpp"
 				>
 			</File>
@@ -1235,15 +1227,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\Src\VssPartialFileInfo.cpp"
-				>
-			</File>
-			<File
 				RelativePath=".\Src\VssProviderProperties.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\Src\VssRestoreSubComponentInfo.cpp"
 				>
 			</File>
 			<File
@@ -1274,10 +1258,6 @@
 				RelativePath=".\Src\VssWriterStatus.cpp"
 				>
 			</File>
-			<Filter
-				Name="Exceptions"
-				>
-			</Filter>
 		</Filter>
 		<Filter
 			Name="Header Files"
@@ -1321,31 +1301,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\Include\VssBackupSchema.h"
-				>
-			</File>
-			<File
-				RelativePath=".\Include\VssBackupType.h"
-				>
-			</File>
-			<File
 				RelativePath=".\Include\VssComponent.h"
-				>
-			</File>
-			<File
-				RelativePath=".\Include\VssComponentFlags.h"
-				>
-			</File>
-			<File
-				RelativePath=".\Include\VssComponentType.h"
-				>
-			</File>
-			<File
-				RelativePath=".\Include\VssDifferencedFileInfo.h"
-				>
-			</File>
-			<File
-				RelativePath=".\Include\VssDirectedTargetInfo.h"
 				>
 			</File>
 			<File
@@ -1357,51 +1313,11 @@
 				>
 			</File>
 			<File
-				RelativePath=".\Include\VssFileRestoreStatus.h"
-				>
-			</File>
-			<File
-				RelativePath=".\Include\VssFileSpecificationBackupType.h"
-				>
-			</File>
-			<File
 				RelativePath=".\Include\VssListAdapter.h"
 				>
 			</File>
 			<File
-				RelativePath=".\Include\VssObjectType.h"
-				>
-			</File>
-			<File
-				RelativePath=".\Include\VssPartialFileInfo.h"
-				>
-			</File>
-			<File
 				RelativePath=".\Include\VssProviderProperties.h"
-				>
-			</File>
-			<File
-				RelativePath=".\Include\VssProviderType.h"
-				>
-			</File>
-			<File
-				RelativePath=".\Include\VssRestoreMethod.h"
-				>
-			</File>
-			<File
-				RelativePath=".\Include\VssRestoreSubComponentInfo.h"
-				>
-			</File>
-			<File
-				RelativePath=".\Include\VssRestoreTarget.h"
-				>
-			</File>
-			<File
-				RelativePath=".\Include\VssRestoreType.h"
-				>
-			</File>
-			<File
-				RelativePath=".\Include\VssSnapshotCompatibility.h"
 				>
 			</File>
 			<File
@@ -1464,10 +1380,6 @@
 				RelativePath=".\Include\VssWriterStatus.h"
 				>
 			</File>
-			<Filter
-				Name="Exceptions"
-				>
-			</Filter>
 		</Filter>
 		<Filter
 			Name="Resource Files"

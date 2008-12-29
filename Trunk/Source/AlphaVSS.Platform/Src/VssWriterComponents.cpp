@@ -96,7 +96,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		return VssComponent::Adopt(component);
 	}
 
-	IVssListAdapter<VssComponent^>^ VssWriterComponents::Components::get()
+	IList<VssComponent^>^ VssWriterComponents::Components::get()
 	{
 		return mComponents;
 	}

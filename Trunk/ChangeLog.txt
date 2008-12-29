@@ -2,6 +2,14 @@ Version X.X (alpha)
 -------------------
 * Source folder structure changed
 
+* Refactoring of assemblies, moving platform independent code out to 
+  new assembly, AlphaVSS.Common.
+
+* VssUnexpectedProviderError renamed to VssUnexpectedProviderErrorException
+
+* VssUnexpectedWriterError renamed to VssUnexpectedWriterErrorException
+
+* VssDifferencedFileInfo.FileSpec renamed to VssDifferencedFileInfo.FileSpecification
 
 Version 0.8 (alpha)
 -------------------

@@ -1,4 +1,4 @@
-/* Copyright (c) 2008 Peter Palotas
+﻿/* Copyright (c) 2008 Peter Palotas
  *  
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -19,22 +19,32 @@
  *  THE SOFTWARE.
  */
 
-namespace Alphaleonis { namespace Win32 { namespace Vss
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace Alphaleonis.Win32.Vss
 {
 	/// <summary>
 	/// 	Information about a file set (a specified file or files) to participate in an incremental or differential backup 
 	/// 	or restore as a differenced file, that is, backup and restores associated with it are to be implemented as if 
 	/// 	entire files are copied to and from backup media (as opposed to using partial files).
 	/// </summary>
-	public ref class VssDifferencedFileInfo sealed
-	{
-	public:
+	public sealed class VssDifferencedFileInfo 
+	{	
 		/// <summary>Initializes a new instance of the <see cref="VssDifferencedFileInfo"/> class.</summary>
 		/// <param name="path">The path to the differenced files.</param>
-		/// <param name="fileSpec">The file specification of the differenced files.</param>
+		/// <param name="fileSpecification">The file specification of the differenced files.</param>
 		/// <param name="lastModifyTime">The time of last modification for the difference files.</param>
 		/// <param name="isRecursive"><see langword="true"/> if the filespec for the differenced files should be interpreted recursively, <see langword="false"/> otherwise.</param>
-		VssDifferencedFileInfo(String^ path, String^ fileSpec, bool isRecursive, DateTime lastModifyTime);
+		public VssDifferencedFileInfo(string path, string fileSpecification, bool isRecursive, DateTime lastModifyTime)
+        {
+            mPath = path;
+            mFileSpecification = fileSpecification;
+            mIsRecursive = isRecursive;
+            mLastModifyTime = lastModifyTime;
+        }
 
 		/// <summary>
 		/// 	<para>
@@ -44,10 +54,10 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		/// 		Users of this method need to check to determine whether this path ends with a backslash (\).
 		/// 	</para>
 		/// </summary>
-		property String^ Path { String^ get(); }
+		public string Path { get { return mPath; } }
 
 		/// <summary>The file specification of the differenced files.</summary>
-		property String^ FileSpec { String^ get(); }
+		public string FileSpecification { get { return mFileSpecification; } }
 
 		/// <summary>
 		/// 	Boolean specifying whether the file specification for the differenced files should be interpreted recursively. 
@@ -55,17 +65,16 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		/// 	file specification <see cref="FileSpec"/> to find files to be handled as differenced files during incremental 
 		/// 	or differential backups. If <see langword="false"/>, only the root directory needs to be searched.
 		/// </summary>
-		property bool IsRecursive { bool get(); }
+		public bool IsRecursive { get { return mIsRecursive; } }
 
 		/// <summary>
 		/// 	The writer specification of the time of last modification for the difference files.
 		/// </summary>
-		property DateTime LastModifyTime { DateTime get(); }
-	private:
-		String^ mPath;
-		String^ mFileSpec;
-		bool mIsRecursive;
-		DateTime mLastModifyTime;
+		public DateTime LastModifyTime { get { return mLastModifyTime; } }
+	
+		private string mPath;
+		private string mFileSpecification;
+		private bool mIsRecursive;
+		private DateTime mLastModifyTime;
 	};
-
-}}}
+}

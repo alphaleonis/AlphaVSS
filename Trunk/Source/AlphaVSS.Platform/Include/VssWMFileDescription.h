@@ -24,8 +24,6 @@
 #include <VsWriter.h>
 #include <vsBackup.h>
 
-#include "VssFileSpecificationBackupType.h"
-
 namespace Alphaleonis { namespace Win32 { namespace Vss
 {
 	/// <summary>

@@ -1,4 +1,4 @@
-/* Copyright (c) 2008 Peter Palotas
+ï»¿/* Copyright (c) 2008 Peter Palotas
  *  
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -18,30 +18,13 @@
  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  *  THE SOFTWARE.
  */
-#pragma once
-
-#include <vss.h>
-
-#if ALPHAVSS_TARGET < ALPHAVSS_TARGET_WIN2003
-// Dummy values when not defined by the vss headers
-#define VSS_FSBT_FULL_BACKUP_REQUIRED			1
-#define VSS_FSBT_DIFFERENTIAL_BACKUP_REQUIRED	2
-#define VSS_FSBT_INCREMENTAL_BACKUP_REQUIRED	4
-#define VSS_FSBT_LOG_BACKUP_REQUIRED			8
-#define VSS_FSBT_FULL_SNAPSHOT_REQUIRED			0x10
-#define VSS_FSBT_DIFFERENTIAL_SNAPSHOT_REQUIRED	0x20
-#define VSS_FSBT_INCREMENTAL_SNAPSHOT_REQUIRED	0x40
-#define VSS_FSBT_LOG_SNAPSHOT_REQUIRED			0x80
-#define VSS_FSBT_ALL_BACKUP_REQUIRED			0x100
-#define VSS_FSBT_ALL_SNAPSHOT_REQUIRED			0x200
-#endif
-
-namespace Alphaleonis { namespace Win32 { namespace Vss
+using System;
+namespace Alphaleonis.Win32.Vss
 {
 	/// <summary>
 	/// 	<para>
 	/// 		The <see cref="VssFileSpecificationBackupType"/> enumeration is used by writers to indicate their support of certain backup 
-	/// 		operations—such as incremental or differential backup—on the basis of file sets (a specified file or files).
+	/// 		operationsâ€”such as incremental or differential backupâ€”on the basis of file sets (a specified file or files).
 	/// 	</para>
 	/// 	<para>
 	/// 		File sets stored in the Writer Metadata Document are tagged with a bit mask (or bitwise OR) of <see cref="VssFileSpecificationBackupType"/>
@@ -65,9 +48,8 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	/// 	For more information see the MSDN documentation on 
 	/// 	<see href="http://msdn.microsoft.com/en-us/library/aa384951(VS.85).aspx">VSS_FILE_SPEC_BACKUP_TYPE Enumeration</see>
 	/// </remarks>
-	CA_SUPPRESS_MESSAGE("Microsoft.Naming", "CA1714:FlagsEnumsShouldHavePluralNames")
-	[System::Flags]
-	public enum class VssFileSpecificationBackupType
+	[Flags]
+	public enum VssFileSpecificationBackupType
 	{
 		/// <summary>
 		/// 	<para>
@@ -80,7 +62,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		/// 		<see dref="F:Alphaleonis.Win32.Vss.VssBackupType.Full"/>.
 		/// 	</para>
 		/// </summary>
-		FullBackupRequired = VSS_FSBT_FULL_BACKUP_REQUIRED,
+		FullBackupRequired = 0x00000001,
 
 		/// <summary>
 		/// 	A writer tags a file set with this value to indicate to the requester that it 
@@ -88,7 +70,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		/// 	the restore of any backup operation with a <see dref="T:Alphaleonis.Win32.Vss.VssBackupType"/> of 
 		/// 		<see dref="F:Alphaleonis.Win32.Vss.VssBackupType.Differential"/>.
 		/// </summary>
-		DifferentialBackupRequired = VSS_FSBT_DIFFERENTIAL_BACKUP_REQUIRED,
+		DifferentialBackupRequired = 0x00000002,
 
 		/// <summary>
 		/// 	A writer tags a file set with this value to indicate to the requester that it 
@@ -96,7 +78,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		/// 	restore of any backup operation with a 
 		/// 	<see dref="T:Alphaleonis.Win32.Vss.VssBackupType"/> of <see dref="F:Alphaleonis.Win32.Vss.VssBackupType.Incremental"/>.
 		/// </summary>
-		IncrementalBackupRequired = VSS_FSBT_INCREMENTAL_BACKUP_REQUIRED,
+        IncrementalBackupRequired = 0x00000004,
 
 		/// <summary>
 		/// 	A writer tags a file set with this value to indicate to the requester that it 
@@ -104,47 +86,45 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		/// 	restore of any backup operation with a 
 		/// 	<see dref="T:Alphaleonis.Win32.Vss.VssBackupType"/> of <see dref="F:Alphaleonis.Win32.Vss.VssBackupType.Log"/>.
 		/// </summary>
-		LogBackupRequired = VSS_FSBT_LOG_BACKUP_REQUIRED,
+        LogBackupRequired = 0x00000008,
 
 		/// <summary>
 		/// 	A file set tagged with this value must be backed up from a shadow copy of a volume 
 		/// 	(and never from the original volume) when participating in a backup operation with a 
 		/// 	<see dref="T:Alphaleonis.Win32.Vss.VssBackupType"/> of <see dref="F:Alphaleonis.Win32.Vss.VssBackupType.Full"/>.
 		/// </summary>
-		FullSnapshotRequired = VSS_FSBT_FULL_SNAPSHOT_REQUIRED,
+        FullSnapshotRequired = 0x00000100,
 
 		/// <summary>
 		/// 	A file set tagged with this value must be backed up from a shadow copy of a volume 
 		/// 	(and never from the original volume) when participating in a backup operation with a 
 		/// 	<see dref="T:Alphaleonis.Win32.Vss.VssBackupType"/> of <see dref="F:Alphaleonis.Win32.Vss.VssBackupType.Differential"/>.
 		/// </summary>
-		DifferentialSnapshotRequired = VSS_FSBT_DIFFERENTIAL_SNAPSHOT_REQUIRED,
+        DifferentialSnapshotRequired = 0x00000200,
 
 		/// <summary>
 		/// 	A file set tagged with this value must be backed up from a shadow copy of a volume 
 		/// 	(and never from the original volume) when participating in a backup operation with a 
 		/// 	<see dref="T:Alphaleonis.Win32.Vss.VssBackupType"/> of <see dref="F:Alphaleonis.Win32.Vss.VssBackupType.Incremental"/>.
 		/// </summary>
-		IncrementalSnapshotRequired = VSS_FSBT_INCREMENTAL_SNAPSHOT_REQUIRED,
+        IncrementalSnapshotRequired = 0x00000400,
 
 		/// <summary>
 		/// 	A file set tagged with this value must be backed up from a shadow copy of a volume 
 		/// 	(and never from the original volume) when participating in a backup operation with a 
 		/// 	<see dref="T:Alphaleonis.Win32.Vss.VssBackupType"/> of <see dref="F:Alphaleonis.Win32.Vss.VssBackupType.Log"/>.
 		/// </summary>
-		LogSnapshotRequired = VSS_FSBT_LOG_SNAPSHOT_REQUIRED,
+        LogSnapshotRequired = 0x00000800,
 
 		/// <summary>
 		/// 	The default file backup specification type. A file set tagged with this value must always participate in backup and restore operations.
 		/// </summary>
-		AllBackupRequired = VSS_FSBT_ALL_BACKUP_REQUIRED,
+        AllBackupRequired = 0x0000000F,
 
 		/// <summary>
 		/// 	The shadow copy requirement for backup. A file set tagged with this value must always be backed up 
 		/// 	from a shadow copy of a volume (and never from the original volume) when participating in a backup operation.
 		/// </summary>
-		AllSnapshotRequired = VSS_FSBT_ALL_SNAPSHOT_REQUIRED
+		AllSnapshotRequired = 0x00000F00
 	};
 }
-} }
-

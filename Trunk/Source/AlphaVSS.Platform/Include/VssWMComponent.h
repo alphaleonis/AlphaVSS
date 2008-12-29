@@ -23,8 +23,6 @@
 #include <vss.h>
 #include "VssWMFileDescription.h"
 #include "VssWMDependency.h"
-#include "VssComponentType.h"
-#include "VssComponentFlags.h"
 
 using namespace System::Collections::Generic;
 

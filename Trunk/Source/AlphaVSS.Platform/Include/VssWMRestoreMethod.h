@@ -22,8 +22,6 @@
 
 #include <vss.h>
 
-
-#include "VssRestoreMethod.h"
 #include "VssWriterRestore.h"
 
 namespace Alphaleonis { namespace Win32 { namespace Vss

@@ -1,4 +1,4 @@
-/* Copyright (c) 2008 Peter Palotas
+﻿/* Copyright (c) 2008 Peter Palotas
  *  
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -18,51 +18,38 @@
  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  *  THE SOFTWARE.
  */
-#pragma once
+using System;
 
-#include <vss.h>
-
-#if ALPHAVSS_TARGET < ALPHAVSS_TARGET_WIN2008
-// Dummy value
-#define VSS_CF_NOT_SYSTEM_STATE 77
-#endif 
-
-#if ALPHAVSS_TARGET < ALPHAVSS_TARGET_WIN2003 
-#define VSS_CF_BACKUP_RECOVERY 0 
-#define VSS_CF_APP_ROLLBACK_RECOVERY 1 
-#endif
-
-namespace Alphaleonis { namespace Win32 { namespace Vss
+namespace Alphaleonis.Win32.Vss
 {
 	/// <summary>
 	/// 	The <see cref="VssComponentFlags"/> enumeration is used by writers to indicate support for auto-recovery.
 	/// </summary>
 	/// <remarks>For more information see <see href="http://msdn.microsoft.com/en-us/library/aa384681(VS.85).aspx">MSDN documentation on VSS_COMPONENT_FLAGS Enumeration</see></remarks>
-	CA_SUPPRESS_MESSAGE("Microsoft.Naming", "CA1726:UsePreferredTerms", MessageId="Flags")
-	[System::Flags]
-	public enum class VssComponentFlags
+	[Flags]
+	public enum VssComponentFlags
 	{
 		/// <summary>
 		/// <para>
 		/// 	The writer will need write access to this component after the shadow copy has been created.
 		/// </para>
 		/// <para>
-		/// 	This flag is incompatible with <see dref="F:Alphaleonis.Win32.Vss.VssVolumeSnapshotAttributes.Transportable"/>.
+		/// 	This flag is incompatible with <see cref="VssVolumeSnapshotAttributes.Transportable"/>.
 		/// </para>
 		/// </summary>
-		BackupRecovery = VSS_CF_BACKUP_RECOVERY,
+		BackupRecovery = 1,
 
 		/// <summary>
 		/// 	<para>
-		/// 		If this is a rollback shadow copy (<see dref="T:Alphaleonis.Win32.Vss.VssVolumeSnapshotAttributes"/> enumeration value of 
-		/// 		<see dref="F:Alphaleonis.Win32.Vss.VssVolumeSnapshotAttributes.RollbackRecovery"/>), the writer for this component will need 
+		/// 		If this is a rollback shadow copy (<see cref="VssVolumeSnapshotAttributes"/> enumeration value of 
+		/// 		<see cref="VssVolumeSnapshotAttributes.RollbackRecovery"/>), the writer for this component will need 
 		/// 		write access to this component after the shadow copy has been created.
 		/// 	</para>
 		/// 	<para>
-		/// 		This flag is incompatible with <see dref="F:Alphaleonis.Win32.Vss.VssVolumeSnapshotAttributes.Transportable"/>.
+		/// 		This flag is incompatible with <see cref="VssVolumeSnapshotAttributes.Transportable"/>.
 		/// 	</para>
 		/// </summary>
-		RollbackRecovery = VSS_CF_APP_ROLLBACK_RECOVERY,
+		RollbackRecovery = 2,
 
 		/// <summary>
 		/// 	<para>
@@ -72,9 +59,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		/// 		<b>Windows Server 2003:</b> This value is not supported until Windows Vista.
 		/// 	</para>
 		/// </summary>
-		NotSystemState = VSS_CF_NOT_SYSTEM_STATE
+		NotSystemState = 4
 
 	};
 }
-} }
-

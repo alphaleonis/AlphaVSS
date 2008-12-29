@@ -62,6 +62,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\VssDifferencedFileInfo.cs" />
+    <Compile Include="Classes\VssDirectedTargetInfo.cs" />
+    <Compile Include="Classes\VssRestoreSubComponentInfo.cs" />
+    <Compile Include="Enumerations\VssBackupSchema.cs" />
+    <Compile Include="Enumerations\VssBackupType.cs" />
+    <Compile Include="Enumerations\VssComponentFlags.cs" />
+    <Compile Include="Enumerations\VssComponentType.cs" />
+    <Compile Include="Enumerations\VssFileRestoreStatus.cs" />
+    <Compile Include="Enumerations\VssFileSpecificationBackupType.cs" />
+    <Compile Include="Enumerations\VssObjectType.cs" />
+    <Compile Include="Classes\VssPartialFileInfo.cs" />
+    <Compile Include="Enumerations\VssProviderType.cs" />
+    <Compile Include="Enumerations\VssRestoreMethod.cs" />
+    <Compile Include="Enumerations\VssRestoreTarget.cs" />
+    <Compile Include="Enumerations\VssRestoreType.cs" />
+    <Compile Include="Enumerations\VssSnapshotCompatibility.cs" />
     <Compile Include="Exceptions\VssUnsupportedContextException.cs" />
     <Compile Include="Exceptions\VssBadStateException.cs" />
     <Compile Include="Exceptions\VssDeleteSnapshotsFailedException.cs" />
@@ -80,8 +96,8 @@
     <Compile Include="Exceptions\VssSnapshotSetInProgressException.cs" />
     <Compile Include="Exceptions\VssTransactionFreezeTimeoutException.cs" />
     <Compile Include="Exceptions\VssTransactionThawTimeoutException.cs" />
-    <Compile Include="Exceptions\VssUnexpectedProviderError.cs" />
-    <Compile Include="Exceptions\VssUnexpectedWriterError.cs" />
+    <Compile Include="Exceptions\VssUnexpectedProviderErrorException.cs" />
+    <Compile Include="Exceptions\VssUnexpectedWriterErrorException.cs" />
     <Compile Include="Exceptions\VssVolumeInUseException.cs" />
     <Compile Include="Exceptions\VssVolumeNotSupportedByProviderException.cs" />
     <Compile Include="Exceptions\VssVolumeNotSupportedException.cs" />

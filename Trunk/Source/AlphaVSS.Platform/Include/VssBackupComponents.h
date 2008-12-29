@@ -20,10 +20,6 @@
  */
 #pragma once
 
-#include "VssObjectType.h"
-#include "VssSnapshotCompatibility.h"
-#include "VssComponentType.h"
-#include "VssObjectType.h"
 #include "VssError.h"
 #include "VssVolumeSnapshotAttributes.h"
 #include "VssSnapshotProperties.h"
@@ -32,8 +28,6 @@
 #include "VssExamineWriterMetadata.h"
 #include "VssWriterFailure.h"
 #include "VssWriterState.h"
-#include "VssBackupType.h"
-#include "VssRestoreType.h"
 #include "VssWriterStatus.h"
 
 using namespace System;
@@ -609,7 +603,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		/// <exception cref="OutOfMemoryException">Out of memory or other system resources.</exception>
 		/// <exception cref="SystemException">Unexpected VSS system error. The error code is logged in the event log.</exception>
 		/// <exception cref="VssBadStateException">The backup components object is not initialized, this method has been called during a restore operation, or this method has not been called within the correct sequence.</exception>		
-		property IVssListAdapter<VssWriterComponents^>^ WriterComponents { IVssListAdapter<VssWriterComponents^>^ get(); }
+		property IList<VssWriterComponents^>^ WriterComponents { IList<VssWriterComponents^>^ get(); }
 
 
 		/// <summary>A read-only list containing metadata for the writers running on the systsem.</summary>
@@ -642,7 +636,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		/// <exception cref="VssBadStateException">The backup components object is not initialized, this method has been called during a restore operation, or this method has not been called within the correct sequence.</exception>		
 		/// <exception cref="VssInvalidXmlDocumentException">The XML document is not valid. Check the event log for details.</exception>
 		/// <exception cref="VssObjectNotFoundException">The specified shadow copy does not exist.</exception>
-		property IVssListAdapter<VssExamineWriterMetadata^>^ WriterMetadata { IVssListAdapter<VssExamineWriterMetadata^>^ get(); }
+		property IList<VssExamineWriterMetadata^>^ WriterMetadata { IList<VssExamineWriterMetadata^>^ get(); }
 
 
 		/// <summary>A read-only list containing the status of the writers.</summary>
@@ -661,7 +655,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		/// <exception cref="SystemException">Unexpected VSS system error. The error code is logged in the event log.</exception>
 		/// <exception cref="VssBadStateException">The backup components object is not initialized, this method has been called during a restore operation, or this method has not been called within the correct sequence.</exception>		
 		/// <exception cref="VssObjectNotFoundException">The specified shadow copy does not exist.</exception>
-		property IVssListAdapter<VssWriterStatus^>^ WriterStatus { IVssListAdapter<VssWriterStatus^>^ get(); }
+		property IList<VssWriterStatus^>^ WriterStatus { IList<VssWriterStatus^>^ get(); }
 
 
 		/// <summary>The ImportSnapshots method imports shadow copies transported from a different machine.</summary>

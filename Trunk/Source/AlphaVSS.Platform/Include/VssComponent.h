@@ -23,15 +23,8 @@
 #include <vss.h>
 
 #include "VssWMFileDescription.h"
-#include "VssComponentType.h"
-#include "VssFileRestoreStatus.h"
 #include "VssWMFileDescription.h"
-#include "VssRestoreTarget.h"
-#include "VssDirectedTargetInfo.h"
 #include "VssListAdapter.h"
-#include "VssPartialFileInfo.h"
-#include "VssDifferencedFileInfo.h"
-#include "VssRestoreSubcomponentInfo.h"
 
 using namespace System::Collections::Generic;
 
@@ -177,7 +170,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		/// <summary>A collection of mapping information for the file set's alternate location for file restoration.</summary>
 		/// <value>A read-only list containing the alternate location to which files were actually restored. <note type="caution">This list must not be accessed after the <see cref="VssComponent"/> from which it was obtained has been disposed.</note></value>
 		/// <remarks>See <see href="http://msdn.microsoft.com/en-us/library/aa383473(VS.85).aspx">the MSDN documentation on the IVssComponent::GetAlternateLocationMapping method</see> for more information.</remarks>
-		property IVssListAdapter<VssWMFileDescription^>^ AlternateLocationMappings { IVssListAdapter<VssWMFileDescription^>^ get(); }
+		property IList<VssWMFileDescription^>^ AlternateLocationMappings { IList<VssWMFileDescription^>^ get(); }
 
 
 		/// <summary>
@@ -186,19 +179,19 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		/// 	restored to different locations with the restore target.
 		/// </summary>
 		/// <value>A read-only list containing the directed targets of this component. <note type="caution">This list must not be accessed after the <see cref="VssComponent"/> from which it was obtained has been disposed.</note></value>
-		property IVssListAdapter<VssDirectedTargetInfo^>^ DirectedTargets { IVssListAdapter<VssDirectedTargetInfo^>^ get(); }
+		property IList<VssDirectedTargetInfo^>^ DirectedTargets { IList<VssDirectedTargetInfo^>^ get(); }
 
 		/// <summary>
 		/// 	The new file restoration locations for the selected component or component set. 
 		/// </summary>
 		/// <value>A read-only list contianing the new file restoration locations for the selected component or component set. <note type="caution">This list must not be accessed after the <see cref="VssComponent"/> from which it was obtained has been disposed.</note></value>
-		property IVssListAdapter<VssWMFileDescription^>^ NewTargets { IVssListAdapter<VssWMFileDescription^>^ get(); }
+		property IList<VssWMFileDescription^>^ NewTargets { IList<VssWMFileDescription^>^ get(); }
 
 		/// <summary>
 		///		Information about any partial files associated with this component.
 		/// </summary>
 		/// <value>A read-only list containing information about any partial files associated with this component. <note type="caution">This list must not be accessed after the <see cref="VssComponent"/> from which it was obtained has been disposed.</note></value>
-		property IVssListAdapter<VssPartialFileInfo^>^ PartialFiles { IVssListAdapter<VssPartialFileInfo^>^ get(); }
+		property IList<VssPartialFileInfo^>^ PartialFiles { IList<VssPartialFileInfo^>^ get(); }
 
 		/// <summary>
 		/// 	Information about the file sets (specified file or files) to participate in an incremental or differential backup or restore as a 
@@ -209,11 +202,11 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		/// <value>
 		/// 	A read only list containing the diffrenced files associated with this component. <note type="caution">This list must not be accessed after the <see cref="VssComponent"/> from which it was obtained has been disposed.</note>
 		/// </value>
-		property IVssListAdapter<VssDifferencedFileInfo^>^ DifferencedFiles { IVssListAdapter<VssDifferencedFileInfo^>^ get(); }
+		property IList<VssDifferencedFileInfo^>^ DifferencedFiles { IList<VssDifferencedFileInfo^>^ get(); }
 
 		/// <summary>The subcomponents associated with this component.</summary>
 		/// <value>A read only list containing the subcomponents associated with this component. <note type="caution">This list must not be accessed after the <see cref="VssComponent"/> from which it was obtained has been disposed.</note></value>
-		property IVssListAdapter<VssRestoreSubcomponentInfo^>^ RestoreSubcomponents { IVssListAdapter<VssRestoreSubcomponentInfo^>^ get(); }
+		property IList<VssRestoreSubcomponentInfo^>^ RestoreSubcomponents { IList<VssRestoreSubcomponentInfo^>^ get(); }
 	internal:
 		static VssComponent^ Adopt(IVssComponent *vssWriterComponents);
 	private:

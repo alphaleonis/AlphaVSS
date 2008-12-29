@@ -1,4 +1,4 @@
-/* Copyright (c) 2008 Peter Palotas
+﻿/* Copyright (c) 2008 Peter Palotas
  *  
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -18,31 +18,18 @@
  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  *  THE SOFTWARE.
  */
-#pragma once
 
-#include <vss.h>
-
-#if ALPHAVSS_TARGET < ALPHAVSS_TARGET_WIN2008
-#define VSS_RME_RESTORE_STOP_START 123
-#endif
-
-#if ALPHAVSS_TARGET < ALPHAVSS_TARGET_WIN2003
-// Dummy value
-#define VSS_RME_RESTORE_AT_REBOOT_IF_CANNOT_REPLACE 12345
-#endif
-
-
-namespace Alphaleonis { namespace Win32 { namespace Vss
+namespace Alphaleonis.Win32.Vss
 {
 	/// <summary>This enumeration is used by a writer at backup time to specify through its Writer Metadata Document the default file restore 
 	/// method to be used with all the files in all the components it manages.</summary>
-	public enum class VssRestoreMethod
+	public enum VssRestoreMethod
 	{
 		/// <summary>
 		/// <para>No restore method is defined.</para>
 		/// <para>This indicates an error on the part of the writer.</para>
 		/// </summary>
-		Undefined = VSS_RME_UNDEFINED,
+		Undefined = 0,
 		
 		/// <summary>
 		/// A requester will restore files of a selected component or component set only if there are no versions of those files currently on the disk.
@@ -51,7 +38,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		/// <para>Unless alternate location mappings are defined for file restoration, if a version of any file managed by a selected component or component set is currently on the disk, none of the files managed by the selected component or component set will be restored.</para>
 		/// <para>If a file's alternate location mapping is defined, and a version of the files is present on disk at the original location, files will be written to the alternate location as long as no version of the file exists at the alternate location.</para>
 		/// </remarks>
-		RestoreIfNotThere = VSS_RME_RESTORE_IF_NOT_THERE,
+		RestoreIfNotThere = 1,
 
 		/// <summary>
 		/// A requester will restore files of a selected component or component set only if there are no versions of those files currently on the disk that cannot be overwritten.
@@ -60,7 +47,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		/// <para>Unless alternate location mappings are defined for file restoration, if there is a version of any file that cannot be overwritten of the selected component or component set on the disk, none of the files managed by the component or component set will be restored.</para>
 		/// <para>If a file's alternate location mapping is defined, files will be written to the alternate location.</para>
 		/// </remarks>
-		RestoreIfCanReplace = VSS_RME_RESTORE_IF_CAN_REPLACE,
+		RestoreIfCanReplace = 2,
 
 		/// <summary>
 		/// This value is used by a writer to indicates that a given service must be stopped prior to the start of the restore. After the restore operation, the service will be restarted.
@@ -68,12 +55,12 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		/// <remarks>
 		/// The service to be stopped is specified by an argument to <see dref="VssCreateWriterMetadata::SetRestoreMethod"/>.
 		/// </remarks>
-		StopRestoreStart = VSS_RME_STOP_RESTORE_START,
+		StopRestoreStart = 3,
 
 		/// <summary>
 		/// A requester must restore the files of a selected component or component set to the location specified by the alternate location mapping specified in the writer component metadata file.
 		/// </summary>
-		RestoreToAlternateLocation = VSS_RME_RESTORE_TO_ALTERNATE_LOCATION,
+		RestoreToAlternateLocation = 4,
 
 		/// <summary>
 		/// A requester will restore the files of a selected component or component set following a reboot of the system.
@@ -82,7 +69,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		/// Files to be restored should be copied to a temporary location, and the requester should use <c>File.Move</c> with the <c>DelayUntilReboot</c> flag 
 		// to complete the restoration of these files to their proper location following reboot. (Using AlphaFS for file operations).
 		/// </remarks>
-		RestoreAtReboot = VSS_RME_RESTORE_AT_REBOOT,
+		RestoreAtReboot = 5,
 		
 		/// <summary>
 		/// If possible, a requester will restore the files of a selected component or component set to their correct location immediately.
@@ -93,12 +80,12 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		/// to complete the restoration of these files to their proper location following reboot. (Using AlphaFS for file operations). </para>
 		/// <note><b>Windows XP:</b> This value is not supported until Windows Server 2003</note>
 		/// </remarks>
-		RestoreAtRebootIfCannotReplace = VSS_RME_RESTORE_AT_REBOOT_IF_CANNOT_REPLACE,
+		RestoreAtRebootIfCannotReplace = 6,
 
 		/// <summary>
 		/// This value indicates that a custom restore method will be used to restore the files managed by the selected component or component set. 
 		/// </summary>
-		Custom = VSS_RME_CUSTOM,
+		Custom = 7,
 
 		/// <summary>
 		/// The requester should perform the restore operation as follows:
@@ -112,7 +99,6 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		/// <para>The service to be stopped is specified by the writer beforehand when it calls the IVssCreateWriterMetadata::SetRestoreMethod method. 
 		/// The requester can obtain the name of the service by examining the <see dref="P:Alphaleonis.Win32.Vss.VssExamineWriterMetadata.RestoreMethod"/> property.</para>
 		/// </summary>
-		RestoreStopStart = VSS_RME_RESTORE_STOP_START
+		RestoreStopStart = 8
 	};
 }
-} }

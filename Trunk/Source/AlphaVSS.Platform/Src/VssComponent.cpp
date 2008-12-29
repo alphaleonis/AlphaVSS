@@ -257,22 +257,22 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	}
 
 
-	IVssListAdapter<VssDirectedTargetInfo^>^ VssComponent::DirectedTargets::get()
+	IList<VssDirectedTargetInfo^>^ VssComponent::DirectedTargets::get()
 	{
 		return mDirectedTargets;
 	}
 
-	IVssListAdapter<VssPartialFileInfo^>^ VssComponent::PartialFiles::get()
+	IList<VssPartialFileInfo^>^ VssComponent::PartialFiles::get()
 	{
 		return mPartialFiles;
 	}
 
-	IVssListAdapter<VssWMFileDescription^>^ VssComponent::NewTargets::get()
+	IList<VssWMFileDescription^>^ VssComponent::NewTargets::get()
 	{
 		return mNewTargets;
 	}
 
-	IVssListAdapter<VssDifferencedFileInfo^>^ VssComponent::DifferencedFiles::get()
+	IList<VssDifferencedFileInfo^>^ VssComponent::DifferencedFiles::get()
 	{
 #if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WIN2003
 		return mDifferencedFiles;
@@ -282,12 +282,12 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	}
 
 
-	IVssListAdapter<VssRestoreSubcomponentInfo^>^ VssComponent::RestoreSubcomponents::get()
+	IList<VssRestoreSubcomponentInfo^>^ VssComponent::RestoreSubcomponents::get()
 	{
 		return mRestoreSubcomponents;
 	}
 
-	IVssListAdapter<VssWMFileDescription^>^ VssComponent::AlternateLocationMappings::get()
+	IList<VssWMFileDescription^>^ VssComponent::AlternateLocationMappings::get()
 	{
 		return mNewTargets;
 	}
@@ -304,7 +304,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	int VssComponent::DirectedTargetList::Count::get()
 	{
 		if (mComponent->mVssComponent == 0)
-			throw gcnew ObjectDisposedException("Instance of IVssListAdapter used after the object creating it was disposed.");
+			throw gcnew ObjectDisposedException("Instance of IList used after the object creating it was disposed.");
 
 		UINT count;
 		CheckCom(mComponent->mVssComponent->GetDirectedTargetCount(&count));
@@ -314,7 +314,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	VssDirectedTargetInfo^ VssComponent::DirectedTargetList::default::get(int index)
 	{
 		if (mComponent->mVssComponent == 0)
-			throw gcnew ObjectDisposedException("Instance of IVssListAdapter used after the object creating it was disposed.");
+			throw gcnew ObjectDisposedException("Instance of IList used after the object creating it was disposed.");
 
 		if (index < 0 || index >= Count)
 			throw gcnew ArgumentOutOfRangeException("index");
@@ -336,7 +336,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	int VssComponent::NewTargetList::Count::get()
 	{
 		if (mComponent->mVssComponent == 0)
-			throw gcnew ObjectDisposedException("Instance of IVssListAdapter used after the object creating it was disposed.");
+			throw gcnew ObjectDisposedException("Instance of IList used after the object creating it was disposed.");
 
 		UINT count;
 		CheckCom(mComponent->mVssComponent->GetNewTargetCount(&count));
@@ -347,7 +347,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	VssWMFileDescription^ VssComponent::NewTargetList::default::get(int index)
 	{
 		if (mComponent->mVssComponent == 0)
-			throw gcnew ObjectDisposedException("Instance of IVssListAdapter used after the object creating it was disposed.");
+			throw gcnew ObjectDisposedException("Instance of IList used after the object creating it was disposed.");
 
 		if (index < 0 || index >= Count)
 			throw gcnew ArgumentOutOfRangeException("index");
@@ -368,7 +368,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	int VssComponent::PartialFileList::Count::get()
 	{
 		if (mComponent->mVssComponent == 0)
-			throw gcnew ObjectDisposedException("Instance of IVssListAdapter used after the object creating it was disposed.");
+			throw gcnew ObjectDisposedException("Instance of IList used after the object creating it was disposed.");
 
 		UINT count;
 		CheckCom(mComponent->mVssComponent->GetPartialFileCount(&count));
@@ -379,7 +379,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	VssPartialFileInfo^ VssComponent::PartialFileList::default::get(int index)
 	{
 		if (mComponent->mVssComponent == 0)
-			throw gcnew ObjectDisposedException("Instance of IVssListAdapter used after the object creating it was disposed.");
+			throw gcnew ObjectDisposedException("Instance of IList used after the object creating it was disposed.");
 
 		if (index < 0 || index >= Count)
 			throw gcnew ArgumentOutOfRangeException("index");
@@ -401,7 +401,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	int VssComponent::DifferencedFileList::Count::get()
 	{
 		if (mComponent->mVssComponent == 0)
-			throw gcnew ObjectDisposedException("Instance of IVssListAdapter used after the object creating it was disposed.");
+			throw gcnew ObjectDisposedException("Instance of IList used after the object creating it was disposed.");
 
 		UINT count;
 		CheckCom(mComponent->mVssComponent->GetDifferencedFilesCount(&count));
@@ -411,7 +411,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	VssDifferencedFileInfo^ VssComponent::DifferencedFileList::default::get(int index)
 	{
 		if (mComponent->mVssComponent == 0)
-			throw gcnew ObjectDisposedException("Instance of IVssListAdapter used after the object creating it was disposed.");
+			throw gcnew ObjectDisposedException("Instance of IList used after the object creating it was disposed.");
 
 		if (index < 0 || index >= Count)
 			throw gcnew ArgumentOutOfRangeException("index");
@@ -436,7 +436,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	int VssComponent::RestoreSubcomponentList::Count::get()
 	{
 		if (mComponent->mVssComponent == 0)
-			throw gcnew ObjectDisposedException("Instance of IVssListAdapter used after the object creating it was disposed.");
+			throw gcnew ObjectDisposedException("Instance of IList used after the object creating it was disposed.");
 
 		UINT count;
 		CheckCom(mComponent->mVssComponent->GetRestoreSubcomponentCount(&count));
@@ -446,7 +446,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	VssRestoreSubcomponentInfo^ VssComponent::RestoreSubcomponentList::default::get(int index)
 	{
 		if (mComponent->mVssComponent == 0)
-			throw gcnew ObjectDisposedException("Instance of IVssListAdapter used after the object creating it was disposed.");
+			throw gcnew ObjectDisposedException("Instance of IList used after the object creating it was disposed.");
 
 		if (index < 0 || index >= Count)
 			throw gcnew ArgumentOutOfRangeException("index");
@@ -469,7 +469,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	int VssComponent::AlternateLocationMappingList::Count::get()
 	{
 		if (mComponent->mVssComponent == 0)
-			throw gcnew ObjectDisposedException("Instance of IVssListAdapter used after the object creating it was disposed.");
+			throw gcnew ObjectDisposedException("Instance of IList used after the object creating it was disposed.");
 
 		UINT count;
 		CheckCom(mComponent->mVssComponent->GetAlternateLocationMappingCount(&count));
@@ -480,7 +480,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	VssWMFileDescription^ VssComponent::AlternateLocationMappingList::default::get(int index)
 	{
 		if (mComponent->mVssComponent == 0)
-			throw gcnew ObjectDisposedException("Instance of IVssListAdapter used after the object creating it was disposed.");
+			throw gcnew ObjectDisposedException("Instance of IList used after the object creating it was disposed.");
 
 		if (index < 0 || index >= Count)
 			throw gcnew ArgumentOutOfRangeException("index");
