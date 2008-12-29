@@ -39,7 +39,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	/// 		The <see cref="VssAsync"/> object should be disposed as soon as it is no longer needed.
 	/// 	</para>
 	/// </summary>
-	public ref class VssAsync 
+	private ref class VssAsync : IVssAsync
 	{
 	public:
 		/// <summary>Destructor.</summary>
@@ -68,7 +68,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		/// </returns>
 		/// <remarks>If an operation has completed unsuccessfully before <see cref="Cancel"/> was called, then <see cref="Cancel"/> throws the error that 
 		/// operation encountered.</remarks>
-		VssError Cancel();
+		virtual VssError Cancel();
 
 		/// <summary>The <see cref="QueryStatus"/> method queries the status of an asynchronous operation.</summary>
 		/// <returns>
@@ -88,17 +88,17 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		/// </list>
 		/// <para>Additional return values can be returned, but depend on the return codes of the method that initially returned the <see cref="VssAsync"/> object.</para>
 		/// </returns>
-		VssError QueryStatus();
+		virtual VssError QueryStatus();
 
 		/// <summary>
 		/// The Wait method waits until an incomplete asynchronous operation finishes.
 		/// </summary>
-		void Wait();
+		virtual void Wait();
 	internal:
-		static VssAsync^ Adopt(IVssAsync *vssAsync);
+		static VssAsync^ Adopt(::IVssAsync *vssAsync);
 	private:
-		VssAsync(IVssAsync *vssAsync);
-		IVssAsync *mVssAsync;
+		VssAsync(::IVssAsync *vssAsync);
+		::IVssAsync *mVssAsync;
 	};
 }
 } }

@@ -29,7 +29,7 @@ namespace Alphaleonis.Win32.Vss
 	/// <remarks>In the VSS API, these values are represented by the enumeration 
 	/// <seealso cref="VssSnapshotContext" /> </remarks>
     [System.Flags]
-	public enum VssVolumeSnapshotAttributes 
+	public enum VssVolumeSnapshotAttributes : uint
 	{
 		/// <summary>The shadow copy is persistent across reboots.
 		/// This attribute is automatically set for <see cref="VssSnapshotContext" /> contexts of <c>AppRollback</c>

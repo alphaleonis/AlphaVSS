@@ -26,7 +26,6 @@
 
 #include "Utils.h"
 #include "Macros.h"
-#include "VssSnapshotContext.h"
 #include "VssProviderProperties.h"
 
 using namespace System::Collections::Generic;
@@ -146,7 +145,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	[SecurityPermissionAttribute(SecurityAction::LinkDemand)]
 	VssAsync ^ VssBackupComponents::BackupComplete()
 	{
-		IVssAsync *pAsync;
+		::IVssAsync *pAsync;
 		CheckCom(mBackup->BackupComplete(&pAsync));
 		return VssAsync::Adopt(pAsync);
 	}
@@ -185,7 +184,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 
 	VssAsync ^ VssBackupComponents::DoSnapshotSet()
 	{
-		IVssAsync *vssAsync;
+		::IVssAsync *vssAsync;
 		CheckCom(mBackup->DoSnapshotSet(&vssAsync));
 		return VssAsync::Adopt(vssAsync);
 	}
@@ -217,14 +216,14 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 
 	VssAsync ^ VssBackupComponents::GatherWriterMetadata()
 	{
-		IVssAsync *vssAsync;
+		::IVssAsync *vssAsync;
 		CheckCom(mBackup->GatherWriterMetadata(&vssAsync));
 		return VssAsync::Adopt(vssAsync);
 	}
 
 	VssAsync ^ VssBackupComponents::GatherWriterStatus()
 	{
-		IVssAsync *vssAsync;
+		::IVssAsync *vssAsync;
 		CheckCom(mBackup->GatherWriterStatus(&vssAsync));
 		return VssAsync::Adopt(vssAsync);
 	}
@@ -342,7 +341,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 
 	VssAsync^ VssBackupComponents::ImportSnapshots()
 	{
-		IVssAsync *pAsync;
+		::IVssAsync *pAsync;
 		CheckCom(mBackup->ImportSnapshots(&pAsync));
 		return VssAsync::Adopt(pAsync);
 	}
@@ -366,21 +365,21 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 
 	VssAsync^ VssBackupComponents::PostRestore()
 	{
-		IVssAsync *pAsync;
+		::IVssAsync *pAsync;
 		CheckCom(mBackup->PostRestore(&pAsync));
 		return VssAsync::Adopt(pAsync);
 	}
 
 	VssAsync^ VssBackupComponents::PrepareForBackup()
 	{
-		IVssAsync *pAsync;
+		::IVssAsync *pAsync;
 		CheckCom(mBackup->PrepareForBackup(&pAsync));
 		return VssAsync::Adopt(pAsync);
 	}
 
 	VssAsync^ VssBackupComponents::PreRestore()
 	{
-		IVssAsync *pAsync;
+		::IVssAsync *pAsync;
 		CheckCom(mBackup->PreRestore(&pAsync));
 		return VssAsync::Adopt(pAsync);
 	}
@@ -452,7 +451,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	{
 #if ALPHAVSS_TARGET == ALPHAVSS_TARGET_WIN2003 || ALPHAVSS_TARGET == ALPHAVSS_TARGET_WIN2008
 		OsInfo::RequireAtLeastInFamily(OsVersion::Win2003SP1, OsVersion::Win2008);
-		IVssAsync *pAsync;
+		::IVssAsync *pAsync;
 		CheckCom(mBackup->QueryRevertStatus(NoNullAutoMStr(volume), &pAsync));
 		return VssAsync::Adopt(pAsync);
 #else

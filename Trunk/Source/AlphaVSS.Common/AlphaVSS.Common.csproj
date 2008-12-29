@@ -70,6 +70,7 @@
     <Compile Include="Enumerations\VssBackupType.cs" />
     <Compile Include="Enumerations\VssComponentFlags.cs" />
     <Compile Include="Enumerations\VssComponentType.cs" />
+    <Compile Include="Enumerations\VssError.cs" />
     <Compile Include="Enumerations\VssFileRestoreStatus.cs" />
     <Compile Include="Enumerations\VssFileSpecificationBackupType.cs" />
     <Compile Include="Enumerations\VssObjectType.cs" />
@@ -79,6 +80,7 @@
     <Compile Include="Enumerations\VssRestoreTarget.cs" />
     <Compile Include="Enumerations\VssRestoreType.cs" />
     <Compile Include="Enumerations\VssSnapshotCompatibility.cs" />
+    <Compile Include="Enumerations\VssSnapshotContext.cs" />
     <Compile Include="Enumerations\VssSnapshotState.cs" />
     <Compile Include="Enumerations\VssSourceType.cs" />
     <Compile Include="Enumerations\VssUsageType.cs" />
@@ -112,6 +114,7 @@
     <Compile Include="Exceptions\VssWriterInfrastructureException.cs" />
     <Compile Include="GlobalSuppression.cs" />
     <Compile Include="Exceptions\VssException.cs" />
+    <Compile Include="Interfaces\IVssAsync.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\LocalizedStrings.Designer.cs">
       <AutoGen>True</AutoGen>

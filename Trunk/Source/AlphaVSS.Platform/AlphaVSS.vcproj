@@ -1269,10 +1269,6 @@
 				>
 			</File>
 			<File
-				RelativePath=".\Include\IVssListAdapter.h"
-				>
-			</File>
-			<File
 				RelativePath=".\Include\Macros.h"
 				>
 			</File>
@@ -1301,10 +1297,6 @@
 				>
 			</File>
 			<File
-				RelativePath=".\Include\VssError.h"
-				>
-			</File>
-			<File
 				RelativePath=".\Include\VssExamineWriterMetadata.h"
 				>
 			</File>
@@ -1314,10 +1306,6 @@
 			</File>
 			<File
 				RelativePath=".\Include\VssProviderProperties.h"
-				>
-			</File>
-			<File
-				RelativePath=".\Include\VssSnapshotContext.h"
 				>
 			</File>
 			<File
