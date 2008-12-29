@@ -20,26 +20,18 @@
  */
 #include "StdAfx.h"
 
-#include "VssWMFileDescription.h"
-
 namespace Alphaleonis { namespace Win32 { namespace Vss
 {
-	VssWMFileDescription^ VssWMFileDescription::Adopt(IVssWMFiledesc *vssWMFiledesc)
-	{
-		return gcnew VssWMFileDescription(vssWMFiledesc);
-	}
-
-	VssWMFileDescription::VssWMFileDescription(IVssWMFiledesc *vssWMFiledesc)
+	VssWMFileDescription^ CreateVssWMFileDescription(IVssWMFiledesc *vssWMFiledesc)
 	{
 		try
 		{
 			AutoBStr bstrAlternateLocation;
 			CheckCom(vssWMFiledesc->GetAlternateLocation(&bstrAlternateLocation));
 
+			DWORD dwTypeMask = 0;
 #if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WIN2008
-			DWORD dwTypeMask;
 			CheckCom(vssWMFiledesc->GetBackupTypeMask(&dwTypeMask));
-			mBackupTypeMask = (VssFileSpecificationBackupType)dwTypeMask;
 #endif
 			AutoBStr bstrFilespec;
 			CheckCom(vssWMFiledesc->GetFilespec(&bstrFilespec));
@@ -48,10 +40,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 			bool bRecursive;
 			CheckCom(vssWMFiledesc->GetRecursive(&bRecursive));
 
-			mAlternateLocation = bstrAlternateLocation;
-			mFileSpecification = bstrFilespec;
-			mPath = bstrPath;
-			mRecursive = bRecursive;
+			return gcnew VssWMFileDescription(bstrAlternateLocation, (VssFileSpecificationBackupType)dwTypeMask, bstrFilespec, bstrPath, bRecursive);
 		}
 		finally
 		{
@@ -60,39 +49,45 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 
 	}
 
-	VssWMFileDescription::~VssWMFileDescription()
+	VssProviderProperties^ CreateVssProviderProperties(VSS_PROVIDER_PROP *pProp)
 	{
+		try
+		{
+			return gcnew VssProviderProperties(
+				ToGuid(pProp->m_ProviderId),
+				gcnew String(pProp->m_pwszProviderName),
+				(VssProviderType)pProp->m_eProviderType,
+				gcnew String(pProp->m_pwszProviderVersion),
+				ToGuid(pProp->m_ProviderVersionId),
+				ToGuid(pProp->m_ClassId));
+				
+		}
+		finally
+		{
+			::CoTaskMemFree(pProp->m_pwszProviderName);
+			::CoTaskMemFree(pProp->m_pwszProviderVersion);
+		}
 	}
 
-	String^ VssWMFileDescription::AlternateLocation::get()
+	VssWMDependency^ CreateVssWMDependency(IVssWMDependency *dependency)		
 	{
-		return mAlternateLocation;
+		try
+		{
+			VSS_ID id;
+			CheckCom(dependency->GetWriterId(&id));
+
+			AutoBStr logicalPath;
+			CheckCom(dependency->GetLogicalPath(&logicalPath));
+			
+			AutoBStr componentName;
+			CheckCom(dependency->GetComponentName(&componentName));
+
+			return gcnew VssWMDependency(ToGuid(id), logicalPath, componentName);
+		}
+		finally 
+		{
+			dependency->Release();
+		}
 	}
-
-	VssFileSpecificationBackupType VssWMFileDescription::BackupTypeMask::get()
-	{
-#if ALPHAVSS_TARGET < ALPHAVSS_TARGET_WIN2003
-		return mBackupTypeMask;
-#else
-		throw gcnew NotSupportedException(L"This method is not supported in Windows XP");
-#endif
-	}
-
-	String^ VssWMFileDescription::FileSpecification::get()
-	{
-		return mFileSpecification;
-	}
-
-	String^ VssWMFileDescription::Path::get()
-	{
-		return mPath;
-	}
-
-	bool VssWMFileDescription::IsRecursive::get()
-	{
-		return mRecursive;
-	}
-
-
 }
-} }
+}}

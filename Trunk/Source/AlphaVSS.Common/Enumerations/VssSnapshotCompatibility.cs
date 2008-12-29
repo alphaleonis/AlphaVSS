@@ -26,7 +26,7 @@ namespace Alphaleonis.Win32.Vss
 	/// <summary>
 	///	The <see cref="VssSnapshotCompatibility"/> enumeration indicates which volume control or file I/O operations are disabled for the 
 	///	volume that has been shadow copied.</summary>
-	[Flags]
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1714:FlagsEnumsShouldHavePluralNames"), Flags]
 	public enum VssSnapshotCompatibility
 	{
 		/// <summary>None of the other flags.</summary>

@@ -22,8 +22,6 @@
 
 #include <vss.h>
 
-#include "VssWMFileDescription.h"
-#include "VssWMFileDescription.h"
 #include "VssListAdapter.h"
 
 using namespace System::Collections::Generic;

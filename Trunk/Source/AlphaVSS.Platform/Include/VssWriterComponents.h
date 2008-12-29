@@ -31,7 +31,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	/// 	(in the form of <see cref="VssComponent"/> objects) associated with a given writer but stored in a 
 	/// 	requester's Backup Components Document.
 	/// </summary>
-	public ref class VssWriterComponents : IDisposable
+	public ref class VssWriterComponents : IDisposable, IVssWriterComponents
 	{
 	public:
 		/// <summary>Releases any resources aquired by this instance</summary>

@@ -24,7 +24,7 @@
 
 namespace Alphaleonis { namespace Win32 { namespace Vss
 {
-	VssWMComponent^ VssWMComponent::Adopt(IVssWMComponent *component)
+	VssWMComponent^ VssWMComponent::Adopt(::IVssWMComponent *component)
 	{
 		try
 		{
@@ -37,7 +37,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		}
 	}
 
-	VssWMComponent::VssWMComponent(IVssWMComponent *component)
+	VssWMComponent::VssWMComponent(::IVssWMComponent *component)
 		: mComponent(component)
 	{		
 		PVSSCOMPONENTINFO info;
@@ -158,7 +158,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		{
 			IVssWMFiledesc *filedesc;
 			CheckCom(mComponent->GetFile(i, &filedesc));
-			list->Add(VssWMFileDescription::Adopt(filedesc));
+			list->Add(CreateVssWMFileDescription(filedesc));
 		}
 		mFiles = list->AsReadOnly();
 		return mFiles;
@@ -175,7 +175,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		{
 			IVssWMFiledesc *filedesc;
 			CheckCom(mComponent->GetDatabaseFile(i, &filedesc));
-			list->Add(VssWMFileDescription::Adopt(filedesc));
+			list->Add(CreateVssWMFileDescription(filedesc));
 		}
 		mDatabaseFiles = list->AsReadOnly();
 		return mDatabaseFiles;
@@ -192,7 +192,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		{
 			IVssWMFiledesc *filedesc;
 			CheckCom(mComponent->GetDatabaseLogFile(i, &filedesc));
-			list->Add(VssWMFileDescription::Adopt(filedesc));
+			list->Add(CreateVssWMFileDescription(filedesc));
 		}
 		mDatabaseLogFiles = list->AsReadOnly();
 		return mDatabaseLogFiles;
@@ -211,7 +211,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		{
 			IVssWMDependency *dependency;
 			CheckCom(mComponent->GetDependency(i, &dependency));
-			list->Add(VssWMDependency::Adopt(dependency));
+			list->Add(CreateVssWMDependency(dependency));
 		}
 		mDependencies = list->AsReadOnly();
 		return mDependencies;

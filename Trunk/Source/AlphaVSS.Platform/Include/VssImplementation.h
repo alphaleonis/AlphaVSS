@@ -18,56 +18,23 @@
  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  *  THE SOFTWARE.
  */
-#include "StdAfx.h"
+#pragma once
 
-#include "VssWMRestoreMethod.h"
 
 namespace Alphaleonis { namespace Win32 { namespace Vss
 {
-	VssWMRestoreMethod::VssWMRestoreMethod(VssRestoreMethod restoreMethod, String^ service, String^ userProcedure, 
-		VssWriterRestore writerRestore, bool rebootRequired, int mappings)
-		: mRestoreMethod(restoreMethod), 
-		  mService(service),
-		  mUserProcedure(userProcedure),
-		  mWriterRestore(writerRestore),
-		  mRebootRequired(rebootRequired),
-		  mMappingCount(mappings)
+	public ref class VssImplementation : IVssImplementation
 	{
-	}
+	public:
+		VssImplementation();
+		virtual IVssBackupComponents^ CreateVssBackupComponents();
+		
+		virtual bool IsVolumeSnapshotted(String^ volumeName);
+		virtual VssSnapshotCompatibility GetSnapshotCompatibility(String^ volumeName);
+		virtual bool ShouldBlockRevert(String^ volumeName);
 
-	VssWMRestoreMethod::~VssWMRestoreMethod()
-	{
-	}
-
-	VssRestoreMethod VssWMRestoreMethod::Method::get()
-	{
-		return mRestoreMethod;
-	}
-
-	String^ VssWMRestoreMethod::Service::get()
-	{
-		return mService;
-	}
-
-	String^ VssWMRestoreMethod::UserProcedure::get()
-	{
-		return mUserProcedure;
-	}
-
-	VssWriterRestore VssWMRestoreMethod::WriterRestore::get()
-	{
-		return mWriterRestore;
-	}
-	
-	bool VssWMRestoreMethod::RebootRequired::get()
-	{
-		return mRebootRequired;
-	}
-
-	int VssWMRestoreMethod::MappingCount::get()
-	{
-		return mMappingCount;
-	}
+		virtual IVssExamineWriterMetadata^ CreateVssExamineWriterMetadata(String^ xml);
+	};
 
 }
-} }
+}}

@@ -235,6 +235,8 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 
 	private:
 		VSS_ID *ids;
-	};	
+	};
+
+
 }
 } }

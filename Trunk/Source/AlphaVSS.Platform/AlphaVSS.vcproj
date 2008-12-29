@@ -1003,6 +1003,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\Src\FactoryMethods.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\GlobalSuppressions.cpp"
 				>
 				<FileConfiguration
@@ -1223,11 +1227,11 @@
 				>
 			</File>
 			<File
-				RelativePath=".\Src\VssListAdapter.cpp"
+				RelativePath=".\Src\VssImplementation.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\Src\VssProviderProperties.cpp"
+				RelativePath=".\Src\VssListAdapter.cpp"
 				>
 			</File>
 			<File
@@ -1236,18 +1240,6 @@
 			</File>
 			<File
 				RelativePath=".\Src\VssWMComponent.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\Src\VssWMDependency.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\Src\VssWMFileDescription.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\Src\VssWMRestoreMethod.cpp"
 				>
 			</File>
 			<File
@@ -1266,6 +1258,10 @@
 			</File>
 			<File
 				RelativePath=".\Include\Error.h"
+				>
+			</File>
+			<File
+				RelativePath=".\Include\FactoryMethods.h"
 				>
 			</File>
 			<File
@@ -1301,11 +1297,11 @@
 				>
 			</File>
 			<File
-				RelativePath=".\Include\VssListAdapter.h"
+				RelativePath=".\Include\VssImplementation.h"
 				>
 			</File>
 			<File
-				RelativePath=".\Include\VssProviderProperties.h"
+				RelativePath=".\Include\VssListAdapter.h"
 				>
 			</File>
 			<File
@@ -1314,18 +1310,6 @@
 			</File>
 			<File
 				RelativePath=".\Include\VssWMComponent.h"
-				>
-			</File>
-			<File
-				RelativePath=".\Include\VssWMDependency.h"
-				>
-			</File>
-			<File
-				RelativePath=".\Include\VssWMFileDescription.h"
-				>
-			</File>
-			<File
-				RelativePath=".\Include\VssWMRestoreMethod.h"
 				>
 			</File>
 			<File

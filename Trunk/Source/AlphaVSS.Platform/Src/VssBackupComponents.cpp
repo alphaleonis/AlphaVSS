@@ -26,7 +26,6 @@
 
 #include "Utils.h"
 #include "Macros.h"
-#include "VssProviderProperties.h"
 
 using namespace System::Collections::Generic;
 using namespace System::Security::Permissions;
@@ -43,7 +42,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		mWriterComponents = gcnew WriterComponentsList(this);
 		mWriterStatus = gcnew WriterStatusList(this);
 
-		pin_ptr<IVssBackupComponents *> pVssObject = &mBackup;
+		pin_ptr<::IVssBackupComponents *> pVssObject = &mBackup;
 		CheckCom( CreateVssBackupComponents(pVssObject) );
 	}
 
@@ -61,38 +60,6 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		}
 	}
 
-	bool VssBackupComponents::IsVolumeSnapshotted(String ^ volumeName)
-	{
-		LONG lSnapshotCapability = 0;
-		BOOL bSnapshotsPresent = 0;
-		CheckCom(::IsVolumeSnapshotted((VSS_PWSZ)((const wchar_t *)NoNullAutoMStr(volumeName)), &bSnapshotsPresent, &lSnapshotCapability));	
-		return bSnapshotsPresent != 0;
-	}
-
-	VssSnapshotCompatibility VssBackupComponents::GetSnapshotCompatibility(String^ volumeName)
-	{
-		LONG lSnapshotCapability = 0;
-		BOOL bSnapshotsPresent = 0;
-		CheckCom(::IsVolumeSnapshotted((VSS_PWSZ)((const wchar_t *)NoNullAutoMStr(volumeName)), &bSnapshotsPresent, &lSnapshotCapability));
-		if (!bSnapshotsPresent)
-			throw gcnew InvalidOperationException("No snapshot exists for the specified volume");
-		return (VssSnapshotCompatibility)lSnapshotCapability;
-	}
-
-	bool VssBackupComponents::ShouldBlockRevert(String ^ volumeName)
-	{
-		// According to MSDN this method is supported also on Windows 2003, however it is not 
-		// present in the header-files or library files, except for the library files for ws03 
-		// in the vshadow sample directory in the VSSSDK72. Requiring WS08 here.
-#if ALPHAVSS_TARGET == ALPHAVSS_TARGET_WIN2008
-		OsInfo::RequireAtLeastInFamily(OsVersion::Win2008);
-		bool bBlock = 0;
-		CheckCom(::ShouldBlockRevert(NoNullAutoMStr(volumeName), &bBlock));
-		return bBlock != 0;
-#else
-		throw gcnew NotSupportedException(L"This method requires Windows Server 2008.");
-#endif
-	}
 
 	void VssBackupComponents::AbortBackup()
 	{
@@ -143,7 +110,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	}
 
 	[SecurityPermissionAttribute(SecurityAction::LinkDemand)]
-	VssAsync ^ VssBackupComponents::BackupComplete()
+	IVssAsync ^ VssBackupComponents::BackupComplete()
 	{
 		::IVssAsync *pAsync;
 		CheckCom(mBackup->BackupComplete(&pAsync));
@@ -182,7 +149,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		CheckCom(mBackup->DisableWriterInstances(VssIds(writerInstanceIds), writerInstanceIds->Length));
 	}
 
-	VssAsync ^ VssBackupComponents::DoSnapshotSet()
+	IVssAsync^ VssBackupComponents::DoSnapshotSet()
 	{
 		::IVssAsync *vssAsync;
 		CheckCom(mBackup->DoSnapshotSet(&vssAsync));
@@ -194,7 +161,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		CheckCom(mBackup->EnableWriterClasses(VssIds(writerClassIds), writerClassIds->Length));
 	}
 
-	String ^ VssBackupComponents::ExposeSnapshot(Guid snapshotId, String ^ pathFromRoot, VssVolumeSnapshotAttributes attributes, String ^ expose)
+	String^ VssBackupComponents::ExposeSnapshot(Guid snapshotId, String ^ pathFromRoot, VssVolumeSnapshotAttributes attributes, String ^ expose)
 	{
 		AutoPwsz pwszExposed;
 
@@ -214,21 +181,21 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		CheckCom(mBackup->FreeWriterStatus());
 	}
 
-	VssAsync ^ VssBackupComponents::GatherWriterMetadata()
+	IVssAsync^ VssBackupComponents::GatherWriterMetadata()
 	{
 		::IVssAsync *vssAsync;
 		CheckCom(mBackup->GatherWriterMetadata(&vssAsync));
 		return VssAsync::Adopt(vssAsync);
 	}
 
-	VssAsync ^ VssBackupComponents::GatherWriterStatus()
+	IVssAsync^ VssBackupComponents::GatherWriterStatus()
 	{
 		::IVssAsync *vssAsync;
 		CheckCom(mBackup->GatherWriterStatus(&vssAsync));
 		return VssAsync::Adopt(vssAsync);
 	}
 
-	VssSnapshotProperties ^ VssBackupComponents::GetSnapshotProperties(Guid snapshotId)
+	IVssSnapshotProperties^ VssBackupComponents::GetSnapshotProperties(Guid snapshotId)
 	{
 		VSS_SNAPSHOT_PROP prop;
 		CheckCom(mBackup->GetSnapshotProperties(ToVssId(snapshotId), &prop));
@@ -282,7 +249,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		return (int)cComponent;
 	}
 
-	VssWriterComponents^ VssBackupComponents::WriterComponentsList::default::get(int index)
+	IVssWriterComponents^ VssBackupComponents::WriterComponentsList::default::get(int index)
 	{
 		if (index < 0 || index > Count)
 			throw gcnew ArgumentOutOfRangeException("index");
@@ -310,7 +277,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		return (int)iCount;
 	}
 
-	VssExamineWriterMetadata^ VssBackupComponents::WriterMetadataList::default::get(int index)
+	IVssExamineWriterMetadata^ VssBackupComponents::WriterMetadataList::default::get(int index)
 	{
 		if (index < 0 || index > Count)
 			throw gcnew ArgumentOutOfRangeException("index");
@@ -319,17 +286,17 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 			throw gcnew ObjectDisposedException("Instance of IList used after the object creating it was disposed.");
 
 		VSS_ID idWriterInstance;
-		IVssExamineWriterMetadata *ewm;
+		::IVssExamineWriterMetadata *ewm;
 		CheckCom(mBackupComponents->mBackup->GetWriterMetadata(index, &idWriterInstance, &ewm));
 		return VssExamineWriterMetadata::Adopt(ewm);
 	}
 
-	IList<VssExamineWriterMetadata^>^ VssBackupComponents::WriterMetadata::get()
+	IList<IVssExamineWriterMetadata^>^ VssBackupComponents::WriterMetadata::get()
 	{
 		return mWriterMetadata;
 	}
 
-	IList<VssWriterComponents^>^ VssBackupComponents::WriterComponents::get()
+	IList<IVssWriterComponents^>^ VssBackupComponents::WriterComponents::get()
 	{
 		return mWriterComponents;
 	}
@@ -339,7 +306,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		return mWriterStatus;
 	}
 
-	VssAsync^ VssBackupComponents::ImportSnapshots()
+	IVssAsync^ VssBackupComponents::ImportSnapshots()
 	{
 		::IVssAsync *pAsync;
 		CheckCom(mBackup->ImportSnapshots(&pAsync));
@@ -363,33 +330,33 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		return (eSupported != 0);
 	}
 
-	VssAsync^ VssBackupComponents::PostRestore()
+	IVssAsync^ VssBackupComponents::PostRestore()
 	{
 		::IVssAsync *pAsync;
 		CheckCom(mBackup->PostRestore(&pAsync));
 		return VssAsync::Adopt(pAsync);
 	}
 
-	VssAsync^ VssBackupComponents::PrepareForBackup()
+	IVssAsync^ VssBackupComponents::PrepareForBackup()
 	{
 		::IVssAsync *pAsync;
 		CheckCom(mBackup->PrepareForBackup(&pAsync));
 		return VssAsync::Adopt(pAsync);
 	}
 
-	VssAsync^ VssBackupComponents::PreRestore()
+	IVssAsync^ VssBackupComponents::PreRestore()
 	{
 		::IVssAsync *pAsync;
 		CheckCom(mBackup->PreRestore(&pAsync));
 		return VssAsync::Adopt(pAsync);
 	}
 
-	IEnumerable<VssSnapshotProperties ^>^ VssBackupComponents::QuerySnapshots()
+	IEnumerable<IVssSnapshotProperties ^>^ VssBackupComponents::QuerySnapshots()
 	{
 		IVssEnumObject *pEnum;
 		VSS_OBJECT_PROP rgelt;
 		ULONG celtFetched = 0;
-		IList<VssSnapshotProperties^> ^list = gcnew List<VssSnapshotProperties^>();
+		IList<IVssSnapshotProperties^> ^list = gcnew List<IVssSnapshotProperties^>();
 
 		CheckCom(mBackup->Query(GUID_NULL, VSS_OBJECT_NONE, VSS_OBJECT_SNAPSHOT, &pEnum));
 
@@ -436,7 +403,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 				// Should always be a provider, but just in case it isn't, we simply skip it.
 				if (rgelt.Type == VSS_OBJECT_PROVIDER)
 				{
-					list->Add(VssProviderProperties::Adopt(&rgelt.Obj.Prov));
+					list->Add(CreateVssProviderProperties(&rgelt.Obj.Prov));
 				}
 			}
 		}
@@ -446,8 +413,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		}
 	}
 
-
-	VssAsync^ VssBackupComponents::QueryRevertStatus(String^ volume)
+	IVssAsync^ VssBackupComponents::QueryRevertStatus(String^ volume)
 	{
 #if ALPHAVSS_TARGET == ALPHAVSS_TARGET_WIN2003 || ALPHAVSS_TARGET == ALPHAVSS_TARGET_WIN2008
 		OsInfo::RequireAtLeastInFamily(OsVersion::Win2003SP1, OsVersion::Win2008);

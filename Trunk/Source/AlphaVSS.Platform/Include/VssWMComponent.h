@@ -21,8 +21,6 @@
 #pragma once
 
 #include <vss.h>
-#include "VssWMFileDescription.h"
-#include "VssWMDependency.h"
 
 using namespace System::Collections::Generic;
 
@@ -32,7 +30,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	/// <see cref="VssWMComponent"/> is a class that allows access to component information stored in a Writer Metadata Document.
 	/// Instances of <see cref="VssWMComponent"/> are obtained by enumerating <cee dref="VssExamineWriterMetadata::Components"/>.
 	/// </summary>
-	public ref class VssWMComponent : IDisposable
+	public ref class VssWMComponent : IVssWMComponent, IDisposable
 	{
 	public:
 		/// <summary>Releases any resources aquired by this instance</summary>
@@ -119,10 +117,10 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 
 
 	internal:
-		static VssWMComponent^ Adopt(IVssWMComponent *component);
+		static VssWMComponent^ Adopt(::IVssWMComponent *component);
 	private:
-		VssWMComponent(IVssWMComponent *component);
-		IVssWMComponent *mComponent;
+		VssWMComponent(::IVssWMComponent *component);
+		::IVssWMComponent *mComponent;
 
 		VssComponentType mType;
 		String^ mLogicalPath;

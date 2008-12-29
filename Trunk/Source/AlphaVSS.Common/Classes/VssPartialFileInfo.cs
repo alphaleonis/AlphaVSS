@@ -45,6 +45,7 @@ namespace Alphaleonis.Win32.Vss
 
             mPath = path;
             mFileName = fileName;
+            mRange = range;
             mMetadata = metadata;
         }
 

@@ -24,7 +24,7 @@
 
 namespace Alphaleonis { namespace Win32 { namespace Vss
 {
-	VssExamineWriterMetadata^ VssExamineWriterMetadata::Adopt(IVssExamineWriterMetadata *ewm)
+	IVssExamineWriterMetadata^ VssExamineWriterMetadata::Adopt(::IVssExamineWriterMetadata *ewm)
 	{
 		try
 		{
@@ -37,19 +37,12 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		}
 	}
 
-	VssExamineWriterMetadata::VssExamineWriterMetadata(IVssExamineWriterMetadata *examineWriterMetadata)
+	VssExamineWriterMetadata::VssExamineWriterMetadata(::IVssExamineWriterMetadata *examineWriterMetadata)
 		: mExamineWriterMetadata(examineWriterMetadata)
 	{
 		Initialize();
 	}
 
-	VssExamineWriterMetadata^ VssExamineWriterMetadata::Create(String^ xml)
-	{
-		IVssExamineWriterMetadata *pMetadata;
-		CheckCom(CreateVssExamineWriterMetadata(NoNullAutoMBStr(xml), &pMetadata));
-		return VssExamineWriterMetadata::Adopt(pMetadata);
-
-	}
 
 	void VssExamineWriterMetadata::Initialize()
 	{
@@ -145,13 +138,13 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		{
 			IVssWMFiledesc *filedesc;
 			CheckCom(mExamineWriterMetadata->GetExcludeFile(i, &filedesc));
-			list->Add(VssWMFileDescription::Adopt(filedesc));
+			list->Add(CreateVssWMFileDescription(filedesc));
 		}
 		mExcludeFiles = list;
 		return mExcludeFiles;
 	}
 
-	IList<VssWMComponent^>^ VssExamineWriterMetadata::Components::get()
+	IList<IVssWMComponent^>^ VssExamineWriterMetadata::Components::get()
 	{
 		if (mComponents != nullptr)
 			return mComponents;
@@ -159,10 +152,10 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		UINT cIncludeFiles, cExcludeFiles, cComponents;
 		CheckCom(mExamineWriterMetadata->GetFileCounts(&cIncludeFiles, &cExcludeFiles, &cComponents));
 
-		IList<VssWMComponent^>^ list = gcnew List<VssWMComponent^>(cComponents);
+		IList<IVssWMComponent^>^ list = gcnew List<IVssWMComponent^>(cComponents);
 		for (UINT i = 0; i < cComponents; i++)
 		{
-			IVssWMComponent *component;
+			::IVssWMComponent *component;
 			CheckCom(mExamineWriterMetadata->GetComponent(i, &component));
 			list->Add(VssWMComponent::Adopt(component));
 		}
@@ -208,7 +201,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		{
 			IVssWMFiledesc *filedesc;
 			CheckCom(mExamineWriterMetadata->GetAlternateLocationMapping(i, &filedesc));
-			list->Add(VssWMFileDescription::Adopt(filedesc));
+			list->Add(CreateVssWMFileDescription(filedesc));
 		}
 		mAlternateLocationMappings = list;
 		return mAlternateLocationMappings;

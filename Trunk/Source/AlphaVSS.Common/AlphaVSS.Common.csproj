@@ -29,11 +29,15 @@
     <OutputPath>..\..\Bin\</OutputPath>
     <PlatformTarget>x64</PlatformTarget>
     <RunCodeAnalysis>true</RunCodeAnalysis>
+    <CodeAnalysisRules>-Microsoft.Naming#CA1704;-Microsoft.Naming#CA1703</CodeAnalysisRules>
+    <DocumentationFile>..\..\Bin\AlphaVSS.Common.XML</DocumentationFile>
+    <NoWarn>1591</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
     <OutputPath>..\..\Bin\</OutputPath>
     <PlatformTarget>x64</PlatformTarget>
     <DocumentationFile>..\..\Bin\AlphaVSS.Common.XML</DocumentationFile>
+    <CodeAnalysisRules>-Microsoft.Naming#CA1704;-Microsoft.Naming#CA1707</CodeAnalysisRules>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <OutputPath>..\..\Bin\</OutputPath>
@@ -44,7 +48,8 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>..\..\Bin\</OutputPath>
-    <DocumentationFile>..\..\Bin\AlphaVSS.Common.XML</DocumentationFile>
+    <DocumentationFile>
+    </DocumentationFile>
     <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
@@ -64,7 +69,13 @@
   <ItemGroup>
     <Compile Include="Classes\VssDifferencedFileInfo.cs" />
     <Compile Include="Classes\VssDirectedTargetInfo.cs" />
+    <Compile Include="Classes\VssWMDependency.cs" />
+    <Compile Include="Classes\VssWMFileDescription.cs" />
+    <Compile Include="Classes\VssWMRestoreMethod.cs" />
+    <Compile Include="Interfaces\IVssImplementation.cs" />
+    <Compile Include="Classes\VssProviderProperties.cs" />
     <Compile Include="Classes\VssRestoreSubComponentInfo.cs" />
+    <Compile Include="Classes\VssUtils.cs" />
     <Compile Include="Classes\VssWriterStatusInfo.cs" />
     <Compile Include="Enumerations\VssBackupSchema.cs" />
     <Compile Include="Enumerations\VssBackupType.cs" />
@@ -115,6 +126,11 @@
     <Compile Include="GlobalSuppression.cs" />
     <Compile Include="Exceptions\VssException.cs" />
     <Compile Include="Interfaces\IVssAsync.cs" />
+    <Compile Include="Interfaces\IVssBackupComponents.cs" />
+    <Compile Include="Interfaces\IVssExamineWriterMetadata.cs" />
+    <Compile Include="Interfaces\IVssSnapshotProperties.cs" />
+    <Compile Include="Interfaces\IVssWMComponent.cs" />
+    <Compile Include="Interfaces\IVssWriterComponents.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\LocalizedStrings.Designer.cs">
       <AutoGen>True</AutoGen>

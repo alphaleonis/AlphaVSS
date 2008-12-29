@@ -23,7 +23,7 @@ namespace Alphaleonis.Win32.Vss
         /// 		<description>The asynchronous operation had completed prior to calling this method.</description>
         /// 	</item>
         /// </list>
-        /// <para>Additional return values can be returned, but depend on the return codes of the method that initially returned the <see cref="VssAsync"/> object.</para>
+        /// <para>Additional return values can be returned, but depend on the return codes of the method that initially returned the <see cref="IVssAsync"/> object.</para>
         /// </returns>
         /// <remarks>If an operation has completed unsuccessfully before <see cref="Cancel"/> was called, then <see cref="Cancel"/> throws the error that 
         /// operation encountered.</remarks>
@@ -45,7 +45,7 @@ namespace Alphaleonis.Win32.Vss
         /// 		<description>The asynchronous operation had completed prior to calling this method.</description>
         /// 	</item>
         /// </list>
-        /// <para>Additional return values can be returned, but depend on the return codes of the method that initially returned the <see cref="VssAsync"/> object.</para>
+        /// <para>Additional return values can be returned, but depend on the return codes of the method that initially returned the <see cref="IVssAsync"/> object.</para>
         /// </returns>
         VssError QueryStatus();
 

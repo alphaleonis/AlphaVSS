@@ -35,3 +35,4 @@
 #include "Error.h"
 #include "OsInfo.h"
 
+#include "FactoryMethods.h"

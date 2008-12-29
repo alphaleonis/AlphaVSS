@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Alphaleonis.Win32.Vss.Enumerations
+namespace Alphaleonis.Win32.Vss
 {
 /// <summary>
-	/// The <see cref="VssSnapshotContext" /> enumeration enables a requester using <see cref="VssBackupComponents" />::SetContext to specify how a 
+	/// The <see cref="VssSnapshotContext" /> enumeration enables a requester using <see cref="IVssBackupComponents.SetContext" /> to specify how a 
 	/// shadow copy is to be created, queried, or deleted and the degree of writer involvement.
-	/// <see cref="VssBackupComponents"/>::SetContext" method) may be modified by a bitmask that contains a valid combination of 
+	/// <see cref="IVssBackupComponents"/>::SetContext" method) may be modified by a bitmask that contains a valid combination of 
 	/// <see cref="VssVolumeSnapshotAttributes"/> and <see cref="VssSnapshotContext"/> enumeration values.
 	/// </summary>
 	/// <remarks><see cref="VssSnapshotContext"/> is defined as a static class defining the base <see cref="VssVolumeSnapshotAttributes"/>
@@ -54,8 +54,8 @@ namespace Alphaleonis.Win32.Vss.Enumerations
 
 		/// <summary>
 		/// All types of currently live shadow copies are available for administrative operations, such as shadow copy queries 
-		/// (see the Query method in <see cref="VssBackupComponents" />). <see cref="All"/> is a valid context for all VSS interfaces except 
-		/// <see cref="VssBackupComponents"/>::StartSnapshotSet and <see cref="VssBackupComponents"/>::DoSnapshotSet.
+		/// (see the Query method in <see cref="IVssBackupComponents" />). <see cref="All"/> is a valid context for all VSS interfaces except 
+		/// <see cref="IVssBackupComponents"/>::StartSnapshotSet and <see cref="IVssBackupComponents"/>::DoSnapshotSet.
 		/// </summary>
 		All = 0xFFFFFFFF,
 	}

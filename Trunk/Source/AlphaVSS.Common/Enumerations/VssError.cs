@@ -36,7 +36,7 @@ namespace Alphaleonis.Win32.Vss
 		/// <summary>
         /// The asynchronous operation was cancelled.
         /// </summary>
-        AsyncCancelled = 0x0004230B,
+        AsyncCanceled = 0x0004230B,
 
 		/// <summary>
         /// The asynchronous operation was completed successfully.

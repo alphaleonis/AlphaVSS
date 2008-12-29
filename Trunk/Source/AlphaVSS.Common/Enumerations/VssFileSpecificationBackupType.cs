@@ -51,6 +51,11 @@ namespace Alphaleonis.Win32.Vss
 	[Flags]
 	public enum VssFileSpecificationBackupType
 	{
+        /// <summary>
+        /// Used on operating systems where this enumeration is not supported, i.e. Windows XP.
+        /// </summary>
+        Unknown = 0x0,
+
 		/// <summary>
 		/// 	<para>
 		/// 	    A file set tagged with this value must be involved in all types of backup operations.

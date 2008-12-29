@@ -26,7 +26,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 {
 
 	/// <summary>The <see cref="VssSnapshotProperties"/> class contains the properties of a shadow copy or shadow copy set.</summary>
-	public ref class VssSnapshotProperties sealed
+	public ref class VssSnapshotProperties sealed : IVssSnapshotProperties
 	{
 	public:
 		/// <summary>A <see cref="Guid" /> uniquely identifying the shadow copy identifier.</summary>

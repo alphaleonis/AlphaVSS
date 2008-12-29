@@ -22,7 +22,7 @@
 namespace Alphaleonis.Win32.Vss
 {
 	/// <summary>
-	/// Allows additional attributes to be specified for a shadow copy. The context of a shadow copy (as set by the SetContext method in <see cref="VssBackupComponents" /> method) 
+	/// Allows additional attributes to be specified for a shadow copy. The context of a shadow copy (as set by the SetContext method in <see cref="IVssBackupComponents" /> method) 
 	/// may be modified by a bitmask that contains a valid combination of <see cref="VssVolumeSnapshotAttributes" /> and 
 	/// <see cref="VssSnapshotContext" /> enumeration values.
 	/// </summary>
@@ -57,7 +57,7 @@ namespace Alphaleonis.Win32.Vss
 		ClientAccessible	= 0x00000004,
 		/// <summary>
 		/// <para>The shadow copy is not automatically deleted when the shadow copy requester process ends. 
-		/// The shadow copy can be deleted only by a call to <see cref="IVssBackupComponents.DeleteSnapshots(System.Guid,Alphaleonis.Win32.Vss.VssObjectType,System.Boolean,System.Int64@,System.Guid@)"/>.</para>
+		/// The shadow copy can be deleted only by a call to <see cref="IVssBackupComponents.DeleteSnapshots"/>.</para>
 		/// <para>This attribute is automatically set for <see cref="VssSnapshotContext"/> contexts of <c>Rollback</c>,
 		/// <c>ClientAccessible</c>, <c>ClientAccessibleWriters</c> and <c>Rollback</c>.</para>
 		/// </summary>
@@ -156,6 +156,7 @@ namespace Alphaleonis.Win32.Vss
 		/// <para>Indicates that TxF recovery should be enforced during shadow copy creation.</para>
 		/// <para><b>Windows Vista, Windows Server 2003, and Windows XP:</b>  This value is not supported until Windows Server 2008.</para>
 		/// </summary>
-		TxFRecovery			= 0x02000000
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "Tx")]
+        TxFRecovery			= 0x02000000
 	}
 }

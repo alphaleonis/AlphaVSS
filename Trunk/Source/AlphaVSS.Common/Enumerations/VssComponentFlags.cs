@@ -26,7 +26,7 @@ namespace Alphaleonis.Win32.Vss
 	/// 	The <see cref="VssComponentFlags"/> enumeration is used by writers to indicate support for auto-recovery.
 	/// </summary>
 	/// <remarks>For more information see <see href="http://msdn.microsoft.com/en-us/library/aa384681(VS.85).aspx">MSDN documentation on VSS_COMPONENT_FLAGS Enumeration</see></remarks>
-	[Flags]
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1726:UsePreferredTerms", MessageId = "Flags"), Flags]
 	public enum VssComponentFlags
 	{
 		/// <summary>

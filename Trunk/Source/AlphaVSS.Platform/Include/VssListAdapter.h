@@ -20,13 +20,11 @@
  */
 #pragma once
 
-#include "IVssListAdapter.h"
-
 namespace Alphaleonis { namespace Win32 { namespace Vss
 {
 
 	generic<typename T> 
-	ref class VssListAdapter abstract : IVssListAdapter<T> 
+	private ref class VssListAdapter abstract : System::Collections::Generic::IList<T> 
 	{
 	public:
 		virtual void Add(T item) sealed;
@@ -77,7 +75,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 				virtual T get(); 
 			}
 		private:
-			IVssListAdapter<T>^ mList;
+			VssListAdapter<T>^ mList;
 			int mIndex;
 		};
 	};

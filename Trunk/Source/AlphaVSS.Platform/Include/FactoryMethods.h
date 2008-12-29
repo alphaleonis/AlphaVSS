@@ -18,60 +18,16 @@
  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  *  THE SOFTWARE.
  */
-#include "StdAfx.h"
+#pragma once
 
-#include "VssWMDependency.h"
+#include "Macros.h"
+#include "Error.h"
 
 namespace Alphaleonis { namespace Win32 { namespace Vss
 {
-#if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WIN2003
-	VssWMDependency^ VssWMDependency::Adopt(IVssWMDependency *dependency)
-	{
-		try
-		{ 
-			return gcnew VssWMDependency(dependency);
-		}
-		finally
-		{
-			dependency->Release();
-		}
-	}
-
-	VssWMDependency::VssWMDependency(IVssWMDependency *dependency)		
-	{
-		VSS_ID id;
-		CheckCom(dependency->GetWriterId(&id));
-		mWriterId = ToGuid(id);
-
-		AutoBStr logicalPath;
-		CheckCom(dependency->GetLogicalPath(&logicalPath));
-		mLogicalPath = logicalPath;
-		
-		AutoBStr componentName;
-		CheckCom(dependency->GetComponentName(&componentName));
-		mComponentName = componentName;
-	}
-#endif
-
-	VssWMDependency::~VssWMDependency()
-	{
-	}
-
-	Guid VssWMDependency::WriterId::get()
-	{
-		return mWriterId;
-	}
-
-	String^ VssWMDependency::LogicalPath::get()
-	{
-		return mLogicalPath;
-	}
-
-	String^ VssWMDependency::ComponentName::get()
-	{
-		return mComponentName;
-	}
+	VssWMFileDescription^ CreateVssWMFileDescription(IVssWMFiledesc *vssWMFiledesc);
+	VssProviderProperties^ CreateVssProviderProperties(VSS_PROVIDER_PROP *pProp);
+	VssWMDependency^ CreateVssWMDependency(IVssWMDependency *dependency);
 
 }
-} }
-
+}}

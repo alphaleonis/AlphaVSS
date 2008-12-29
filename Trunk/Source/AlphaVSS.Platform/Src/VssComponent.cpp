@@ -354,7 +354,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 
 		IVssWMFiledesc *vssWMFiledesc;
 		CheckCom(mComponent->mVssComponent->GetNewTarget(index, &vssWMFiledesc));
-		return VssWMFileDescription::Adopt(vssWMFiledesc);
+		return CreateVssWMFileDescription(vssWMFiledesc);
 	}
 
 	VssComponent::NewTargetList::NewTargetList(VssComponent^ component)
@@ -487,7 +487,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 
 		IVssWMFiledesc *vssWMFiledesc;
 		CheckCom(mComponent->mVssComponent->GetAlternateLocationMapping(index, &vssWMFiledesc));
-		return VssWMFileDescription::Adopt(vssWMFiledesc);
+		return CreateVssWMFileDescription(vssWMFiledesc);
 	}
 
 	VssComponent::AlternateLocationMappingList::AlternateLocationMappingList(VssComponent^ component)

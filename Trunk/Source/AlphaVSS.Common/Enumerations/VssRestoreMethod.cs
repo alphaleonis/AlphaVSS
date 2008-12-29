@@ -64,12 +64,12 @@ namespace Alphaleonis.Win32.Vss
 
 		/// <summary>
 		/// A requester will restore the files of a selected component or component set following a reboot of the system.
-		/// </summary>
-		/// <remarks>
+		/// <para>
 		/// Files to be restored should be copied to a temporary location, and the requester should use <c>File.Move</c> with the <c>DelayUntilReboot</c> flag 
-		// to complete the restoration of these files to their proper location following reboot. (Using AlphaFS for file operations).
-		/// </remarks>
-		RestoreAtReboot = 5,
+		/// to complete the restoration of these files to their proper location following reboot. (Using AlphaFS for file operations).
+		/// </para>
+        /// </summary>
+        RestoreAtReboot = 5,
 		
 		/// <summary>
 		/// If possible, a requester will restore the files of a selected component or component set to their correct location immediately.
