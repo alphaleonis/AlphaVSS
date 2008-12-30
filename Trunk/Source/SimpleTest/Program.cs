@@ -15,6 +15,7 @@ namespace SimpleTest
             using (IVssBackupComponents backup = impl.CreateVssBackupComponents())
             {
                 backup.InitializeForBackup(null);
+                backup.SetRestoreName(Guid.Empty, VssComponentType.Database, null, "hede", "hodo");
                 foreach (VssProviderProperties prop in backup.QueryProviders())
                 {
                     Console.WriteLine(prop.ProviderName);

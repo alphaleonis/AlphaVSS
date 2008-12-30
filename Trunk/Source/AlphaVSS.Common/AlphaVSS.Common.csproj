@@ -73,6 +73,8 @@
     <Compile Include="Classes\VssWMDependency.cs" />
     <Compile Include="Classes\VssWMFileDescription.cs" />
     <Compile Include="Classes\VssWMRestoreMethod.cs" />
+    <Compile Include="Enumerations\VssHardwareOptions.cs" />
+    <Compile Include="Enumerations\VssRollForwardType.cs" />
     <Compile Include="Interfaces\IVssComponent.cs" />
     <Compile Include="Interfaces\IVssImplementation.cs" />
     <Compile Include="Classes\VssProviderProperties.cs" />

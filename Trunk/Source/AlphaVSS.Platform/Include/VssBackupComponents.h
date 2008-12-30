@@ -27,6 +27,15 @@
 using namespace System;
 using namespace System::Collections::Generic;
 
+#if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WIN2003
+#define ALPHAVSS_HAS_BACKUPEX
+#endif
+
+#if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WIN2008
+#define ALPHAVSS_HAS_BACKUPEX2
+#endif
+
+
 namespace Alphaleonis { namespace Win32 { namespace Vss
 {
 	ref class VssAsync;
@@ -49,7 +58,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		
 		virtual IVssAsync^ BackupComplete();
 		virtual void BreakSnapshotSet(Guid snapshotSetId);
-		
+		virtual IVssAsync^ BreakSnapshotSet(Guid snapshotSetId, VssHardwareOptions breakFlags);
 		virtual void DeleteSnapshot(Guid snapshotId, bool forceDelete);
 		virtual int DeleteSnapshotSet(Guid snapshotSetId, bool forceDelete);
 
@@ -80,6 +89,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		virtual void RevertToSnapshot(Guid snapshotId, bool forceDismount);
 		virtual String^ SaveAsXml();
 		virtual void SetAdditionalRestores(Guid writerId, VssComponentType componentType, String^ logicalPath, String^ componentName, bool additionalResources);
+        virtual void SetAuthoritativeRestore(Guid writerId, VssComponentType componentType, String^ logicalPath, String^ componentName, bool isAuthorative);
 		virtual void SetBackupOptions(Guid writerId, VssComponentType componentType, String^ logicalPath, String^ componentName, String^ backupOptions);
 		virtual void SetBackupState(bool selectComponents, bool backupBootableSystemState, VssBackupType backupType, bool partialFileSupport);
 		virtual void SetBackupSucceeded(Guid instanceId, Guid writerId, VssComponentType componentType, String^ logicalPath, String^ componentName, bool succeeded);
@@ -87,12 +97,53 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		virtual void SetFileRestoreStatus(Guid writerId, VssComponentType componentType, String^ logicalPath, String^ componentName, VssFileRestoreStatus status);
 		virtual void SetPreviousBackupStamp(Guid writerId, VssComponentType componentType, String^ logicalPath, String^ componentName, String^ previousBackupStamp);
 		virtual void SetRangesFilePath(Guid writerId, VssComponentType componentType, String^ logicalPath, String^ componentName, int partialFileIndex, String^ rangesFile);
+		virtual void SetRestoreName(Guid writerId, VssComponentType componentType, String^ logicalPath, String^ componentName, String^ restoreName);
 		virtual void SetRestoreOptions(Guid writerId, VssComponentType componentType, String^ logicalPath, String^ componentName, String^ restoreOptions);
 		virtual void SetRestoreState(VssRestoreType restoreType);
+        virtual void SetRollForward(Guid writerId, VssComponentType componentType, String^ logicalPath, String^ componentName, VssRollForwardType rollType, String^ rollForwardPoint);
 		virtual void SetSelectedForRestore(Guid writerId, VssComponentType componentType, String^ logicalPath, String^ componentName, bool selectedForRestore);
 		virtual Guid StartSnapshotSet();
+		virtual void UnexposeSnapshot(Guid snapshotId);
+
 	private:
 		::IVssBackupComponents *mBackup;
+
+#ifdef ALPHAVSS_HAS_BACKUPEX
+		::IVssBackupComponentsEx *mBackupEx;
+		
+		IVssBackupComponentsEx *GetBackupComponentsEx()
+		{
+			if (mBackupEx == 0)
+			{
+				void *ifc = 0;
+				if (!SUCCEEDED(mBackup->QueryInterface(IID_IVssBackupComponentsEx, &ifc)))
+				{
+					UnsupportedOs();
+				}
+				mBackupEx = (IVssBackupComponentsEx *)ifc;
+			}
+			return mBackupEx;
+		}
+#endif
+
+#ifdef ALPHAVSS_HAS_BACKUPEX2
+		::IVssBackupComponentsEx2 *mBackupEx2;
+
+		IVssBackupComponentsEx2 *GetBackupComponentsEx2()
+		{
+			void *ifc = 0;
+			if (mBackupEx2 == 0)
+			{
+				if (!SUCCEEDED(mBackup->QueryInterface(IID_IVssBackupComponentsEx2, &ifc)))
+				{
+					UnsupportedOs();
+				}
+				mBackupEx2 = (IVssBackupComponentsEx2 *)ifc;
+			}
+			return mBackupEx2;
+		}
+
+#endif
 
 		ref class WriterMetadataList : VssListAdapter<IVssExamineWriterMetadata^>
 		{

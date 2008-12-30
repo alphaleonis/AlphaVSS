@@ -306,6 +306,32 @@ namespace Alphaleonis.Win32.Vss
 		void BreakSnapshotSet(Guid snapshotSetId);
 
         /// <summary>
+        /// Breaks a shadow copy set according to requester-specified options.
+        /// </summary>
+        /// <param name="snapshotSetId">A shadow copy set identifier.</param>
+        /// <param name="breakFlags">A bitmask of <see cref="VssHardwareOptions"/> flags that specify how the shadow copy set is broken.</param>
+        /// <remarks>
+        ///     <para>
+        ///         This method is similar to <see cref="BreakSnapshotSet(System.Guid)"/>, except that is has an extra parameter to specify
+        ///         how the shadow copy set is broken, and returns an <see cref="IVssAsync"/> object to query the status of the operation.
+        ///     </para>
+        ///     <para>
+        ///         Like <see cref="BreakSnapshotSet(System.Guid)"/>, this method can be used only for shadow copies that were created by 
+        ///         a hardware shadow copy provider.
+        ///     </para>
+        ///     <para>
+        ///         After this method returns, the shadow copy volume is still a volume, but it is no longer a shadow copy. 
+        ///         For more information, see <see href="http://msdn.microsoft.com/en-us/library/aa381505(VS.85).aspx">Breaking Shadow Copies</see>.
+        ///     </para>
+        /// </remarks>
+        /// <returns>
+        ///     An <see cref="IVssAsync"/> instance that can be used to retrieve the status of the shadow copy set break operation. 
+        ///     When the break operation is complete, the <c>Dispose</c> method of the <see cref="IVssAsync"/> instance must be called.
+        /// </returns>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1726:UsePreferredTerms", MessageId = "Flags")]
+        IVssAsync BreakSnapshotSet(Guid snapshotSetId, VssHardwareOptions breakFlags);
+
+        /// <summary>
         ///		The <c>DeleteSnapshot</c> method deletes a shadow copy.. 
         /// </summary>
         /// <param name="snapshotId">Identifier of the shadow copy to be deleted.</param>
@@ -544,7 +570,9 @@ namespace Alphaleonis.Win32.Vss
 		/// <exception cref="VssUnexpectedProviderErrorException">Unexpected provider error. The error code is logged in the error log.</exception>
 		VssSnapshotProperties GetSnapshotProperties(Guid snapshotId);
 
-		/// <summary>A read-only list containing information about the components of each writer that has been stored in a requester's Backup Components Document.</summary>
+		/// <summary>
+        ///     A read-only list containing information about the components of each writer that has been stored in a requester's Backup Components Document.
+        /// </summary>
 		/// <remarks>
 		/// 	<para>
 		/// 		<see cref="WriterComponents"/> retrieves component information for a component stored in the Backup Components Document by earlier 
@@ -584,8 +612,9 @@ namespace Alphaleonis.Win32.Vss
 		/// <exception cref="VssBadStateException">The backup components object is not initialized, this method has been called during a restore operation, or this method has not been called within the correct sequence.</exception>		
 		IList<IVssWriterComponents> WriterComponents { get; }
 
-
-		/// <summary>A read-only list containing metadata for the writers running on the systsem.</summary>
+		/// <summary>
+        ///     A read-only list containing metadata for the writers running on the systsem.
+        /// </summary>
 		/// <value>
 		///     A read-only list containing metadata for the writers running on the system.
 		///		<note type="caution">This list must not be accessed after the <see cref="IVssBackupComponents"/> from which it 
@@ -617,8 +646,9 @@ namespace Alphaleonis.Win32.Vss
 		/// <exception cref="VssObjectNotFoundException">The specified shadow copy does not exist.</exception>
 		IList<IVssExamineWriterMetadata> WriterMetadata { get; }
 
-
-		/// <summary>A read-only list containing the status of the writers.</summary>
+		/// <summary>
+        ///     A read-only list containing the status of the writers.
+        /// </summary>
 		/// <value>
 		///		A read-only list containing <see cref="VssWriterStatusInfo"/> instances representing the returned status for each respective writer.
 		///		<note type="caution">This list must not be accessed after the <see cref="IVssBackupComponents"/> from which it 
@@ -636,8 +666,9 @@ namespace Alphaleonis.Win32.Vss
 		/// <exception cref="VssObjectNotFoundException">The specified shadow copy does not exist.</exception>
 		IList<VssWriterStatusInfo> WriterStatus { get; }
 
-
-		/// <summary>The ImportSnapshots method imports shadow copies transported from a different machine.</summary>
+		/// <summary>
+        ///     The ImportSnapshots method imports shadow copies transported from a different machine.
+        /// </summary>
 		/// <note>This method is supported only on Windows Server operating systems.</note>
 		/// <returns>A <see cref="IVssAsync"/> instance representing this asynchronous operation.</returns>
 		/// <remarks>
@@ -987,6 +1018,94 @@ namespace Alphaleonis.Win32.Vss
 		/// <exception cref="VssInvalidXmlDocumentException">The XML document is not valid. Check the event log for details.</exception>
 		void SetAdditionalRestores(Guid writerId, VssComponentType componentType, string logicalPath, string componentName, bool additionalResources);
 
+        /// <summary>
+        /// Marks the restore of a component as authoritative for a replicated data store.
+        /// </summary>
+        /// <param name="writerId">The globally unique identifier (GUID) of the writer class.</param>
+        /// <param name="componentType">Type of the component.</param>
+        /// <param name="logicalPath">
+        /// 	<para>
+        /// 		The logical path of the component to be added. For more information, see 
+        /// 		<see href="http://msdn.microsoft.com/en-us/library/aa384316(VS.85).aspx">Logical Pathing of Components</see>.
+        /// 	</para>
+        /// 	<para>
+        /// 		The value of the string containing the logical path used here should be the same as was used when the component was 
+        /// 		added to the backup set using <see cref="AddComponent"/>.
+        /// 	</para>
+        /// 	<para>
+        /// 		The logical path can be <see langword="null"/>.
+        /// 	</para>
+        /// 	<para>
+        /// 		There are no restrictions on the characters that can appear in a non-<c>null</c> logical path.
+        /// 	</para>
+        /// </param>
+        /// <param name="componentName">
+        /// 	<para>The name of the component.</para>
+        /// 	<para>
+        /// 		The value of the string should not be <see langword="null"/>, and should contain the same component as was used when the 
+        /// 		component was added to the backup set using <see cref="AddComponent"/>.
+        /// 	</para>
+        /// </param>
+        /// <param name="isAuthorative"><see langword="true"/> to indicate that the restore of the component is authoritative; otherwise, <see langword="false"/>.</param>
+        /// <exception cref="ArgumentNullException">One of the arguments that cannot be <see langword="null"/> was <see langword="null"/></exception>
+        /// <exception cref="ArgumentException">One of the parameter values is not valid.</exception>
+        /// <exception cref="OutOfMemoryException">Out of memory or other system resources.</exception>
+        /// <exception cref="SystemException">Unexpected VSS system error. The error code is logged in the event log.</exception>
+        /// <exception cref="VssBadStateException">This method was not called during a restore operation.</exception>		
+        /// <exception cref="VssObjectNotFoundException">The specified component was not found.</exception>
+        /// <remarks>
+        ///     <para>
+        ///         <note>
+        ///             <b>Windows XP and Windows 2003:</b> This method requires Windows Vista or Windows Server 2008.
+        ///         </note>
+        ///     </para>
+        /// </remarks>
+        void SetAuthoritativeRestore(Guid writerId, VssComponentType componentType, string logicalPath, string componentName, bool isAuthorative);
+
+        /// <summary>
+        /// Assigns a new logical name to a component that is being restored.
+        /// </summary>
+        /// <param name="writerId">The globally unique identifier (GUID) of the writer class.</param>
+        /// <param name="componentType">The type of the component.</param>
+        /// <param name="logicalPath">
+        ///     <para>
+        ///         A string containing the logical path of the component. For more information, see 
+        ///         <see href="http://msdn.microsoft.com/en-us/library/aa384316(VS.85).aspx">Logical Pathing of Components</see>.
+        ///     </para>
+        ///     <para>
+        ///         The value of the string containing the logical path used here should be the same as the string that was used when 
+        ///         the component was added.
+        ///     </para>
+        ///     <para>
+        ///         The logical path can be <see langword="null"/>.
+        ///     </para>
+        ///     <para>
+        ///         There are no restrictions on the characters that can appear in a logical path.
+        ///     </para>
+        /// </param>
+        /// <param name="componentName">
+        ///     <para>The name of the component.</para>
+        ///     <para>
+        ///         The string cannot be <see langword="null"/> and should contain the same component name as was the component name 
+        ///         that was used when the component was added to the backup set using the <see cref="IVssBackupComponents.AddComponent"/> method.
+        ///     </para>
+        ///  </param>
+        /// <param name="restoreName">String containing the restore name to be set for the component.</param>
+        /// <exception cref="ArgumentNullException">One of the arguments that cannot be <see langword="null"/> was <see langword="null"/></exception>
+        /// <exception cref="ArgumentException">One of the parameter values is not valid.</exception>
+        /// <exception cref="OutOfMemoryException">Out of memory or other system resources.</exception>
+        /// <exception cref="SystemException">Unexpected VSS system error. The error code is logged in the event log.</exception>
+        /// <exception cref="VssBadStateException">This method was not called during a restore operation.</exception>		
+        /// <exception cref="VssObjectNotFoundException">The specified component was not found.</exception>
+        /// <remarks>
+        ///     <para>
+        ///         <note>
+        ///             <b>Windows XP and Windows 2003:</b> This method requires Windows Vista or Windows Server 2008.
+        ///         </note>
+        ///     </para>
+        /// </remarks>
+        void SetRestoreName(Guid writerId, VssComponentType componentType, string logicalPath, string componentName, string restoreName);
+
 		/// <summary>
 		/// 	The <see cref="SetBackupOptions"/> method sets a string of private, or writer-dependent, backup parameters for a component.
 		/// </summary>
@@ -1036,7 +1155,9 @@ namespace Alphaleonis.Win32.Vss
 		/// <exception cref="VssInvalidXmlDocumentException">The XML document is not valid. Check the event log for details.</exception>
 		void SetBackupOptions(Guid writerId, VssComponentType componentType, string logicalPath, string componentName, string backupOptions);
 		
-		/// <summary>The <see cref="SetBackupState"/> method defines an overall configuration for a backup operation.</summary>
+		/// <summary>
+        ///     The <see cref="SetBackupState"/> method defines an overall configuration for a backup operation.
+        /// </summary>
 		/// <param name="selectComponents">
 		/// 	<para>
 		/// 		Indicates whether a backup or restore operation will be in component mode.
@@ -1252,7 +1373,9 @@ namespace Alphaleonis.Win32.Vss
 		/// <exception cref="VssInvalidXmlDocumentException">The XML document is not valid. Check the event log for details.</exception>
 		void SetPreviousBackupStamp(Guid writerId, VssComponentType componentType, string logicalPath, string componentName, string previousBackupStamp);
 
-		/// <summary>The <see cref="SetRangesFilePath"/> method is used when a partial file operation requires a ranges file, and that file has been restored to a location other than its original one.</summary>		
+		/// <summary>
+        ///     The <see cref="SetRangesFilePath"/> method is used when a partial file operation requires a ranges file, and that file has been restored to a location other than its original one.
+        /// </summary>		
 		/// <param name="writerId">Globally unique identifier (GUID) of the writer class containing the files involved in the partial file operation</param>
 		/// <param name="componentType">Type of the component.</param>
 		/// <param name="logicalPath">
@@ -1364,7 +1487,57 @@ namespace Alphaleonis.Win32.Vss
 		/// <exception cref="VssInvalidXmlDocumentException">The XML document is not valid. Check the event log for details.</exception>
 		void SetRestoreState(VssRestoreType restoreType);
 
-		/// <summary>The <see cref="SetSelectedForRestore"/> method indicates whether the specified selectable component is selected for restoration.</summary>
+        /// <summary>
+        /// Sets the roll-forward operation type for a component and specifies the restore point for a partial roll-forward operation.
+        /// </summary>
+        /// <param name="writerId">The globally unique identifier (GUID) of the writer class.</param>
+        /// <param name="componentType">Type of the component.</param>
+        /// <param name="logicalPath">
+        /// 	<para>
+        /// 		The logical path of the component. For more information, see 
+        /// 		<see href="http://msdn.microsoft.com/en-us/library/aa384316(VS.85).aspx">Logical Pathing of Components</see>.
+        /// 	</para>
+        /// 	<para>
+        /// 		The value of the string containing the logical path used here should be the same as was used when the component was 
+        /// 		added to the backup set using <see cref="AddComponent"/>.
+        /// 	</para>
+        /// 	<para>
+        /// 		The logical path can be <see langword="null"/>.
+        /// 	</para>
+        /// 	<para>
+        /// 		There are no restrictions on the characters that can appear in a non-<c>null</c> logical path.
+        /// 	</para>
+        /// </param>
+        /// <param name="componentName">
+        /// 	<para>The name of the component.</para>
+        /// 	<para>
+        /// 		The value of the string should not be <see langword="null"/>, and should contain the same component as was used when the 
+        /// 		component was added to the backup set using <see cref="AddComponent"/>.
+        /// 	</para>
+        /// </param>
+        /// <param name="rollType">A <see cref="VssRollForwardType"/> enumeration value indicating the type of roll-forward operation to be performed.</param>
+        /// <param name="rollForwardPoint">
+        ///     <para>A null-terminated wide character string specifying the roll-forward restore point.</para>
+        ///     <para>The format of this string is defined by the writer, and can be a timestamp, a log sequence number (LSN), or any marker defined by the writer.</para>
+        /// </param>
+        /// <exception cref="ArgumentNullException">One of the arguments that cannot be <see langword="null"/> was <see langword="null"/></exception>
+        /// <exception cref="ArgumentException">One of the parameter values is not valid.</exception>
+        /// <exception cref="OutOfMemoryException">Out of memory or other system resources.</exception>
+        /// <exception cref="SystemException">Unexpected VSS system error. The error code is logged in the event log.</exception>
+        /// <exception cref="VssBadStateException">This method was not called during a restore operation.</exception>		
+        /// <exception cref="VssObjectNotFoundException">The backup component does not exist.</exception>
+        /// <remarks>
+        ///     <para>
+        ///         <note>
+        ///             <b>Windows XP and Windows 2003:</b> This method requires Windows Vista or Windows Server 2008.
+        ///         </note>
+        ///     </para>
+        /// </remarks>
+        void SetRollForward(Guid writerId, VssComponentType componentType, string logicalPath, string componentName, VssRollForwardType rollType, string rollForwardPoint);
+
+		/// <summary>
+        ///     The <see cref="SetSelectedForRestore"/> method indicates whether the specified selectable component is selected for restoration.
+        /// </summary>
 		/// <param name="writerId">Writer identifier.</param>
 		/// <param name="componentType">Type of the component.</param>
 		/// <param name="logicalPath">
@@ -1418,5 +1591,26 @@ namespace Alphaleonis.Win32.Vss
 		/// <exception cref="VssBadStateException">The backup components object is not initialized, this method has been called during a restore operation, or this method has not been called within the correct sequence.</exception>		
 		/// <exception cref="VssSnapshotSetInProgressException">The creation of a shadow copy is in progress, and only one shadow copy creation operation can be in progress at one time. Either wait to try again or return with a failure error code.</exception>
 		Guid StartSnapshotSet();
+
+        /// <summary>
+        /// Unexposes a shadow copy either by deleting the file share or by removing the drive letter or mount point.
+        /// </summary>
+        /// <param name="snapshotId">The shadow copy identifier. The value of this identifier should be the same as the value that was used when the shadow copy was exposed.</param>
+        /// <exception cref="ArgumentException">One of the parameter values is not valid.</exception>
+        /// <exception cref="UnauthorizedAccessException">The caller does not have sufficient backup privileges or is not an administrator.</exception>
+        /// <exception cref="OutOfMemoryException">Out of memory or other system resources.</exception>
+        /// <exception cref="SystemException">Unexpected VSS system error. The error code is logged in the event log.</exception>
+        /// <exception cref="VssBadStateException">The backup components object is not initialized, this method has been called during a restore operation, or this method has not been called within the correct sequence.</exception>
+        /// <exception cref="VssObjectNotFoundException">The specified shadow copy does not exist or is not exposed.</exception>
+        /// <exception cref="VssProviderVetoException">Expected provider error. The provider logged the error in the event log.</exception>
+        /// <exception cref="VssUnexpectedProviderErrorException">Unexpected provider error. The error code is logged in the error log.</exception>
+        /// <remarks>
+        ///     <para>
+        ///         <note>
+        ///             <b>Windows XP and Windows 2003:</b> This method requires Windows Vista or Windows Server 2008.
+        ///         </note>
+        ///     </para>
+        /// </remarks>
+        void UnexposeSnapshot(Guid snapshotId);
     }
 }

@@ -177,7 +177,7 @@ namespace Alphaleonis.Win32.Vss
 
         /// <summary>
         ///     <para>
-        ///         The writer supports a requester setting authoritative restore using <see cref="IVssBackupComponents.SetAuthorativeRestore"/>.
+        ///         The writer supports a requester setting authoritative restore using <see cref="IVssBackupComponents.SetAuthoritativeRestore"/>.
         ///     </para>
         ///     <para>
         ///         <b>Windows Server 2003:</b> This value is not supported until Windows Vista.
