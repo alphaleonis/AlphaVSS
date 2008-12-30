@@ -13,11 +13,12 @@ namespace Alphaleonis.Win32.Vss
     public interface IVssWriterComponents
     {
 		/// <summary>
-		/// 	A read-only collection of <see cref="VssComponent"/> instances to the a given writer's 
+		/// 	A read-only collection of <see cref="IVssComponent"/> instances to the a given writer's 
 		/// 	components explicitly stored in the Backup Components Document. 
 		/// </summary>
-		/// <value>A read-only collection of <see cref="VssComponent"/> instances to the a given writer's 
-		/// 	components explicitly stored in the Backup Components Document. <note type="caution">This list must not be accessed after the <see cref="VssComponent"/> from which it was obtained has been disposed.</note>
+		/// <value>A read-only collection of <see cref="IVssComponent"/> instances to the a given writer's 
+		/// 	components explicitly stored in the Backup Components Document. <note type="caution">This list 
+        /// 	must not be accessed after the <see cref="IVssComponent"/> from which it was obtained has been disposed.</note>
 		/// </value>
 		 IList<IVssComponent> Components { get; }
 

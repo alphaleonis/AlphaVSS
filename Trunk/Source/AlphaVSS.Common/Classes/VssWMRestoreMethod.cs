@@ -8,7 +8,7 @@ namespace Alphaleonis.Win32.Vss
 	/// <summary>
 	/// Represents information about how a writer wants its data to be restored.
 	/// </summary>
-	/// <remarks>This class is a container for the data returned by <see cref="IVssExamineWriterMetadata.GetRestoreMethod"/>.</remarks>
+	/// <remarks>This class is a container for the data returned by <see cref="IVssExamineWriterMetadata.RestoreMethod"/>.</remarks>
 	public class VssWMRestoreMethod
 	{
         public VssWMRestoreMethod(VssRestoreMethod restoreMethod, string service, string userProcedure, VssWriterRestore writerRestore, bool rebootRequired, int mappings)

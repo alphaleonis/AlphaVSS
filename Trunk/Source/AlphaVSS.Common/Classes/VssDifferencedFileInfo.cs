@@ -62,7 +62,7 @@ namespace Alphaleonis.Win32.Vss
 		/// <summary>
 		/// 	Boolean specifying whether the file specification for the differenced files should be interpreted recursively. 
 		/// 	If <see langword="true"/>, then the entire directory hierarchy will need to be searched for files matching the 
-		/// 	file specification <see cref="FileSpec"/> to find files to be handled as differenced files during incremental 
+		/// 	file specification <see cref="FileSpecification"/> to find files to be handled as differenced files during incremental 
 		/// 	or differential backups. If <see langword="false"/>, only the root directory needs to be searched.
 		/// </summary>
 		public bool IsRecursive { get { return mIsRecursive; } }

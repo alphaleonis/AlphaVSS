@@ -48,7 +48,7 @@ namespace Alphaleonis.Win32.Vss
 	/// 	For more information see the MSDN documentation on 
 	/// 	<see href="http://msdn.microsoft.com/en-us/library/aa384951(VS.85).aspx">VSS_FILE_SPEC_BACKUP_TYPE Enumeration</see>
 	/// </remarks>
-	[Flags]
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1714:FlagsEnumsShouldHavePluralNames"), System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1008:EnumsShouldHaveZeroValue"), Flags]
 	public enum VssFileSpecificationBackupType
 	{
         /// <summary>

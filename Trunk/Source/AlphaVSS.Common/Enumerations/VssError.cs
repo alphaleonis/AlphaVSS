@@ -28,7 +28,8 @@ namespace Alphaleonis.Win32.Vss
 	/// 		returned by some Vss methods.
 	/// 	</para>
 	/// </summary>
-	public enum VssError : uint
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1028:EnumStorageShouldBeInt32")]
+    public enum VssError : uint
 	{
 		/// <summary>Indication of a successful operation.</summary>
 		Success = 0x00,

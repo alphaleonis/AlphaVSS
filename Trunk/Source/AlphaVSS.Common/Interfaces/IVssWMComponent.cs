@@ -40,7 +40,7 @@ namespace Alphaleonis.Win32.Vss
         ///     The buffer contents should use the same format as the standard icon (.ico) files. If the writer that created 
 		///     the component did not choose to specify an icon, the value will be <see langword="null"/>.
         /// </remarks>
-		 byte[] Icon { get; }
+         byte[] GetIcon();
 
 		/// <summary>
 		///     Boolean that indicates whether there is private metadata associated with the restoration of the component.
@@ -95,7 +95,8 @@ namespace Alphaleonis.Win32.Vss
 		///         <b>Windows Server 2003 and Windows XP:</b>  Before Windows Server 2003 SP1, this member is reserved for system use.
         ///     </note>
 		/// </remarks>
-		 VssComponentFlags ComponentFlags { get; }
+         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1726:UsePreferredTerms", MessageId = "Flags")]
+         VssComponentFlags ComponentFlags { get; }
 
 		/// <summary>
 		///     The file descriptors associated with this component.

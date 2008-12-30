@@ -15,7 +15,8 @@ namespace Alphaleonis.Win32.Vss
 	/// combination of values representing the VSS_CTX_XXXXXX constants defined in the VSS API. 
 	/// </remarks>
 	/// <seealso cref="VssVolumeSnapshotAttributes" />
-	public enum VssSnapshotContext : uint
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1028:EnumStorageShouldBeInt32")]
+    public enum VssSnapshotContext : uint
 	{
 		/// <summary>
 		/// The standard backup context. Specifies an auto-release, nonpersistent shadow copy in which writers are involved in the creation.

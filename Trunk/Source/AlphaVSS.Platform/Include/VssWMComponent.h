@@ -36,7 +36,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		property String^ LogicalPath { virtual String^ get(); }
 		property String^ ComponentName { virtual String^ get(); }
 		property String^ Caption { virtual String^ get(); }
-		property array<byte>^ Icon { virtual array<byte>^ get(); }
+		virtual array<byte>^ GetIcon();
 		property bool RestoreMetadata { virtual bool get(); }
 		property bool NotifyOnBackupComplete { virtual bool get(); }
 		property bool Selectable { virtual bool get(); }

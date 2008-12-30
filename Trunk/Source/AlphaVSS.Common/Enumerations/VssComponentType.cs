@@ -28,18 +28,17 @@ namespace Alphaleonis.Win32.Vss
     /// <remarks>
     ///     <para>
     ///         A writer sets a component's type when it adds the component to its Writer Metadata Document using 
-    ///         <see cref="IVssCreateWriterMetadata.AddComponent"/>
+    ///         <c>IVssCreateWriterMetadata.AddComponent</c>
     ///     </para>
     ///     <para>
     ///         Writers and requesters can find the type information of components selected for inclusion in a Backup 
-    ///         Components Document through calls to <see cref="IVssComponent.GetComponentType"/> to return a component type directly.
+    ///         Components Document through calls to <see cref="IVssComponent.ComponentType"/> to return a component type directly.
     ///     </para>
     ///     <para>
     ///         A requester can obtain the type of any component in a given writer's Writer Metadata Document by doing the following:
     ///         <list type="number">
-    ///             <item><description>Using <see cref="IVssExamineWriterMetadata.GetComponent"/> to obtain a <see cref="IVssWMComponent"/> interface</description></item>
-    ///             <item><description>Using <see cref="IVssWMComponent.GetComponentInfo"/> to return a <see cref="VssComponentInfo"/> structure</description></item>
-    ///             <item><description>Examining the Type member of the <see cref="VssComponentInfo"/> object</description></item>
+    ///             <item><description>Using <see cref="IVssExamineWriterMetadata.Components"/> to obtain a <see cref="IVssWMComponent"/> interface</description></item>
+    ///             <item><description>Examining the Type member of the <see cref="IVssWMComponent"/> object</description></item>
     ///         </list>
     ///     </para>
     /// </remarks>

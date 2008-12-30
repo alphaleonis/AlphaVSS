@@ -29,7 +29,7 @@ namespace Alphaleonis.Win32.Vss
 	/// <remarks>In the VSS API, these values are represented by the enumeration 
 	/// <seealso cref="VssSnapshotContext" /> </remarks>
     [System.Flags]
-	public enum VssVolumeSnapshotAttributes : uint
+	public enum VssVolumeSnapshotAttributes : int
 	{
 		/// <summary>The shadow copy is persistent across reboots.
 		/// This attribute is automatically set for <see cref="VssSnapshotContext" /> contexts of <c>AppRollback</c>
@@ -57,7 +57,8 @@ namespace Alphaleonis.Win32.Vss
 		ClientAccessible	= 0x00000004,
 		/// <summary>
 		/// <para>The shadow copy is not automatically deleted when the shadow copy requester process ends. 
-		/// The shadow copy can be deleted only by a call to <see cref="IVssBackupComponents.DeleteSnapshots"/>.</para>
+		/// The shadow copy can be deleted only by a call to <see cref="IVssBackupComponents.DeleteSnapshot"/> or 
+        /// <see cref="IVssBackupComponents.DeleteSnapshotSet"/>.</para>
 		/// <para>This attribute is automatically set for <see cref="VssSnapshotContext"/> contexts of <c>Rollback</c>,
 		/// <c>ClientAccessible</c>, <c>ClientAccessibleWriters</c> and <c>Rollback</c>.</para>
 		/// </summary>
@@ -104,13 +105,13 @@ namespace Alphaleonis.Win32.Vss
 		/// <para>Indicates that a given provider uses differential data or a copy-on-write mechanism to implement shadow copies. </para>
 		/// <para>A requester can modify a shadow copy context with a bitwise OR of this attribute. By doing this, the requester instructs providers 
 		/// to create a shadow copy using a differential implementation. If no shadow copy provider installed on the system supports the 
-		/// requested attributes, a <see cref="VssVolumeNotSupported"/> error will be returned to <see cref="IVssBackupComponents.AddToSnapshotSet(System.String,System.Guid)"/>.</para>
+		/// requested attributes, a <see cref="VssVolumeNotSupportedException"/> error will be returned to <see cref="IVssBackupComponents.AddToSnapshotSet(System.String,System.Guid)"/>.</para>
 		/// </summary>
 		Differential		= 0x00020000,
 		/// <summary>
 		/// <para>Indicates that a given provider uses a PLEX or mirrored split mechanism to implement shadow copies. </para>
 		/// <para>A requester can modify a shadow copy context with a bitwise OR of this attribute. By doing this, the requester instructs the providers to create a shadow copy using a PLEX implementation. If no shadow copy provider installed on the system supports the requested 
-        /// attributes, a <see cref="VssVolumeNotSupported"/> error will be returned to <see cref="IVssBackupComponents.AddToSnapshotSet(System.String,System.Guid)"/>.</para>
+        /// attributes, a <see cref="VssVolumeNotSupportedException"/> error will be returned to <see cref="IVssBackupComponents.AddToSnapshotSet(System.String,System.Guid)"/>.</para>
 		/// </summary>
 		Plex				= 0x00040000,
 		/// <summary>

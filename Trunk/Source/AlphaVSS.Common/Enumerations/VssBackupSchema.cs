@@ -31,10 +31,10 @@ namespace Alphaleonis.Win32.Vss
     ///         </note>
     ///     </para>
     ///     <para>
-    ///         Writer set their backup schemas with calls to <see cref="IVssCreateWriterMetadata.SetBackupSchema" />.
+    ///         Writer set their backup schemas with calls to <c>IVssCreateWriterMetadata.SetBackupSchema"</c>.
     ///     </para>
     ///     <para>
-    ///         Requesters use <see cref="IVssExamineWriterMetadata.GetBackupSchema"/> to determine the backup schema that a writer supports.
+    ///         Requesters use <see cref="IVssExamineWriterMetadata.BackupSchema"/> to determine the backup schema that a writer supports.
     ///     </para>
     ///     <para>
     ///         For a specific kind of backup operation to be supported, the writer must support the corresponding schema, and the 
@@ -91,8 +91,8 @@ namespace Alphaleonis.Win32.Vss
         ///     <para>
         ///         A writer supports using the VSS time-stamp mechanism when evaluating if a file should be included in 
         ///         differential or incremental operations (corresponding to <see cref="VssBackupType.Differential" /> and 
-        ///         <see cref="VssBackupType.Incremental"/>, respectively) using the <see cref="IVssComponent.GetPreviousBackupStamp" />,
-        ///         <see cref="IVssComponent.SetBackupStamp"/>, and <see cref="IVssBackupComponents.SetPreviousBackupStamp"/> methods.
+        ///         <see cref="VssBackupType.Incremental"/>, respectively) using the <see cref="IVssComponent.PreviousBackupStamp" />,
+        ///         <see cref="IVssComponent.BackupStamp"/> setters, and the <see cref="IVssBackupComponents.SetPreviousBackupStamp"/> method.
         ///     </para>
         ///     <para>
         ///         A writer cannot support this schema if it does not support either differential or incremental backup schemas 
@@ -105,8 +105,8 @@ namespace Alphaleonis.Win32.Vss
         /// <summary>
         ///     <para>
         ///         When implementing incremental or differential backups with differenced files, a writer can provide last modification 
-        ///         time information for files (using <see cref="IVssComponent.AddDifferencedFileByLastModifyTime"/>).
-        ///         A requester then can use <see cref="IVssComponent.GetDifferencedFile"/> to obtain candidate files and information 
+        ///         time information for files (using <c>IVssComponent.AddDifferencedFileByLastModifyTime</c>).
+        ///         A requester then can use <see cref="IVssComponent.DifferencedFiles"/> to obtain candidate files and information 
         ///         about their last modification data. The requester can use this information (along with any records about 
         ///         previous backup operations it maintains) to decide if a file should be included in incremental and differential backups.
         ///     </para>

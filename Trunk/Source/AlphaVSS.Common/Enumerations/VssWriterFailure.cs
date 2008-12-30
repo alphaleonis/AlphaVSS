@@ -22,28 +22,29 @@
 namespace Alphaleonis.Win32.Vss
 {
 	/// <summary>Enumeration representing the status of a writer.</summary>
-	public enum VssWriterFailure : long
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1028:EnumStorageShouldBeInt32")]
+    public enum VssWriterFailure : uint
 	{
 		/// <summary>Indication of a successful operation.</summary>
-		Ok = 0L,
+		Ok = 0,
 
 		/// <summary>The shadow copy contains only a subset of the volumes needed by the writer to correctly back up the application component.</summary>
-        InconsistenSnapshot = 0x800423F0L,
+        InconsistenSnapshot = 0x800423F0,
 
 		/// <summary>The writer ran out of memory or other system resources. The recommended way to handle this error code is to wait ten minutes and then repeat the operation, up to three times.</summary>
-        OutOfResources = 0x800423F1L,
+        OutOfResources = 0x800423F1,
 
 		/// <summary>The writer operation failed because of a time-out between the Freeze and Thaw events. The recommended way to handle this error code is to wait ten minutes and then repeat the operation, up to three times.</summary>
-        Timeout = 0x800423F2L,
+        Timeout = 0x800423F2,
 
 		/// <summary>The writer failed due to an error that would likely not occur if the entire backup, restore, or shadow copy creation process was restarted. The recommended way to handle this error code is to wait ten minutes and then repeat the operation, up to three times.</summary>
-        Retryable = 0x800423F3L,
+        Retryable = 0x800423F3,
 
 		/// <summary>The writer operation failed because of an error that might recur if another shadow copy is created.</summary>
-        NonRetryable = 0x800423F4L,
+        NonRetryable = 0x800423F4,
 
 		/// <summary>The writer is not responding.</summary>
-        NotResponding = 0x80042319L,
+        NotResponding = 0x80042319,
 
 		/// <summary>
 		/// 	<para>
@@ -54,7 +55,7 @@ namespace Alphaleonis.Win32.Vss
 		/// 		<b>Windows Vista, Windows Server 2003, and Windows XP:</b> This value is not supported.
 		/// 	</para>
 		/// </summary>
-        StatusNotAvailable = 0x80042409L
+        StatusNotAvailable = 0x80042409
 	};
 }
 

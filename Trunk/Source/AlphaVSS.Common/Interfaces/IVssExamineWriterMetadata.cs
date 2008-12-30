@@ -11,18 +11,18 @@ namespace Alphaleonis.Win32.Vss
     /// </summary>
     /// <remarks>
     ///     A <see cref="IVssExamineWriterMetadata"/> interface to a live writer's metadata is obtained by a call to 
-    ///     <see cref="VssBackupComponents.WriterMetadata" />.
+    ///     <see cref="IVssBackupComponents.WriterMetadata" />.
     /// </remarks>
     public interface IVssExamineWriterMetadata
     {
 		/// <summary>
-		/// The <see cref="LoadFromXML"/> method loads an XML document that contains a writer's metadata document into a
-		/// <see cref="VssExamineWriterMetadata"/> instance.
+		/// The <see cref="LoadFromXml"/> method loads an XML document that contains a writer's metadata document into a
+		/// <see cref="IVssExamineWriterMetadata"/> instance.
 		/// </summary>
 		/// <param name="xml">String that contains an XML document that represents a writer's metadata document.</param>
 		/// <returns><see langword="true" /> if the XML document was successfully loaded, or <see langword="false"/> if the XML document could not 
 		/// be loaded.</returns>
-		bool LoadFromXML(string xml);
+		bool LoadFromXml(string xml);
 
 		/// <summary>
 		/// The <see cref="SaveAsXml"/> method saves the Writer Metadata Document that contains a writer's state information to a specified string. 

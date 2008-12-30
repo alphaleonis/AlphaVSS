@@ -12,13 +12,13 @@ namespace Alphaleonis.Win32.Vss
 	/// </summary>
 	/// <remarks>
 	/// 	<para>
-	/// 		<see cref="VssComponent"/> objects can be obtained only for those components that have been explicitly added 
-	/// 		to the Backup Components Document during a backup operation by the <see dref="M:Alphaleonis.Win32.Vss.VssBackupComponents.AddComponent(System.Guid,System.Guid,Alphaleonis.Win32.Vss.VssComponentType,System.String,System.String)"/> 
+	/// 		<see cref="IVssComponent"/> objects can be obtained only for those components that have been explicitly added 
+	/// 		to the Backup Components Document during a backup operation by the <see cref="IVssBackupComponents.AddComponent"/> 
 	/// 		method.
 	/// 	</para>
 	/// 	<para>
 	/// 		Information about components explicitly added during a restore operation using 
-	/// 		<see dref="M:Alphaleonis.Win32.Vss.VssBackupComponents.AddRestoreSubcomponent(System.Guid,Alphaleonis.Win32.Vss.VssComponentType,System.String,System.String,System.String,System.String)"/> are not available through the <see cref="VssComponent"/>
+	/// 		<see cref="IVssBackupComponents.AddRestoreSubcomponent"/> are not available through the <see cref="IVssComponent"/>
 	/// 		interface.
 	/// 	</para>
 	/// 	<para>
@@ -136,7 +136,7 @@ namespace Alphaleonis.Win32.Vss
 		bool IsSelectedForRestore { get; }
 		
 		/// <summary>A collection of mapping information for the file set's alternate location for file restoration.</summary>
-		/// <value>A read-only list containing the alternate location to which files were actually restored. <note type="caution">This list must not be accessed after the <see cref="VssComponent"/> from which it was obtained has been disposed.</note></value>
+		/// <value>A read-only list containing the alternate location to which files were actually restored. <note type="caution">This list must not be accessed after the <see cref="IVssComponent"/> from which it was obtained has been disposed.</note></value>
 		/// <remarks>See <see href="http://msdn.microsoft.com/en-us/library/aa383473(VS.85).aspx">the MSDN documentation on the IVssComponent::GetAlternateLocationMapping method</see> for more information.</remarks>
 		IList<VssWMFileDescription> AlternateLocationMappings { get; }
 
@@ -145,19 +145,19 @@ namespace Alphaleonis.Win32.Vss
 		/// 	restored, it (the source file) should be remapped. The file may be restored to a new restore target and/or ranges of its data 
 		/// 	restored to different locations with the restore target.
 		/// </summary>
-		/// <value>A read-only list containing the directed targets of this component. <note type="caution">This list must not be accessed after the <see cref="VssComponent"/> from which it was obtained has been disposed.</note></value>
+		/// <value>A read-only list containing the directed targets of this component. <note type="caution">This list must not be accessed after the <see cref="IVssComponent"/> from which it was obtained has been disposed.</note></value>
 		IList<VssDirectedTargetInfo> DirectedTargets { get; }
 
 		/// <summary>
 		/// 	The new file restoration locations for the selected component or component set. 
 		/// </summary>
-		/// <value>A read-only list contianing the new file restoration locations for the selected component or component set. <note type="caution">This list must not be accessed after the <see cref="VssComponent"/> from which it was obtained has been disposed.</note></value>
+		/// <value>A read-only list contianing the new file restoration locations for the selected component or component set. <note type="caution">This list must not be accessed after the <see cref="IVssComponent"/> from which it was obtained has been disposed.</note></value>
 		IList<VssWMFileDescription> NewTargets { get; }
 
 		/// <summary>
 		///		Information about any partial files associated with this component.
 		/// </summary>
-		/// <value>A read-only list containing information about any partial files associated with this component. <note type="caution">This list must not be accessed after the <see cref="VssComponent"/> from which it was obtained has been disposed.</note></value>
+		/// <value>A read-only list containing information about any partial files associated with this component. <note type="caution">This list must not be accessed after the <see cref="IVssComponent"/> from which it was obtained has been disposed.</note></value>
 		IList<VssPartialFileInfo> PartialFiles { get; }
 
 		/// <summary>
@@ -167,12 +167,12 @@ namespace Alphaleonis.Win32.Vss
 		/// </summary>
 		/// <remarks><b>Windows XP:</b> This method requires Windows Server 2003 or later</remarks>
 		/// <value>
-		/// 	A read only list containing the diffrenced files associated with this component. <note type="caution">This list must not be accessed after the <see cref="VssComponent"/> from which it was obtained has been disposed.</note>
+		/// 	A read only list containing the diffrenced files associated with this component. <note type="caution">This list must not be accessed after the <see cref="IVssComponent"/> from which it was obtained has been disposed.</note>
 		/// </value>
 		IList<VssDifferencedFileInfo> DifferencedFiles { get; }
 
 		/// <summary>The subcomponents associated with this component.</summary>
-		/// <value>A read only list containing the subcomponents associated with this component. <note type="caution">This list must not be accessed after the <see cref="VssComponent"/> from which it was obtained has been disposed.</note></value>
+		/// <value>A read only list containing the subcomponents associated with this component. <note type="caution">This list must not be accessed after the <see cref="IVssComponent"/> from which it was obtained has been disposed.</note></value>
 		IList<VssRestoreSubcomponentInfo> RestoreSubcomponents { get; }
     }
 }

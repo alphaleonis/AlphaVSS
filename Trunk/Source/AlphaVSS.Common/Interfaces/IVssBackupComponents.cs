@@ -205,7 +205,7 @@ namespace Alphaleonis.Win32.Vss
 		void AddRestoreSubcomponent(Guid writerId, VssComponentType componentType, string logicalPath, string componentName, string subcomponentLogicalPath, string subcomponentName);
 
 		/// <summary>
-		/// The <see cref="AddToSnapshotSet"/> method adds an original volume to the shadow copy set. 
+		/// The <see cref="AddToSnapshotSet(string, System.Guid)"/> method adds an original volume to the shadow copy set. 
 		/// </summary>
 		/// <param name="volumeName">String containing the name of the volume to be shadow copied. The name must be in one of the following formats:
 		///		<list type="bullet">
@@ -214,13 +214,13 @@ namespace Alphaleonis.Win32.Vss
 		///			<item><description>A unique volume name of the form "\\?\Volume{GUID}\" (where GUID is the unique global identifier of the volume) with a backslash (\)</description></item>
 		///		</list>
 		/// </param>
-		/// <param name="providerId">The provider to be used. <see cref="Guid::Empty" /> can be used, in which case the default provider will be used.</param>
+		/// <param name="providerId">The provider to be used. <see cref="Guid.Empty" /> can be used, in which case the default provider will be used.</param>
 		/// <returns>Identifier of the added shadow copy.</returns>
 		/// <remarks>
 		/// 	<para>
 		/// 		The maximum number of shadow copies in a single shadow copy set is 64.
 		/// 	</para>
-		/// 	<para>If <paramref name="providerId"/> is <see cref="Guid::Empty"/>, the default provider is selected according to the following algorithm:
+		/// 	<para>If <paramref name="providerId"/> is <see cref="Guid.Empty"/>, the default provider is selected according to the following algorithm:
 		/// 		<list type="numbered">
 		/// 			<item><description>If any hardware-based provider supports the given volume, it is selected.</description></item>
 		/// 			<item><description>If there is no hardware-based provider available, if any software-based provider supports the given volume, it is selected.</description></item>
@@ -238,13 +238,13 @@ namespace Alphaleonis.Win32.Vss
 		/// <exception cref="VssObjectNotFoundException"><paramref name="volumeName" /> does not correspond to an existing volume.</exception>
 		/// <exception cref="VssProviderNotRegisteredException"><paramref name="providerId" /> does not correspond to a registered provider.</exception>
 		/// <exception cref="VssProviderVetoException">Expected provider error. The provider logged the error in the event log.</exception>
-		/// <exception cref="VssVolumeNotSupportedException">The value of the <paramref name="providerId"/> parameter is <see cref="Guid::Empty" /> and no VSS provider indicates that it supports the specified volume.</exception>
+		/// <exception cref="VssVolumeNotSupportedException">The value of the <paramref name="providerId"/> parameter is <see cref="Guid.Empty" /> and no VSS provider indicates that it supports the specified volume.</exception>
 		/// <exception cref="VssVolumeNotSupportedByProviderException">The volume is not supported by the specified provider.</exception>
 		/// <exception cref="VssUnexpectedProviderErrorException">The provider returned an unexpected error code.</exception>
 		Guid AddToSnapshotSet(string volumeName, Guid providerId);
 
         /// <summary>
-        /// The <see cref="AddToSnapshotSet"/> method adds an original volume to the shadow copy set using the default provider.
+        /// The <see cref="AddToSnapshotSet(string, System.Guid)"/> method adds an original volume to the shadow copy set using the default provider.
         /// </summary>
         /// <param name="volumeName">String containing the name of the volume to be shadow copied. The name must be in one of the following formats:
         ///		<list type="bullet">
@@ -258,7 +258,7 @@ namespace Alphaleonis.Win32.Vss
         /// 	<para>
         /// 		The maximum number of shadow copies in a single shadow copy set is 64.
         /// 	</para>
-        /// 	<para>If <paramref name="providerId"/> is <see cref="Guid::Empty"/>, the default provider is selected according to the following algorithm:
+        /// 	<para>If <paramref name="providerId"/> is <see cref="Guid.Empty"/>, the default provider is selected according to the following algorithm:
         /// 		<list type="numbered">
         /// 			<item><description>If any hardware-based provider supports the given volume, it is selected.</description></item>
         /// 			<item><description>If there is no hardware-based provider available, if any software-based provider supports the given volume, it is selected.</description></item>
@@ -276,7 +276,7 @@ namespace Alphaleonis.Win32.Vss
         /// <exception cref="VssObjectNotFoundException"><paramref name="volumeName" /> does not correspond to an existing volume.</exception>
         /// <exception cref="VssProviderNotRegisteredException"><paramref name="providerId" /> does not correspond to a registered provider.</exception>
         /// <exception cref="VssProviderVetoException">Expected provider error. The provider logged the error in the event log.</exception>
-        /// <exception cref="VssVolumeNotSupportedException">The value of the <paramref name="providerId"/> parameter is <see cref="Guid::Empty" /> and no VSS provider indicates that it supports the specified volume.</exception>
+        /// <exception cref="VssVolumeNotSupportedException">The value of the <paramref name="providerId"/> parameter is <see cref="Guid.Empty" /> and no VSS provider indicates that it supports the specified volume.</exception>
         /// <exception cref="VssVolumeNotSupportedByProviderException">The volume is not supported by the specified provider.</exception>
         /// <exception cref="VssUnexpectedProviderErrorException">The provider returned an unexpected error code.</exception>        
         Guid AddToSnapshotSet(string volumeName);
@@ -325,7 +325,7 @@ namespace Alphaleonis.Win32.Vss
         /// <exception cref="SystemException">Unexpected VSS system error. The error code is logged in the event log.</exception>
         /// <exception cref="VssObjectNotFoundException">The specified shadow copy does not exist.</exception>
         /// <exception cref="VssProviderVetoException">Expected provider error. The provider logged the error in the event log.</exception>
-        /// <exception cref="VssUnexpectedProviderError">Unexpected provider error. The error code is logged in the error log.</exception>
+        /// <exception cref="VssUnexpectedProviderErrorException">Unexpected provider error. The error code is logged in the error log.</exception>
         void DeleteSnapshot(Guid snapshotId, bool forceDelete);
 
         /// <summary>
@@ -358,7 +358,7 @@ namespace Alphaleonis.Win32.Vss
         /// <exception cref="SystemException">Unexpected VSS system error. The error code is logged in the event log.</exception>
         /// <exception cref="VssObjectNotFoundException">The specified shadow copy does not exist.</exception>
         /// <exception cref="VssProviderVetoException">Expected provider error. The provider logged the error in the event log.</exception>
-        /// <exception cref="VssUnexpectedProviderError">Unexpected provider error. The error code is logged in the error log.</exception>
+        /// <exception cref="VssUnexpectedProviderErrorException">Unexpected provider error. The error code is logged in the error log.</exception>
         /// <returns>The total number of snapshots that were deleted</returns>
         int DeleteSnapshotSet(Guid snapshotSetId, bool forceDelete);
 
@@ -420,7 +420,7 @@ namespace Alphaleonis.Win32.Vss
 		///		    <b>Windows Server 2003 and Windows XP:</b>  This value is not supported until Windows Vista.
 		///		</para>
 		/// </exception>
-		/// <exception cref="VssUnexpectedProviderError">The provider returned an unexpected error code. This can be a transient problem. It is recommended to wait ten minutes and try again, up to three times. This error code is only returned via the <see dref="M:Alphaleonis.Win32.Vss.VssAsync.QueryStatus"/> method on the <see cref="IVssAsync"/> instance returned by this method.</exception> 
+		/// <exception cref="VssUnexpectedProviderErrorException">The provider returned an unexpected error code. This can be a transient problem. It is recommended to wait ten minutes and try again, up to three times. This error code is only returned via the <see dref="M:Alphaleonis.Win32.Vss.VssAsync.QueryStatus"/> method on the <see cref="IVssAsync"/> instance returned by this method.</exception> 
 		IVssAsync DoSnapshotSet();
 
 		/// <summary>
@@ -478,7 +478,7 @@ namespace Alphaleonis.Win32.Vss
 		/// <exception cref="VssBadStateException">The backup components object is not initialized, this method has been called during a restore operation, or this method has not been called within the correct sequence.</exception>
 		/// <exception cref="VssObjectNotFoundException">The specified shadow copy does not exist.</exception>
 		/// <exception cref="VssProviderVetoException">Expected provider error. The provider logged the error in the event log.</exception>
-		/// <exception cref="VssUnexpectedProviderError">Unexpected provider error. The error code is logged in the error log.</exception>
+		/// <exception cref="VssUnexpectedProviderErrorException">Unexpected provider error. The error code is logged in the error log.</exception>
 		string ExposeSnapshot(Guid snapshotId, string pathFromRoot, VssVolumeSnapshotAttributes attributes, string expose);
 
 		/// <summary>
@@ -532,7 +532,7 @@ namespace Alphaleonis.Win32.Vss
 		/// <summary>
 		/// 	The <see cref="GetSnapshotProperties"/> method gets the properties of the specified shadow copy. 
 		/// </summary>
-		/// <param name="snapshotId">The identifier of the shadow copy of a volume as returned by <see cref="AddToSnapshotSet"/>. </param>
+		/// <param name="snapshotId">The identifier of the shadow copy of a volume as returned by <see cref="AddToSnapshotSet(string, System.Guid)"/>. </param>
 		/// <returns>A <see cref="VssSnapshotProperties"/> instance containing the shadow copy properties.</returns>
 		/// <exception cref="UnauthorizedAccessException">The caller does not have sufficient backup privileges or is not an administrator.</exception>
 		/// <exception cref="ArgumentException">One of the parameter values is not valid.</exception>
@@ -541,7 +541,7 @@ namespace Alphaleonis.Win32.Vss
 		/// <exception cref="VssBadStateException">The backup components object is not initialized, this method has been called during a restore operation, or this method has not been called within the correct sequence.</exception>		
 		/// <exception cref="VssObjectNotFoundException">The specified shadow copy does not exist.</exception>
 		/// <exception cref="VssProviderVetoException">Expected provider error. The provider logged the error in the event log.</exception>
-		/// <exception cref="VssUnexpectedProviderError">Unexpected provider error. The error code is logged in the error log.</exception>
+		/// <exception cref="VssUnexpectedProviderErrorException">Unexpected provider error. The error code is logged in the error log.</exception>
 		VssSnapshotProperties GetSnapshotProperties(Guid snapshotId);
 
 		/// <summary>A read-only list containing information about the components of each writer that has been stored in a requester's Backup Components Document.</summary>
@@ -553,11 +553,11 @@ namespace Alphaleonis.Win32.Vss
 		/// 	<para>
 		/// 		The information in the components stored in the Backup Components Document is not static. If a writer updates a component during a 
 		/// 		restore, that change will be reflected in the component retrieved by <see cref="WriterComponents"/>. This is in contrast with 
-		/// 		component information found in the <see cref="VssWMComponent"/> object returned by <see cref="VssExamineWriterMetadata::Components"/>. 
+		/// 		component information found in the <see cref="IVssWMComponent"/> object returned by <see cref="IVssExamineWriterMetadata.Components"/>. 
 		/// 		That information is read-only and comes from the Writer Metadata Document of a writer process.
 		/// 	</para>
 		/// 	<para>
-		/// 		The <see cref="VssWriterComponents"/> instances that are returned should not be cached, because the following 
+		/// 		The <see cref="IVssWriterComponents"/> instances that are returned should not be cached, because the following 
 		/// 		<see cref="IVssBackupComponents"/> methods cause the instances that are returned by <see cref="WriterComponents"/> to 
 		/// 		be no longer valid:
 		/// 		<list type="bullet">
@@ -569,9 +569,9 @@ namespace Alphaleonis.Win32.Vss
 		/// 		</list>
 		/// 	</para>
 		/// 	<para>
-		/// 		If you call one of these methods after you have retrieved a <see cref="VssWriterComponents"/> instance by calling 
+		/// 		If you call one of these methods after you have retrieved a <see cref="IVssWriterComponents"/> instance by calling 
 		/// 		<see cref="WriterComponents"/>, you cannot reuse that instance, because it is no longer valid. Instead, you must call 
-		/// 		<see cref="WriterComponents"/> again to retrieve a new <see cref="VssWriterComponents"/> instance.
+		/// 		<see cref="WriterComponents"/> again to retrieve a new <see cref="IVssWriterComponents"/> instance.
 		/// 	</para>
 		/// </remarks>
 		/// <value>
@@ -620,7 +620,7 @@ namespace Alphaleonis.Win32.Vss
 
 		/// <summary>A read-only list containing the status of the writers.</summary>
 		/// <value>
-		///		A read-only list containing <see cref="VssWriterStatus"/> instances representing the returned status for each respective writer.
+		///		A read-only list containing <see cref="VssWriterStatusInfo"/> instances representing the returned status for each respective writer.
 		///		<note type="caution">This list must not be accessed after the <see cref="IVssBackupComponents"/> from which it 
 		///     was obtained has been disposed.</note>
 		/// </value>
@@ -698,7 +698,7 @@ namespace Alphaleonis.Win32.Vss
         /// 	The <c>IsVolumeSupported</c> method determines whether the specified provider supports shadow copies on the specified volume.
 		/// </summary>
 		/// <param name="providerId">
-		/// 	Provider identifier. If the value is <see cref="Guid::Empty"/>, <see cref="IsVolumeSupported"/> checks whether any provider 
+		/// 	Provider identifier. If the value is <see cref="Guid.Empty"/>, <see cref="IsVolumeSupported(string, System.Guid)"/> checks whether any provider 
 		/// 	supports the volume.
 		/// </param>
 		/// <param name="volumeName">Name of the volume. The name of the volume to be checked must be in one of the following formats:
@@ -711,7 +711,7 @@ namespace Alphaleonis.Win32.Vss
 		/// copies are not supported on the specified volume.</returns>
 		/// <remarks>
 		/// 	<para>
-		/// 		<see cref="IsVolumeSupported"/> will return <see langword="true"/> if it is possible to create shadow copies on the given volume, 
+        /// 		<see cref="IsVolumeSupported(string, System.Guid)"/> will return <see langword="true"/> if it is possible to create shadow copies on the given volume, 
 		/// 		even if the current configuration does not allow the creation of shadow copies on that volume at the present time.
 		/// 	</para>
 		/// 	<para>
@@ -740,7 +740,7 @@ namespace Alphaleonis.Win32.Vss
         /// copies are not supported on the specified volume.</returns>
         /// <remarks>
         /// 	<para>
-        /// 		<see cref="IsVolumeSupported"/> will return <see langword="true"/> if it is possible to create shadow copies on the given volume, 
+        /// 		<see cref="IsVolumeSupported(string, System.Guid)"/> will return <see langword="true"/> if it is possible to create shadow copies on the given volume, 
         /// 		even if the current configuration does not allow the creation of shadow copies on that volume at the present time.
         /// 	</para>
         /// 	<para>
@@ -828,7 +828,7 @@ namespace Alphaleonis.Win32.Vss
 		/// <exception cref="VssBadStateException">The backup components object is not initialized, this method has been called during a restore operation, or this method has not been called within the correct sequence.</exception>		
 		/// <exception cref="VssObjectNotFoundException">The queried object is not found.</exception>
 		/// <exception cref="VssProviderVetoException">Expected provider error. The provider logged the error in the event log.</exception>
-		/// <exception cref="VssUnexpectedProviderError">Unexpected provider error. The error code is logged in the error log.</exception>		
+		/// <exception cref="VssUnexpectedProviderErrorException">Unexpected provider error. The error code is logged in the error log.</exception>		
 		IEnumerable<VssSnapshotProperties> QuerySnapshots();
 
 		/// <summary>
@@ -849,7 +849,7 @@ namespace Alphaleonis.Win32.Vss
 		/// <exception cref="VssBadStateException">The backup components object is not initialized, this method has been called during a restore operation, or this method has not been called within the correct sequence.</exception>		
 		/// <exception cref="VssObjectNotFoundException">The queried object is not found.</exception>
 		/// <exception cref="VssProviderVetoException">Expected provider error. The provider logged the error in the event log.</exception>
-		/// <exception cref="VssUnexpectedProviderError">Unexpected provider error. The error code is logged in the error log.</exception>
+		/// <exception cref="VssUnexpectedProviderErrorException">Unexpected provider error. The error code is logged in the error log.</exception>
 		IEnumerable<VssProviderProperties> QueryProviders();
 
 		/// <summary>
@@ -990,9 +990,6 @@ namespace Alphaleonis.Win32.Vss
 		/// <summary>
 		/// 	The <see cref="SetBackupOptions"/> method sets a string of private, or writer-dependent, backup parameters for a component.
 		/// </summary>
-		/// <param name="writerId">
-		/// 	Writer identifier.
-		/// </param>
 		/// <param name="writerId">Writer identifier.</param>
 		/// <param name="componentType">Type of the component.</param>
 		/// <param name="logicalPath">
@@ -1112,7 +1109,7 @@ namespace Alphaleonis.Win32.Vss
 		/// <remarks>
 		/// 	<para>
 		/// 		When working in component mode (when <see cref="SetBackupState"/> is called with its select components argument set to <see langword="true"/>), 
-		/// 		writers the state of each components backup using <see cref="VssComponent::BackupSucceeded"/>.
+		/// 		writers the state of each components backup using <see cref="IVssComponent.BackupSucceeded"/>.
 		/// 	</para>
 		/// 	<para>
 		/// 		Therefore, a well-behaved backup application (requester) must call <see cref="SetBackupSucceeded"/> after each component has been 

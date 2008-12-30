@@ -78,7 +78,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		}
 	}
 
-	bool VssExamineWriterMetadata::LoadFromXML(String^ xml)
+	bool VssExamineWriterMetadata::LoadFromXml(String^ xml)
 	{
 		HRESULT hr = mExamineWriterMetadata->LoadFromXML(NoNullAutoMBStr(xml));
 		if (FAILED(hr))

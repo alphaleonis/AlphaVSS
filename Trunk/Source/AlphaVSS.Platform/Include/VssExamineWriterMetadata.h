@@ -34,7 +34,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		~VssExamineWriterMetadata();
 		!VssExamineWriterMetadata();
 
-		virtual bool LoadFromXML(String^ xml);
+		virtual bool LoadFromXml(String^ xml);
 		virtual String^ SaveAsXml();
 		property VssBackupSchema BackupSchema { virtual VssBackupSchema get(); }
 

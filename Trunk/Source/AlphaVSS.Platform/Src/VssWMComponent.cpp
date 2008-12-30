@@ -109,7 +109,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		return mCaption;
 	}
 
-	array<byte>^ VssWMComponent::Icon::get()
+	array<byte>^ VssWMComponent::GetIcon()
 	{
 		return mIcon;
 	}

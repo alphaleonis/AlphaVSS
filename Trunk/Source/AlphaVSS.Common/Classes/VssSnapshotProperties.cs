@@ -44,6 +44,7 @@ namespace Alphaleonis.Win32.Vss
             mProviderId = providerId;
             mSnapshotAttributes = snapshotAttributes;
             mCreationTimestamp = creationTimestamp;
+            mStatus = snapshotState;
         }
 
 		/// <summary>A <see cref="Guid" /> uniquely identifying the shadow copy identifier.</summary>
@@ -74,22 +75,22 @@ namespace Alphaleonis.Win32.Vss
 		/// 		The device name does not contain a trailing "\".
 		/// 	</para>
 		/// </summary>
-		public string SnapshotDeviceObject { get { return null; } }
+		public string SnapshotDeviceObject { get { return mSnapshotDeviceObject; } }
 
 		/// <summary>The name of the volume that had been shadow copied.</summary>
-		public string OriginalVolumeName { get { return null; } }
+		public string OriginalVolumeName { get { return mOriginalVolumeName; } }
 
 		/// <summary>The name of the machine containing the original volume.</summary>
-		public string OriginatingMachine { get { return null; } }
+		public string OriginatingMachine { get { return mOriginatingMachine; } }
 
 		/// <summary>The name of the machine running the Volume Shadow Copy Service that created the shadow copy.</summary>
-		public string ServiceMachine { get { return null; } }
+		public string ServiceMachine { get { return mServiceMachine; } }
 
 		/// <summary>The name of the shadow copy when it is exposed. This is a drive letter or mount point (if the shadow copy is exposed as a local volume), or a share name. </summary>
-		public string ExposedName { get { return null; } }
+		public string ExposedName { get { return mExposedName; } }
 
 		/// <summary>The portion of the shadow copy of a volume made available if it is exposed as a share.</summary>
-		public string ExposedPath { get { return null; } }
+		public string ExposedPath { get { return mExposedPath; } }
 
 		/// <summary>A <see cref="Guid"/> uniquely identifying the provider used to create this shadow copy.</summary>
 		public Guid ProviderId { get { return mProviderId; } }
