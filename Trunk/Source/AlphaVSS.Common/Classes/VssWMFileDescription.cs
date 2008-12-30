@@ -5,8 +5,32 @@ using System.Text;
 
 namespace Alphaleonis.Win32.Vss
 {
+    /// <summary>
+    /// The <see cref="VssWMFiledescription"/> class is returned to a calling application by a number of query methods. 
+    /// It provides detailed information about a file or set of files (a file set).
+    /// </summary>
+    /// <remarks>
+    ///     The following methods return a <see cref="VssWMFileDescription"/> instance:
+    ///     <list type="bullet">
+    ///         <item><description><see cref="IVssComponent.AlternateLocationMappings"/></description></item>
+    ///         <item><description><see cref="IVssComponent.NewTargets"/></description></item>
+    ///         <item><description><see cref="IVssExamineWriterMetadata.ExcludeFiles"/></description></item>
+    ///         <item><description><see cref="IVssExamineWriterMetadata.AlternateLocationMappings"/></description></item>
+    ///         <item><description><see cref="IVssWMComponent.Files"/></description></item>
+    ///         <item><description><see cref="IVssWMComponent.DatabaseFiles"/></description></item>
+    ///         <item><description><see cref="IVssWMComponent.DatabaseLogFiles"/></description></item>
+    ///     </list>
+    /// </remarks>
 	public class VssWMFileDescription 
 	{
+        /// <summary>
+        /// Initializes a new instance of the <see cref="VssWMFileDescription"/> class.
+        /// </summary>
+        /// <param name="alternateLocation">The alternate location.</param>
+        /// <param name="backupTypeMask">The backup type mask.</param>
+        /// <param name="fileSpecification">The file specification.</param>
+        /// <param name="path">The path.</param>
+        /// <param name="isRecursive">if set to <c>true</c> this file description is recursive.</param>
         public VssWMFileDescription(string alternateLocation, VssFileSpecificationBackupType backupTypeMask, string fileSpecification, string path, bool isRecursive)
         {
             mAlternateLocation = alternateLocation;

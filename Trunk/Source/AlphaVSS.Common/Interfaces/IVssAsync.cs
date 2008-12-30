@@ -5,6 +5,33 @@ using System.Text;
 
 namespace Alphaleonis.Win32.Vss
 {
+    /// <summary>
+    ///     <para>
+    ///         The <see cref="IVssAsync"/> interface is returned to calling applications by methods that initiate asynchronous operations, 
+    ///         which run in the background and typically require a long time to complete.
+    ///     </para>
+    ///     <para>
+    ///         The <see cref="IVssAsync"/> interface permits an application to monitor and control an asynchronous operation by waiting 
+    ///         on its completion, querying its status, or canceling it.
+    ///     </para>
+    ///     <para>
+    ///         The calling application is responsible for calling <see cref="M:Alphaleonis.Win32.Vss.IVssAsync.Dispose"/> to release the resources held 
+    ///         by the returned <see cref="IVssAsync"/> interface when it is no longer needed.
+    ///     </para>
+    ///     <para>
+    ///         The following methods return an <see cref="IVssAsync"/> interface:
+    ///         <list type="bullet">
+    ///             <item><description><see cref="IVssBackupComponents.BackupComplete"/></description></item>
+    ///             <item><description><see cref="IVssBackupComponents.DoSnapshotSet"/></description></item>
+    ///             <item><description><see cref="IVssBackupComponents.GatherWriterMetadata"/></description></item>
+    ///             <item><description><see cref="IVssBackupComponents.GatherWriterStatus"/></description></item>
+    ///             <item><description><see cref="IVssBackupComponents.ImportSnapshots"/></description></item>
+    ///             <item><description><see cref="IVssBackupComponents.PostRestore"/></description></item>
+    ///             <item><description><see cref="IVssBackupComponents.PrepareForBackup"/></description></item>
+    ///             <item><description><see cref="IVssBackupComponents.PreRestore"/></description></item>
+    ///         </list>
+    ///     </para>
+    /// </summary>
     public interface IVssAsync : IDisposable
     {
         /// <summary>Cancels an incomplete asynchronous operation.</summary>

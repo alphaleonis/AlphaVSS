@@ -59,7 +59,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		// present in the header-files or library files, except for the library files for ws03 
 		// in the vshadow sample directory in the VSSSDK72. Requiring WS08 here.
 #if ALPHAVSS_TARGET == ALPHAVSS_TARGET_WIN2008
-		OsInfo::RequireAtLeastInFamily(OsVersion::Win2008);
+		OSInfo::RequireAtLeastInFamily(OSVersions::Win2008);
 		bool bBlock = 0;
 		CheckCom(::ShouldBlockRevert(NoNullAutoMStr(volumeName), &bBlock));
 		return bBlock != 0;

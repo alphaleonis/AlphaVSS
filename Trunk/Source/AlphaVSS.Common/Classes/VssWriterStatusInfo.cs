@@ -30,6 +30,14 @@ namespace Alphaleonis.Win32.Vss
 	/// VSS API</remarks>
 	public class VssWriterStatusInfo
 	{
+        /// <summary>
+        /// Initializes a new instance of the <see cref="VssWriterStatusInfo"/> class.
+        /// </summary>
+        /// <param name="instanceId">The instance id.</param>
+        /// <param name="writerId">The writer id.</param>
+        /// <param name="writerName">Name of the writer.</param>
+        /// <param name="state">The state.</param>
+        /// <param name="failure">The failure.</param>
         public VssWriterStatusInfo(Guid instanceId, Guid writerId, string writerName, VssWriterState state, VssWriterFailure failure)
         {
             mInstanceId = instanceId;

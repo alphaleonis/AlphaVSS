@@ -89,7 +89,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	void VssBackupComponents::AddNewTarget(Guid writerId, VssComponentType componentType, String ^ logicalPath, String ^ componentName, String ^ path, String ^ fileName, bool recursive, String ^ alternatePath)
 	{
 #if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WIN2003
-		OsInfo::RequireAtLeast(OsVersion::Win2003);		
+		OSInfo::RequireAtLeast(OSVersions::Win2003);		
 		CheckCom(mBackup->AddNewTarget(ToVssId(writerId), (VSS_COMPONENT_TYPE)componentType,
 			AutoMStr(logicalPath), NoNullAutoMStr(componentName),
 			NoNullAutoMStr(path), NoNullAutoMStr(fileName),
@@ -452,7 +452,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	IVssAsync^ VssBackupComponents::QueryRevertStatus(String^ volume)
 	{
 #if ALPHAVSS_TARGET == ALPHAVSS_TARGET_WIN2003 || ALPHAVSS_TARGET == ALPHAVSS_TARGET_WIN2008
-		OsInfo::RequireAtLeastInFamily(OsVersion::Win2003SP1, OsVersion::Win2008);
+		OSInfo::RequireAtLeastInFamily(OSVersions::Win2003SP1, OSVersions::Win2008);
 		::IVssAsync *pAsync;
 		CheckCom(mBackup->QueryRevertStatus(NoNullAutoMStr(volume), &pAsync));
 		return VssAsync::Adopt(pAsync);
@@ -464,7 +464,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	void VssBackupComponents::RevertToSnapshot(Guid snapshotId, bool forceDismount)
 	{
 #if ALPHAVSS_TARGET == ALPHAVSS_TARGET_WIN2003 || ALPHAVSS_TARGET == ALPHAVSS_TARGET_WIN2008
-		OsInfo::RequireAtLeastInFamily(OsVersion::Win2003SP1, OsVersion::Win2008);		
+		OSInfo::RequireAtLeastInFamily(OSVersions::Win2003SP1, OSVersions::Win2008);		
 		CheckCom(mBackup->RevertToSnapshot(ToVssId(snapshotId), forceDismount));
 #else
 		UnsupportedOs();
@@ -534,7 +534,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	void VssBackupComponents::SetRangesFilePath(Guid writerId, VssComponentType componentType, String^ logicalPath, String^ componentName, int partialFileIndex, String^ rangesFile)
 	{
 #if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WIN2003
-		OsInfo::RequireAtLeast(OsVersion::Win2003);		
+		OSInfo::RequireAtLeast(OSVersions::Win2003);		
 		CheckCom(mBackup->SetRangesFilePath(ToVssId(writerId), (VSS_COMPONENT_TYPE)componentType, AutoMStr(logicalPath), NoNullAutoMStr(componentName), partialFileIndex, NoNullAutoMStr(rangesFile)));
 #else
 		UnsupportedOs();
@@ -549,7 +549,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	void VssBackupComponents::SetRestoreState(VssRestoreType restoreType)
 	{
 #if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WIN2003
-		OsInfo::RequireAtLeast(OsVersion::Win2003);		
+		OSInfo::RequireAtLeast(OSVersions::Win2003);		
 		CheckCom(mBackup->SetRestoreState((VSS_RESTORE_TYPE)restoreType));
 #else
 		UnsupportedOs();
@@ -568,6 +568,16 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	void VssBackupComponents::SetSelectedForRestore(Guid writerId, VssComponentType componentType, String^ logicalPath, String^ componentName, bool selectedForRestore)
 	{
 		CheckCom(mBackup->SetSelectedForRestore(ToVssId(writerId), (VSS_COMPONENT_TYPE)componentType, AutoMStr(logicalPath), NoNullAutoMStr(componentName), selectedForRestore));
+	}
+
+	void VssBackupComponents::SetSelectedForRestore(Guid writerId, VssComponentType componentType, String^ logicalPath, String^ componentName, bool selectedForRestore, Guid instanceId)
+	{
+#ifdef ALPHAVSS_HAS_BACKUPEX
+		OSInfo::RequireAtLeast(OSVersions::Win2003SP1);
+		CheckCom(GetBackupComponentsEx()->SetSelectedForRestoreEx(ToVssId(writerId), (VSS_COMPONENT_TYPE)componentType, AutoMStr(logicalPath), NoNullAutoMStr(componentName), selectedForRestore, ToVssId(instanceId)));
+#else
+		UnsupportedOs();
+#endif
 	}
 
 	Guid VssBackupComponents::StartSnapshotSet()

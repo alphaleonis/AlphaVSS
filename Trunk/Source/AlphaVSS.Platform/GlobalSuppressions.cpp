@@ -12,3 +12,8 @@ CA_GLOBAL_SUPPRESS_MESSAGE("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedC
 CA_GLOBAL_SUPPRESS_MESSAGE("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId="x");
 CA_GLOBAL_SUPPRESS_MESSAGE("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId="Db", Scope="member", Target="Alphaleonis.Win32.Vss.VssSourceType.#NonTransactedDb");
 CA_GLOBAL_SUPPRESS_MESSAGE("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId="Tx", Scope="member", Target="Alphaleonis.Win32.Vss.VssVolumeSnapshotAttributes.#TxFRecovery");
+CA_GLOBAL_SUPPRESS_MESSAGE("Microsoft.Performance", "CA1822:MarkMembersAsStatic", Scope="member", Target="Alphaleonis.Win32.Vss.VssListAdapter`1+Enumerator.#!Enumerator()");
+CA_GLOBAL_SUPPRESS_MESSAGE("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId="XPSP", Scope="member", Target="Alphaleonis.Win32.Vss.OSVersions.#WinXPSP1");
+CA_GLOBAL_SUPPRESS_MESSAGE("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId="XPSP", Scope="member", Target="Alphaleonis.Win32.Vss.OSVersions.#WinXPSP2");
+CA_GLOBAL_SUPPRESS_MESSAGE("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId="XPSP", Scope="member", Target="Alphaleonis.Win32.Vss.OSVersions.#WinXPSP3");
+CA_GLOBAL_SUPPRESS_MESSAGE("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId="XPSP", Scope="member", Target="Alphaleonis.Win32.Vss.OSVersions.#WinXPSP4");

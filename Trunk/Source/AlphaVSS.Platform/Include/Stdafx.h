@@ -33,6 +33,6 @@
 #include "Utils.h"
 #include "Macros.h"
 #include "Error.h"
-#include "OsInfo.h"
+#include "OSInfo.h"
 
 #include "FactoryMethods.h"

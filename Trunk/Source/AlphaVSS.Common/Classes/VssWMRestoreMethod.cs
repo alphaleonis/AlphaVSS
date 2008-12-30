@@ -11,6 +11,17 @@ namespace Alphaleonis.Win32.Vss
 	/// <remarks>This class is a container for the data returned by <see cref="IVssExamineWriterMetadata.RestoreMethod"/>.</remarks>
 	public class VssWMRestoreMethod
 	{
+        /// <summary>
+        /// Initializes a new instance of the <see cref="VssWMRestoreMethod"/> class.
+        /// </summary>
+        /// <param name="restoreMethod">The restore method.</param>
+        /// <param name="service">The service.</param>
+        /// <param name="userProcedure">The user procedure.</param>
+        /// <param name="writerRestore">The writer restore.</param>
+        /// <param name="rebootRequired">if set to <c>true</c> a reboot is required.</param>
+        /// <param name="mappings">The mappings.</param>
+        /// <remarks>This constructor is normally not used by application code. Rather instances of <see cref="VssWMRestoreMethod"/> are 
+        /// returned by various query methods.</remarks>
         public VssWMRestoreMethod(VssRestoreMethod restoreMethod, string service, string userProcedure, VssWriterRestore writerRestore, bool rebootRequired, int mappings)
         {
             mRestoreMethod = restoreMethod;

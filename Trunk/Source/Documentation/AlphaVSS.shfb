@@ -1,6 +1,6 @@
 ﻿<project schemaVersion="1.6.0.7">
     <assemblies>
-        <assembly assemblyPath="..\Bin\AlphaVSS.Win2008.x86.dll" xmlCommentsPath="..\Bin\AlphaVSS.Win2008.x86.xml" commentsOnly="False" />
+        <assembly assemblyPath="..\..\Bin\AlphaVSS.Common.dll" xmlCommentsPath="..\..\Bin\AlphaVSS.Common.xml" commentsOnly="False" />
     </assemblies>
     <namespaceSummaries>
         <namespaceSummaryItem name="" isDocumented="False" />

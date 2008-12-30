@@ -76,7 +76,7 @@ namespace Alphaleonis.Win32.Vss
 		/// </summary>
         ExclusiveIncrementalDifferential = 0x00000004,
 		/// <summary>
-		/// The writer supports backups that involve only the log files it manages (corresponding to a <see dref="T:Alphaleonis.Win32.Vss.VssBackupType"/> value of <see dref="F:Alphaleonis.Win32.Vss.VssBackupType.Log"/>). 
+        /// <para>The writer supports backups that involve only the log files it manages (corresponding to a <see dref="T:Alphaleonis.Win32.Vss.VssBackupType"/> value of <see dref="F:Alphaleonis.Win32.Vss.VssBackupType.Log"/>). </para>
 		/// </summary>
         Log = 0x00000008,
 		/// <summary>
@@ -136,7 +136,7 @@ namespace Alphaleonis.Win32.Vss
         ///     <para>
         ///         The writer supports running multiple writer instances with the same class ID, and it supports a 
         ///         requester moving a component to a different writer instance at restore time using 
-        ///         <see cref="IVssBackupComponents.SetSelectedForRestore"/>.
+        ///         <see cref="O:Alphaleonis.Win32.Vss.IVssBackupComponents.SetSelectedForRestore"/>.
         ///     </para>    
         ///      <para>
         ///         <b>Windows Server 2003:</b> This value is not supported until Windows Server 2003 SP1.

@@ -28,6 +28,15 @@ namespace Alphaleonis.Win32.Vss
     /// </summary>
 	public class VssProviderProperties 
 	{
+        /// <summary>
+        /// Initializes a new instance of the <see cref="VssProviderProperties"/> class.
+        /// </summary>
+        /// <param name="providerId">The provider id.</param>
+        /// <param name="providerName">Name of the provider.</param>
+        /// <param name="providerType">Type of the provider.</param>
+        /// <param name="providerVersion">The provider version.</param>
+        /// <param name="providerVersionId">The provider version id.</param>
+        /// <param name="classId">The class id.</param>
 	    public VssProviderProperties(Guid providerId, string providerName, VssProviderType providerType, string providerVersion, Guid providerVersionId, Guid classId)
         {
             mProviderId = providerId;

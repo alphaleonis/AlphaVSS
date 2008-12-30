@@ -143,6 +143,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		/// 	<see cref="IVssExamineWriterMetadata.SaveAsXml"/>. Users should not tamper with this metadata document.
 		/// </remarks>
 		/// <returns>a <see cref="IVssExamineWriterMetadata"/> instance initialized with the specified XML document.</returns>
+		[System::Security::Permissions::SecurityPermission(System::Security::Permissions::SecurityAction::LinkDemand)]
 		virtual IVssExamineWriterMetadata^ CreateVssExamineWriterMetadata(String^ xml);
 	};
 

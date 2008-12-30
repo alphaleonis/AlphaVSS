@@ -19,11 +19,11 @@
  *  THE SOFTWARE.
  */
 #include "stdafx.h"
-#include "OsInfo.h"
+#include "OSInfo.h"
 
 namespace Alphaleonis { namespace Win32 { namespace Vss
 {
-	static OsInfo::OsInfo()
+	static OSInfo::OSInfo()
 	{
 		SYSTEM_INFO si;
 		OSVERSIONINFOEX osvi;
@@ -35,59 +35,59 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 
 		if (!GetVersionEx((OSVERSIONINFO *)&osvi))
 		{
-			mArchitecture = OsArchitecture::Unknown;
+			mArchitecture = OSArchitecture::Unknown;
 			return;
 		}
 
 		GetSystemInfo(&si);
 
-		mArchitecture = (OsArchitecture)si.wProcessorArchitecture;
+		mArchitecture = (OSArchitecture)si.wProcessorArchitecture;
 		
 		if (osvi.dwMajorVersion == 6) // Vista or 2008
 		{
 			if (osvi.wProductType == VER_NT_WORKSTATION)
-				mOperatingSystem = OsVersion::WinVista;
+				mOperatingSystem = OSVersions::WinVista;
 			else
-				mOperatingSystem = OsVersion::Win2008;
+				mOperatingSystem = OSVersions::Win2008;
 		}
 		else if (osvi.dwMajorVersion == 5) // Win2k, Win2k3 or WinXp
 		{
 			if (osvi.dwMinorVersion == 1) // WinXP
-				mOperatingSystem = OsVersion::WinXP;
+				mOperatingSystem = OSVersions::WinXP;
 			else if (osvi.dwMinorVersion == 2)
 			{
 				if (osvi.wProductType == VER_NT_WORKSTATION)
-					mOperatingSystem = OsVersion::WinXP;
+					mOperatingSystem = OSVersions::WinXP;
 				else
-					mOperatingSystem = OsVersion::Win2003;
+					mOperatingSystem = OSVersions::Win2003;
 			}
 			else
 			{
-				mOperatingSystem = OsVersion::Unknown;
+				mOperatingSystem = OSVersions::None;
 			}
 		}
 		else
 		{
-			mOperatingSystem = OsVersion::Unknown;
+			mOperatingSystem = OSVersions::None;
 		}
 
 		if (osvi.wServicePackMajor > 0)
 		{
 			int sp = osvi.wServicePackMajor > 4 ? 4 : osvi.wServicePackMajor;
 
-			if (mOperatingSystem != OsVersion::Unknown)
-				mOperatingSystem = mOperatingSystem | ((OsVersion)sp);
+			if (mOperatingSystem != OSVersions::None)
+				mOperatingSystem = mOperatingSystem | ((OSVersions)sp);
 		}
 	}
 
 
 
-	void OsInfo::RequireSpecific(... array<OsVersion> ^args)
+	void OSInfo::RequireSpecific(... array<OSVersions> ^args)
 	{
 		if (args->Length == 0)
 			return;
 
-		for each (OsVersion version in args)
+		for each (OSVersions version in args)
 		{
 			if (version == mOperatingSystem)
 				return;
@@ -95,18 +95,18 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		throw gcnew NotSupportedException(L"Operation not supported on this operating system.");
 	}
 
-	void OsInfo::RequireAtLeast(OsVersion version)
+	void OSInfo::RequireAtLeast(OSVersions version)
 	{
 		if (mOperatingSystem < version)
 			throw gcnew NotSupportedException(L"Operation not supported on this operating system.");
 	}
 
-	void OsInfo::RequireAtLeastInFamily(... array<OsVersion> ^args)
+	void OSInfo::RequireAtLeastInFamily(... array<OSVersions> ^args)
 	{
 		if (args->Length == 0)
 			return;
 
-		for each (OsVersion required in args)
+		for each (OSVersions required in args)
 		{
 			if (Family == GetFamily(required) && ServicePack >= GetSp(required))
 			{
@@ -116,34 +116,34 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		throw gcnew NotSupportedException(L"Operation not supported on this operating system.");
 	}
 
-	OsArchitecture OsInfo::Architecture::get()
+	OSArchitecture OSInfo::Architecture::get()
 	{
 		return mArchitecture; 
 	}
 
-	OsVersion OsInfo::Family::get()
+	OSVersions OSInfo::Family::get()
 	{
 		return GetFamily(mOperatingSystem); 
 	}
 
-	OsVersion OsInfo::ServicePack::get()
+	OSVersions OSInfo::ServicePack::get()
 	{
 		return GetSp(mOperatingSystem); 
 	}
 
-	OsVersion OsInfo::Version::get()
+	OSVersions OSInfo::Version::get()
 	{
 		return mOperatingSystem;
 	}
 
-	OsVersion OsInfo::GetFamily(OsVersion osVersion)
+	OSVersions OSInfo::GetFamily(OSVersions osVersion)
 	{
-		return (OsVersion)((int)osVersion & ~(0xFFF));
+		return (OSVersions)((int)osVersion & ~(0xFFF));
 	}
 
-	OsVersion OsInfo::GetSp(OsVersion osVersion)
+	OSVersions OSInfo::GetSp(OSVersions osVersion)
 	{
-		return (OsVersion)((int)osVersion & 0xFFF);
+		return (OSVersions)((int)osVersion & 0xFFF);
 	}
 
 

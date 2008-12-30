@@ -210,7 +210,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	VssBackupSchema VssExamineWriterMetadata::BackupSchema::get()
 	{
 #if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WIN2003
-		OsInfo::RequireAtLeast(OsVersion::Win2003);
+		OSInfo::RequireAtLeast(OSVersions::Win2003);
 		DWORD schema;
 		CheckCom(mExamineWriterMetadata->GetBackupSchema(&schema));
 		return (VssBackupSchema)schema;

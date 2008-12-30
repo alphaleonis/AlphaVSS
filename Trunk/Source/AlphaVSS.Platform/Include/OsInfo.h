@@ -22,7 +22,7 @@
 
 namespace Alphaleonis { namespace Win32 { namespace Vss {
 
-	enum class OsArchitecture
+	public enum class OSArchitecture
 	{
 		X86 = PROCESSOR_ARCHITECTURE_INTEL,
 		X64 = PROCESSOR_ARCHITECTURE_AMD64,
@@ -31,9 +31,9 @@ namespace Alphaleonis { namespace Win32 { namespace Vss {
 	};
 
 	[FlagsAttribute]
-	enum class OsVersion
+	public enum class OSVersions
 	{
-		NOSP = 0x00,
+		None = 0x00,
 		SP1 = 0x1,
 		SP2 = 0x2,
 		SP3 = 0x4,
@@ -62,51 +62,49 @@ namespace Alphaleonis { namespace Win32 { namespace Vss {
 		Win2008SP2 =	0x00008002,
 		Win2008SP3 =	0x00008004,
 		Win2008SP4 =	0x00008008,
-
-		Unknown = 0x0
 	};
 
-	ref class OsInfo 
+	public ref class OSInfo sealed
 	{
 	public:
 		
-		static OsInfo();
+		static OSInfo();
 
-		static void RequireSpecific(... array<OsVersion> ^args);
-		static void RequireAtLeast(OsVersion version);
-		static void RequireAtLeastInFamily(... array<OsVersion> ^args);
+		static void RequireSpecific(... array<OSVersions> ^args);
+		static void RequireAtLeast(OSVersions version);
+		static void RequireAtLeastInFamily(... array<OSVersions> ^args);
 
-		static void ThrowUnsupportedOsException()
+		static void ThrowUnsupportedOSException()
 		{
 			throw gcnew NotSupportedException(L"This operation is not supported on the current operating system.");
 		}
 
-		static property OsArchitecture Architecture
+		static property OSArchitecture Architecture
 		{
-			OsArchitecture get();
+			OSArchitecture get();
 		}
 
-		static property OsVersion Family
+		static property OSVersions Family
 		{
-			OsVersion get();
+			OSVersions get();
 		}
 
-		static property OsVersion ServicePack 
+		static property OSVersions ServicePack 
 		{
-			OsVersion get();
+			OSVersions get();
 		}
 
-		static property OsVersion Version
+		static property OSVersions Version
 		{
-			OsVersion get();
+			OSVersions get();
 		}
 
 	private:
-		OsInfo() {}
-		static OsVersion GetFamily(OsVersion osVersion);
-		static OsVersion GetSp(OsVersion osVersion);
-		static OsArchitecture mArchitecture;
-		static OsVersion mOperatingSystem;
+		OSInfo() {}
+		static OSVersions GetFamily(OSVersions OSVersions);
+		static OSVersions GetSp(OSVersions OSVersions);
+		static OSArchitecture mArchitecture;
+		static OSVersions mOperatingSystem;
 	};
 }}
 }

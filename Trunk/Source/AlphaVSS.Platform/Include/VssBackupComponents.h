@@ -102,6 +102,8 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		virtual void SetRestoreState(VssRestoreType restoreType);
         virtual void SetRollForward(Guid writerId, VssComponentType componentType, String^ logicalPath, String^ componentName, VssRollForwardType rollType, String^ rollForwardPoint);
 		virtual void SetSelectedForRestore(Guid writerId, VssComponentType componentType, String^ logicalPath, String^ componentName, bool selectedForRestore);
+		virtual void SetSelectedForRestore(Guid writerId, VssComponentType componentType, String^ logicalPath, String^ componentName, bool selectedForRestore, Guid instanceId);
+
 		virtual Guid StartSnapshotSet();
 		virtual void UnexposeSnapshot(Guid snapshotId);
 

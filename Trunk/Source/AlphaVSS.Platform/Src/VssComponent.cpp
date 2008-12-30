@@ -289,7 +289,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 
 	IList<VssWMFileDescription^>^ VssComponent::AlternateLocationMappings::get()
 	{
-		return mNewTargets;
+		return mAlternateLocationMappings;
 	}
 
 

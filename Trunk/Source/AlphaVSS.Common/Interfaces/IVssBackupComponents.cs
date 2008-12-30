@@ -1536,7 +1536,7 @@ namespace Alphaleonis.Win32.Vss
         void SetRollForward(Guid writerId, VssComponentType componentType, string logicalPath, string componentName, VssRollForwardType rollType, string rollForwardPoint);
 
 		/// <summary>
-        ///     The <see cref="SetSelectedForRestore"/> method indicates whether the specified selectable component is selected for restoration.
+        ///     The <see cref="SetSelectedForRestore(Guid,VssComponentType,String,String,bool)"/> method indicates whether the specified selectable component is selected for restoration.
         /// </summary>
 		/// <param name="writerId">Writer identifier.</param>
 		/// <param name="componentType">Type of the component.</param>
@@ -1569,7 +1569,12 @@ namespace Alphaleonis.Win32.Vss
 		/// </param>
 		/// <remarks>
 		///		<para>SetSelectedForRestore has meaning only for restores taking place in component mode.</para>
-		/// 	<para><see cref="SetSelectedForRestore"/> can only be called for components that were explicitly added to the backup document at backup time using <see cref="AddComponent"/>. Restoring a component that was implicitly selected for backup as part of a component set must be done by calling <see cref="SetSelectedForRestore"/> on the closest ancestor component that was added to the document. If only this component's data is to be restored, that should be accomplished through <see cref="AddRestoreSubcomponent"/>; this can only be done if the component is selectable for restore.</para>
+		/// 	<para><see cref="O:SetSelectedForRestore"/> can only be called for components that were explicitly added to the 
+        /// 	backup document at backup time using <see cref="AddComponent"/>. Restoring a component that was implicitly 
+        /// 	selected for backup as part of a component set must be done by calling <see cref="O:SetSelectedForRestore"/> on the closest 
+        /// 	ancestor component that was added to the document. If only this component's data is to be restored, 
+        /// 	that should be accomplished through <see cref="AddRestoreSubcomponent"/>; this can only be done if the component 
+        /// 	is selectable for restore.</para>
 		/// 	<para>This method must be called before <see cref="PreRestore"/>.</para>
 		/// </remarks>
 		/// <exception cref="ArgumentNullException">One of the arguments that cannot be <see langword="null"/> was <see langword="null"/></exception>
@@ -1579,9 +1584,96 @@ namespace Alphaleonis.Win32.Vss
 		/// <exception cref="VssBadStateException">The backup components object is not initialized, this method has been called during a restore operation, or this method has not been called within the correct sequence.</exception>		
 		/// <exception cref="VssObjectNotFoundException">The backup component does not exist.</exception>
 		/// <exception cref="VssInvalidXmlDocumentException">The XML document is not valid. Check the event log for details.</exception>
+        /// <overloads>indicates whether the specified selectable component is selected for restoration. This method has two overloads.</overloads>
 		void SetSelectedForRestore(Guid writerId, VssComponentType componentType, string logicalPath, string componentName, bool selectedForRestore);
-		
-		/// <summary>
+
+        /// <summary>
+        ///     The <see cref="SetSelectedForRestore(Guid,VssComponentType,String,String,bool,Guid)"/> method indicates whether the specified selectable component is selected for restoration to a specified writer instance.
+        /// </summary>
+        /// <param name="writerId">Globally unique identifier (GUID) of the writer class.</param>
+        /// <param name="componentType">Type of the component.</param>
+        /// <param name="logicalPath">
+        /// 	<para>
+        /// 		The logical path of the component. For more information, see 
+        /// 		<see href="http://msdn.microsoft.com/en-us/library/aa384316(VS.85).aspx">Logical Pathing of Components</see>.
+        /// 	</para>
+        /// 	<para>
+        /// 		The value of the string containing the logical path used here should be the same as was used when the component was 
+        /// 		added to the backup set using <see cref="AddComponent"/>.
+        /// 	</para>
+        /// 	<para>
+        /// 		The logical path can be <see langword="null"/>.
+        /// 	</para>
+        /// 	<para>
+        /// 		There are no restrictions on the characters that can appear in a non-<c>null</c> logical path.
+        /// 	</para>
+        /// </param>
+        /// <param name="componentName">
+        /// 	<para>The name of the component.</para>
+        /// 	<para>
+        /// 		The value of the string should not be <see langword="null"/>, and should contain the same component as was used when the 
+        /// 		component was added to the backup set using <see cref="AddComponent"/>.
+        /// 	</para>
+        /// </param>
+        /// <param name="selectedForRestore">
+        ///		If the value of this parameter is <see langword="true"/>, the selected component has been selected for 
+        /// 	restoration. If the value is <see langword="false"/>, the selected component has not been selected for restoration.
+        /// </param>
+        /// <param name="instanceId">
+        ///     <para>GUID of the writer instance.</para>
+        /// </param>
+        /// <remarks>
+        /// <para>        
+        ///     <c>SetSelectedForRestore</c>, which moves a component to a different writer instance, can be called only for a 
+        ///     writer that supports running multiple writer instances with the same class ID and supports a requester moving a 
+        ///     component to a different writer instance at restore time. To determine whether a writer provides this support, call 
+        ///     the <see cref="IVssExamineWriterMetadata.BackupSchema"/> method.
+        /// </para>
+        /// <para>
+        ///     <c>SetSelectedForRestore</c> has meaning only for restores taking place in component mode.
+        /// </para>
+        /// <para>
+        ///     <c>SetSelectedForRestore</c> can be called only for components that were explicitly added to the backup document at backup 
+        ///     time using AddComponent. Restoring a component that was implicitly selected for backup as part of a component set must be 
+        ///     done by calling <c>SetSelectedForRestore</c> on the closest ancestor component that was added to the document. If only 
+        ///     this component's data is to be restored, that should be accomplished through the <see cref="IVssBackupComponents.AddRestoreSubcomponent"/> method; 
+        ///     this can be done only if the component is selectable for restore (see 
+        ///     <see href="http://msdn.microsoft.com/en-us/library/aa384988(VS.85).aspx">Working with Selectability and Logical Paths</see>).
+        /// </para>
+        /// <para>
+        ///     This method must be called before the <see cref="IVssBackupComponents.PreRestore"/> method.
+        /// </para>
+        /// <para>
+        ///     The distinction between the <paramref name="instanceId"/> and <paramref name="writerID"/> parameters is necessary because it is 
+        ///     possible that multiple instances of the same writer are running on the computer.
+        /// </para>
+        /// <para>
+        ///     If the value of the <paramref name="instanceId"/> parameter is <see cref="Guid.Empty"/>, this is equivalent to calling the 
+        ///     <see cref="IVssBackupComponents.SetSelectedForRestore(Guid,VssComponentType,string,string,bool)"/>.
+        /// </para>
+        /// <para>
+        ///     The <paramref name="instanceId"/> parameter is used to specify that the component is to be restored to a different writer 
+        ///     instance. If the value of the <paramref name="instanceId"/> parameter is not <see cref="Guid.Empty"/>, it must match the 
+        ///     instance ID of a writer instance with the same writer class ID specified in in the <paramref name="writerId"/> parameter.
+        /// </para>
+        /// <para>
+        ///     A writer's class identifier, instance identifier, and instance name can be found by calling the <see cref="IVssExamineWriterMetadataEx.GetIdentity"/> 
+        ///     method.        
+        /// </para>
+        /// <note>
+        ///     <b>Windows XP and Windows 2003:</b> This method is not supported until Windows 2003 SP1.
+        /// </note>
+        /// </remarks>
+        /// <exception cref="ArgumentNullException">One of the arguments that cannot be <see langword="null"/> was <see langword="null"/></exception>
+        /// <exception cref="ArgumentException">One of the parameter values is not valid.</exception>
+        /// <exception cref="OutOfMemoryException">Out of memory or other system resources.</exception>
+        /// <exception cref="SystemException">Unexpected VSS system error. The error code is logged in the event log.</exception>
+        /// <exception cref="VssBadStateException">The backup components object is not initialized, this method has been called during a restore operation, or this method has not been called within the correct sequence.</exception>		
+        /// <exception cref="VssObjectNotFoundException">The backup component does not exist.</exception>
+        /// <exception cref="VssInvalidXmlDocumentException">The XML document is not valid. Check the event log for details.</exception>
+        void SetSelectedForRestore(Guid writerId, VssComponentType componentType, string logicalPath, string componentName, bool selectedForRestore, Guid instanceId);
+
+        /// <summary>
 		/// 	The <see cref="StartSnapshotSet"/> method creates a new, empty shadow copy set.
 		/// </summary>
 		/// <returns>Shadow copy set identifier.</returns>

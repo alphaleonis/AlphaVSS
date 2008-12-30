@@ -27,6 +27,22 @@ namespace Alphaleonis.Win32.Vss
     /// </summary>
 	public sealed class VssSnapshotProperties 	
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="VssSnapshotProperties"/> class.
+        /// </summary>
+        /// <param name="snapshotId">The snapshot id.</param>
+        /// <param name="snapshotSetId">The snapshot set id.</param>
+        /// <param name="snapshotCount">The snapshot count.</param>
+        /// <param name="snapshotDeviceObject">The snapshot device object.</param>
+        /// <param name="originalVolumeName">Name of the original volume.</param>
+        /// <param name="originatingMachine">The originating machine.</param>
+        /// <param name="serviceMachine">The service machine.</param>
+        /// <param name="exposedName">Name of the exposed.</param>
+        /// <param name="exposedPath">The exposed path.</param>
+        /// <param name="providerId">The provider id.</param>
+        /// <param name="snapshotAttributes">The snapshot attributes.</param>
+        /// <param name="creationTimestamp">The creation timestamp.</param>
+        /// <param name="snapshotState">State of the snapshot.</param>
         public VssSnapshotProperties(Guid snapshotId, Guid snapshotSetId, long snapshotCount, string snapshotDeviceObject,
             string originalVolumeName, string originatingMachine, string serviceMachine, string exposedName, string exposedPath,
             Guid providerId, VssVolumeSnapshotAttributes snapshotAttributes, DateTime creationTimestamp,

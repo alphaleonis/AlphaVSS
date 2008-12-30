@@ -42,7 +42,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	{
 		mComponents = gcnew ComponentList(this);
 		VSS_ID iid, wid;
-		CheckCom(mVssWriterComponents->GetWriterInfo(&iid, &wid));
+		CheckCom(vssWriterComponents->GetWriterInfo(&iid, &wid));
 		mInstanceId = ToGuid(iid);
 		mWriterId = ToGuid(wid);
 	}

@@ -14,6 +14,12 @@ namespace Alphaleonis.Win32.Vss
 	/// <seealso href="http://msdn.microsoft.com/en-us/library/aa384301(VS.85).aspx"/>
 	public class VssWMDependency 
 	{
+        /// <summary>
+        /// Initializes a new instance of the <see cref="VssWMDependency"/> class.
+        /// </summary>
+        /// <param name="writerId">The writer id.</param>
+        /// <param name="logicalPath">The logical path.</param>
+        /// <param name="componentName">Name of the component.</param>
         public VssWMDependency(Guid writerId, string logicalPath, string componentName)
         {
             mWriterId = writerId;

@@ -25,6 +25,7 @@
 
 using namespace System::Text;
 using namespace System::Collections::Generic;
+using namespace System::Security::Permissions;
 
 namespace Alphaleonis { namespace Win32 { namespace Vss
 {
@@ -55,6 +56,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 
 		property VssSourceType Source { virtual VssSourceType get(); }
 	internal:
+		[SecurityPermission(SecurityAction::LinkDemand)]
 		static IVssExamineWriterMetadata^ Adopt(::IVssExamineWriterMetadata *ewm);
 	private:
 		VssExamineWriterMetadata(::IVssExamineWriterMetadata *examineWriterMetadata);
