@@ -72,6 +72,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss {
 
 		static void RequireSpecific(... array<OSVersions> ^args);
 		static void RequireAtLeast(OSVersions version);
+		static bool IsAtLeast(OSVersions version);
 		static void RequireAtLeastInFamily(... array<OSVersions> ^args);
 
 		static void ThrowUnsupportedOSException()

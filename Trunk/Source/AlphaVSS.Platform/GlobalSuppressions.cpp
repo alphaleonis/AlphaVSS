@@ -17,3 +17,4 @@ CA_GLOBAL_SUPPRESS_MESSAGE("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedC
 CA_GLOBAL_SUPPRESS_MESSAGE("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId="XPSP", Scope="member", Target="Alphaleonis.Win32.Vss.OSVersions.#WinXPSP2");
 CA_GLOBAL_SUPPRESS_MESSAGE("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId="XPSP", Scope="member", Target="Alphaleonis.Win32.Vss.OSVersions.#WinXPSP3");
 CA_GLOBAL_SUPPRESS_MESSAGE("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId="XPSP", Scope="member", Target="Alphaleonis.Win32.Vss.OSVersions.#WinXPSP4");
+CA_GLOBAL_SUPPRESS_MESSAGE("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="Alphaleonis.Win32.Vss.VssExamineWriterMetadata.#RequireIVssExamineWriterMetadataEx()");

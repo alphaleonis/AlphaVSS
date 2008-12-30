@@ -47,14 +47,30 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	void VssExamineWriterMetadata::Initialize()
 	{
 		VSS_ID idInstance, idWriter;
-		AutoBStr bsWriterName;
+		AutoBStr bsWriterName, bsInstanceName;
 		VSS_USAGE_TYPE usage;
 		VSS_SOURCE_TYPE source;
-		CheckCom(mExamineWriterMetadata->GetIdentity(&idInstance, &idWriter, &bsWriterName, &usage, &source));
+
+		bool hasExIdentity = false;
+
+#ifdef ALPHAVSS_HAS_EWMEX
+		if (OSInfo::IsAtLeast(OSVersions::Win2003SP1))
+		{	
+			IVssExamineWriterMetadataEx *ex = GetIVssExamineWriterMetadataEx();
+			if (ex != 0)
+			{
+				CheckCom(ex->GetIdentityEx(&idInstance, &idWriter, &bsWriterName, &bsInstanceName, &usage, &source));			
+				hasExIdentity = true;
+			}
+		}
+#endif
+		if (!hasExIdentity)
+			CheckCom(mExamineWriterMetadata->GetIdentity(&idInstance, &idWriter, &bsWriterName, &usage, &source));
 
 		mInstanceId = ToGuid(idInstance);
 		mWriterId = ToGuid(idWriter);
 		mWriterName = bsWriterName;
+		mInstanceName = bsInstanceName;
 		mUsage = (VssUsageType)usage;
 		mSource = (VssSourceType)source;
 
@@ -62,6 +78,8 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		mComponents = nullptr;
 		mRestoreMethod = nullptr;
 		mAlternateLocationMappings = nullptr;
+		mVersion = nullptr;
+		mExcludeFilesFromSnapshot = nullptr;
 	}
 
 	VssExamineWriterMetadata::~VssExamineWriterMetadata()
@@ -217,6 +235,49 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 #else
 		throw gcnew NotSupportedException(L"This method is not supported until Windows Server 2003");
 #endif
+	}
+
+	String^ VssExamineWriterMetadata::InstanceName::get()
+	{
+		return mInstanceName;
+	}
+
+	Version^ VssExamineWriterMetadata::Version::get()
+	{
+		if (mVersion == nullptr)
+		{
+			DWORD dwMajorVersion = 0;
+			DWORD dwMinorVersion = 0;
+#ifdef ALPHAVSS_HAS_EWMEX2
+			CheckCom(RequireIVssExamineWriterMetadataEx2()->GetVersion(&dwMajorVersion, &dwMinorVersion));
+#endif
+			mVersion = gcnew System::Version(dwMajorVersion, dwMinorVersion);
+		}
+		return mVersion;
+	}
+	
+	IList<VssWMFileDescription^>^ VssExamineWriterMetadata::ExcludeFromSnapshotFiles::get()
+	{
+		if (mExcludeFilesFromSnapshot != nullptr)
+			return mExcludeFilesFromSnapshot;
+
+#ifdef ALPHAVSS_HAS_EWMEX2
+		UINT cExcludedFromSnapshot;
+
+		CheckCom(RequireIVssExamineWriterMetadataEx2()->GetExcludeFromSnapshotCount(&cExcludedFromSnapshot));
+
+		IList<VssWMFileDescription^>^ list = gcnew List<VssWMFileDescription^>(cExcludedFromSnapshot);
+		for (UINT i = 0; i < cExcludedFromSnapshot; i++)
+		{
+			IVssWMFiledesc *filedesc;
+			CheckCom(RequireIVssExamineWriterMetadataEx2()->GetExcludeFromSnapshotFile(i, &filedesc));
+			list->Add(CreateVssWMFileDescription(filedesc));
+		}
+		mExcludeFiles = list;
+#else
+		mExcludeFiles = gcnew List<VssWMFileDescription^>();
+#endif
+		return mExcludeFiles;
 	}
 
 }

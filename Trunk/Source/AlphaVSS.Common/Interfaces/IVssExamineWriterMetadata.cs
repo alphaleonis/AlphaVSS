@@ -76,5 +76,50 @@ namespace Alphaleonis.Win32.Vss
 		/// <summary>A <see cref="VssSourceType"/> enumeration value indicating the type of data managed by the writer.</summary>
 		VssSourceType Source { get; }
 
+        /// <summary>
+        /// Gets the writer instance name.
+        /// </summary>
+        /// <remarks>
+        ///     <note>
+        ///         <para>
+        ///             <b>Windows XP and Windows 2003:</b> This property is not supported until Windows 2003 SP1 and will always return 
+        ///             <see langword="null"/> on those systems.
+        ///         </para>
+        ///     </note>
+        /// </remarks>
+        /// <value>A string specifying the writer instance name.</value>
+        string InstanceName { get; }
+
+        /// <summary>
+        /// Gets the version information for a writer application.
+        /// </summary>
+        /// <value>The version information for a writer application.</value>
+        /// <remarks>
+        ///     <para>
+        ///         Only the <see cref="System.Version.Major"/> and <see cref="System.Version.Minor"/> properties of the <see cref="Version"/> instance
+        ///         are used by VSS.
+        ///     </para>
+        ///     <para>
+        ///         <note><b>Windows XP and Windows 2003:</b> This property is not supported until Windows Vista, and will always return version 0.0.0.0</note>
+        ///     </para>
+        /// </remarks>
+        Version Version { get; }
+
+        /// <summary>
+        /// Obtains information about file sets that have been explicitly excluded from a given shadow copy.
+        /// </summary>
+        /// <remarks>
+        ///     <para>
+        ///         The <see cref="ExcludeFromSnapshotFile"/> property is intended to report information about file sets excluded from a 
+        ///         shadow copy. Requesters should not exclude files from backup based on the information returned by this method.
+        ///     </para>
+        ///     <para>
+        ///         <note>
+        ///             <para><b>Windows XP and Windows 2003:</b> This property is not supported until Windows Vista and will always return an empty list.</para>
+        ///         </note>
+        ///     </para>
+        /// </remarks>
+        /// <value>The exclude from snapshot files.</value>
+        IList<VssWMFileDescription> ExcludeFromSnapshotFiles { get; }
     }
 }

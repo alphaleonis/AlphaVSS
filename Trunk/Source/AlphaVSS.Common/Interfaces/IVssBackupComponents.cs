@@ -1657,8 +1657,8 @@ namespace Alphaleonis.Win32.Vss
         ///     instance ID of a writer instance with the same writer class ID specified in in the <paramref name="writerId"/> parameter.
         /// </para>
         /// <para>
-        ///     A writer's class identifier, instance identifier, and instance name can be found by calling the <see cref="IVssExamineWriterMetadataEx.GetIdentity"/> 
-        ///     method.        
+        ///     A writer's class identifier, instance identifier, and instance name can be found 
+        ///     in the properties of <see cref="IVssExamineWriterMetadata"/>. 
         /// </para>
         /// <note>
         ///     <b>Windows XP and Windows 2003:</b> This method is not supported until Windows 2003 SP1.

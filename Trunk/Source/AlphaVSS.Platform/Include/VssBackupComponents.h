@@ -23,6 +23,7 @@
 #include "VssError.h"
 #include "VssWriterComponents.h"
 #include "VssExamineWriterMetadata.h"
+#include "Macros.h"
 
 using namespace System;
 using namespace System::Collections::Generic;
@@ -111,40 +112,11 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		::IVssBackupComponents *mBackup;
 
 #ifdef ALPHAVSS_HAS_BACKUPEX
-		::IVssBackupComponentsEx *mBackupEx;
-		
-		IVssBackupComponentsEx *GetBackupComponentsEx()
-		{
-			if (mBackupEx == 0)
-			{
-				void *ifc = 0;
-				if (!SUCCEEDED(mBackup->QueryInterface(IID_IVssBackupComponentsEx, &ifc)))
-				{
-					UnsupportedOs();
-				}
-				mBackupEx = (IVssBackupComponentsEx *)ifc;
-			}
-			return mBackupEx;
-		}
+		DEFINE_EX_INTERFACE_ACCESSOR(IVssBackupComponentsEx)
 #endif
 
 #ifdef ALPHAVSS_HAS_BACKUPEX2
-		::IVssBackupComponentsEx2 *mBackupEx2;
-
-		IVssBackupComponentsEx2 *GetBackupComponentsEx2()
-		{
-			void *ifc = 0;
-			if (mBackupEx2 == 0)
-			{
-				if (!SUCCEEDED(mBackup->QueryInterface(IID_IVssBackupComponentsEx2, &ifc)))
-				{
-					UnsupportedOs();
-				}
-				mBackupEx2 = (IVssBackupComponentsEx2 *)ifc;
-			}
-			return mBackupEx2;
-		}
-
+		DEFINE_EX_INTERFACE_ACCESSOR(IVssBackupComponentsEx2)
 #endif
 
 		ref class WriterMetadataList : VssListAdapter<IVssExamineWriterMetadata^>

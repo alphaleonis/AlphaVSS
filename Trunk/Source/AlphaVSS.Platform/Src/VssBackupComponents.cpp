@@ -140,7 +140,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	{
 #ifdef ALPHAVSS_HAS_BACKUPEX2
 		::IVssAsync *pAsync;
-		CheckCom(GetBackupComponentsEx2()->BreakSnapshotSetEx(ToVssId(snapshotSetId), (_VSS_HARDWARE_OPTIONS)breakFlags, &pAsync));
+		CheckCom(RequireIVssBackupComponentsEx2()->BreakSnapshotSetEx(ToVssId(snapshotSetId), (_VSS_HARDWARE_OPTIONS)breakFlags, &pAsync));
 		return VssAsync::Adopt(pAsync);
 #else
 		UnsupportedOs();
@@ -486,7 +486,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	void VssBackupComponents::SetAuthoritativeRestore(Guid writerId, VssComponentType componentType, String^ logicalPath, String^ componentName, bool isAuthorative)
 	{
 #ifdef ALPHAVSS_HAS_BACKUPEX2
-		CheckCom(GetBackupComponentsEx2()->SetAuthoritativeRestore(ToVssId(writerId), (VSS_COMPONENT_TYPE)componentType, AutoMStr(logicalPath), NoNullAutoMStr(componentName), isAuthorative));
+		CheckCom(RequireIVssBackupComponentsEx2()->SetAuthoritativeRestore(ToVssId(writerId), (VSS_COMPONENT_TYPE)componentType, AutoMStr(logicalPath), NoNullAutoMStr(componentName), isAuthorative));
 #else
 		UnsupportedOs();
 #endif
@@ -495,7 +495,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	void VssBackupComponents::SetRestoreName(Guid writerId, VssComponentType componentType, String^ logicalPath, String^ componentName, String^ restoreName)
 	{
 #ifdef ALPHAVSS_HAS_BACKUPEX2
-		CheckCom(GetBackupComponentsEx2()->SetRestoreName(ToVssId(writerId), (VSS_COMPONENT_TYPE)componentType, AutoMStr(logicalPath), NoNullAutoMStr(componentName), NoNullAutoMStr(restoreName)));
+		CheckCom(RequireIVssBackupComponentsEx2()->SetRestoreName(ToVssId(writerId), (VSS_COMPONENT_TYPE)componentType, AutoMStr(logicalPath), NoNullAutoMStr(componentName), NoNullAutoMStr(restoreName)));
 #else
 		UnsupportedOs();
 #endif
@@ -559,7 +559,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	void VssBackupComponents::SetRollForward(Guid writerId, VssComponentType componentType, String^ logicalPath, String^ componentName, VssRollForwardType rollType, String^ rollForwardPoint)
 	{
 #ifdef ALPHAVSS_HAS_BACKUPEX2
-		CheckCom(GetBackupComponentsEx2()->SetRollForward(ToVssId(writerId), (VSS_COMPONENT_TYPE)componentType, AutoMStr(logicalPath), NoNullAutoMStr(componentName), (VSS_ROLLFORWARD_TYPE)rollType, NoNullAutoMStr(rollForwardPoint)));
+		CheckCom(RequireIVssBackupComponentsEx2()->SetRollForward(ToVssId(writerId), (VSS_COMPONENT_TYPE)componentType, AutoMStr(logicalPath), NoNullAutoMStr(componentName), (VSS_ROLLFORWARD_TYPE)rollType, NoNullAutoMStr(rollForwardPoint)));
 #else
 		UnsupportedOs();
 #endif
@@ -574,7 +574,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	{
 #ifdef ALPHAVSS_HAS_BACKUPEX
 		OSInfo::RequireAtLeast(OSVersions::Win2003SP1);
-		CheckCom(GetBackupComponentsEx()->SetSelectedForRestoreEx(ToVssId(writerId), (VSS_COMPONENT_TYPE)componentType, AutoMStr(logicalPath), NoNullAutoMStr(componentName), selectedForRestore, ToVssId(instanceId)));
+		CheckCom(RequireIVssBackupComponentsEx()->SetSelectedForRestoreEx(ToVssId(writerId), (VSS_COMPONENT_TYPE)componentType, AutoMStr(logicalPath), NoNullAutoMStr(componentName), selectedForRestore, ToVssId(instanceId)));
 #else
 		UnsupportedOs();
 #endif
@@ -590,7 +590,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	void VssBackupComponents::UnexposeSnapshot(Guid snapshotId)
 	{
 #ifdef ALPHAVSS_HAS_BACKUPEX2
-		CheckCom(GetBackupComponentsEx2()->UnexposeSnapshot(ToVssId(snapshotId)));
+		CheckCom(RequireIVssBackupComponentsEx2()->UnexposeSnapshot(ToVssId(snapshotId)));
 #else
 		UnsupportedOs();
 #endif

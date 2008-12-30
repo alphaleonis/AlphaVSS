@@ -101,6 +101,11 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 			throw gcnew NotSupportedException(L"Operation not supported on this operating system.");
 	}
 
+	bool OSInfo::IsAtLeast(OSVersions version)
+	{
+		return mOperatingSystem >= version;
+	}
+
 	void OSInfo::RequireAtLeastInFamily(... array<OSVersions> ^args)
 	{
 		if (args->Length == 0)

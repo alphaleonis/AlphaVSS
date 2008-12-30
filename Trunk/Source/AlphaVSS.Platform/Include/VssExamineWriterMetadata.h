@@ -22,10 +22,19 @@
 
 #include <vss.h>
 #include "VssWMComponent.h"
+#include "Macros.h"
 
 using namespace System::Text;
 using namespace System::Collections::Generic;
 using namespace System::Security::Permissions;
+
+#if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WIN2003
+#define ALPHAVSS_HAS_EWMEX
+#endif
+
+#if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WIN2008
+#define ALPHAVSS_HAS_EWMEX2
+#endif
 
 namespace Alphaleonis { namespace Win32 { namespace Vss
 {
@@ -55,23 +64,38 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		property VssUsageType Usage { virtual VssUsageType get(); }
 
 		property VssSourceType Source { virtual VssSourceType get(); }
+		property String^ InstanceName { virtual String^ get(); }
+		property System::Version^ Version { virtual System::Version^ get(); }
+		property IList<VssWMFileDescription^>^ ExcludeFromSnapshotFiles { virtual IList<VssWMFileDescription^>^ get(); }
 	internal:
 		[SecurityPermission(SecurityAction::LinkDemand)]
 		static IVssExamineWriterMetadata^ Adopt(::IVssExamineWriterMetadata *ewm);
 	private:
 		VssExamineWriterMetadata(::IVssExamineWriterMetadata *examineWriterMetadata);
 		::IVssExamineWriterMetadata *mExamineWriterMetadata;
+		
+#ifdef ALPHAVSS_HAS_EWMEX
+		DEFINE_EX_INTERFACE_ACCESSOR(IVssExamineWriterMetadataEx);
+#endif
+
+#ifdef ALPHAVSS_HAS_EWMEX2
+		DEFINE_EX_INTERFACE_ACCESSOR(IVssExamineWriterMetadataEx2);
+#endif
+
 		void Initialize();
 
 		Guid mInstanceId;
 		Guid mWriterId;
 		String^ mWriterName;
+		String^ mInstanceName;
 		VssUsageType mUsage;
 		VssSourceType mSource;
 		IList<VssWMFileDescription^> ^mExcludeFiles;
 		IList<IVssWMComponent^> ^mComponents;
+		IList<VssWMFileDescription^>^ mExcludeFilesFromSnapshot;
 		VssWMRestoreMethod^ mRestoreMethod;
 		IList<VssWMFileDescription^>^ mAlternateLocationMappings;
+		System::Version^ mVersion;
 	};
 }
 } }

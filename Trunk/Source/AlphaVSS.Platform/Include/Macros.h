@@ -61,3 +61,33 @@
 #define NoNullAutoStrImpl(arg, name, type) NoNull<type>(arg, L##name)
 
 #define UnsupportedOs() throw gcnew NotSupportedException(L"Operation is not supported on the current operating system.")
+
+//
+// Defines an instance variable and accessor methods to an "Ex" interface
+// of a class. The accessor methods will be named GetXXX and RequireXXX where 
+// XXX is the name of the interface. GetXXX may return NULL if the QueryInterface
+// method fails, while RequireXXX will call UnsupportedOs() if the method fails.
+//
+#define DEFINE_EX_INTERFACE_ACCESSOR(interfaceName)		\
+	interfaceName *m##interfaceName;			\
+	interfaceName *Get##interfaceName()			\
+	{											\
+		if (m##interfaceName == 0)				\
+		{										\
+			void *ifc = 0;						\
+			if (FAILED(m##interfaceName->QueryInterface(IID_##interfaceName, &ifc))) \
+					return 0;			    \
+			m##interfaceName = (interfaceName *)ifc; \
+		}										\
+		return m##interfaceName;				\
+	}											\
+	\
+	interfaceName *Require##interfaceName() \
+	{\
+		if (m##interfaceName == 0)\
+		{\
+			if ( (m##interfaceName = Get##interfaceName()) == 0) \
+				UnsupportedOs();\
+		}\
+		return m##interfaceName;\
+	}

@@ -6,7 +6,7 @@ using System.Text;
 namespace Alphaleonis.Win32.Vss
 {
     /// <summary>
-    /// The <see cref="VssWMFiledescription"/> class is returned to a calling application by a number of query methods. 
+    /// The <see cref="VssWMFileDescription"/> class is returned to a calling application by a number of query methods. 
     /// It provides detailed information about a file or set of files (a file set).
     /// </summary>
     /// <remarks>
