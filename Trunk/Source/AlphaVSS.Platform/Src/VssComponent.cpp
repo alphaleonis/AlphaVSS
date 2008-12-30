@@ -71,6 +71,14 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 			mVssComponent->Release();
 			mVssComponent = 0;
 		}
+
+#ifdef ALPHAVSS_HAS_COMPONENTEX
+		if (mIVssComponentEx != 0)
+		{
+			mIVssComponentEx->Release();
+			mIVssComponentEx = 0;
+		}
+#endif
 	}
 
 #if 0
@@ -493,6 +501,70 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	VssComponent::AlternateLocationMappingList::AlternateLocationMappingList(VssComponent^ component)
 		: mComponent(component)
 	{
+	}
+
+	bool VssComponent::IsAuthoritativeRestore::get()
+	{
+#ifdef ALPHAVSS_HAS_COMPONENTEX
+		bool bAuth;
+		if (SUCCEEDED(RequireIVssComponentEx()->GetAuthoritativeRestore(&bAuth)))
+			return bAuth;
+#endif
+		return false;
+	}
+
+    String^ VssComponent::PostSnapshotFailureMsg::get()
+	{
+#ifdef ALPHAVSS_HAS_COMPONENTEX
+		AutoBStr bstrMsg;
+		if (SUCCEEDED(RequireIVssComponentEx()->GetPostSnapshotFailureMsg(&bstrMsg)))
+			return bstrMsg;
+#endif
+		return nullptr;
+	}
+
+    String^ VssComponent::PrepareForBackupFailureMsg::get()
+	{
+#ifdef ALPHAVSS_HAS_COMPONENTEX
+		AutoBStr bstrMsg;
+		if (SUCCEEDED(RequireIVssComponentEx()->GetPrepareForBackupFailureMsg(&bstrMsg)))
+			return bstrMsg;
+#endif
+		return nullptr;
+	}
+
+    String^ VssComponent::RestoreName::get()
+	{
+#ifdef ALPHAVSS_HAS_COMPONENTEX
+		AutoBStr bstrName;
+		if (SUCCEEDED(RequireIVssComponentEx()->GetRestoreName(&bstrName)))
+			return bstrName;
+#endif
+		return nullptr;
+	}
+
+	String^ VssComponent::RollForwardRestorePoint::get()
+	{
+		VSS_ROLLFORWARD_TYPE eRollType;
+		AutoBStr bstrPoint;
+
+#ifdef ALPHAVSS_HAS_COMPONENTEX
+		if (SUCCEEDED(RequireIVssComponentEx()->GetRollForward(&eRollType, &bstrPoint)))
+			return bstrPoint;
+#endif
+		return nullptr;
+	}
+
+	VssRollForwardType VssComponent::RollForwardType::get()
+	{
+		VSS_ROLLFORWARD_TYPE eRollType;
+		AutoBStr bstrPoint;
+
+#ifdef ALPHAVSS_HAS_COMPONENTEX
+		if (SUCCEEDED(RequireIVssComponentEx()->GetRollForward(&eRollType, &bstrPoint)))
+			return (VssRollForwardType)eRollType;
+#endif
+		return VssRollForwardType::Undefined;
 	}
 
 }

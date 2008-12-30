@@ -94,6 +94,21 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 			mExamineWriterMetadata->Release();
 			mExamineWriterMetadata = 0;
 		}
+#ifdef ALPHAVSS_HAS_EWMEX
+		if (mIVssExamineWriterMetadataEx != 0)
+		{
+			mIVssExamineWriterMetadataEx->Release();
+			mIVssExamineWriterMetadataEx = 0;
+		}
+#endif
+
+#ifdef ALPHAVSS_HAS_EWMEX2
+		if (mIVssExamineWriterMetadataEx2 != 0)
+		{
+			mIVssExamineWriterMetadataEx2->Release();
+			mIVssExamineWriterMetadataEx2 = 0;
+		}
+#endif		
 	}
 
 	bool VssExamineWriterMetadata::LoadFromXml(String^ xml)

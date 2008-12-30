@@ -174,5 +174,171 @@ namespace Alphaleonis.Win32.Vss
 		/// <summary>The subcomponents associated with this component.</summary>
 		/// <value>A read only list containing the subcomponents associated with this component. <note type="caution">This list must not be accessed after the <see cref="IVssComponent"/> from which it was obtained has been disposed.</note></value>
 		IList<VssRestoreSubcomponentInfo> RestoreSubcomponents { get; }
+
+        //
+        // Methods below from IVssComponentEx
+        //
+
+        /// <summary>
+        /// Gets a value indicating whether a requester has marked the restore of a component as authoritative for a replicated data store.
+        /// </summary>
+        /// <value>
+        /// 	<see langword="true"/> if the restore is authoritative; otherwise, <see langword="false"/>.
+        /// </value>
+        /// <remarks>
+        /// <para>
+        ///     A writer indicates that it supports authoritative restore by setting the 
+        ///     <see cref="VssBackupSchema.AuthoritativeRestore"/> flag in its backup schema mask.
+        /// </para>
+        /// <para>
+        ///     For more information, see <see href="http://msdn.microsoft.com/en-us/library/aa384610(VS.85).aspx">Setting VSS Restore Options.</see>
+        /// </para>
+        /// <para>
+        ///     <note>
+        ///         <para>
+        ///             <b>Windows XP and Windows 2003:</b> This property requires Windows Vista or later and will always return <see langword="false"/> 
+        ///             on unsupported operating systems.
+        ///         </para>
+        ///     </note>
+        /// </para>
+        /// </remarks>
+        bool IsAuthoritativeRestore { get; }
+
+        /// <summary>
+        /// Gets the <c>PostSnapshot</c> failure message string that a writer has set for a given component.
+        /// </summary>
+        /// <remarks>
+        ///     <para>
+        ///         Both writers and requesters can call this method.
+        ///     </para>
+        ///     <para>
+        ///     <note>
+        ///         <para>
+        ///             <b>Windows XP and Windows 2003:</b> This property requires Windows Vista or later and will always return <see langword="false"/> 
+        ///             on unsupported operating systems.
+        ///         </para>
+        ///     </note>
+        ///     </para>
+        /// </remarks>
+        /// <value>A string containing the failure message that describes an error that occurred while processing a PostSnapshot event, or <see langword="null"/> 
+        /// if no value was set or the method is not supported on the current operating system.</value>
+        string PostSnapshotFailureMsg { get; }
+
+        /// <summary>
+        /// Gets the <c>PrepareForBackup</c> failure message string that a writer has set for a given component.
+        /// </summary>
+        /// <value>A string containing the failure message that describes an error that occurred while processing a PrepareForBackup event,
+        /// or <see langword="null"/> if no failure message was set for this component, or if the property is not supported on the 
+        /// current operating system.</value>
+        /// <remarks>
+        ///     <para>
+        ///         Both writers and requesters can call this method.
+        ///     </para>
+        ///     <para>
+        ///     <note>
+        ///         <para>
+        ///             <b>Windows XP and Windows 2003:</b> This property requires Windows Vista or later and will always return <see langword="false"/> 
+        ///             on unsupported operating systems.
+        ///         </para>
+        ///     </note>
+        ///     </para>
+        /// </remarks>
+        string PrepareForBackupFailureMsg { get; }
+
+        /// <summary>
+        /// Obtains the logical name assigned to a component that is being restored.
+        /// </summary>
+        /// <value>
+        ///     A string containing the restore name for the component, or <see langword="null"/> if the operation
+        ///     is not supported on the current operating system.
+        /// </value>
+        /// <remarks>
+        ///     <para>
+        ///         The <see cref="RestoreName"/> property can only be accessed during a restore operation.
+        ///     </para>
+        ///     <para>
+        ///         A writer indicates that it supports this method by setting the <see cref="VssBackupSchema.RestoreRename"/> 
+        ///         flag in its backup schema mask.
+        ///     </para>
+        ///     <para>
+        ///         For more information, see <see href="http://msdn.microsoft.com/en-us/library/aa384610(VS.85).aspx">
+        ///         Setting VSS Restore Options</see>.
+        ///     </para>
+        ///     <para>
+        ///     <note>
+        ///         <para>
+        ///             <b>Windows XP and Windows 2003:</b> This property requires Windows Vista or later and will always return <see langword="false"/> 
+        ///             on unsupported operating systems.
+        ///         </para>
+        ///     </note>
+        ///     </para>
+        /// </remarks>
+        string RestoreName { get; }
+
+
+        /// <summary>
+        ///     Obtains the restore point for a partial roll-forward operation.
+        /// </summary>
+        /// <value>
+        ///     A string specifying the roll-forward restore point,
+        ///     or <see langword="null"/> if the property is not supported in the current context.
+        /// </value>
+        /// <remarks>
+        ///     <para>
+        ///         The <see cref="RollForwardRestorePoint"/> property can only be accessed during a restore operation.
+        ///     </para>
+        ///     <para>
+        ///         A writer indicates that it supports this method by setting the <see cref="VssBackupSchema.RollForwardRestore"/> 
+        ///         flag in its backup schema mask.
+        ///     </para>
+        ///     <para>
+        ///         For more information, see <see href="http://msdn.microsoft.com/en-us/library/aa384610(VS.85).aspx">
+        ///         Setting VSS Restore Options</see>.
+        ///     </para>
+        ///     <para>
+        ///     <note>
+        ///         <para>
+        ///             <b>Windows XP and Windows 2003:</b> This property requires Windows Vista or later and will always return <see cref="VssRollForwardType.Undefined"/>
+        ///             on unsupported operating systems.
+        ///         </para>
+        ///     </note>
+        ///     </para>
+        /// </remarks>        
+        string RollForwardRestorePoint { get; }
+
+        /// <summary>
+        ///     Obtains the roll-forward operation type for a component.
+        /// </summary>
+        /// <value>
+        ///     A <see cref="VssRollForwardType"/> enumeration value indicating the type of roll-forward operation to be performed,
+        ///     or <see cref="VssRollForwardType.Undefined"/> if the property is not supported in the current context.
+        /// </value>
+        /// <remarks>
+        ///     <para>
+        ///         The <see cref="RollForwardType"/> property can only be accessed during a restore operation.
+        ///     </para>
+        ///     <para>
+        ///         A writer indicates that it supports this method by setting the <see cref="VssBackupSchema.RollForwardRestore"/> 
+        ///         flag in its backup schema mask.
+        ///     </para>
+        ///     <para>
+        ///         For more information, see <see href="http://msdn.microsoft.com/en-us/library/aa384610(VS.85).aspx">
+        ///         Setting VSS Restore Options</see>.
+        ///     </para>
+        ///     <para>
+        ///     <note>
+        ///         <para>
+        ///             <b>Windows XP and Windows 2003:</b> This property requires Windows Vista or later and will always return <see cref="VssRollForwardType.Undefined"/>
+        ///             on unsupported operating systems.
+        ///         </para>
+        ///     </note>
+        ///     </para>
+        /// </remarks>
+        VssRollForwardType RollForwardType { get; }
+
+#if false // These methods may only be called by writers, only supporting requesters for now so these are not included.
+        void SetPrepareForBackupFailureMsg(string message);
+        void SetPostSnapshotFailureMsg(string message);
+#endif
     }
 }

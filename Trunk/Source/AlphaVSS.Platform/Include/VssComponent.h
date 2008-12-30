@@ -23,32 +23,16 @@
 #include <vss.h>
 
 #include "VssListAdapter.h"
+#include "Macros.h"
 
 using namespace System::Collections::Generic;
 
+#if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WIN2008
+#define ALPHAVSS_HAS_COMPONENTEX
+#endif
+
 namespace Alphaleonis { namespace Win32 { namespace Vss
 {
-	/// <summary>
-	/// 	<para>
-	/// 		Class containing methods for examining and modifying information about components contained in a requester's Backup Components Document.
-	/// 	</para>
-	/// </summary>
-	/// <remarks>
-	/// 	<para>
-	/// 		<see cref="VssComponent"/> objects can be obtained only for those components that have been explicitly added 
-	/// 		to the Backup Components Document during a backup operation by the <see dref="M:Alphaleonis.Win32.Vss.VssBackupComponents.AddComponent(System.Guid,System.Guid,Alphaleonis.Win32.Vss.VssComponentType,System.String,System.String)"/> 
-	/// 		method.
-	/// 	</para>
-	/// 	<para>
-	/// 		Information about components explicitly added during a restore operation using 
-	/// 		<see dref="M:Alphaleonis.Win32.Vss.VssBackupComponents.AddRestoreSubcomponent(System.Guid,Alphaleonis.Win32.Vss.VssComponentType,System.String,System.String,System.String,System.String)"/> are not available through the <see cref="VssComponent"/>
-	/// 		interface.
-	/// 	</para>
-	/// 	<para>
-	/// 		For more information, see <see href="http://msdn.microsoft.com/en-us/library/aa382871(VS.85).aspx">the MSDN documentation on 
-	/// 		the IVssComponent Interface</see>.
-	/// 	</para>
-	/// </remarks>
 	private ref class VssComponent : IVssComponent
 	{
 	public:
@@ -75,11 +59,26 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		property IList<VssPartialFileInfo^>^ PartialFiles { virtual IList<VssPartialFileInfo^>^ get(); }
 		property IList<VssDifferencedFileInfo^>^ DifferencedFiles { virtual IList<VssDifferencedFileInfo^>^ get(); }
 		property IList<VssRestoreSubcomponentInfo^>^ RestoreSubcomponents { virtual IList<VssRestoreSubcomponentInfo^>^ get(); }
+
+		//
+		// From IVssComponentEx
+		//
+		property bool IsAuthoritativeRestore { virtual bool get(); }
+        property String^ PostSnapshotFailureMsg { virtual String^ get(); }
+        property String^ PrepareForBackupFailureMsg { virtual String^ get(); }
+        property String^ RestoreName { virtual String^ get(); }
+        property String^ RollForwardRestorePoint { virtual String^ get(); }
+        property VssRollForwardType RollForwardType { virtual VssRollForwardType get(); }
+
 	internal:
 		static VssComponent^ Adopt(::IVssComponent *vssWriterComponents);
 	private:
 		VssComponent(::IVssComponent *vssWriterComponents);
 		::IVssComponent *mVssComponent;
+		
+#ifdef ALPHAVSS_HAS_COMPONENTEX
+		DEFINE_EX_INTERFACE_ACCESSOR(IVssComponentEx)
+#endif
 
 		ref class DirectedTargetList sealed : VssListAdapter<VssDirectedTargetInfo^>
 		{

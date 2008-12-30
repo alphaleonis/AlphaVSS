@@ -65,6 +65,22 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 			mBackup->Release();
 			mBackup = 0;
 		}
+
+#ifdef ALPHAVSS_HAS_BACKUPEX
+		if (mIVssBackupComponentsEx != 0)
+		{
+			mIVssBackupComponentsEx->Release();
+			mIVssBackupComponentsEx = 0;
+		}
+#endif
+
+#ifdef ALPHAVSS_HAS_BACKUPEX2
+		if (mIVssBackupComponentsEx2 != 0)
+		{
+			mIVssBackupComponentsEx2->Release();
+			mIVssBackupComponentsEx2 = 0;
+		}
+#endif
 	}
 
 

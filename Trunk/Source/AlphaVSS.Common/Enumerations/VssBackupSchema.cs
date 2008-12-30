@@ -163,7 +163,7 @@ namespace Alphaleonis.Win32.Vss
         ///         <b>Windows Server 2003:</b>  This value is not supported until Windows Vista.
         ///     </para>
         /// </summary>
-        RollforwardRestore = 0x00001000,
+        RollForwardRestore = 0x00001000,
 
         /// <summary>
         ///     <para>
@@ -183,7 +183,7 @@ namespace Alphaleonis.Win32.Vss
         ///         <b>Windows Server 2003:</b> This value is not supported until Windows Vista.
         ///     </para>
         /// </summary>
-        AuthorativeRestore = 0x00004000,
+        AuthoritativeRestore = 0x00004000,
 
         /// <summary>
         ///     <para>

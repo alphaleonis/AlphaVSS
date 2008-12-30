@@ -110,7 +110,7 @@ namespace Alphaleonis.Win32.Vss
         /// </summary>
         /// <remarks>
         ///     <para>
-        ///         The <see cref="ExcludeFromSnapshotFile"/> property is intended to report information about file sets excluded from a 
+        ///         The <see cref="ExcludeFromSnapshotFiles"/> property is intended to report information about file sets excluded from a 
         ///         shadow copy. Requesters should not exclude files from backup based on the information returned by this method.
         ///     </para>
         ///     <para>
