@@ -1235,10 +1235,6 @@
 				>
 			</File>
 			<File
-				RelativePath=".\Src\VssSnapshotProperties.cpp"
-				>
-			</File>
-			<File
 				RelativePath=".\Src\VssWMComponent.cpp"
 				>
 			</File>
@@ -1302,10 +1298,6 @@
 			</File>
 			<File
 				RelativePath=".\Include\VssListAdapter.h"
-				>
-			</File>
-			<File
-				RelativePath=".\Include\VssSnapshotProperties.h"
 				>
 			</File>
 			<File

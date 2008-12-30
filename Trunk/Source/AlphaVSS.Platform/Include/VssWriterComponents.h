@@ -26,33 +26,15 @@
 
 namespace Alphaleonis { namespace Win32 { namespace Vss
 {
-	/// <summary>
-	/// 	The <see cref="VssWriterComponents"/> class contains methods used to obtain and modify component information 
-	/// 	(in the form of <see cref="VssComponent"/> objects) associated with a given writer but stored in a 
-	/// 	requester's Backup Components Document.
-	/// </summary>
-	public ref class VssWriterComponents : IDisposable, IVssWriterComponents
+	private ref class VssWriterComponents : IDisposable, IVssWriterComponents
 	{
 	public:
-		/// <summary>Releases any resources aquired by this instance</summary>
 		~VssWriterComponents();
-		/// <summary>Releases any resources aquired by this instance</summary>
 		!VssWriterComponents();
 
-		/// <summary>
-		/// 	A read-only collection of <see cref="VssComponent"/> instances to the a given writer's 
-		/// 	components explicitly stored in the Backup Components Document. 
-		/// </summary>
-		/// <value>A read-only collection of <see cref="VssComponent"/> instances to the a given writer's 
-		/// 	components explicitly stored in the Backup Components Document. <note type="caution">This list must not be accessed after the <see cref="VssComponent"/> from which it was obtained has been disposed.</note>
-		/// </value>
-		property IList<VssComponent^>^ Components { IList<VssComponent^>^ get(); }
-
-		/// <summary>Identifier of the writer instance responsible for the components.</summary>
-		property Guid InstanceId { Guid get(); }
-
-		/// <summary>Identifier of the writer class responsible for the components.</summary>
-		property Guid WriterId { Guid get(); }
+		property IList<IVssComponent^>^ Components { virtual IList<IVssComponent^>^ get(); }
+		property Guid InstanceId { virtual Guid get(); }
+		property Guid WriterId { virtual Guid get(); }
 
 	internal:
 		static VssWriterComponents^ Adopt(IVssWriterComponentsExt *vssWriterComponents);
@@ -60,13 +42,13 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		VssWriterComponents(IVssWriterComponentsExt *vssWriterComponents);
 		IVssWriterComponentsExt *mVssWriterComponents;
 
-		ref class ComponentList sealed : VssListAdapter<VssComponent^>
+		ref class ComponentList sealed : VssListAdapter<IVssComponent^>
 		{
 		public:
 			ComponentList(VssWriterComponents^ component);
 
 			property int Count { virtual int get() override; }
-			property VssComponent^ default[int] { virtual VssComponent^ get(int index) override; }
+			property IVssComponent^ default[int] { virtual IVssComponent^ get(int index) override; }
 		private:
 			VssWriterComponents^ mWriterComponents;
 		};

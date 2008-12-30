@@ -1,4 +1,4 @@
-/* Copyright (c) 2008 Peter Palotas
+﻿/* Copyright (c) 2008 Peter Palotas
  *  
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -18,22 +18,39 @@
  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  *  THE SOFTWARE.
  */
-#pragma once
+using System;
 
-#include <vss.h>
-
-namespace Alphaleonis { namespace Win32 { namespace Vss
+namespace Alphaleonis.Win32.Vss
 {
+	/// <summary>
+    ///     The <see cref="VssSnapshotProperties"/> class contains the properties of a shadow copy or shadow copy set.
+    /// </summary>
+	public sealed class VssSnapshotProperties 	
+    {
+        public VssSnapshotProperties(Guid snapshotId, Guid snapshotSetId, long snapshotCount, string snapshotDeviceObject,
+            string originalVolumeName, string originatingMachine, string serviceMachine, string exposedName, string exposedPath,
+            Guid providerId, VssVolumeSnapshotAttributes snapshotAttributes, DateTime creationTimestamp,
+            VssSnapshotState snapshotState)
+        {
+            mSnapshotId = snapshotId;
+            mSnapshotSetId = snapshotSetId;
+            mSnapshotsCount = snapshotCount;
+            mSnapshotDeviceObject = snapshotDeviceObject;
+            mOriginalVolumeName = originalVolumeName;
+            mOriginatingMachine = originatingMachine;
+            mServiceMachine = serviceMachine;
+            mExposedName = exposedName;
+            mExposedPath = exposedPath;
+            mProviderId = providerId;
+            mSnapshotAttributes = snapshotAttributes;
+            mCreationTimestamp = creationTimestamp;
+        }
 
-	/// <summary>The <see cref="VssSnapshotProperties"/> class contains the properties of a shadow copy or shadow copy set.</summary>
-	public ref class VssSnapshotProperties sealed : IVssSnapshotProperties
-	{
-	public:
 		/// <summary>A <see cref="Guid" /> uniquely identifying the shadow copy identifier.</summary>
-		property Guid SnapshotId { Guid get(); };
+		public Guid SnapshotId { get { return mSnapshotId; } }
 
 		/// <summary>A <see cref="Guid" /> uniquely identifying the shadow copy set containing the shadow copy.</summary>
-		property Guid SnapshotSetId { Guid get(); };
+		public Guid SnapshotSetId { get { return mSnapshotSetId; } }
 
 		/// <summary>
 		/// 	<para>
@@ -45,7 +62,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		/// 		The maximum number of shadow-copied volumes permitted in a shadow copy set is 64.
 		/// 	</para>
 		/// </summary>
-		property long SnapshotsCount { long get(); }
+		public long SnapshotsCount { get { return mSnapshotsCount; } }
 
 		/// <summary>
 		/// 	<para>
@@ -57,56 +74,50 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		/// 		The device name does not contain a trailing "\".
 		/// 	</para>
 		/// </summary>
-		property String^ SnapshotDeviceObject { String^ get(); }
+		public string SnapshotDeviceObject { get { return null; } }
 
 		/// <summary>The name of the volume that had been shadow copied.</summary>
-		property String^ OriginalVolumeName { String^ get(); }
+		public string OriginalVolumeName { get { return null; } }
 
 		/// <summary>The name of the machine containing the original volume.</summary>
-		property String^ OriginatingMachine { String^ get(); }
+		public string OriginatingMachine { get { return null; } }
 
 		/// <summary>The name of the machine running the Volume Shadow Copy Service that created the shadow copy.</summary>
-		property String^ ServiceMachine { String^ get(); }
+		public string ServiceMachine { get { return null; } }
 
 		/// <summary>The name of the shadow copy when it is exposed. This is a drive letter or mount point (if the shadow copy is exposed as a local volume), or a share name. </summary>
-		property String^ ExposedName { String^ get(); }
+		public string ExposedName { get { return null; } }
 
 		/// <summary>The portion of the shadow copy of a volume made available if it is exposed as a share.</summary>
-		property String^ ExposedPath { String^ get(); }
+		public string ExposedPath { get { return null; } }
 
 		/// <summary>A <see cref="Guid"/> uniquely identifying the provider used to create this shadow copy.</summary>
-		property Guid ProviderId { Guid get(); }
+		public Guid ProviderId { get { return mProviderId; } }
 
 		/// <summary>
 		///		The attributes of the shadow copy expressed as a bit mask (or bitwise OR) of members of 
 		///		the <see cref="VssVolumeSnapshotAttributes"/> enumeration.
 		/// </summary>
-		property VssVolumeSnapshotAttributes ^SnapshotAttributes { VssVolumeSnapshotAttributes^ get(); }
+		public VssVolumeSnapshotAttributes SnapshotAttributes { get { return mSnapshotAttributes; } }
 		
 		/// <summary>Time stamp indicating when the shadow copy was created. The exact time is determined by the provider.</summary>
-		property DateTime CreationTimestamp { DateTime get(); }
+        public DateTime CreationTimestamp { get { return mCreationTimestamp; } }
 
 		/// <summary>Current shadow copy creation status. See <see cref="VssSnapshotState"/>.</summary>
-		property VssSnapshotState^ Status { VssSnapshotState^ get(); }
+		public VssSnapshotState Status { get { return mStatus; } }
 
-	internal:
-		static VssSnapshotProperties^ Adopt(VSS_SNAPSHOT_PROP *pProp);
-	private:
-		VssSnapshotProperties(const VSS_SNAPSHOT_PROP &snap);
-
-		Guid mSnapshotId;
-		Guid mSnapshotSetId;
-		long mSnapshotsCount;
-		String^ mSnapshotDeviceObject;
-		String^ mOriginalVolumeName;  
-		String^ mOriginatingMachine;  
-		String^ mServiceMachine;  
-		String^ mExposedName;  
-		String^ mExposedPath;  
-		Guid mProviderId;
-		VssVolumeSnapshotAttributes^ mSnapshotAttributes;
-		DateTime mCreationTimestamp;
-		VssSnapshotState^ mStatus;
+		private Guid mSnapshotId;
+		private Guid mSnapshotSetId;
+		private long mSnapshotsCount;
+		private string mSnapshotDeviceObject;
+		private string mOriginalVolumeName;  
+		private string mOriginatingMachine;  
+		private string mServiceMachine;  
+		private string mExposedName;  
+		private string mExposedPath;  
+		private Guid mProviderId;
+		private VssVolumeSnapshotAttributes mSnapshotAttributes;
+		private DateTime mCreationTimestamp;
+		private VssSnapshotState mStatus;
 	};
 }
-} }

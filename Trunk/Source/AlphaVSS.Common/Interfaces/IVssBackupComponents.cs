@@ -243,6 +243,44 @@ namespace Alphaleonis.Win32.Vss
 		/// <exception cref="VssUnexpectedProviderErrorException">The provider returned an unexpected error code.</exception>
 		Guid AddToSnapshotSet(string volumeName, Guid providerId);
 
+        /// <summary>
+        /// The <see cref="AddToSnapshotSet"/> method adds an original volume to the shadow copy set using the default provider.
+        /// </summary>
+        /// <param name="volumeName">String containing the name of the volume to be shadow copied. The name must be in one of the following formats:
+        ///		<list type="bullet">
+        ///			<item><description>The path of a volume mount point with a backslash (\)</description></item>
+        ///			<item><description>A drive letter with backslash (\), for example, D:\</description></item>
+        ///			<item><description>A unique volume name of the form "\\?\Volume{GUID}\" (where GUID is the unique global identifier of the volume) with a backslash (\)</description></item>
+        ///		</list>
+        /// </param>
+        /// <returns>Identifier of the added shadow copy.</returns>
+        /// <remarks>
+        /// 	<para>
+        /// 		The maximum number of shadow copies in a single shadow copy set is 64.
+        /// 	</para>
+        /// 	<para>If <paramref name="providerId"/> is <see cref="Guid::Empty"/>, the default provider is selected according to the following algorithm:
+        /// 		<list type="numbered">
+        /// 			<item><description>If any hardware-based provider supports the given volume, it is selected.</description></item>
+        /// 			<item><description>If there is no hardware-based provider available, if any software-based provider supports the given volume, it is selected.</description></item>
+        /// 			<item><description>If there is no hardware-based provider or software-based provider available, the system provider is selected. (There is only one preinstalled system provider, which must support all nonremovable local volumes.)</description></item>
+        /// 		</list>
+        /// 	</para>
+        /// </remarks>
+        /// <exception cref="UnauthorizedAccessException">Caller does not have sufficient backup privileges or is not an administrator.</exception>
+        /// <exception cref="ArgumentException">One of the parameters is not valid.</exception>
+        /// <exception cref="OutOfMemoryException">Out of memory or other system resources.</exception>
+        /// <exception cref="SystemException">Unexpected VSS system error. The error code is logged in the event log.</exception>
+        /// <exception cref="VssBadStateException">The backup components object is not initialized, this method has been called during a restore operation, or this method has not been called within the correct sequence.</exception>
+        /// <exception cref="VssMaximumNumberOfVolumesReachedException">The maximum number of volumes has been added to the shadow copy set. The specified volume was not added to the shadow copy set.</exception>
+        /// <exception cref="VssMaximumNumberOfSnapshotsReachedException">The volume has been added to the maximum number of shadow copy sets. The specified volume was not added to the shadow copy set.</exception>
+        /// <exception cref="VssObjectNotFoundException"><paramref name="volumeName" /> does not correspond to an existing volume.</exception>
+        /// <exception cref="VssProviderNotRegisteredException"><paramref name="providerId" /> does not correspond to a registered provider.</exception>
+        /// <exception cref="VssProviderVetoException">Expected provider error. The provider logged the error in the event log.</exception>
+        /// <exception cref="VssVolumeNotSupportedException">The value of the <paramref name="providerId"/> parameter is <see cref="Guid::Empty" /> and no VSS provider indicates that it supports the specified volume.</exception>
+        /// <exception cref="VssVolumeNotSupportedByProviderException">The volume is not supported by the specified provider.</exception>
+        /// <exception cref="VssUnexpectedProviderErrorException">The provider returned an unexpected error code.</exception>        
+        Guid AddToSnapshotSet(string volumeName);
+
 		/// <summary>
 		/// The <see cref="BackupComplete"/> method causes VSS to generate a <b>BackupComplete</b> event, which signals writers that the backup 
 		/// process has completed. 
@@ -267,38 +305,63 @@ namespace Alphaleonis.Win32.Vss
 		/// <exception cref="VssObjectNotFoundException">The specified shadow copy does not exist.</exception>
 		void BreakSnapshotSet(Guid snapshotSetId);
 
-		/// <summary>
-		///		The <see cref="DeleteSnapshots"/> method deletes one or more shadow copies or a shadow copy set. 
-		/// </summary>
-		/// <param name="sourceObjectId">Identifier of the shadow copy or a shadow copy set to be deleted.</param>
-		/// <param name="sourceObjectType">Type of the object on which all shadow copies will be deleted. The value of this parameter is <see dref="F:Alphaleonis.Win32.Vss.VssObjectType.Snapshot" /> or <see dref="F:Alphaleonis.Win32.Vss.VssObjectType.SnapshotSet" />.</param>
-		/// <param name="forceDelete">If the value of this parameter is <see langword="true"/>, the provider will do everything possible to delete the shadow copy or shadow copies in a shadow copy set. If it is <see langword="false"/>, no additional effort will be made.</param>
-		/// <remarks>
-		/// 	<para>
-		/// 		Multiple shadow copies in a shadow copy set are deleted sequentially. If an error occurs during one of these individual 
-		/// 		deletions, <b>DeleteSnapshots</b> will throw an exception immediately; no attempt will be made to delete any remaining shadow copies. 
-		/// 		The identifier of the undeleted shadow copy can be found in the instance of <see cref="VssDeleteSnapshotsFailedException"/> thrown.
-		/// 	</para>
-		/// 	<para>
-		/// 		The requester is responsible for serializing the delete shadow copy operation.
-		/// 	</para>
-		/// 	<para>
-		/// 		During a backup, shadow copies are automatically released as soon as the <see cref="IVssBackupComponents"/> instance is 
-		/// 		disposed. In this case, it is not necessary to explicitly delete shadow copies. 
-		/// 	</para>
-		/// </remarks>
-		/// <exception cref="VssDeleteSnapshotsFailedException">The deletion failed. This is the only exception actually thrown by this method. It 
-		/// wraps one of the other exceptions listed in this section as its inner exception.</exception>
-		/// <exception cref="UnauthorizedAccessException">The caller does not have sufficient backup privileges or is not an administrator.</exception>
-		/// <exception cref="ArgumentException">One of the parameters is not valid.</exception>
-		/// <exception cref="OutOfMemoryException">Out of memory or other system resources.</exception>
-		/// <exception cref="SystemException">Unexpected VSS system error. The error code is logged in the event log.</exception>
-		/// <exception cref="VssObjectNotFoundException">The specified shadow copy does not exist.</exception>
-		/// <exception cref="VssProviderVetoException">Expected provider error. The provider logged the error in the event log.</exception>
-		/// <exception cref="VssUnexpectedProviderError">Unexpected provider error. The error code is logged in the error log.</exception>
-		/// <returns>The total number of snapshots that were deleted</returns>
-		int DeleteSnapshots(Guid sourceObjectId, VssObjectType sourceObjectType, bool forceDelete);
-		
+        /// <summary>
+        ///		The <c>DeleteSnapshot</c> method deletes a shadow copy.. 
+        /// </summary>
+        /// <param name="snapshotId">Identifier of the shadow copy to be deleted.</param>
+        /// <param name="forceDelete">If the value of this parameter is <see langword="true"/>, the provider will do everything possible to delete the shadow copy. If it is <see langword="false"/>, no additional effort will be made.</param>
+        /// <remarks>
+        /// 	<para>
+        /// 		The requester is responsible for serializing the delete shadow copy operation.
+        /// 	</para>
+        /// 	<para>
+        /// 		During a backup, shadow copies are automatically released as soon as the <see cref="IVssBackupComponents"/> instance is 
+        /// 		disposed. In this case, it is not necessary to explicitly delete shadow copies. 
+        /// 	</para>
+        /// </remarks>
+        /// <exception cref="UnauthorizedAccessException">The caller does not have sufficient backup privileges or is not an administrator.</exception>
+        /// <exception cref="ArgumentException">One of the parameters is not valid.</exception>
+        /// <exception cref="OutOfMemoryException">Out of memory or other system resources.</exception>
+        /// <exception cref="SystemException">Unexpected VSS system error. The error code is logged in the event log.</exception>
+        /// <exception cref="VssObjectNotFoundException">The specified shadow copy does not exist.</exception>
+        /// <exception cref="VssProviderVetoException">Expected provider error. The provider logged the error in the event log.</exception>
+        /// <exception cref="VssUnexpectedProviderError">Unexpected provider error. The error code is logged in the error log.</exception>
+        void DeleteSnapshot(Guid snapshotId, bool forceDelete);
+
+        /// <summary>
+        ///		The <c>DeleteSnapshotSet</c> method deletes a shadow copy set including any shadow copies in that set.
+        /// </summary>
+        /// <param name="snapshotSetId">Identifier of the shadow copy set to be deleted.</param>
+        /// <param name="forceDelete">
+        ///     If the value of this parameter is <see langword="true"/>, the provider will do everything possible to 
+        ///     delete the shadow copies in a shadow copy set. If it is <see langword="false"/>, no additional effort will be made.
+        /// </param>
+        /// <remarks>
+        /// 	<para>
+        /// 		Multiple shadow copies in a shadow copy set are deleted sequentially. If an error occurs during one of these individual 
+        /// 		deletions, <b>DeleteSnapshotSet</b> will throw an exception immediately; no attempt will be made to delete any remaining shadow copies. 
+        /// 		The identifier of the undeleted shadow copy can be found in the instance of <see cref="VssDeleteSnapshotsFailedException"/> thrown.
+        /// 	</para>
+        /// 	<para>
+        /// 		The requester is responsible for serializing the delete shadow copy operation.
+        /// 	</para>
+        /// 	<para>
+        /// 		During a backup, shadow copies are automatically released as soon as the <see cref="IVssBackupComponents"/> instance is 
+        /// 		disposed. In this case, it is not necessary to explicitly delete shadow copies. 
+        /// 	</para>
+        /// </remarks>
+        /// <exception cref="VssDeleteSnapshotsFailedException">The deletion failed. This is the only exception actually thrown by this method. It 
+        /// wraps one of the other exceptions listed in this section as its inner exception.</exception>
+        /// <exception cref="UnauthorizedAccessException">The caller does not have sufficient backup privileges or is not an administrator.</exception>
+        /// <exception cref="ArgumentException">One of the parameters is not valid.</exception>
+        /// <exception cref="OutOfMemoryException">Out of memory or other system resources.</exception>
+        /// <exception cref="SystemException">Unexpected VSS system error. The error code is logged in the event log.</exception>
+        /// <exception cref="VssObjectNotFoundException">The specified shadow copy does not exist.</exception>
+        /// <exception cref="VssProviderVetoException">Expected provider error. The provider logged the error in the event log.</exception>
+        /// <exception cref="VssUnexpectedProviderError">Unexpected provider error. The error code is logged in the error log.</exception>
+        /// <returns>The total number of snapshots that were deleted</returns>
+        int DeleteSnapshotSet(Guid snapshotSetId, bool forceDelete);
+
 		/// <summary>
 		/// The <see cref="DisableWriterClasses"/> method prevents a specific class of writers from receiving any events.
 		/// </summary>
@@ -308,7 +371,7 @@ namespace Alphaleonis.Win32.Vss
 		/// <exception cref="OutOfMemoryException">Out of memory or other system resources.</exception>
 		/// <exception cref="SystemException">Unexpected VSS system error. The error code is logged in the event log.</exception>
 		/// <exception cref="VssBadStateException">The backup components object is not initialized, this method has been called during a restore operation, or this method has not been called within the correct sequence.</exception>
-		void DisableWriterClasses(Guid[] writerClassIds);
+		void DisableWriterClasses(params Guid[] writerClassIds);
 
 		/// <summary>
 		/// The <see cref="DisableWriterInstances"/> method disables a specified writer instance or instances.
@@ -319,7 +382,7 @@ namespace Alphaleonis.Win32.Vss
 		/// <exception cref="OutOfMemoryException">Out of memory or other system resources.</exception>
 		/// <exception cref="SystemException">Unexpected VSS system error. The error code is logged in the event log.</exception>
 		/// <exception cref="VssBadStateException">The backup components object is not initialized, this method has been called during a restore operation, or this method has not been called within the correct sequence.</exception>
-		void DisableWriterInstances(Guid[] writerInstanceIds);
+		void DisableWriterInstances(params Guid[] writerInstanceIds);
 
 		/// <summary>
 		/// Commits all shadow copies in this set simultaneously. 
@@ -382,7 +445,7 @@ namespace Alphaleonis.Win32.Vss
 		/// <exception cref="OutOfMemoryException">Out of memory or other system resources.</exception>
 		/// <exception cref="SystemException">Unexpected VSS system error. The error code is logged in the event log.</exception>
 		/// <exception cref="VssBadStateException">The backup components object is not initialized, this method has been called during a restore operation, or this method has not been called within the correct sequence.</exception>
-		void EnableWriterClasses(Guid[] writerClassIds);
+		void EnableWriterClasses(params Guid[] writerClassIds);
 
 		/// <summary>
 		/// The <see cref="ExposeSnapshot"/> method exposes a shadow copy either by mounting it as a device on a drive letter or mount point, or 
@@ -418,7 +481,9 @@ namespace Alphaleonis.Win32.Vss
 		/// <exception cref="VssUnexpectedProviderError">Unexpected provider error. The error code is logged in the error log.</exception>
 		string ExposeSnapshot(Guid snapshotId, string pathFromRoot, VssVolumeSnapshotAttributes attributes, string expose);
 
-		/// <summary>The <see cref="FreeWriterMetadata"/> method frees system resources allocated when <see cref="GatherWriterMetadata" /> was called.</summary>
+		/// <summary>
+        ///     The <c>FreeWriterMetadata</c> method frees system resources allocated when <see cref="GatherWriterMetadata" /> was called.
+        /// </summary>
 		/// <remarks>
 		/// 	<para>
 		/// 		This method should never be called prior to the completion of <see cref="IVssBackupComponents.GatherWriterMetadata"/>. 
@@ -433,7 +498,9 @@ namespace Alphaleonis.Win32.Vss
 		/// <exception cref="VssBadStateException">The backup components object is not initialized, this method has been called during a restore operation, or this method has not been called within the correct sequence.</exception>
 		void FreeWriterMetadata();
 
-		/// <summary>The <see cref="FreeWriterStatus" /> method frees system resources allocated during the call to <see cref="GatherWriterStatus" />.</summary>
+		/// <summary>
+        ///     The <c>FreeWriterStatus</c> method frees system resources allocated during the call to <see cref="GatherWriterStatus" />.
+        /// </summary>
 		/// <exception cref="OutOfMemoryException">The caller is out of memory or other system resources.</exception>
 		/// <exception cref="VssBadStateException">The backup components object is not initialized, this method has been called during a restore operation, or this method has not been called within the correct sequence.</exception>
 		void FreeWriterStatus();
@@ -475,7 +542,7 @@ namespace Alphaleonis.Win32.Vss
 		/// <exception cref="VssObjectNotFoundException">The specified shadow copy does not exist.</exception>
 		/// <exception cref="VssProviderVetoException">Expected provider error. The provider logged the error in the event log.</exception>
 		/// <exception cref="VssUnexpectedProviderError">Unexpected provider error. The error code is logged in the error log.</exception>
-		IVssSnapshotProperties GetSnapshotProperties(Guid snapshotId);
+		VssSnapshotProperties GetSnapshotProperties(Guid snapshotId);
 
 		/// <summary>A read-only list containing information about the components of each writer that has been stored in a requester's Backup Components Document.</summary>
 		/// <remarks>
@@ -628,7 +695,7 @@ namespace Alphaleonis.Win32.Vss
 		void InitializeForRestore(string xml);
 
 		/// <summary>
-		/// 	The <see cref="IsVolumeSupported"/> method determines whether the specified provider supports shadow copies on the specified volume.
+        /// 	The <c>IsVolumeSupported</c> method determines whether the specified provider supports shadow copies on the specified volume.
 		/// </summary>
 		/// <param name="providerId">
 		/// 	Provider identifier. If the value is <see cref="Guid::Empty"/>, <see cref="IsVolumeSupported"/> checks whether any provider 
@@ -658,7 +725,36 @@ namespace Alphaleonis.Win32.Vss
 		/// <exception cref="SystemException">Unexpected VSS system error. The error code is logged in the event log.</exception>
 		/// <exception cref="VssBadStateException">The backup components object is not initialized, this method has been called during a restore operation, or this method has not been called within the correct sequence.</exception>		
 		/// <exception cref="VssObjectNotFoundException">The specified volume was not found or was not available.</exception>
-		bool IsVolumeSupported(Guid providerId, string volumeName);
+        bool IsVolumeSupported(string volumeName, Guid providerId);
+
+        /// <summary>
+        /// 	The <c>IsVolumeSupported</c> method determines whether any provider supports shadow copies on the specified volume.
+        /// </summary>
+        /// <param name="volumeName">Name of the volume. The name of the volume to be checked must be in one of the following formats:
+        /// <list type="bullet">
+        /// <item><description>The path of a volume mount point with a backslash (\)</description></item>
+        /// <item><description>A drive letter with backslash (\), for example, D:\</description></item>
+        /// <item><description>A unique volume name of the form \\?\Volume{GUID}\ (where GUID is the unique global identifier of the volume) with a backslash (\)</description></item>
+        /// </list></param>
+        /// <returns><see langword="true"/> if shadow copies are supported on the specified volume. If the value is <see langword="false"/>, shadow 
+        /// copies are not supported on the specified volume.</returns>
+        /// <remarks>
+        /// 	<para>
+        /// 		<see cref="IsVolumeSupported"/> will return <see langword="true"/> if it is possible to create shadow copies on the given volume, 
+        /// 		even if the current configuration does not allow the creation of shadow copies on that volume at the present time.
+        /// 	</para>
+        /// 	<para>
+        /// 		For example, if the maximum number of shadow copies has been reached on a given volume (and therefore no more shadow copies 
+        /// 		can be created on that volume), the method will still indicate that the volume can be shadow copied.
+        /// 	</para>
+        /// </remarks>
+        /// <exception cref="ArgumentNullException"><paramref name="volumeName" /> is <see langword="null"/></exception>
+        /// <exception cref="UnauthorizedAccessException">The caller does not have sufficient backup privileges or is not an administrator.</exception>
+        /// <exception cref="OutOfMemoryException">Out of memory or other system resources.</exception>
+        /// <exception cref="SystemException">Unexpected VSS system error. The error code is logged in the event log.</exception>
+        /// <exception cref="VssBadStateException">The backup components object is not initialized, this method has been called during a restore operation, or this method has not been called within the correct sequence.</exception>		
+        /// <exception cref="VssObjectNotFoundException">The specified volume was not found or was not available.</exception>
+        bool IsVolumeSupported(string volumeName);
 
 		/// <summary>
 		///	The <see cref="PostRestore"/> method will cause VSS to generate a <c>PostRestore</c> event, signaling writers that the current 
@@ -733,7 +829,7 @@ namespace Alphaleonis.Win32.Vss
 		/// <exception cref="VssObjectNotFoundException">The queried object is not found.</exception>
 		/// <exception cref="VssProviderVetoException">Expected provider error. The provider logged the error in the event log.</exception>
 		/// <exception cref="VssUnexpectedProviderError">Unexpected provider error. The error code is logged in the error log.</exception>		
-		IEnumerable<IVssSnapshotProperties> QuerySnapshots();
+		IEnumerable<VssSnapshotProperties> QuerySnapshots();
 
 		/// <summary>
 		/// 	The <see cref="QueryProviders"/> method queries providers on the system. 

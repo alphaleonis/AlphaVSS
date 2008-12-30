@@ -28,6 +28,6 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	VssWMFileDescription^ CreateVssWMFileDescription(IVssWMFiledesc *vssWMFiledesc);
 	VssProviderProperties^ CreateVssProviderProperties(VSS_PROVIDER_PROP *pProp);
 	VssWMDependency^ CreateVssWMDependency(IVssWMDependency *dependency);
-
+	VssSnapshotProperties^ CreateVssSnapshotProperties(VSS_SNAPSHOT_PROP *prop);
 }
 }}

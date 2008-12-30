@@ -1,5 +1,24 @@
 Version X.X (alpha)
 -------------------
+* VssAsync, VssBackupComponents, VssComponent, VssExamineWriterMetadata, VssWMComponent 
+  and VssWriterComponents have been made private classes and should instead be used through
+  their corresponding interfaces, IVssAsync, IVssBackupComponents, IVssComponent, 
+  IVssExamineWriterMetadata, IVssWMComponent and IVssWriterComponents.
+
+* IsVolumeSnapshotted, GetSnapshotComatibility and ShouldBlockRevert moved from
+  VssBackupComponents to (I)VssImplementation.
+  
+* IVssImplementation and VssUtils added to provide generic access to the implementation
+  of VSS for the relevant platform.
+    
+* Order of parameters in IVssBackupComponents.AddToSnapshotSet() changed and an 
+  additional overload provided.
+
+* VssExamineWriterMetadata.Create() removed and replaced with 
+  IVssImplementation.CreateVssExamineWriterMetadata().
+  
+* DeleteSnapshots replaced with DeleteSnapshot and DeleteSnapshotSet methods.
+
 * Source folder structure changed
 
 * Refactoring of assemblies, moving platform independent code out to 

@@ -25,7 +25,7 @@
 
 namespace Alphaleonis { namespace Win32 { namespace Vss
 {
-	VssComponent^ VssComponent::Adopt(IVssComponent *vssWriterComponents)
+	VssComponent^ VssComponent::Adopt(::IVssComponent *vssWriterComponents)
 	{
 		try
 		{
@@ -38,7 +38,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		}
 	}
 
-	VssComponent::VssComponent(IVssComponent *vssComponent)
+	VssComponent::VssComponent(::IVssComponent *vssComponent)
 		: mVssComponent(vssComponent), 
 		mAlternateLocationMappings(nullptr),
 		mDirectedTargets(nullptr),

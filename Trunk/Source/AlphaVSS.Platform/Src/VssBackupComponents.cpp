@@ -109,6 +109,13 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		return ToGuid(idSnapshot);
 	}
 
+	Guid VssBackupComponents::AddToSnapshotSet(String^ volumeName)
+	{
+		VSS_ID idSnapshot;
+		CheckCom(mBackup->AddToSnapshotSet(NoNullAutoMStr(volumeName), ToVssId(Guid::Empty), &idSnapshot));
+		return ToGuid(idSnapshot);
+	}
+
 	[SecurityPermissionAttribute(SecurityAction::LinkDemand)]
 	IVssAsync ^ VssBackupComponents::BackupComplete()
 	{
@@ -122,14 +129,18 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		CheckCom(mBackup->BreakSnapshotSet(ToVssId(snapshotSetId)));
 	}
 
-	int VssBackupComponents::DeleteSnapshots(Guid sourceObjectId, VssObjectType sourceObjectType, bool forceDelete)
+	void VssBackupComponents::DeleteSnapshot(Guid snapshotId, bool forceDelete)
 	{
-		if (sourceObjectType != VssObjectType::Snapshot && sourceObjectType != VssObjectType::SnapshotSet)
-			throw gcnew ArgumentException(L"Invalid object type. Must be Snapshot or SnapshotSet", L"sourceObjectType");
-
 		LONG lDeletedSnapshots;
 		VSS_ID nonDeletedSnapshotID;
-		HRESULT hr = mBackup->DeleteSnapshots(ToVssId(sourceObjectId), (VSS_OBJECT_TYPE)sourceObjectType, forceDelete, &lDeletedSnapshots, &nonDeletedSnapshotID);
+		CheckCom(mBackup->DeleteSnapshots(ToVssId(snapshotId), VSS_OBJECT_SNAPSHOT, forceDelete, &lDeletedSnapshots, &nonDeletedSnapshotID));
+	}
+
+	int VssBackupComponents::DeleteSnapshotSet(Guid snapshotSetId, bool forceDelete)
+	{
+		LONG lDeletedSnapshots;
+		VSS_ID nonDeletedSnapshotID;
+		HRESULT hr = mBackup->DeleteSnapshots(ToVssId(snapshotSetId), VSS_OBJECT_SNAPSHOT_SET, forceDelete, &lDeletedSnapshots, &nonDeletedSnapshotID);
 		
 		if (FAILED(hr))
 		{
@@ -195,11 +206,11 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		return VssAsync::Adopt(vssAsync);
 	}
 
-	IVssSnapshotProperties^ VssBackupComponents::GetSnapshotProperties(Guid snapshotId)
+	VssSnapshotProperties^ VssBackupComponents::GetSnapshotProperties(Guid snapshotId)
 	{
 		VSS_SNAPSHOT_PROP prop;
 		CheckCom(mBackup->GetSnapshotProperties(ToVssId(snapshotId), &prop));
-		return VssSnapshotProperties::Adopt(&prop);
+		return CreateVssSnapshotProperties(&prop);
 	}
 
 	VssBackupComponents::WriterStatusList::WriterStatusList(VssBackupComponents^ backupComponents)
@@ -323,10 +334,17 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		CheckCom(mBackup->InitializeForRestore(NoNullAutoMBStr(xml)));
 	}
 
-	bool VssBackupComponents::IsVolumeSupported(Guid providerId, String^ volumeName)
+	bool VssBackupComponents::IsVolumeSupported(String^ volumeName, Guid providerId)
 	{
 		BOOL eSupported;
 		CheckCom(mBackup->IsVolumeSupported(ToVssId(providerId), NoNullAutoMBStr(volumeName), &eSupported));
+		return (eSupported != 0);
+	}
+
+	bool VssBackupComponents::IsVolumeSupported(String^ volumeName)
+	{
+		BOOL eSupported;
+		CheckCom(mBackup->IsVolumeSupported(ToVssId(Guid::Empty), NoNullAutoMBStr(volumeName), &eSupported));
 		return (eSupported != 0);
 	}
 
@@ -351,12 +369,12 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		return VssAsync::Adopt(pAsync);
 	}
 
-	IEnumerable<IVssSnapshotProperties ^>^ VssBackupComponents::QuerySnapshots()
+	IEnumerable<VssSnapshotProperties ^>^ VssBackupComponents::QuerySnapshots()
 	{
 		IVssEnumObject *pEnum;
 		VSS_OBJECT_PROP rgelt;
 		ULONG celtFetched = 0;
-		IList<IVssSnapshotProperties^> ^list = gcnew List<IVssSnapshotProperties^>();
+		IList<VssSnapshotProperties^> ^list = gcnew List<VssSnapshotProperties^>();
 
 		CheckCom(mBackup->Query(GUID_NULL, VSS_OBJECT_NONE, VSS_OBJECT_SNAPSHOT, &pEnum));
 
@@ -372,7 +390,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 				// Should always be snapshot, but just in case it isn't, we simply skip it.
 				if (rgelt.Type == VSS_OBJECT_SNAPSHOT)
 				{
-					list->Add(VssSnapshotProperties::Adopt(&rgelt.Obj.Snap));
+					list->Add(CreateVssSnapshotProperties(&rgelt.Obj.Snap));
 				}
 			}
 		}

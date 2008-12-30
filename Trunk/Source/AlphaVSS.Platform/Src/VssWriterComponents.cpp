@@ -86,17 +86,17 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		return cComponents;
 	}
 
-	VssComponent^ VssWriterComponents::ComponentList::default::get(int index)
+	IVssComponent^ VssWriterComponents::ComponentList::default::get(int index)
 	{
 		if (mWriterComponents->mVssWriterComponents == 0)
 			throw gcnew ObjectDisposedException("Instance of IVssListAdapter must not be used after the object from which it was obtained has been disposed.");
 
-		IVssComponent *component;
+		::IVssComponent *component;
 		CheckCom(mWriterComponents->mVssWriterComponents->GetComponent(index, &component));
 		return VssComponent::Adopt(component);
 	}
 
-	IList<VssComponent^>^ VssWriterComponents::Components::get()
+	IList<IVssComponent^>^ VssWriterComponents::Components::get()
 	{
 		return mComponents;
 	}

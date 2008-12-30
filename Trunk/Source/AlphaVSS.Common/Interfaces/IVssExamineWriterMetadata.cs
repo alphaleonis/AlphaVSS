@@ -5,6 +5,14 @@ using System.Text;
 
 namespace Alphaleonis.Win32.Vss
 {
+    /// <summary>
+    ///     A class that allows a requester to examine the metadata of a specific writer instance. This metadata may come from a 
+    ///     currently executing (live) writer, or it may have been stored as an XML document.
+    /// </summary>
+    /// <remarks>
+    ///     A <see cref="IVssExamineWriterMetadata"/> interface to a live writer's metadata is obtained by a call to 
+    ///     <see cref="VssBackupComponents.WriterMetadata" />.
+    /// </remarks>
     public interface IVssExamineWriterMetadata
     {
 		/// <summary>

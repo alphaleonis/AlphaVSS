@@ -40,7 +40,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	}
 
 	// Convert from System::Guid to VSS_ID
-	inline VSS_ID ToVssId( System::Guid %guid ) 
+	inline VSS_ID ToVssId( System::Guid guid ) 
 	{
 	   array<Byte>^ guidData = guid.ToByteArray();
 	   pin_ptr<Byte> data = &(guidData[ 0 ]);

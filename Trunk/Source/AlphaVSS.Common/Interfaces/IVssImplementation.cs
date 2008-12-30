@@ -5,6 +5,16 @@ using System.Text;
 
 namespace Alphaleonis.Win32.Vss
 {
+    /// <summary>
+    ///     <c>IVssImplementation</c> provides an interface to the global methods of the VSS API compiled for a specific 
+    ///     platform. 
+    /// </summary>
+    /// <remarks>
+    ///     An instance of <c>IVssImplementation</c> can be obtained either by using the factory methods of 
+    ///     <see cref="VssUtils"/> for dynamically loading the suitable assembly containing the correct implementation (preferred), 
+    ///     or by statically referencing the correct platform-specific assembly and manually creating an instance of <see cref="VssImplementation"/>
+    ///     from that assembly.
+    /// </remarks>
     public interface IVssImplementation
     {
         /// <summary>

@@ -21,7 +21,6 @@
 #pragma once
 
 #include "VssError.h"
-#include "VssSnapshotProperties.h"
 #include "VssWriterComponents.h"
 #include "VssExamineWriterMetadata.h"
 
@@ -32,7 +31,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 {
 	ref class VssAsync;
 
-	public ref class VssBackupComponents : IDisposable, IVssBackupComponents
+	private ref class VssBackupComponents : IDisposable, IVssBackupComponents
 	{
 	public:
 		VssBackupComponents();
@@ -42,12 +41,18 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		virtual void AbortBackup();
 		virtual void AddAlternativeLocationMapping(Guid writerId, VssComponentType componentType, String^ logicalPath, String^ componentName, String^ path, String^ filespec, bool recursive, String^ destination);
 		virtual void AddComponent(Guid instanceId, Guid writerId, VssComponentType componentType, String^ logicalPath, String^ componentName);
-		virtual void AddNewTarget(Guid writerId, VssComponentType componentType, String ^ logicalPath, String ^ componentName, String ^ path, String ^ fileName, bool recursive, String ^ alternatePath);
+		virtual void AddNewTarget(Guid writerId, VssComponentType componentType, String^ logicalPath, String^ componentName, String^ path, String^ fileName, bool recursive, String^ alternatePath);
 		virtual void AddRestoreSubcomponent(Guid writerId, VssComponentType componentType, String^ logicalPath, String ^componentName, String^ subcomponentLogicalPath, String^ subcomponentName);
+		
 		virtual Guid AddToSnapshotSet(String^ volumeName, Guid providerId);
+		virtual Guid AddToSnapshotSet(String^ volumeName);
+		
 		virtual IVssAsync^ BackupComplete();
 		virtual void BreakSnapshotSet(Guid snapshotSetId);
-		virtual int DeleteSnapshots(Guid sourceObjectId, VssObjectType sourceObjectType, bool forceDelete);
+		
+		virtual void DeleteSnapshot(Guid snapshotId, bool forceDelete);
+		virtual int DeleteSnapshotSet(Guid snapshotSetId, bool forceDelete);
+
 		virtual void DisableWriterClasses(array<Guid> ^ writerClassIds);
 		virtual void DisableWriterInstances(array<Guid> ^ writerInstanceIds);
 		virtual IVssAsync^ DoSnapshotSet();
@@ -57,18 +62,19 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		virtual void FreeWriterStatus();
 		virtual IVssAsync^ GatherWriterMetadata();
 		virtual IVssAsync^ GatherWriterStatus();
-		virtual IVssSnapshotProperties^ GetSnapshotProperties(Guid snapshotId);
+		virtual VssSnapshotProperties^ GetSnapshotProperties(Guid snapshotId);
 		property IList<IVssWriterComponents^>^ WriterComponents { virtual IList<IVssWriterComponents^>^ get(); }
 		property IList<IVssExamineWriterMetadata^>^ WriterMetadata { virtual IList<IVssExamineWriterMetadata^>^ get(); }
 		property IList<VssWriterStatusInfo^>^ WriterStatus { virtual IList<VssWriterStatusInfo^>^ get(); }
 		virtual IVssAsync^ ImportSnapshots();
 		virtual void InitializeForBackup(String^ xml);
 		virtual void InitializeForRestore(String^ xml);
-		virtual bool IsVolumeSupported(Guid providerId, String^ volumeName);
+		virtual bool IsVolumeSupported(String^ volumeName, Guid providerId);
+		virtual bool IsVolumeSupported(String^ volumeName);
 		virtual IVssAsync^ PostRestore();
 		virtual IVssAsync^ PrepareForBackup();
 		virtual IVssAsync^ PreRestore();
-		virtual System::Collections::Generic::IEnumerable<IVssSnapshotProperties^> ^QuerySnapshots();
+		virtual System::Collections::Generic::IEnumerable<VssSnapshotProperties^> ^QuerySnapshots();
 		virtual System::Collections::Generic::IEnumerable<VssProviderProperties^> ^QueryProviders();
 		virtual IVssAsync^ QueryRevertStatus(String^ volumeName);
 		virtual void RevertToSnapshot(Guid snapshotId, bool forceDismount);
