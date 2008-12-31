@@ -180,4 +180,7 @@
   <data name="TheWriterInfrastructureIsNotOperatingProperly" xml:space="preserve">
     <value>The writer infrastructure is not operating properly. Check that the Event Service and VSS have been started, and check for errors associated with those services in the error log.</value>
   </data>
+  <data name="MaximumDiffAreaAssociationsReached" xml:space="preserve">
+    <value>The maximum number of shadow copy storage areas has been added to the shadow copy source volume.</value>
+  </data>
 </root>

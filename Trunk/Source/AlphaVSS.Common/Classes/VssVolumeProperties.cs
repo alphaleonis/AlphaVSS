@@ -10,6 +10,10 @@ namespace Alphaleonis.Win32.Vss
     /// </summary>
     public class VssVolumeProperties : IVssManagementObjectProperties
     {
+        /// <summary>
+        /// Gets the type of this management object properties instance.
+        /// </summary>
+        /// <value>The type of this management object properties instance.</value>
         public VssManagementObjectType Type
         {
             get { return VssManagementObjectType.Volume; }

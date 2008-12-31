@@ -23,7 +23,95 @@ namespace Alphaleonis.Win32.Vss
         //
         // From IVssDifferentialSoftwareSnapshotMgmt
         //
+        /// <summary>
+        /// The <see cref="AddDiffArea"/> method adds a shadow copy storage area association for the specified volume. 
+        /// If the association is not supported, an exception will be thrown.
+        /// </summary>
+        /// <param name="volumeName">
+        /// <para>
+        ///     Name of the volume that will be the source of shadow copies that is to be associated 
+        ///     with a shadow copy storage area on the <paramref name="volumeName"/> volume.
+        /// </para>
+        /// <para>
+        ///     The name of the volume must be in one of the following formats:
+        ///     <list type="bullet">
+        ///         <item>
+        ///             <description>
+        ///                 The path of a volume mount point with a backslash (\)
+        ///             </description>
+        ///          </item>
+        ///         <item>
+        ///             <description>
+        ///                 A drive letter with backslash (\), for example, <c>D:\</c>
+        ///             </description>
+        ///          </item>
+        ///         <item>
+        ///             <description>
+        ///                 A unique volume name of the form <c>\\?\Volume{GUID}\</c> (where 
+        ///                 GUID is the unique global identifier of the volume) with a backslash (\)
+        ///             </description>
+        ///          </item>
+        ///      </list>
+        ///  </para>
+        /// </param>
+        /// <param name="diffAreaVolumeName">
+        /// <para>
+        ///     Name of the volume that 
+        ///     will contain the shadow copy storage area to be associated with the 
+        ///     <paramref name="volumeName"/> volume. 
+        /// </para>
+        /// <para>
+        ///     The name of the volume must be in one of the following formats:
+        ///     <list type="bullet">
+        ///         <item>
+        ///             <description>
+        ///                 The path of a volume mount point with a backslash (\)
+        ///             </description>
+        ///          </item>
+        ///         <item>
+        ///             <description>
+        ///                 A drive letter with backslash (\), for example, <c>D:\</c>
+        ///             </description>
+        ///          </item>
+        ///         <item>
+        ///             <description>
+        ///                 A unique volume name of the form <c>\\?\Volume{GUID}\</c> (where 
+        ///                 GUID is the unique global identifier of the volume) with a backslash (\)
+        ///             </description>
+        ///          </item>
+        ///      </list>
+        ///  </para>
+        ///  </param>
+        /// <param name="maximumDiffSpace">
+        /// <para>
+        ///     Specifies the maximum size, in bytes, of the shadow copy storage area on the volume. 
+        ///     This value must be at least 300 MB, up to the system-wide limit.
+        /// </para>
+        /// <para>
+        ///     Windows Server 2003:  Prior to 
+        ///     Windows Server 2003 SP1 the shadow copy storage area size was fixed at 100 MB.
+        /// </para>
+        /// </param>
+        /// <remarks>
+        ///     <para>
+        ///         <note>
+        ///             <para>
+        ///                 <b>Windows XP:</b> This method is not supported until Windows Server 2003.
+        ///             </para>
+        ///         </note>
+        ///     </para>
+        /// </remarks>
+        /// <exception cref="UnauthorizedAccessException">Caller does not have sufficient backup privileges or is not an administrator.</exception>
+        /// <exception cref="OutOfMemoryException">The caller is out of memory or other system resources.</exception>
+        /// <exception cref="ArgumentException">One of the parameter values is not valid.</exception>
+        /// <exception cref="ArgumentNullException">One of the arguments was <see langword="null"/></exception>
+        /// <exception cref="SystemException">Unexpected error. The error code is logged in the error log file.</exception>
+        /// <exception cref="VssObjectAlreadyExistsException">The association between the <paramref name="volumeName"/> and <paramref name="diffAreaVolumeName"/> volumes already exists.</exception>
+        /// <exception cref="VssProviderVetoException">Expected provider error. The provider logged the error in the event log.</exception>
+        /// <exception cref="VssVolumeNotSupportedException">The <paramref name="diffAreaVolumeName"/> volume is not NTFS or has insufficient free space.</exception>
+        /// <exception cref="VssMaximumDiffAreaAssociationsReachedException">The maximum number of shadow copy storage areas has been added to the shadow copy source volume. The specified shadow copy storage volume was not associated with the specified shadow copy source volume.</exception>
         void AddDiffArea(string volumeName, string diffAreaVolumeName, Int64 maximumDiffSpace);
+        
         void ChangeDiffAreaMaximumSize(string volumeName, string diffAreaVolumeName, Int64 maximumDiffSpace);
         
         IList<IVssManagementObjectProperties> QueryDiffAreasForSnapshot(Guid snapshotId);

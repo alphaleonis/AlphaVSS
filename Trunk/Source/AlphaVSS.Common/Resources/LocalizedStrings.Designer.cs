@@ -88,6 +88,15 @@ namespace Alphaleonis.Win32.Vss.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The maximum number of shadow copy storage areas has been added to the shadow copy source volume..
+        /// </summary>
+        internal static string MaximumDiffAreaAssociationsReached {
+            get {
+                return ResourceManager.GetString("MaximumDiffAreaAssociationsReached", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to System was unable to freeze the Distributed Transaction Coordinator (DTC) or the Kernel Transaction Manager (KTM).
         /// </summary>
         internal static string SystemWasUnableToFreezeDtcOrKtm {

@@ -62,6 +62,8 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 			return gcnew VssMaximumNumberOfVolumesReachedException();
 		case VSS_E_MAXIMUM_NUMBER_OF_SNAPSHOTS_REACHED:
 			return gcnew VssMaximumNumberOfSnapshotsReachedException();
+		case VSS_E_MAXIMUM_DIFFAREA_ASSOCIATIONS_REACHED:
+			return gcnew VssMaximumDiffAreaAssociationsReachedException();
 		case VSS_E_PROVIDER_NOT_REGISTERED:
 			return gcnew VssProviderNotRegisteredException();
 		case VSS_E_VOLUME_NOT_SUPPORTED:

@@ -5,6 +5,11 @@ using System.Text;
 
 namespace Alphaleonis.Win32.Vss
 {
+    /// <summary>
+    /// The <see cref="VssManagementObjectType"/> enumeration type is a discriminant for the 
+    /// <see cref="IVssManagementObjectProperties"/> type to determine the concrete type
+    /// of such an instance.
+    /// </summary>
     public enum VssManagementObjectType
     {
         /// <summary>

@@ -82,6 +82,7 @@
     <Compile Include="Enumerations\VssProtectionFault.cs" />
     <Compile Include="Enumerations\VssProtectionLevel.cs" />
     <Compile Include="Enumerations\VssRollForwardType.cs" />
+    <Compile Include="Exceptions\VssMaximumDiffAreaAssociationsReachedException.cs" />
     <Compile Include="Interfaces\ICreateWriterMetadata.cs" />
     <Compile Include="Interfaces\IVssComponent.cs" />
     <Compile Include="Interfaces\IVssDifferentialSoftwareSnapshotManagement.cs" />

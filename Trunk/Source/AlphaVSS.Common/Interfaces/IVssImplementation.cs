@@ -124,6 +124,7 @@ namespace Alphaleonis.Win32.Vss
         /// Gets a snapshot management interface for the current implementation.
         /// </summary>
         /// <returns>A snapshot management interface for the current implementation.</returns>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate")]
         IVssSnapshotManagement GetSnapshotManagementInterface();
     }
 }
