@@ -67,16 +67,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\VssDiffAreaProperties.cs" />
     <Compile Include="Classes\VssDifferencedFileInfo.cs" />
+    <Compile Include="Classes\VssDiffVolumeProperties.cs" />
     <Compile Include="Classes\VssDirectedTargetInfo.cs" />
     <Compile Include="Classes\VssSnapshotProperties.cs" />
+    <Compile Include="Classes\VssVolumeProperties.cs" />
+    <Compile Include="Classes\VssVolumeProtectionInfo.cs" />
     <Compile Include="Classes\VssWMDependency.cs" />
     <Compile Include="Classes\VssWMFileDescription.cs" />
     <Compile Include="Classes\VssWMRestoreMethod.cs" />
     <Compile Include="Enumerations\VssHardwareOptions.cs" />
+    <Compile Include="Enumerations\VssManagementObjectType.cs" />
+    <Compile Include="Enumerations\VssProtectionFault.cs" />
+    <Compile Include="Enumerations\VssProtectionLevel.cs" />
     <Compile Include="Enumerations\VssRollForwardType.cs" />
     <Compile Include="Interfaces\ICreateWriterMetadata.cs" />
     <Compile Include="Interfaces\IVssComponent.cs" />
+    <Compile Include="Interfaces\IVssDifferentialSoftwareSnapshotManagement.cs" />
     <Compile Include="Interfaces\IVssImplementation.cs" />
     <Compile Include="Classes\VssProviderProperties.cs" />
     <Compile Include="Classes\VssRestoreSubComponentInfo.cs" />
@@ -133,8 +141,10 @@
     <Compile Include="Interfaces\IVssAsync.cs" />
     <Compile Include="Interfaces\IVssBackupComponents.cs" />
     <Compile Include="Interfaces\IVssExamineWriterMetadata.cs" />
+    <Compile Include="Interfaces\IVssSnapshotManagement.cs" />
     <Compile Include="Interfaces\IVssWMComponent.cs" />
     <Compile Include="Interfaces\IVssWriterComponents.cs" />
+    <Compile Include="Interfaces\IVssManagementObjectProperties.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\LocalizedStrings.Designer.cs">
       <AutoGen>True</AutoGen>

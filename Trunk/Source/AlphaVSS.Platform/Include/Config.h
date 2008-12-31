@@ -49,6 +49,9 @@ Windows XP (32-bit) 										Windows XP (32-bit)
 */
 
 
+/*****************************************
+  TARGETS 
+******************************************/
 #define ALPHAVSS_TARGET_WINXP		0x0400
 #define ALPHAVSS_TARGET_WIN2003		0x0500
 #define ALPHAVSS_TARGET_WIN2008		0x0600
@@ -77,4 +80,24 @@ Windows XP (32-bit) 										Windows XP (32-bit)
 
 #else
 #error "ALPHAVSS_TARGET has unrecognized value"
+#endif
+
+
+/***********************************************
+ FEATURE SELECTION
+************************************************/
+#if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WIN2003
+#define ALPHAVSS_HAS_EWMEX
+#define ALPHAVSS_HAS_BACKUPEX
+#define ALPHAVSS_HAS_SNAPSHOTMGMT
+#define ALPHAVSS_HAS_DIFFERENTIALSOFTWARESNAPSHOTMGMT
+#endif
+
+#if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WIN2008
+#define ALPHAVSS_HAS_EWMEX2
+#define ALPHAVSS_HAS_BACKUPEX2
+#define ALPHAVSS_HAS_COMPONENTEX
+#define ALPHAVSS_HAS_SNAPSHOTMGMT2
+#define ALPHAVSS_HAS_DIFFERENTIALSOFTWARESNAPSHOTMGMT2
+#define ALPHAVSS_HAS_DIFFERENTIALSOFTWARESNAPSHOTMGMT3
 #endif

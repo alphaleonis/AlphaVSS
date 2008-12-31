@@ -20,6 +20,7 @@
  */
 #pragma once
 
+#include "Config.h"
 
 namespace Alphaleonis { namespace Win32 { namespace Vss
 {
@@ -145,6 +146,8 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		/// <returns>a <see cref="IVssExamineWriterMetadata"/> instance initialized with the specified XML document.</returns>
 		[System::Security::Permissions::SecurityPermission(System::Security::Permissions::SecurityAction::LinkDemand)]
 		virtual IVssExamineWriterMetadata^ CreateVssExamineWriterMetadata(String^ xml);
+
+		virtual IVssSnapshotManagement^ GetSnapshotManagementInterface();
 	};
 
 }

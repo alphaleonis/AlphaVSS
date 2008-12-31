@@ -27,10 +27,6 @@
 
 using namespace System::Collections::Generic;
 
-#if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WIN2008
-#define ALPHAVSS_HAS_COMPONENTEX
-#endif
-
 namespace Alphaleonis { namespace Win32 { namespace Vss
 {
 	private ref class VssComponent : IVssComponent
@@ -77,7 +73,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		::IVssComponent *mVssComponent;
 		
 #ifdef ALPHAVSS_HAS_COMPONENTEX
-		DEFINE_EX_INTERFACE_ACCESSOR(IVssComponentEx)
+		DEFINE_EX_INTERFACE_ACCESSOR(IVssComponentEx, mVssComponent)
 #endif
 
 		ref class DirectedTargetList sealed : VssListAdapter<VssDirectedTargetInfo^>

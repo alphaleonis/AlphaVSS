@@ -1223,6 +1223,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\Src\VssDifferentialSoftwareSnapshotManagement.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\Src\VssExamineWriterMetadata.cpp"
 				>
 			</File>
@@ -1232,6 +1236,10 @@
 			</File>
 			<File
 				RelativePath=".\Src\VssListAdapter.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\Src\VssSnapshotManagement.cpp"
 				>
 			</File>
 			<File
@@ -1289,6 +1297,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\Include\VssDifferentialSoftwareSnapshotManagement.h"
+				>
+			</File>
+			<File
 				RelativePath=".\Include\VssExamineWriterMetadata.h"
 				>
 			</File>
@@ -1298,6 +1310,10 @@
 			</File>
 			<File
 				RelativePath=".\Include\VssListAdapter.h"
+				>
+			</File>
+			<File
+				RelativePath=".\Include\VssSnapshotManagement.h"
 				>
 			</File>
 			<File

@@ -1,0 +1,233 @@
+/* Copyright (c) 2008 Peter Palotas
+ *  
+ *  Permission is hereby granted, free of charge, to any person obtaining a copy
+ *  of this software and associated documentation files (the "Software"), to deal
+ *  in the Software without restriction, including without limitation the rights
+ *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ *  copies of the Software, and to permit persons to whom the Software is
+ *  furnished to do so, subject to the following conditions:
+ *  
+ *  The above copyright notice and this permission notice shall be included in
+ *  all copies or substantial portions of the Software.
+ *  
+ *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ *  THE SOFTWARE.
+ */
+
+#include "stdafx.h"
+
+#include "VssDifferentialSoftwareSnapshotManagement.h"
+
+namespace Alphaleonis { namespace Win32 { namespace Vss
+{
+#ifdef ALPHAVSS_HAS_DIFFERENTIALSOFTWARESNAPSHOTMGMT
+
+	VssDifferentialSoftwareSnapshotManagement::~VssDifferentialSoftwareSnapshotManagement()
+	{
+		this->!VssDifferentialSoftwareSnapshotManagement();
+	}
+
+	VssDifferentialSoftwareSnapshotManagement::!VssDifferentialSoftwareSnapshotManagement()
+	{
+		if (mMgmt != 0)
+		{
+			mMgmt->Release();
+			mMgmt = 0;
+		}
+
+#ifdef ALPHAVSS_HAS_DIFFERENTIALSOFTWARESNAPSHOTMGMT2
+		if (mIVssDifferentialSoftwareSnapshotMgmt2 != 0)
+		{
+			mIVssDifferentialSoftwareSnapshotMgmt2->Release();
+			mIVssDifferentialSoftwareSnapshotMgmt2 = 0;
+		}
+#endif
+
+#ifdef ALPHAVSS_HAS_DIFFERENTIALSOFTWARESNAPSHOTMGMT3
+		if (mIVssDifferentialSoftwareSnapshotMgmt3 != 0)
+		{
+			mIVssDifferentialSoftwareSnapshotMgmt3->Release();
+			mIVssDifferentialSoftwareSnapshotMgmt3 = 0;
+		}
+#endif
+	}
+
+	VssDifferentialSoftwareSnapshotManagement::VssDifferentialSoftwareSnapshotManagement(::IVssDifferentialSoftwareSnapshotMgmt *pMgmt)
+	{
+		if (pMgmt == 0)
+			throw gcnew ArgumentNullException(gcnew String(L"pMgmt"));
+		mMgmt = pMgmt;
+	}
+        
+	void VssDifferentialSoftwareSnapshotManagement::AddDiffArea(String^ volumeName, String^ diffAreaVolumeName, Int64 maximumDiffSpace)
+	{
+		CheckCom(mMgmt->AddDiffArea(NoNullAutoMStr(volumeName), NoNullAutoMStr(diffAreaVolumeName), maximumDiffSpace));
+	}
+
+    void VssDifferentialSoftwareSnapshotManagement::ChangeDiffAreaMaximumSize(String^ volumeName, String^ diffAreaVolumeName, Int64 maximumDiffSpace)
+	{
+		CheckCom(mMgmt->ChangeDiffAreaMaximumSize(NoNullAutoMStr(volumeName), NoNullAutoMStr(diffAreaVolumeName), maximumDiffSpace));
+	}
+
+	IList<IVssManagementObjectProperties^>^ VssDifferentialSoftwareSnapshotManagement::CreateListFromEnumMgmtObject(IVssEnumMgmtObject *pEnum)
+	{
+		try
+		{
+			List<IVssManagementObjectProperties^>^ list = gcnew List<IVssManagementObjectProperties^>();
+
+			while (true)
+			{
+				VSS_MGMT_OBJECT_PROP prop;
+				ULONG celtFetched;
+				HRESULT hr = pEnum->Next(1, &prop, &celtFetched);
+				
+				if (FAILED(hr))		// An error occured
+					ThrowException(hr);
+				
+				if (celtFetched < 1) // We are done
+					break;
+
+				switch (prop.Type)
+				{
+				case VSS_MGMT_OBJECT_UNKNOWN:
+					// Simply ignore unknown objects
+					break;
+				case VSS_MGMT_OBJECT_VOLUME:
+					try
+					{
+						list->Add(gcnew VssVolumeProperties(gcnew String(prop.Obj.Vol.m_pwszVolumeName), gcnew String(prop.Obj.Vol.m_pwszVolumeDisplayName)));
+					}
+					finally
+					{
+						::CoTaskMemFree(prop.Obj.Vol.m_pwszVolumeName);
+						::CoTaskMemFree(prop.Obj.Vol.m_pwszVolumeDisplayName);
+					}
+					break;
+				case VSS_MGMT_OBJECT_DIFF_VOLUME:
+					try
+					{
+						list->Add(gcnew VssDiffVolumeProperties(gcnew String(prop.Obj.DiffVol.m_pwszVolumeName), 
+																gcnew String(prop.Obj.DiffVol.m_pwszVolumeDisplayName), 
+																prop.Obj.DiffVol.m_llVolumeFreeSpace, 
+																prop.Obj.DiffVol.m_llVolumeTotalSpace));
+					}
+					finally
+					{
+						::CoTaskMemFree(prop.Obj.DiffVol.m_pwszVolumeName);
+						::CoTaskMemFree(prop.Obj.DiffVol.m_pwszVolumeDisplayName);
+					}
+					break;
+				case VSS_MGMT_OBJECT_DIFF_AREA:
+					try
+					{
+						list->Add(gcnew VssDiffAreaProperties(gcnew String(prop.Obj.DiffArea.m_pwszVolumeName),
+															  gcnew String(prop.Obj.DiffArea.m_pwszDiffAreaVolumeName),
+															  prop.Obj.DiffArea.m_llMaximumDiffSpace,
+															  prop.Obj.DiffArea.m_llAllocatedDiffSpace,
+															  prop.Obj.DiffArea.m_llUsedDiffSpace));
+					}
+					finally
+					{
+						::CoTaskMemFree(prop.Obj.DiffArea.m_pwszVolumeName);
+						::CoTaskMemFree(prop.Obj.DiffArea.m_pwszDiffAreaVolumeName);
+					}
+					break;
+				}
+			}
+			return list;
+		}
+		finally
+		{
+			pEnum->Release();
+		}	
+	}
+
+    IList<IVssManagementObjectProperties^>^ VssDifferentialSoftwareSnapshotManagement::QueryDiffAreasForSnapshot(Guid snapshotId)
+	{
+		IVssEnumMgmtObject *pEnum;
+		CheckCom(mMgmt->QueryDiffAreasForSnapshot(ToVssId(snapshotId), &pEnum));
+		return CreateListFromEnumMgmtObject(pEnum);
+	}
+
+
+    IList<IVssManagementObjectProperties^>^ VssDifferentialSoftwareSnapshotManagement::QueryDiffAreasForVolume(String^ volumeName)
+	{
+		IVssEnumMgmtObject *pEnum;
+		CheckCom(mMgmt->QueryDiffAreasForVolume(NoNullAutoMStr(volumeName), &pEnum));
+		return CreateListFromEnumMgmtObject(pEnum);
+	}
+
+    IList<IVssManagementObjectProperties^>^ VssDifferentialSoftwareSnapshotManagement::QueryDiffAreasOnVolume(String^ volumeName)
+	{
+		IVssEnumMgmtObject *pEnum;
+		CheckCom(mMgmt->QueryDiffAreasOnVolume(NoNullAutoMStr(volumeName), &pEnum));
+		return CreateListFromEnumMgmtObject(pEnum);
+	}
+
+    IList<IVssManagementObjectProperties^>^ VssDifferentialSoftwareSnapshotManagement::QueryVolumesSupportedForDiffAreas(String^ originalVolumeName)
+	{
+		IVssEnumMgmtObject *pEnum;
+		CheckCom(mMgmt->QueryVolumesSupportedForDiffAreas(NoNullAutoMStr(originalVolumeName), &pEnum));
+		return CreateListFromEnumMgmtObject(pEnum);
+	}
+
+
+
+
+
+    //
+    // From IVssDifferentialSoftwareSnapshotMgmt2
+    //
+    void VssDifferentialSoftwareSnapshotManagement::ChangeDiffAreaMaximumSize(String^ volumeName, String^ diffAreaVolumeName, Int64 maximumDiffSpace, bool isVolatile)
+	{
+#ifdef ALPHAVSS_HAS_DIFFERENTIALSOFTWARESNAPSHOTMGMT2
+		CheckCom(RequireIVssDifferentialSoftwareSnapshotMgmt2()->ChangeDiffAreaMaximumSizeEx(NoNullAutoMStr(volumeName), NoNullAutoMStr(diffAreaVolumeName), maximumDiffSpace, isVolatile));
+#else
+		UnsupportedOs();
+#endif
+	}
+
+    //
+    // From IVssDifferentialSoftwareSnapshotMgmt3
+    //
+    void VssDifferentialSoftwareSnapshotManagement::ClearVolumeProtectFault(String^ volumeName)
+	{
+#ifdef ALPHAVSS_HAS_DIFFERENTIALSOFTWARESNAPSHOTMGMT3
+		CheckCom(RequireIVssDifferentialSoftwareSnapshotMgmt3()->ClearVolumeProtectFault(NoNullAutoMStr(volumeName)));
+#else
+		UnsupportedOs();
+#endif
+	}
+
+	void VssDifferentialSoftwareSnapshotManagement::DeleteUnusedDiffAreas(String^ diffAreaVolumeName)
+	{
+#ifdef ALPHAVSS_HAS_DIFFERENTIALSOFTWARESNAPSHOTMGMT3
+		CheckCom(RequireIVssDifferentialSoftwareSnapshotMgmt3()->DeleteUnusedDiffAreas(NoNullAutoMStr(diffAreaVolumeName)));
+#else
+		UnsupportedOs();
+#endif
+	}
+
+    VssVolumeProtectionInfo^ VssDifferentialSoftwareSnapshotManagement::GetVolumeProtectionLevel(String^ volumeName)
+	{
+		VSS_VOLUME_PROTECTION_INFO info;
+		CheckCom(RequireIVssDifferentialSoftwareSnapshotMgmt3()->GetVolumeProtectLevel(NoNullAutoMStr(volumeName), &info));
+		return CreateVssVolumeProtectionInfo(&info);
+	}
+
+    void VssDifferentialSoftwareSnapshotManagement::SetVolumeProtectionLevel(String^ volumeName, VssProtectionLevel protectionLevel)
+	{
+#ifdef ALPHAVSS_HAS_DIFFERENTIALSOFTWARESNAPSHOTMGMT3
+		CheckCom(RequireIVssDifferentialSoftwareSnapshotMgmt3()->SetVolumeProtectLevel(NoNullAutoMStr(volumeName), (VSS_PROTECTION_LEVEL)protectionLevel));
+#else
+		UnsupportedOs();
+#endif
+	}
+#endif
+}
+}}

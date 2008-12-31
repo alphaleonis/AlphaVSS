@@ -12,15 +12,32 @@ namespace SimpleTest
         {
             IVssImplementation impl = VssUtils.LoadImplementation(".");
 
-            using (IVssBackupComponents backup = impl.CreateVssBackupComponents())
+            IVssSnapshotManagement mgmt = impl.GetSnapshotManagementInterface();
+            IVssDifferentialSoftwareSnapshotManagement dm = mgmt.GetDifferentialSoftwareSnapshotManagementInterface();
+
+            IList<IVssManagementObjectProperties> list = dm.QueryVolumesSupportedForDiffAreas("C:\\");
+            foreach (IVssManagementObjectProperties prop in list)
             {
-                backup.InitializeForBackup(null);
-                backup.SetRestoreName(Guid.Empty, VssComponentType.Database, null, "hede", "hodo");
-                foreach (VssProviderProperties prop in backup.QueryProviders())
+                switch (prop.Type)
                 {
-                    Console.WriteLine(prop.ProviderName);
+                    case VssManagementObjectType.Unknown:
+                        break;
+                    case VssManagementObjectType.Volume:
+                        VssVolumeProperties vp = prop as VssVolumeProperties;
+                        Console.WriteLine("Volume: {0} / {1}", vp.VolumeName, vp.VolumeDisplayName);
+                        break;
+                    case VssManagementObjectType.DiffVolume:
+                        VssDiffVolumeProperties vdp = prop as VssDiffVolumeProperties;
+                        Console.WriteLine("DiffVolume: {0} / {1}", vdp.VolumeName, vdp.VolumeDisplayName);
+                        break;
+                    case VssManagementObjectType.DiffArea:
+                        break;
+                    default:
+                        break;
                 }
+                Console.WriteLine(prop.Type);
             }
+            //Console.WriteLine(dm.GetVolumeProtectionLevel("C:\\"));
         }
     }
 }

@@ -23,6 +23,7 @@
 
 #include "VssImplementation.h"
 #include "VssBackupComponents.h"
+#include "VssSnapshotManagement.h"
 
 namespace Alphaleonis { namespace Win32 { namespace Vss
 {
@@ -74,6 +75,15 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		CheckCom(::CreateVssExamineWriterMetadata(NoNullAutoMBStr(xml), &pMetadata));
 		return VssExamineWriterMetadata::Adopt(pMetadata);
 
+	}
+
+	IVssSnapshotManagement^ VssImplementation::GetSnapshotManagementInterface()
+	{
+#ifdef ALPHAVSS_HAS_SNAPSHOTMGMT
+		return gcnew VssSnapshotManagement();
+#else
+		UnsupportedOs();
+#endif
 	}
 
 }

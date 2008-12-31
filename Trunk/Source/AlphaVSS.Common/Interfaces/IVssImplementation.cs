@@ -119,5 +119,11 @@ namespace Alphaleonis.Win32.Vss
 		/// </remarks>
 		/// <returns>a <see cref="IVssExamineWriterMetadata"/> instance initialized with the specified XML document.</returns>
 		IVssExamineWriterMetadata CreateVssExamineWriterMetadata(string xml);
+
+        /// <summary>
+        /// Gets a snapshot management interface for the current implementation.
+        /// </summary>
+        /// <returns>A snapshot management interface for the current implementation.</returns>
+        IVssSnapshotManagement GetSnapshotManagementInterface();
     }
 }

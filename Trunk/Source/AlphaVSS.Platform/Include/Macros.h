@@ -68,14 +68,14 @@
 // XXX is the name of the interface. GetXXX may return NULL if the QueryInterface
 // method fails, while RequireXXX will call UnsupportedOs() if the method fails.
 //
-#define DEFINE_EX_INTERFACE_ACCESSOR(interfaceName)		\
+#define DEFINE_EX_INTERFACE_ACCESSOR(interfaceName, baseInstance)		\
 	interfaceName *m##interfaceName;			\
 	interfaceName *Get##interfaceName()			\
 	{											\
 		if (m##interfaceName == 0)				\
 		{										\
 			void *ifc = 0;						\
-			if (FAILED(m##interfaceName->QueryInterface(IID_##interfaceName, &ifc))) \
+			if (FAILED((baseInstance)->QueryInterface(IID_##interfaceName, &ifc))) \
 					return 0;			    \
 			m##interfaceName = (interfaceName *)ifc; \
 		}										\

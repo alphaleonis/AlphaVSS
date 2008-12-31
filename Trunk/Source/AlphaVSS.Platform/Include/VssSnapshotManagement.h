@@ -20,22 +20,31 @@
  */
 #pragma once
 
-#include "Macros.h"
-#include "Error.h"
+#ifdef ALPHAVSS_HAS_SNAPSHOTMGMT
 
-#ifdef ALPHAVSS_HAS_DIFFERENTIALSOFTWARESNAPSHOTMGMT3
 #include <VsMgmt.h>
-#endif
 
 namespace Alphaleonis { namespace Win32 { namespace Vss
 {
-	VssWMFileDescription^ CreateVssWMFileDescription(IVssWMFiledesc *vssWMFiledesc);
-	VssProviderProperties^ CreateVssProviderProperties(VSS_PROVIDER_PROP *pProp);
-	VssWMDependency^ CreateVssWMDependency(IVssWMDependency *dependency);
-	VssSnapshotProperties^ CreateVssSnapshotProperties(VSS_SNAPSHOT_PROP *prop);
+	public ref class VssSnapshotManagement : IVssSnapshotManagement
+	{
+	public:
+		~VssSnapshotManagement();
+		!VssSnapshotManagement();
 
-#ifdef ALPHAVSS_HAS_DIFFERENTIALSOFTWARESNAPSHOTMGMT3
-	VssVolumeProtectionInfo^ CreateVssVolumeProtectionInfo(VSS_VOLUME_PROTECTION_INFO *info);
+        virtual IVssDifferentialSoftwareSnapshotManagement^ GetDifferentialSoftwareSnapshotManagementInterface();
+        virtual Int64 GetMinDiffAreaSize();
+	internal:
+		VssSnapshotManagement();
+	private:
+		::IVssSnapshotMgmt *mSnapshotMgmt;
+
+#ifdef ALPHAVSS_HAS_SNAPSHOTMGMT2
+		DEFINE_EX_INTERFACE_ACCESSOR(IVssSnapshotMgmt2, mSnapshotMgmt)
 #endif
+	};
+
 }
 }}
+
+#endif

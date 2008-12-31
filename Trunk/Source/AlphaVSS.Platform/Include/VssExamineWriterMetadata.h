@@ -28,13 +28,6 @@ using namespace System::Text;
 using namespace System::Collections::Generic;
 using namespace System::Security::Permissions;
 
-#if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WIN2003
-#define ALPHAVSS_HAS_EWMEX
-#endif
-
-#if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WIN2008
-#define ALPHAVSS_HAS_EWMEX2
-#endif
 
 namespace Alphaleonis { namespace Win32 { namespace Vss
 {
@@ -75,11 +68,11 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		::IVssExamineWriterMetadata *mExamineWriterMetadata;
 		
 #ifdef ALPHAVSS_HAS_EWMEX
-		DEFINE_EX_INTERFACE_ACCESSOR(IVssExamineWriterMetadataEx);
+		DEFINE_EX_INTERFACE_ACCESSOR(IVssExamineWriterMetadataEx, mExamineWriterMetadata);
 #endif
 
 #ifdef ALPHAVSS_HAS_EWMEX2
-		DEFINE_EX_INTERFACE_ACCESSOR(IVssExamineWriterMetadataEx2);
+		DEFINE_EX_INTERFACE_ACCESSOR(IVssExamineWriterMetadataEx2, mExamineWriterMetadata);
 #endif
 
 		void Initialize();

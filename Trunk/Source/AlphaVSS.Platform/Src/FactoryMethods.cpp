@@ -20,6 +20,10 @@
  */
 #include "StdAfx.h"
 
+#ifdef ALPHAVSS_HAS_DIFFERENTIALSOFTWARESNAPSHOTMGMT3
+#include <VsMgmt.h>
+#endif
+
 namespace Alphaleonis { namespace Win32 { namespace Vss
 {
 	VssWMFileDescription^ CreateVssWMFileDescription(IVssWMFiledesc *vssWMFiledesc)
@@ -115,5 +119,16 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 			::VssFreeSnapshotProperties(prop);
 		}
 	}
+
+#ifdef ALPHAVSS_HAS_DIFFERENTIALSOFTWARESNAPSHOTMGMT3
+	VssVolumeProtectionInfo^ CreateVssVolumeProtectionInfo(VSS_VOLUME_PROTECTION_INFO *info)
+	{
+		return gcnew VssVolumeProtectionInfo((VssProtectionLevel)info->m_protectionLevel, 
+			info->m_volumeIsOfflineForProtection != 0,
+			(VssProtectionFault)info->m_protectionFault,
+			info->m_failureStatus,
+			info->m_volumeHasUnusedDiffArea != 0);
+	}
+#endif
 }
 }}

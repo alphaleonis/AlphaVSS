@@ -28,14 +28,6 @@
 using namespace System;
 using namespace System::Collections::Generic;
 
-#if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WIN2003
-#define ALPHAVSS_HAS_BACKUPEX
-#endif
-
-#if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WIN2008
-#define ALPHAVSS_HAS_BACKUPEX2
-#endif
-
 
 namespace Alphaleonis { namespace Win32 { namespace Vss
 {
@@ -112,11 +104,11 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		::IVssBackupComponents *mBackup;
 
 #ifdef ALPHAVSS_HAS_BACKUPEX
-		DEFINE_EX_INTERFACE_ACCESSOR(IVssBackupComponentsEx)
+		DEFINE_EX_INTERFACE_ACCESSOR(IVssBackupComponentsEx, mBackup)
 #endif
 
 #ifdef ALPHAVSS_HAS_BACKUPEX2
-		DEFINE_EX_INTERFACE_ACCESSOR(IVssBackupComponentsEx2)
+		DEFINE_EX_INTERFACE_ACCESSOR(IVssBackupComponentsEx2, mBackup)
 #endif
 
 		ref class WriterMetadataList : VssListAdapter<IVssExamineWriterMetadata^>
