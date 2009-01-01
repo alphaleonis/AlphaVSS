@@ -1107,10 +1107,6 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Src\OsInfo.cpp"
-				>
-			</File>
-			<File
 				RelativePath=".\Src\Stdafx.cpp"
 				>
 				<FileConfiguration
@@ -1270,10 +1266,6 @@
 			</File>
 			<File
 				RelativePath=".\Include\Macros.h"
-				>
-			</File>
-			<File
-				RelativePath=".\Include\OsInfo.h"
 				>
 			</File>
 			<File

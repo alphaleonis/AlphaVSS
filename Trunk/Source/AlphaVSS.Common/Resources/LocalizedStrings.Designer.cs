@@ -257,5 +257,60 @@ namespace Alphaleonis.Win32.Vss.Resources {
                 return ResourceManager.GetString("TheWriterInfrastructureIsNotOperatingProperly", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This operation requires {0}{1}. Detected operating system was: {2}{3}..
+        /// </summary>
+        internal static string ThisOperationRequires01DetectedOperatingSystemWas23 {
+            get {
+                return ResourceManager.GetString("ThisOperationRequires01DetectedOperatingSystemWas23", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This operation requires {0}{1} or later. Detected operating system was: {2}{3}..
+        /// </summary>
+        internal static string ThisOperationRequires01OrLaterDetectedOperatingSystemWas23 {
+            get {
+                return ResourceManager.GetString("ThisOperationRequires01OrLaterDetectedOperatingSystemWas23", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This operation requires {0}. Detected operating system was: {1}..
+        /// </summary>
+        internal static string ThisOperationRequires0DetectedOperatingSystemWas1 {
+            get {
+                return ResourceManager.GetString("ThisOperationRequires0DetectedOperatingSystemWas1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This operation requires {0} or later. Detected operating system was: {1}..
+        /// </summary>
+        internal static string ThisOperationRequires0OrLaterDetectedOperatingSystemWas1 {
+            get {
+                return ResourceManager.GetString("ThisOperationRequires0OrLaterDetectedOperatingSystemWas1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This operation requires {0} with at least Service Pack {1}. Detected operating system was: {2}{3}..
+        /// </summary>
+        internal static string ThisOperationRequires0WithAtLeastServicePack1DetectedOperatingSystemWas23 {
+            get {
+                return ResourceManager.GetString("ThisOperationRequires0WithAtLeastServicePack1DetectedOperatingSystemWas23", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This operation requires {0} with at least Service Pack {1}, or {2} with at least service pack {3}. Detected operating system was: {4}{5}..
+        /// </summary>
+        internal static string ThisOperationRequires0WithAtLeastServicePack1Or2WithAtLeastServicePack3DetectedOperatingSystemWas45 {
+            get {
+                return ResourceManager.GetString("ThisOperationRequires0WithAtLeastServicePack1Or2WithAtLeastServicePack3DetectedOp" +
+                        "eratingSystemWas45", resourceCulture);
+            }
+        }
     }
 }

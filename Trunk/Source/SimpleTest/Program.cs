@@ -10,6 +10,11 @@ namespace SimpleTest
     {
         static void Main(string[] args)
         {
+            Console.WriteLine(OperatingSystemInfo.OSVersionName);
+            Console.WriteLine(OperatingSystemInfo.ProcessorArchitecture);
+            Console.WriteLine(OperatingSystemInfo.IsWow64Process());
+            OperatingSystemInfo.RequireAtLeast(OSVersionName.WindowsServer2008, 3);
+#if false
             IVssImplementation impl = VssUtils.LoadImplementation(".");
 
             IVssSnapshotManagement mgmt = impl.GetSnapshotManagementInterface();
@@ -21,6 +26,7 @@ namespace SimpleTest
                 Console.WriteLine("DiffVolume: {0} / {1}", vdpa.VolumeName, vdpa.DiffAreaVolumeName);
             }
             //Console.WriteLine(dm.GetVolumeProtectionLevel("C:\\"));
+#endif
         }
     }
 }

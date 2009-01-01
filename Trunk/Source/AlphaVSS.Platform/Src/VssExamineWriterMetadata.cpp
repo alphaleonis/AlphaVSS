@@ -54,7 +54,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		bool hasExIdentity = false;
 
 #ifdef ALPHAVSS_HAS_EWMEX
-		if (OSInfo::IsAtLeast(OSVersions::Win2003SP1))
+		if (OperatingSystemInfo::IsAtLeast(OSVersionName::WindowsServer2003, 1))
 		{	
 			IVssExamineWriterMetadataEx *ex = GetIVssExamineWriterMetadataEx();
 			if (ex != 0)
@@ -243,7 +243,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	VssBackupSchema VssExamineWriterMetadata::BackupSchema::get()
 	{
 #if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WIN2003
-		OSInfo::RequireAtLeast(OSVersions::Win2003);
+		OperatingSystemInfo::RequireAtLeast(OSVersionName::WindowsServer2003);
 		DWORD schema;
 		CheckCom(mExamineWriterMetadata->GetBackupSchema(&schema));
 		return (VssBackupSchema)schema;
