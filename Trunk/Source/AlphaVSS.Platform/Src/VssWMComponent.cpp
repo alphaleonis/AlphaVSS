@@ -54,8 +54,6 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 
 
 #if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WIN2003
-			// The following should be available in WinXP version as well supposedly, but does not 
-			// appear to be.
 			mSelectableForRestore = (info->bSelectableForRestore);
 			mDependencyCount = (info->cDependencies);
 			mComponentFlags = ((VssComponentFlags)info->dwComponentFlags);
