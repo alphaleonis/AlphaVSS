@@ -78,7 +78,6 @@
     <Compile Include="Classes\VssWMFileDescription.cs" />
     <Compile Include="Classes\VssWMRestoreMethod.cs" />
     <Compile Include="Enumerations\VssHardwareOptions.cs" />
-    <Compile Include="Enumerations\VssManagementObjectType.cs" />
     <Compile Include="Enumerations\VssProtectionFault.cs" />
     <Compile Include="Enumerations\VssProtectionLevel.cs" />
     <Compile Include="Enumerations\VssRollForwardType.cs" />
@@ -145,7 +144,6 @@
     <Compile Include="Interfaces\IVssSnapshotManagement.cs" />
     <Compile Include="Interfaces\IVssWMComponent.cs" />
     <Compile Include="Interfaces\IVssWriterComponents.cs" />
-    <Compile Include="Interfaces\IVssManagementObjectProperties.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\LocalizedStrings.Designer.cs">
       <AutoGen>True</AutoGen>

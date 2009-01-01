@@ -27,6 +27,114 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 {
 #ifdef ALPHAVSS_HAS_DIFFERENTIALSOFTWARESNAPSHOTMGMT
 
+	/****************************************************************************************
+	  Helper methods for creating properties objects and lists
+	 ****************************************************************************************/
+
+	template <typename IF>
+	static IF^ CreatePropertiesObject(VSS_MGMT_OBJECT_PROP &prop)
+	{
+		throw gcnew NotImplementedException(String::Format(L"Unknown type in VSS_MGMT_OBJECT_PROP: {0}", (Int32)prop.Type));
+	}
+
+	
+	template <>
+	static VssVolumeProperties^ CreatePropertiesObject<VssVolumeProperties>(VSS_MGMT_OBJECT_PROP &prop)
+	{
+		try
+		{
+			System::Diagnostics::Debug::Assert(prop.Type == VSS_MGMT_OBJECT_VOLUME, 
+				L"Unexpected type in VSS_MGMT_OBJECT_PROP object",
+				String::Format(L"Expected type to be VSS_MGMT_OBJECT_VOLUME ({0}), but it was {1}",
+				(Int32)VSS_MGMT_OBJECT_VOLUME, (Int32)prop.Type));
+			return gcnew VssVolumeProperties(gcnew String(prop.Obj.Vol.m_pwszVolumeName), gcnew String(prop.Obj.Vol.m_pwszVolumeDisplayName));
+		}
+		finally
+		{
+			::CoTaskMemFree(prop.Obj.Vol.m_pwszVolumeName);
+			::CoTaskMemFree(prop.Obj.Vol.m_pwszVolumeDisplayName);
+		}
+	}
+
+	
+	template <>
+	static VssDiffVolumeProperties^ CreatePropertiesObject<VssDiffVolumeProperties>(VSS_MGMT_OBJECT_PROP &prop)
+	{
+		try
+		{
+			System::Diagnostics::Debug::Assert(prop.Type == VSS_MGMT_OBJECT_DIFF_VOLUME, 
+				L"Unexpected type in VSS_MGMT_OBJECT_PROP object",
+				String::Format(L"Expected type to be VSS_MGMT_OBJECT_DIFF_VOLUME ({0}), but it was {1}",
+				(Int32)VSS_MGMT_OBJECT_DIFF_VOLUME, (Int32)prop.Type));
+			return gcnew VssDiffVolumeProperties(gcnew String(prop.Obj.DiffVol.m_pwszVolumeName), 
+													gcnew String(prop.Obj.DiffVol.m_pwszVolumeDisplayName), 
+													prop.Obj.DiffVol.m_llVolumeFreeSpace, 
+													prop.Obj.DiffVol.m_llVolumeTotalSpace);
+		}
+		finally
+		{
+			::CoTaskMemFree(prop.Obj.DiffVol.m_pwszVolumeName);
+			::CoTaskMemFree(prop.Obj.DiffVol.m_pwszVolumeDisplayName);
+		}
+	}
+
+	
+	template <>
+	static VssDiffAreaProperties^ CreatePropertiesObject<VssDiffAreaProperties>(VSS_MGMT_OBJECT_PROP &prop)
+	{
+		try
+		{
+			System::Diagnostics::Debug::Assert(prop.Type == VSS_MGMT_OBJECT_DIFF_AREA, 
+				L"Unexpected type in VSS_MGMT_OBJECT_PROP object",
+				String::Format(L"Expected type to be VSS_MGMT_OBJECT_DIFF_AREA ({0}), but it was {1}",
+				(Int32)VSS_MGMT_OBJECT_DIFF_AREA, (Int32)prop.Type));
+			return gcnew VssDiffAreaProperties(gcnew String(prop.Obj.DiffArea.m_pwszVolumeName),
+												  gcnew String(prop.Obj.DiffArea.m_pwszDiffAreaVolumeName),
+												  prop.Obj.DiffArea.m_llMaximumDiffSpace,
+												  prop.Obj.DiffArea.m_llAllocatedDiffSpace,
+												  prop.Obj.DiffArea.m_llUsedDiffSpace);
+		}
+		finally
+		{
+			::CoTaskMemFree(prop.Obj.DiffArea.m_pwszVolumeName);
+			::CoTaskMemFree(prop.Obj.DiffArea.m_pwszDiffAreaVolumeName);
+		}
+	}
+
+	
+	template <typename IF>
+	static IList<IF^>^ CreateListFromEnumMgmtObject(IVssEnumMgmtObject *pEnum)
+	{
+		try
+		{
+			List<IF^>^ list = gcnew List<IF^>();
+
+			while (true)
+			{
+				VSS_MGMT_OBJECT_PROP prop;
+				ULONG celtFetched;
+				HRESULT hr = pEnum->Next(1, &prop, &celtFetched);
+				
+				if (FAILED(hr))		// An error occured
+					ThrowException(hr);
+				
+				if (celtFetched < 1) // We are done
+					break;
+
+				list->Add(CreatePropertiesObject<IF>(prop));
+			}
+			return list;
+		}
+		finally
+		{
+			pEnum->Release();
+		}	
+	}
+
+	/****************************************************************************************
+	  Class members
+	 ****************************************************************************************/
+
 	VssDifferentialSoftwareSnapshotManagement::~VssDifferentialSoftwareSnapshotManagement()
 	{
 		this->!VssDifferentialSoftwareSnapshotManagement();
@@ -74,108 +182,33 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		CheckCom(mMgmt->ChangeDiffAreaMaximumSize(NoNullAutoMStr(volumeName), NoNullAutoMStr(diffAreaVolumeName), maximumDiffSpace));
 	}
 
-	IList<IVssManagementObjectProperties^>^ VssDifferentialSoftwareSnapshotManagement::CreateListFromEnumMgmtObject(IVssEnumMgmtObject *pEnum)
-	{
-		try
-		{
-			List<IVssManagementObjectProperties^>^ list = gcnew List<IVssManagementObjectProperties^>();
-
-			while (true)
-			{
-				VSS_MGMT_OBJECT_PROP prop;
-				ULONG celtFetched;
-				HRESULT hr = pEnum->Next(1, &prop, &celtFetched);
-				
-				if (FAILED(hr))		// An error occured
-					ThrowException(hr);
-				
-				if (celtFetched < 1) // We are done
-					break;
-
-				switch (prop.Type)
-				{
-				case VSS_MGMT_OBJECT_UNKNOWN:
-					// Simply ignore unknown objects
-					break;
-				case VSS_MGMT_OBJECT_VOLUME:
-					try
-					{
-						list->Add(gcnew VssVolumeProperties(gcnew String(prop.Obj.Vol.m_pwszVolumeName), gcnew String(prop.Obj.Vol.m_pwszVolumeDisplayName)));
-					}
-					finally
-					{
-						::CoTaskMemFree(prop.Obj.Vol.m_pwszVolumeName);
-						::CoTaskMemFree(prop.Obj.Vol.m_pwszVolumeDisplayName);
-					}
-					break;
-				case VSS_MGMT_OBJECT_DIFF_VOLUME:
-					try
-					{
-						list->Add(gcnew VssDiffVolumeProperties(gcnew String(prop.Obj.DiffVol.m_pwszVolumeName), 
-																gcnew String(prop.Obj.DiffVol.m_pwszVolumeDisplayName), 
-																prop.Obj.DiffVol.m_llVolumeFreeSpace, 
-																prop.Obj.DiffVol.m_llVolumeTotalSpace));
-					}
-					finally
-					{
-						::CoTaskMemFree(prop.Obj.DiffVol.m_pwszVolumeName);
-						::CoTaskMemFree(prop.Obj.DiffVol.m_pwszVolumeDisplayName);
-					}
-					break;
-				case VSS_MGMT_OBJECT_DIFF_AREA:
-					try
-					{
-						list->Add(gcnew VssDiffAreaProperties(gcnew String(prop.Obj.DiffArea.m_pwszVolumeName),
-															  gcnew String(prop.Obj.DiffArea.m_pwszDiffAreaVolumeName),
-															  prop.Obj.DiffArea.m_llMaximumDiffSpace,
-															  prop.Obj.DiffArea.m_llAllocatedDiffSpace,
-															  prop.Obj.DiffArea.m_llUsedDiffSpace));
-					}
-					finally
-					{
-						::CoTaskMemFree(prop.Obj.DiffArea.m_pwszVolumeName);
-						::CoTaskMemFree(prop.Obj.DiffArea.m_pwszDiffAreaVolumeName);
-					}
-					break;
-				}
-			}
-			return list;
-		}
-		finally
-		{
-			pEnum->Release();
-		}	
-	}
-
-    IList<IVssManagementObjectProperties^>^ VssDifferentialSoftwareSnapshotManagement::QueryDiffAreasForSnapshot(Guid snapshotId)
+    IList<VssDiffAreaProperties^>^ VssDifferentialSoftwareSnapshotManagement::QueryDiffAreasForSnapshot(Guid snapshotId)
 	{
 		IVssEnumMgmtObject *pEnum;
 		CheckCom(mMgmt->QueryDiffAreasForSnapshot(ToVssId(snapshotId), &pEnum));
-		return CreateListFromEnumMgmtObject(pEnum);
+		return CreateListFromEnumMgmtObject<VssDiffAreaProperties>(pEnum);
 	}
 
-
-    IList<IVssManagementObjectProperties^>^ VssDifferentialSoftwareSnapshotManagement::QueryDiffAreasForVolume(String^ volumeName)
+    IList<VssDiffAreaProperties^>^ VssDifferentialSoftwareSnapshotManagement::QueryDiffAreasForVolume(String^ volumeName)
 	{
 		IVssEnumMgmtObject *pEnum;
 		CheckCom(mMgmt->QueryDiffAreasForVolume(NoNullAutoMStr(volumeName), &pEnum));
-		return CreateListFromEnumMgmtObject(pEnum);
+		return CreateListFromEnumMgmtObject<VssDiffAreaProperties>(pEnum);
 	}
 
-    IList<IVssManagementObjectProperties^>^ VssDifferentialSoftwareSnapshotManagement::QueryDiffAreasOnVolume(String^ volumeName)
+    IList<VssDiffAreaProperties^>^ VssDifferentialSoftwareSnapshotManagement::QueryDiffAreasOnVolume(String^ volumeName)
 	{
 		IVssEnumMgmtObject *pEnum;
 		CheckCom(mMgmt->QueryDiffAreasOnVolume(NoNullAutoMStr(volumeName), &pEnum));
-		return CreateListFromEnumMgmtObject(pEnum);
+		return CreateListFromEnumMgmtObject<VssDiffAreaProperties>(pEnum);
 	}
 
-    IList<IVssManagementObjectProperties^>^ VssDifferentialSoftwareSnapshotManagement::QueryVolumesSupportedForDiffAreas(String^ originalVolumeName)
+    IList<VssDiffVolumeProperties^>^ VssDifferentialSoftwareSnapshotManagement::QueryVolumesSupportedForDiffAreas(String^ originalVolumeName)
 	{
 		IVssEnumMgmtObject *pEnum;
 		CheckCom(mMgmt->QueryVolumesSupportedForDiffAreas(NoNullAutoMStr(originalVolumeName), &pEnum));
-		return CreateListFromEnumMgmtObject(pEnum);
+		return CreateListFromEnumMgmtObject<VssDiffVolumeProperties>(pEnum);
 	}
-
 
 
 

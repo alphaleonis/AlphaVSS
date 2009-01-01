@@ -8,17 +8,8 @@ namespace Alphaleonis.Win32.Vss
     /// <summary>
     /// The <see cref="VssVolumeProperties"/> class contains the properties of a shadow copy source volume.
     /// </summary>
-    public class VssVolumeProperties : IVssManagementObjectProperties
+    public class VssVolumeProperties 
     {
-        /// <summary>
-        /// Gets the type of this management object properties instance.
-        /// </summary>
-        /// <value>The type of this management object properties instance.</value>
-        public VssManagementObjectType Type
-        {
-            get { return VssManagementObjectType.Volume; }
-        }
-
         /// <summary>
         /// Initializes a new instance of the <see cref="VssVolumeProperties"/> class.
         /// </summary>

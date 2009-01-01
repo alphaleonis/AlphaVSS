@@ -8,14 +8,8 @@ namespace Alphaleonis.Win32.Vss
     /// <summary>
     /// The <see cref="VssDiffVolumeProperties"/> structure describes a shadow copy storage area volume.
     /// </summary>
-    public class VssDiffVolumeProperties : IVssManagementObjectProperties
+    public class VssDiffVolumeProperties 
     {
-        /// <summary>
-        /// Gets the type of this management object properties instance.
-        /// </summary>
-        /// <value>The type HEREof this management HEREobject properties instance.</value>
-        public VssManagementObjectType  Type { get { return VssManagementObjectType.DiffVolume; } }
-
         /// <summary>
         /// Initializes a new instance of the <see cref="VssDiffVolumeProperties"/> class.
         /// </summary>

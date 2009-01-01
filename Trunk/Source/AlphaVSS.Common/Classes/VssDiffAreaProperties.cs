@@ -9,14 +9,8 @@ namespace Alphaleonis.Win32.Vss
     /// The <see cref="VssDiffAreaProperties"/> structure describes associations between volumes containing the original file data 
     /// and volumes containing the shadow copy storage area (also known as the diff area).
     /// </summary>
-    public class VssDiffAreaProperties : IVssManagementObjectProperties
+    public class VssDiffAreaProperties 
     {
-        /// <summary>
-        /// Gets the type of this management object properties instance.
-        /// </summary>
-        /// <value>The type of this management object properties instance.</value>
-        public VssManagementObjectType Type { get { return VssManagementObjectType.DiffArea; } }
-
         /// <summary>
         /// Initializes a new instance of the <see cref="VssDiffAreaProperties"/> class.
         /// </summary>

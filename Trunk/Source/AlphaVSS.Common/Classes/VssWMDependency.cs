@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Diagnostics;
 
 namespace Alphaleonis.Win32.Vss
 {
@@ -21,7 +22,7 @@ namespace Alphaleonis.Win32.Vss
         /// <param name="logicalPath">The logical path.</param>
         /// <param name="componentName">Name of the component.</param>
         public VssWMDependency(Guid writerId, string logicalPath, string componentName)
-        {
+        {            
             mWriterId = writerId;
             mLogicalPath = logicalPath;
             mComponentName = componentName;

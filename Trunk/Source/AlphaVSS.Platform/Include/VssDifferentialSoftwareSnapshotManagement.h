@@ -41,10 +41,10 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 
         virtual void AddDiffArea(String^ volumeName, String^ diffAreaVolumeName, Int64 maximumDiffSpace);
         virtual void ChangeDiffAreaMaximumSize(String^ volumeName, String^ diffAreaVolumeName, Int64 maximumDiffSpace);
-        virtual IList<IVssManagementObjectProperties^>^ QueryDiffAreasForSnapshot(Guid snapshotId);
-        virtual IList<IVssManagementObjectProperties^>^ QueryDiffAreasForVolume(String^ volumeName);
-        virtual IList<IVssManagementObjectProperties^>^ QueryDiffAreasOnVolume(String^ volumeName);
-        virtual IList<IVssManagementObjectProperties^>^ QueryVolumesSupportedForDiffAreas(String^ originalVolumeName);
+        virtual IList<VssDiffAreaProperties^>^ QueryDiffAreasForSnapshot(Guid snapshotId);
+        virtual IList<VssDiffAreaProperties^>^ QueryDiffAreasForVolume(String^ volumeName);
+        virtual IList<VssDiffAreaProperties^>^ QueryDiffAreasOnVolume(String^ volumeName);
+        virtual IList<VssDiffVolumeProperties^>^ QueryVolumesSupportedForDiffAreas(String^ originalVolumeName);
 
         //
         // From IVssDifferentialSoftwareSnapshotMgmt2
@@ -62,8 +62,6 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	internal:
 		VssDifferentialSoftwareSnapshotManagement(::IVssDifferentialSoftwareSnapshotMgmt *pMgmt);
 	private:
-		static IList<IVssManagementObjectProperties^>^ CreateListFromEnumMgmtObject(IVssEnumMgmtObject *pEnum);
-
 		::IVssDifferentialSoftwareSnapshotMgmt *mMgmt;
 #ifdef ALPHAVSS_HAS_DIFFERENTIALSOFTWARESNAPSHOTMGMT2
 		DEFINE_EX_INTERFACE_ACCESSOR(IVssDifferentialSoftwareSnapshotMgmt2, mMgmt);
