@@ -275,7 +275,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		VSS_WRITER_STATE eState;
 		HRESULT hrResultFailure;
 		CheckCom(mBackupComponents->mBackup->GetWriterStatus(index, &idInstance, &idWriter, &bstrWriter, &eState, &hrResultFailure));
-		return gcnew VssWriterStatusInfo(ToGuid(idInstance), ToGuid(idWriter), bstrWriter, (VssWriterState)eState, (VssWriterFailure)hrResultFailure);
+		return gcnew VssWriterStatusInfo(ToGuid(idInstance), ToGuid(idWriter), bstrWriter, (VssWriterState)eState, (VssError)hrResultFailure);
 	}
 
 

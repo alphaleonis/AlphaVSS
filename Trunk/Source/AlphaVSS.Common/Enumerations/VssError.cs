@@ -232,7 +232,7 @@ namespace Alphaleonis.Win32.Vss
         /// The shadow copy contains only a subset of the volumes needed by the writer to correctly back 
         /// up the application component.
         /// </summary>
-		InconsistenSnapshot = 0x800423F0,
+		WriterErrorInconsistentSnapshot = 0x800423F0,
 
   		/// <summary>
         /// The writer ran out of memory or other system resources. The recommended way to handle this error code is 

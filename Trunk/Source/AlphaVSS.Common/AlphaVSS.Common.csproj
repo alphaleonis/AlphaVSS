@@ -111,7 +111,6 @@
     <Compile Include="Enumerations\VssVolumeSnapshotAttributes.cs" />
     <Compile Include="Enumerations\VssWriterRestore.cs" />
     <Compile Include="Enumerations\VssWriterState.cs" />
-    <Compile Include="Enumerations\VssWriterFailure.cs" />
     <Compile Include="Exceptions\VssUnsupportedContextException.cs" />
     <Compile Include="Exceptions\VssBadStateException.cs" />
     <Compile Include="Exceptions\VssDeleteSnapshotsFailedException.cs" />
