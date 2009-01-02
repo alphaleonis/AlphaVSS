@@ -85,7 +85,7 @@ namespace Alphaleonis.Win32.Vss
                 default:
                     throw new UnsupportedOperatingSystemException("Failed to detect architecture of running operating system.");
             }
-#if DEBUG
+#if DEBUG 
             return "AlphaVSS." + winVer + ".Debug." + archName;
 #else
             return "AlphaVSS." + winVer + "." + archName;
@@ -117,8 +117,15 @@ namespace Alphaleonis.Win32.Vss
         /// of an <see cref="AppDomain"/> into which to load the assembly.
         /// </overloads>
         /// <remarks>
-        ///     The assembly will be loaded into the same <see cref="AppDomain"/> as the calling assembly.
+        ///     <para>
+        ///         The assembly will be loaded into the same <see cref="AppDomain"/> as the calling assembly.
+        ///     </para>
+        ///     <para>
+        ///         The assemblies are loaded using strong name lookup. They need to be present in the code base directory
+        ///         of the executing assembly, or installed in the GAC for the lookup to succeed.
+        ///     </para>
         /// </remarks>
+        /// 
         /// <returns>An newly created instance of <see cref="IVssImplementation"/> suitable for the 
         /// operating system on which the assembly is currently executing.</returns>
         /// <exception cref="UnsupportedOperatingSystemException">The operating system could not be detected or is unsupported.</exception>
@@ -134,9 +141,15 @@ namespace Alphaleonis.Win32.Vss
         /// of an <see cref="AppDomain"/> into which to load the assembly.
         /// </summary>
         /// <param name="domain">The <see cref="AppDomain"/> into which to load the platform specific assembly.</param>
+        /// <remarks>
+        ///     <para>
+        ///         The assemblies are loaded using strong name lookup. They need to be present in the code base directory
+        ///         of the executing assembly, or installed in the GAC for the lookup to succeed.
+        ///     </para>
+        /// </remarks>
         /// <returns>
-        /// An newly created instance of <see cref="IVssImplementation"/> suitable for the
-        /// operating system on which the assembly is currently executing.
+        ///     An newly created instance of <see cref="IVssImplementation"/> suitable for the
+        ///     operating system on which the assembly is currently executing.
         /// </returns>
         /// <exception cref="UnsupportedOperatingSystemException">The operating system could not be detected or is unsupported.</exception>
         public static IVssImplementation LoadImplementation(AppDomain domain)

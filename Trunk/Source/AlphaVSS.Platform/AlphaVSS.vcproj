@@ -25,7 +25,7 @@
 	<Configurations>
 		<Configuration
 			Name="Win2008.Debug|Win32"
-			OutputDirectory="$(ProjectDir)\..\..\Bin"
+			OutputDirectory="$(ProjectDir)\..\..\Bin\Debug"
 			IntermediateDirectory="$(ProjectDir)\..\..\Obj\$(ConfigurationName)\$(PlatformName)"
 			ConfigurationType="2"
 			CharacterSet="1"
@@ -109,7 +109,7 @@
 		</Configuration>
 		<Configuration
 			Name="Win2008.Debug|x64"
-			OutputDirectory="$(ProjectDir)\..\..\Bin"
+			OutputDirectory="$(ProjectDir)\..\..\Bin\Debug"
 			IntermediateDirectory="$(ProjectDir)\..\..\Obj\$(ConfigurationName)\$(PlatformName)"
 			ConfigurationType="2"
 			CharacterSet="1"
@@ -346,7 +346,7 @@
 		</Configuration>
 		<Configuration
 			Name="WinXP.Debug|Win32"
-			OutputDirectory="$(ProjectDir)\..\..\Bin"
+			OutputDirectory="$(ProjectDir)\..\..\Bin\Debug"
 			IntermediateDirectory="$(ProjectDir)\..\..\Obj\$(ConfigurationName)\$(PlatformName)"
 			ConfigurationType="2"
 			CharacterSet="1"
@@ -428,7 +428,7 @@
 		</Configuration>
 		<Configuration
 			Name="WinXP.Debug|x64"
-			OutputDirectory="$(ProjectDir)\..\..\Bin"
+			OutputDirectory="$(ProjectDir)\..\..\Bin\Debug"
 			IntermediateDirectory="$(ProjectDir)\..\..\Obj\$(ConfigurationName)\$(PlatformName)"
 			ConfigurationType="2"
 			CharacterSet="1"
@@ -665,7 +665,7 @@
 		</Configuration>
 		<Configuration
 			Name="Win2003.Debug|Win32"
-			OutputDirectory="$(ProjectDir)\..\..\Bin"
+			OutputDirectory="$(ProjectDir)\..\..\Bin\Debug"
 			IntermediateDirectory="$(ProjectDir)\..\..\Obj\$(ConfigurationName)\$(PlatformName)"
 			ConfigurationType="2"
 			CharacterSet="1"
@@ -747,7 +747,7 @@
 		</Configuration>
 		<Configuration
 			Name="Win2003.Debug|x64"
-			OutputDirectory="$(ProjectDir)\..\..\Bin"
+			OutputDirectory="$(ProjectDir)\..\..\Bin\Debug"
 			IntermediateDirectory="$(ProjectDir)\..\..\Obj\$(ConfigurationName)\$(PlatformName)"
 			ConfigurationType="2"
 			CharacterSet="1"

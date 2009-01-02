@@ -23,18 +23,24 @@
     </TargetFrameworkSubset>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <OutputPath>..\..\Bin\</OutputPath>
+    <OutputPath>..\..\Bin\Debug\</OutputPath>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <RunCodeAnalysis>true</RunCodeAnalysis>
     <CodeAnalysisRules>-Microsoft.Naming#CA1704;-Microsoft.Naming#CA1703</CodeAnalysisRules>
-    <DocumentationFile>..\..\Bin\AlphaVSS.Common.XML</DocumentationFile>
-    <DefineConstants>DEBUG;CODE_ANALYSIS;</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DefineConstants>TRACE;DEBUG;CODE_ANALYSIS</DefineConstants>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>..\..\Bin\</OutputPath>
     <DocumentationFile>..\..\Bin\AlphaVSS.Common.XML</DocumentationFile>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <RegisterForComInterop>false</RegisterForComInterop>
+    <Optimize>true</Optimize>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <DefineConstants>
+    </DefineConstants>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />

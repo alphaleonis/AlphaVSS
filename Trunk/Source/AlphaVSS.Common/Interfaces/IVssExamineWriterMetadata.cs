@@ -31,7 +31,7 @@ namespace Alphaleonis.Win32.Vss
     ///     A <see cref="IVssExamineWriterMetadata"/> interface to a live writer's metadata is obtained by a call to 
     ///     <see cref="IVssBackupComponents.WriterMetadata" />.
     /// </remarks>
-    public interface IVssExamineWriterMetadata
+    public interface IVssExamineWriterMetadata : IDisposable
     {
 		/// <summary>
 		/// The <see cref="LoadFromXml"/> method loads an XML document that contains a writer's metadata document into a
