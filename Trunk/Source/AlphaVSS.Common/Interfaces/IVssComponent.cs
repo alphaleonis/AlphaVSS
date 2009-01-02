@@ -83,7 +83,7 @@ namespace Alphaleonis.Win32.Vss
 		/// <summary>
 		/// 	<para>
 		/// 		The backup options specified to the writer that manages the currently selected component or component set 
-		/// 		by a requester using <see dref="M:Alphaleonis.Win32.Vss.VssBackupComponents.SetBackupOptions(System.Guid,Alphaleonis.Win32.Vss.VssComponentType,System.String,System.String,System.String)"/>.
+		/// 		by a requester using <see cref="IVssBackupComponents.SetBackupOptions"/>.
 		/// 	</para>
 		/// </summary>
 		/// <value>The backup options for the current writer.</value>
@@ -141,7 +141,7 @@ namespace Alphaleonis.Win32.Vss
 		string PreviousBackupStamp { get; }
 
 		/// <summary>The restore options specified to the current writer by a requester using 
-		/// <see dref="M:Alphaleonis.Win32.Vss.VssBackupComponents.SetRestoreOptions(System.Guid,Alphaleonis.Win32.Vss.VssComponentType,System.String,System.String,System.String)"/>.</summary>
+		/// <see cref="IVssBackupComponents.SetRestoreOptions"/>.</summary>
 		/// <value>The restore options of the writer.</value>
 		string RestoreOptions { get; }
 

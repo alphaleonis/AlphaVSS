@@ -47,7 +47,7 @@ namespace Alphaleonis.Win32.Vss
 		/// 	<para>
 		/// 		This value indicates that the restoration of the files included in a selected component 
 		/// 		(or the component set defined by that component) should proceed according to the original 
-		/// 		restore method specified at backup time by a <see dref="T:Alphaleonis.Win32.Vss.VssRestoreMethod"/> value.
+		/// 		restore method specified at backup time by a <see cref="VssRestoreMethod"/> value.
 		/// 	</para>
 		/// </summary>
 		Original = 1,
@@ -78,7 +78,7 @@ namespace Alphaleonis.Win32.Vss
 		/// <summary>
 		/// 	<para>
 		/// 	    The files are restored to the location at which they were at backup time, even if the original restore 
-		/// 		method that was specified at backup time was <see dref="F:Alphaleonis.Win32.Vss.VssRestoreMethod.RestoreToAlternateLocation"/>.
+		/// 		method that was specified at backup time was <see cref="VssRestoreMethod.RestoreToAlternateLocation"/>.
 		/// 	</para>
 		/// 	<para>
 		/// 		<b>Windows Server 2003 and Windows XP:</b> This value is not supported.

@@ -53,7 +53,7 @@ namespace Alphaleonis.Win32.Vss
 		/// This value is used by a writer to indicates that a given service must be stopped prior to the start of the restore. After the restore operation, the service will be restarted.
 		/// </summary>
 		/// <remarks>
-		/// The service to be stopped is specified by an argument to <see dref="VssCreateWriterMetadata::SetRestoreMethod"/>.
+        /// The service to be stopped is specified by an argument to <c>IVssCreateWriterMetadata.SetRestoreMethod</c>.
 		/// </remarks>
 		StopRestoreStart = 3,
 
@@ -97,7 +97,7 @@ namespace Alphaleonis.Win32.Vss
 		/// <item><description>Restart the service.</description></item>
 		/// </list>
 		/// <para>The service to be stopped is specified by the writer beforehand when it calls the IVssCreateWriterMetadata::SetRestoreMethod method. 
-		/// The requester can obtain the name of the service by examining the <see dref="P:Alphaleonis.Win32.Vss.VssExamineWriterMetadata.RestoreMethod"/> property.</para>
+		/// The requester can obtain the name of the service by examining the <see cref="IVssExamineWriterMetadata.RestoreMethod"/> property.</para>
 		/// </summary>
 		RestoreStopStart = 8
 	};

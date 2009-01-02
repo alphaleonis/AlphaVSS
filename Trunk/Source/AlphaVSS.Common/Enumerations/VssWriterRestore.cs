@@ -36,8 +36,8 @@ namespace Alphaleonis.Win32.Vss
 		/// <summary>
 		/// 	Indicates that the writer always expects to handle a <c>PreRestore</c> event, but expects to handle a 
 		/// 	<c>PostRestore</c> event only if a restore fails when implementing either a 
-		/// 	<see dref="F:Alphaleonis.Win32.Vss.VssRestoreMethod.RestoreIfNotThere"/> or
-		/// 	<see dref="F:Alphaleonis.Win32.Vss.VssRestoreMethod.RestoreIfCanReplace"/> restore method (<see dref="T:Alphaleonis.Win32.Vss.VssRestoreMethod"/>)
+		/// 	<see cref="VssRestoreMethod.RestoreIfNotThere"/> or
+		/// 	<see cref="VssRestoreMethod.RestoreIfCanReplace"/> restore method (<see cref="VssRestoreMethod"/>)
 		/// </summary>
 		IfReplaceFails = 2,
 

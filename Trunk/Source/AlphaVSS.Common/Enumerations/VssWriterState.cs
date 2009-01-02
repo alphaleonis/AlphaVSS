@@ -22,7 +22,7 @@
 namespace Alphaleonis.Win32.Vss
 {
 	/// <summary>The <see cref="VssWriterState"/> enumeration indicates the current state of the writer.</summary>
-	/// <remarks>A requester determines the state of a writer through <see dref="P:Alphaleonis.Win32.Vss.VssBackupComponents.WriterStatus"/>.</remarks>
+	/// <remarks>A requester determines the state of a writer through <see cref="IVssBackupComponents.WriterStatus"/>.</remarks>
 	public enum VssWriterState
 	{
 		/// <summary><para>The writer's state is not known.</para><para>This indicates an error on the part of the writer.</para></summary>

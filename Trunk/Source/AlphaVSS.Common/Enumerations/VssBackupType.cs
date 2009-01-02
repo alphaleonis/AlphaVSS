@@ -51,7 +51,7 @@ namespace Alphaleonis.Win32.Vss
 		///		Incremental backup: files created or changed since the last full or incremental backup are saved. Files are marked as having been backed up.
 		///	</para>
 		///	<para>
-		///	A requester can implement this sort of backup on a particular writer only if it supports the <see dref="F:Alphaleonis.Win32.Vss.VssBackupSchema.Incremental" /> schema.
+		///	A requester can implement this sort of backup on a particular writer only if it supports the <see cref="VssBackupSchema.Incremental" /> schema.
 		///	</para>
 		///	<para>
 		///		If a requester's backup type is <see cref="Incremental"/> and a particular writer's backup schema does not support that sort of backup, the requester will always perform a full (<see cref="Full"/>) backup on that writer's data.
@@ -64,7 +64,7 @@ namespace Alphaleonis.Win32.Vss
 		/// 		Differential backup: files created or changed since the last full backup are saved. Files are not marked as having been backed up.
 		/// 	</para>
 		/// 	<para>
-		/// 		A requester can implement this sort of backup on a particular writer only if it supports the <see dref="F:Alphaleonis.Win32.Vss.VssBackupSchema.Differential" /> schema.
+		/// 		A requester can implement this sort of backup on a particular writer only if it supports the <see cref="VssBackupSchema.Differential" /> schema.
 		/// 	</para>
 		/// 	<para>
 		/// 		If a requester's backup type is <see cref="Differential"/> and a particular writer's backup schema does not support that sort of backup, the requester will always perform a full (<see cref="Full"/>) backup on that writer's data.
@@ -78,7 +78,7 @@ namespace Alphaleonis.Win32.Vss
 		/// 		The log file of a writer is to participate in backup or restore operations.
 		/// 	</para>
 		/// 	<para>
-		/// 		A requester can implement this sort of backup on a particular writer only if it supports the <see dref="F:Alphaleonis.Win32.Vss.VssBackupSchema.Log" /> schema.
+		/// 		A requester can implement this sort of backup on a particular writer only if it supports the <see cref="VssBackupSchema.Log" /> schema.
 		/// 	</para>
 		/// 	<para>
 		/// 		If a requester's backup type is <see cref="Log"/> and a particular writer's backup schema does not support that sort of backup, the requester will always perform a full (<see cref="Full"/>) backup on that writer's data.
@@ -91,7 +91,7 @@ namespace Alphaleonis.Win32.Vss
 		/// 	    Files on disk will be copied to a backup medium regardless of the state of each file's backup history, and the backup history will not be updated.
 		/// 	</para>
 		/// 	<para>
-		/// 		A requester can implement this sort of backup on a particular writer only if it supports the <see dref="F:Alphaleonis.Win32.Vss.VssBackupSchema.Copy" /> schema.
+		/// 		A requester can implement this sort of backup on a particular writer only if it supports the <see cref="VssBackupSchema.Copy" /> schema.
 		/// 	</para>
 		/// 	<para>
 		/// 		If a requester's backup type is <see cref="Copy"/> and a particular writer's backup schema does not support that sort of backup, the requester will always perform a full (<see cref="Full"/>) backup on that writer's data.

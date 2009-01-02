@@ -55,15 +55,15 @@ namespace Alphaleonis.Win32.Vss
         /// <returns>
         /// <list type="table">
         /// 	<item>
-        /// 		<term><see dref="F:Alphaleonis.Win32.Vss.VssError.Success" /></term>
+        /// 		<term><see cref="VssError.Success" /></term>
         /// 		<description>The asynchronous operation had been successfully cancelled.</description>
         /// 	</item>
         /// 	<item>
-        /// 		<term><see dref="F:Alphaleonis.Win32.Vss.VssError.AsyncCancelled" /></term>
+        /// 		<term><see cref="VssError.AsyncCanceled" /></term>
         /// 		<description>The asynchronous operation had been canceled prior to calling this method.</description>
         /// 	</item>
         /// 	<item>
-        /// 		<term><see dref="F:Alphaleonis.Win32.Vss.VssError.AsyncFinished" /></term>
+        /// 		<term><see cref="VssError.AsyncFinished" /></term>
         /// 		<description>The asynchronous operation had completed prior to calling this method.</description>
         /// 	</item>
         /// </list>
@@ -77,15 +77,15 @@ namespace Alphaleonis.Win32.Vss
         /// <returns>
         /// <list type="table">
         /// 	<item>
-        /// 		<term><see dref="F:Alphaleonis.Win32.Vss.VssError.Success" /></term>
+        /// 		<term><see cref="VssError.Success" /></term>
         /// 		<description>The asynchronous operation had been successfully canceled.</description>
         /// 	</item>
         /// 	<item>
-        /// 		<term><see dref="F:Alphaleonis.Win32.Vss.VssError.AsyncCancelled" /></term>
+        /// 		<term><see cref="VssError.AsyncCanceled" /></term>
         /// 		<description>The asynchronous operation had been canceled prior to calling this method.</description>
         /// 	</item>
         /// 	<item>
-        /// 		<term><see dref="F:Alphaleonis.Win32.Vss.VssError.AsyncFinished" /></term>
+        /// 		<term><see cref="VssError.AsyncFinished" /></term>
         /// 		<description>The asynchronous operation had completed prior to calling this method.</description>
         /// 	</item>
         /// </list>

@@ -22,7 +22,7 @@
 namespace Alphaleonis.Win32.Vss
 {
 /// <summary>
-	/// The <see cref="VssSnapshotContext" /> enumeration enables a requester using <see cref="IVssBackupComponents.SetContext" /> to specify how a 
+	/// The <see cref="VssSnapshotContext" /> enumeration enables a requester using <see cref="O:Alphaleonis.Win32.Vss.IVssBackupComponents.SetContext" /> to specify how a 
 	/// shadow copy is to be created, queried, or deleted and the degree of writer involvement.
 	/// <see cref="IVssBackupComponents"/>::SetContext" method) may be modified by a bitmask that contains a valid combination of 
 	/// <see cref="VssVolumeSnapshotAttributes"/> and <see cref="VssSnapshotContext"/> enumeration values.

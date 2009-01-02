@@ -57,17 +57,17 @@ namespace Alphaleonis.Win32.Vss
 	public enum VssBackupSchema
 	{
 		/// <summary>
-		/// The writer supports a simple full backup and restoration of entire files (as defined by a <see dref="T:Alphaleonis.Win32.Vss.VssBackupType"/> value of <see dref="F:Alphaleonis.Win32.Vss.VssBackupType.Full"/>). 
+		/// The writer supports a simple full backup and restoration of entire files (as defined by a <see cref="VssBackupType"/> value of <see cref="VssBackupType.Full"/>). 
 		/// This backup scheme can be used as the basis of an incremental or differential backup. This is the default value.
 		/// </summary>
 		Undefined = 0x00000000,
 		/// <summary>
-		/// The writer supports differential backups (corresponding to the <see dref="T:Alphaleonis.Win32.Vss.VssBackupType"/> value <see dref="F:Alphaleonis.Win32.Vss.VssBackupType.Differential"/>). 
+		/// The writer supports differential backups (corresponding to the <see cref="VssBackupType"/> value <see cref="VssBackupType.Differential"/>). 
 		/// Files created or changed since the last full backup are saved. Files are not marked as having been backed up. This setting does not preclude mixing of incremental and differential backups.
 		/// </summary>
         Differential = 0x00000001,
 		/// <summary>
-		/// The writer supports incremental backups (corresponding to the <see dref="T:Alphaleonis.Win32.Vss.VssBackupType"/> value <see dref="F:Alphaleonis.Win32.Vss.VssBackupType.Incremental"/>). Files created or changed since the last full or incremental backup are saved. Files are marked as having been backed up. This setting does not preclude mixing of incremental and differential backups.
+		/// The writer supports incremental backups (corresponding to the <see cref="VssBackupType"/> value <see cref="VssBackupType.Incremental"/>). Files created or changed since the last full or incremental backup are saved. Files are marked as having been backed up. This setting does not preclude mixing of incremental and differential backups.
 		/// </summary>
         Incremental = 0x00000002,
 		/// <summary>
@@ -76,12 +76,12 @@ namespace Alphaleonis.Win32.Vss
 		/// </summary>
         ExclusiveIncrementalDifferential = 0x00000004,
 		/// <summary>
-        /// <para>The writer supports backups that involve only the log files it manages (corresponding to a <see dref="T:Alphaleonis.Win32.Vss.VssBackupType"/> value of <see dref="F:Alphaleonis.Win32.Vss.VssBackupType.Log"/>). </para>
+        /// <para>The writer supports backups that involve only the log files it manages (corresponding to a <see cref="VssBackupType"/> value of <see cref="VssBackupType.Log"/>). </para>
 		/// </summary>
         Log = 0x00000008,
 		/// <summary>
-		/// Similar to the default backup schema (<see dref="F:Alphaleonis.Win32.Vss.VssBackupType.Undefined"/>), the writer supports copy backup operations 
-		/// (corresponding to <see dref="F:Alphaleonis.Win32.Vss.VssBackupType.Copy"/>) where file access information (such as information as to when a file was 
+		/// Similar to the default backup schema (<see cref="VssBackupType.Undefined"/>), the writer supports copy backup operations 
+		/// (corresponding to <see cref="VssBackupType.Copy"/>) where file access information (such as information as to when a file was 
 		/// last backed up) will not be updated either in the writer's own state information or in the file system information. This type of 
 		/// backup cannot be used as the basis of an incremental or differential backup.
 		/// </summary>

@@ -27,13 +27,14 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <RunCodeAnalysis>true</RunCodeAnalysis>
     <CodeAnalysisRules>-Microsoft.Naming#CA1704;-Microsoft.Naming#CA1703</CodeAnalysisRules>
-    <DocumentationFile>
-    </DocumentationFile>
+    <DocumentationFile>..\..\Bin\Debug\AlphaVSS.Common.XML</DocumentationFile>
     <DefineConstants>TRACE;DEBUG;CODE_ANALYSIS</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>..\..\Bin\</OutputPath>
-    <DocumentationFile>..\..\Bin\AlphaVSS.Common.XML</DocumentationFile>
+    <DocumentationFile>
+    </DocumentationFile>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <RegisterForComInterop>false</RegisterForComInterop>
     <Optimize>true</Optimize>

@@ -429,7 +429,7 @@ namespace Alphaleonis.Win32.Vss
 		/// <exception cref="VssInsufficientStorageException">The system or provider has insufficient storage space. If possible delete any old or unnecessary persistent shadow copies and try again. This error code is only returned via the QueryStatus method on the <see cref="IVssAsync"/>.</exception>
 		/// <exception cref="VssFlushWritesTimeoutException">The system was unable to flush I/O writes. This can be a transient problem. It is recommended to wait ten minutes and try again, up to three times.</exception>
 		/// <exception cref="VssHoldWritesTimeoutException">The system was unable to hold I/O writes. This can be a transient problem. It is recommended to wait ten minutes and try again, up to three times.</exception>
-		/// <exception cref="VssProviderVetoException">The provider was unable to perform the request at this time. This can be a transient problem. It is recommended to wait ten minutes and try again, up to three times. This error code is only returned via the <see dref="M:Alphaleonis.Win32.Vss.VssAsync.QueryStatus"/> method on the <see cref="IVssAsync"/> instance returned by this method.</exception>
+		/// <exception cref="VssProviderVetoException">The provider was unable to perform the request at this time. This can be a transient problem. It is recommended to wait ten minutes and try again, up to three times. This error code is only returned via the <see cref="IVssAsync.QueryStatus"/> method on the <see cref="IVssAsync"/> instance returned by this method.</exception>
 		/// <exception cref="VssRebootRequiredException">
 		///		<para>
 		///			The provider encountered an error that requires the user to restart the computer.
@@ -454,7 +454,7 @@ namespace Alphaleonis.Win32.Vss
 		///		    <b>Windows Server 2003 and Windows XP:</b>  This value is not supported until Windows Vista.
 		///		</para>
 		/// </exception>
-		/// <exception cref="VssUnexpectedProviderErrorException">The provider returned an unexpected error code. This can be a transient problem. It is recommended to wait ten minutes and try again, up to three times. This error code is only returned via the <see dref="M:Alphaleonis.Win32.Vss.VssAsync.QueryStatus"/> method on the <see cref="IVssAsync"/> instance returned by this method.</exception> 
+		/// <exception cref="VssUnexpectedProviderErrorException">The provider returned an unexpected error code. This can be a transient problem. It is recommended to wait ten minutes and try again, up to three times. This error code is only returned via the <see cref="IVssAsync.QueryStatus"/> method on the <see cref="IVssAsync"/> instance returned by this method.</exception> 
 		IVssAsync DoSnapshotSet();
 
 		/// <summary>
@@ -492,12 +492,12 @@ namespace Alphaleonis.Win32.Vss
 		///		<para>There is no requirement that the path end with a backslash ("\"). It is up to applications that retrieve this information to check.</para>
 		/// </param>
 		/// <param name="attributes">Attributes of the exposed shadow copy indicating whether it is exposed locally or remotely. The value must 
-		/// be either the <see dref="F:Alphaleonis.Win32.Vss.VssVolumeSnapshotAttributes.ExposedLocally" /> or the <see dref="F:Alphaleonis.Win32.Vss.VssVolumeSnapshotAttributes.ExposedRemotely" /> 
+		/// be either the <see cref="VssVolumeSnapshotAttributes.ExposedLocally" /> or the <see cref="VssVolumeSnapshotAttributes.ExposedRemotely" /> 
 		/// value of <see cref="VssVolumeSnapshotAttributes" />.</param>
 		/// <param name="expose">When a shadow copy is exposed as a file share, the value of this parameter is the share name. If a shadow copy 
 		/// is exposed by mounting it as a device, the parameter value is a drive letter followed by a colon, for example, "X:" or a mount point 
 		/// path (for example, "X:\a\b"). If the value of this parameter is <see langword="null"/>, then VSS determines the share name or drive 
-		/// letter if the <paramref name="attributes" /> parameter is <see dref="F:Alphaleonis.Win32.Vss.VssVolumeSnapshotAttributes.ExposedRemotely" />. </param>
+		/// letter if the <paramref name="attributes" /> parameter is <see cref="VssVolumeSnapshotAttributes.ExposedRemotely" />. </param>
 		/// <returns>The exposed name of the shadow copy. This is either a share name, a drive letter followed by a colon, or a mount point.</returns>
 		/// <remarks>
 		/// <para>When exposing a persistent shadow copy, it remains exposed through subsequent boots.</para>
@@ -847,17 +847,17 @@ namespace Alphaleonis.Win32.Vss
 		/// <remarks>
 		/// 	 <para>
 		/// 		Because <see cref="QuerySnapshots"/> returns only information on completed shadow copies, the only shadow copy state it can disclose 
-		/// 		is <see dref="F:Alphaleonis.Win32.Vss.VssSnapshotState.Created"/>.
+		/// 		is <see cref="VssSnapshotState.Created"/>.
 		/// 	 </para>
 		/// 	 <para>
 		/// 		The method may be called only during backup operations and must be preceded by calls to <see cref="InitializeForBackup"/> and 
-		/// 		<see cref="SetContext"/>.
+		/// 		<see cref="O:Alphaleonis.Win32.Vss.IVssBackupComponents.SetContext"/>.
 		/// 	 </para>
 		/// 	 <para>
 		/// 		The method will return only information 
-		/// 		about shadow copies with the current context (set by <see cref="SetContext"/>). For instance, if the 
-		/// 		<see cref="VssSnapshotContext"/> context is set to <see dref="F:Alphaleonis.Win32.Vss.VssSnapshotContext.Backup"/>, <see cref="QuerySnapshots"/> will not 
-		/// 		return information on a shadow copy created with a context of <see dref="F:Alphaleonis.Win32.Vss.VssSnapshotContext.FileShareBackup" />.
+        /// 		about shadow copies with the current context (set by <see cref="O:Alphaleonis.Win32.Vss.IVssBackupComponents.SetContext"/>). For instance, if the 
+		/// 		<see cref="VssSnapshotContext"/> context is set to <see cref="VssSnapshotContext.Backup"/>, <see cref="QuerySnapshots"/> will not 
+		/// 		return information on a shadow copy created with a context of <see cref="VssSnapshotContext.FileShareBackup" />.
 		/// 	 </para>
 		/// </remarks>
 		/// <exception cref="ArgumentException">One of the parameter values is not valid.</exception>
@@ -878,7 +878,7 @@ namespace Alphaleonis.Win32.Vss
 		/// <remarks>
 		/// 	 <para>
 		/// 		The method may be called only during backup operations and must be preceded by calls to <see cref="InitializeForBackup"/> and 
-		/// 		<see cref="SetContext"/>.
+        /// 		<see cref="O:Alphaleonis.Win32.Vss.IVssBackupComponents.SetContext"/>.
 		/// 	 </para>
 		/// </remarks>
 		/// <exception cref="ArgumentException">One of the parameter values is not valid.</exception>
@@ -920,8 +920,8 @@ namespace Alphaleonis.Win32.Vss
 
 		/// <summary>
 		/// 	The <see cref="RevertToSnapshot"/> method reverts a volume to a previous shadow copy. Only shadow copies created with persistent 
-		/// 		contexts (<see dref="F:Alphaleonis.Win32.Vss.VssSnapshotContext.AppRollback" />, <see dref="F:Alphaleonis.Win32.Vss.VssSnapshotContext.ClientAccessible" />, 
-		/// 		<see dref="F:Alphaleonis.Win32.Vss.VssSnapshotContext.ClientAccessibleWriters" /> or <see dref="F:Alphaleonis.Win32.Vss.VssSnapshotContext.NasRollback" />)
+		/// 		contexts (<see cref="VssSnapshotContext.AppRollback" />, <see cref="VssSnapshotContext.ClientAccessible" />, 
+		/// 		<see cref="VssSnapshotContext.ClientAccessibleWriters" /> or <see cref="VssSnapshotContext.NasRollback" />)
 		/// 		are supported.
 		/// </summary>
 		/// <param name="snapshotId">The identifier of the shadow copy to revert</param>
@@ -1255,7 +1255,7 @@ namespace Alphaleonis.Win32.Vss
 		void SetBackupSucceeded(Guid instanceId, Guid writerId, VssComponentType componentType, string logicalPath, string componentName, bool succeeded);
 		
 		/// <summary>
-		/// 	The <see cref="SetContext(VssSnapshotAttributes)"/> method sets the context for subsequent shadow copy-related operations. 
+        /// 	The <see cref="IVssBackupComponents.SetContext(VssVolumeSnapshotAttributes)"/> method sets the context for subsequent shadow copy-related operations. 
 		/// </summary>
         /// <overloads>The <see cref="O:Alphaleonis.Win32.Vss.IVssBackupComponents.SetContext"/> method sets the context for subsequent 
         /// shadow copy-related operations.</overloads>
@@ -1265,17 +1265,17 @@ namespace Alphaleonis.Win32.Vss
 		/// </param>
 		/// <remarks>
 		/// 	<para>
-		/// 		The default context for VSS shadow copies is <see dref="F:Alphaleonis.Win32.Vss.VssSnapshotContext.Backup"/>.
+		/// 		The default context for VSS shadow copies is <see cref="VssSnapshotContext.Backup"/>.
 		/// 	</para>
 		/// 	<para>
-		/// 		<b>Windows XP:</b> The only supported context is the default context, <see dref="F:Alphaleonis.Win32.Vss.VssSnapshotContext.Backup"/>. Therefore, calling 
-        /// 		<see cref="SetContext(VssSnapshotAttributes)" /> under Windows XP throws a <see cref="NotImplementedException"/>. 
+		/// 		<b>Windows XP:</b> The only supported context is the default context, <see cref="VssSnapshotContext.Backup"/>. Therefore, calling 
+        /// 		<see cref="SetContext(VssVolumeSnapshotAttributes)" /> under Windows XP throws a <see cref="NotImplementedException"/>. 
 		/// 	</para>
 		/// 	<para>
-        /// 		<see cref="SetContext(VssSnapshotAttributes)"/> can be called only once, and it must be called prior to calling most VSS functions.
+        /// 		<see cref="SetContext(VssVolumeSnapshotAttributes)"/> can be called only once, and it must be called prior to calling most VSS functions.
 		/// 	</para>
 		/// 	<para>
-		/// 		For details on how the context set by <see cref="SetContext"/> affects how a shadow copy is created and managed, see 
+		/// 		For details on how the context set by <see cref="O:Alphaleonis.Win32.Vss.IVssBackupComponents.SetContext"/> affects how a shadow copy is created and managed, see 
 		/// 		<see href="http://msdn.microsoft.com/en-us/library/aa381653(VS.85).aspx">Implementation Details for Creating Shadow Copies</see>.
 		/// 	</para>
 		/// 	<para>
@@ -1297,10 +1297,10 @@ namespace Alphaleonis.Win32.Vss
         /// </param>
         /// <remarks>
         /// 	<para>
-        /// 		The default context for VSS shadow copies is <see dref="F:Alphaleonis.Win32.Vss.VssSnapshotContext.Backup"/>.
+        /// 		The default context for VSS shadow copies is <see cref="VssSnapshotContext.Backup"/>.
         /// 	</para>
         /// 	<para>
-        /// 		<b>Windows XP:</b> The only supported context is the default context, <see dref="F:Alphaleonis.Win32.Vss.VssSnapshotContext.Backup"/>. Therefore, calling 
+        /// 		<b>Windows XP:</b> The only supported context is the default context, <see cref="VssSnapshotContext.Backup"/>. Therefore, calling 
         /// 		<see cref="SetContext(VssSnapshotContext)" /> under Windows XP throws a <see cref="NotImplementedException"/>. 
         /// 	</para>
         /// 	<para>
@@ -1350,9 +1350,9 @@ namespace Alphaleonis.Win32.Vss
 		/// 	</para>
 		/// </param>
 		/// <param name="status">
-		/// 	If all of the files were restored, the value of this parameter is <see dref="F:Alphaleonis.Win32.Vss.VssFileRestoreStatus.All" />. 
-		/// 	If some of the files were restored, the value of this parameter is <see dref="F:Alphaleonis.Win32.Vss.VssFileRestoreStatus.Failed" />. If none of the files 
-		/// 	were restored, the value of this parameter is <see dref="F:Alphaleonis.Win32.Vss.VssFileRestoreStatus.None" />.
+		/// 	If all of the files were restored, the value of this parameter is <see cref="VssFileRestoreStatus.All" />. 
+		/// 	If some of the files were restored, the value of this parameter is <see cref="VssFileRestoreStatus.Failed" />. If none of the files 
+		/// 	were restored, the value of this parameter is <see cref="VssFileRestoreStatus.None" />.
 		/// </param>
 		/// <remarks>This method should be called between calls to <see cref="PreRestore"/> and <see cref="PostRestore"/>.</remarks>
 		/// <exception cref="ArgumentNullException">One of the arguments that cannot be <see langword="null"/> was <see langword="null"/></exception>
@@ -1404,7 +1404,7 @@ namespace Alphaleonis.Win32.Vss
 		/// <para>Only requesters can call this method.</para>
 		/// <para>The backup stamp set by <see cref="SetPreviousBackupStamp"/> applies to all files in the component and any nonselectable Subcomponents it has.</para>
 		/// <para>Requesters merely store the backup stamps in the Backup Components Document. They cannot make direct use of the backup stamps, do not know their format, and do not know how to generate them.</para>
-		/// <para>Therefore, the value set with <see cref="SetPreviousBackupStamp"/> should either be retrieved from the stored Backup Components Document of an earlier backup operation (using <see dref="P:Alphaleonis.Win32.Vss.VssComponent.BackupStamp"/> for the correct component), or from information stored by the requester into its own internal records.</para>
+		/// <para>Therefore, the value set with <see cref="SetPreviousBackupStamp"/> should either be retrieved from the stored Backup Components Document of an earlier backup operation (using <see cref="IVssComponent.BackupStamp"/> for the correct component), or from information stored by the requester into its own internal records.</para>
 		/// <para>A writer will then obtain this value (using <c>IVssComponent::GetPreviousBackupStamp</c>) and using it will be able to mark the appropriate files for participation in an incremental or differential backup.</para>
 		/// </remarks>
 		/// <exception cref="ArgumentNullException">One of the arguments that cannot be <see langword="null"/> was <see langword="null"/></exception>
@@ -1447,7 +1447,7 @@ namespace Alphaleonis.Win32.Vss
 		/// <param name="partialFileIndex">
 		/// 	Index number of the partial file. The value of this parameter is an integer between <c>0</c> and <c>n-1</c>, 
 		/// 	where <c>n</c> is the total number of partial files associated with a given component. The value of <c>n</c> is the number
-		///     of items in <see dref="P:Alphaleonis.Win32.Vss.VssComponent.PartialFiles"/>.
+		///     of items in <see cref="IVssComponent.PartialFiles"/>.
 		/// </param>
 		/// <param name="rangesFile">
 		/// 	The fully qualified path of a ranges file.
@@ -1518,7 +1518,7 @@ namespace Alphaleonis.Win32.Vss
 		/// </summary>
 		/// <param name="restoreType">The type of restore to be performed.</param>
 		/// <remarks>
-		/// 	<para>Typically, most restore operations will not need to override the default restore type <see dref="F:Alphaleonis.Win32.Vss.VssRestoreType.Undefined" />.</para>
+		/// 	<para>Typically, most restore operations will not need to override the default restore type <see cref="VssRestoreType.Undefined" />.</para>
 		/// 	<para>If applications need to call <see cref="SetRestoreState"/>, it should be called prior to calling <see cref="PreRestore"/>.</para>
 		/// <note><b>Windows XP:</b> This method requires Windows Vista, Windows Server 2008 or Windows Server 2003</note>
 		/// </remarks>

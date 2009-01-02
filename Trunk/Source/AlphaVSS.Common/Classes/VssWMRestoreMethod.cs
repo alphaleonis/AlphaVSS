@@ -55,7 +55,7 @@ namespace Alphaleonis.Win32.Vss
 		public VssRestoreMethod Method { get { return mRestoreMethod; } }
 
 		/// <summary>
-		/// If the value of <see cref="Method" /> is <see dref="F:Alphaleonis.Win32.Vss.VssRestoreMethod.StopRestoreStart" />, a pointer to a string containing the name 
+		/// If the value of <see cref="Method" /> is <see cref="VssRestoreMethod.StopRestoreStart" />, a pointer to a string containing the name 
 		/// of the service that is started and stopped. Otherwise, the value is <see langword="null"/>.
 		/// </summary>
 		public string Service { get { return mService; } }

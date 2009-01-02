@@ -96,7 +96,7 @@ namespace Alphaleonis.Win32.Vss
 		/// <summary>
 		/// <para>Indicates that a given provider is a hardware-based provider. </para>
 		/// <para>This attribute is automatically set for hardware-based providers.</para>
-		/// <para>This enumeration value cannot be used to manually set the context (using the <see dref="M:Alphaleonis.Win32.Vss.VssBackupComponents.SetContext(Alphaleonis.Win32.Vss.VssVolumeSnapshotAttributes)"/> method) 
+		/// <para>This enumeration value cannot be used to manually set the context (using the <see cref="IVssBackupComponents.SetContext(Alphaleonis.Win32.Vss.VssVolumeSnapshotAttributes)"/> method) 
 		/// of a shadow copy by a bit mask (or bitwise OR) of this enumeration value and a valid shadow copy context value from 
 		/// <see cref="VssSnapshotContext" />.</para>
 		/// </summary>
@@ -115,7 +115,7 @@ namespace Alphaleonis.Win32.Vss
 		/// </summary>
 		Plex				= 0x00040000,
 		/// <summary>
-		/// <para>The shadow copy of the volume was imported onto this machine using the <see dref="M:Alphaleonis.Win32.Vss.VssBackupComponents.ImportSnapshots"/> method 
+		/// <para>The shadow copy of the volume was imported onto this machine using the <see cref="IVssBackupComponents.ImportSnapshots"/> method 
 		/// rather than created using the <see cref="IVssBackupComponents.DoSnapshotSet"/> method. </para>
 		/// <para>This attribute is automatically set if a shadow copy is imported.</para>
 		/// <para>This attribute should not be used explicitly by requesters when setting the context of a shadow copy.</para>
@@ -124,14 +124,14 @@ namespace Alphaleonis.Win32.Vss
 		/// <summary>
 		/// <para>The shadow copy is locally exposed. If this bit flag and the <c>ExposedRemotely</c> bit flag are not set, 
 		/// the shadow copy is hidden. </para>
-		/// <para>The attribute is automatically added to a shadow copy context upon calling the <see dref="M:Alphaleonis.Win32.Vss.VssBackupComponents.ExposeSnapshot(System.Guid,System.String,Alphaleonis.Win32.Vss.VssVolumeSnapshotAttributes,System.String)"/>
+		/// <para>The attribute is automatically added to a shadow copy context upon calling the <see cref="IVssBackupComponents.ExposeSnapshot"/>
 		/// method to expose a shadow copy locally.</para>
 		/// <para>This attribute should not be used explicitly by requesters when setting the context of a shadow copy.</para>
 		/// </summary>
 		ExposedLocally		= 0x00100000,
 		/// <summary>
 		/// <para>The shadow copy is remotely exposed. If this bit flag and the <c>ExposedLocally</c> bit flag are not set, the shadow copy is hidden. </para>
-		/// <para>The attribute is automatically added to a shadow copy context upon calling the <see dref="M:Alphaleonis.Win32.Vss.VssBackupComponents.ExposeSnapshot(System.Guid,System.String,Alphaleonis.Win32.Vss.VssVolumeSnapshotAttributes,System.String)"/>
+		/// <para>The attribute is automatically added to a shadow copy context upon calling the <see cref="IVssBackupComponents.ExposeSnapshot"/>
 		/// method to expose a shadow copy locally.</para>
 		/// <para>This attribute should not be used explicitly by requesters when setting the context of a shadow copy.</para>
 		/// </summary>

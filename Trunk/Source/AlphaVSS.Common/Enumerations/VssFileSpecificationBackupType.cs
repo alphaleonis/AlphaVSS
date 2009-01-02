@@ -63,8 +63,8 @@ namespace Alphaleonis.Win32.Vss
 		/// 	<para>
 		/// 	    A writer tags a file set with this value to indicate to the requester that it expects a copy of the 
 		/// 		current version of the file set to be available following the restore of any backup operation 
-		/// 		with a <see dref="T:Alphaleonis.Win32.Vss.VssBackupType"/> of 
-		/// 		<see dref="F:Alphaleonis.Win32.Vss.VssBackupType.Full"/>.
+		/// 		with a <see cref="VssBackupType"/> of 
+		/// 		<see cref="VssBackupType.Full"/>.
 		/// 	</para>
 		/// </summary>
 		FullBackupRequired = 0x00000001,
@@ -72,8 +72,8 @@ namespace Alphaleonis.Win32.Vss
 		/// <summary>
 		/// 	A writer tags a file set with this value to indicate to the requester that it 
 		/// 	expects a copy of the current version of the file set to be available following 
-		/// 	the restore of any backup operation with a <see dref="T:Alphaleonis.Win32.Vss.VssBackupType"/> of 
-		/// 		<see dref="F:Alphaleonis.Win32.Vss.VssBackupType.Differential"/>.
+		/// 	the restore of any backup operation with a <see cref="VssBackupType"/> of 
+		/// 		<see cref="VssBackupType.Differential"/>.
 		/// </summary>
 		DifferentialBackupRequired = 0x00000002,
 
@@ -81,7 +81,7 @@ namespace Alphaleonis.Win32.Vss
 		/// 	A writer tags a file set with this value to indicate to the requester that it 
 		/// 	expects a copy of the current version of the file set to be available following the 
 		/// 	restore of any backup operation with a 
-		/// 	<see dref="T:Alphaleonis.Win32.Vss.VssBackupType"/> of <see dref="F:Alphaleonis.Win32.Vss.VssBackupType.Incremental"/>.
+		/// 	<see cref="VssBackupType"/> of <see cref="VssBackupType.Incremental"/>.
 		/// </summary>
         IncrementalBackupRequired = 0x00000004,
 
@@ -89,35 +89,35 @@ namespace Alphaleonis.Win32.Vss
 		/// 	A writer tags a file set with this value to indicate to the requester that it 
 		/// 	expects a copy of the current version of the file set to be available following the 
 		/// 	restore of any backup operation with a 
-		/// 	<see dref="T:Alphaleonis.Win32.Vss.VssBackupType"/> of <see dref="F:Alphaleonis.Win32.Vss.VssBackupType.Log"/>.
+		/// 	<see cref="VssBackupType"/> of <see cref="VssBackupType.Log"/>.
 		/// </summary>
         LogBackupRequired = 0x00000008,
 
 		/// <summary>
 		/// 	A file set tagged with this value must be backed up from a shadow copy of a volume 
 		/// 	(and never from the original volume) when participating in a backup operation with a 
-		/// 	<see dref="T:Alphaleonis.Win32.Vss.VssBackupType"/> of <see dref="F:Alphaleonis.Win32.Vss.VssBackupType.Full"/>.
+		/// 	<see cref="VssBackupType"/> of <see cref="VssBackupType.Full"/>.
 		/// </summary>
         FullSnapshotRequired = 0x00000100,
 
 		/// <summary>
 		/// 	A file set tagged with this value must be backed up from a shadow copy of a volume 
 		/// 	(and never from the original volume) when participating in a backup operation with a 
-		/// 	<see dref="T:Alphaleonis.Win32.Vss.VssBackupType"/> of <see dref="F:Alphaleonis.Win32.Vss.VssBackupType.Differential"/>.
+		/// 	<see cref="VssBackupType"/> of <see cref="VssBackupType.Differential"/>.
 		/// </summary>
         DifferentialSnapshotRequired = 0x00000200,
 
 		/// <summary>
 		/// 	A file set tagged with this value must be backed up from a shadow copy of a volume 
 		/// 	(and never from the original volume) when participating in a backup operation with a 
-		/// 	<see dref="T:Alphaleonis.Win32.Vss.VssBackupType"/> of <see dref="F:Alphaleonis.Win32.Vss.VssBackupType.Incremental"/>.
+		/// 	<see cref="VssBackupType"/> of <see cref="VssBackupType.Incremental"/>.
 		/// </summary>
         IncrementalSnapshotRequired = 0x00000400,
 
 		/// <summary>
 		/// 	A file set tagged with this value must be backed up from a shadow copy of a volume 
 		/// 	(and never from the original volume) when participating in a backup operation with a 
-		/// 	<see dref="T:Alphaleonis.Win32.Vss.VssBackupType"/> of <see dref="F:Alphaleonis.Win32.Vss.VssBackupType.Log"/>.
+		/// 	<see cref="VssBackupType"/> of <see cref="VssBackupType.Log"/>.
 		/// </summary>
         LogSnapshotRequired = 0x00000800,
 
