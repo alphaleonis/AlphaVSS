@@ -1,5 +1,8 @@
 Version 1.0alpha
 -------------------
+* SetContext overload added to IVssBackupComponents accepting a 
+  VssSnapshotContext enumeration value.
+  
 * New exception, UnsupportedOperatingSystemException added.
 
 * VssSnapshotContext is now an enumeration.
