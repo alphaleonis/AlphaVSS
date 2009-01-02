@@ -1255,8 +1255,10 @@ namespace Alphaleonis.Win32.Vss
 		void SetBackupSucceeded(Guid instanceId, Guid writerId, VssComponentType componentType, string logicalPath, string componentName, bool succeeded);
 		
 		/// <summary>
-		/// 	The <see cref="SetContext"/> method sets the context for subsequent shadow copy-related operations. 
+		/// 	The <see cref="SetContext(VssSnapshotAttributes)"/> method sets the context for subsequent shadow copy-related operations. 
 		/// </summary>
+        /// <overloads>The <see cref="O:Alphaleonis.Win32.Vss.IVssBackupComponents.SetContext"/> method sets the context for subsequent 
+        /// shadow copy-related operations.</overloads>
 		/// <param name="context">
 		/// 	The context to be set. The context must be one of the supported values of <see cref="VssSnapshotContext"/> or a supported bit 
 		/// 	mask (or bitwise OR) of <see cref="VssVolumeSnapshotAttributes" /> with a valid <see cref="VssSnapshotContext" />. 
@@ -1267,10 +1269,10 @@ namespace Alphaleonis.Win32.Vss
 		/// 	</para>
 		/// 	<para>
 		/// 		<b>Windows XP:</b> The only supported context is the default context, <see dref="F:Alphaleonis.Win32.Vss.VssSnapshotContext.Backup"/>. Therefore, calling 
-		/// 		<see cref="SetContext" /> under Windows XP throws a <see cref="NotImplementedException"/>. 
+        /// 		<see cref="SetContext(VssSnapshotAttributes)" /> under Windows XP throws a <see cref="NotImplementedException"/>. 
 		/// 	</para>
 		/// 	<para>
-		/// 		<see cref="SetContext"/> can be called only once, and it must be called prior to calling most VSS functions.
+        /// 		<see cref="SetContext(VssSnapshotAttributes)"/> can be called only once, and it must be called prior to calling most VSS functions.
 		/// 	</para>
 		/// 	<para>
 		/// 		For details on how the context set by <see cref="SetContext"/> affects how a shadow copy is created and managed, see 
@@ -1285,6 +1287,39 @@ namespace Alphaleonis.Win32.Vss
 		/// <exception cref="SystemException">Unexpected VSS system error. The error code is logged in the event log.</exception>
 		/// <exception cref="VssBadStateException">The backup components object is not initialized, this method has been called during a restore operation, or this method has not been called within the correct sequence.</exception>		
 		void SetContext(VssVolumeSnapshotAttributes context);
+
+        /// <summary>
+        /// 	The <see cref="SetContext(VssSnapshotContext)"/> method sets the context for subsequent shadow copy-related operations. 
+        /// </summary>
+        /// <param name="context">
+        /// 	The context to be set. The context must be one of the supported values of <see cref="VssSnapshotContext"/> or a supported bit 
+        /// 	mask (or bitwise OR) of <see cref="VssVolumeSnapshotAttributes" /> with a valid <see cref="VssSnapshotContext" />. 
+        /// </param>
+        /// <remarks>
+        /// 	<para>
+        /// 		The default context for VSS shadow copies is <see dref="F:Alphaleonis.Win32.Vss.VssSnapshotContext.Backup"/>.
+        /// 	</para>
+        /// 	<para>
+        /// 		<b>Windows XP:</b> The only supported context is the default context, <see dref="F:Alphaleonis.Win32.Vss.VssSnapshotContext.Backup"/>. Therefore, calling 
+        /// 		<see cref="SetContext(VssSnapshotContext)" /> under Windows XP throws a <see cref="NotImplementedException"/>. 
+        /// 	</para>
+        /// 	<para>
+        /// 		<see cref="SetContext(VssSnapshotContext)"/> can be called only once, and it must be called prior to calling most VSS functions.
+        /// 	</para>
+        /// 	<para>
+        /// 		For details on how the context set by <see cref="SetContext(VssSnapshotContext)"/> affects how a shadow copy is created and managed, see 
+        /// 		<see href="http://msdn.microsoft.com/en-us/library/aa381653(VS.85).aspx">Implementation Details for Creating Shadow Copies</see>.
+        /// 	</para>
+        /// 	<para>
+        /// 		For a complete discussion of the permitted shadow copy contexts, see <see cref="VssSnapshotContext"/> and <see cref="VssVolumeSnapshotAttributes" />. 
+        /// 	</para>
+        /// </remarks>
+        /// <exception cref="ArgumentException">One of the parameter values is not valid.</exception>
+        /// <exception cref="OutOfMemoryException">Out of memory or other system resources.</exception>
+        /// <exception cref="SystemException">Unexpected VSS system error. The error code is logged in the event log.</exception>
+        /// <exception cref="VssBadStateException">The backup components object is not initialized, this method has been called during a restore operation, or this method has not been called within the correct sequence.</exception>		
+        void SetContext(VssSnapshotContext context);
+
 		
 		/// <summary>
 		/// 	The <see cref="SetFileRestoreStatus"/> method indicates whether some, all, or no files were successfully restored.

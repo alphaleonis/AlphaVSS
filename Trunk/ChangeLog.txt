@@ -1,5 +1,34 @@
-Version X.X (alpha)
+Version 1.0alpha
 -------------------
+* New exception, UnsupportedOperatingSystemException added.
+
+* VssSnapshotContext is now an enumeration.
+
+* Support for methods from IVssExamineWriterMetadataEx and 
+  IVssExamineWriterMetadataEx2 added to IVssExamineWriterMetadata.
+
+* Support for methods from IVssBackupComponentsEx and IVssBackupComponentsEx2
+  added to IVssBackupComponents.
+
+* IVssSnapshotManagement and IDifferentialSoftwareSnapshotManagement interfaces and 
+  classes added.
+
+* VssWriterFailure enumeration removed, with new VssError enumeration containing
+  all VSS error codes.
+
+* Class OperatingSystemInfo added to AlphaVSS.Common, replacing old OSInfo 
+  in AlphaVSS.Platform together with OSVersionName and ProcessorArchitecture 
+  enumerations.
+
+* Target-framework for AlphaVSS.Common changed to .NET 2.0.
+
+* Binary release now has a Strong Name, also used during dynamic loading of 
+  assemblies. Public key distributed with source.
+
+* API documentation updated, all links now correct and documentation complete.
+
+* Bug: IVssExamineWriterMetadata did not implement IDisposable, fixed.
+
 * VssAsync, VssBackupComponents, VssComponent, VssExamineWriterMetadata, VssWMComponent 
   and VssWriterComponents have been made private classes and should instead be used through
   their corresponding interfaces, IVssAsync, IVssBackupComponents, IVssComponent, 
@@ -29,6 +58,8 @@ Version X.X (alpha)
 * VssUnexpectedWriterError renamed to VssUnexpectedWriterErrorException
 
 * VssDifferencedFileInfo.FileSpec renamed to VssDifferencedFileInfo.FileSpecification
+
+* Plus many things that probably didn't make it into this changelog...
 
 Version 0.8 (alpha)
 -------------------

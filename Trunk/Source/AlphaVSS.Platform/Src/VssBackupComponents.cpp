@@ -539,6 +539,11 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		CheckCom(mBackup->SetContext((LONG)context));
 	}
 
+	void VssBackupComponents::SetContext(VssSnapshotContext context)
+	{
+		CheckCom(mBackup->SetContext((LONG)context));
+	}
+
 	void VssBackupComponents::SetFileRestoreStatus(Guid writerId, VssComponentType componentType, String^ logicalPath, String^ componentName, VssFileRestoreStatus status)
 	{
 		CheckCom(mBackup->SetFileRestoreStatus(ToVssId(writerId), (VSS_COMPONENT_TYPE)componentType, AutoMStr(logicalPath), NoNullAutoMStr(componentName), (VSS_FILE_RESTORE_STATUS)status));

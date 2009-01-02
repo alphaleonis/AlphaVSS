@@ -60,7 +60,7 @@
 #define NoNullAutoMBStr(arg) NoNullAutoStrImpl(arg, #arg, AutoMBStr)
 #define NoNullAutoStrImpl(arg, name, type) NoNull<type>(arg, L##name)
 
-#define UnsupportedOs() throw gcnew NotSupportedException(L"Operation is not supported on the current operating system.")
+#define UnsupportedOs() throw gcnew UnsupportedOperatingSystemException(L"Operation is not supported on the current operating system.")
 
 //
 // Defines an instance variable and accessor methods to an "Ex" interface
