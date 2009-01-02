@@ -51,8 +51,8 @@ using namespace System::Security::Permissions;
 // You can specify all the value or you can default the Revision and Build Numbers
 // by using the '*' as shown below:
 
-[assembly:AssemblyVersionAttribute("0.8.0.8526")];
-[assembly:AssemblyFileVersionAttribute("0.8.0.8526")];
+[assembly:AssemblyVersionAttribute("1.0.0.9014")];
+[assembly:AssemblyFileVersionAttribute("1.0.0.9014")];
 [assembly:ComVisible(false)];
 
 [assembly:CLSCompliantAttribute(true)];

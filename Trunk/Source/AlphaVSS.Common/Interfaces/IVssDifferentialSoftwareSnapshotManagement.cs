@@ -409,7 +409,7 @@ namespace Alphaleonis.Win32.Vss
         /// <param name="isVolatile">
         ///     <para>
         ///         <see langword="true"/> to indicate that the effect of calling the 
-        ///         <see cref="O:Alphaleonis.Win32.Vss.ChangeDiffAreaMaximumSize"/> method should not continue if 
+        ///         <see cref="O:Alphaleonis.Win32.Vss.IVssDifferentialSoftwareSnapshotManagement.ChangeDiffAreaMaximumSize"/> method should not continue if 
         ///         the computer is rebooted; otherwise, <see langword="false"/>.
         ///     </para>
         ///     <para>

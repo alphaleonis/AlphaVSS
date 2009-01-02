@@ -32,7 +32,7 @@ namespace Alphaleonis.Win32.Vss
     ///         on its completion, querying its status, or canceling it.
     ///     </para>
     ///     <para>
-    ///         The calling application is responsible for calling <see cref="M:Alphaleonis.Win32.Vss.IVssAsync.Dispose"/> to release the resources held 
+    ///         The calling application is responsible for calling <c>Dispose()</c> to release the resources held 
     ///         by the returned <see cref="IVssAsync"/> interface when it is no longer needed.
     ///     </para>
     ///     <para>

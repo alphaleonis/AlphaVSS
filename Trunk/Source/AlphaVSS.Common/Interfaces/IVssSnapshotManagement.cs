@@ -38,7 +38,7 @@ namespace Alphaleonis.Win32.Vss
         ///         </note>
         ///     </para>
         /// </remarks>
-        /// <returns></returns>
+        /// <returns>An instance of the differential software snapshot management interface to further configure the system provider.</returns>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate")]
         IVssDifferentialSoftwareSnapshotManagement GetDifferentialSoftwareSnapshotManagementInterface();
 
@@ -60,7 +60,7 @@ namespace Alphaleonis.Win32.Vss
         ///         </note>
         ///     </para>
         /// </remarks>
-        /// <returns></returns>
+        /// <returns>The current minimum size of the shadow copy storage area.</returns>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate")]
         long GetMinDiffAreaSize();
     }

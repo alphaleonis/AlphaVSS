@@ -52,12 +52,13 @@ namespace Alphaleonis.Win32.Vss
 		 string Caption { get; }
 		
         /// <summary>
-		///     A buffer containing the binary data for a displayable icon representing the component. 
+		///     Gets a buffer containing the binary data for a displayable icon representing the component. 
 		/// </summary>
 		/// <remarks>
         ///     The buffer contents should use the same format as the standard icon (.ico) files. If the writer that created 
 		///     the component did not choose to specify an icon, the value will be <see langword="null"/>.
         /// </remarks>
+         /// <returns>A buffer containing the binary data for a displayable icon representing the component. </returns>
          byte[] GetIcon();
 
 		/// <summary>

@@ -28,16 +28,24 @@ namespace Alphaleonis.Win32.Vss
 	/// 	<para>
 	/// 		The <see cref="IVssBackupComponents"/> class is used by a requester to poll writers about file status and to run backup/restore operations.
 	/// 	</para>
+    /// </summary>
+    /// <remarks>
 	/// 	<para>
 	/// 		A <see cref="IVssBackupComponents"/> object can be used for only a single backup, restore, or Query operation.
 	/// 	</para>
 	/// 	<para>
 	/// 		After the backup, restore, or Query operation has either successfully finished or been explicitly terminated, a requester must 
-	/// 		release the <see cref="IVssBackupComponents"/> object by calling <see dref="IVssBackupComponents.Dispose"/>. 
+	/// 		release the <see cref="IVssBackupComponents"/> object by calling <c>Dispose()</c>. 
 	/// 		A <see cref="IVssBackupComponents"/> object must not be reused. For example, you cannot perform a backup or restore operation with the 
 	/// 		same <see cref="IVssBackupComponents"/> object that you have already used for a Query operation.
 	/// 	</para>
-	/// </summary>
+    /// 	<para>
+    /// 	    For information on how to retrieve an instance of <see cref="IVssBackupComponents"/> for the current operating system, see 
+    /// 	    <see cref="VssUtils"/> and <see cref="IVssImplementation"/>.
+    /// 	</para>
+	/// </remarks>
+    /// <seealso cref="VssUtils"/>
+    /// <seealso cref="IVssImplementation"/>
 	public interface IVssBackupComponents : IDisposable
     {
 		/// <summary>
@@ -1538,6 +1546,9 @@ namespace Alphaleonis.Win32.Vss
 		/// <summary>
         ///     The <see cref="SetSelectedForRestore(Guid,VssComponentType,String,String,bool)"/> method indicates whether the specified selectable component is selected for restoration.
         /// </summary>
+        /// <overloads>
+        ///     The <see cref="O:Alphaleonis.Win32.Vss.IVssBackupComponents.SetSelectedForRestore"/> method indicates whether the specified selectable component is selected for restoration. This method has several overloads.
+        /// </overloads>
 		/// <param name="writerId">Writer identifier.</param>
 		/// <param name="componentType">Type of the component.</param>
 		/// <param name="logicalPath">
@@ -1569,9 +1580,9 @@ namespace Alphaleonis.Win32.Vss
 		/// </param>
 		/// <remarks>
 		///		<para>SetSelectedForRestore has meaning only for restores taking place in component mode.</para>
-		/// 	<para><see cref="O:SetSelectedForRestore"/> can only be called for components that were explicitly added to the 
+		/// 	<para><see cref="O:Alphaleonis.Win32.Vss.IVssBackupComponents.SetSelectedForRestore"/> can only be called for components that were explicitly added to the 
         /// 	backup document at backup time using <see cref="AddComponent"/>. Restoring a component that was implicitly 
-        /// 	selected for backup as part of a component set must be done by calling <see cref="O:SetSelectedForRestore"/> on the closest 
+        /// 	selected for backup as part of a component set must be done by calling <see cref="O:Alphaleonis.Win32.Vss.IVssBackupComponents.SetSelectedForRestore"/> on the closest 
         /// 	ancestor component that was added to the document. If only this component's data is to be restored, 
         /// 	that should be accomplished through <see cref="AddRestoreSubcomponent"/>; this can only be done if the component 
         /// 	is selectable for restore.</para>

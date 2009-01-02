@@ -24,8 +24,27 @@ using System.Runtime.Remoting;
 
 namespace Alphaleonis.Win32.Vss
 {
+    /// <summary>
+    ///     The <see cref="VssUtils"/> class is a static utility class for accessing the platform specific
+    ///     instances of the various VSS interfaces in a platform-independent manner.
+    /// </summary>
+    /// <remarks>
+    ///     Use the <see cref="O:Alphaleonis.Win32.Vss.VssUtils.LoadImplementation"/> under normal circumstances to load
+    ///     the correct assembly and create an instance of <see cref="IVssImplementation"/> from that assembly. If you have 
+    ///     specific requirements on how the assembly should be loaded, or the instance created you are not required to use 
+    ///     these methods but can use the methods in this class for accessing the suggested assembly name to load, and load it manually.
+    ///     In this case you need to create an instance of the class called <c>Alphaleonis.Win32.Vss.VssImplementation</c> from the platform specific
+    ///     assembly. This class implements the <see cref="IVssImplementation"/> interface, and has a public parameterless constructor.
+    /// </remarks>
     public static class VssUtils
     {
+        /// <summary>
+        /// Gets the short name of the platform specific assembly for the platform on which the assembly 
+        /// is currently executing.
+        /// </summary>
+        /// <returns>the short name of the platform specific assembly for the platform on which the assembly 
+        /// is currently executing.</returns>
+        /// <exception cref="UnsupportedOperatingSystemException">The operating system could not be detected or is unsupported.</exception>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate")]
         public static string GetPlatformSpecificAssemblyShortName()
         {
@@ -73,6 +92,11 @@ namespace Alphaleonis.Win32.Vss
 #endif
         }
 
+        /// <summary>
+        /// Gets the full name of the platform specific assembly for the platform on which the assembly is currently executing.
+        /// </summary>
+        /// <returns>The full name of the platform specific assembly for the platform on which the assembly is currently executing.</returns>
+        /// <exception cref="UnsupportedOperatingSystemException">The operating system could not be detected or is unsupported.</exception>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate")]
         public static AssemblyName GetPlatformSpecificAssemblyName()
         {
@@ -82,13 +106,39 @@ namespace Alphaleonis.Win32.Vss
                 Assembly.GetExecutingAssembly().GetName().Version.ToString() + 
                 ", PublicKeyToken=3033cf2dbd31cad3");
         }
-       
+
+        /// <summary>
+        /// Loads the assembly containing the correct implementation of the <see cref="IVssImplementation"/> interface
+        /// for the operating system on which the assembly is currently executing. 
+        /// </summary>
+        /// <overloads>
+        /// Loads the assembly containing the correct implementation of the <see cref="IVssImplementation"/> interface
+        /// for the operating system on which the assembly is currently executing, optionally allowing the specification
+        /// of an <see cref="AppDomain"/> into which to load the assembly.
+        /// </overloads>
+        /// <remarks>
+        ///     The assembly will be loaded into the same <see cref="AppDomain"/> as the calling assembly.
+        /// </remarks>
+        /// <returns>An newly created instance of <see cref="IVssImplementation"/> suitable for the 
+        /// operating system on which the assembly is currently executing.</returns>
+        /// <exception cref="UnsupportedOperatingSystemException">The operating system could not be detected or is unsupported.</exception>
         public static IVssImplementation LoadImplementation()
         {
             Assembly assembly = Assembly.Load(GetPlatformSpecificAssemblyName());           
             return (IVssImplementation)assembly.CreateInstance("Alphaleonis.Win32.Vss.VssImplementation");
         }
 
+        /// <summary>
+        /// Loads the assembly containing the correct implementation of the <see cref="IVssImplementation"/> interface
+        /// for the operating system on which the assembly is currently executing allowing the specification
+        /// of an <see cref="AppDomain"/> into which to load the assembly.
+        /// </summary>
+        /// <param name="domain">The <see cref="AppDomain"/> into which to load the platform specific assembly.</param>
+        /// <returns>
+        /// An newly created instance of <see cref="IVssImplementation"/> suitable for the
+        /// operating system on which the assembly is currently executing.
+        /// </returns>
+        /// <exception cref="UnsupportedOperatingSystemException">The operating system could not be detected or is unsupported.</exception>
         public static IVssImplementation LoadImplementation(AppDomain domain)
         {
             domain.Load(GetPlatformSpecificAssemblyName());            

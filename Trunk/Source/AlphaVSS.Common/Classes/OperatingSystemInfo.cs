@@ -49,7 +49,7 @@ namespace Alphaleonis.Win32.Vss
 
         /// <summary>
         /// Gets the numeric version of the operating system. This is the same as returned by 
-        /// <see cref="M:System.Environment.OSVersion.Version"/>.
+        /// <see cref="System.Environment.OSVersion"/>.
         /// </summary>
         /// <value>The numeric version of the operating system.</value>
         public static Version OSVersion

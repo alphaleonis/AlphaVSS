@@ -65,7 +65,7 @@ namespace Alphaleonis.Win32.Vss
         /// After clearing the protection fault, you can do one of the following:
         /// <list type="bullet">
         ///     <item><description>Delete unused shadow copy storage areas by calling the <see cref="IVssDifferentialSoftwareSnapshotManagement.DeleteUnusedDiffAreas"/> method.</description></item>
-        ///     <item><description>Increase the shadow copy storage area maximum size for the volume by calling the <see cref="O:IVssDifferentialSoftwareSnapshotManagement.ChangeDiffAreaMaximumSize"/> method.</description></item>
+        ///     <item><description>Increase the shadow copy storage area maximum size for the volume by calling the <see cref="O:Alphaleonis.Win32.Vss.IVssDifferentialSoftwareSnapshotManagement.ChangeDiffAreaMaximumSize"/> method.</description></item>
         /// </list>
         /// </summary>
         DiffAreaFull = 8,

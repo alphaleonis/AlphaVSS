@@ -32,6 +32,7 @@ namespace Alphaleonis.Win32.Vss
     ///     or by statically referencing the correct platform-specific assembly and manually creating an instance of <c>VssImplementation</c>
     ///     from that assembly.
     /// </remarks>
+    /// <seealso cref="VssUtils"/>
     public interface IVssImplementation
     {
         /// <summary>
@@ -39,7 +40,7 @@ namespace Alphaleonis.Win32.Vss
         /// for the current implementation and returns a reference to it.
         /// </summary>
         /// <remarks>
-        ///     The calling application is responsible for calling <see cref="M:IVssBackupComponents.Dispose"/> to release the 
+        ///     The calling application is responsible for calling <c>Dispose"</c> to release the 
         ///     resources held by the <see cref="IVssBackupComponents"/> instance when it is no longer needed.
         /// </remarks>
         /// <returns>A reference to the newly created <see cref="IVssBackupComponents"/> instance.</returns>
