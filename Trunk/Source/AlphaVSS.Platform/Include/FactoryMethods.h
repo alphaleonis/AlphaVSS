@@ -20,6 +20,7 @@
  */
 #pragma once
 
+#include "Config.h"
 #include "Macros.h"
 #include "Error.h"
 
@@ -31,7 +32,9 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 {
 	VssWMFileDescription^ CreateVssWMFileDescription(IVssWMFiledesc *vssWMFiledesc);
 	VssProviderProperties^ CreateVssProviderProperties(VSS_PROVIDER_PROP *pProp);
+#ifdef ALPHAVSS_HAS_WMDEPENDENCY	
 	VssWMDependency^ CreateVssWMDependency(IVssWMDependency *dependency);
+#endif	
 	VssSnapshotProperties^ CreateVssSnapshotProperties(VSS_SNAPSHOT_PROP *prop);
 
 #ifdef ALPHAVSS_HAS_DIFFERENTIALSOFTWARESNAPSHOTMGMT3

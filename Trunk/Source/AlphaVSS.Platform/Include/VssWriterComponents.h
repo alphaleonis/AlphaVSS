@@ -26,7 +26,7 @@
 
 namespace Alphaleonis { namespace Win32 { namespace Vss
 {
-	private ref class VssWriterComponents : IDisposable, IVssWriterComponents
+	private ref class VssWriterComponents : IDisposable, IVssWriterComponents, MarshalByRefObject
 	{
 	public:
 		~VssWriterComponents();

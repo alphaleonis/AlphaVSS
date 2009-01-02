@@ -31,7 +31,7 @@ using namespace System::Security::Permissions;
 
 namespace Alphaleonis { namespace Win32 { namespace Vss
 {
-	private ref class VssExamineWriterMetadata : IDisposable, IVssExamineWriterMetadata
+	private ref class VssExamineWriterMetadata : IDisposable, IVssExamineWriterMetadata, MarshalByRefObject
 	{
 	public:
 		~VssExamineWriterMetadata();

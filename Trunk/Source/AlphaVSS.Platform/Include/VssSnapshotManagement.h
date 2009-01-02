@@ -26,7 +26,7 @@
 
 namespace Alphaleonis { namespace Win32 { namespace Vss
 {
-	public ref class VssSnapshotManagement : IVssSnapshotManagement
+	public ref class VssSnapshotManagement : IVssSnapshotManagement, MarshalByRefObject
 	{
 	public:
 		~VssSnapshotManagement();

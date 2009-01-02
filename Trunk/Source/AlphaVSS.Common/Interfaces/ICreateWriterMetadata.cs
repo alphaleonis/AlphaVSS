@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
+﻿
 namespace Alphaleonis.Win32.Vss.Interfaces
 {
 #if false // This interface is not yet supported

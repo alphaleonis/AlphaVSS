@@ -21,7 +21,7 @@
 #pragma once
 
 #include <vss.h>
-#include "VssError.h"
+//#include "VssError.h"
 
 namespace Alphaleonis { namespace Win32 { namespace Vss
 {
@@ -39,7 +39,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	/// 		The <see cref="VssAsync"/> object should be disposed as soon as it is no longer needed.
 	/// 	</para>
 	/// </summary>
-	private ref class VssAsync : IVssAsync
+	private ref class VssAsync : IVssAsync, MarshalByRefObject
 	{
 	public:
 		/// <summary>Destructor.</summary>

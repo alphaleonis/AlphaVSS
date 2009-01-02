@@ -545,10 +545,10 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 
 	String^ VssComponent::RollForwardRestorePoint::get()
 	{
+#ifdef ALPHAVSS_HAS_COMPONENTEX
 		VSS_ROLLFORWARD_TYPE eRollType;
 		AutoBStr bstrPoint;
 
-#ifdef ALPHAVSS_HAS_COMPONENTEX
 		if (SUCCEEDED(RequireIVssComponentEx()->GetRollForward(&eRollType, &bstrPoint)))
 			return bstrPoint;
 #endif
@@ -557,10 +557,10 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 
 	VssRollForwardType VssComponent::RollForwardType::get()
 	{
+#ifdef ALPHAVSS_HAS_COMPONENTEX
 		VSS_ROLLFORWARD_TYPE eRollType;
 		AutoBStr bstrPoint;
 
-#ifdef ALPHAVSS_HAS_COMPONENTEX
 		if (SUCCEEDED(RequireIVssComponentEx()->GetRollForward(&eRollType, &bstrPoint)))
 			return (VssRollForwardType)eRollType;
 #endif

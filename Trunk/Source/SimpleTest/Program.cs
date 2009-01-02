@@ -10,6 +10,9 @@ namespace SimpleTest
     {
         static void Main(string[] args)
         {
+            AppDomain domain = AppDomain.CreateDomain("myDomain");
+            IVssImplementation impl = VssUtils.LoadImplementation(domain);
+            IVssBackupComponents backup = impl.CreateVssBackupComponents();
             Console.WriteLine(OperatingSystemInfo.OSVersionName);
             Console.WriteLine(OperatingSystemInfo.ProcessorArchitecture);
             Console.WriteLine(OperatingSystemInfo.IsWow64Process());

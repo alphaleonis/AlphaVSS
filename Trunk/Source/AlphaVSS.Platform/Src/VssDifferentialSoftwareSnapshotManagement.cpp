@@ -248,9 +248,13 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 
     VssVolumeProtectionInfo^ VssDifferentialSoftwareSnapshotManagement::GetVolumeProtectionLevel(String^ volumeName)
 	{
+#ifdef ALPHAVSS_HAS_DIFFERENTIALSOFTWARESNAPSHOTMGMT3
 		VSS_VOLUME_PROTECTION_INFO info;
 		CheckCom(RequireIVssDifferentialSoftwareSnapshotMgmt3()->GetVolumeProtectLevel(NoNullAutoMStr(volumeName), &info));
 		return CreateVssVolumeProtectionInfo(&info);
+#else
+		UnsupportedOs();
+#endif
 	}
 
     void VssDifferentialSoftwareSnapshotManagement::SetVolumeProtectionLevel(String^ volumeName, VssProtectionLevel protectionLevel)

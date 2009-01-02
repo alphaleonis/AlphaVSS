@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Alphaleonis.Win32.Vss
 {
@@ -116,6 +114,10 @@ namespace Alphaleonis.Win32.Vss
         /// The <see cref="O:Alphaleonis.Win32.Vss.IVssDifferentialSoftwareSnapshotManagement.ChangeDiffAreaMaximumSize"/> method updates the shadow copy storage area maximum size 
         /// for a certain volume. This may not have an immediate effect.
         /// </summary>
+        /// <overloads>
+        /// Updates the shadow copy storage area maximum size 
+        /// for a certain volume. This method has two overloads.
+        /// </overloads>
         /// <param name="volumeName">
         /// <para>
         ///     Name of the volume that is the source of shadow copies that are associated with a shadow copy 

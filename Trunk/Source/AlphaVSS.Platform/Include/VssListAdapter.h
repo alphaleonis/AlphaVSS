@@ -24,7 +24,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 {
 
 	generic<typename T> 
-	private ref class VssListAdapter abstract : System::Collections::Generic::IList<T> 
+	private ref class VssListAdapter abstract : System::Collections::Generic::IList<T>, MarshalByRefObject
 	{
 	public:
 		virtual void Add(T item) sealed;

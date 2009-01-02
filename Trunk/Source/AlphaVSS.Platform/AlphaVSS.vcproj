@@ -77,6 +77,8 @@
 				GenerateDebugInformation="true"
 				AssemblyDebug="1"
 				TargetMachine="1"
+				KeyFile="$(SolutionDir)\AlphaVSS.pub.snk"
+				DelaySign="true"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -153,12 +155,16 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="vssapi.lib"
+				ShowProgress="2"
 				OutputFile="$(OutDir)\AlphaVSS.$(ConfigurationName).x64.dll"
 				Version="0.8.0.8526"
 				LinkIncremental="1"
 				GenerateDebugInformation="true"
 				AssemblyDebug="1"
 				TargetMachine="17"
+				KeyFile="$(SolutionDir)\AlphaVSS.pub.snk"
+				KeyContainer=""
+				DelaySign="true"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -236,6 +242,8 @@
 				LinkIncremental="1"
 				GenerateDebugInformation="true"
 				TargetMachine="1"
+				KeyFile="$(SolutionDir)\AlphaVSS.pub.snk"
+				DelaySign="true"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -311,6 +319,8 @@
 				LinkIncremental="1"
 				GenerateDebugInformation="true"
 				TargetMachine="17"
+				KeyFile="$(SolutionDir)\AlphaVSS.pub.snk"
+				DelaySign="true"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -388,6 +398,8 @@
 				GenerateDebugInformation="true"
 				AssemblyDebug="1"
 				TargetMachine="1"
+				KeyFile="$(SolutionDir)\AlphaVSS.pub.snk"
+				DelaySign="true"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -468,6 +480,8 @@
 				GenerateDebugInformation="true"
 				AssemblyDebug="1"
 				TargetMachine="17"
+				KeyFile="$(SolutionDir)\AlphaVSS.pub.snk"
+				DelaySign="true"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -546,6 +560,8 @@
 				LinkIncremental="1"
 				GenerateDebugInformation="true"
 				TargetMachine="1"
+				KeyFile="$(SolutionDir)\AlphaVSS.pub.snk"
+				DelaySign="true"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -622,6 +638,8 @@
 				LinkIncremental="1"
 				GenerateDebugInformation="true"
 				TargetMachine="17"
+				KeyFile="$(SolutionDir)\AlphaVSS.pub.snk"
+				DelaySign="true"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -699,6 +717,8 @@
 				GenerateDebugInformation="true"
 				AssemblyDebug="1"
 				TargetMachine="1"
+				KeyFile="$(SolutionDir)\AlphaVSS.pub.snk"
+				DelaySign="true"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -779,6 +799,8 @@
 				GenerateDebugInformation="true"
 				AssemblyDebug="1"
 				TargetMachine="17"
+				KeyFile="$(SolutionDir)\AlphaVSS.pub.snk"
+				DelaySign="true"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -857,6 +879,8 @@
 				LinkIncremental="1"
 				GenerateDebugInformation="true"
 				TargetMachine="1"
+				KeyFile="$(SolutionDir)\AlphaVSS.pub.snk"
+				DelaySign="true"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -933,6 +957,8 @@
 				LinkIncremental="1"
 				GenerateDebugInformation="true"
 				TargetMachine="17"
+				KeyFile="$(SolutionDir)\AlphaVSS.pub.snk"
+				DelaySign="true"
 			/>
 			<Tool
 				Name="VCALinkTool"

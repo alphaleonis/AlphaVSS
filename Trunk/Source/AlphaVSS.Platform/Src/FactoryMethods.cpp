@@ -73,6 +73,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		}
 	}
 
+#ifdef ALPHAVSS_HAS_WMDEPENDENCY
 	VssWMDependency^ CreateVssWMDependency(IVssWMDependency *dependency)		
 	{
 		try
@@ -93,6 +94,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 			dependency->Release();
 		}
 	}
+#endif
 
 	VssSnapshotProperties^ CreateVssSnapshotProperties(VSS_SNAPSHOT_PROP *prop)
 	{

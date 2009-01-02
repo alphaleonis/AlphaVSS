@@ -34,7 +34,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	/// </remarks>
 	/// <seealso cref="IVssUtils"/>
 	/// <seealso cref="VssUtils"/>
-	public ref class VssImplementation : IVssImplementation
+	public ref class VssImplementation : IVssImplementation, MarshalByRefObject 
 	{
 	public:
 		/// <summary>

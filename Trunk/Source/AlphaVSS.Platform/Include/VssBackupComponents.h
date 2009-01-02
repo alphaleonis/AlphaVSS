@@ -20,7 +20,6 @@
  */
 #pragma once
 
-#include "VssError.h"
 #include "VssWriterComponents.h"
 #include "VssExamineWriterMetadata.h"
 #include "Macros.h"
@@ -33,7 +32,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 {
 	ref class VssAsync;
 
-	private ref class VssBackupComponents : IDisposable, IVssBackupComponents
+	private ref class VssBackupComponents : IDisposable, IVssBackupComponents, MarshalByRefObject
 	{
 	public:
 		VssBackupComponents();

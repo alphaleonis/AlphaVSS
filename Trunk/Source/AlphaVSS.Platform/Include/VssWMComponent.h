@@ -26,7 +26,7 @@ using namespace System::Collections::Generic;
 
 namespace Alphaleonis { namespace Win32 { namespace Vss
 {
-	private ref class VssWMComponent : IVssWMComponent, IDisposable
+	private ref class VssWMComponent : IVssWMComponent, IDisposable, MarshalByRefObject
 	{
 	public:
 		~VssWMComponent();

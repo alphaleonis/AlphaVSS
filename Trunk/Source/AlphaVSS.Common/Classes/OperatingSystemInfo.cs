@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Runtime.InteropServices;
 using System.Diagnostics;
-using System.Security.Permissions;
 using System.Globalization;
+using System.Runtime.InteropServices;
+using System.Security.Permissions;
 
 namespace Alphaleonis.Win32.Vss
 {
@@ -282,8 +279,8 @@ namespace Alphaleonis.Win32.Vss
             }
 
             Debug.Assert(info.dwMajorVersion == Environment.OSVersion.Version.Major);
-            Debug.Assert(info.dwMinorVersion == Environment.OSVersion.Version.MajorRevision);
-            Debug.Assert(info.dwBuildNumber == Environment.OSVersion.Version.Minor);
+            Debug.Assert(info.dwMinorVersion == Environment.OSVersion.Version.Minor);
+            Debug.Assert(info.dwBuildNumber == Environment.OSVersion.Version.Build);
 
             mProcessorArchitecture = (ProcessorArchitecture)sysInfo.processorArchitecture;
 
