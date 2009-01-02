@@ -7,6 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		AlphaVSS.pub.snk = AlphaVSS.pub.snk
 		..\ChangeLog.txt = ..\ChangeLog.txt
+		..\LICENSE.TXT = ..\LICENSE.TXT
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlphaVSS.Common", "AlphaVSS.Common\AlphaVSS.Common.csproj", "{2FB97B30-1050-4F6B-B729-B94AAA178EE4}"

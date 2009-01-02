@@ -82,10 +82,6 @@
     <Compile Include="Enumerations\VssRollForwardType.cs" />
     <Compile Include="Exceptions\UnsupportedOperatingSystemException.cs" />
     <Compile Include="Exceptions\VssMaximumDiffAreaAssociationsReachedException.cs" />
-    <Compile Include="Interfaces\ICreateWriterMetadata.cs" />
-    <Compile Include="Interfaces\IVssComponent.cs" />
-    <Compile Include="Interfaces\IVssDifferentialSoftwareSnapshotManagement.cs" />
-    <Compile Include="Interfaces\IVssImplementation.cs" />
     <Compile Include="Classes\VssProviderProperties.cs" />
     <Compile Include="Classes\VssRestoreSubComponentInfo.cs" />
     <Compile Include="Classes\VssUtils.cs" />
@@ -137,12 +133,36 @@
     <Compile Include="Exceptions\VssWriterInfrastructureException.cs" />
     <Compile Include="GlobalSuppression.cs" />
     <Compile Include="Exceptions\VssException.cs" />
-    <Compile Include="Interfaces\IVssAsync.cs" />
-    <Compile Include="Interfaces\IVssBackupComponents.cs" />
-    <Compile Include="Interfaces\IVssExamineWriterMetadata.cs" />
-    <Compile Include="Interfaces\IVssSnapshotManagement.cs" />
-    <Compile Include="Interfaces\IVssWMComponent.cs" />
-    <Compile Include="Interfaces\IVssWriterComponents.cs" />
+    <Compile Include="Interfaces\ICreateWriterMetadata.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Interfaces\IVssAsync.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Interfaces\IVssBackupComponents.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Interfaces\IVssComponent.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Interfaces\IVssDifferentialSoftwareSnapshotManagement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Interfaces\IVssExamineWriterMetadata.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Interfaces\IVssImplementation.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Interfaces\IVssSnapshotManagement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Interfaces\IVssWMComponent.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Interfaces\IVssWriterComponents.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\LocalizedStrings.Designer.cs">
       <AutoGen>True</AutoGen>
