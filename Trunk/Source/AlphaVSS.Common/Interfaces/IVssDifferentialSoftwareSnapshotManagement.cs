@@ -190,11 +190,135 @@ namespace Alphaleonis.Win32.Vss
         /// original volume associated with the input shadow copy.
         /// </summary>
         /// <param name="snapshotId">The snapshot id.</param>
-        /// <returns></returns>
+        /// <returns>A list of <see cref="VssDiffAreaProperties"/> describing the shadow copy storage areas in use by the 
+        /// shadow copy specified.</returns>
+        /// <exception cref="UnauthorizedAccessException">Caller does not have sufficient backup privileges or is not an administrator.</exception>
+        /// <exception cref="OutOfMemoryException">The caller is out of memory or other system resources.</exception>
+        /// <exception cref="ArgumentException">One of the parameter values is not valid.</exception>
+        /// <exception cref="ArgumentNullException">One of the arguments was <see langword="null"/></exception>
+        /// <exception cref="SystemException">Unexpected error. The error code is logged in the error log file.</exception>
+        /// <exception cref="VssProviderVetoException">Expected provider error. The provider logged the error in the event log.</exception>        
         IList<VssDiffAreaProperties> QueryDiffAreasForSnapshot(Guid snapshotId);
+
+        /// <summary>
+        /// The <see cref="QueryDiffAreasForVolume"/> method queries shadow copy storage areas in use by the volume specified.
+        /// </summary>
+        /// <param name="volumeName">
+        /// <para>
+        ///     Name of the volume that contains shadow copy storage areas. 
+        /// </para>
+        /// <para>
+        ///     The name of the volume must be in one of the following formats:
+        ///     <list type="bullet">
+        ///         <item>
+        ///             <description>
+        ///                 The path of a volume mount point with a backslash (\)
+        ///             </description>
+        ///          </item>
+        ///         <item>
+        ///             <description>
+        ///                 A drive letter with backslash (\), for example, <c>D:\</c>
+        ///             </description>
+        ///          </item>
+        ///         <item>
+        ///             <description>
+        ///                 A unique volume name of the form <c>\\?\Volume{GUID}\</c> (where 
+        ///                 GUID is the unique global identifier of the volume) with a backslash (\)
+        ///             </description>
+        ///          </item>
+        ///      </list>
+        ///  </para>
+        /// </param>
+        /// <returns>A list containing <see cref="VssDiffAreaProperties"/> objects describing the shadow 
+        /// copy storage areas in use by the volume specified.</returns>
+        /// <exception cref="UnauthorizedAccessException">Caller does not have sufficient backup privileges or is not an administrator.</exception>
+        /// <exception cref="OutOfMemoryException">The caller is out of memory or other system resources.</exception>
+        /// <exception cref="ArgumentException">One of the parameter values is not valid.</exception>
+        /// <exception cref="ArgumentNullException">One of the arguments was <see langword="null"/></exception>
+        /// <exception cref="SystemException">Unexpected error. The error code is logged in the error log file.</exception>
+        /// <exception cref="VssProviderVetoException">Expected provider error. The provider logged the error in the event log.</exception>        
         IList<VssDiffAreaProperties> QueryDiffAreasForVolume(string volumeName);
+
+        /// <summary>
+        /// The <see cref="QueryDiffAreasOnVolume"/> method queries shadow copy storage areas that physically 
+        /// reside on the given volume
+        /// </summary>
+        /// <param name="volumeName">
+        /// <para>
+        ///     Name of the volume that contains shadow copy storage areas. 
+        /// </para>
+        /// <para>
+        ///     The name of the volume must be in one of the following formats:
+        ///     <list type="bullet">
+        ///         <item>
+        ///             <description>
+        ///                 The path of a volume mount point with a backslash (\)
+        ///             </description>
+        ///          </item>
+        ///         <item>
+        ///             <description>
+        ///                 A drive letter with backslash (\), for example, <c>D:\</c>
+        ///             </description>
+        ///          </item>
+        ///         <item>
+        ///             <description>
+        ///                 A unique volume name of the form <c>\\?\Volume{GUID}\</c> (where 
+        ///                 GUID is the unique global identifier of the volume) with a backslash (\)
+        ///             </description>
+        ///          </item>
+        ///      </list>
+        ///  </para>
+        /// </param>
+        /// <returns>A list of <see cref="VssDiffAreaProperties"/> objects describing the 
+        /// shadow copy storage areas that physically reside on the given volume.</returns>
+        /// <exception cref="UnauthorizedAccessException">Caller does not have sufficient backup privileges or is not an administrator.</exception>
+        /// <exception cref="OutOfMemoryException">The caller is out of memory or other system resources.</exception>
+        /// <exception cref="ArgumentException">One of the parameter values is not valid.</exception>
+        /// <exception cref="ArgumentNullException">One of the arguments was <see langword="null"/></exception>
+        /// <exception cref="SystemException">Unexpected error. The error code is logged in the error log file.</exception>
+        /// <exception cref="VssProviderVetoException">Expected provider error. The provider logged the error in the event log.</exception>        
         IList<VssDiffAreaProperties> QueryDiffAreasOnVolume(string volumeName);
+
+        /// <summary>
+        /// The <see cref="QueryVolumesSupportedForDiffAreas"/> method queries volumes that support shadow copy storage 
+        /// areas (including volumes with disabled shadow copy storage areas).
+        /// </summary>
+        /// <param name="originalVolumeName">
+        /// <para>
+        ///     Name of the original volume that is the source of the shadow copies.  
+        /// </para>
+        /// <para>
+        ///     The name of the volume must be in one of the following formats:
+        ///     <list type="bullet">
+        ///         <item>
+        ///             <description>
+        ///                 The path of a volume mount point with a backslash (\)
+        ///             </description>
+        ///          </item>
+        ///         <item>
+        ///             <description>
+        ///                 A drive letter with backslash (\), for example, <c>D:\</c>
+        ///             </description>
+        ///          </item>
+        ///         <item>
+        ///             <description>
+        ///                 A unique volume name of the form <c>\\?\Volume{GUID}\</c> (where 
+        ///                 GUID is the unique global identifier of the volume) with a backslash (\)
+        ///             </description>
+        ///          </item>
+        ///      </list>
+        ///  </para>
+        /// </param>
+        /// <returns>A list of <see cref="VssDiffVolumeProperties"/> describing the volumes that support shadow 
+        /// copy storage areas (including volumes with disabled shadow copy storage areas).</returns>
+        /// <exception cref="UnauthorizedAccessException">Caller does not have sufficient backup privileges or is not an administrator.</exception>
+        /// <exception cref="OutOfMemoryException">The caller is out of memory or other system resources.</exception>
+        /// <exception cref="ArgumentException">One of the parameter values is not valid.</exception>
+        /// <exception cref="ArgumentNullException">One of the arguments was <see langword="null"/></exception>
+        /// <exception cref="SystemException">Unexpected error. The error code is logged in the error log file.</exception>
+        /// <exception cref="VssProviderVetoException">Expected provider error. The provider logged the error in the event log.</exception>        
         IList<VssDiffVolumeProperties> QueryVolumesSupportedForDiffAreas(string originalVolumeName);
+
         //
         // From IVssDifferentialSoftwareSnapshotMgmt2
         //

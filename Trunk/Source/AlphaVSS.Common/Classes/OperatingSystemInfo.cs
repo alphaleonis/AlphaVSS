@@ -9,26 +9,16 @@ using System.Globalization;
 
 namespace Alphaleonis.Win32.Vss
 {
-    public enum OSVersionName
-    {
-        Windows2000 = 0,
-        WindowsXP = 1,
-        WindowsServer2003 = 2,
-        WindowsVista = 3,
-        WindowsServer2008 = 4,
-        Unknown = 0xffff
-    }
-
-    public enum ProcessorArchitecture : ushort
-    {
-        X86 = 0x00,
-        IA64 = 0x06,
-        X64 = 0x09,
-        Unknown = 0xFFFF,
-    }
-
+    /// <summary>
+    /// Static class providing access to information about the operating system under which the
+    /// assembly is executing.
+    /// </summary>
     public static class OperatingSystemInfo
     {
+        /// <summary>
+        /// Gets the named version of the operating system.
+        /// </summary>
+        /// <value>The named version of the operating system.</value>
         public static OSVersionName OSVersionName
         {
             [SecurityPermission(SecurityAction.LinkDemand, UnmanagedCode = true)]
@@ -40,11 +30,22 @@ namespace Alphaleonis.Win32.Vss
             }
         }
 
+        /// <summary>
+        /// Gets the numeric version of the operating system. This is the same as returned by 
+        /// <see cref="M:System.Environment.OSVersion.Version"/>.
+        /// </summary>
+        /// <value>The numeric version of the operating system.</value>
         public static Version OSVersion
         {
-            get { return mOSVersion; }
+            get { return  mOSVersion; }
         }
 
+        /// <summary>
+        /// Gets the version of the service pack currently installed on the operating system.
+        /// </summary>
+        /// <value>The version of the service pack currently installed on the operating system.</value>
+        /// <remarks>Only the <see cref="Version.Major"/> and <see cref="Version.Minor"/> fields are 
+        /// used.</remarks>
         public static Version ServicePackVersion
         {
             [SecurityPermission(SecurityAction.LinkDemand, UnmanagedCode = true)]
@@ -56,6 +57,13 @@ namespace Alphaleonis.Win32.Vss
             }
         }
 
+        /// <summary>
+        /// Gets the processor architecture for which the operating system is targeted.
+        /// </summary>
+        /// <value>The processor architecture for which the operating system is targeted.</value>
+        /// <remarks>If running under WOW64 this will return a 32-bit processor. Use <see cref="IsWow64Process"/> to
+        /// determine if this is the case.
+        /// </remarks>
         public static ProcessorArchitecture ProcessorArchitecture
         {
             [SecurityPermission(SecurityAction.LinkDemand, UnmanagedCode = true)]
@@ -67,6 +75,12 @@ namespace Alphaleonis.Win32.Vss
             }
         }
 
+        /// <summary>
+        /// Determines whether the current process is running under WOW64.
+        /// </summary>
+        /// <returns>
+        /// 	<c>true</c> if the current process is running under WOW64; otherwise, <c>false</c>.
+        /// </returns>
         [SecurityPermission(SecurityAction.LinkDemand, UnmanagedCode=true)]
         public static bool IsWow64Process()
         {
@@ -79,74 +93,149 @@ namespace Alphaleonis.Win32.Vss
             return value;
         }
 
+        /// <summary>
+        /// Determines whether the operating system is of the specified version or later.
+        /// </summary>
+        /// <param name="version">The lowest version for which to return <c>true</c>.</param>
+        /// <returns>
+        /// 	<c>true</c> if the operating system is of the specified <paramref name="version"/> or later; otherwise, <c>false</c>.
+        /// </returns>
         [SecurityPermission(SecurityAction.LinkDemand, UnmanagedCode = true)]
-        public static bool IsAtLeast(OSVersionName os)
+        public static bool IsAtLeast(OSVersionName version)
         {
-            Debug.Assert(os != OSVersionName.Unknown);
-            return OSVersionName >= os;
+            Debug.Assert(version != OSVersionName.Unknown);
+            return OSVersionName >= version;
         }
 
+        /// <summary>
+        /// Determines whether operating system is of the specified version or later, allowing specification of 
+        /// a minimum service pack that must be installed on the lowest version.
+        /// </summary>
+        /// <param name="version">The minimum required version.</param>
+        /// <param name="servicePackVersion">The major version of the service pack that must be installed on the 
+        /// minimum required version to return <c>true</c>. This can be 0 to indicate that no service pack is required.</param>
+        /// <returns>
+        /// 	<c>true</c> if the operating system matches the specified <paramref name="version"/> with the specified service pack, or if the operating system is of a later version; otherwise, <c>false</c>.
+        /// </returns>
         [SecurityPermission(SecurityAction.LinkDemand, UnmanagedCode = true)]
-        public static bool IsAtLeast(OSVersionName os, int spMajorVersion)
+        public static bool IsAtLeast(OSVersionName version, int servicePackVersion)
         {
-            Debug.Assert(os != OSVersionName.Unknown);
-            return IsWithSPAtLeast(os, spMajorVersion) || OSVersionName > os;
+            Debug.Assert(version != OSVersionName.Unknown);
+            return IsWithSPAtLeast(version, servicePackVersion) || OSVersionName > version;
         }
 
+        /// <summary>
+        /// Determines whether the current operating system matches the specified version and has at least the 
+        /// specified service pack installed.
+        /// </summary>
+        /// <param name="osVersion">The required operating system version.</param>
+        /// <param name="servicePackVersion">The required service pack major version number.</param>
+        /// <returns>
+        /// 	<c>true</c> if the current operating system version matches <paramref name="version"/>
+        /// 	and has atleast service pack <paramref name="servicePackVersion"/> installed; otherwise, <c>false</c>.
+        /// </returns>
         [SecurityPermission(SecurityAction.LinkDemand, UnmanagedCode = true)]
-        public static bool IsWithSPAtLeast(OSVersionName os, int spMajorVersion)
+        public static bool IsWithSPAtLeast(OSVersionName osVersion, int servicePackVersion)
         {
-            Debug.Assert(os != OSVersionName.Unknown);
-            return (OSVersionName == os && ServicePackVersion.Major >= spMajorVersion);
+            Debug.Assert(osVersion != OSVersionName.Unknown);
+            return (OSVersionName == osVersion && ServicePackVersion.Major >= servicePackVersion);
         }
 
+        /// <summary>
+        ///     Determines whether the assembly is executing on the specified operating system version, and throws
+        ///     an <see cref="UnsupportedOperatingSystemException"/> otherwise.
+        /// </summary>
+        /// <param name="version">The operating system version to match.</param>
+        /// <exception cref="UnsupportedOperatingSystemException">The current operating system version does not match the specified <paramref name="version"/>.</exception>
         [SecurityPermission(SecurityAction.LinkDemand, UnmanagedCode = true)]
-        public static void Require(OSVersionName os)
+        public static void Require(OSVersionName version)
         {
-            Debug.Assert(os != OSVersionName.Unknown);
-            if (os != OSVersionName)
-                throw new UnsupportedOperatingSystemException(String.Format(CultureInfo.CurrentCulture, Resources.LocalizedStrings.ThisOperationRequires0DetectedOperatingSystemWas1, ToString(os), ToString(OSVersionName)));
+            Debug.Assert(version != OSVersionName.Unknown);
+            if (version != OSVersionName)
+                throw new UnsupportedOperatingSystemException(String.Format(CultureInfo.CurrentCulture, Resources.LocalizedStrings.ThisOperationRequires0DetectedOperatingSystemWas1, ToString(version), ToString(OSVersionName)));
         }
 
+        /// <summary>
+        ///     Determines whether the assembly is executing on the specified operating system version with the
+        ///     service pack specified installed, and throws an <see cref="UnsupportedOperatingSystemException"/> otherwise.
+        /// </summary>
+        /// <param name="version">The operating system version to match.</param>
+        /// <param name="servicePackVersion">The major service pack version to match.</param>
+        /// <exception cref="UnsupportedOperatingSystemException">The current operating system version does not match the specified <paramref name="version"/>,
+        /// or the major version of the installed service pack does not match <paramref name="servicePackVersion"/>.</exception>
         [SecurityPermission(SecurityAction.LinkDemand, UnmanagedCode = true)]
-        public static void Require(OSVersionName os, int spMajorVersion)
+        public static void Require(OSVersionName version, int servicePackVersion)
         {
-            Debug.Assert(os != OSVersionName.Unknown);
-            if (os != OSVersionName || spMajorVersion != ServicePackVersion.Major)
+            Debug.Assert(version != OSVersionName.Unknown);
+            if (version != OSVersionName || servicePackVersion != ServicePackVersion.Major)
                 throw new UnsupportedOperatingSystemException(String.Format(CultureInfo.CurrentCulture, Resources.LocalizedStrings.ThisOperationRequires01DetectedOperatingSystemWas23, 
-                    ToString(os), SpToString(spMajorVersion), ToString(OSVersionName), SpToString(ServicePackVersion.Major)));
+                    ToString(version), SpToString(servicePackVersion), ToString(OSVersionName), SpToString(ServicePackVersion.Major)));
         }
 
+        /// <summary>
+        ///     Determines whether the assembly is executing under the specified operating system version with 
+        ///     at least the specified service pack installed, and throws an exception otherwise.
+        /// </summary>
+        /// <param name="osVersion">The operating system version to match.</param>
+        /// <param name="servicePackVersion">The major service pack version to match.</param>
+        /// <exception cref="UnsupportedOperatingSystemException">The current operating system version does not match
+        /// the specified <paramref name="osVersion"/> with at least service pack <paramref name="servicePackVersion"/>.</exception>
         [SecurityPermission(SecurityAction.LinkDemand, UnmanagedCode = true)]
-        public static void RequireWithSPAtLeast(OSVersionName os, int spMajorVersion)
+        public static void RequireWithSPAtLeast(OSVersionName osVersion, int servicePackVersion)
         {
-            if (!IsWithSPAtLeast(os, spMajorVersion))
+            if (!IsWithSPAtLeast(osVersion, servicePackVersion))
                 throw new UnsupportedOperatingSystemException(String.Format(CultureInfo.CurrentCulture, Resources.LocalizedStrings.ThisOperationRequires0WithAtLeastServicePack1DetectedOperatingSystemWas23,
-                    ToString(os), spMajorVersion, ToString(OSVersionName), SpToString(ServicePackVersion.Major)));
+                    ToString(osVersion), servicePackVersion, ToString(OSVersionName), SpToString(ServicePackVersion.Major)));
         }
 
+        /// <summary>
+        ///     Determines whether the assembly is executing under one of the specified operating system versions with 
+        ///     at least the specified service pack installed, and throws an exception otherwise.
+        /// </summary>
+        /// <param name="osVersion1">The first operating system version to match.</param>
+        /// <param name="servicePackVersion1">The first major service pack version to match.</param>
+        /// <param name="osVersion2">The second operating system version to match.</param>
+        /// <param name="servicePackVersion2">The second major service pack version to match.</param>
+        /// <exception cref="UnsupportedOperatingSystemException">The current operating system version does not match
+        /// the specified <paramref name="osVersion1"/> with at least service pack <paramref name="servicePackVersion1"/> installed, <b>and</b>
+        /// it does not match the specified <paramref name="osVersion2"/> with at least service pack <paramref name="servicePackVersion2"/> installed.</exception>
         [SecurityPermission(SecurityAction.LinkDemand, UnmanagedCode = true)]
-        public static void RequireWithSPAtLeast(OSVersionName os, int spMajorVersion, OSVersionName os2, int spMajorVersion2)
+        public static void RequireWithSPAtLeast(OSVersionName osVersion1, int servicePackVersion1, OSVersionName osVersion2, int servicePackVersion2)
         {
-            if (!IsWithSPAtLeast(os, spMajorVersion) && !IsWithSPAtLeast(os2, spMajorVersion2))
+            if (!IsWithSPAtLeast(osVersion1, servicePackVersion1) && !IsWithSPAtLeast(osVersion2, servicePackVersion2))
                 throw new UnsupportedOperatingSystemException(String.Format(CultureInfo.CurrentCulture, Resources.LocalizedStrings.ThisOperationRequires0WithAtLeastServicePack1Or2WithAtLeastServicePack3DetectedOperatingSystemWas45,
-                    ToString(os), spMajorVersion, ToString(os2), spMajorVersion2, ToString(OSVersionName), SpToString(ServicePackVersion.Major)));
+                    ToString(osVersion1), servicePackVersion1, ToString(osVersion2), servicePackVersion2, ToString(OSVersionName), SpToString(ServicePackVersion.Major)));
         }
 
+        /// <summary>
+        ///     Determines whether the assembly is executing on the specified operating system version or later.
+        ///     If not, an exception is thrown.
+        /// </summary>
+        /// <param name="osVersion">The minimum operating system version required.</param>
+        /// <exception cref="UnsupportedOperatingSystemException">The current operating system is of a version earlier than the specified <paramref name="osVersion"/></exception>
         [SecurityPermission(SecurityAction.LinkDemand, UnmanagedCode = true)]
-        public static void RequireAtLeast(OSVersionName os)
+        public static void RequireAtLeast(OSVersionName osVersion)
         {
-            if (!IsAtLeast(os))
+            if (!IsAtLeast(osVersion))
                 throw new UnsupportedOperatingSystemException(String.Format(CultureInfo.CurrentCulture, Resources.LocalizedStrings.ThisOperationRequires0OrLaterDetectedOperatingSystemWas1, 
-                    ToString(os), ToString(OSVersionName)));
+                    ToString(osVersion), ToString(OSVersionName)));
         }
 
+        /// <summary>
+        ///     Determines whether the assembly is executing on the specified operating system version with
+        ///     the specified service pack installed or any later version of windows. If not, an exception is thrown.
+        /// </summary>
+        /// <param name="osVersion">The minimum operating system version required.</param>
+        /// <param name="servicePackVersion">The minimum service pack version required.</param>
+        /// <exception cref="UnsupportedOperatingSystemException">The current operating system is of a version earlier 
+        /// than the specified <paramref name="osVersion"/> or the versions match but the operating system does not 
+        /// have at least the specified service pack version <paramref name="servicePackVersion"/> installed.</exception>
         [SecurityPermission(SecurityAction.LinkDemand, UnmanagedCode = true)]
-        public static void RequireAtLeast(OSVersionName os, int spMajorVersion)
+        public static void RequireAtLeast(OSVersionName osVersion, int servicePackVersion)
         {
-            if (!IsAtLeast(os, spMajorVersion))
+            if (!IsAtLeast(osVersion, servicePackVersion))
                 throw new UnsupportedOperatingSystemException(String.Format(CultureInfo.CurrentCulture, Resources.LocalizedStrings.ThisOperationRequires01OrLaterDetectedOperatingSystemWas23,
-                    ToString(os), SpToString(spMajorVersion), ToString(OSVersionName), SpToString(ServicePackVersion.Major)));
+                    ToString(osVersion), SpToString(servicePackVersion), ToString(OSVersionName), SpToString(ServicePackVersion.Major)));
         }
 
         #region Private members
@@ -170,12 +259,12 @@ namespace Alphaleonis.Win32.Vss
             }
         }
 
-        private static string SpToString(int spMajorVersion)
+        private static string SpToString(int servicePackVersion)
         {
-            if (spMajorVersion == 0)
+            if (servicePackVersion == 0)
                 return String.Empty;
 
-            return String.Format(" SP{0}", spMajorVersion);
+            return String.Format(CultureInfo.InvariantCulture, " SP{0}", servicePackVersion);
         }
 
         [SecurityPermission(SecurityAction.LinkDemand, UnmanagedCode=true)]
@@ -271,6 +360,7 @@ namespace Alphaleonis.Win32.Vss
                 public byte wReserved;
             }
 
+            [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2205:UseManagedEquivalentsOfWin32Api")]
             [DllImport("kernel32", CharSet = CharSet.Unicode, SetLastError = true)]
             [return: MarshalAs(UnmanagedType.Bool)]
             public static extern bool GetVersionExW(ref OSVERSIONINFOEX osvi);
@@ -302,7 +392,7 @@ namespace Alphaleonis.Win32.Vss
             [return: MarshalAs(UnmanagedType.Bool)]
             public static extern bool IsWow64Process(
                  [In] IntPtr hProcess,
-                 [Out] out bool lpSystemInfo
+                 [Out, MarshalAs(UnmanagedType.Bool)] out bool lpSystemInfo
                  );
         }
         #endregion

@@ -78,6 +78,8 @@
     <Compile Include="Classes\VssWMDependency.cs" />
     <Compile Include="Classes\VssWMFileDescription.cs" />
     <Compile Include="Classes\VssWMRestoreMethod.cs" />
+    <Compile Include="Enumerations\OSVersionName.cs" />
+    <Compile Include="Enumerations\ProcessorArchitecture.cs" />
     <Compile Include="Enumerations\VssHardwareOptions.cs" />
     <Compile Include="Enumerations\VssProtectionFault.cs" />
     <Compile Include="Enumerations\VssProtectionLevel.cs" />
