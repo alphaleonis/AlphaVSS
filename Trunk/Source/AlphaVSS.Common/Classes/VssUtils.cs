@@ -63,7 +63,7 @@ namespace Alphaleonis.Win32.Vss
                     winVer = "Win2008";
                     break;
                 case OSVersionName.WindowsServer2008:
-                    winVer = "Win2003";
+                    winVer = "Win2008";
                     break;
                 case OSVersionName.Unknown:
                 default:
