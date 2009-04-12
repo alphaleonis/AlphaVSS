@@ -45,8 +45,6 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		mWriterStatus(nullptr)
 
 	{
-		Console::WriteLine(System::AppDomain::CurrentDomain->FriendlyName);
-
 		mWriterMetadata = gcnew WriterMetadataList(this);
 		mWriterComponents = gcnew WriterComponentsList(this);
 		mWriterStatus = gcnew WriterStatusList(this);
