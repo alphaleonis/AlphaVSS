@@ -64,7 +64,7 @@ namespace Alphaleonis.Win32.Vss
 		void AbortBackup();
 
 		/// <summary>
-		///		The <see cref="AddAlternativeLocationMapping"/> method is used by a requester to indicate that an alternate location 
+		///		The <b>AddAlternativeLocationMapping</b> method is used by a requester to indicate that an alternate location 
 		///     mapping was used to restore all the members of a file set in a given component.
 		/// </summary>
 		/// <param name="writerId">Globally unique identifier (GUID) of the writer class that exported the component.</param> 
@@ -106,7 +106,7 @@ namespace Alphaleonis.Win32.Vss
 		void AddAlternativeLocationMapping(Guid writerId, VssComponentType componentType, string logicalPath, string componentName, string path, string filespec, bool recursive, string destination);
 
 		/// <summary>
-		/// The <see cref="AddComponent"/> method is used to explicitly add to the backup set in the Backup Components Document all required 
+		/// The <b>AddComponent</b> method is used to explicitly add to the backup set in the Backup Components Document all required 
 		/// components (nonselectable for backup components without a selectable for backup ancestor), and such optional 
 		/// (selectable for backup) components as the requester considers necessary. Members of component sets (components with 
 		///  a selectable for backup ancestor) are implicitly included in the backup set, but are not explicitly added to the Backup 
@@ -134,7 +134,7 @@ namespace Alphaleonis.Win32.Vss
 		void AddComponent(Guid instanceId, Guid writerId, VssComponentType componentType, string logicalPath, string componentName);
 
 		/// <summary>
-		/// The <see cref="AddNewTarget"/> method is used by a requester during a restore operation to indicate that the backup application plans 
+		/// The <b>AddNewTarget</b> method is used by a requester during a restore operation to indicate that the backup application plans 
 		/// to restore files to a new location.
 		/// </summary>
 		/// <param name="writerId">Globally unique identifier (GUID) of the writer class containing the files that are to receive a new target.</param>
@@ -177,7 +177,7 @@ namespace Alphaleonis.Win32.Vss
 		void AddNewTarget(Guid writerId, VssComponentType componentType, string logicalPath, string componentName, string path, string fileName, bool recursive, string alternatePath);
 
 		/// <summary>
-		/// The <see cref="AddRestoreSubcomponent"/> method indicates that a Subcomponent member of a component set, which had been marked as 
+		/// The <b>AddRestoreSubcomponent</b> method indicates that a Subcomponent member of a component set, which had been marked as 
 		/// nonselectable for backup but is marked selectable for restore, is to be restored irrespective of whether any other member 
 		/// of the component set will be restored.
 		/// </summary>
@@ -300,6 +300,11 @@ namespace Alphaleonis.Win32.Vss
 		/// <exception cref="VssUnexpectedWriterErrorException">An unexpected error occurred during communication with writers. The error code is logged in the error log file.</exception>
 		IVssAsync BackupComplete();
 
+		/// <overloads>
+		/// <summary>
+		/// The <c>BreakSnapshotSet</c> method causes the existence of a shadow copy set to be "forgotten" by VSS.
+		/// </summary>
+		/// </overloads>
 		/// <summary>
 		/// The <c>BreakSnapshotSet</c> method causes the existence of a shadow copy set to be "forgotten" by VSS.
 		/// </summary>
@@ -397,7 +402,7 @@ namespace Alphaleonis.Win32.Vss
         int DeleteSnapshotSet(Guid snapshotSetId, bool forceDelete);
 
 		/// <summary>
-		/// The <see cref="DisableWriterClasses"/> method prevents a specific class of writers from receiving any events.
+		/// This method prevents a specific class of writers from receiving any events.
 		/// </summary>
 		/// <param name="writerClassIds">An array containing one or more writer class identifiers.</param>
 		/// <exception cref="UnauthorizedAccessException">The caller does not have sufficient backup privileges or is not an administrator.</exception>
@@ -408,7 +413,7 @@ namespace Alphaleonis.Win32.Vss
 		void DisableWriterClasses(params Guid[] writerClassIds);
 
 		/// <summary>
-		/// The <see cref="DisableWriterInstances"/> method disables a specified writer instance or instances.
+		/// This method disables a specified writer instance or instances.
 		/// </summary>
 		/// <param name="writerInstanceIds">An array containing one or more writer instance identifiers.</param>
 		/// <exception cref="UnauthorizedAccessException">The caller does not have sufficient backup privileges or is not an administrator.</exception>
@@ -482,7 +487,7 @@ namespace Alphaleonis.Win32.Vss
 		void EnableWriterClasses(params Guid[] writerClassIds);
 
 		/// <summary>
-		/// The <see cref="ExposeSnapshot"/> method exposes a shadow copy either by mounting it as a device on a drive letter or mount point, or 
+		/// The <b>ExposeSnapshot</b> method exposes a shadow copy either by mounting it as a device on a drive letter or mount point, or 
 		/// as a file share. 
 		/// </summary>
 		/// <param name="snapshotId">Shadow copy identifier.</param>
@@ -963,7 +968,7 @@ namespace Alphaleonis.Win32.Vss
 		string SaveAsXml();
 
 		/// <summary>
-		///		The <see cref="SetAdditionalRestores"/> method is used by a requester during incremental or differential restore operations to indicate 
+		///		The <b>SetAdditionalRestores</b> method is used by a requester during incremental or differential restore operations to indicate 
 		///     to writers that a given component will require additional restore operations to completely retrieve it.
 		/// </summary>
 		/// <param name="writerId">Writer identifier.</param>
@@ -1115,7 +1120,7 @@ namespace Alphaleonis.Win32.Vss
         void SetRestoreName(Guid writerId, VssComponentType componentType, string logicalPath, string componentName, string restoreName);
 
 		/// <summary>
-		/// 	The <see cref="SetBackupOptions"/> method sets a string of private, or writer-dependent, backup parameters for a component.
+		/// 	Sets a string of private, or writer-dependent, backup parameters for a component.
 		/// </summary>
 		/// <param name="writerId">Writer identifier.</param>
 		/// <param name="componentType">Type of the component.</param>
@@ -1164,7 +1169,7 @@ namespace Alphaleonis.Win32.Vss
 		void SetBackupOptions(Guid writerId, VssComponentType componentType, string logicalPath, string componentName, string backupOptions);
 		
 		/// <summary>
-        ///     The <see cref="SetBackupState"/> method defines an overall configuration for a backup operation.
+        ///     Defines an overall configuration for a backup operation.
         /// </summary>
 		/// <param name="selectComponents">
 		/// 	<para>
@@ -1206,7 +1211,7 @@ namespace Alphaleonis.Win32.Vss
 		void SetBackupState(bool selectComponents, bool backupBootableSystemState, VssBackupType backupType, bool partialFileSupport);
 		
 		/// <summary>
-		/// 	The <see cref="SetBackupSucceeded"/> method indicates whether the backup of the specified component of a specific writer was successful.
+		/// 	Indicates whether the backup of the specified component of a specific writer was successful.
 		/// </summary>
 		/// <param name="instanceId">Globally unique identifier of the writer instance.</param>
 		/// <param name="writerId">Globally unique identifier of the writer class.</param>
@@ -1253,13 +1258,14 @@ namespace Alphaleonis.Win32.Vss
 		/// <exception cref="VssObjectNotFoundException">The backup component does not exist.</exception>
 		/// <exception cref="VssInvalidXmlDocumentException">The XML document is not valid. Check the event log for details.</exception>
 		void SetBackupSucceeded(Guid instanceId, Guid writerId, VssComponentType componentType, string logicalPath, string componentName, bool succeeded);
-		
+
+		/// <overloads>
+		///   Sets the context for subsequent  shadow copy-related operations.
+		/// </overloads>
 		/// <summary>
-        /// 	The <see cref="IVssBackupComponents.SetContext(VssVolumeSnapshotAttributes)"/> method sets the context for subsequent shadow copy-related operations. 
+        /// 	Sets the context for subsequent shadow copy-related operations. 
 		/// </summary>
-        /// <overloads>The <see cref="O:Alphaleonis.Win32.Vss.IVssBackupComponents.SetContext"/> method sets the context for subsequent 
-        /// shadow copy-related operations.</overloads>
-		/// <param name="context">
+        /// <param name="context">
 		/// 	The context to be set. The context must be one of the supported values of <see cref="VssSnapshotContext"/> or a supported bit 
 		/// 	mask (or bitwise OR) of <see cref="VssVolumeSnapshotAttributes" /> with a valid <see cref="VssSnapshotContext" />. 
 		/// </param>
@@ -1269,13 +1275,13 @@ namespace Alphaleonis.Win32.Vss
 		/// 	</para>
 		/// 	<para>
 		/// 		<b>Windows XP:</b> The only supported context is the default context, <see cref="VssSnapshotContext.Backup"/>. Therefore, calling 
-        /// 		<see cref="SetContext(VssVolumeSnapshotAttributes)" /> under Windows XP throws a <see cref="NotImplementedException"/>. 
+        /// 		this method under Windows XP throws a <see cref="NotImplementedException"/>. 
 		/// 	</para>
 		/// 	<para>
-        /// 		<see cref="SetContext(VssVolumeSnapshotAttributes)"/> can be called only once, and it must be called prior to calling most VSS functions.
+        /// 		This method be called only once, and it must be called prior to calling most VSS functions.
 		/// 	</para>
 		/// 	<para>
-		/// 		For details on how the context set by <see cref="O:Alphaleonis.Win32.Vss.IVssBackupComponents.SetContext"/> affects how a shadow copy is created and managed, see 
+		/// 		For details on how the context set by this method affects how a shadow copy is created and managed, see 
 		/// 		<see href="http://msdn.microsoft.com/en-us/library/aa381653(VS.85).aspx">Implementation Details for Creating Shadow Copies</see>.
 		/// 	</para>
 		/// 	<para>
@@ -1289,7 +1295,7 @@ namespace Alphaleonis.Win32.Vss
 		void SetContext(VssVolumeSnapshotAttributes context);
 
         /// <summary>
-        /// 	The <see cref="SetContext(VssSnapshotContext)"/> method sets the context for subsequent shadow copy-related operations. 
+        /// 	Sets the context for subsequent shadow copy-related operations. 
         /// </summary>
         /// <param name="context">
         /// 	The context to be set. The context must be one of the supported values of <see cref="VssSnapshotContext"/> or a supported bit 
@@ -1301,13 +1307,13 @@ namespace Alphaleonis.Win32.Vss
         /// 	</para>
         /// 	<para>
         /// 		<b>Windows XP:</b> The only supported context is the default context, <see cref="VssSnapshotContext.Backup"/>. Therefore, calling 
-        /// 		<see cref="SetContext(VssSnapshotContext)" /> under Windows XP throws a <see cref="NotImplementedException"/>. 
+        /// 		this method under Windows XP throws a <see cref="NotImplementedException"/>. 
         /// 	</para>
         /// 	<para>
         /// 		<see cref="SetContext(VssSnapshotContext)"/> can be called only once, and it must be called prior to calling most VSS functions.
         /// 	</para>
         /// 	<para>
-        /// 		For details on how the context set by <see cref="SetContext(VssSnapshotContext)"/> affects how a shadow copy is created and managed, see 
+        /// 		For details on how the context set by this method affects how a shadow copy is created and managed, see 
         /// 		<see href="http://msdn.microsoft.com/en-us/library/aa381653(VS.85).aspx">Implementation Details for Creating Shadow Copies</see>.
         /// 	</para>
         /// 	<para>
@@ -1322,7 +1328,7 @@ namespace Alphaleonis.Win32.Vss
 
 		
 		/// <summary>
-		/// 	The <see cref="SetFileRestoreStatus"/> method indicates whether some, all, or no files were successfully restored.
+		/// 	Indicates whether some, all, or no files were successfully restored.
 		/// </summary>
 		/// <param name="writerId">Globally unique identifier of the writer class.</param>
 		/// <param name="componentType">Type of the component.</param>
@@ -1366,7 +1372,7 @@ namespace Alphaleonis.Win32.Vss
 
 		/// <summary>
 		/// 	<para>
-		/// 		The <see cref="SetPreviousBackupStamp"/> method sets the backup stamp of an earlier backup operation, upon which a differential or 
+		/// 		Sets the backup stamp of an earlier backup operation, upon which a differential or 
 		/// 		incremental backup operation will be based.
 		/// 	</para>
 		/// 	<para>
@@ -1417,7 +1423,7 @@ namespace Alphaleonis.Win32.Vss
 		void SetPreviousBackupStamp(Guid writerId, VssComponentType componentType, string logicalPath, string componentName, string previousBackupStamp);
 
 		/// <summary>
-        ///     The <see cref="SetRangesFilePath"/> method is used when a partial file operation requires a ranges file, and that file has been restored to a location other than its original one.
+        ///     This method is used when a partial file operation requires a ranges file, and that file has been restored to a location other than its original one.
         /// </summary>		
 		/// <param name="writerId">Globally unique identifier (GUID) of the writer class containing the files involved in the partial file operation</param>
 		/// <param name="componentType">Type of the component.</param>
@@ -1467,7 +1473,7 @@ namespace Alphaleonis.Win32.Vss
 		void SetRangesFilePath(Guid writerId, VssComponentType componentType, string logicalPath, string componentName, int partialFileIndex, string rangesFile);
 
 		/// <summary>
-		///		The <see cref="SetRestoreOptions"/> method sets a string of private, or writer-dependent, restore parameters for a writer component.
+		///		Sets a string of private, or writer-dependent, restore parameters for a writer component.
 		/// </summary>
 		/// <param name="writerId">Writer identifier.</param>
 		/// <param name="componentType">Type of the component.</param>
@@ -1514,7 +1520,7 @@ namespace Alphaleonis.Win32.Vss
 		void SetRestoreOptions(Guid writerId, VssComponentType componentType, string logicalPath, string componentName, string restoreOptions);
 		
 		/// <summary>
-		/// 	The <see cref="SetRestoreState"/> method defines an overall configuration for a restore operation.
+		/// 	Defines an overall configuration for a restore operation.
 		/// </summary>
 		/// <param name="restoreType">The type of restore to be performed.</param>
 		/// <remarks>
@@ -1579,10 +1585,10 @@ namespace Alphaleonis.Win32.Vss
         void SetRollForward(Guid writerId, VssComponentType componentType, string logicalPath, string componentName, VssRollForwardType rollType, string rollForwardPoint);
 
 		/// <summary>
-        ///     The <see cref="SetSelectedForRestore(Guid,VssComponentType,String,String,bool)"/> method indicates whether the specified selectable component is selected for restoration.
+        ///     Indicates whether the specified selectable component is selected for restoration.
         /// </summary>
         /// <overloads>
-        ///     The <see cref="O:Alphaleonis.Win32.Vss.IVssBackupComponents.SetSelectedForRestore"/> method indicates whether the specified selectable component is selected for restoration. This method has several overloads.
+        ///     Indicates whether the specified selectable component is selected for restoration. 
         /// </overloads>
 		/// <param name="writerId">Writer identifier.</param>
 		/// <param name="componentType">Type of the component.</param>
@@ -1634,7 +1640,7 @@ namespace Alphaleonis.Win32.Vss
 		void SetSelectedForRestore(Guid writerId, VssComponentType componentType, string logicalPath, string componentName, bool selectedForRestore);
 
         /// <summary>
-        ///     The <see cref="SetSelectedForRestore(Guid,VssComponentType,String,String,bool,Guid)"/> method indicates whether the specified selectable component is selected for restoration to a specified writer instance.
+        ///     Indicates whether the specified selectable component is selected for restoration to a specified writer instance.
         /// </summary>
         /// <param name="writerId">Globally unique identifier (GUID) of the writer class.</param>
         /// <param name="componentType">Type of the component.</param>
@@ -1720,7 +1726,7 @@ namespace Alphaleonis.Win32.Vss
         void SetSelectedForRestore(Guid writerId, VssComponentType componentType, string logicalPath, string componentName, bool selectedForRestore, Guid instanceId);
 
         /// <summary>
-		/// 	The <see cref="StartSnapshotSet"/> method creates a new, empty shadow copy set.
+		/// 	Creates a new, empty shadow copy set.
 		/// </summary>
 		/// <returns>Shadow copy set identifier.</returns>
 		/// <remarks>This method must be called before <see cref="PrepareForBackup"/> during backup operations.</remarks>
