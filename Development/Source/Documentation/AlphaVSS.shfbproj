@@ -105,6 +105,7 @@ The documentation provided here is provided for convenience only, and the offici
         </component>
       </ComponentConfig>
     </ComponentConfigurations>
+    <HelpFileFormat>Help1xAndHelp2x</HelpFileFormat>
   </PropertyGroup>
   <!-- There are no properties for these two groups but they need to appear in
        order for Visual Studio to perform the build. -->

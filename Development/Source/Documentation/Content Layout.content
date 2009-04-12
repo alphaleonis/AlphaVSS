@@ -4,7 +4,7 @@
     <Topic id="70a14249-f7ef-4e8d-aa01-4f477460e881" visible="True" title="Release Notes" />
     <Topic id="8ca0d964-73f8-4191-bcc3-f0c3ca127dbf" visible="True" title="License" />
   </Topic>
-  <Topic id="33ad87b5-1897-4b0a-885b-bc817edd9ebb" visible="True" title="Usage Documentation">
+  <Topic id="99d38cc6-7404-4b26-a69d-f45f428c2790" visible="True" noFile="True" title="Usage Documentation">
     <Topic id="4d72ab08-78e9-40cf-a85e-3f979540d009" visible="True" title="Building AlphaVSS from Source" />
   </Topic>
 </Topics>
