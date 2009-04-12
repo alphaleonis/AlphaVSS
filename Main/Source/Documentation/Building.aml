@@ -61,9 +61,9 @@
            </para>
            <para>
               You can use the <command>sn.exe</command> tool to enable the loading of those assemblies on 
-              your local machine by running "<command>sn.exe -Vr ,3033cf2dbd31cad3</command>". This will 
+              your local machine by running "<command>sn.exe -Vr *,3033cf2dbd31cad3</command>". This will 
               enable all assemblies with the specified public token to be loaded on your machine.                        
-              To remove this permission run "<command>sn.exe -Vu ,3033cf2dbd31cad3</command>".
+              To remove this permission run "<command>sn.exe -Vu *,3033cf2dbd31cad3</command>".
            </para>
            <para>
               If you don't want to do this you will need to either disable signing the assemblies with a strong name 
