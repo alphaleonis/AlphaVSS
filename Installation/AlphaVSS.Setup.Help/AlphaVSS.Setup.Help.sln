@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "AlphaVSS.Setup.Help", "AlphaVSS.Setup.Help\AlphaVSS.Setup.Help.vdproj", "{6B218155-60A5-4FDF-9FAD-B15328F9F751}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "AlphaVSS.Setup.HelpMergeModule", "AlphaVSS.Setup.HelpMergeModule\AlphaVSS.Setup.HelpMergeModule.vdproj", "{2B65DD64-7E6F-4AB1-92FB-78D5AFF88D3A}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 3
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs02.codeplex.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = AlphaVSS.Setup.Help\\AlphaVSS.Setup.Help.vdproj
+		SccProjectName1 = AlphaVSS.Setup.Help
+		SccLocalPath1 = AlphaVSS.Setup.Help
+		SccProjectUniqueName2 = AlphaVSS.Setup.HelpMergeModule\\AlphaVSS.Setup.HelpMergeModule.vdproj
+		SccProjectName2 = AlphaVSS.Setup.HelpMergeModule
+		SccLocalPath2 = AlphaVSS.Setup.HelpMergeModule
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6B218155-60A5-4FDF-9FAD-B15328F9F751}.Debug|Default.ActiveCfg = Debug
+		{6B218155-60A5-4FDF-9FAD-B15328F9F751}.Debug|Default.Build.0 = Debug
+		{6B218155-60A5-4FDF-9FAD-B15328F9F751}.Release|Default.ActiveCfg = Release
+		{6B218155-60A5-4FDF-9FAD-B15328F9F751}.Release|Default.Build.0 = Release
+		{2B65DD64-7E6F-4AB1-92FB-78D5AFF88D3A}.Debug|Default.ActiveCfg = Debug
+		{2B65DD64-7E6F-4AB1-92FB-78D5AFF88D3A}.Debug|Default.Build.0 = Debug
+		{2B65DD64-7E6F-4AB1-92FB-78D5AFF88D3A}.Release|Default.ActiveCfg = Release
+		{2B65DD64-7E6F-4AB1-92FB-78D5AFF88D3A}.Release|Default.Build.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
