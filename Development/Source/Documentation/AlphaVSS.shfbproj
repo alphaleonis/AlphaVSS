@@ -14,17 +14,13 @@
     <RootNamespace>Documentation</RootNamespace>
     <Name>Documentation</Name>
     <!-- SHFB properties -->
-    <OutputPath>D:\Coding\TFS\AlphaVSS-Root\Development\Bin\Documentation\</OutputPath>
+    <OutputPath>D:\Coding\TFS\AlphaVSS-Root\Development\Documentation\</OutputPath>
     <HtmlHelpName>AlphaVSS</HtmlHelpName>
     <ApiFilter>
       <Filter entryType="Namespace" fullName="Alphaleonis.Win32.Vss.Resources" isExposed="False" />
     </ApiFilter>
     <ProjectSummary>&amp;lt%3bpara&amp;gt%3b
 This documentation describes the AlphaVSS managed interface to the VSS API.
-&amp;lt%3b/para&amp;gt%3b
-&amp;lt%3bpara&amp;gt%3b
-AlphaVSS replicates the unmanaged VSS API fairly closely, and the official documentation from Microsoft should be consulted for information about using the Windows volume shadow copy service, and should also serve as a good documentation for this library.
-The documentation provided here is provided for convenience only, and the official documentation on the MSDN homepage should always be consulted for the latest and most accurate information about the inner workings of the Volume Shadow Copy services.
 &amp;lt%3b/para&amp;gt%3b
 </ProjectSummary>
     <MissingTags>Summary, Parameter, Returns, AutoDocumentCtors, Namespace, TypeParameter</MissingTags>
@@ -34,13 +30,13 @@ The documentation provided here is provided for convenience only, and the offici
     <HtmlHelp2xCompilerPath>
     </HtmlHelp2xCompilerPath>
     <SandcastlePath>C:\Program Files (x86)\Sandcastle\</SandcastlePath>
-    <WorkingPath>..\Docs\Work\</WorkingPath>
+    <WorkingPath>..\..\Documentation\Work\</WorkingPath>
     <BuildLogFile>
     </BuildLogFile>
     <FrameworkVersion>3.5</FrameworkVersion>
     <RootNamespaceContainer>True</RootNamespaceContainer>
     <RootNamespaceTitle>API Reference</RootNamespaceTitle>
-    <HelpTitle>AlphaVSS</HelpTitle>
+    <HelpTitle>AlphaVSS 1.0 Beta</HelpTitle>
     <FooterText>http://alphavss.codeplex.com</FooterText>
     <PresentationStyle>vs2005</PresentationStyle>
     <HelpFileVersion>1.0.9156.0</HelpFileVersion>
@@ -106,6 +102,9 @@ The documentation provided here is provided for convenience only, and the offici
       </ComponentConfig>
     </ComponentConfigurations>
     <HelpFileFormat>Help1xAndHelp2x</HelpFileFormat>
+    <FeedbackEMailAddress>alphavss%40alphaleonis.com</FeedbackEMailAddress>
+    <FeedbackEMailLinkText>alphavss%40alphaleonis.com</FeedbackEMailLinkText>
+    <ShowFeedbackControl>False</ShowFeedbackControl>
   </PropertyGroup>
   <!-- There are no properties for these two groups but they need to appear in
        order for Visual Studio to perform the build. -->
@@ -118,6 +117,8 @@ The documentation provided here is provided for convenience only, and the offici
   </ItemGroup>
   <ItemGroup>
     <None Include="Building.aml" />
+    <None Include="Background.aml" />
+    <None Include="GettingStarted.aml" />
     <None Include="ReleaseNotes.aml" />
     <None Include="Orientation.aml" />
     <None Include="License.aml" />

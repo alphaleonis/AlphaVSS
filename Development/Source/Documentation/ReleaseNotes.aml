@@ -5,9 +5,36 @@
     <introduction>
       <para>This section contains the release notes for AlphaVSS.</para>
     </introduction>
-    <!-- Add one or more top-level section elements.  These are collapsible.
-         If using <autoOutline />, add an address attribute to identify it
-         and specify a title so that it can be jumped to with a hyperlink. -->
+     <section address="release_10beta">
+        <title>Version 1.0 Beta</title>
+        <content>
+           <para>
+              The differences from version 1.0 alpha are subtle and consist mostly of 
+              bugfixes. Most significantly the nasty assembly version bug is finally 
+              gone, and loading of the platform specific assemblies should now work without
+              a problem.
+           </para>
+           <para>
+              The other major difference is an update of the documentation which now
+              also include conceptual content (such as these release notes) and 
+              some basic usage guidelines to make getting started using AlphaVSS
+              easier.
+           </para>
+           <para>
+              A couple of simple samples have also been included to demonstrate
+              the basic usage of AlphaVSS.
+           </para>
+           <para>
+              Please continue to send feedback and bugreports using the discussion forum
+              and issue tracker on the official homepage at
+              <externalLink>
+                 <linkText>http://alphavss.codeplex.com/</linkText>
+                 <linkUri><![CDATA[http://alphavss.codeplex.com/]]></linkUri>
+              </externalLink>
+           </para>
+        </content>
+     </section>
+     
      <section address="release_10alpha">       
         <title>Version 1.0 alpha</title>
         <content>

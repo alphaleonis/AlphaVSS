@@ -1,3 +1,17 @@
+Version 1.0 beta
+-------------------
+* Erroneous Console.WriteLine printing the name of an assembly removed from 
+  CreateBackupComponents. (How on earth did that get left in there anyway?)
+  
+* Many documentation updates.
+
+* Some basic samples added.
+
+* Assembly version mismatch solved.
+
+* Bugfix: When detecting windows 2008, the VssUtils class returned 
+  the string "2003", resulting in the wrong assembly being referenced by VssImplementation.
+
 Version 1.0alpha
 -------------------
 * SetContext overload added to IVssBackupComponents accepting a 
