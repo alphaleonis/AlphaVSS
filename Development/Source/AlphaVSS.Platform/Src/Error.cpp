@@ -23,19 +23,13 @@
 namespace Alphaleonis { namespace Win32 { namespace Vss
 {
 
-	void ThrowException(HRESULT errorCode, const wchar_t *message)
+	void ThrowException(HRESULT errorCode)
 	{
-		throw GetExceptionForHr(errorCode, message);
+		throw GetExceptionForHr(errorCode);
 	}
 
-	Exception ^ GetExceptionForHr(HRESULT errorCode, const wchar_t *message)
+	Exception ^ GetExceptionForHr(HRESULT errorCode)
 	{
-		String^ msg;
-		if (message == 0)
-			msg = String::Empty;
-		else
-			msg = gcnew String(message);
-
 		switch (errorCode)
 		{
 		case E_ACCESSDENIED:
@@ -47,11 +41,11 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		case E_NOTIMPL:
 			return gcnew NotImplementedException();
 		case E_UNEXPECTED:
-			return gcnew SystemException(L"Unexpected system error.");
+         return gcnew SystemException(Alphaleonis::Win32::Vss::Resources::LocalizedStrings::UnexpectedSystemError);
 		case VSS_E_INVALID_XML_DOCUMENT:
 			return gcnew VssInvalidXmlDocumentException();
 		case VSS_E_BAD_STATE:
-			return gcnew VssBadStateException(msg);
+			return gcnew VssBadStateException();
 		case VSS_E_OBJECT_NOT_FOUND:
 			return gcnew VssObjectNotFoundException();
 		case VSS_E_PROVIDER_VETO:
