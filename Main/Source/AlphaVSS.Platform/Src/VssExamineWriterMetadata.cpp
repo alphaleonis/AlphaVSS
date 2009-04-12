@@ -209,7 +209,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		HRESULT result = mExamineWriterMetadata->GetRestoreMethod(&eMethod, &bstrService, &bstrUserProcedure, &eWriterRestore, &bRebootRequired, &iMappings);
 
 		if (FAILED(result))
-			ThrowException(result, 0);
+			ThrowException(result);
 
 		if (result == S_FALSE)
 			return nullptr;
@@ -248,7 +248,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		CheckCom(mExamineWriterMetadata->GetBackupSchema(&schema));
 		return (VssBackupSchema)schema;
 #else
-		throw gcnew NotSupportedException(L"This method is not supported until Windows Server 2003");
+      throw gcnew NotSupportedException(Alphaleonis::Win32::Vss::Resources::LocalizedStrings::NotSupportedUntilWin2003);
 #endif
 	}
 

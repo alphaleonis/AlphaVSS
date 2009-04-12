@@ -33,7 +33,7 @@ namespace Alphaleonis.Win32.Vss
         /// Initializes a new instance of the <see cref="VssException"/> class.
         /// </summary>
         public VssBadStateException()
-            : base("The VSS object was in an incorrect state for the requested operation.")
+            : base(Resources.LocalizedStrings.TheVSSObjectWasInAnIncorrectStateForTheRequestedOperation)
         {
         }
 

@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="4d72ab08-78e9-40cf-a85e-3f979540d009" revisionNumber="1">
+  <developerConceptualDocument xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <introduction>
+      <para>This chapter describes how to build AlphaVSS from the sources downloadable separately or from the 
+      source control server at 
+         <externalLink>
+            <linkText>CodePlex</linkText>
+            <linkUri>http://alphavss.codeplex.com/SourceControl/ListDownloadableCommits.aspx</linkUri>
+         </externalLink>.         
+       </para>
+    </introduction>
+    <section address="FilesAndProjects">
+      <title>Files and Projects</title>
+      <content>
+         <para>
+            The AlphaVSS solution and project files were created using Visual Studio 2008. If you download 
+            a released source, you should have no problems opening these. If you download from the source control, 
+            chances are you will get an error message about missing TFS bindings. This is no cause for alarm as 
+            Visual Studio should present you with an option to remove these bindings.
+         </para>
+         <para>
+            The solution contains two projects, <application>AlphaVSS.Common</application> which is common to all 
+            platforms and can be built in two configurations, Release and Debug, as well as 
+            <application>AlphaVSS.Platform</application> which contains the platform specific code. 
+            This is available in 12 configurations in total, WinXP, Win2003, and Win2008 all in both Release and Debug modes 
+            as well as targeted for x86 and x64 platforms. Note that the Win2008 target is used for both 
+            <application>Windows Vista</application> and <application>Windows Server 2008</application>.
+         </para>
+         <para>
+            To be able to build the WinXP and Win2003 targets you need 
+            from <externalLink>
+               <linkText>Volume Shadow Copy Service SDK 7.2</linkText>
+               <linkUri>
+                  <![CDATA[http://www.microsoft.com/downloads/details.aspx?familyid=0b4f56e4-0ccc-4626-826a-ed2c4c95c871&displaylang=en]]>
+               </linkUri>
+            </externalLink> installed.
+            The projects assume that this is installed in its default location "C:\Program Files\Microsoft\VSSSDK72". If it is not, 
+            you will have to change this in the project settings for the WinXP and Win2003 targets of <application>AlphaVSS.Platform</application>.
+         </para>
+         <para>
+            To build the Win2008 targets you need 
+            <externalLink>
+               <linkText>Windows SDK for Windows Server 2008 and .NET Framework 3.5</linkText>
+               <linkUri>
+                  <![CDATA[http://www.microsoft.com/downloads/details.aspx?FamilyID=e6e1c3df-a74f-4207-8586-711ebe331cdc&displaylang=en]]>
+               </linkUri>
+            </externalLink> installed. This should integrate with your build environment automatically upon installation, so 
+            no specific directories should have to be set.
+         </para>      
+      </content>
+    </section>
+     <section address="DelaySigning">
+        <title>Strong Named Assemblies and Delay Signing</title>
+        <content>
+           <para>
+              The projects are set to use delay signing of the assemblies using the included
+              public key in the file <computerOutputInline>AlphaVSS.pub.snk</computerOutputInline>.
+              This means that they will not be usable until signed with the proper private key,
+              which is not publically available.
+           </para>
+           <para>
+              You can use the <command>sn.exe</command> tool to enable the loading of those assemblies on 
+              your local machine by running "<command>sn.exe -Vr ,3033cf2dbd31cad3</command>". This will 
+              enable all assemblies with the specified public token to be loaded on your machine.                        
+              To remove this permission run "<command>sn.exe -Vu ,3033cf2dbd31cad3</command>".
+           </para>
+           <para>
+              If you don't want to do this you will need to either disable signing the assemblies with a strong name 
+              in the project files and perform the loading of the required platform specific assemblies manually. 
+              This because <codeEntityReference>M:Alphaleonis.Win32.Vss.VssUtils.LoadImplementation</codeEntityReference>
+              relies on the strong names of the assemblies to load them. 
+           </para>
+           <para>
+              Another option is to sign the assemblies with your own private/public key pair and modify the public 
+              key token in <application>VssUtils.cs</application> to your new public key token. 
+              A better option would be to file a work item in the issue tracker, providing your suggested changes and 
+              have them included in the next release though.
+           </para>
+           <para>
+              For more information about strong names, signing of assemblies and delay signing in general, 
+              refer to the MSDN documentation on the subject or Google.
+           </para>
+        </content>
+     </section>
+     <section>
+        <title>Running the Build</title>
+        <content>
+           <para>Actually performing the build is preferrably done using <application>Visual Studio 2008</application>
+               in the same way as you would build any other application or project that you have developed.
+           </para>
+           <para>You can also use batch build to build all targets for all platforms at once.</para>
+        </content>
+     </section>
+    <relatedTopics>
+       <codeEntityReference>M:Alphaleonis.Win32.Vss.VssUtils.LoadImplementation</codeEntityReference>
+       <externalLink>
+          <linkText>Strong Name Tool (sn.exe) (on MSDN)</linkText>
+          <linkUri><![CDATA[http://msdn.microsoft.com/en-us/library/k5b5tt23.aspx]]></linkUri>
+       </externalLink>
+       <externalLink>
+          <linkText>Strong-Named Assemblies (on MSDN)</linkText>
+          <linkUri><![CDATA[http://msdn.microsoft.com/en-us/library/wd40t7ad.aspx]]></linkUri>
+       </externalLink>
+    </relatedTopics>
+  </developerConceptualDocument>
+</topic>

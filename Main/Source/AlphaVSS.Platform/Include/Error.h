@@ -23,17 +23,7 @@
 
 namespace Alphaleonis { namespace Win32 { namespace Vss
 {
-	Exception ^GetExceptionForHr(HRESULT errorCode, const wchar_t *message);
-	void ThrowException(HRESULT errorCode, const wchar_t *message);
-
-	inline void ThrowException(HRESULT errorCode)
-	{
-		ThrowException(errorCode, 0);
-	}
-
-	inline Exception ^GetExceptionForHr(HRESULT errorCode)
-	{
-		return GetExceptionForHr(errorCode, 0);
-	}
+	Exception ^GetExceptionForHr(HRESULT errorCode);
+	void ThrowException(HRESULT errorCode);
 }	
 } }

@@ -285,7 +285,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 #if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WIN2003
 		return mDifferencedFiles;
 #else
-		throw gcnew NotSupportedException(L"This method requires Windows Server 2003 or later");
+      throw gcnew NotSupportedException(Alphaleonis::Win32::Vss::Resources::LocalizedStrings::NotSupportedUntilWin2003);
 #endif
 	}
 

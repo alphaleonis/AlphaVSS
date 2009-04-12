@@ -201,4 +201,16 @@
   <data name="ThisOperationRequires01OrLaterDetectedOperatingSystemWas23" xml:space="preserve">
     <value>This operation requires {0}{1} or later. Detected operating system was: {2}{3}.</value>
   </data>
+  <data name="TheVSSObjectWasInAnIncorrectStateForTheRequestedOperation" xml:space="preserve">
+    <value>The VSS object was in an incorrect state for the requested operation.</value>
+  </data>
+  <data name="UnexpectedSystemError" xml:space="preserve">
+    <value>Unexpected system error.</value>
+  </data>
+  <data name="NotSupportedUntilWin2003" xml:space="preserve">
+    <value>This method is not supported until Windows Server 2003</value>
+  </data>
+  <data name="RequestedOperationUnsupportedByOS" xml:space="preserve">
+    <value>The requested operation is not supported on the current operating system.</value>
+  </data>
 </root>
