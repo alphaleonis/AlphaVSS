@@ -34,11 +34,11 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 {
 	VssBackupComponents::VssBackupComponents()
 		: mBackup(0), 
-#ifdef ALPHAVSS_HAS_BACKUP_EX
-		mBackupEx(0),
+#ifdef ALPHAVSS_HAS_BACKUPEX
+		mIVssBackupComponentsEx(0),
 #endif
-#ifdef ALPHAVSS_HAS_BACKUP_EX2
-		mBackupEx2(0),
+#ifdef ALPHAVSS_HAS_BACKUPEX2
+		mIVssBackupComponentsEx2(0),
 #endif
 		mWriterMetadata(nullptr),
 		mWriterComponents(nullptr),
