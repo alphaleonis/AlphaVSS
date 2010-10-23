@@ -252,7 +252,7 @@ namespace Alphaleonis.Win32.Vss
 		Guid AddToSnapshotSet(string volumeName, Guid providerId);
 
         /// <summary>
-        /// The <see cref="AddToSnapshotSet(string, System.Guid)"/> method adds an original volume to the shadow copy set using the default provider.
+        /// The <see cref="AddToSnapshotSet(string)"/> method adds an original volume to the shadow copy set using the default provider.
         /// </summary>
         /// <param name="volumeName">String containing the name of the volume to be shadow copied. The name must be in one of the following formats:
         ///		<list type="bullet">
@@ -265,13 +265,6 @@ namespace Alphaleonis.Win32.Vss
         /// <remarks>
         /// 	<para>
         /// 		The maximum number of shadow copies in a single shadow copy set is 64.
-        /// 	</para>
-        /// 	<para>If <paramref name="providerId"/> is <see cref="Guid.Empty"/>, the default provider is selected according to the following algorithm:
-        /// 		<list type="numbered">
-        /// 			<item><description>If any hardware-based provider supports the given volume, it is selected.</description></item>
-        /// 			<item><description>If there is no hardware-based provider available, if any software-based provider supports the given volume, it is selected.</description></item>
-        /// 			<item><description>If there is no hardware-based provider or software-based provider available, the system provider is selected. (There is only one preinstalled system provider, which must support all nonremovable local volumes.)</description></item>
-        /// 		</list>
         /// 	</para>
         /// </remarks>
         /// <exception cref="UnauthorizedAccessException">Caller does not have sufficient backup privileges or is not an administrator.</exception>
