@@ -1,4 +1,4 @@
-/* Copyright (c) 2008-2009 Peter Palotas
+/* Copyright (c) 2008-2011 Peter Palotas
  *  
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -142,25 +142,25 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 
 	VssDifferentialSoftwareSnapshotManagement::!VssDifferentialSoftwareSnapshotManagement()
 	{
-		if (mMgmt != 0)
+		if (m_mgmt != 0)
 		{
-			mMgmt->Release();
-			mMgmt = 0;
+			m_mgmt->Release();
+			m_mgmt = 0;
 		}
 
 #ifdef ALPHAVSS_HAS_DIFFERENTIALSOFTWARESNAPSHOTMGMT2
-		if (mIVssDifferentialSoftwareSnapshotMgmt2 != 0)
+		if (m_IVssDifferentialSoftwareSnapshotMgmt2 != 0)
 		{
-			mIVssDifferentialSoftwareSnapshotMgmt2->Release();
-			mIVssDifferentialSoftwareSnapshotMgmt2 = 0;
+			m_IVssDifferentialSoftwareSnapshotMgmt2->Release();
+			m_IVssDifferentialSoftwareSnapshotMgmt2 = 0;
 		}
 #endif
 
 #ifdef ALPHAVSS_HAS_DIFFERENTIALSOFTWARESNAPSHOTMGMT3
-		if (mIVssDifferentialSoftwareSnapshotMgmt3 != 0)
+		if (m_IVssDifferentialSoftwareSnapshotMgmt3 != 0)
 		{
-			mIVssDifferentialSoftwareSnapshotMgmt3->Release();
-			mIVssDifferentialSoftwareSnapshotMgmt3 = 0;
+			m_IVssDifferentialSoftwareSnapshotMgmt3->Release();
+			m_IVssDifferentialSoftwareSnapshotMgmt3 = 0;
 		}
 #endif
 	}
@@ -169,44 +169,44 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	{
 		if (pMgmt == 0)
 			throw gcnew ArgumentNullException(gcnew String(L"pMgmt"));
-		mMgmt = pMgmt;
+		m_mgmt = pMgmt;
 	}
         
 	void VssDifferentialSoftwareSnapshotManagement::AddDiffArea(String^ volumeName, String^ diffAreaVolumeName, Int64 maximumDiffSpace)
 	{
-		CheckCom(mMgmt->AddDiffArea(NoNullAutoMStr(volumeName), NoNullAutoMStr(diffAreaVolumeName), maximumDiffSpace));
+		CheckCom(m_mgmt->AddDiffArea(NoNullAutoMStr(volumeName), NoNullAutoMStr(diffAreaVolumeName), maximumDiffSpace));
 	}
 
     void VssDifferentialSoftwareSnapshotManagement::ChangeDiffAreaMaximumSize(String^ volumeName, String^ diffAreaVolumeName, Int64 maximumDiffSpace)
 	{
-		CheckCom(mMgmt->ChangeDiffAreaMaximumSize(NoNullAutoMStr(volumeName), NoNullAutoMStr(diffAreaVolumeName), maximumDiffSpace));
+		CheckCom(m_mgmt->ChangeDiffAreaMaximumSize(NoNullAutoMStr(volumeName), NoNullAutoMStr(diffAreaVolumeName), maximumDiffSpace));
 	}
 
     IList<VssDiffAreaProperties^>^ VssDifferentialSoftwareSnapshotManagement::QueryDiffAreasForSnapshot(Guid snapshotId)
 	{
 		IVssEnumMgmtObject *pEnum;
-		CheckCom(mMgmt->QueryDiffAreasForSnapshot(ToVssId(snapshotId), &pEnum));
+		CheckCom(m_mgmt->QueryDiffAreasForSnapshot(ToVssId(snapshotId), &pEnum));
 		return CreateListFromEnumMgmtObject<VssDiffAreaProperties>(pEnum);
 	}
 
     IList<VssDiffAreaProperties^>^ VssDifferentialSoftwareSnapshotManagement::QueryDiffAreasForVolume(String^ volumeName)
 	{
 		IVssEnumMgmtObject *pEnum;
-		CheckCom(mMgmt->QueryDiffAreasForVolume(NoNullAutoMStr(volumeName), &pEnum));
+		CheckCom(m_mgmt->QueryDiffAreasForVolume(NoNullAutoMStr(volumeName), &pEnum));
 		return CreateListFromEnumMgmtObject<VssDiffAreaProperties>(pEnum);
 	}
 
     IList<VssDiffAreaProperties^>^ VssDifferentialSoftwareSnapshotManagement::QueryDiffAreasOnVolume(String^ volumeName)
 	{
 		IVssEnumMgmtObject *pEnum;
-		CheckCom(mMgmt->QueryDiffAreasOnVolume(NoNullAutoMStr(volumeName), &pEnum));
+		CheckCom(m_mgmt->QueryDiffAreasOnVolume(NoNullAutoMStr(volumeName), &pEnum));
 		return CreateListFromEnumMgmtObject<VssDiffAreaProperties>(pEnum);
 	}
 
     IList<VssDiffVolumeProperties^>^ VssDifferentialSoftwareSnapshotManagement::QueryVolumesSupportedForDiffAreas(String^ originalVolumeName)
 	{
 		IVssEnumMgmtObject *pEnum;
-		CheckCom(mMgmt->QueryVolumesSupportedForDiffAreas(NoNullAutoMStr(originalVolumeName), &pEnum));
+		CheckCom(m_mgmt->QueryVolumesSupportedForDiffAreas(NoNullAutoMStr(originalVolumeName), &pEnum));
 		return CreateListFromEnumMgmtObject<VssDiffVolumeProperties>(pEnum);
 	}
 

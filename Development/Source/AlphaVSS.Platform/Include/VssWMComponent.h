@@ -1,4 +1,4 @@
-/* Copyright (c) 2008-2009 Peter Palotas
+/* Copyright (c) 2008-2011 Peter Palotas
  *  
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -26,52 +26,52 @@ using namespace System::Collections::Generic;
 
 namespace Alphaleonis { namespace Win32 { namespace Vss
 {
-	private ref class VssWMComponent : IVssWMComponent, IDisposable, MarshalByRefObject
-	{
-	public:
-		~VssWMComponent();
-		!VssWMComponent();
+   private ref class VssWMComponent : IVssWMComponent, IDisposable, MarshalByRefObject
+   {
+   public:
+      ~VssWMComponent();
+      !VssWMComponent();
 
-		property VssComponentType Type { virtual VssComponentType get(); }
-		property String^ LogicalPath { virtual String^ get(); }
-		property String^ ComponentName { virtual String^ get(); }
-		property String^ Caption { virtual String^ get(); }
-		virtual array<byte>^ GetIcon();
-		property bool RestoreMetadata { virtual bool get(); }
-		property bool NotifyOnBackupComplete { virtual bool get(); }
-		property bool Selectable { virtual bool get(); }
-		property bool SelectableForRestore { virtual bool get(); }
-		property VssComponentFlags ComponentFlags { virtual VssComponentFlags get(); }
-		property IList<VssWMFileDescription^>^ Files { virtual IList<VssWMFileDescription^>^ get(); }
-		property IList<VssWMFileDescription^>^ DatabaseFiles { virtual IList<VssWMFileDescription^>^ get(); }
-		property IList<VssWMFileDescription^>^ DatabaseLogFiles { virtual IList<VssWMFileDescription^>^ get(); }
-		property IList<VssWMDependency^>^ Dependencies { virtual IList<VssWMDependency^>^ get(); }
-	internal:
-		static VssWMComponent^ Adopt(::IVssWMComponent *component);
-	private:
-		VssWMComponent(::IVssWMComponent *component);
-		::IVssWMComponent *mComponent;
+      property VssComponentType Type { virtual VssComponentType get(); }
+      property String^ LogicalPath { virtual String^ get(); }
+      property String^ ComponentName { virtual String^ get(); }
+      property String^ Caption { virtual String^ get(); }
+      virtual array<byte>^ GetIcon();
+      property bool RestoreMetadata { virtual bool get(); }
+      property bool NotifyOnBackupComplete { virtual bool get(); }
+      property bool Selectable { virtual bool get(); }
+      property bool SelectableForRestore { virtual bool get(); }
+      property VssComponentFlags ComponentFlags { virtual VssComponentFlags get(); }
+      property IList<VssWMFileDescription^>^ Files { virtual IList<VssWMFileDescription^>^ get(); }
+      property IList<VssWMFileDescription^>^ DatabaseFiles { virtual IList<VssWMFileDescription^>^ get(); }
+      property IList<VssWMFileDescription^>^ DatabaseLogFiles { virtual IList<VssWMFileDescription^>^ get(); }
+      property IList<VssWMDependency^>^ Dependencies { virtual IList<VssWMDependency^>^ get(); }
+   internal:
+      static VssWMComponent^ Adopt(::IVssWMComponent *component);
+   private:
+      VssWMComponent(::IVssWMComponent *component);
+      ::IVssWMComponent *m_component;
 
-		VssComponentType mType;
-		String^ mLogicalPath;
-		String^ mComponentName;
-		String^ mCaption;
-		array<byte>^ mIcon;
-		bool mRestoreMetadata;
-		bool mNotifyOnBackupComplete;
-		bool mSelectable;
-		bool mSelectableForRestore;
-		VssComponentFlags mComponentFlags;
+      VssComponentType m_type;
+      String^ m_logicalPath;
+      String^ m_componentName;
+      String^ m_caption;
+      array<byte>^ m_icon;
+      bool m_restoreMetadata;
+      bool m_notifyOnBackupComplete;
+      bool m_selectable;
+      bool m_selectableForRestore;
+      VssComponentFlags m_componentFlags;
 
-		UInt32 mFileCount;
-		UInt32 mDatabaseFileCount;
-		UInt32 mDatabaseLogFileCount;
-		UInt32 mDependencyCount;
+      UInt32 m_fileCount;
+      UInt32 m_databaseFileCount;
+      UInt32 m_databaseLogFileCount;
+      UInt32 m_dependencyCount;
 
-		IList<VssWMFileDescription^>^ mFiles;
-		IList<VssWMFileDescription^>^ mDatabaseFiles;
-		IList<VssWMFileDescription^>^ mDatabaseLogFiles;
-		IList<VssWMDependency^>^ mDependencies;
-	};
+      IList<VssWMFileDescription^>^ m_files;
+      IList<VssWMFileDescription^>^ m_databaseFiles;
+      IList<VssWMFileDescription^>^ m_databaseLogFiles;
+      IList<VssWMDependency^>^ m_dependencies;
+   };
 }
 } }

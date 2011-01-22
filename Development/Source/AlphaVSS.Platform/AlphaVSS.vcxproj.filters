@@ -116,7 +116,4 @@
       <Filter>Resource Files</Filter>
     </ResourceCompile>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="Migrated rules for AlphaVSS.ruleset" />
-  </ItemGroup>
 </Project>

@@ -13,13 +13,11 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Swedish resources
+// Swedish (Sweden) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_SVE)
-#ifdef _WIN32
-LANGUAGE LANG_SWEDISH, SUBLANG_DEFAULT
+LANGUAGE LANG_SWEDISH, SUBLANG_SWEDISH
 #pragma code_page(1252)
-#endif //_WIN32
 
 #ifdef APSTUDIO_INVOKED
 /////////////////////////////////////////////////////////////////////////////
@@ -53,8 +51,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,0,9156,0
- PRODUCTVERSION 1,0,9156,0
+ FILEVERSION 1,0,10121,0
+ PRODUCTVERSION 1,0,10121,0
  FILEFLAGSMASK 0x17L
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -71,12 +69,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "Alphaleonis"
             VALUE "FileDescription", "Alphaleonis Windows Volume Shadow Copy Service .NET Library"
-            VALUE "FileVersion", "1, 0, 9156, 0"
+            VALUE "FileVersion", "1.0.10121.0"
             VALUE "InternalName", "AlphaVSS"
             VALUE "LegalCopyright", "Copyright (C) Peter Palotas 2008"
             VALUE "OriginalFilename", "AlphaVSS.dll"
             VALUE "ProductName", "AlphaVSS"
-            VALUE "ProductVersion", "1, 0, 9156, 0"
+            VALUE "ProductVersion", "1.0.10121.0"
         END
     END
     BLOCK "VarFileInfo"
@@ -85,7 +83,7 @@ BEGIN
     END
 END
 
-#endif    // Swedish resources
+#endif    // Swedish (Sweden) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

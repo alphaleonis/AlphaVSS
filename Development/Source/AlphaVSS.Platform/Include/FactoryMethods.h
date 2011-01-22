@@ -1,4 +1,4 @@
-/* Copyright (c) 2008-2009 Peter Palotas
+/* Copyright (c) 2008-2011 Peter Palotas
  *  
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -30,15 +30,15 @@
 
 namespace Alphaleonis { namespace Win32 { namespace Vss
 {
-	VssWMFileDescription^ CreateVssWMFileDescription(IVssWMFiledesc *vssWMFiledesc);
-	VssProviderProperties^ CreateVssProviderProperties(VSS_PROVIDER_PROP *pProp);
+   VssWMFileDescription^ CreateVssWMFileDescription(IVssWMFiledesc *vssWMFiledesc);
+   VssProviderProperties^ CreateVssProviderProperties(VSS_PROVIDER_PROP *pProp);
 #ifdef ALPHAVSS_HAS_WMDEPENDENCY	
-	VssWMDependency^ CreateVssWMDependency(IVssWMDependency *dependency);
+   VssWMDependency^ CreateVssWMDependency(IVssWMDependency *dependency);
 #endif	
-	VssSnapshotProperties^ CreateVssSnapshotProperties(VSS_SNAPSHOT_PROP *prop);
+   VssSnapshotProperties^ CreateVssSnapshotProperties(VSS_SNAPSHOT_PROP *prop);
 
 #ifdef ALPHAVSS_HAS_DIFFERENTIALSOFTWARESNAPSHOTMGMT3
-	VssVolumeProtectionInfo^ CreateVssVolumeProtectionInfo(VSS_VOLUME_PROTECTION_INFO *info);
+   VssVolumeProtectionInfo^ CreateVssVolumeProtectionInfo(VSS_VOLUME_PROTECTION_INFO *info);
 #endif
 }
 }}

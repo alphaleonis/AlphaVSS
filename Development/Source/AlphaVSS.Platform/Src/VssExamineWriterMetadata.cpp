@@ -1,4 +1,4 @@
-/* Copyright (c) 2008-2009 Peter Palotas
+/* Copyright (c) 2008-2011 Peter Palotas
  *  
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -67,19 +67,19 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		if (!hasExIdentity)
 			CheckCom(mExamineWriterMetadata->GetIdentity(&idInstance, &idWriter, &bsWriterName, &usage, &source));
 
-		mInstanceId = ToGuid(idInstance);
-		mWriterId = ToGuid(idWriter);
-		mWriterName = bsWriterName;
-		mInstanceName = bsInstanceName;
-		mUsage = (VssUsageType)usage;
-		mSource = (VssSourceType)source;
+		m_instanceId = ToGuid(idInstance);
+		m_writerId = ToGuid(idWriter);
+		m_writerName = bsWriterName;
+		m_instanceName = bsInstanceName;
+		m_usage = (VssUsageType)usage;
+		m_source = (VssSourceType)source;
 
-		mExcludeFiles = nullptr;
-		mComponents = nullptr;
-		mRestoreMethod = nullptr;
-		mAlternateLocationMappings = nullptr;
-		mVersion = nullptr;
-		mExcludeFilesFromSnapshot = nullptr;
+		m_excludeFiles = nullptr;
+		m_components = nullptr;
+		m_restoreMethod = nullptr;
+		m_alternateLocationMappings = nullptr;
+		m_version = nullptr;
+		m_excludeFilesFromSnapshot = nullptr;
 	}
 
 	VssExamineWriterMetadata::~VssExamineWriterMetadata()
@@ -95,18 +95,18 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 			mExamineWriterMetadata = 0;
 		}
 #ifdef ALPHAVSS_HAS_EWMEX
-		if (mIVssExamineWriterMetadataEx != 0)
+		if (m_IVssExamineWriterMetadataEx != 0)
 		{
-			mIVssExamineWriterMetadataEx->Release();
-			mIVssExamineWriterMetadataEx = 0;
+			m_IVssExamineWriterMetadataEx->Release();
+			m_IVssExamineWriterMetadataEx = 0;
 		}
 #endif
 
 #ifdef ALPHAVSS_HAS_EWMEX2
-		if (mIVssExamineWriterMetadataEx2 != 0)
+		if (m_IVssExamineWriterMetadataEx2 != 0)
 		{
-			mIVssExamineWriterMetadataEx2->Release();
-			mIVssExamineWriterMetadataEx2 = 0;
+			m_IVssExamineWriterMetadataEx2->Release();
+			m_IVssExamineWriterMetadataEx2 = 0;
 		}
 #endif		
 	}
@@ -135,33 +135,33 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 
 	Guid VssExamineWriterMetadata::InstanceId::get()
 	{
-		return mInstanceId;
+		return m_instanceId;
 	}
 
 	Guid VssExamineWriterMetadata::WriterId::get()
 	{
-		return mWriterId;
+		return m_writerId;
 	}
 
 	String^ VssExamineWriterMetadata::WriterName::get()
 	{
-		return mWriterName;
+		return m_writerName;
 	}
 
 	VssUsageType VssExamineWriterMetadata::Usage::get()
 	{
-		return mUsage;
+		return m_usage;
 	}
 
 	VssSourceType VssExamineWriterMetadata::Source::get()
 	{
-		return mSource;
+		return m_source;
 	}
 
 	IList<VssWMFileDescription^>^ VssExamineWriterMetadata::ExcludeFiles::get()
 	{
-		if (mExcludeFiles != nullptr)
-			return mExcludeFiles;
+		if (m_excludeFiles != nullptr)
+			return m_excludeFiles;
 
 		UINT cIncludeFiles, cExcludeFiles, cComponents;
 		CheckCom(mExamineWriterMetadata->GetFileCounts(&cIncludeFiles, &cExcludeFiles, &cComponents));
@@ -173,14 +173,14 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 			CheckCom(mExamineWriterMetadata->GetExcludeFile(i, &filedesc));
 			list->Add(CreateVssWMFileDescription(filedesc));
 		}
-		mExcludeFiles = list;
-		return mExcludeFiles;
+		m_excludeFiles = list;
+		return m_excludeFiles;
 	}
 
 	IList<IVssWMComponent^>^ VssExamineWriterMetadata::Components::get()
 	{
-		if (mComponents != nullptr)
-			return mComponents;
+		if (m_components != nullptr)
+			return m_components;
 
 		UINT cIncludeFiles, cExcludeFiles, cComponents;
 		CheckCom(mExamineWriterMetadata->GetFileCounts(&cIncludeFiles, &cExcludeFiles, &cComponents));
@@ -192,14 +192,14 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 			CheckCom(mExamineWriterMetadata->GetComponent(i, &component));
 			list->Add(VssWMComponent::Adopt(component));
 		}
-		mComponents = list;
-		return mComponents;
+		m_components = list;
+		return m_components;
 	}
 
 	VssWMRestoreMethod^ VssExamineWriterMetadata::RestoreMethod::get()
 	{
-		if (mRestoreMethod != nullptr)
-			return mRestoreMethod;
+		if (m_restoreMethod != nullptr)
+			return m_restoreMethod;
 
 		VSS_RESTOREMETHOD_ENUM eMethod;
 		AutoBStr bstrService, bstrUserProcedure;
@@ -214,15 +214,15 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		if (result == S_FALSE)
 			return nullptr;
 
-		mRestoreMethod = gcnew VssWMRestoreMethod((VssRestoreMethod)eMethod, bstrService, bstrUserProcedure, (VssWriterRestore)eWriterRestore, bRebootRequired, iMappings);
-		return mRestoreMethod;
+		m_restoreMethod = gcnew VssWMRestoreMethod((VssRestoreMethod)eMethod, bstrService, bstrUserProcedure, (VssWriterRestore)eWriterRestore, bRebootRequired, iMappings);
+		return m_restoreMethod;
 
 	}
 
 	IList<VssWMFileDescription^>^ VssExamineWriterMetadata::AlternateLocationMappings::get()
 	{
-		if (mAlternateLocationMappings != nullptr)
-			return mAlternateLocationMappings;
+		if (m_alternateLocationMappings != nullptr)
+			return m_alternateLocationMappings;
 
 		// Return an empty list if no restore method is available
 		if (this->RestoreMethod == nullptr)
@@ -236,8 +236,8 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 			CheckCom(mExamineWriterMetadata->GetAlternateLocationMapping(i, &filedesc));
 			list->Add(CreateVssWMFileDescription(filedesc));
 		}
-		mAlternateLocationMappings = list;
-		return mAlternateLocationMappings;
+		m_alternateLocationMappings = list;
+		return m_alternateLocationMappings;
 	}
 
 	VssBackupSchema VssExamineWriterMetadata::BackupSchema::get()
@@ -254,27 +254,27 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 
 	String^ VssExamineWriterMetadata::InstanceName::get()
 	{
-		return mInstanceName;
+		return m_instanceName;
 	}
 
 	Version^ VssExamineWriterMetadata::Version::get()
 	{
-		if (mVersion == nullptr)
+		if (m_version == nullptr)
 		{
 			DWORD dwMajorVersion = 0;
 			DWORD dwMinorVersion = 0;
 #ifdef ALPHAVSS_HAS_EWMEX2
 			CheckCom(RequireIVssExamineWriterMetadataEx2()->GetVersion(&dwMajorVersion, &dwMinorVersion));
 #endif
-			mVersion = gcnew System::Version(dwMajorVersion, dwMinorVersion);
+			m_version = gcnew System::Version(dwMajorVersion, dwMinorVersion);
 		}
-		return mVersion;
+		return m_version;
 	}
 	
 	IList<VssWMFileDescription^>^ VssExamineWriterMetadata::ExcludeFromSnapshotFiles::get()
 	{
-		if (mExcludeFilesFromSnapshot != nullptr)
-			return mExcludeFilesFromSnapshot;
+		if (m_excludeFilesFromSnapshot != nullptr)
+			return m_excludeFilesFromSnapshot;
 
 #ifdef ALPHAVSS_HAS_EWMEX2
 		UINT cExcludedFromSnapshot;
@@ -288,11 +288,11 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 			CheckCom(RequireIVssExamineWriterMetadataEx2()->GetExcludeFromSnapshotFile(i, &filedesc));
 			list->Add(CreateVssWMFileDescription(filedesc));
 		}
-		mExcludeFiles = list;
+		m_excludeFiles = list;
 #else
-		mExcludeFiles = gcnew List<VssWMFileDescription^>();
+		m_excludeFiles = gcnew List<VssWMFileDescription^>();
 #endif
-		return mExcludeFiles;
+		return m_excludeFiles;
 	}
 
 }

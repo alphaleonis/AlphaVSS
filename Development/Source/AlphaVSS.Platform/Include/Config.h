@@ -1,4 +1,4 @@
-/* Copyright (c) 2008-2009 Peter Palotas
+/* Copyright (c) 2008-2011 Peter Palotas
  *  
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -38,6 +38,7 @@ Windows XP (32-bit) 										Windows XP (32-bit)
 															Note  Requesters will also run on Windows XP 64-Bit Edition.
 */
 /*
+    Windows 7                                       NTDDI_WIN7
 	Windows Server 2008								NTDDI_WS08
 	Windows Vista with Service Pack 1 (SP1)			NTDDI_VISTASP1
 	Windows Vista									NTDDI_VISTA
@@ -55,6 +56,7 @@ Windows XP (32-bit) 										Windows XP (32-bit)
 #define ALPHAVSS_TARGET_WINXP		0x0400
 #define ALPHAVSS_TARGET_WIN2003		0x0500
 #define ALPHAVSS_TARGET_WIN2008		0x0600
+#define ALPHAVSS_TARGET_WIN2008R2   0x0601
 
 #ifndef ALPHAVSS_TARGET
 #error "ALPHAVSS_TARGET must be defined"
@@ -101,4 +103,6 @@ Windows XP (32-bit) 										Windows XP (32-bit)
 #define ALPHAVSS_HAS_SNAPSHOTMGMT2
 #define ALPHAVSS_HAS_DIFFERENTIALSOFTWARESNAPSHOTMGMT2
 #define ALPHAVSS_HAS_DIFFERENTIALSOFTWARESNAPSHOTMGMT3
+#define ALPHAVSS_HAS_BACKUPEX3
+#define ALPHAVSS_HAS_COMPONENTEX2
 #endif

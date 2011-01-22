@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\OperatingSystemInfo.cs" />
+    <Compile Include="Classes\VssComponentFailure.cs" />
     <Compile Include="Classes\VssDiffAreaProperties.cs" />
     <Compile Include="Classes\VssDifferencedFileInfo.cs" />
     <Compile Include="Classes\VssDiffVolumeProperties.cs" />
@@ -67,7 +68,16 @@
     <Compile Include="Enumerations\VssHardwareOptions.cs" />
     <Compile Include="Enumerations\VssProtectionFault.cs" />
     <Compile Include="Enumerations\VssProtectionLevel.cs" />
+    <Compile Include="Enumerations\VssRecoveryOptions.cs" />
     <Compile Include="Enumerations\VssRollForwardType.cs" />
+    <Compile Include="Exceptions\VssCannotRevertDiskIdException.cs" />
+    <Compile Include="Exceptions\VssInconsistentSnapshotWriterException.cs" />
+    <Compile Include="Exceptions\VssLegacyProviderException.cs" />
+    <Compile Include="Exceptions\VssNonRetryableWriterException.cs" />
+    <Compile Include="Exceptions\VssOutOfResourcesWriterException.cs" />
+    <Compile Include="Exceptions\VssPartialFailureWriterException.cs" />
+    <Compile Include="Exceptions\VssRetryableWriterException.cs" />
+    <Compile Include="Exceptions\VssSnapshotNotInSetException.cs" />
     <Compile Include="Exceptions\UnsupportedOperatingSystemException.cs" />
     <Compile Include="Exceptions\VssMaximumDiffAreaAssociationsReachedException.cs" />
     <Compile Include="Classes\VssProviderProperties.cs" />
@@ -95,6 +105,9 @@
     <Compile Include="Enumerations\VssVolumeSnapshotAttributes.cs" />
     <Compile Include="Enumerations\VssWriterRestore.cs" />
     <Compile Include="Enumerations\VssWriterState.cs" />
+    <Compile Include="Exceptions\VssResyncInProgressException.cs" />
+    <Compile Include="Exceptions\VssTimeoutWriterException.cs" />
+    <Compile Include="Exceptions\VssUnselectedVolumeException.cs" />
     <Compile Include="Exceptions\VssUnsupportedContextException.cs" />
     <Compile Include="Exceptions\VssBadStateException.cs" />
     <Compile Include="Exceptions\VssDeleteSnapshotsFailedException.cs" />
@@ -118,7 +131,10 @@
     <Compile Include="Exceptions\VssVolumeInUseException.cs" />
     <Compile Include="Exceptions\VssVolumeNotSupportedByProviderException.cs" />
     <Compile Include="Exceptions\VssVolumeNotSupportedException.cs" />
+    <Compile Include="Exceptions\VssWriterException.cs" />
     <Compile Include="Exceptions\VssWriterInfrastructureException.cs" />
+    <Compile Include="Exceptions\VssWriterNotRespondingException.cs" />
+    <Compile Include="Exceptions\VssWriterStatusNotAvailableException.cs" />
     <Compile Include="GlobalSuppression.cs" />
     <Compile Include="Exceptions\VssException.cs" />
     <Compile Include="Interfaces\ICreateWriterMetadata.cs">

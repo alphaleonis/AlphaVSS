@@ -1,4 +1,4 @@
-/* Copyright (c) 2008-2009 Peter Palotas
+/* Copyright (c) 2008-2011 Peter Palotas
  *  
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -38,13 +38,13 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	}
 
 	VssWriterComponents::VssWriterComponents(IVssWriterComponentsExt *vssWriterComponents)
-		: mVssWriterComponents(vssWriterComponents), mComponents(nullptr)
+		: mVssWriterComponents(vssWriterComponents), m_components(nullptr)
 	{
-		mComponents = gcnew ComponentList(this);
+		m_components = gcnew ComponentList(this);
 		VSS_ID iid, wid;
 		CheckCom(vssWriterComponents->GetWriterInfo(&iid, &wid));
-		mInstanceId = ToGuid(iid);
-		mWriterId = ToGuid(wid);
+		m_instanceId = ToGuid(iid);
+		m_writerId = ToGuid(wid);
 	}
 
 	VssWriterComponents::~VssWriterComponents()
@@ -63,12 +63,12 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 
 	Guid VssWriterComponents::InstanceId::get()
 	{
-		return mInstanceId;
+		return m_instanceId;
 	}
 
 	Guid VssWriterComponents::WriterId::get()
 	{
-		return mWriterId;
+		return m_writerId;
 	}
 
 	VssWriterComponents::ComponentList::ComponentList(VssWriterComponents^ writerComponents)
@@ -98,7 +98,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 
 	IList<IVssComponent^>^ VssWriterComponents::Components::get()
 	{
-		return mComponents;
+		return m_components;
 	}
 
 

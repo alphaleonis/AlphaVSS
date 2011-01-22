@@ -1,4 +1,4 @@
-/* Copyright (c) 2008-2009 Peter Palotas
+/* Copyright (c) 2008-2011 Peter Palotas
  *  
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -53,9 +53,9 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 			VssWriterComponents^ mWriterComponents;
 		};
 
-		ComponentList^ mComponents;
-		Guid mWriterId;
-		Guid mInstanceId;
+		ComponentList^ m_components;
+		Guid m_writerId;
+		Guid m_instanceId;
 	};
 }
 } }

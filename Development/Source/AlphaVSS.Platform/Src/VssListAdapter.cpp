@@ -1,4 +1,4 @@
-/* Copyright (c) 2008-2009 Peter Palotas
+/* Copyright (c) 2008-2011 Peter Palotas
  *  
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -116,7 +116,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 
 	generic<typename T>
 	VssListAdapter<T>::Enumerator::Enumerator(VssListAdapter<T>^ list)
-		: mList(list), mIndex(-1)
+		: m_list(list), m_index(-1)
 	{
 	}
 
@@ -133,10 +133,10 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	generic<typename T>
 	bool VssListAdapter<T>::Enumerator::MoveNext()
 	{
-		int count = mList->Count;
-		if (++mIndex >= count)
+		int count = m_list->Count;
+		if (++m_index >= count)
 		{
-			mIndex = count;
+			m_index = count;
 			return false;
 		}
 		return true;
@@ -145,19 +145,19 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	generic<typename T>
 	void VssListAdapter<T>::Enumerator::Reset()
 	{
-		mIndex = -1;
+		m_index = -1;
 	}
 
 	generic<typename T>
 	Object^ VssListAdapter<T>::Enumerator::CurrentObject::get()
 	{
-		return mList[mIndex];
+		return m_list[m_index];
 	}
 
 	generic<typename T>
 	T VssListAdapter<T>::Enumerator::Current::get()
 	{
-		return mList[mIndex];
+		return m_list[m_index];
 	}
 
 

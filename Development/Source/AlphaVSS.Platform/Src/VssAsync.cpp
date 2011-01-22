@@ -1,4 +1,4 @@
-/* Copyright (c) 2008-2009 Peter Palotas
+/* Copyright (c) 2008-2011 Peter Palotas
  *  
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -39,7 +39,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	}
 
 	VssAsync::VssAsync(::IVssAsync *vssAsync)
-		: mVssAsync(vssAsync)
+		: m_vssAsync(vssAsync)
 	{
 	}
 
@@ -50,17 +50,17 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 
 	VssAsync::!VssAsync()
 	{
-		if (mVssAsync != 0)
+		if (m_vssAsync != 0)
 		{
-			mVssAsync->Release();
-			mVssAsync = 0;
+			m_vssAsync->Release();
+			m_vssAsync = 0;
 		}
 	}
 
 	VssError VssAsync::Cancel()
 	{
 		HRESULT hrResult = 0;
-		hrResult = mVssAsync->Cancel();
+		hrResult = m_vssAsync->Cancel();
 		if (FAILED(hrResult))
 			ThrowException(hrResult);
 		return (VssError)hrResult;
@@ -69,23 +69,23 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	VssError VssAsync::QueryStatus()
 	{
 		HRESULT hrResult = 0;
-		CheckCom(mVssAsync->QueryStatus(&hrResult, 0));
+		CheckCom(m_vssAsync->QueryStatus(&hrResult, 0));
 		return (VssError)hrResult;
 	}
 	
 	void VssAsync::Wait()
 	{
 #if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WIN2003
-		CheckCom(mVssAsync->Wait(INFINITE));
+		CheckCom(m_vssAsync->Wait(INFINITE));
 #else
-		CheckCom(mVssAsync->Wait());
+		CheckCom(m_vssAsync->Wait());
 #endif
 	}
 
 #if 0
 	void VssAsync::Wait(UInt32 timeoutMilliseconds)
 	{
-		CheckCom(mVssAsync->Wait(timeoutMilliseconds));
+		CheckCom(m_vssAsync->Wait(timeoutMilliseconds));
 	}
 #endif
 

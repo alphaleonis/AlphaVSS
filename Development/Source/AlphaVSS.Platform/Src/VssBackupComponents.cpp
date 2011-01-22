@@ -1,4 +1,4 @@
-/* Copyright (c) 2008-2009 Peter Palotas
+/* Copyright (c) 2008-2011 Peter Palotas
  *  
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -33,23 +33,26 @@ using namespace System::Security::Permissions;
 namespace Alphaleonis { namespace Win32 { namespace Vss
 {
 	VssBackupComponents::VssBackupComponents()
-		: mBackup(0), 
+		: m_backup(0), 
 #ifdef ALPHAVSS_HAS_BACKUPEX
-		mIVssBackupComponentsEx(0),
+		m_IVssBackupComponentsEx(0),
 #endif
 #ifdef ALPHAVSS_HAS_BACKUPEX2
-		mIVssBackupComponentsEx2(0),
+		m_IVssBackupComponentsEx2(0),
 #endif
-		mWriterMetadata(nullptr),
-		mWriterComponents(nullptr),
-		mWriterStatus(nullptr)
+#ifdef ALPHAVSS_HAS_BACKUPEX3
+        m_IVssBackupComponentsEx3(0),
+#endif
+		m_writerMetadata(nullptr),
+		m_writerComponents(nullptr),
+		m_writerStatus(nullptr)
 
 	{
-		mWriterMetadata = gcnew WriterMetadataList(this);
-		mWriterComponents = gcnew WriterComponentsList(this);
-		mWriterStatus = gcnew WriterStatusList(this);
+		m_writerMetadata = gcnew WriterMetadataList(this);
+		m_writerComponents = gcnew WriterComponentsList(this);
+		m_writerStatus = gcnew WriterStatusList(this);
 
-		pin_ptr<::IVssBackupComponents *> pVssObject = &mBackup;
+		pin_ptr<::IVssBackupComponents *> pVssObject = &m_backup;
 		CheckCom( CreateVssBackupComponents(pVssObject) );
 	}
 
@@ -60,45 +63,53 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 
 	VssBackupComponents::!VssBackupComponents()
 	{
-		if (mBackup != 0)
+		if (m_backup != 0)
 		{
-			mBackup->Release();
-			mBackup = 0;
+			m_backup->Release();
+			m_backup = 0;
 		}
 
 #ifdef ALPHAVSS_HAS_BACKUPEX
-		if (mIVssBackupComponentsEx != 0)
+		if (m_IVssBackupComponentsEx != 0)
 		{
-			mIVssBackupComponentsEx->Release();
-			mIVssBackupComponentsEx = 0;
+			m_IVssBackupComponentsEx->Release();
+			m_IVssBackupComponentsEx = 0;
 		}
 #endif
 
 #ifdef ALPHAVSS_HAS_BACKUPEX2
-		if (mIVssBackupComponentsEx2 != 0)
+		if (m_IVssBackupComponentsEx2 != 0)
 		{
-			mIVssBackupComponentsEx2->Release();
-			mIVssBackupComponentsEx2 = 0;
+			m_IVssBackupComponentsEx2->Release();
+			m_IVssBackupComponentsEx2 = 0;
 		}
+#endif
+
+#ifdef ALPHAVSS_HAS_BACKUPEX3
+        if (m_IVssBackupComponentsEx3 != 0)
+        {
+			   m_IVssBackupComponentsEx3->Release();
+			   m_IVssBackupComponentsEx3 = 0;
+        }
 #endif
 	}
 
 
 	void VssBackupComponents::AbortBackup()
 	{
-		CheckCom(mBackup->AbortBackup());
+		CheckCom(m_backup->AbortBackup());
 	}
 
 	void VssBackupComponents::AddAlternativeLocationMapping(Guid writerId, VssComponentType componentType, String ^ logicalPath, String ^ componentName, String ^ path, String ^ filespec, bool recursive, String ^ destination)
 	{
-		CheckCom(mBackup->AddAlternativeLocationMapping(ToVssId(writerId), (VSS_COMPONENT_TYPE)componentType, 
+		CheckCom(m_backup->AddAlternativeLocationMapping(ToVssId(writerId), (VSS_COMPONENT_TYPE)componentType, 
 			AutoMStr(logicalPath), NoNullAutoMStr(componentName), NoNullAutoMStr(path),
 			NoNullAutoMStr(filespec), recursive, NoNullAutoMStr(destination)));
 	}
 
 	void VssBackupComponents::AddComponent(Guid instanceId, Guid writerId, VssComponentType componentType, String ^ logicalPath, String ^ componentName)
 	{
-		CheckCom(mBackup->AddComponent(ToVssId(instanceId), ToVssId(writerId), (VSS_COMPONENT_TYPE)componentType, 
+		CheckCom(m_backup->AddComponent(ToVssId(instanceId), ToVssId(writerId), (VSS_COMPONENT_TYPE)componentType, 
 			AutoMStr(logicalPath), NoNullAutoMStr(componentName)));
 	}
 
@@ -106,7 +117,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	{
 #if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WIN2003
 		OperatingSystemInfo::RequireAtLeast(OSVersionName::WindowsServer2003);		
-		CheckCom(mBackup->AddNewTarget(ToVssId(writerId), (VSS_COMPONENT_TYPE)componentType,
+		CheckCom(m_backup->AddNewTarget(ToVssId(writerId), (VSS_COMPONENT_TYPE)componentType,
 			AutoMStr(logicalPath), NoNullAutoMStr(componentName),
 			NoNullAutoMStr(path), NoNullAutoMStr(fileName),
 			recursive, NoNullAutoMStr(alternatePath)));
@@ -117,7 +128,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 
 	void VssBackupComponents::AddRestoreSubcomponent(Guid writerId, VssComponentType componentType, String^ logicalPath, String ^componentName, String^ subcomponentLogicalPath, String^ subcomponentName)
 	{
-		CheckCom(mBackup->AddRestoreSubcomponent(ToVssId(writerId), (VSS_COMPONENT_TYPE)componentType,
+		CheckCom(m_backup->AddRestoreSubcomponent(ToVssId(writerId), (VSS_COMPONENT_TYPE)componentType,
 			AutoMStr(logicalPath),
 			NoNullAutoMStr(componentName),
 			NoNullAutoMStr(subcomponentLogicalPath),
@@ -128,14 +139,14 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	Guid VssBackupComponents::AddToSnapshotSet(String ^ volumeName, Guid providerId)
 	{
 		VSS_ID idSnapshot;
-		CheckCom(mBackup->AddToSnapshotSet(NoNullAutoMStr(volumeName), ToVssId(providerId), &idSnapshot));
+		CheckCom(m_backup->AddToSnapshotSet(NoNullAutoMStr(volumeName), ToVssId(providerId), &idSnapshot));
 		return ToGuid(idSnapshot);
 	}
 
 	Guid VssBackupComponents::AddToSnapshotSet(String^ volumeName)
 	{
 		VSS_ID idSnapshot;
-		CheckCom(mBackup->AddToSnapshotSet(NoNullAutoMStr(volumeName), ToVssId(Guid::Empty), &idSnapshot));
+		CheckCom(m_backup->AddToSnapshotSet(NoNullAutoMStr(volumeName), ToVssId(Guid::Empty), &idSnapshot));
 		return ToGuid(idSnapshot);
 	}
 
@@ -143,13 +154,13 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	IVssAsync ^ VssBackupComponents::BackupComplete()
 	{
 		::IVssAsync *pAsync;
-		CheckCom(mBackup->BackupComplete(&pAsync));
+		CheckCom(m_backup->BackupComplete(&pAsync));
 		return VssAsync::Adopt(pAsync);
 	}
 
 	void VssBackupComponents::BreakSnapshotSet(Guid snapshotSetId)
 	{
-		CheckCom(mBackup->BreakSnapshotSet(ToVssId(snapshotSetId)));
+		CheckCom(m_backup->BreakSnapshotSet(ToVssId(snapshotSetId)));
 	}
 
 	IVssAsync^ VssBackupComponents::BreakSnapshotSet(Guid snapshotSetId, VssHardwareOptions breakFlags)
@@ -167,14 +178,14 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	{
 		LONG lDeletedSnapshots;
 		VSS_ID nonDeletedSnapshotID;
-		CheckCom(mBackup->DeleteSnapshots(ToVssId(snapshotId), VSS_OBJECT_SNAPSHOT, forceDelete, &lDeletedSnapshots, &nonDeletedSnapshotID));
+		CheckCom(m_backup->DeleteSnapshots(ToVssId(snapshotId), VSS_OBJECT_SNAPSHOT, forceDelete, &lDeletedSnapshots, &nonDeletedSnapshotID));
 	}
 
 	int VssBackupComponents::DeleteSnapshotSet(Guid snapshotSetId, bool forceDelete)
 	{
 		LONG lDeletedSnapshots;
 		VSS_ID nonDeletedSnapshotID;
-		HRESULT hr = mBackup->DeleteSnapshots(ToVssId(snapshotSetId), VSS_OBJECT_SNAPSHOT_SET, forceDelete, &lDeletedSnapshots, &nonDeletedSnapshotID);
+		HRESULT hr = m_backup->DeleteSnapshots(ToVssId(snapshotSetId), VSS_OBJECT_SNAPSHOT_SET, forceDelete, &lDeletedSnapshots, &nonDeletedSnapshotID);
 		
 		if (FAILED(hr))
 		{
@@ -186,31 +197,31 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 
 	void VssBackupComponents::DisableWriterClasses(array<Guid> ^ writerClassIds)
 	{
-		CheckCom(mBackup->DisableWriterClasses(VssIds(writerClassIds), writerClassIds->Length));
+		CheckCom(m_backup->DisableWriterClasses(VssIds(writerClassIds), writerClassIds->Length));
 	}
 
 	void VssBackupComponents::DisableWriterInstances(array<Guid> ^ writerInstanceIds)
 	{
-		CheckCom(mBackup->DisableWriterInstances(VssIds(writerInstanceIds), writerInstanceIds->Length));
+		CheckCom(m_backup->DisableWriterInstances(VssIds(writerInstanceIds), writerInstanceIds->Length));
 	}
 
 	IVssAsync^ VssBackupComponents::DoSnapshotSet()
 	{
 		::IVssAsync *vssAsync;
-		CheckCom(mBackup->DoSnapshotSet(&vssAsync));
+		CheckCom(m_backup->DoSnapshotSet(&vssAsync));
 		return VssAsync::Adopt(vssAsync);
 	}
 
 	void VssBackupComponents::EnableWriterClasses(array<Guid> ^ writerClassIds)
 	{
-		CheckCom(mBackup->EnableWriterClasses(VssIds(writerClassIds), writerClassIds->Length));
+		CheckCom(m_backup->EnableWriterClasses(VssIds(writerClassIds), writerClassIds->Length));
 	}
 
 	String^ VssBackupComponents::ExposeSnapshot(Guid snapshotId, String ^ pathFromRoot, VssVolumeSnapshotAttributes attributes, String ^ expose)
 	{
 		AutoPwsz pwszExposed;
 
-		CheckCom(mBackup->ExposeSnapshot(ToVssId(snapshotId), AutoMStr(pathFromRoot), (LONG)attributes,
+		CheckCom(m_backup->ExposeSnapshot(ToVssId(snapshotId), AutoMStr(pathFromRoot), (LONG)attributes,
 			AutoMStr(expose), &pwszExposed));
 
 		return pwszExposed;
@@ -218,47 +229,47 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 
 	void VssBackupComponents::FreeWriterMetadata()
 	{
-		CheckCom(mBackup->FreeWriterMetadata());
+		CheckCom(m_backup->FreeWriterMetadata());
 	}
 
 	void VssBackupComponents::FreeWriterStatus()
 	{
-		CheckCom(mBackup->FreeWriterStatus());
+		CheckCom(m_backup->FreeWriterStatus());
 	}
 
 	IVssAsync^ VssBackupComponents::GatherWriterMetadata()
 	{
 		::IVssAsync *vssAsync;
-		CheckCom(mBackup->GatherWriterMetadata(&vssAsync));
+		CheckCom(m_backup->GatherWriterMetadata(&vssAsync));
 		return VssAsync::Adopt(vssAsync);
 	}
 
 	IVssAsync^ VssBackupComponents::GatherWriterStatus()
 	{
 		::IVssAsync *vssAsync;
-		CheckCom(mBackup->GatherWriterStatus(&vssAsync));
+		CheckCom(m_backup->GatherWriterStatus(&vssAsync));
 		return VssAsync::Adopt(vssAsync);
 	}
 
 	VssSnapshotProperties^ VssBackupComponents::GetSnapshotProperties(Guid snapshotId)
 	{
 		VSS_SNAPSHOT_PROP prop;
-		CheckCom(mBackup->GetSnapshotProperties(ToVssId(snapshotId), &prop));
+		CheckCom(m_backup->GetSnapshotProperties(ToVssId(snapshotId), &prop));
 		return CreateVssSnapshotProperties(&prop);
 	}
 
 	VssBackupComponents::WriterStatusList::WriterStatusList(VssBackupComponents^ backupComponents)
-		: mBackupComponents(backupComponents)
+		: m_backupComponents(backupComponents)
 	{
 	}
 
 	int VssBackupComponents::WriterStatusList::Count::get()
 	{
-		if (mBackupComponents->mBackup == 0)
+		if (m_backupComponents->m_backup == 0)
 			throw gcnew ObjectDisposedException("Instance of IList used after the object creating it was disposed.");
 
 		UINT cWriters;
-		CheckCom(mBackupComponents->mBackup->GetWriterStatusCount(&cWriters));
+		CheckCom(m_backupComponents->m_backup->GetWriterStatusCount(&cWriters));
 		return (int)cWriters;
 	}
 
@@ -267,30 +278,37 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		if (index < 0 || index > Count)
 			throw gcnew ArgumentOutOfRangeException("index");
 
-		if (mBackupComponents->mBackup == 0)
+		if (m_backupComponents->m_backup == 0)
 			throw gcnew ObjectDisposedException("Instance of IList used after the object creating it was disposed.");
 
 		VSS_ID idInstance, idWriter;
 		AutoBStr bstrWriter;
 		VSS_WRITER_STATE eState;
 		HRESULT hrResultFailure;
-		CheckCom(mBackupComponents->mBackup->GetWriterStatus(index, &idInstance, &idWriter, &bstrWriter, &eState, &hrResultFailure));
+#ifndef ALPHAVSS_HAS_BACKUPEX3
+		CheckCom(m_backupComponents->m_backup->GetWriterStatus(index, &idInstance, &idWriter, &bstrWriter, &eState, &hrResultFailure));
 		return gcnew VssWriterStatusInfo(ToGuid(idInstance), ToGuid(idWriter), bstrWriter, (VssWriterState)eState, (VssError)hrResultFailure);
+#else
+      HRESULT hrApplication;
+      AutoBStr bstrApplicationMessage = NULL;
+		CheckCom(m_backupComponents->RequireIVssBackupComponentsEx3()->GetWriterStatusEx(index, &idInstance, &idWriter, &bstrWriter, &eState, &hrResultFailure, &hrApplication, &bstrApplicationMessage));
+		return gcnew VssWriterStatusInfo(ToGuid(idInstance), ToGuid(idWriter), bstrWriter, (VssWriterState)eState, (VssError)hrResultFailure, hrApplication, bstrApplicationMessage);
+#endif
 	}
 
 
 	VssBackupComponents::WriterComponentsList::WriterComponentsList(VssBackupComponents^ backupComponents)
-		: mBackupComponents(backupComponents)
+		: m_backupComponents(backupComponents)
 	{
 	}
 
 	int VssBackupComponents::WriterComponentsList::Count::get()
 	{
-		if (mBackupComponents->mBackup == 0)
+		if (m_backupComponents->m_backup == 0)
 			throw gcnew ObjectDisposedException("Instance of IList used after the object creating it was disposed.");
 
 		UINT cComponent = 0;
-		CheckCom(mBackupComponents->mBackup->GetWriterComponentsCount(&cComponent));
+		CheckCom(m_backupComponents->m_backup->GetWriterComponentsCount(&cComponent));
 		return (int)cComponent;
 	}
 
@@ -299,26 +317,26 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		if (index < 0 || index > Count)
 			throw gcnew ArgumentOutOfRangeException("index");
 
-		if (mBackupComponents->mBackup == 0)
+		if (m_backupComponents->m_backup == 0)
 			throw gcnew ObjectDisposedException("Instance of IList used after the object creating it was disposed.");
 
 		IVssWriterComponentsExt *pWriterComponents;
-		CheckCom(mBackupComponents->mBackup->GetWriterComponents(index, &pWriterComponents));
+		CheckCom(m_backupComponents->m_backup->GetWriterComponents(index, &pWriterComponents));
 		return VssWriterComponents::Adopt(pWriterComponents);
 	}
 
 	VssBackupComponents::WriterMetadataList::WriterMetadataList(VssBackupComponents^ backupComponents)
-		: mBackupComponents(backupComponents)
+		: m_backupComponents(backupComponents)
 	{
 	}
 
 	int VssBackupComponents::WriterMetadataList::Count::get()
 	{
-		if (mBackupComponents->mBackup == 0)
+		if (m_backupComponents->m_backup == 0)
 			throw gcnew ObjectDisposedException("Instance of IList used after the object creating it was disposed.");
 
 		UINT iCount;
-		CheckCom(mBackupComponents->mBackup->GetWriterMetadataCount(&iCount));
+		CheckCom(m_backupComponents->m_backup->GetWriterMetadataCount(&iCount));
 		return (int)iCount;
 	}
 
@@ -327,79 +345,79 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		if (index < 0 || index > Count)
 			throw gcnew ArgumentOutOfRangeException("index");
 
-		if (mBackupComponents->mBackup == 0)
+		if (m_backupComponents->m_backup == 0)
 			throw gcnew ObjectDisposedException("Instance of IList used after the object creating it was disposed.");
 
 		VSS_ID idWriterInstance;
 		::IVssExamineWriterMetadata *ewm;
-		CheckCom(mBackupComponents->mBackup->GetWriterMetadata(index, &idWriterInstance, &ewm));
+		CheckCom(m_backupComponents->m_backup->GetWriterMetadata(index, &idWriterInstance, &ewm));
 		return VssExamineWriterMetadata::Adopt(ewm);
 	}
 
 	IList<IVssExamineWriterMetadata^>^ VssBackupComponents::WriterMetadata::get()
 	{
-		return mWriterMetadata;
+		return m_writerMetadata;
 	}
 
 	IList<IVssWriterComponents^>^ VssBackupComponents::WriterComponents::get()
 	{
-		return mWriterComponents;
+		return m_writerComponents;
 	}
 
 	IList<VssWriterStatusInfo^>^ VssBackupComponents::WriterStatus::get()
 	{
-		return mWriterStatus;
+		return m_writerStatus;
 	}
 
 	IVssAsync^ VssBackupComponents::ImportSnapshots()
 	{
 		::IVssAsync *pAsync;
-		CheckCom(mBackup->ImportSnapshots(&pAsync));
+		CheckCom(m_backup->ImportSnapshots(&pAsync));
 		return VssAsync::Adopt(pAsync);
 	}
 
 	void VssBackupComponents::InitializeForBackup(String^ xml)
 	{
-		CheckCom(mBackup->InitializeForBackup(AutoMBStr(xml)));
+		CheckCom(m_backup->InitializeForBackup(AutoMBStr(xml)));
 	}
 
 	void VssBackupComponents::InitializeForRestore(String^ xml)
 	{
-		CheckCom(mBackup->InitializeForRestore(NoNullAutoMBStr(xml)));
+		CheckCom(m_backup->InitializeForRestore(NoNullAutoMBStr(xml)));
 	}
 
 	bool VssBackupComponents::IsVolumeSupported(String^ volumeName, Guid providerId)
 	{
 		BOOL eSupported;
-		CheckCom(mBackup->IsVolumeSupported(ToVssId(providerId), NoNullAutoMBStr(volumeName), &eSupported));
+		CheckCom(m_backup->IsVolumeSupported(ToVssId(providerId), NoNullAutoMBStr(volumeName), &eSupported));
 		return (eSupported != 0);
 	}
 
 	bool VssBackupComponents::IsVolumeSupported(String^ volumeName)
 	{
 		BOOL eSupported;
-		CheckCom(mBackup->IsVolumeSupported(ToVssId(Guid::Empty), NoNullAutoMBStr(volumeName), &eSupported));
+		CheckCom(m_backup->IsVolumeSupported(ToVssId(Guid::Empty), NoNullAutoMBStr(volumeName), &eSupported));
 		return (eSupported != 0);
 	}
 
 	IVssAsync^ VssBackupComponents::PostRestore()
 	{
 		::IVssAsync *pAsync;
-		CheckCom(mBackup->PostRestore(&pAsync));
+		CheckCom(m_backup->PostRestore(&pAsync));
 		return VssAsync::Adopt(pAsync);
 	}
 
 	IVssAsync^ VssBackupComponents::PrepareForBackup()
 	{
 		::IVssAsync *pAsync;
-		CheckCom(mBackup->PrepareForBackup(&pAsync));
+		CheckCom(m_backup->PrepareForBackup(&pAsync));
 		return VssAsync::Adopt(pAsync);
 	}
 
 	IVssAsync^ VssBackupComponents::PreRestore()
 	{
 		::IVssAsync *pAsync;
-		CheckCom(mBackup->PreRestore(&pAsync));
+		CheckCom(m_backup->PreRestore(&pAsync));
 		return VssAsync::Adopt(pAsync);
 	}
 
@@ -410,7 +428,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		ULONG celtFetched = 0;
 		IList<VssSnapshotProperties^> ^list = gcnew List<VssSnapshotProperties^>();
 
-		CheckCom(mBackup->Query(GUID_NULL, VSS_OBJECT_NONE, VSS_OBJECT_SNAPSHOT, &pEnum));
+		CheckCom(m_backup->Query(GUID_NULL, VSS_OBJECT_NONE, VSS_OBJECT_SNAPSHOT, &pEnum));
 
 		try
 		{
@@ -441,7 +459,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		ULONG celtFetched = 0;
 		IList<VssProviderProperties^> ^list = gcnew List<VssProviderProperties^>();
 
-		CheckCom(mBackup->Query(GUID_NULL, VSS_OBJECT_NONE, VSS_OBJECT_PROVIDER, &pEnum));
+		CheckCom(m_backup->Query(GUID_NULL, VSS_OBJECT_NONE, VSS_OBJECT_PROVIDER, &pEnum));
 
 		try
 		{
@@ -470,7 +488,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 #if ALPHAVSS_TARGET == ALPHAVSS_TARGET_WIN2003 || ALPHAVSS_TARGET == ALPHAVSS_TARGET_WIN2008
 		OperatingSystemInfo::RequireWithSPAtLeast(OSVersionName::WindowsServer2003, 1, OSVersionName::WindowsServer2008, 0);
 		::IVssAsync *pAsync;
-		CheckCom(mBackup->QueryRevertStatus(NoNullAutoMStr(volume), &pAsync));
+		CheckCom(m_backup->QueryRevertStatus(NoNullAutoMStr(volume), &pAsync));
 		return VssAsync::Adopt(pAsync);
 #else
 		UnsupportedOs();
@@ -481,7 +499,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	{
 #if ALPHAVSS_TARGET == ALPHAVSS_TARGET_WIN2003 || ALPHAVSS_TARGET == ALPHAVSS_TARGET_WIN2008
 		OperatingSystemInfo::RequireWithSPAtLeast(OSVersionName::WindowsServer2003, 1, OSVersionName::WindowsServer2008, 0);		
-		CheckCom(mBackup->RevertToSnapshot(ToVssId(snapshotId), forceDismount));
+		CheckCom(m_backup->RevertToSnapshot(ToVssId(snapshotId), forceDismount));
 #else
 		UnsupportedOs();
 #endif
@@ -490,13 +508,13 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	String^ VssBackupComponents::SaveAsXml()
 	{
 		AutoBStr bstrXML;
-		CheckCom(mBackup->SaveAsXML(&bstrXML));
+		CheckCom(m_backup->SaveAsXML(&bstrXML));
 		return bstrXML;
 	}
 
 	void VssBackupComponents::SetAdditionalRestores(Guid writerId, VssComponentType componentType, String^ logicalPath, String^ componentName, bool additionalResources)
 	{
-		CheckCom(mBackup->SetAdditionalRestores(ToVssId(writerId), (VSS_COMPONENT_TYPE)componentType, AutoMStr(logicalPath), NoNullAutoMStr(componentName), additionalResources));
+		CheckCom(m_backup->SetAdditionalRestores(ToVssId(writerId), (VSS_COMPONENT_TYPE)componentType, AutoMStr(logicalPath), NoNullAutoMStr(componentName), additionalResources));
 	}
 
 	void VssBackupComponents::SetAuthoritativeRestore(Guid writerId, VssComponentType componentType, String^ logicalPath, String^ componentName, bool isAuthorative)
@@ -519,44 +537,44 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 
 	void VssBackupComponents::SetBackupOptions(Guid writerId, VssComponentType componentType, String^ logicalPath, String^ componentName, String^ backupOptions)
 	{
-		CheckCom(mBackup->SetBackupOptions(ToVssId(writerId), (VSS_COMPONENT_TYPE)componentType, AutoMStr(logicalPath), NoNullAutoMStr(componentName), NoNullAutoMStr(backupOptions)));
+		CheckCom(m_backup->SetBackupOptions(ToVssId(writerId), (VSS_COMPONENT_TYPE)componentType, AutoMStr(logicalPath), NoNullAutoMStr(componentName), NoNullAutoMStr(backupOptions)));
 	}
 
 	void VssBackupComponents::SetBackupState(bool selectComponents, bool backupBootableSystemState, VssBackupType backupType, bool partialFileSupport)
 	{
-		CheckCom(mBackup->SetBackupState(selectComponents, backupBootableSystemState, (VSS_BACKUP_TYPE)backupType, partialFileSupport));
+		CheckCom(m_backup->SetBackupState(selectComponents, backupBootableSystemState, (VSS_BACKUP_TYPE)backupType, partialFileSupport));
 	}
 
 	void VssBackupComponents::SetBackupSucceeded(Guid instanceId, Guid writerId, VssComponentType componentType, String^ logicalPath, String^ componentName, bool succeeded)
 	{
-		CheckCom(mBackup->SetBackupSucceeded(ToVssId(instanceId), ToVssId(writerId), (VSS_COMPONENT_TYPE)componentType, AutoMStr(logicalPath), NoNullAutoMStr(componentName), succeeded));
+		CheckCom(m_backup->SetBackupSucceeded(ToVssId(instanceId), ToVssId(writerId), (VSS_COMPONENT_TYPE)componentType, AutoMStr(logicalPath), NoNullAutoMStr(componentName), succeeded));
 	}
 
 	void VssBackupComponents::SetContext(VssVolumeSnapshotAttributes context)
 	{
-		CheckCom(mBackup->SetContext((LONG)context));
+		CheckCom(m_backup->SetContext((LONG)context));
 	}
 
 	void VssBackupComponents::SetContext(VssSnapshotContext context)
 	{
-		CheckCom(mBackup->SetContext((LONG)context));
+		CheckCom(m_backup->SetContext((LONG)context));
 	}
 
 	void VssBackupComponents::SetFileRestoreStatus(Guid writerId, VssComponentType componentType, String^ logicalPath, String^ componentName, VssFileRestoreStatus status)
 	{
-		CheckCom(mBackup->SetFileRestoreStatus(ToVssId(writerId), (VSS_COMPONENT_TYPE)componentType, AutoMStr(logicalPath), NoNullAutoMStr(componentName), (VSS_FILE_RESTORE_STATUS)status));
+		CheckCom(m_backup->SetFileRestoreStatus(ToVssId(writerId), (VSS_COMPONENT_TYPE)componentType, AutoMStr(logicalPath), NoNullAutoMStr(componentName), (VSS_FILE_RESTORE_STATUS)status));
 	}
 
 	void VssBackupComponents::SetPreviousBackupStamp(Guid writerId, VssComponentType componentType, String^ logicalPath, String^ componentName, String^ previousBackupStamp)
 	{
-		CheckCom(mBackup->SetPreviousBackupStamp(ToVssId(writerId), (VSS_COMPONENT_TYPE)componentType, AutoMStr(logicalPath), NoNullAutoMStr(componentName), NoNullAutoMStr(previousBackupStamp)));
+		CheckCom(m_backup->SetPreviousBackupStamp(ToVssId(writerId), (VSS_COMPONENT_TYPE)componentType, AutoMStr(logicalPath), NoNullAutoMStr(componentName), NoNullAutoMStr(previousBackupStamp)));
 	}
 
 	void VssBackupComponents::SetRangesFilePath(Guid writerId, VssComponentType componentType, String^ logicalPath, String^ componentName, int partialFileIndex, String^ rangesFile)
 	{
 #if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WIN2003
 		OperatingSystemInfo::RequireAtLeast(OSVersionName::WindowsServer2003);		
-		CheckCom(mBackup->SetRangesFilePath(ToVssId(writerId), (VSS_COMPONENT_TYPE)componentType, AutoMStr(logicalPath), NoNullAutoMStr(componentName), partialFileIndex, NoNullAutoMStr(rangesFile)));
+		CheckCom(m_backup->SetRangesFilePath(ToVssId(writerId), (VSS_COMPONENT_TYPE)componentType, AutoMStr(logicalPath), NoNullAutoMStr(componentName), partialFileIndex, NoNullAutoMStr(rangesFile)));
 #else
 		UnsupportedOs();
 #endif
@@ -564,14 +582,14 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 
 	void VssBackupComponents::SetRestoreOptions(Guid writerId, VssComponentType componentType, String^ logicalPath, String^ componentName, String^ restoreOptions)
 	{
-		CheckCom(mBackup->SetRestoreOptions(ToVssId(writerId), (VSS_COMPONENT_TYPE)componentType, AutoMStr(logicalPath), NoNullAutoMStr(componentName), NoNullAutoMStr(restoreOptions)));
+		CheckCom(m_backup->SetRestoreOptions(ToVssId(writerId), (VSS_COMPONENT_TYPE)componentType, AutoMStr(logicalPath), NoNullAutoMStr(componentName), NoNullAutoMStr(restoreOptions)));
 	}
 
 	void VssBackupComponents::SetRestoreState(VssRestoreType restoreType)
 	{
 #if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WIN2003
 		OperatingSystemInfo::RequireAtLeast(OSVersionName::WindowsServer2003);		
-		CheckCom(mBackup->SetRestoreState((VSS_RESTORE_TYPE)restoreType));
+		CheckCom(m_backup->SetRestoreState((VSS_RESTORE_TYPE)restoreType));
 #else
 		UnsupportedOs();
 #endif
@@ -588,7 +606,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 
 	void VssBackupComponents::SetSelectedForRestore(Guid writerId, VssComponentType componentType, String^ logicalPath, String^ componentName, bool selectedForRestore)
 	{
-		CheckCom(mBackup->SetSelectedForRestore(ToVssId(writerId), (VSS_COMPONENT_TYPE)componentType, AutoMStr(logicalPath), NoNullAutoMStr(componentName), selectedForRestore));
+		CheckCom(m_backup->SetSelectedForRestore(ToVssId(writerId), (VSS_COMPONENT_TYPE)componentType, AutoMStr(logicalPath), NoNullAutoMStr(componentName), selectedForRestore));
 	}
 
 	void VssBackupComponents::SetSelectedForRestore(Guid writerId, VssComponentType componentType, String^ logicalPath, String^ componentName, bool selectedForRestore, Guid instanceId)
@@ -604,7 +622,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	Guid VssBackupComponents::StartSnapshotSet()
 	{
 		VSS_ID snapshotSetId;
-		CheckCom(mBackup->StartSnapshotSet(&snapshotSetId));
+		CheckCom(m_backup->StartSnapshotSet(&snapshotSetId));
 		return ToGuid(snapshotSetId);
 	}
 
@@ -617,5 +635,35 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 #endif
 	}
 
+    Guid VssBackupComponents::GetSessionId()
+    {
+#ifdef ALPHAVSS_HAS_BACKUPEX3
+        VSS_ID sessionId;
+        CheckCom(RequireIVssBackupComponentsEx3()->GetSessionId(&sessionId));
+        return ToGuid(sessionId);
+#else
+        UnsupportedOs();
+#endif
+    }
+
+    void VssBackupComponents::AddSnapshotToRecoverySet(Guid snapshotId, String^ destinationVolume)
+    {
+#ifdef ALPHAVSS_HAS_BACKUPEX3
+       CheckCom(RequireIVssBackupComponentsEx3()->AddSnapshotToRecoverySet(ToVssId(snapshotId), 0, AutoMStr(destinationVolume)));
+#else
+       UnsupportedOs();
+#endif
+    }
+
+    IVssAsync^ VssBackupComponents::RecoverSet(VssRecoveryOptions options)
+    {
+#ifdef ALPHAVSS_HAS_BACKUPEX3
+       ::IVssAsync *pAsync;
+       CheckCom(RequireIVssBackupComponentsEx3()->RecoverSet((DWORD)options, &pAsync));
+       return VssAsync::Adopt(pAsync);
+#else
+       UnsupportedOs();
+#endif
+    }
 }
 } }

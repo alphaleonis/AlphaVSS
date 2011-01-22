@@ -1,4 +1,4 @@
-/* Copyright (c) 2008-2009 Peter Palotas
+/* Copyright (c) 2008-2011 Peter Palotas
  *  
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -69,25 +69,25 @@
 // method fails, while RequireXXX will call UnsupportedOs() if the method fails.
 //
 #define DEFINE_EX_INTERFACE_ACCESSOR(interfaceName, baseInstance)		\
-	interfaceName *m##interfaceName;			\
+	interfaceName *m_##interfaceName;			\
 	interfaceName *Get##interfaceName()			\
 	{											\
-		if (m##interfaceName == 0)				\
+		if (m_##interfaceName == 0)				\
 		{										\
 			void *ifc = 0;						\
 			if (FAILED((baseInstance)->QueryInterface(IID_##interfaceName, &ifc))) \
 					return 0;			    \
-			m##interfaceName = (interfaceName *)ifc; \
+			m_##interfaceName = (interfaceName *)ifc; \
 		}										\
-		return m##interfaceName;				\
+		return m_##interfaceName;				\
 	}											\
 	\
 	interfaceName *Require##interfaceName() \
 	{\
-		if (m##interfaceName == 0)\
+		if (m_##interfaceName == 0)\
 		{\
-			if ( (m##interfaceName = Get##interfaceName()) == 0) \
+			if ( (m_##interfaceName = Get##interfaceName()) == 0) \
 				UnsupportedOs();\
 		}\
-		return m##interfaceName;\
+		return m_##interfaceName;\
 	}

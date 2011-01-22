@@ -1,4 +1,4 @@
-/* Copyright (c) 2008-2009 Peter Palotas
+/* Copyright (c) 2008-2011 Peter Palotas
  *  
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -31,64 +31,64 @@ using namespace System::Security::Permissions;
 
 namespace Alphaleonis { namespace Win32 { namespace Vss
 {
-	private ref class VssExamineWriterMetadata : IDisposable, IVssExamineWriterMetadata, MarshalByRefObject
-	{
-	public:
-		~VssExamineWriterMetadata();
-		!VssExamineWriterMetadata();
+   private ref class VssExamineWriterMetadata : IDisposable, IVssExamineWriterMetadata, MarshalByRefObject
+   {
+   public:
+      ~VssExamineWriterMetadata();
+      !VssExamineWriterMetadata();
 
-		virtual bool LoadFromXml(String^ xml);
-		virtual String^ SaveAsXml();
-		property VssBackupSchema BackupSchema { virtual VssBackupSchema get(); }
+      virtual bool LoadFromXml(String^ xml);
+      virtual String^ SaveAsXml();
+      property VssBackupSchema BackupSchema { virtual VssBackupSchema get(); }
 
-		property IList<VssWMFileDescription^>^ AlternateLocationMappings { virtual IList<VssWMFileDescription^>^ get(); }
+      property IList<VssWMFileDescription^>^ AlternateLocationMappings { virtual IList<VssWMFileDescription^>^ get(); }
 
-		property VssWMRestoreMethod^ RestoreMethod { virtual VssWMRestoreMethod^ get(); }
-		property IList<IVssWMComponent^>^ Components { virtual IList<IVssWMComponent^>^ get(); }
+      property VssWMRestoreMethod^ RestoreMethod { virtual VssWMRestoreMethod^ get(); }
+      property IList<IVssWMComponent^>^ Components { virtual IList<IVssWMComponent^>^ get(); }
 
-		property IList<VssWMFileDescription^>^ ExcludeFiles { virtual IList<VssWMFileDescription^>^ get(); }
+      property IList<VssWMFileDescription^>^ ExcludeFiles { virtual IList<VssWMFileDescription^>^ get(); }
 
-		property Guid InstanceId { virtual Guid get(); }
+      property Guid InstanceId { virtual Guid get(); }
 
-		property Guid WriterId { virtual Guid get(); }
+      property Guid WriterId { virtual Guid get(); }
 
-		property String^ WriterName { virtual String^ get(); }
+      property String^ WriterName { virtual String^ get(); }
 
-		property VssUsageType Usage { virtual VssUsageType get(); }
+      property VssUsageType Usage { virtual VssUsageType get(); }
 
-		property VssSourceType Source { virtual VssSourceType get(); }
-		property String^ InstanceName { virtual String^ get(); }
-		property System::Version^ Version { virtual System::Version^ get(); }
-		property IList<VssWMFileDescription^>^ ExcludeFromSnapshotFiles { virtual IList<VssWMFileDescription^>^ get(); }
-	internal:
-		[SecurityPermission(SecurityAction::LinkDemand)]
-		static IVssExamineWriterMetadata^ Adopt(::IVssExamineWriterMetadata *ewm);
-	private:
-		VssExamineWriterMetadata(::IVssExamineWriterMetadata *examineWriterMetadata);
-		::IVssExamineWriterMetadata *mExamineWriterMetadata;
-		
+      property VssSourceType Source { virtual VssSourceType get(); }
+      property String^ InstanceName { virtual String^ get(); }
+      property System::Version^ Version { virtual System::Version^ get(); }
+      property IList<VssWMFileDescription^>^ ExcludeFromSnapshotFiles { virtual IList<VssWMFileDescription^>^ get(); }
+   internal:
+      [SecurityPermission(SecurityAction::LinkDemand)]
+      static IVssExamineWriterMetadata^ Adopt(::IVssExamineWriterMetadata *ewm);
+   private:
+      VssExamineWriterMetadata(::IVssExamineWriterMetadata *examineWriterMetadata);
+      ::IVssExamineWriterMetadata *mExamineWriterMetadata;
+
 #ifdef ALPHAVSS_HAS_EWMEX
-		DEFINE_EX_INTERFACE_ACCESSOR(IVssExamineWriterMetadataEx, mExamineWriterMetadata);
+      DEFINE_EX_INTERFACE_ACCESSOR(IVssExamineWriterMetadataEx, mExamineWriterMetadata);
 #endif
 
 #ifdef ALPHAVSS_HAS_EWMEX2
-		DEFINE_EX_INTERFACE_ACCESSOR(IVssExamineWriterMetadataEx2, mExamineWriterMetadata);
+      DEFINE_EX_INTERFACE_ACCESSOR(IVssExamineWriterMetadataEx2, mExamineWriterMetadata);
 #endif
 
-		void Initialize();
+      void Initialize();
 
-		Guid mInstanceId;
-		Guid mWriterId;
-		String^ mWriterName;
-		String^ mInstanceName;
-		VssUsageType mUsage;
-		VssSourceType mSource;
-		IList<VssWMFileDescription^> ^mExcludeFiles;
-		IList<IVssWMComponent^> ^mComponents;
-		IList<VssWMFileDescription^>^ mExcludeFilesFromSnapshot;
-		VssWMRestoreMethod^ mRestoreMethod;
-		IList<VssWMFileDescription^>^ mAlternateLocationMappings;
-		System::Version^ mVersion;
-	};
+      Guid m_instanceId;
+      Guid m_writerId;
+      String^ m_writerName;
+      String^ m_instanceName;
+      VssUsageType m_usage;
+      VssSourceType m_source;
+      IList<VssWMFileDescription^> ^m_excludeFiles;
+      IList<IVssWMComponent^> ^m_components;
+      IList<VssWMFileDescription^>^ m_excludeFilesFromSnapshot;
+      VssWMRestoreMethod^ m_restoreMethod;
+      IList<VssWMFileDescription^>^ m_alternateLocationMappings;
+      System::Version^ m_version;
+   };
 }
 } }

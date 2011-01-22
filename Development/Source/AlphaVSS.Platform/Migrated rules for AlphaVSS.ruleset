@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<RuleSet Name="Migrated rules for AlphaVSS.ruleset" Description="This rule set was created from the CodeAnalysisRules property for the &quot;Win2008.Debug (Win32)&quot; configuration in project &quot;D:\Coding\TFS\AlphaVSS-Root\Development\Source\AlphaVSS.Platform\AlphaVSS.vcxproj&quot;." ToolsVersion="10.0">
-  <IncludeAll Action="Warning" />
-  <Rules AnalyzerId="Microsoft.Analyzers.ManagedCodeAnalysis" RuleNamespace="Microsoft.Rules.Managed">
-    <Rule Id="CA1703" Action="None" />
-    <Rule Id="CA1704" Action="None" />
-  </Rules>
-</RuleSet>

@@ -1,4 +1,4 @@
-/* Copyright (c) 2008-2009 Peter Palotas
+/* Copyright (c) 2008-2011 Peter Palotas
  *  
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -210,31 +210,31 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	{
 	public:
 		VssIds(array<System::Guid> ^ guids)
-			: ids(0)
+			: m_ids(0)
 		{
 			if (guids == nullptr)
 				throw gcnew ArgumentNullException();
 
-			ids = new VSS_ID[guids->Length];
+			m_ids = new VSS_ID[guids->Length];
 
 			for (int i = 0; i < guids->Length; i++)
 			{
-				ids[i] = ToVssId(guids[i]);
+				m_ids[i] = ToVssId(guids[i]);
 			}
 		}
 
 		~VssIds()
 		{
-			delete [] ids;
+			delete [] m_ids;
 		}
 
 		(operator VSS_ID *)()
 		{
-			return ids;
+			return m_ids;
 		}
 
 	private:
-		VSS_ID *ids;
+		VSS_ID *m_ids;
 	};
 
 

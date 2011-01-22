@@ -1,3 +1,8 @@
+Version 1.0 RC
+--------------
+* Fixed invalid initialization VssBackupComponents of that caused potential memory issue 
+  during finalization of this object (calling Release on IVssBackupComponentsEx and Ex2).
+
 Version 1.0 beta
 -------------------
 * Erroneous Console.WriteLine printing the name of an assembly removed from 

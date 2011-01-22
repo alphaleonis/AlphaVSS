@@ -1,4 +1,4 @@
-/* Copyright (c) 2008-2009 Peter Palotas
+/* Copyright (c) 2008-2011 Peter Palotas
  *  
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -21,31 +21,32 @@
 
 namespace Alphaleonis.Win32.Vss
 {
-	/// <summary>
-	///		Represents information about a Subcomponent associated with a given component.
-	/// </summary>
-	public sealed class VssRestoreSubcomponentInfo 
-	{
-		/// <summary>
-		///     Initializes a new instance of <see cref="VssRestoreSubcomponentInfo" />.
-		/// </summary>
-		/// <param name="logicalPath">The logical path of the Subcomponent. This can not be empty when working with Subcomponents.</param>
-		/// <param name="componentName">The name of the Subcomponent. This can not be empty.</param>
-		public VssRestoreSubcomponentInfo(string logicalPath, string componentName)
-        {
-            mLogicalPath = logicalPath;
-            mComponentName = componentName;
-        }
+   /// <summary>
+   ///		Represents information about a Subcomponent associated with a given component.
+   /// </summary>
+   public sealed class VssRestoreSubcomponentInfo
+   {
+      /// <summary>
+      ///     Initializes a new instance of <see cref="VssRestoreSubcomponentInfo" />.
+      /// </summary>
+      /// <param name="logicalPath">The logical path of the Subcomponent. This can not be empty when working with Subcomponents.</param>
+      /// <param name="componentName">The name of the Subcomponent. This can not be empty.</param>
+      public VssRestoreSubcomponentInfo(string logicalPath, string componentName)
+      {
+         LogicalPath = logicalPath;
+         ComponentName = componentName;
+      }
 
-		/// <summary>The logical path of the Subcomponent. This can not be empty when working with Subcomponents.</summary>
-		public string LogicalPath { get { return mLogicalPath; } }
+      #region Public Properties
 
-		/// <summary>The name of the Subcomponent. This can not be empty.</summary>
-		public string ComponentName { get { return mComponentName; } }
-	
-		private string mLogicalPath;
-		private string mComponentName;
-	};
+      /// <summary>The logical path of the Subcomponent. This can not be empty when working with Subcomponents.</summary>
+      public string LogicalPath { get; private set; }
+
+      /// <summary>The name of the Subcomponent. This can not be empty.</summary>
+      public string ComponentName { get; private set; }
+
+      #endregion
+   };
 
 
 

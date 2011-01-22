@@ -1,4 +1,4 @@
-/* Copyright (c) 2008-2009 Peter Palotas
+/* Copyright (c) 2008-2011 Peter Palotas
  *  
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -39,24 +39,24 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	}
 
 	VssComponent::VssComponent(::IVssComponent *vssComponent)
-		: mVssComponent(vssComponent), 
-		mAlternateLocationMappings(nullptr),
-		mDirectedTargets(nullptr),
+		: m_vssComponent(vssComponent), 
+		m_alternateLocationMappings(nullptr),
+		m_directedTargets(nullptr),
 #if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WIN2003
-		mDifferencedFiles(nullptr),
+		m_differencedFiles(nullptr),
 #endif
-		mRestoreSubcomponents(nullptr),
-		mPartialFiles(nullptr),
-		mNewTargets(nullptr)
+		m_restoreSubcomponents(nullptr),
+		m_partialFiles(nullptr),
+		m_newTargets(nullptr)
 	{
-		mAlternateLocationMappings = gcnew AlternateLocationMappingList(this);
-		mDirectedTargets = gcnew DirectedTargetList(this);
+		m_alternateLocationMappings = gcnew AlternateLocationMappingList(this);
+		m_directedTargets = gcnew DirectedTargetList(this);
 #if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WIN2003
-		mDifferencedFiles = gcnew DifferencedFileList(this);
+		m_differencedFiles = gcnew DifferencedFileList(this);
 #endif
-		mRestoreSubcomponents = gcnew RestoreSubcomponentList(this);
-		mPartialFiles = gcnew PartialFileList(this);
-		mNewTargets = gcnew NewTargetList(this);
+		m_restoreSubcomponents = gcnew RestoreSubcomponentList(this);
+		m_partialFiles = gcnew PartialFileList(this);
+		m_newTargets = gcnew NewTargetList(this);
 	}
 
 	VssComponent::~VssComponent()
@@ -66,25 +66,26 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 
 	VssComponent::!VssComponent()
 	{
-		if (mVssComponent != 0)
+		if (m_vssComponent != 0)
 		{
-			mVssComponent->Release();
-			mVssComponent = 0;
+			m_vssComponent->Release();
+			m_vssComponent = 0;
 		}
 
 #ifdef ALPHAVSS_HAS_COMPONENTEX
-		if (mIVssComponentEx != 0)
+		if (m_IVssComponentEx != 0)
 		{
-			mIVssComponentEx->Release();
-			mIVssComponentEx = 0;
+			m_IVssComponentEx->Release();
+			m_IVssComponentEx = 0;
 		}
 #endif
 	}
 
+   // TODO: Why is this #if 0'ed???
 #if 0
 	void VssComponent::AddDifferencedFilesByLastModifyTime(String ^ path, String ^ fileSpec, bool recursive, DateTime lastModifyTime)
 	{
-		CheckCom(mVssComponent->AddDifferencedFilesByLastModifyTime(NoNullAutoMStr(path), 
+		CheckCom(m_vssComponent->AddDifferencedFilesByLastModifyTime(NoNullAutoMStr(path), 
 			NoNullAutoMStr(fileSpec), recursive,ToFileTime(lastModifyTime)));
 	}
 
@@ -95,14 +96,14 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 
 	void VssComponent::AddDirectedTarget(String ^ sourcePath, String^ sourceFileName, String^ sourceRangeList, String^ destinationPath, String^ destinationFileName, String^ destinationRangeList)
 	{
-		CheckCom(mVssComponent->AddDirectedTarget(
+		CheckCom(m_vssComponent->AddDirectedTarget(
 			NoNullAutoMStr(sourcePath), NoNullAutoMStr(sourceFileName), NoNullAutoMStr(sourceRangeList),
 			NoNullAutoMStr(destinationPath), NoNullAutoMStr(destinationFileName), NoNullAutoMStr(destinationRangeList)));
 	}
 
 	void VssComponent::AddPartialFile(String^ path, String^ filename, String^ ranges, String^ metaData)
 	{
-		CheckCom(mVssComponent->AddPartialFile(NoNullAutoMStr(path), NoNullAutoMStr(filename), NoNullAutoMStr(ranges), AutoMStr(metaData)));
+		CheckCom(m_vssComponent->AddPartialFile(NoNullAutoMStr(path), NoNullAutoMStr(filename), NoNullAutoMStr(ranges), AutoMStr(metaData)));
 	}
 
 	void VssComponent::AddDirectedTarget(VssDirectedTargetInfo ^directedTarget)
@@ -119,49 +120,49 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	String^ VssComponent::BackupMetadata::get()
 	{
 		AutoBStr bstrBackupMetadata;
-		CheckCom(mVssComponent->GetBackupMetadata(&bstrBackupMetadata));
+		CheckCom(m_vssComponent->GetBackupMetadata(&bstrBackupMetadata));
 		return bstrBackupMetadata;
 	}
 
 	String^ VssComponent::RestoreMetadata::get()
 	{
 		AutoBStr s;
-		CheckCom(mVssComponent->GetRestoreMetadata(&s));
+		CheckCom(m_vssComponent->GetRestoreMetadata(&s));
 		return s;
 	}
 
 		void VssComponent::SetBackupMetadata(String^ metadata)
 	{
-		CheckCom(mVssComponent->SetBackupMetadata(NoNullAutoMStr(metadata)));
+		CheckCom(m_vssComponent->SetBackupMetadata(NoNullAutoMStr(metadata)));
 	}
 
 	void VssComponent::SetBackupStamp(String^ stamp)
 	{
-		CheckCom(mVssComponent->SetBackupStamp(NoNullAutoMStr(stamp)));
+		CheckCom(m_vssComponent->SetBackupStamp(NoNullAutoMStr(stamp)));
 	}
 
 
 	void VssComponent::SetPostRestoreFailureMsg(String^ msg)
 	{
-		CheckCom(mVssComponent->SetPostRestoreFailureMsg(NoNullAutoMStr(msg)));
+		CheckCom(m_vssComponent->SetPostRestoreFailureMsg(NoNullAutoMStr(msg)));
 	}
 
 
 	void VssComponent::SetPreRestoreFailureMsg(String^ msg)
 	{
-		CheckCom(mVssComponent->SetPreRestoreFailureMsg(NoNullAutoMStr(msg)));
+		CheckCom(m_vssComponent->SetPreRestoreFailureMsg(NoNullAutoMStr(msg)));
 	}
 
 
 	void VssComponent::SetRestoreMetadata(String^ metadata)
 	{
-		CheckCom(mVssComponent->SetRestoreMetadata(NoNullAutoMStr(metadata)));
+		CheckCom(m_vssComponent->SetRestoreMetadata(NoNullAutoMStr(metadata)));
 	}
 
 
 	void VssComponent::SetRestoreTarget(VssRestoreTarget target)
 	{
-		CheckCom(mVssComponent->SetRestoreTarget((VSS_RESTORE_TARGET)target));
+		CheckCom(m_vssComponent->SetRestoreTarget((VSS_RESTORE_TARGET)target));
 	}
 
 #endif
@@ -169,121 +170,121 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	bool VssComponent::AdditionalRestores::get()
 	{
 		bool bAdditionalRestores;
-		CheckCom(mVssComponent->GetAdditionalRestores(&bAdditionalRestores));
+		CheckCom(m_vssComponent->GetAdditionalRestores(&bAdditionalRestores));
 		return bAdditionalRestores;
 	}
 
 	String^ VssComponent::BackupOptions::get()
 	{
 		AutoBStr str;
-		CheckCom(mVssComponent->GetBackupOptions(&str));
+		CheckCom(m_vssComponent->GetBackupOptions(&str));
 		return str;
 	}
 
 	String^ VssComponent::BackupStamp::get()
 	{
 		AutoBStr str;
-		CheckCom(mVssComponent->GetBackupStamp(&str));
+		CheckCom(m_vssComponent->GetBackupStamp(&str));
 		return str;
 	}
 
 	bool VssComponent::BackupSucceeded::get()
 	{
 		bool b;
-		CheckCom(mVssComponent->GetBackupSucceeded(&b));
+		CheckCom(m_vssComponent->GetBackupSucceeded(&b));
 		return b;
 	}
 
 	String^ VssComponent::ComponentName::get()
 	{
 		AutoBStr str;
-		CheckCom(mVssComponent->GetComponentName(&str));
+		CheckCom(m_vssComponent->GetComponentName(&str));
 		return str;
 	}
 
 	VssComponentType VssComponent::ComponentType::get()
 	{
 		VSS_COMPONENT_TYPE type;
-		CheckCom(mVssComponent->GetComponentType(&type));
+		CheckCom(m_vssComponent->GetComponentType(&type));
 		return (VssComponentType)type;
 	}
 
 	VssFileRestoreStatus VssComponent::FileRestoreStatus::get()
 	{
 		VSS_FILE_RESTORE_STATUS status;
-		CheckCom(mVssComponent->GetFileRestoreStatus(&status));
+		CheckCom(m_vssComponent->GetFileRestoreStatus(&status));
 		return (VssFileRestoreStatus)status;
 	}
 
 	String^ VssComponent::LogicalPath::get()
 	{
 		AutoBStr path;
-		CheckCom(mVssComponent->GetLogicalPath(&path));
+		CheckCom(m_vssComponent->GetLogicalPath(&path));
 		return path;
 	}
 
 	String^ VssComponent::PostRestoreFailureMsg::get()
 	{
 		AutoBStr s;
-		CheckCom(mVssComponent->GetPostRestoreFailureMsg(&s));
+		CheckCom(m_vssComponent->GetPostRestoreFailureMsg(&s));
 		return s;
 	}
 
 	String^ VssComponent::PreRestoreFailureMsg::get()
 	{
 		AutoBStr s;
-		CheckCom(mVssComponent->GetPreRestoreFailureMsg(&s));
+		CheckCom(m_vssComponent->GetPreRestoreFailureMsg(&s));
 		return s;
 	}
 
 	String^ VssComponent::PreviousBackupStamp::get()
 	{
 		AutoBStr s;
-		CheckCom(mVssComponent->GetPreviousBackupStamp(&s));
+		CheckCom(m_vssComponent->GetPreviousBackupStamp(&s));
 		return s;
 	}
 
 	String^ VssComponent::RestoreOptions::get()
 	{
 		AutoBStr s;
-		CheckCom(mVssComponent->GetRestoreOptions(&s));
+		CheckCom(m_vssComponent->GetRestoreOptions(&s));
 		return s;
 	}
 
 	VssRestoreTarget VssComponent::RestoreTarget::get()
 	{
 		VSS_RESTORE_TARGET tgt;
-		CheckCom(mVssComponent->GetRestoreTarget(&tgt));
+		CheckCom(m_vssComponent->GetRestoreTarget(&tgt));
 		return (VssRestoreTarget)tgt;
 	}
 
 	bool VssComponent::IsSelectedForRestore::get()
 	{
 		bool b;
-		CheckCom(mVssComponent->IsSelectedForRestore(&b));
+		CheckCom(m_vssComponent->IsSelectedForRestore(&b));
 		return b;
 	}
 
 
 	IList<VssDirectedTargetInfo^>^ VssComponent::DirectedTargets::get()
 	{
-		return mDirectedTargets;
+		return m_directedTargets;
 	}
 
 	IList<VssPartialFileInfo^>^ VssComponent::PartialFiles::get()
 	{
-		return mPartialFiles;
+		return m_partialFiles;
 	}
 
 	IList<VssWMFileDescription^>^ VssComponent::NewTargets::get()
 	{
-		return mNewTargets;
+		return m_newTargets;
 	}
 
 	IList<VssDifferencedFileInfo^>^ VssComponent::DifferencedFiles::get()
 	{
 #if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WIN2003
-		return mDifferencedFiles;
+		return m_differencedFiles;
 #else
       throw gcnew NotSupportedException(Alphaleonis::Win32::Vss::Resources::LocalizedStrings::NotSupportedUntilWin2003);
 #endif
@@ -292,12 +293,12 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 
 	IList<VssRestoreSubcomponentInfo^>^ VssComponent::RestoreSubcomponents::get()
 	{
-		return mRestoreSubcomponents;
+		return m_restoreSubcomponents;
 	}
 
 	IList<VssWMFileDescription^>^ VssComponent::AlternateLocationMappings::get()
 	{
-		return mAlternateLocationMappings;
+		return m_alternateLocationMappings;
 	}
 
 
@@ -305,23 +306,23 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	// DirectedTargetList
 	//
 	VssComponent::DirectedTargetList::DirectedTargetList(VssComponent^ component)
-		: mComponent(component)
+		: m_component(component)
 	{
 	}
 
 	int VssComponent::DirectedTargetList::Count::get()
 	{
-		if (mComponent->mVssComponent == 0)
+		if (m_component->m_vssComponent == 0)
 			throw gcnew ObjectDisposedException("Instance of IList used after the object creating it was disposed.");
 
 		UINT count;
-		CheckCom(mComponent->mVssComponent->GetDirectedTargetCount(&count));
+		CheckCom(m_component->m_vssComponent->GetDirectedTargetCount(&count));
 		return count;
 	}
 
 	VssDirectedTargetInfo^ VssComponent::DirectedTargetList::default::get(int index)
 	{
-		if (mComponent->mVssComponent == 0)
+		if (m_component->m_vssComponent == 0)
 			throw gcnew ObjectDisposedException("Instance of IList used after the object creating it was disposed.");
 
 		if (index < 0 || index >= Count)
@@ -330,7 +331,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		AutoBStr bsSourcePath, bsSourceFileName, bsSourceRangeList;
 		AutoBStr bsDestPath, bsDestFileName, bsDestRangeList;
 
-		CheckCom(mComponent->mVssComponent->GetDirectedTarget(index, &bsSourcePath, &bsSourceFileName, &bsSourceRangeList, &bsDestPath, 
+		CheckCom(m_component->m_vssComponent->GetDirectedTarget(index, &bsSourcePath, &bsSourceFileName, &bsSourceRangeList, &bsDestPath, 
 			&bsDestFileName, &bsDestRangeList));
 		
 		return gcnew VssDirectedTargetInfo(bsSourcePath, bsSourceFileName, bsSourceRangeList, bsDestPath, bsDestFileName, bsDestRangeList);
@@ -343,30 +344,30 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	//
 	int VssComponent::NewTargetList::Count::get()
 	{
-		if (mComponent->mVssComponent == 0)
+		if (m_component->m_vssComponent == 0)
 			throw gcnew ObjectDisposedException("Instance of IList used after the object creating it was disposed.");
 
 		UINT count;
-		CheckCom(mComponent->mVssComponent->GetNewTargetCount(&count));
+		CheckCom(m_component->m_vssComponent->GetNewTargetCount(&count));
 		return count;
 	}
 
 	
 	VssWMFileDescription^ VssComponent::NewTargetList::default::get(int index)
 	{
-		if (mComponent->mVssComponent == 0)
+		if (m_component->m_vssComponent == 0)
 			throw gcnew ObjectDisposedException("Instance of IList used after the object creating it was disposed.");
 
 		if (index < 0 || index >= Count)
 			throw gcnew ArgumentOutOfRangeException("index");
 
 		IVssWMFiledesc *vssWMFiledesc;
-		CheckCom(mComponent->mVssComponent->GetNewTarget(index, &vssWMFiledesc));
+		CheckCom(m_component->m_vssComponent->GetNewTarget(index, &vssWMFiledesc));
 		return CreateVssWMFileDescription(vssWMFiledesc);
 	}
 
 	VssComponent::NewTargetList::NewTargetList(VssComponent^ component)
-		: mComponent(component)
+		: m_component(component)
 	{
 	}
 
@@ -375,30 +376,30 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	//
 	int VssComponent::PartialFileList::Count::get()
 	{
-		if (mComponent->mVssComponent == 0)
+		if (m_component->m_vssComponent == 0)
 			throw gcnew ObjectDisposedException("Instance of IList used after the object creating it was disposed.");
 
 		UINT count;
-		CheckCom(mComponent->mVssComponent->GetPartialFileCount(&count));
+		CheckCom(m_component->m_vssComponent->GetPartialFileCount(&count));
 		return count;
 	}
 
 	
 	VssPartialFileInfo^ VssComponent::PartialFileList::default::get(int index)
 	{
-		if (mComponent->mVssComponent == 0)
+		if (m_component->m_vssComponent == 0)
 			throw gcnew ObjectDisposedException("Instance of IList used after the object creating it was disposed.");
 
 		if (index < 0 || index >= Count)
 			throw gcnew ArgumentOutOfRangeException("index");
 
 		AutoBStr bsPath, bsFileName, bsRange, bsMetadata;
-		CheckCom(mComponent->mVssComponent->GetPartialFile(index, &bsPath, &bsFileName, &bsRange, &bsMetadata));
+		CheckCom(m_component->m_vssComponent->GetPartialFile(index, &bsPath, &bsFileName, &bsRange, &bsMetadata));
 		return gcnew VssPartialFileInfo(bsPath, bsFileName, bsRange, bsMetadata);
 	}
 
 	VssComponent::PartialFileList::PartialFileList(VssComponent^ component)
-		: mComponent(component)
+		: m_component(component)
 	{
 	}
 
@@ -408,17 +409,17 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	//
 	int VssComponent::DifferencedFileList::Count::get()
 	{
-		if (mComponent->mVssComponent == 0)
+		if (m_component->m_vssComponent == 0)
 			throw gcnew ObjectDisposedException("Instance of IList used after the object creating it was disposed.");
 
 		UINT count;
-		CheckCom(mComponent->mVssComponent->GetDifferencedFilesCount(&count));
+		CheckCom(m_component->m_vssComponent->GetDifferencedFilesCount(&count));
 		return count;
 	}
 
 	VssDifferencedFileInfo^ VssComponent::DifferencedFileList::default::get(int index)
 	{
-		if (mComponent->mVssComponent == 0)
+		if (m_component->m_vssComponent == 0)
 			throw gcnew ObjectDisposedException("Instance of IList used after the object creating it was disposed.");
 
 		if (index < 0 || index >= Count)
@@ -427,12 +428,12 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		AutoBStr bstrPath, bstrFilespec, bstrLsnString;
 		BOOL bRecursive;
 		FILETIME ftLastModifyTime;
-		CheckCom(mComponent->mVssComponent->GetDifferencedFile(index, &bstrPath, &bstrFilespec, &bRecursive, &bstrLsnString, &ftLastModifyTime));
+		CheckCom(m_component->m_vssComponent->GetDifferencedFile(index, &bstrPath, &bstrFilespec, &bRecursive, &bstrLsnString, &ftLastModifyTime));
 		return gcnew VssDifferencedFileInfo(bstrPath, bstrFilespec, bRecursive != 0, ToDateTime(ftLastModifyTime));
 	}
 
 	VssComponent::DifferencedFileList::DifferencedFileList(VssComponent^ component)
-		: mComponent(component)
+		: m_component(component)
 	{
 	}
 #endif
@@ -443,17 +444,17 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	//
 	int VssComponent::RestoreSubcomponentList::Count::get()
 	{
-		if (mComponent->mVssComponent == 0)
+		if (m_component->m_vssComponent == 0)
 			throw gcnew ObjectDisposedException("Instance of IList used after the object creating it was disposed.");
 
 		UINT count;
-		CheckCom(mComponent->mVssComponent->GetRestoreSubcomponentCount(&count));
+		CheckCom(m_component->m_vssComponent->GetRestoreSubcomponentCount(&count));
 		return count;
 	}
 
 	VssRestoreSubcomponentInfo^ VssComponent::RestoreSubcomponentList::default::get(int index)
 	{
-		if (mComponent->mVssComponent == 0)
+		if (m_component->m_vssComponent == 0)
 			throw gcnew ObjectDisposedException("Instance of IList used after the object creating it was disposed.");
 
 		if (index < 0 || index >= Count)
@@ -461,12 +462,12 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 
 		AutoBStr bsLogicalPath, bsComponentName;
 		bool bRepair;
-		CheckCom(mComponent->mVssComponent->GetRestoreSubcomponent(index, &bsLogicalPath, &bsComponentName, &bRepair));
+		CheckCom(m_component->m_vssComponent->GetRestoreSubcomponent(index, &bsLogicalPath, &bsComponentName, &bRepair));
 		return gcnew VssRestoreSubcomponentInfo(bsLogicalPath, bsComponentName);
 	}
 
 	VssComponent::RestoreSubcomponentList::RestoreSubcomponentList(VssComponent^ component)
-		: mComponent(component)
+		: m_component(component)
 	{
 	}
 
@@ -476,30 +477,30 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 	//
 	int VssComponent::AlternateLocationMappingList::Count::get()
 	{
-		if (mComponent->mVssComponent == 0)
+		if (m_component->m_vssComponent == 0)
 			throw gcnew ObjectDisposedException("Instance of IList used after the object creating it was disposed.");
 
 		UINT count;
-		CheckCom(mComponent->mVssComponent->GetAlternateLocationMappingCount(&count));
+		CheckCom(m_component->m_vssComponent->GetAlternateLocationMappingCount(&count));
 		return count;
 	}
 
 	
 	VssWMFileDescription^ VssComponent::AlternateLocationMappingList::default::get(int index)
 	{
-		if (mComponent->mVssComponent == 0)
+		if (m_component->m_vssComponent == 0)
 			throw gcnew ObjectDisposedException("Instance of IList used after the object creating it was disposed.");
 
 		if (index < 0 || index >= Count)
 			throw gcnew ArgumentOutOfRangeException("index");
 
 		IVssWMFiledesc *vssWMFiledesc;
-		CheckCom(mComponent->mVssComponent->GetAlternateLocationMapping(index, &vssWMFiledesc));
+		CheckCom(m_component->m_vssComponent->GetAlternateLocationMapping(index, &vssWMFiledesc));
 		return CreateVssWMFileDescription(vssWMFiledesc);
 	}
 
 	VssComponent::AlternateLocationMappingList::AlternateLocationMappingList(VssComponent^ component)
-		: mComponent(component)
+		: m_component(component)
 	{
 	}
 
@@ -567,5 +568,29 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		return VssRollForwardType::Undefined;
 	}
 
+   VssComponentFailure^ VssComponent::Failure::get()
+   {
+#ifdef ALPHAVSS_HAS_COMPONENTEX2
+      HRESULT hr;
+      HRESULT hrApplication;
+      AutoBStr bstrApplicationMessage;
+      DWORD dwReserved;
+
+      CheckCom(RequireIVssComponentEx2()->GetFailure(&hr, &hrApplication, &bstrApplicationMessage, &dwReserved));
+
+      return gcnew VssComponentFailure(hr, hrApplication, bstrApplicationMessage);
+#endif
+      return nullptr;
+   }
+
+   void VssComponent::Failure::set(VssComponentFailure^ failure)
+   {
+#ifdef ALPHAVSS_HAS_COMPONENTEX2
+      if (failure == nullptr)
+         return;
+
+      CheckCom(RequireIVssComponentEx2()->SetFailure(failure->ErrorCode, failure->ApplicationErrorCode, AutoMBStr(failure->ApplicationMessage), 0));      
+#endif
+   }
 }
 } }
