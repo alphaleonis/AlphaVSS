@@ -26,16 +26,19 @@ using Alphaleonis.Win32.Vss;
 
 namespace Test
 {
-    class Program
-    {
-        static void Main(string[] args)
-        {
-			IVssImplementation vssImplementation = VssUtils.LoadImplementation();
-            using (IVssBackupComponents backup = vssImplementation.CreateVssBackupComponents())
-            {
-                Console.WriteLine(backup.GetSessionId());
-            }
+   class Program
+   {
+      static void Main(string[] args)
+      {
+         IVssImplementation vssImplementation = VssUtils.LoadImplementation();
+         using (IVssBackupComponents backup = vssImplementation.CreateVssBackupComponents())
+         {
+            Console.WriteLine(backup.GetSessionId());
+            backup.InitializeForBackup(null);
+            backup.SetContext(VssSnapshotContext.All);
+            backup.AbortBackup();
+         }
 
-        }
-    }
+      }
+   }
 }

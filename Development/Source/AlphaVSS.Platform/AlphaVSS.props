@@ -22,12 +22,16 @@
   <ItemDefinitionGroup>
     <Link>
       <DelaySign>true</DelaySign>
-      <Version>1.0.9156.0</Version>
+      <Version>$(AlphaVssVersion)</Version>
     </Link>
     <ClCompile>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <AdditionalIncludeDirectories>$(ProjectDir)\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_WINDLL;ALPHAVSS_VERSION=$(AlphaVssVersion);ALPHAVSS_VERSION_RC=$(AlphaVssVersionRc);%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_UNICODE;UNICODE;ALPHAVSS_VERSION=$(AlphaVssVersion);ALPHAVSS_VERSION_RC=$(AlphaVssVersionRc);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
     <BuildMacro Include="PlatformName">

@@ -1,7 +1,12 @@
-Version 1.0 RC
+Version 1.1
 --------------
 * Fixed invalid initialization VssBackupComponents of that caused potential memory issue 
   during finalization of this object (calling Release on IVssBackupComponentsEx and Ex2).
+
+* Changed naming of the platform specific libraries, since the same library works on any 
+  windows version >= Vista. They are now called AlphaVSS.XX.<platform>.dll for release 
+  versions and AlphaVSS.XXd.<platform>.dll for debug versions where XX is 51 for XP, 
+  52 for 2003 (and XP x64), and 60 for Vista and later windows versions.
 
 Version 1.0 beta
 -------------------

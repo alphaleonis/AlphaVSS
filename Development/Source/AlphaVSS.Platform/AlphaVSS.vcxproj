@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\Version.msbuild" />
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Win2003.Debug|Win32">
       <Configuration>Win2003.Debug</Configuration>
@@ -204,11 +205,23 @@
     <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='WinXP|x64'">AllRules.ruleset</CodeAnalysisRuleSet>
     <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='WinXP|x64'" />
     <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='WinXP|x64'" />
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Win2003|Win32'">AlphaVSS.52.$(PlatformName)</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Win2003.Debug|Win32'">AlphaVSS.52d.$(PlatformName)</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Win2003.Debug|x64'">AlphaVSS.52d.$(PlatformName)</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Win2003|x64'">AlphaVSS.52.$(PlatformName)</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='WinXP|x64'">AlphaVSS.52.$(PlatformName)</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='WinXP|Win32'">AlphaVSS.51.$(PlatformName)</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='WinXP.Debug|Win32'">AlphaVSS.51d.$(PlatformName)</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='WinXP.Debug|x64'">AlphaVSS.52d.$(PlatformName)</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Win2008.Debug|Win32'">AlphaVSS.60d.$(PlatformName)</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Win2008.Debug|x64'">AlphaVSS.60d.$(PlatformName)</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Win2008|Win32'">AlphaVSS.60.$(PlatformName)</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Win2008|x64'">AlphaVSS.60.$(PlatformName)</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Win2008.Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;ALPHAVSS_TARGET=ALPHAVSS_TARGET_WIN2008;CODE_ANALYSIS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;ALPHAVSS_TARGET=0x0601;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <XMLDocumentationFileName>$(IntDir)</XMLDocumentationFileName>
       <WarningLevel>Level3</WarningLevel>
@@ -221,7 +234,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AssemblyDebug>true</AssemblyDebug>
       <TargetMachine>MachineX86</TargetMachine>
-      <Version>1.0.10121.0</Version>
     </Link>
     <Xdcmake>
       <SuppressStartupBanner>false</SuppressStartupBanner>
@@ -233,7 +245,7 @@
     </Midl>
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;ALPHAVSS_TARGET=ALPHAVSS_TARGET_WIN2008;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;ALPHAVSS_TARGET=0x0601;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -248,7 +260,6 @@
       <TargetMachine>MachineX64</TargetMachine>
       <KeyContainer>
       </KeyContainer>
-      <Version>1.0.10121.0</Version>
     </Link>
     <Xdcmake>
       <SuppressStartupBanner>false</SuppressStartupBanner>
@@ -256,7 +267,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Win2008|Win32'">
     <ClCompile>
-      <PreprocessorDefinitions>WIN32;NDEBUG;ALPHAVSS_TARGET=ALPHAVSS_TARGET_WIN2008;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;ALPHAVSS_TARGET=0x0601;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <GenerateXMLDocumentationFiles>true</GenerateXMLDocumentationFiles>
       <WarningLevel>Level3</WarningLevel>
@@ -268,7 +279,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <TargetMachine>MachineX86</TargetMachine>
       <LinkStatus>false</LinkStatus>
-      <Version>1.0.10121.0</Version>
     </Link>
     <PreBuildEvent>
       <Command>echo $(WindowsSDKDir)</Command>
@@ -279,7 +289,7 @@
       <TargetEnvironment>X64</TargetEnvironment>
     </Midl>
     <ClCompile>
-      <PreprocessorDefinitions>WIN32;NDEBUG;ALPHAVSS_TARGET=ALPHAVSS_TARGET_WIN2008;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;ALPHAVSS_TARGET=0x0601;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -289,14 +299,13 @@
       <AdditionalDependencies>vssapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <TargetMachine>MachineX64</TargetMachine>
-      <Version>1.0.10121.0</Version>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='WinXP.Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>$(VSSSDK72Dir)\inc\winxp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;_DEBUG;ALPHAVSS_TARGET=ALPHAVSS_TARGET_WINXP;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;ALPHAVSS_TARGET=0x0501;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
       <XMLDocumentationFileName>$(OutDir)</XMLDocumentationFileName>
@@ -309,7 +318,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AssemblyDebug>true</AssemblyDebug>
       <TargetMachine>MachineX86</TargetMachine>
-      <Version>1.0.10121.0</Version>
     </Link>
     <Xdcmake>
       <DocumentLibraryDependencies>false</DocumentLibraryDependencies>
@@ -323,7 +331,7 @@
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>$(VSSSDK72Dir)\inc\win2003;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;_DEBUG;ALPHAVSS_TARGET=ALPHAVSS_TARGET_WIN2003;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
       <WarningLevel>Level3</WarningLevel>
@@ -335,7 +343,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AssemblyDebug>true</AssemblyDebug>
       <TargetMachine>MachineX64</TargetMachine>
-      <Version>1.0.10121.0</Version>
     </Link>
     <Xdcmake>
       <DocumentLibraryDependencies>false</DocumentLibraryDependencies>
@@ -345,7 +352,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='WinXP|Win32'">
     <ClCompile>
       <AdditionalIncludeDirectories>$(VSSSDK72Dir)\inc\winxp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;NDEBUG;ALPHAVSS_TARGET=ALPHAVSS_TARGET_WINXP;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;ALPHAVSS_TARGET=0x0501;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
       <WarningLevel>Level3</WarningLevel>
@@ -356,7 +363,6 @@
       <AdditionalDependencies>$(VSSSDK72Dir)\lib\winxp\obj\i386\vssapi.lib;$(VSSSDK72Dir)\lib\winxp\obj\i386\vss_uuid.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <TargetMachine>MachineX86</TargetMachine>
-      <Version>1.0.10121.0</Version>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='WinXP|x64'">
@@ -365,7 +371,7 @@
     </Midl>
     <ClCompile>
       <AdditionalIncludeDirectories>$(VSSSDK72Dir)\inc\win2003;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;NDEBUG;ALPHAVSS_TARGET=ALPHAVSS_TARGET_WIN2003;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
       <WarningLevel>Level3</WarningLevel>
@@ -376,14 +382,13 @@
       <AdditionalDependencies>$(VSSSDK72Dir)\lib\win2003\obj\amd64\vssapi.lib;$(VSSSDK72Dir)\lib\win2003\obj\amd64\vss_uuid.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <TargetMachine>MachineX64</TargetMachine>
-      <Version>1.0.10121.0</Version>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Win2003.Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>$(VSSSDK72Dir)\inc\win2003;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;_DEBUG;ALPHAVSS_TARGET=ALPHAVSS_TARGET_WIN2003;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;ALPHAVSS_TARGET=0x0502;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
       <XMLDocumentationFileName>$(OutDir)</XMLDocumentationFileName>
@@ -396,7 +401,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AssemblyDebug>true</AssemblyDebug>
       <TargetMachine>MachineX86</TargetMachine>
-      <Version>1.0.10121.0</Version>
     </Link>
     <Xdcmake>
       <DocumentLibraryDependencies>false</DocumentLibraryDependencies>
@@ -410,7 +414,7 @@
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>$(VSSSDK72Dir)\inc\win2003;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;_DEBUG;ALPHAVSS_TARGET=ALPHAVSS_TARGET_WIN2003;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;ALPHAVSS_TARGET=0x0502;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
       <WarningLevel>Level3</WarningLevel>
@@ -422,7 +426,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AssemblyDebug>true</AssemblyDebug>
       <TargetMachine>MachineX64</TargetMachine>
-      <Version>1.0.10121.0</Version>
     </Link>
     <Xdcmake>
       <DocumentLibraryDependencies>false</DocumentLibraryDependencies>
@@ -432,7 +435,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Win2003|Win32'">
     <ClCompile>
       <AdditionalIncludeDirectories>$(VSSSDK72Dir)\inc\win2003;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;NDEBUG;ALPHAVSS_TARGET=ALPHAVSS_TARGET_WIN2003;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;ALPHAVSS_TARGET=0x0502;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
       <WarningLevel>Level3</WarningLevel>
@@ -443,7 +446,6 @@
       <AdditionalDependencies>$(VSSSDK72Dir)\lib\win2003\obj\i386\vssapi.lib;$(VSSSDK72Dir)\lib\win2003\obj\i386\vss_uuid.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <TargetMachine>MachineX86</TargetMachine>
-      <Version>1.0.10121.0</Version>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Win2003|x64'">
@@ -452,7 +454,7 @@
     </Midl>
     <ClCompile>
       <AdditionalIncludeDirectories>$(VSSSDK72Dir)\inc\win2003;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;NDEBUG;ALPHAVSS_TARGET=ALPHAVSS_TARGET_WIN2003;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;ALPHAVSS_TARGET=0x0502;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
       <WarningLevel>Level3</WarningLevel>
@@ -463,7 +465,6 @@
       <AdditionalDependencies>$(VSSSDK72Dir)\lib\win2003\obj\amd64\vssapi.lib;$(VSSSDK72Dir)\lib\win2003\obj\amd64\vss_uuid.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <TargetMachine>MachineX64</TargetMachine>
-      <Version>1.0.10121.0</Version>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>

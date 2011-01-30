@@ -1,4 +1,4 @@
-/* Copyright (c) 2008-2011 Peter Palotas
+﻿/* Copyright (c) 2008-2011 Peter Palotas
  *  
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -54,8 +54,8 @@ using System.Resources;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.10121.0")]
-[assembly: AssemblyFileVersion("1.0.10121.0")]
+[assembly: AssemblyVersion("1.1.0000.0")]
+[assembly: AssemblyFileVersion("1.1.0000.0")]
 
 [assembly: CLSCompliant(false)]
 [assembly: NeutralResourcesLanguageAttribute("en-US")]

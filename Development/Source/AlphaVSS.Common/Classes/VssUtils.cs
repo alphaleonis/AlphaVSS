@@ -49,26 +49,14 @@ namespace Alphaleonis.Win32.Vss
       public static string GetPlatformSpecificAssemblyShortName()
       {
          string winVer;
-         switch (OperatingSystemInfo.OSVersionName)
-         {
-            case OSVersionName.Windows2000:
-               throw new UnsupportedOperatingSystemException("Windows 2000 is not supported");
-            case OSVersionName.WindowsXP:
-               winVer = "WinXP";
-               break;
-            case OSVersionName.WindowsServer2003:
-               winVer = "Win2003";
-               break;
-            case OSVersionName.WindowsVista:
-            case OSVersionName.WindowsServer2008:
-            case OSVersionName.Windows7:
-            case OSVersionName.WindowsServer2008R2:
-               winVer = "Win2008";
-               break;
-            case OSVersionName.Unknown:
-            default:
-               throw new UnsupportedOperatingSystemException("Failed to detect running operating system, or current operating system not supported.");
-         }
+         if (OperatingSystemInfo.OSVersion < new Version(5, 1))
+            throw new UnsupportedOperatingSystemException("AlphaVSS requires at least Windows XP.");
+         else if (OperatingSystemInfo.OSVersion < new Version(5, 2) && OperatingSystemInfo.ProcessorArchitecture != ProcessorArchitecture.X64)
+            winVer = "51";
+         else if (OperatingSystemInfo.OSVersion < new Version(6, 0))
+            winVer = "52";
+         else
+            winVer = "60";
 
          string archName;
          switch (OperatingSystemInfo.ProcessorArchitecture)
@@ -86,7 +74,7 @@ namespace Alphaleonis.Win32.Vss
                throw new UnsupportedOperatingSystemException("Failed to detect architecture of running operating system.");
          }
 #if DEBUG
-         return "AlphaVSS." + winVer + ".Debug." + archName;
+         return "AlphaVSS." + winVer + "d." + archName;
 #else
             return "AlphaVSS." + winVer + "." + archName;
 #endif
@@ -133,30 +121,6 @@ namespace Alphaleonis.Win32.Vss
       {
          Assembly assembly = Assembly.Load(GetPlatformSpecificAssemblyName());
          return (IVssImplementation)assembly.CreateInstance("Alphaleonis.Win32.Vss.VssImplementation");
-      }
-
-      /// <summary>
-      /// Loads the assembly containing the correct implementation of the <see cref="IVssImplementation"/> interface
-      /// for the operating system on which the assembly is currently executing allowing the specification
-      /// of an <see cref="AppDomain"/> into which to load the assembly.
-      /// </summary>
-      /// <param name="domain">The <see cref="AppDomain"/> into which to load the platform specific assembly.</param>
-      /// <remarks>
-      ///     <para>
-      ///         The assemblies are loaded using strong name lookup. They need to be present in the code base directory
-      ///         of the executing assembly, or installed in the GAC for the lookup to succeed.
-      ///     </para>
-      /// </remarks>
-      /// <returns>
-      ///     An newly created instance of <see cref="IVssImplementation"/> suitable for the
-      ///     operating system on which the assembly is currently executing.
-      /// </returns>
-      /// <exception cref="UnsupportedOperatingSystemException">The operating system could not be detected or is unsupported.</exception>
-      public static IVssImplementation LoadImplementation(AppDomain domain)
-      {
-         domain.Load(GetPlatformSpecificAssemblyName());
-         ObjectHandle handle = domain.CreateInstance(GetPlatformSpecificAssemblyName().ToString(), "Alphaleonis.Win32.Vss.VssImplementation");
-         return (IVssImplementation)handle.Unwrap();
       }
    }
 }

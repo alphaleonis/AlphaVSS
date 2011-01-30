@@ -25,7 +25,7 @@ using System.Runtime.InteropServices;
 using System.Security.Permissions;
 
 namespace Alphaleonis.Win32.Vss
-{
+{   
    /// <summary>
    /// Static class providing access to information about the operating system under which the
    /// assembly is executing.
