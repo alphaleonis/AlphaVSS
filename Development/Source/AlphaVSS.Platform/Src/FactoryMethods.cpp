@@ -20,7 +20,7 @@
  */
 #include "StdAfx.h"
 
-#ifdef ALPHAVSS_HAS_DIFFERENTIALSOFTWARESNAPSHOTMGMT3
+#if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WINVISTAORLATER
 #include <VsMgmt.h>
 #endif
 
@@ -34,7 +34,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
          CheckCom(vssWMFiledesc->GetAlternateLocation(&bstrAlternateLocation));
 
          DWORD dwTypeMask = 0;
-#if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WIN2008
+#if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WINVISTAORLATER
          CheckCom(vssWMFiledesc->GetBackupTypeMask(&dwTypeMask));
 #endif
          AutoBStr bstrFilespec;
@@ -73,7 +73,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
       }
    }
 
-#ifdef ALPHAVSS_HAS_WMDEPENDENCY
+#if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WIN2003
    VssWMDependency^ CreateVssWMDependency(IVssWMDependency *dependency)		
    {
       try
@@ -122,7 +122,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
       }
    }
 
-#ifdef ALPHAVSS_HAS_DIFFERENTIALSOFTWARESNAPSHOTMGMT3
+#if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WINVISTAORLATER
    VssVolumeProtectionInfo^ CreateVssVolumeProtectionInfo(VSS_VOLUME_PROTECTION_INFO *info)
    {
       return gcnew VssVolumeProtectionInfo((VssProtectionLevel)info->m_protectionLevel, 

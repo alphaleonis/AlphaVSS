@@ -24,70 +24,73 @@
 
 namespace Alphaleonis { namespace Win32 { namespace Vss
 {
-	[System::Security::Permissions::SecurityPermissionAttribute(System::Security::Permissions::SecurityAction::LinkDemand)]
-	VssAsync^ VssAsync::Adopt(::IVssAsync *vssAsync)
-	{
-		try
-		{
-			return gcnew VssAsync(vssAsync);
-		}
-		catch (...)
-		{
-			vssAsync->Release();
-			throw;
-		}
-	}
+   [System::Security::Permissions::SecurityPermissionAttribute(System::Security::Permissions::SecurityAction::LinkDemand)]
+   VssAsync^ VssAsync::Adopt(::IVssAsync *vssAsync)
+   {
+      try
+      {
+         return gcnew VssAsync(vssAsync);
+      }
+      catch (...)
+      {
+         vssAsync->Release();
+         throw;
+      }
+   }
 
-	VssAsync::VssAsync(::IVssAsync *vssAsync)
-		: m_vssAsync(vssAsync)
-	{
-	}
+   VssAsync::VssAsync(::IVssAsync *vssAsync)
+      : m_vssAsync(vssAsync)
+   {
+   }
 
-	VssAsync::~VssAsync()
-	{
-		this->!VssAsync();
-	}
+   VssAsync::~VssAsync()
+   {
+      this->!VssAsync();
+   }
 
-	VssAsync::!VssAsync()
-	{
-		if (m_vssAsync != 0)
-		{
-			m_vssAsync->Release();
-			m_vssAsync = 0;
-		}
-	}
+   VssAsync::!VssAsync()
+   {
+      if (m_vssAsync != 0)
+      {
+         m_vssAsync->Release();
+         m_vssAsync = 0;
+      }
+   }
 
-	VssError VssAsync::Cancel()
-	{
-		HRESULT hrResult = 0;
-		hrResult = m_vssAsync->Cancel();
-		if (FAILED(hrResult))
-			ThrowException(hrResult);
-		return (VssError)hrResult;
-	}
+   VssError VssAsync::Cancel()
+   {
+      HRESULT hrResult = 0;
+      hrResult = m_vssAsync->Cancel();
+      if (FAILED(hrResult))
+         ThrowException(hrResult);
+      return (VssError)hrResult;
+   }
 
-	VssError VssAsync::QueryStatus()
-	{
-		HRESULT hrResult = 0;
-		CheckCom(m_vssAsync->QueryStatus(&hrResult, 0));
-		return (VssError)hrResult;
-	}
-	
-	void VssAsync::Wait()
-	{
+   VssError VssAsync::QueryStatus()
+   {
+      HRESULT hrResult = 0;
+      CheckCom(m_vssAsync->QueryStatus(&hrResult, 0));
+      return (VssError)hrResult;
+   }
+   
+   void VssAsync::Wait()
+   {
 #if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WIN2003
-		CheckCom(m_vssAsync->Wait(INFINITE));
+      CheckCom(m_vssAsync->Wait(INFINITE));
 #else
-		CheckCom(m_vssAsync->Wait());
+      CheckCom(m_vssAsync->Wait());
 #endif
-	}
+   }
 
-#if 0
-	void VssAsync::Wait(UInt32 timeoutMilliseconds)
-	{
-		CheckCom(m_vssAsync->Wait(timeoutMilliseconds));
-	}
+
+   void VssAsync::Wait(Int32 timeoutMilliseconds)
+   {
+#if ALPHAVSS_TARGET < ALPHAVSS_TARGET_WINVISTAORLATER
+      Wait();
+#else
+      CheckCom(m_vssAsync->Wait(timeoutMilliseconds));
 #endif
+   }
 
 
 }

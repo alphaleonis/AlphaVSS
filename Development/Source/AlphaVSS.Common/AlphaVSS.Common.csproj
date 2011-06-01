@@ -20,7 +20,7 @@
     <AssemblyOriginatorKeyFile>..\AlphaVSS.pub.snk</AssemblyOriginatorKeyFile>
     <DelaySign>true</DelaySign>
     <FileUpgradeFlags>
-    </FileUpgradeFlags>    
+    </FileUpgradeFlags>
     <UpgradeBackupLocation />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -50,6 +50,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\GlobalAssemblyInfo.cs">
+      <Link>GlobalAssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="Classes\OperatingSystemInfo.cs" />
     <Compile Include="Classes\VssComponentFailure.cs" />
     <Compile Include="Classes\VssDiffAreaProperties.cs" />

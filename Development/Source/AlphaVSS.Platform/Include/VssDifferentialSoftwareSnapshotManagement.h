@@ -22,7 +22,7 @@
 
 #include "Config.h"
 
-#ifdef ALPHAVSS_HAS_DIFFERENTIALSOFTWARESNAPSHOTMGMT
+#if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WIN2003
 
 #include <vss.h>
 
@@ -63,11 +63,11 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
       VssDifferentialSoftwareSnapshotManagement(::IVssDifferentialSoftwareSnapshotMgmt *pMgmt);
    private:
       ::IVssDifferentialSoftwareSnapshotMgmt *m_mgmt;
-#ifdef ALPHAVSS_HAS_DIFFERENTIALSOFTWARESNAPSHOTMGMT2
+#if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WINVISTAORLATER
       DEFINE_EX_INTERFACE_ACCESSOR(IVssDifferentialSoftwareSnapshotMgmt2, m_mgmt);
 #endif
 
-#ifdef ALPHAVSS_HAS_DIFFERENTIALSOFTWARESNAPSHOTMGMT3
+#if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WINVISTAORLATER
       DEFINE_EX_INTERFACE_ACCESSOR(IVssDifferentialSoftwareSnapshotMgmt3, m_mgmt);
 #endif
 

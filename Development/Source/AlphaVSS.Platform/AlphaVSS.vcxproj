@@ -117,7 +117,6 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Win2008|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <CLRSupport>true</CLRSupport>
-    <WholeProgramOptimization>false</WholeProgramOptimization>
     <PlatformToolset>v90</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Win2008.Debug|x64'" Label="Configuration">

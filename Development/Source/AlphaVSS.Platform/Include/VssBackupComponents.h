@@ -106,11 +106,11 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
    private:
       ::IVssBackupComponents *m_backup;
 
-#ifdef ALPHAVSS_HAS_BACKUPEX
+#if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WIN2003
       DEFINE_EX_INTERFACE_ACCESSOR(IVssBackupComponentsEx, m_backup)
 #endif
 
-#ifdef ALPHAVSS_HAS_BACKUPEX2
+#if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WINVISTAORLATER
       DEFINE_EX_INTERFACE_ACCESSOR(IVssBackupComponentsEx2, m_backup)
       DEFINE_EX_INTERFACE_ACCESSOR(IVssBackupComponentsEx3, m_backup)
 #endif

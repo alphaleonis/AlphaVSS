@@ -77,11 +77,11 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
       VssComponent(::IVssComponent *vssWriterComponents);
       ::IVssComponent *m_vssComponent;
 
-#ifdef ALPHAVSS_HAS_COMPONENTEX
+#if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WINVISTAORLATER
       DEFINE_EX_INTERFACE_ACCESSOR(IVssComponentEx, m_vssComponent)
 #endif
 
-#ifdef ALPHAVSS_HAS_COMPONENTEX2
+#if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WINVISTAORLATER
       DEFINE_EX_INTERFACE_ACCESSOR(IVssComponentEx2, m_vssComponent)
 #endif
 

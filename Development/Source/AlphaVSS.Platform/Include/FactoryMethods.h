@@ -24,7 +24,7 @@
 #include "Macros.h"
 #include "Error.h"
 
-#ifdef ALPHAVSS_HAS_DIFFERENTIALSOFTWARESNAPSHOTMGMT3
+#if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WINVISTAORLATER
 #include <VsMgmt.h>
 #endif
 
@@ -32,12 +32,12 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 {
    VssWMFileDescription^ CreateVssWMFileDescription(IVssWMFiledesc *vssWMFiledesc);
    VssProviderProperties^ CreateVssProviderProperties(VSS_PROVIDER_PROP *pProp);
-#ifdef ALPHAVSS_HAS_WMDEPENDENCY	
+#if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WIN2003
    VssWMDependency^ CreateVssWMDependency(IVssWMDependency *dependency);
 #endif	
    VssSnapshotProperties^ CreateVssSnapshotProperties(VSS_SNAPSHOT_PROP *prop);
 
-#ifdef ALPHAVSS_HAS_DIFFERENTIALSOFTWARESNAPSHOTMGMT3
+#if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WINVISTAORLATER
    VssVolumeProtectionInfo^ CreateVssVolumeProtectionInfo(VSS_VOLUME_PROTECTION_INFO *info);
 #endif
 }

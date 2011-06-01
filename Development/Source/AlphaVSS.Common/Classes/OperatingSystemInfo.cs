@@ -126,7 +126,6 @@ namespace Alphaleonis.Win32.Vss
       [SecurityPermission(SecurityAction.LinkDemand, UnmanagedCode = true)]
       public static bool IsAtLeast(OSVersionName version)
       {
-         Debug.Assert(version != OSVersionName.Unknown);
          return OSVersionName >= version;
       }
 
@@ -143,7 +142,6 @@ namespace Alphaleonis.Win32.Vss
       [SecurityPermission(SecurityAction.LinkDemand, UnmanagedCode = true)]
       public static bool IsAtLeast(OSVersionName version, int servicePackVersion)
       {
-         Debug.Assert(version != OSVersionName.Unknown);
          return IsWithSPAtLeast(version, servicePackVersion) || OSVersionName > version;
       }
 
@@ -160,7 +158,6 @@ namespace Alphaleonis.Win32.Vss
       [SecurityPermission(SecurityAction.LinkDemand, UnmanagedCode = true)]
       public static bool IsWithSPAtLeast(OSVersionName version, int servicePackVersion)
       {
-         Debug.Assert(version != OSVersionName.Unknown);
          return (OSVersionName == version && ServicePackVersion.Major >= servicePackVersion);
       }
 
@@ -173,9 +170,8 @@ namespace Alphaleonis.Win32.Vss
       [SecurityPermission(SecurityAction.LinkDemand, UnmanagedCode = true)]
       public static void Require(OSVersionName version)
       {
-         Debug.Assert(version != OSVersionName.Unknown);
          if (version != OSVersionName)
-            throw new UnsupportedOperatingSystemException(String.Format(CultureInfo.CurrentCulture, Resources.LocalizedStrings.ThisOperationRequires0DetectedOperatingSystemWas1, ToString(version), ToString(OSVersionName)));
+            throw new UnsupportedOperatingSystemException();
       }
 
       /// <summary>
@@ -189,10 +185,8 @@ namespace Alphaleonis.Win32.Vss
       [SecurityPermission(SecurityAction.LinkDemand, UnmanagedCode = true)]
       public static void Require(OSVersionName version, int servicePackVersion)
       {
-         Debug.Assert(version != OSVersionName.Unknown);
          if (version != OSVersionName || servicePackVersion != ServicePackVersion.Major)
-            throw new UnsupportedOperatingSystemException(String.Format(CultureInfo.CurrentCulture, Resources.LocalizedStrings.ThisOperationRequires01DetectedOperatingSystemWas23,
-                ToString(version), SpToString(servicePackVersion), ToString(OSVersionName), SpToString(ServicePackVersion.Major)));
+            throw new UnsupportedOperatingSystemException();
       }
 
       /// <summary>
@@ -207,8 +201,7 @@ namespace Alphaleonis.Win32.Vss
       public static void RequireWithSPAtLeast(OSVersionName osVersion, int servicePackVersion)
       {
          if (!IsWithSPAtLeast(osVersion, servicePackVersion))
-            throw new UnsupportedOperatingSystemException(String.Format(CultureInfo.CurrentCulture, Resources.LocalizedStrings.ThisOperationRequires0WithAtLeastServicePack1DetectedOperatingSystemWas23,
-                ToString(osVersion), servicePackVersion, ToString(OSVersionName), SpToString(ServicePackVersion.Major)));
+            throw new UnsupportedOperatingSystemException();
       }
 
       /// <summary>
@@ -226,8 +219,7 @@ namespace Alphaleonis.Win32.Vss
       public static void RequireWithSPAtLeast(OSVersionName osVersion1, int servicePackVersion1, OSVersionName osVersion2, int servicePackVersion2)
       {
          if (!IsWithSPAtLeast(osVersion1, servicePackVersion1) && !IsWithSPAtLeast(osVersion2, servicePackVersion2))
-            throw new UnsupportedOperatingSystemException(String.Format(CultureInfo.CurrentCulture, Resources.LocalizedStrings.ThisOperationRequires0WithAtLeastServicePack1Or2WithAtLeastServicePack3DetectedOperatingSystemWas45,
-                ToString(osVersion1), servicePackVersion1, ToString(osVersion2), servicePackVersion2, ToString(OSVersionName), SpToString(ServicePackVersion.Major)));
+            throw new UnsupportedOperatingSystemException();
       }
 
       /// <summary>
@@ -240,8 +232,7 @@ namespace Alphaleonis.Win32.Vss
       public static void RequireAtLeast(OSVersionName osVersion)
       {
          if (!IsAtLeast(osVersion))
-            throw new UnsupportedOperatingSystemException(String.Format(CultureInfo.CurrentCulture, Resources.LocalizedStrings.ThisOperationRequires0OrLaterDetectedOperatingSystemWas1,
-                ToString(osVersion), ToString(OSVersionName)));
+            throw new UnsupportedOperatingSystemException();
       }
 
       /// <summary>
@@ -257,44 +248,12 @@ namespace Alphaleonis.Win32.Vss
       public static void RequireAtLeast(OSVersionName osVersion, int servicePackVersion)
       {
          if (!IsAtLeast(osVersion, servicePackVersion))
-            throw new UnsupportedOperatingSystemException(String.Format(CultureInfo.CurrentCulture, Resources.LocalizedStrings.ThisOperationRequires01OrLaterDetectedOperatingSystemWas23,
-                ToString(osVersion), SpToString(servicePackVersion), ToString(OSVersionName), SpToString(ServicePackVersion.Major)));
+            throw new UnsupportedOperatingSystemException();
       }
 
       #endregion
 
-      #region Private members
-
-      private static string ToString(OSVersionName name)
-      {
-         switch (name)
-         {
-            case OSVersionName.Windows2000:
-               return "Windows 2000";
-            case OSVersionName.WindowsXP:
-               return "Windows XP";
-            case OSVersionName.WindowsServer2003:
-               return "Windows Server 2003";
-            case OSVersionName.WindowsVista:
-               return "Windows Vista";
-            case OSVersionName.WindowsServer2008:
-               return "Windows Server 2008";
-            case OSVersionName.Windows7:
-               return "Windows 7";
-            case OSVersionName.WindowsServer2008R2:
-               return "Windows Server 2008 R2";
-            default:
-               return "Unknown";
-         }
-      }
-
-      private static string SpToString(int servicePackVersion)
-      {
-         if (servicePackVersion == 0)
-            return String.Empty;
-
-         return String.Format(CultureInfo.InvariantCulture, " SP{0}", servicePackVersion);
-      }
+      #region Private members            
 
       [SecurityPermission(SecurityAction.LinkDemand, UnmanagedCode = true)]
       private static void UpdateData()
@@ -318,9 +277,13 @@ namespace Alphaleonis.Win32.Vss
 
          m_ServicePackVersion = new Version(info.wServicePackMajor, info.wServicePackMinor);
 
-         if (info.dwMajorVersion == 6) // Vista or 2008
+         if (info.dwMajorVersion > 6)
          {
-            if (info.dwMinorVersion == 0)
+            m_OSVersionName = OSVersionName.Later;
+         }
+         else if (info.dwMajorVersion == 6) 
+         {
+            if (info.dwMinorVersion == 0) // Windows Vista or Windows Server 2008
             {
                if (info.wProductType == NativeMethods.VER_NT_WORKSTATION) // Vista
                {
@@ -331,7 +294,7 @@ namespace Alphaleonis.Win32.Vss
                   m_OSVersionName = OSVersionName.WindowsServer2008;
                }
             }
-            else
+            else if (info.dwMinorVersion == 1) // Windows 7 or Windows Server 2008 R2
             {
                if (info.wProductType == NativeMethods.VER_NT_WORKSTATION)
                {
@@ -341,6 +304,10 @@ namespace Alphaleonis.Win32.Vss
                {
                   m_OSVersionName = Vss.OSVersionName.WindowsServer2008R2;
                }
+            }
+            else
+            {
+               m_OSVersionName = Vss.OSVersionName.Later;
             }
          }
          else if (info.dwMajorVersion == 5)
@@ -365,17 +332,17 @@ namespace Alphaleonis.Win32.Vss
                }
                else
                {
-                  m_OSVersionName = OSVersionName.Unknown;
+                  m_OSVersionName = OSVersionName.Later;
                }
             }
             else
             {
-               m_OSVersionName = OSVersionName.Unknown;
+               m_OSVersionName = OSVersionName.Later;
             }
          }
       }
 
-      private static OSVersionName m_OSVersionName = OSVersionName.Unknown;
+      private static OSVersionName m_OSVersionName = OSVersionName.Later;
       private static Version m_OSVersion = Environment.OSVersion.Version;
       private static Version m_ServicePackVersion;
       private static ProcessorArchitecture m_ProcessorArchitecture;

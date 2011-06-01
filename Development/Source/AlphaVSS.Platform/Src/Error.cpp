@@ -80,7 +80,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
          return gcnew VssRebootRequiredException();
       case VSS_E_REVERT_IN_PROGRESS:
          return gcnew VssRevertInProgressException();
-#if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WIN2008
+#if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WINVISTAORLATER
       case VSS_E_TRANSACTION_FREEZE_TIMEOUT:
          return gcnew VssTransactionFreezeTimeoutException();
       case VSS_E_TRANSACTION_THAW_TIMEOUT:

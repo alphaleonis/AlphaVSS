@@ -37,26 +37,15 @@ Windows XP 64-Bit Edition 									Windows Server 2003 (64-bit) and Windows XP 6
 Windows XP (32-bit) 										Windows XP (32-bit)
 Note  Requesters will also run on Windows XP 64-Bit Edition.
 */
-/*
-Windows 7                                       NTDDI_WIN7
-Windows Server 2008								NTDDI_WS08
-Windows Vista with Service Pack 1 (SP1)			NTDDI_VISTASP1
-Windows Vista									NTDDI_VISTA
-Windows Server 2003 with Service Pack 1 (SP1)	NTDDI_WS03SP1
-Windows Server 2003								NTDDI_WS03
-Windows XP with Service Pack 2 (SP2)			NTDDI_WINXPSP2
-Windows XP with Service Pack 1 (SP1)			NTDDI_WINXPSP1
-Windows XP										NTDDI_WINXP
-*/
 
 
 /*****************************************
-   TARGETS 
+TARGETS 
 ******************************************/
 #define ALPHAVSS_TARGET_WINXP_X86		   0x0501
 #define ALPHAVSS_TARGET_WIN2003     		0x0502
 #define ALPHAVSS_TARGET_WINXP_X64         0x0502
-#define ALPHAVSS_TARGET_WIN2008           0x0601
+#define ALPHAVSS_TARGET_WINVISTAORLATER   0x0601
 
 
 #ifndef ALPHAVSS_TARGET
@@ -69,13 +58,13 @@ Windows XP										NTDDI_WINXP
 #define _WIN32_WINNT _WIN32_WINNT_WINXP
 #define WINVER _WIN32_WINNT
 
-#elif ALPHAVSS_TARGET == ALPHAVSS_TARGET_WIN2003 || ALPHAVSS_TARGET == ALPHAVSS_TARGET_WINXP_X64
+#elif ALPHAVSS_TARGET == ALPHAVSS_TARGET_WIN2003 
 
 #define NTDDI_VERSION NTDDI_WS03SP1
 #define _WIN32_WINNT _WIN32_WINNT_WS03
 #define WINVER 0x501
 
-#elif ALPHAVSS_TARGET == ALPHAVSS_TARGET_WIN2008
+#elif ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WINVISTAORLATER
 
 #define NTDDI_VERSION NTDDI_WS08
 #define _WIN32_WINNT _WIN32_WINNT_WS08
@@ -87,23 +76,25 @@ Windows XP										NTDDI_WINXP
 
 
 /***********************************************
-   FEATURE SELECTION
+FEATURE SELECTION
 ************************************************/
-#if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WIN2003
-#define ALPHAVSS_HAS_EWMEX
-#define ALPHAVSS_HAS_BACKUPEX
-#define ALPHAVSS_HAS_SNAPSHOTMGMT
-#define ALPHAVSS_HAS_DIFFERENTIALSOFTWARESNAPSHOTMGMT
-#define ALPHAVSS_HAS_WMDEPENDENCY
-#endif
+//#if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WIN2003
+////#define ALPHAVSS_HAS_EWMEX
+////#define ALPHAVSS_HAS_BACKUPEX
+////#define ALPHAVSS_HAS_SNAPSHOTMGMT
+////#define ALPHAVSS_HAS_DIFFERENTIALSOFTWARESNAPSHOTMGMT
+////#define ALPHAVSS_HAS_WMDEPENDENCY
+//#endif
+//
+//#if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WINVISTAORLATER
+////#define ALPHAVSS_HAS_EWMEX2
+////#define ALPHAVSS_HAS_BACKUPEX2
+////#define ALPHAVSS_HAS_COMPONENTEX
+////#define ALPHAVSS_HAS_SNAPSHOTMGMT2
+////#define ALPHAVSS_HAS_DIFFERENTIALSOFTWARESNAPSHOTMGMT2
+////#define ALPHAVSS_HAS_DIFFERENTIALSOFTWARESNAPSHOTMGMT3
+//#define ALPHAVSS_HAS_BACKUPEX3
+//#define ALPHAVSS_HAS_COMPONENTEX2
+//#endif
 
-#if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WIN2008
-#define ALPHAVSS_HAS_EWMEX2
-#define ALPHAVSS_HAS_BACKUPEX2
-#define ALPHAVSS_HAS_COMPONENTEX
-#define ALPHAVSS_HAS_SNAPSHOTMGMT2
-#define ALPHAVSS_HAS_DIFFERENTIALSOFTWARESNAPSHOTMGMT2
-#define ALPHAVSS_HAS_DIFFERENTIALSOFTWARESNAPSHOTMGMT3
-#define ALPHAVSS_HAS_BACKUPEX3
-#define ALPHAVSS_HAS_COMPONENTEX2
-#endif
+// TODO: Remove any hard operating system version configuration from OperatingSystemInfo class. Use only numbers, and named requirements.

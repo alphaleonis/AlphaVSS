@@ -1,4 +1,4 @@
-/* Copyright (c) 2008-2011 Peter Palotas
+﻿/* Copyright (c) 2008-2011 Peter Palotas
  *  
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -18,33 +18,22 @@
  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  *  THE SOFTWARE.
  */
-#pragma once
+using System.Reflection;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
+using System;
+using System.Resources;
 
-#if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WIN2003
-
-#include <VsMgmt.h>
-
-namespace Alphaleonis { namespace Win32 { namespace Vss
-{
-   public ref class VssSnapshotManagement : IVssSnapshotManagement, MarshalByRefObject
-   {
-   public:
-      ~VssSnapshotManagement();
-      !VssSnapshotManagement();
-
-      virtual IVssDifferentialSoftwareSnapshotManagement^ GetDifferentialSoftwareSnapshotManagementInterface();
-      virtual Int64 GetMinDiffAreaSize();
-   internal:
-      VssSnapshotManagement();
-   private:
-      ::IVssSnapshotMgmt *m_snapshotMgmt;
-
-#if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WINVISTAORLATER
-      DEFINE_EX_INTERFACE_ACCESSOR(IVssSnapshotMgmt2, m_snapshotMgmt)
+#if DEBUG
+[assembly: AssemblyConfiguration("Debug")]
+#else
+[assembly: AssemblyConfiguration("Release")]
 #endif
-   };
 
-}
-}}
+[assembly: AssemblyCompany("Alphaleonis")]
+[assembly: AssemblyProduct("AlphaVSS")]
+[assembly: AssemblyCopyright("Copyright © Peter Palotas 2008-2011")]
+[assembly: AssemblyTrademark("")]
 
-#endif
+[assembly: AssemblyVersion("1.1.0000.0")]
+[assembly: AssemblyFileVersion("1.1.0000.0")]

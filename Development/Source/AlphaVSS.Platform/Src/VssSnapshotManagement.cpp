@@ -23,7 +23,7 @@
 #include "VssSnapshotManagement.h"
 #include "VssDifferentialSoftwareSnapshotManagement.h"
 
-#ifdef ALPHAVSS_HAS_SNAPSHOTMGMT
+#if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WIN2003
 
 namespace Alphaleonis { namespace Win32 { namespace Vss
 {
@@ -48,7 +48,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 			m_snapshotMgmt = 0;
 		}
 
-#ifdef ALPHAVSS_HAS_SNAPSHOTMGMT2
+#if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WINVISTAORLATER
 		if (m_IVssSnapshotMgmt2 != 0)
 		{
 			m_IVssSnapshotMgmt2->Release();
@@ -68,7 +68,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 
 	Int64 VssSnapshotManagement::GetMinDiffAreaSize()
 	{
-#ifdef ALPHAVSS_HAS_SNAPSHOTMGMT2
+#if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WINVISTAORLATER
 		LONGLONG llMinDiffAreaSize;
 		CheckCom(RequireIVssSnapshotMgmt2()->GetMinDiffAreaSize(&llMinDiffAreaSize));
 		return llMinDiffAreaSize;

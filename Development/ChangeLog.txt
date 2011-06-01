@@ -8,6 +8,11 @@ Version 1.1
   versions and AlphaVSS.XXd.<platform>.dll for debug versions where XX is 51 for XP, 
   52 for 2003 (and XP x64), and 60 for Vista and later windows versions.
 
+* Removed feature configuration #defines in Config.h. Now uses ALPHAVSS_TARGET everywhere instead.
+
+* The VssAsync interface now has a Wait-method accepting a timeout that is supported on 
+  Windows Vista or later operating systems.
+
 Version 1.0 beta
 -------------------
 * Erroneous Console.WriteLine printing the name of an assembly removed from 

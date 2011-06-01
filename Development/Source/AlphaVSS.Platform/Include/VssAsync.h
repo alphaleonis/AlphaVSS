@@ -94,6 +94,13 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
       /// The Wait method waits until an incomplete asynchronous operation finishes.
       /// </summary>
       virtual void Wait();
+
+      /// <summary>
+      /// The Wait method waits until an incomplete asynchronous operation finishes.
+      /// </summary>
+      /// <param name="timeoutMilliseconds">Specifies the timeout in milliseconds. Note: This parameter is ignored on Windows XP and Windows Server 2003 which always use an infinite timeout.</param>
+      virtual void Wait(Int32 timeoutMilliseconds);
+
    internal:
       static VssAsync^ Adopt(::IVssAsync *vssAsync);
    private:

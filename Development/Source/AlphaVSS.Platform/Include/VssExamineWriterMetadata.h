@@ -67,11 +67,11 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
       VssExamineWriterMetadata(::IVssExamineWriterMetadata *examineWriterMetadata);
       ::IVssExamineWriterMetadata *mExamineWriterMetadata;
 
-#ifdef ALPHAVSS_HAS_EWMEX
+#if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WIN2003
       DEFINE_EX_INTERFACE_ACCESSOR(IVssExamineWriterMetadataEx, mExamineWriterMetadata);
 #endif
 
-#ifdef ALPHAVSS_HAS_EWMEX2
+#if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WINVISTAORLATER
       DEFINE_EX_INTERFACE_ACCESSOR(IVssExamineWriterMetadataEx2, mExamineWriterMetadata);
 #endif
 

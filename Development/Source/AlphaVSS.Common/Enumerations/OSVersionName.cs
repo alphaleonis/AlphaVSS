@@ -30,6 +30,7 @@ namespace Alphaleonis.Win32.Vss
    /// </remarks>
    public enum OSVersionName
    {
+      Earlier = -1,
       /// <summary>
       /// Windows 2000 (Server or Professional)
       /// </summary>
@@ -61,6 +62,6 @@ namespace Alphaleonis.Win32.Vss
       /// <summary>
       /// Unknown operating system
       /// </summary>
-      Unknown = 0xffff
+      Later = 0xffff
    }
 }
