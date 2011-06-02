@@ -4,6 +4,9 @@ Version 1.2
 
 Version 1.1
 --------------
+* Changed assembly naming of the platform specifiec assemblies so that their names 
+  are the same regardless of the build configuration.
+
 * Fixed invalid initialization VssBackupComponents of that caused potential memory issue 
   during finalization of this object (calling Release on IVssBackupComponentsEx and Ex2).
 

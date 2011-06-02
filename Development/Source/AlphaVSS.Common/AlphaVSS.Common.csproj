@@ -34,9 +34,8 @@
     <CodeAnalysisRuleSet>..\AlphaVSS.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <OutputPath>..\..\Bin\</OutputPath>
-    <DocumentationFile>
-    </DocumentationFile>
+    <OutputPath>..\..\Bin\Release\</OutputPath>
+    <DocumentationFile>..\..\Bin\Release\AlphaVSS.Common.XML</DocumentationFile>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <RegisterForComInterop>false</RegisterForComInterop>
     <Optimize>true</Optimize>
