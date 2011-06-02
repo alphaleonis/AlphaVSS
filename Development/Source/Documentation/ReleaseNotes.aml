@@ -5,6 +5,13 @@
       <introduction>
          <para>This section contains the release notes for AlphaVSS.</para>
       </introduction>
+      <section address="release_1_2_3000_1">
+         <title>Version 1.2 Beta1</title>
+         <content>
+            <para>All AlphaVSS binaries are now built against the .NET 4.0 target framework.</para>
+         </content>
+      </section>
+
       <section address="release_1_1_3000_1">
          <title>Version 1.1 Beta1</title>
          <content>

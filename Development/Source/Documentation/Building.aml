@@ -15,10 +15,8 @@
          <title>Files and Projects</title>
          <content>
             <para>
-               The AlphaVSS solution and project files were created using Visual Studio 2010 and Visual Studio 2008.
-               Unfortunately both are required to build this version of AlphaVSS, since Visual Studio 2010 cannot
-               build CLR/C++ applications targeting the .NET 2.0 framework. So you do need to have both of these
-               installed on your machine to be able to build these sources.
+               The AlphaVSS solution and project files were created using Visual Studio 2010 which is required to build
+               AlphaVSS.
             </para>
             <para>
                If you download source code from the source control,
