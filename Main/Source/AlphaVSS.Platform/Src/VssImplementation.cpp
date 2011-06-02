@@ -1,4 +1,4 @@
-/* Copyright (c) 2008-2009 Peter Palotas
+/* Copyright (c) 2008-2011 Peter Palotas
  *  
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -59,7 +59,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		// According to MSDN this method is supported also on Windows 2003, however it is not 
 		// present in the header-files or library files, except for the library files for ws03 
 		// in the vshadow sample directory in the VSSSDK72. Requiring WS08 here.
-#if ALPHAVSS_TARGET == ALPHAVSS_TARGET_WIN2008
+#if ALPHAVSS_TARGET == ALPHAVSS_TARGET_WINVISTAORLATER
 		OperatingSystemInfo::RequireAtLeast(OSVersionName::WindowsServer2008);
 		bool bBlock = 0;
 		CheckCom(::ShouldBlockRevert(NoNullAutoMStr(volumeName), &bBlock));
@@ -79,7 +79,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 
 	IVssSnapshotManagement^ VssImplementation::GetSnapshotManagementInterface()
 	{
-#ifdef ALPHAVSS_HAS_SNAPSHOTMGMT
+#if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WIN2003
 		return gcnew VssSnapshotManagement();
 #else
 		UnsupportedOs();

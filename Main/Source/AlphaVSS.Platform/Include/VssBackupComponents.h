@@ -1,4 +1,4 @@
-/* Copyright (c) 2008-2009 Peter Palotas
+/* Copyright (c) 2008-2011 Peter Palotas
  *  
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -30,125 +30,129 @@ using namespace System::Collections::Generic;
 
 namespace Alphaleonis { namespace Win32 { namespace Vss
 {
-	ref class VssAsync;
+   ref class VssAsync;
 
-	private ref class VssBackupComponents : IDisposable, IVssBackupComponents, MarshalByRefObject
-	{
-	public:
-		VssBackupComponents();
-		~VssBackupComponents();
-		!VssBackupComponents();
+   private ref class VssBackupComponents : IDisposable, IVssBackupComponents, MarshalByRefObject
+   {
+   public:
+      VssBackupComponents();
+      ~VssBackupComponents();
+      !VssBackupComponents();
 
-		virtual void AbortBackup();
-		virtual void AddAlternativeLocationMapping(Guid writerId, VssComponentType componentType, String^ logicalPath, String^ componentName, String^ path, String^ filespec, bool recursive, String^ destination);
-		virtual void AddComponent(Guid instanceId, Guid writerId, VssComponentType componentType, String^ logicalPath, String^ componentName);
-		virtual void AddNewTarget(Guid writerId, VssComponentType componentType, String^ logicalPath, String^ componentName, String^ path, String^ fileName, bool recursive, String^ alternatePath);
-		virtual void AddRestoreSubcomponent(Guid writerId, VssComponentType componentType, String^ logicalPath, String ^componentName, String^ subcomponentLogicalPath, String^ subcomponentName);
-		
-		virtual Guid AddToSnapshotSet(String^ volumeName, Guid providerId);
-		virtual Guid AddToSnapshotSet(String^ volumeName);
-		
-		virtual IVssAsync^ BackupComplete();
-		virtual void BreakSnapshotSet(Guid snapshotSetId);
-		virtual IVssAsync^ BreakSnapshotSet(Guid snapshotSetId, VssHardwareOptions breakFlags);
-		virtual void DeleteSnapshot(Guid snapshotId, bool forceDelete);
-		virtual int DeleteSnapshotSet(Guid snapshotSetId, bool forceDelete);
+      virtual void AbortBackup();
+      virtual void AddAlternativeLocationMapping(Guid writerId, VssComponentType componentType, String^ logicalPath, String^ componentName, String^ path, String^ filespec, bool recursive, String^ destination);
+      virtual void AddComponent(Guid instanceId, Guid writerId, VssComponentType componentType, String^ logicalPath, String^ componentName);
+      virtual void AddNewTarget(Guid writerId, VssComponentType componentType, String^ logicalPath, String^ componentName, String^ path, String^ fileName, bool recursive, String^ alternatePath);
+      virtual void AddRestoreSubcomponent(Guid writerId, VssComponentType componentType, String^ logicalPath, String ^componentName, String^ subcomponentLogicalPath, String^ subcomponentName);
 
-		virtual void DisableWriterClasses(array<Guid> ^ writerClassIds);
-		virtual void DisableWriterInstances(array<Guid> ^ writerInstanceIds);
-		virtual IVssAsync^ DoSnapshotSet();
-		virtual void EnableWriterClasses(array<Guid> ^ writerClassIds);
-		virtual String^ ExposeSnapshot(Guid snapshotId, String ^ pathFromRoot, VssVolumeSnapshotAttributes attributes, String ^ expose);
-		virtual void FreeWriterMetadata();
-		virtual void FreeWriterStatus();
-		virtual IVssAsync^ GatherWriterMetadata();
-		virtual IVssAsync^ GatherWriterStatus();
-		virtual VssSnapshotProperties^ GetSnapshotProperties(Guid snapshotId);
-		property IList<IVssWriterComponents^>^ WriterComponents { virtual IList<IVssWriterComponents^>^ get(); }
-		property IList<IVssExamineWriterMetadata^>^ WriterMetadata { virtual IList<IVssExamineWriterMetadata^>^ get(); }
-		property IList<VssWriterStatusInfo^>^ WriterStatus { virtual IList<VssWriterStatusInfo^>^ get(); }
-		virtual IVssAsync^ ImportSnapshots();
-		virtual void InitializeForBackup(String^ xml);
-		virtual void InitializeForRestore(String^ xml);
-		virtual bool IsVolumeSupported(String^ volumeName, Guid providerId);
-		virtual bool IsVolumeSupported(String^ volumeName);
-		virtual IVssAsync^ PostRestore();
-		virtual IVssAsync^ PrepareForBackup();
-		virtual IVssAsync^ PreRestore();
-		virtual System::Collections::Generic::IEnumerable<VssSnapshotProperties^> ^QuerySnapshots();
-		virtual System::Collections::Generic::IEnumerable<VssProviderProperties^> ^QueryProviders();
-		virtual IVssAsync^ QueryRevertStatus(String^ volumeName);
-		virtual void RevertToSnapshot(Guid snapshotId, bool forceDismount);
-		virtual String^ SaveAsXml();
-		virtual void SetAdditionalRestores(Guid writerId, VssComponentType componentType, String^ logicalPath, String^ componentName, bool additionalResources);
-        virtual void SetAuthoritativeRestore(Guid writerId, VssComponentType componentType, String^ logicalPath, String^ componentName, bool isAuthorative);
-		virtual void SetBackupOptions(Guid writerId, VssComponentType componentType, String^ logicalPath, String^ componentName, String^ backupOptions);
-		virtual void SetBackupState(bool selectComponents, bool backupBootableSystemState, VssBackupType backupType, bool partialFileSupport);
-		virtual void SetBackupSucceeded(Guid instanceId, Guid writerId, VssComponentType componentType, String^ logicalPath, String^ componentName, bool succeeded);
-		virtual void SetContext(VssVolumeSnapshotAttributes context);
-		virtual void SetContext(VssSnapshotContext context);
-		virtual void SetFileRestoreStatus(Guid writerId, VssComponentType componentType, String^ logicalPath, String^ componentName, VssFileRestoreStatus status);
-		virtual void SetPreviousBackupStamp(Guid writerId, VssComponentType componentType, String^ logicalPath, String^ componentName, String^ previousBackupStamp);
-		virtual void SetRangesFilePath(Guid writerId, VssComponentType componentType, String^ logicalPath, String^ componentName, int partialFileIndex, String^ rangesFile);
-		virtual void SetRestoreName(Guid writerId, VssComponentType componentType, String^ logicalPath, String^ componentName, String^ restoreName);
-		virtual void SetRestoreOptions(Guid writerId, VssComponentType componentType, String^ logicalPath, String^ componentName, String^ restoreOptions);
-		virtual void SetRestoreState(VssRestoreType restoreType);
-        virtual void SetRollForward(Guid writerId, VssComponentType componentType, String^ logicalPath, String^ componentName, VssRollForwardType rollType, String^ rollForwardPoint);
-		virtual void SetSelectedForRestore(Guid writerId, VssComponentType componentType, String^ logicalPath, String^ componentName, bool selectedForRestore);
-		virtual void SetSelectedForRestore(Guid writerId, VssComponentType componentType, String^ logicalPath, String^ componentName, bool selectedForRestore, Guid instanceId);
+      virtual Guid AddToSnapshotSet(String^ volumeName, Guid providerId);
+      virtual Guid AddToSnapshotSet(String^ volumeName);
 
-		virtual Guid StartSnapshotSet();
-		virtual void UnexposeSnapshot(Guid snapshotId);
+      virtual IVssAsync^ BackupComplete();
+      virtual void BreakSnapshotSet(Guid snapshotSetId);
+      virtual IVssAsync^ BreakSnapshotSet(Guid snapshotSetId, VssHardwareOptions breakFlags);
+      virtual void DeleteSnapshot(Guid snapshotId, bool forceDelete);
+      virtual int DeleteSnapshotSet(Guid snapshotSetId, bool forceDelete);
 
-	private:
-		::IVssBackupComponents *mBackup;
+      virtual void DisableWriterClasses(array<Guid> ^ writerClassIds);
+      virtual void DisableWriterInstances(array<Guid> ^ writerInstanceIds);
+      virtual IVssAsync^ DoSnapshotSet();
+      virtual void EnableWriterClasses(array<Guid> ^ writerClassIds);
+      virtual String^ ExposeSnapshot(Guid snapshotId, String ^ pathFromRoot, VssVolumeSnapshotAttributes attributes, String ^ expose);
+      virtual void FreeWriterMetadata();
+      virtual void FreeWriterStatus();
+      virtual IVssAsync^ GatherWriterMetadata();
+      virtual IVssAsync^ GatherWriterStatus();
+      virtual VssSnapshotProperties^ GetSnapshotProperties(Guid snapshotId);
+      property IList<IVssWriterComponents^>^ WriterComponents { virtual IList<IVssWriterComponents^>^ get(); }
+      property IList<IVssExamineWriterMetadata^>^ WriterMetadata { virtual IList<IVssExamineWriterMetadata^>^ get(); }
+      property IList<VssWriterStatusInfo^>^ WriterStatus { virtual IList<VssWriterStatusInfo^>^ get(); }
+      virtual IVssAsync^ ImportSnapshots();
+      virtual void InitializeForBackup(String^ xml);
+      virtual void InitializeForRestore(String^ xml);
+      virtual bool IsVolumeSupported(String^ volumeName, Guid providerId);
+      virtual bool IsVolumeSupported(String^ volumeName);
+      virtual IVssAsync^ PostRestore();
+      virtual IVssAsync^ PrepareForBackup();
+      virtual IVssAsync^ PreRestore();
+      virtual System::Collections::Generic::IEnumerable<VssSnapshotProperties^> ^QuerySnapshots();
+      virtual System::Collections::Generic::IEnumerable<VssProviderProperties^> ^QueryProviders();
+      virtual IVssAsync^ QueryRevertStatus(String^ volumeName);
+      virtual void RevertToSnapshot(Guid snapshotId, bool forceDismount);
+      virtual String^ SaveAsXml();
+      virtual void SetAdditionalRestores(Guid writerId, VssComponentType componentType, String^ logicalPath, String^ componentName, bool additionalResources);
+      virtual void SetAuthoritativeRestore(Guid writerId, VssComponentType componentType, String^ logicalPath, String^ componentName, bool isAuthorative);
+      virtual void SetBackupOptions(Guid writerId, VssComponentType componentType, String^ logicalPath, String^ componentName, String^ backupOptions);
+      virtual void SetBackupState(bool selectComponents, bool backupBootableSystemState, VssBackupType backupType, bool partialFileSupport);
+      virtual void SetBackupSucceeded(Guid instanceId, Guid writerId, VssComponentType componentType, String^ logicalPath, String^ componentName, bool succeeded);
+      virtual void SetContext(VssVolumeSnapshotAttributes context);
+      virtual void SetContext(VssSnapshotContext context);
+      virtual void SetFileRestoreStatus(Guid writerId, VssComponentType componentType, String^ logicalPath, String^ componentName, VssFileRestoreStatus status);
+      virtual void SetPreviousBackupStamp(Guid writerId, VssComponentType componentType, String^ logicalPath, String^ componentName, String^ previousBackupStamp);
+      virtual void SetRangesFilePath(Guid writerId, VssComponentType componentType, String^ logicalPath, String^ componentName, int partialFileIndex, String^ rangesFile);
+      virtual void SetRestoreName(Guid writerId, VssComponentType componentType, String^ logicalPath, String^ componentName, String^ restoreName);
+      virtual void SetRestoreOptions(Guid writerId, VssComponentType componentType, String^ logicalPath, String^ componentName, String^ restoreOptions);
+      virtual void SetRestoreState(VssRestoreType restoreType);
+      virtual void SetRollForward(Guid writerId, VssComponentType componentType, String^ logicalPath, String^ componentName, VssRollForwardType rollType, String^ rollForwardPoint);
+      virtual void SetSelectedForRestore(Guid writerId, VssComponentType componentType, String^ logicalPath, String^ componentName, bool selectedForRestore);
+      virtual void SetSelectedForRestore(Guid writerId, VssComponentType componentType, String^ logicalPath, String^ componentName, bool selectedForRestore, Guid instanceId);
 
-#ifdef ALPHAVSS_HAS_BACKUPEX
-		DEFINE_EX_INTERFACE_ACCESSOR(IVssBackupComponentsEx, mBackup)
+      virtual Guid StartSnapshotSet();
+      virtual void UnexposeSnapshot(Guid snapshotId);
+
+      virtual Guid GetSessionId(); 
+      virtual void AddSnapshotToRecoverySet(Guid snapshotId, String^ destinationVolume);
+      virtual IVssAsync^ RecoverSet(VssRecoveryOptions options);
+   private:
+      ::IVssBackupComponents *m_backup;
+
+#if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WIN2003
+      DEFINE_EX_INTERFACE_ACCESSOR(IVssBackupComponentsEx, m_backup)
 #endif
 
-#ifdef ALPHAVSS_HAS_BACKUPEX2
-		DEFINE_EX_INTERFACE_ACCESSOR(IVssBackupComponentsEx2, mBackup)
+#if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WINVISTAORLATER
+      DEFINE_EX_INTERFACE_ACCESSOR(IVssBackupComponentsEx2, m_backup)
+      DEFINE_EX_INTERFACE_ACCESSOR(IVssBackupComponentsEx3, m_backup)
 #endif
 
-		ref class WriterMetadataList : VssListAdapter<IVssExamineWriterMetadata^>
-		{
-		public:
-			WriterMetadataList(VssBackupComponents^ backupComponents);
+      ref class WriterMetadataList : VssListAdapter<IVssExamineWriterMetadata^>
+      {
+      public:
+         WriterMetadataList(VssBackupComponents^ backupComponents);
 
-			property int Count { virtual int get() override; }
-			property IVssExamineWriterMetadata^ default[int] { virtual IVssExamineWriterMetadata^ get(int index) override; }
-		private:
-			VssBackupComponents^ mBackupComponents;
-		};
+         property int Count { virtual int get() override; }
+         property IVssExamineWriterMetadata^ default[int] { virtual IVssExamineWriterMetadata^ get(int index) override; }
+      private:
+         VssBackupComponents^ m_backupComponents;
+      };
 
 
-		ref class WriterComponentsList : VssListAdapter<IVssWriterComponents^>
-		{
-		public:
-			WriterComponentsList(VssBackupComponents^ backupComponents);
+      ref class WriterComponentsList : VssListAdapter<IVssWriterComponents^>
+      {
+      public:
+         WriterComponentsList(VssBackupComponents^ backupComponents);
 
-			property int Count { virtual int get() override; }
-			property IVssWriterComponents^ default[int] { virtual IVssWriterComponents^ get(int index) override; }
-		private:
-			VssBackupComponents^ mBackupComponents;
-		};
+         property int Count { virtual int get() override; }
+         property IVssWriterComponents^ default[int] { virtual IVssWriterComponents^ get(int index) override; }
+      private:
+         VssBackupComponents^ m_backupComponents;
+      };
 
-		ref class WriterStatusList : VssListAdapter<VssWriterStatusInfo^>
-		{
-		public:
-			WriterStatusList(VssBackupComponents^ backupComponents);
+      ref class WriterStatusList : VssListAdapter<VssWriterStatusInfo^>
+      {
+      public:
+         WriterStatusList(VssBackupComponents^ backupComponents);
 
-			property int Count { virtual int get() override; }
-			property VssWriterStatusInfo^ default[int] { virtual VssWriterStatusInfo^ get(int index) override; }
-		private:
-			VssBackupComponents^ mBackupComponents;
-		};
+         property int Count { virtual int get() override; }
+         property VssWriterStatusInfo^ default[int] { virtual VssWriterStatusInfo^ get(int index) override; }
+      private:
+         VssBackupComponents^ m_backupComponents;
+      };
 
-		WriterMetadataList^ mWriterMetadata;
-		WriterComponentsList^ mWriterComponents;
-		WriterStatusList^ mWriterStatus;
-	};
+      WriterMetadataList^ m_writerMetadata;
+      WriterComponentsList^ m_writerComponents;
+      WriterStatusList^ m_writerStatus;
+   };
 
 
 }

@@ -1,4 +1,4 @@
-/* Copyright (c) 2008-2009 Peter Palotas
+/* Copyright (c) 2008-2011 Peter Palotas
  *  
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -19,37 +19,40 @@
  *  THE SOFTWARE.
  */
 
+using System;
 namespace Alphaleonis.Win32.Vss
 {
-    /// <summary>
-    /// The <see cref="VssVolumeProperties"/> class contains the properties of a shadow copy source volume.
-    /// </summary>
-    public class VssVolumeProperties 
-    {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="VssVolumeProperties"/> class.
-        /// </summary>
-        /// <param name="volumeName">Name of the volume.</param>
-        /// <param name="volumeDisplayName">Display name of the volume.</param>
-        public VssVolumeProperties(string volumeName, string volumeDisplayName)
-        {
-            mVolumeName = volumeName;
-            mVolumeDisplayName = volumeDisplayName;
-        }
+   /// <summary>
+   /// The <see cref="VssVolumeProperties"/> class contains the properties of a shadow copy source volume.
+   /// </summary>
+   [Serializable]
+   public sealed class VssVolumeProperties
+   {
+      /// <summary>
+      /// Initializes a new instance of the <see cref="VssVolumeProperties"/> class.
+      /// </summary>
+      /// <param name="volumeName">Name of the volume.</param>
+      /// <param name="volumeDisplayName">Display name of the volume.</param>
+      public VssVolumeProperties(string volumeName, string volumeDisplayName)
+      {
+         VolumeName = volumeName;
+         VolumeDisplayName = volumeDisplayName;
+      }
 
-        /// <summary>
-        /// Gets the volume name, in <c>\\?\Volume{GUID}\</c> format.
-        /// </summary>
-        /// <value>The volume name, in <c>\\?\Volume{GUID}\</c> format.</value>
-        public string VolumeName { get { return mVolumeName; } }
+      #region Public Properties
 
-        /// <summary>
-        /// Gets a string that can be displayed to the user containing the shortest mount point (for example C:\).
-        /// </summary>
-        /// <value>A string that can be displayed to the user containing the shortest mount point (for example C:\).</value>
-        public string VolumeDisplayName { get { return mVolumeDisplayName; } }
+      /// <summary>
+      /// Gets the volume name, in <c>\\?\Volume{GUID}\</c> format.
+      /// </summary>
+      /// <value>The volume name, in <c>\\?\Volume{GUID}\</c> format.</value>
+      public string VolumeName { get; private set; }
 
-        private string mVolumeName;
-        private string mVolumeDisplayName;
-    }
+      /// <summary>
+      /// Gets a string that can be displayed to the user containing the shortest mount point (for example C:\).
+      /// </summary>
+      /// <value>A string that can be displayed to the user containing the shortest mount point (for example C:\).</value>
+      public string VolumeDisplayName { get; private set; }
+
+      #endregion
+   }
 }

@@ -1,4 +1,4 @@
-/* Copyright (c) 2008-2009 Peter Palotas
+/* Copyright (c) 2008-2011 Peter Palotas
  *  
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -20,29 +20,29 @@
  */
 #pragma once
 
-#ifdef ALPHAVSS_HAS_SNAPSHOTMGMT
+#if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WIN2003
 
 #include <VsMgmt.h>
 
 namespace Alphaleonis { namespace Win32 { namespace Vss
 {
-	public ref class VssSnapshotManagement : IVssSnapshotManagement, MarshalByRefObject
-	{
-	public:
-		~VssSnapshotManagement();
-		!VssSnapshotManagement();
+   public ref class VssSnapshotManagement : IVssSnapshotManagement, MarshalByRefObject
+   {
+   public:
+      ~VssSnapshotManagement();
+      !VssSnapshotManagement();
 
-        virtual IVssDifferentialSoftwareSnapshotManagement^ GetDifferentialSoftwareSnapshotManagementInterface();
-        virtual Int64 GetMinDiffAreaSize();
-	internal:
-		VssSnapshotManagement();
-	private:
-		::IVssSnapshotMgmt *mSnapshotMgmt;
+      virtual IVssDifferentialSoftwareSnapshotManagement^ GetDifferentialSoftwareSnapshotManagementInterface();
+      virtual Int64 GetMinDiffAreaSize();
+   internal:
+      VssSnapshotManagement();
+   private:
+      ::IVssSnapshotMgmt *m_snapshotMgmt;
 
-#ifdef ALPHAVSS_HAS_SNAPSHOTMGMT2
-		DEFINE_EX_INTERFACE_ACCESSOR(IVssSnapshotMgmt2, mSnapshotMgmt)
+#if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WINVISTAORLATER
+      DEFINE_EX_INTERFACE_ACCESSOR(IVssSnapshotMgmt2, m_snapshotMgmt)
 #endif
-	};
+   };
 
 }
 }}

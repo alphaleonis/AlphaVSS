@@ -1,4 +1,4 @@
-/* Copyright (c) 2008-2009 Peter Palotas
+/* Copyright (c) 2008-2011 Peter Palotas
  *  
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -29,129 +29,139 @@ using namespace System::Collections::Generic;
 
 namespace Alphaleonis { namespace Win32 { namespace Vss
 {
-	private ref class VssComponent : IVssComponent, MarshalByRefObject
-	{
-	public:
-		~VssComponent();
-		!VssComponent();
+   private ref class VssComponent : IVssComponent, MarshalByRefObject
+   {
+   public:
+      ~VssComponent();
+      !VssComponent();
 
-		property bool AdditionalRestores { virtual bool get(); }
-		property String^ BackupOptions { virtual String^ get(); }
-		property String^ BackupStamp { virtual String^ get(); }
-		property bool BackupSucceeded { virtual bool get(); }
-		property String^ ComponentName { virtual String^ get(); }
-		property VssComponentType ComponentType { virtual VssComponentType get(); }
-		property VssFileRestoreStatus FileRestoreStatus { virtual VssFileRestoreStatus get(); }
-		property String^ LogicalPath { virtual String^ get(); }
-		property String^ PostRestoreFailureMsg { virtual String^ get(); }
-		property String^ PreRestoreFailureMsg { virtual String^ get(); }
-		property String^ PreviousBackupStamp { virtual String^ get(); }
-		property String^ RestoreOptions { virtual String^ get(); }
-		property VssRestoreTarget RestoreTarget { virtual VssRestoreTarget get(); }
-		property bool IsSelectedForRestore { virtual bool get(); }
-		property IList<VssWMFileDescription^>^ AlternateLocationMappings { virtual IList<VssWMFileDescription^>^ get(); }
-		property IList<VssDirectedTargetInfo^>^ DirectedTargets { virtual IList<VssDirectedTargetInfo^>^ get(); }
-		property IList<VssWMFileDescription^>^ NewTargets { virtual IList<VssWMFileDescription^>^ get(); }
-		property IList<VssPartialFileInfo^>^ PartialFiles { virtual IList<VssPartialFileInfo^>^ get(); }
-		property IList<VssDifferencedFileInfo^>^ DifferencedFiles { virtual IList<VssDifferencedFileInfo^>^ get(); }
-		property IList<VssRestoreSubcomponentInfo^>^ RestoreSubcomponents { virtual IList<VssRestoreSubcomponentInfo^>^ get(); }
+      property bool AdditionalRestores { virtual bool get(); }
+      property String^ BackupOptions { virtual String^ get(); }
+      property String^ BackupStamp { virtual String^ get(); }
+      property bool BackupSucceeded { virtual bool get(); }
+      property String^ ComponentName { virtual String^ get(); }
+      property VssComponentType ComponentType { virtual VssComponentType get(); }
+      property VssFileRestoreStatus FileRestoreStatus { virtual VssFileRestoreStatus get(); }
+      property String^ LogicalPath { virtual String^ get(); }
+      property String^ PostRestoreFailureMsg { virtual String^ get(); }
+      property String^ PreRestoreFailureMsg { virtual String^ get(); }
+      property String^ PreviousBackupStamp { virtual String^ get(); }
+      property String^ RestoreOptions { virtual String^ get(); }
+      property VssRestoreTarget RestoreTarget { virtual VssRestoreTarget get(); }
+      property bool IsSelectedForRestore { virtual bool get(); }
+      property IList<VssWMFileDescription^>^ AlternateLocationMappings { virtual IList<VssWMFileDescription^>^ get(); }
+      property IList<VssDirectedTargetInfo^>^ DirectedTargets { virtual IList<VssDirectedTargetInfo^>^ get(); }
+      property IList<VssWMFileDescription^>^ NewTargets { virtual IList<VssWMFileDescription^>^ get(); }
+      property IList<VssPartialFileInfo^>^ PartialFiles { virtual IList<VssPartialFileInfo^>^ get(); }
+      property IList<VssDifferencedFileInfo^>^ DifferencedFiles { virtual IList<VssDifferencedFileInfo^>^ get(); }
+      property IList<VssRestoreSubcomponentInfo^>^ RestoreSubcomponents { virtual IList<VssRestoreSubcomponentInfo^>^ get(); }
 
-		//
-		// From IVssComponentEx
-		//
-		property bool IsAuthoritativeRestore { virtual bool get(); }
-        property String^ PostSnapshotFailureMsg { virtual String^ get(); }
-        property String^ PrepareForBackupFailureMsg { virtual String^ get(); }
-        property String^ RestoreName { virtual String^ get(); }
-        property String^ RollForwardRestorePoint { virtual String^ get(); }
-        property VssRollForwardType RollForwardType { virtual VssRollForwardType get(); }
+      //
+      // From IVssComponentEx
+      //
+      property bool IsAuthoritativeRestore { virtual bool get(); }
+      property String^ PostSnapshotFailureMsg { virtual String^ get(); }
+      property String^ PrepareForBackupFailureMsg { virtual String^ get(); }
+      property String^ RestoreName { virtual String^ get(); }
+      property String^ RollForwardRestorePoint { virtual String^ get(); }
+      property VssRollForwardType RollForwardType { virtual VssRollForwardType get(); }
 
-	internal:
-		static VssComponent^ Adopt(::IVssComponent *vssWriterComponents);
-	private:
-		VssComponent(::IVssComponent *vssWriterComponents);
-		::IVssComponent *mVssComponent;
-		
-#ifdef ALPHAVSS_HAS_COMPONENTEX
-		DEFINE_EX_INTERFACE_ACCESSOR(IVssComponentEx, mVssComponent)
+      // 
+      // From IVssComponentEx2
+      // 
+      property VssComponentFailure^ Failure { virtual VssComponentFailure^ get(); virtual void set(VssComponentFailure^ value); }
+
+   internal:
+      static VssComponent^ Adopt(::IVssComponent *vssWriterComponents);
+   private:
+      VssComponent(::IVssComponent *vssWriterComponents);
+      ::IVssComponent *m_vssComponent;
+
+#if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WINVISTAORLATER
+      DEFINE_EX_INTERFACE_ACCESSOR(IVssComponentEx, m_vssComponent)
 #endif
 
-		ref class DirectedTargetList sealed : VssListAdapter<VssDirectedTargetInfo^>
-		{
-		public:
-			DirectedTargetList(VssComponent^ component);
+#if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WINVISTAORLATER
+      DEFINE_EX_INTERFACE_ACCESSOR(IVssComponentEx2, m_vssComponent)
+#endif
 
-			property int Count { virtual int get() override; }
-			property VssDirectedTargetInfo^ default[int] { virtual VssDirectedTargetInfo^ get(int index) override; }
-		private:
-			VssComponent^ mComponent;
-		};
 
-		ref class NewTargetList sealed : VssListAdapter<VssWMFileDescription^>
-		{
-		public:
-			NewTargetList(VssComponent^ component);
+      ref class DirectedTargetList sealed : VssListAdapter<VssDirectedTargetInfo^>
+      {
+      public:
+         DirectedTargetList(VssComponent^ component);
 
-			property int Count { virtual int get() override; }
-			property VssWMFileDescription^ default[int] { virtual VssWMFileDescription^ get(int index) override; }
-		private:
-			VssComponent^ mComponent;
-		};
+         property int Count { virtual int get() override; }
+         property VssDirectedTargetInfo^ default[int] { virtual VssDirectedTargetInfo^ get(int index) override; }
+      private:
+         VssComponent^ m_component;
+      };
 
-		ref class AlternateLocationMappingList sealed : VssListAdapter<VssWMFileDescription^>
-		{
-		public:
-			AlternateLocationMappingList(VssComponent^ component);
+      ref class NewTargetList sealed : VssListAdapter<VssWMFileDescription^>
+      {
+      public:
+         NewTargetList(VssComponent^ component);
 
-			property int Count { virtual int get() override; }
-			property VssWMFileDescription^ default[int] { virtual VssWMFileDescription^ get(int index) override; }
-		private:
-			VssComponent^ mComponent;
-		};
+         property int Count { virtual int get() override; }
+         property VssWMFileDescription^ default[int] { virtual VssWMFileDescription^ get(int index) override; }
+      private:
+         VssComponent^ m_component;
+      };
 
-		ref class PartialFileList sealed : VssListAdapter<VssPartialFileInfo^>
-		{
-		public:
-			PartialFileList(VssComponent^ component);
+      ref class AlternateLocationMappingList sealed : VssListAdapter<VssWMFileDescription^>
+      {
+      public:
+         AlternateLocationMappingList(VssComponent^ component);
 
-			property int Count { virtual int get() override; }
-			property VssPartialFileInfo^ default[int] { virtual VssPartialFileInfo^ get(int index) override; }
-		private:
-			VssComponent^ mComponent;
-		};
+         property int Count { virtual int get() override; }
+         property VssWMFileDescription^ default[int] { virtual VssWMFileDescription^ get(int index) override; }
+      private:
+         VssComponent^ m_component;
+      };
+
+      ref class PartialFileList sealed : VssListAdapter<VssPartialFileInfo^>
+      {
+      public:
+         PartialFileList(VssComponent^ component);
+
+         property int Count { virtual int get() override; }
+         property VssPartialFileInfo^ default[int] { virtual VssPartialFileInfo^ get(int index) override; }
+      private:
+         VssComponent^ m_component;
+      };
 
 #if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WIN2003
-		ref class DifferencedFileList sealed : VssListAdapter<VssDifferencedFileInfo^>
-		{
-		public:
-			DifferencedFileList(VssComponent^ component);
+      ref class DifferencedFileList sealed : VssListAdapter<VssDifferencedFileInfo^>
+      {
+      public:
+         DifferencedFileList(VssComponent^ component);
 
-			property int Count { virtual int get() override; }
-			property VssDifferencedFileInfo^ default[int] { virtual VssDifferencedFileInfo^ get(int index) override; }
-		private:
-			VssComponent^ mComponent;
-		};
+         property int Count { virtual int get() override; }
+         property VssDifferencedFileInfo^ default[int] { virtual VssDifferencedFileInfo^ get(int index) override; }
+      private:
+         VssComponent^ m_component;
+      };
 #endif
 
-		ref class RestoreSubcomponentList sealed : VssListAdapter<VssRestoreSubcomponentInfo^>
-		{
-		public:
-			RestoreSubcomponentList(VssComponent^ component);
+      ref class RestoreSubcomponentList sealed : VssListAdapter<VssRestoreSubcomponentInfo^>
+      {
+      public:
+         RestoreSubcomponentList(VssComponent^ component);
 
-			property int Count { virtual int get() override; }
-			property VssRestoreSubcomponentInfo^ default[int] { virtual VssRestoreSubcomponentInfo^ get(int index) override; }
-		private:
-			VssComponent^ mComponent;
-		};
+         property int Count { virtual int get() override; }
+         property VssRestoreSubcomponentInfo^ default[int] { virtual VssRestoreSubcomponentInfo^ get(int index) override; }
+      private:
+         VssComponent^ m_component;
+      };
 
-		AlternateLocationMappingList^ mAlternateLocationMappings;
-		DirectedTargetList^ mDirectedTargets;
+      AlternateLocationMappingList^ m_alternateLocationMappings;
+      DirectedTargetList^ m_directedTargets;
 #if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WIN2003
-		DifferencedFileList^ mDifferencedFiles;
+      DifferencedFileList^ m_differencedFiles;
 #endif
-		RestoreSubcomponentList^ mRestoreSubcomponents;
-		PartialFileList^ mPartialFiles;
-		NewTargetList^ mNewTargets;
-	};
+      RestoreSubcomponentList^ m_restoreSubcomponents;
+      PartialFileList^ m_partialFiles;
+      NewTargetList^ m_newTargets;
+   };
 }
 } }
