@@ -5,8 +5,8 @@
    <PropertyGroup>
       <AssemblyMajorVersion>1</AssemblyMajorVersion>
       <AssemblyMinorVersion>1</AssemblyMinorVersion>
-      <AssemblyBuildNumber>0000</AssemblyBuildNumber>
-      <AssemblyRevision>0</AssemblyRevision>
+      <AssemblyBuildNumber>3000</AssemblyBuildNumber>
+      <AssemblyRevision>1</AssemblyRevision>
       <AlphaVssVersion>"$(AssemblyMajorVersion).$(AssemblyMinorVersion).$(AssemblyBuildNumber).$(AssemblyRevision)"</AlphaVssVersion>
       <AlphaVssVersionRc>$(AssemblyMajorVersion),$(AssemblyMinorVersion),$(AssemblyBuildNumber),$(AssemblyRevision)</AlphaVssVersionRc>
    </PropertyGroup>
