@@ -31,7 +31,7 @@ namespace Alphaleonis.Win32.Vss
    ///     instances of the various VSS interfaces in a platform-independent manner.
    /// </summary>
    /// <remarks>
-   ///     Use the <see cref="O:Alphaleonis.Win32.Vss.VssUtils.LoadImplementation"/> under normal circumstances to load
+   ///     Use the <see cref="M:Alphaleonis.Win32.Vss.VssUtils.LoadImplementation"/> under normal circumstances to load
    ///     the correct assembly and create an instance of <see cref="IVssImplementation"/> from that assembly. If you have 
    ///     specific requirements on how the assembly should be loaded, or the instance created you are not required to use 
    ///     these methods but can use the methods in this class for accessing the suggested assembly name to load, and load it manually.

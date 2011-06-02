@@ -1,4 +1,5 @@
-﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
   <PropertyGroup>
     <!-- The configuration and platform will be used to determine which
          assemblies to include from solution and project documentation
@@ -7,14 +8,14 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{2dbb4241-fb30-4a42-ae02-92436b09083f}</ProjectGuid>
-    <SHFBSchemaVersion>1.8.0.0</SHFBSchemaVersion>
+    <SHFBSchemaVersion>1.9.3.0</SHFBSchemaVersion>
     <!-- AssemblyName, Name, and RootNamespace are not used by SHFB but Visual
          Studio adds them anyway -->
     <AssemblyName>Documentation</AssemblyName>
     <RootNamespace>Documentation</RootNamespace>
     <Name>Documentation</Name>
     <!-- SHFB properties -->
-    <OutputPath>D:\Coding\TFS\AlphaVSS-Root\Development\Documentation\</OutputPath>
+    <OutputPath>..\..\Documentation\</OutputPath>
     <HtmlHelpName>AlphaVSS</HtmlHelpName>
     <ApiFilter>
       <Filter entryType="Namespace" fullName="Alphaleonis.Win32.Vss.Resources" isExposed="False" />
@@ -33,13 +34,13 @@ This documentation describes the AlphaVSS managed interface to the VSS API.
     <WorkingPath>..\..\Documentation\Work\</WorkingPath>
     <BuildLogFile>
     </BuildLogFile>
-    <FrameworkVersion>3.5</FrameworkVersion>
+    <FrameworkVersion>.NET 3.5</FrameworkVersion>
     <RootNamespaceContainer>True</RootNamespaceContainer>
     <RootNamespaceTitle>API Reference</RootNamespaceTitle>
-    <HelpTitle>AlphaVSS 1.0 Beta</HelpTitle>
+    <HelpTitle>AlphaVSS 1.1</HelpTitle>
     <FooterText>http://alphavss.codeplex.com</FooterText>
     <PresentationStyle>vs2005</PresentationStyle>
-    <HelpFileVersion>1.0.9156.0</HelpFileVersion>
+    <HelpFileVersion>1.1.3000.1</HelpFileVersion>
     <DocumentationSources>
       <DocumentationSource sourceFile="..\..\Bin\Debug\AlphaVSS.Common.dll" />
       <DocumentationSource sourceFile="..\..\Bin\Debug\AlphaVSS.Common.xml" />
@@ -55,33 +56,8 @@ The documentation provided here is provided for convenience only, and the offici
 &lt;/para&gt;</NamespaceSummaryItem>
     </NamespaceSummaries>
     <ContentPlacement>AboveNamespaces</ContentPlacement>
-    <CppCommentsFixup>True</CppCommentsFixup>
+    <CppCommentsFixup>False</CppCommentsFixup>
     <ComponentConfigurations>
-      <ComponentConfig id="Cached Framework Comments Index Data" enabled="True">
-        <component id="Cached Framework Comments Index Data" type="SandcastleBuilder.Components.CachedCopyFromIndexComponent" assembly="{@SHFBFolder}SandcastleBuilder.Components.dll">
-          <index name="comments" value="/doc/members/member" key="@name" cache="100">
-{@CachedFrameworkCommentList}
-{@CommentFileList}
-            </index>
-          <copy name="comments" source="*" target="/document/comments" />
-        </component>
-      </ComponentConfig>
-      <ComponentConfig id="Cached MSDN URL References" enabled="True">
-        <component id="Cached MSDN URL References" type="SandcastleBuilder.Components.CachedResolveReferenceLinksComponent" assembly="{@SHFBFolder}SandcastleBuilder.Components.dll" locale="{@Locale}" linkTarget="{@SdkLinkTarget}">
-          <cache filename="{@LocalDataFolder}Cache\MsdnUrl.cache" />
-          <targets base="{@SandcastlePath}Data\Reflection" recurse="true" files="*.xml" type="{@SDKLinks}" />
-          <targets files="reflection.xml" type="{@ProjectLinks}" />
-        </component>
-      </ComponentConfig>
-      <ComponentConfig id="Cached Reflection Index Data" enabled="True">
-        <component id="Cached Reflection Index Data" type="SandcastleBuilder.Components.CachedCopyFromIndexComponent" assembly="{@SHFBFolder}SandcastleBuilder.Components.dll">
-          <index name="reflection" value="/reflection/apis/api" key="@id" cache="10">
-            <cache base="{@SandcastlePath}Data\Reflection" recurse="true" files="*.xml" cacheFile="{@LocalDataFolder}Cache\Reflection.cache" />
-            <data files="reflection.xml" />
-          </index>
-          <copy name="reflection" source="*" target="/document/reference" />
-        </component>
-      </ComponentConfig>
       <ComponentConfig id="Post-transform Component" enabled="True">
         <component id="Post-transform Component" type="SandcastleBuilder.Components.PostTransformComponent" assembly="{@SHFBFolder}SandcastleBuilder.Components.dll">
           <!-- Code colorizer files (required).
@@ -93,15 +69,15 @@ The documentation provided here is provided for convenience only, and the offici
           <!-- Base output path for the files (required).  This should match
                  the parent folder of the output path of the HTML files (see
                  SaveComponent). -->
-          <outputPath value="Output\" />
+          <outputPaths>{@HelpFormatOutputPaths}</outputPaths>
           <!-- Logo image file (optional).  Filename is required. The height,
                  width, altText, placement, and alignment attributes are
                  optional. -->
-          <logoFile filename="D:\Coding\TFS\AlphaVSS-Root\Development\Source\Documentation\AlphaVSS-Header.png" height="0" width="0" altText="AlphaVSS - Bringing Windows Volume Shadow Copy Service to .NET" placement="left" alignment="left" />
+          <logoFile filename="{@ProjectFolder}\AlphaVSS-Header.png" height="0" width="0" altText="AlphaVSS - Bringing Windows Volume Shadow Copy Service to .NET" placement="left" alignment="left" />
         </component>
       </ComponentConfig>
     </ComponentConfigurations>
-    <HelpFileFormat>Help1xAndHelp2x</HelpFileFormat>
+    <HelpFileFormat>HtmlHelp1</HelpFileFormat>
     <FeedbackEMailAddress>alphavss%40alphaleonis.com</FeedbackEMailAddress>
     <FeedbackEMailLinkText>alphavss%40alphaleonis.com</FeedbackEMailLinkText>
     <ShowFeedbackControl>False</ShowFeedbackControl>
