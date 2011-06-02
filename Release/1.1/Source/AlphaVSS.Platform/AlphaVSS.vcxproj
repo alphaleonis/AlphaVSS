@@ -55,10 +55,10 @@
     <ProjectName>AlphaVSS.Platform</ProjectName>
     <ProjectGuid>{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}</ProjectGuid>
     <RootNamespace>Temp</RootNamespace>
-    <SccProjectName>$/alphavss/Development/Source/AlphaVSS.Platform</SccProjectName>
-    <SccAuxPath>https://tfs.codeplex.com/tfs/tfs02</SccAuxPath>
-    <SccLocalPath>.</SccLocalPath>
-    <SccProvider>{4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}</SccProvider>
+    <SccProjectName>SAK</SccProjectName>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccProvider>SAK</SccProvider>
     <Keyword>ManagedCProj</Keyword>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
   </PropertyGroup>
@@ -106,13 +106,13 @@
     <CLRSupport>true</CLRSupport>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='WinXP|x64'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <ConfigurationType>Utility</ConfigurationType>
     <CLRSupport>true</CLRSupport>
     <WholeProgramOptimization>true</WholeProgramOptimization>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='WinXP.Debug|x64'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <CLRSupport>true</CLRSupport>
+    <ConfigurationType>Utility</ConfigurationType>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Win2008|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
@@ -167,7 +167,7 @@
     <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
     <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Win2008.Debug|Win32'">
     </CodeAnalysisRules>
-    <RunCodeAnalysis Condition="'$(Configuration)|$(Platform)'=='Win2008.Debug|Win32'">true</RunCodeAnalysis>
+    <RunCodeAnalysis Condition="'$(Configuration)|$(Platform)'=='Win2008.Debug|Win32'">false</RunCodeAnalysis>
     <CodeAnalysisIgnoreGeneratedCode Condition="'$(Configuration)|$(Platform)'=='Win2008.Debug|Win32'">false</CodeAnalysisIgnoreGeneratedCode>
     <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Win2003.Debug|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
     <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Win2003.Debug|Win32'" />
@@ -181,9 +181,9 @@
     <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Win2003|x64'">AllRules.ruleset</CodeAnalysisRuleSet>
     <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Win2003|x64'" />
     <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Win2003|x64'" />
-    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Win2008.Debug|Win32'">Migrated rules for AlphaVSS.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Win2008.Debug|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
     <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Win2008.Debug|Win32'" />
-    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Win2008.Debug|x64'">..\AlphaVSS.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Win2008.Debug|x64'">AllRules.ruleset</CodeAnalysisRuleSet>
     <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Win2008.Debug|x64'" />
     <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Win2008.Debug|x64'" />
     <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Win2008|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
@@ -205,15 +205,17 @@
     <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='WinXP|x64'" />
     <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='WinXP|x64'" />
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Win2003|Win32'">AlphaVSS.52.$(PlatformName)</TargetName>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='Win2003.Debug|Win32'">AlphaVSS.52d.$(PlatformName)</TargetName>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='Win2003.Debug|x64'">AlphaVSS.52d.$(PlatformName)</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Win2003.Debug|Win32'">AlphaVSS.52.$(PlatformName)</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Win2003.Debug|x64'">AlphaVSS.52.$(PlatformName)</TargetName>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Win2003|x64'">AlphaVSS.52.$(PlatformName)</TargetName>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='WinXP|x64'">AlphaVSS.52.$(PlatformName)</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='WinXP|x64'">
+    </TargetName>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='WinXP|Win32'">AlphaVSS.51.$(PlatformName)</TargetName>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='WinXP.Debug|Win32'">AlphaVSS.51d.$(PlatformName)</TargetName>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='WinXP.Debug|x64'">AlphaVSS.52d.$(PlatformName)</TargetName>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='Win2008.Debug|Win32'">AlphaVSS.60d.$(PlatformName)</TargetName>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='Win2008.Debug|x64'">AlphaVSS.60d.$(PlatformName)</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='WinXP.Debug|Win32'">AlphaVSS.51.$(PlatformName)</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='WinXP.Debug|x64'">
+    </TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Win2008.Debug|Win32'">AlphaVSS.60.$(PlatformName)</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Win2008.Debug|x64'">AlphaVSS.60.$(PlatformName)</TargetName>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Win2008|Win32'">AlphaVSS.60.$(PlatformName)</TargetName>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Win2008|x64'">AlphaVSS.60.$(PlatformName)</TargetName>
     <LinkKeyFile Condition="'$(Configuration)|$(Platform)'=='Win2003.Debug|Win32'">../AlphaVSS.pub.snk</LinkKeyFile>
@@ -241,6 +243,28 @@
     <LinkKeyFile Condition="'$(Configuration)|$(Platform)'=='WinXP|x64'">../AlphaVSS.pub.snk</LinkKeyFile>
     <LinkDelaySign Condition="'$(Configuration)|$(Platform)'=='WinXP|x64'">true</LinkDelaySign>
     <RunCodeAnalysis Condition="'$(Configuration)|$(Platform)'=='Win2008.Debug|x64'">false</RunCodeAnalysis>
+    <EnableManagedIncrementalBuild Condition="'$(Configuration)|$(Platform)'=='Win2003.Debug|Win32'">false</EnableManagedIncrementalBuild>
+    <EnableManagedIncrementalBuild Condition="'$(Configuration)|$(Platform)'=='Win2003|Win32'">false</EnableManagedIncrementalBuild>
+    <EnableManagedIncrementalBuild Condition="'$(Configuration)|$(Platform)'=='Win2008.Debug|Win32'">false</EnableManagedIncrementalBuild>
+    <EnableManagedIncrementalBuild Condition="'$(Configuration)|$(Platform)'=='Win2008|Win32'">false</EnableManagedIncrementalBuild>
+    <EnableManagedIncrementalBuild Condition="'$(Configuration)|$(Platform)'=='WinXP.Debug|Win32'">false</EnableManagedIncrementalBuild>
+    <EnableManagedIncrementalBuild Condition="'$(Configuration)|$(Platform)'=='WinXP|Win32'">false</EnableManagedIncrementalBuild>
+    <EnableManagedIncrementalBuild Condition="'$(Configuration)|$(Platform)'=='Win2003.Debug|x64'">false</EnableManagedIncrementalBuild>
+    <EnableManagedIncrementalBuild Condition="'$(Configuration)|$(Platform)'=='Win2003|x64'">false</EnableManagedIncrementalBuild>
+    <EnableManagedIncrementalBuild Condition="'$(Configuration)|$(Platform)'=='Win2008.Debug|x64'">false</EnableManagedIncrementalBuild>
+    <EnableManagedIncrementalBuild Condition="'$(Configuration)|$(Platform)'=='Win2008|x64'">false</EnableManagedIncrementalBuild>
+    <EnableManagedIncrementalBuild Condition="'$(Configuration)|$(Platform)'=='WinXP.Debug|x64'">false</EnableManagedIncrementalBuild>
+    <EnableManagedIncrementalBuild Condition="'$(Configuration)|$(Platform)'=='WinXP|x64'">false</EnableManagedIncrementalBuild>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Win2003|Win32'">$(ProjectDir)\..\..\Bin\Release\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Win2003|x64'">$(ProjectDir)\..\..\Bin\Release\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Win2003.Debug|Win32'">$(ProjectDir)\..\..\Bin\Debug\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Win2003.Debug|x64'">$(ProjectDir)\..\..\Bin\Debug\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Win2008|Win32'">$(ProjectDir)\..\..\Bin\Release\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Win2008|x64'">$(ProjectDir)\..\..\Bin\Release\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Win2008.Debug|Win32'">$(ProjectDir)\..\..\Bin\Debug\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Win2008.Debug|x64'">$(ProjectDir)\..\..\Bin\Debug\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='WinXP|Win32'">$(ProjectDir)\..\..\Bin\Release\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='WinXP.Debug|Win32'">$(ProjectDir)\..\..\Bin\Debug\</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Win2008.Debug|Win32'">
     <ClCompile>
@@ -251,13 +275,14 @@
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <ForcedIncludeFiles>CodeAnalysis\SourceAnnotations.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
-      <EnablePREfast>true</EnablePREfast>
+      <EnablePREfast>false</EnablePREfast>
     </ClCompile>
     <Link>
       <AdditionalDependencies>vssapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AssemblyDebug>true</AssemblyDebug>
       <TargetMachine>MachineX86</TargetMachine>
+      <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
     </Link>
     <Xdcmake>
       <SuppressStartupBanner>false</SuppressStartupBanner>
@@ -284,6 +309,7 @@
       <TargetMachine>MachineX64</TargetMachine>
       <KeyContainer>
       </KeyContainer>
+      <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
     </Link>
     <Xdcmake>
       <SuppressStartupBanner>false</SuppressStartupBanner>
@@ -303,6 +329,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <TargetMachine>MachineX86</TargetMachine>
       <LinkStatus>false</LinkStatus>
+      <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
     </Link>
     <PreBuildEvent>
       <Command>echo $(WindowsSDKDir)</Command>
@@ -323,6 +350,7 @@
       <AdditionalDependencies>vssapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <TargetMachine>MachineX64</TargetMachine>
+      <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='WinXP.Debug|Win32'">
@@ -342,6 +370,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AssemblyDebug>true</AssemblyDebug>
       <TargetMachine>MachineX86</TargetMachine>
+      <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
     </Link>
     <Xdcmake>
       <DocumentLibraryDependencies>false</DocumentLibraryDependencies>
@@ -367,6 +396,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AssemblyDebug>true</AssemblyDebug>
       <TargetMachine>MachineX64</TargetMachine>
+      <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
     </Link>
     <Xdcmake>
       <DocumentLibraryDependencies>false</DocumentLibraryDependencies>
@@ -387,6 +417,7 @@
       <AdditionalDependencies>$(VSSSDK72Dir)\lib\winxp\obj\i386\vssapi.lib;$(VSSSDK72Dir)\lib\winxp\obj\i386\vss_uuid.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <TargetMachine>MachineX86</TargetMachine>
+      <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='WinXP|x64'">
@@ -406,6 +437,7 @@
       <AdditionalDependencies>$(VSSSDK72Dir)\lib\win2003\obj\amd64\vssapi.lib;$(VSSSDK72Dir)\lib\win2003\obj\amd64\vss_uuid.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <TargetMachine>MachineX64</TargetMachine>
+      <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Win2003.Debug|Win32'">
@@ -425,6 +457,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AssemblyDebug>true</AssemblyDebug>
       <TargetMachine>MachineX86</TargetMachine>
+      <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
     </Link>
     <Xdcmake>
       <DocumentLibraryDependencies>false</DocumentLibraryDependencies>
@@ -450,6 +483,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AssemblyDebug>true</AssemblyDebug>
       <TargetMachine>MachineX64</TargetMachine>
+      <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
     </Link>
     <Xdcmake>
       <DocumentLibraryDependencies>false</DocumentLibraryDependencies>
@@ -470,6 +504,7 @@
       <AdditionalDependencies>$(VSSSDK72Dir)\lib\win2003\obj\i386\vssapi.lib;$(VSSSDK72Dir)\lib\win2003\obj\i386\vss_uuid.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <TargetMachine>MachineX86</TargetMachine>
+      <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Win2003|x64'">
@@ -489,6 +524,7 @@
       <AdditionalDependencies>$(VSSSDK72Dir)\lib\win2003\obj\amd64\vssapi.lib;$(VSSSDK72Dir)\lib\win2003\obj\amd64\vss_uuid.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <TargetMachine>MachineX64</TargetMachine>
+      <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -516,8 +552,11 @@
   <ItemGroup>
     <ProjectReference Include="..\AlphaVSS.Common\AlphaVSS.Common.csproj">
       <Project>{2fb97b30-1050-4f6b-b729-b94aaa178ee4}</Project>
-      <CopyLocalSatelliteAssemblies>true</CopyLocalSatelliteAssemblies>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
       <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+      <Private>false</Private>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

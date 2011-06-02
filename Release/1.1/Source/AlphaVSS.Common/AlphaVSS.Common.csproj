@@ -26,16 +26,15 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <OutputPath>..\..\Bin\Debug\</OutputPath>
     <PlatformTarget>AnyCPU</PlatformTarget>
-    <RunCodeAnalysis>true</RunCodeAnalysis>    
+    <RunCodeAnalysis>true</RunCodeAnalysis>
     <DocumentationFile>..\..\Bin\Debug\AlphaVSS.Common.XML</DocumentationFile>
     <DefineConstants>TRACE;DEBUG;CODE_ANALYSIS</DefineConstants>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <CodeAnalysisRuleSet>..\AlphaVSS.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <OutputPath>..\..\Bin\</OutputPath>
-    <DocumentationFile>
-    </DocumentationFile>
+    <OutputPath>..\..\Bin\Release\</OutputPath>
+    <DocumentationFile>..\..\Bin\Release\AlphaVSS.Common.XML</DocumentationFile>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <RegisterForComInterop>false</RegisterForComInterop>
     <Optimize>true</Optimize>
@@ -43,7 +42,7 @@
     <DefineConstants>
     </DefineConstants>
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
-     <CodeAnalysisRuleSet>..\AlphaVSS.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>..\AlphaVSS.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />

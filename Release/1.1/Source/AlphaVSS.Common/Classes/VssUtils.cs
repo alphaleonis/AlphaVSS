@@ -21,6 +21,8 @@
 using System;
 using System.Reflection;
 using System.Runtime.Remoting;
+using System.Text;
+using System.Globalization;
 
 namespace Alphaleonis.Win32.Vss
 {
@@ -48,36 +50,35 @@ namespace Alphaleonis.Win32.Vss
       [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate")]
       public static string GetPlatformSpecificAssemblyShortName()
       {
-         string winVer;
+         StringBuilder result = new StringBuilder("AlphaVSS.");
+         
          if (OperatingSystemInfo.OSVersion < new Version(5, 1))
             throw new UnsupportedOperatingSystemException(Alphaleonis.Win32.Vss.Resources.LocalizedStrings.AlphaVSSRequiresAtLeastWindowsXP);
          else if (OperatingSystemInfo.OSVersion < new Version(5, 2) && OperatingSystemInfo.ProcessorArchitecture != ProcessorArchitecture.X64)
-            winVer = "51";
+            result.Append("51");
          else if (OperatingSystemInfo.OSVersion < new Version(6, 0))
-            winVer = "52";
+            result.Append("52");
          else
-            winVer = "60";
+            result.Append("60");
 
-         string archName;
+         result.Append('.');
+
          switch (OperatingSystemInfo.ProcessorArchitecture)
          {
             case ProcessorArchitecture.X86:
-               archName = "x86";
+               result.Append("x86");
                break;
             case ProcessorArchitecture.IA64:
                throw new UnsupportedOperatingSystemException(Alphaleonis.Win32.Vss.Resources.LocalizedStrings.IA64ArchitectureIsNotSupported);
             case ProcessorArchitecture.X64:
-               archName = "x64";
+               result.Append("x64");
                break;
             case ProcessorArchitecture.Unknown:
             default:
                throw new UnsupportedOperatingSystemException(Alphaleonis.Win32.Vss.Resources.LocalizedStrings.FailedToDetectArchitectureOfRunningOperati);
          }
-#if DEBUG
-         return "AlphaVSS." + winVer + "d." + archName;
-#else
-            return "AlphaVSS." + winVer + "." + archName;
-#endif
+
+         return result.ToString();
       }
 
       /// <summary>
@@ -88,11 +89,7 @@ namespace Alphaleonis.Win32.Vss
       [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate")]
       public static AssemblyName GetPlatformSpecificAssemblyName()
       {
-         return new AssemblyName(
-             GetPlatformSpecificAssemblyShortName() +
-             ", Version=" +
-             Assembly.GetExecutingAssembly().GetName().Version.ToString() +
-             ", PublicKeyToken=3033cf2dbd31cad3");
+         return new AssemblyName(String.Format(CultureInfo.InvariantCulture, "{0}, Version={1}, Culture=neutral, PublicKeyToken=3033cf2dbd31cad3", GetPlatformSpecificAssemblyShortName(), Assembly.GetExecutingAssembly().GetName().Version.ToString()));
       }
 
       /// <summary>
