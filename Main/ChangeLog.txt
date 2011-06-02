@@ -1,5 +1,12 @@
+Version 1.2
+-----------
+* Changed target framework to .NET 4.0.
+
 Version 1.1
 --------------
+* Changed assembly naming of the platform specifiec assemblies so that their names 
+  are the same regardless of the build configuration.
+
 * Fixed invalid initialization VssBackupComponents of that caused potential memory issue 
   during finalization of this object (calling Release on IVssBackupComponentsEx and Ex2).
 
@@ -12,6 +19,11 @@ Version 1.1
 
 * The VssAsync interface now has a Wait-method accepting a timeout that is supported on 
   Windows Vista or later operating systems.
+
+* Added new exception VssUnexpectedErrorException to represent the error codes E_UNEXPECTED
+  and VSS_E_UNEXPECTED.
+
+* Made most classes in AlphaVSS.Common serializable.
 
 Version 1.0 beta
 -------------------

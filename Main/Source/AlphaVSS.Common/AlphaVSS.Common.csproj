@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Alphaleonis.Win32.Vss</RootNamespace>
     <AssemblyName>AlphaVSS.Common</AssemblyName>
-    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SccProjectName>SAK</SccProjectName>
     <SccLocalPath>SAK</SccLocalPath>
@@ -22,20 +22,20 @@
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <UpgradeBackupLocation />
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <OutputPath>..\..\Bin\Debug\</OutputPath>
     <PlatformTarget>AnyCPU</PlatformTarget>
-    <RunCodeAnalysis>true</RunCodeAnalysis>    
+    <RunCodeAnalysis>true</RunCodeAnalysis>
     <DocumentationFile>..\..\Bin\Debug\AlphaVSS.Common.XML</DocumentationFile>
     <DefineConstants>TRACE;DEBUG;CODE_ANALYSIS</DefineConstants>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <CodeAnalysisRuleSet>..\AlphaVSS.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <OutputPath>..\..\Bin\</OutputPath>
-    <DocumentationFile>
-    </DocumentationFile>
+    <OutputPath>..\..\Bin\Release\</OutputPath>
+    <DocumentationFile>..\..\Bin\Release\AlphaVSS.Common.XML</DocumentationFile>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <RegisterForComInterop>false</RegisterForComInterop>
     <Optimize>true</Optimize>
@@ -43,7 +43,7 @@
     <DefineConstants>
     </DefineConstants>
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
-     <CodeAnalysisRuleSet>..\AlphaVSS.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>..\AlphaVSS.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -187,7 +187,6 @@
     <None Include="..\AlphaVSS.pub.snk">
       <Link>AlphaVSS.pub.snk</Link>
     </None>
-    <None Include="app.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
