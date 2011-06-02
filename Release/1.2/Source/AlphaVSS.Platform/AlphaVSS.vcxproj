@@ -55,10 +55,10 @@
     <ProjectName>AlphaVSS.Platform</ProjectName>
     <ProjectGuid>{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}</ProjectGuid>
     <RootNamespace>Temp</RootNamespace>
-    <SccProjectName>$/alphavss/Development/Source/AlphaVSS.Platform</SccProjectName>
-    <SccAuxPath>https://tfs.codeplex.com/tfs/tfs02</SccAuxPath>
-    <SccLocalPath>.</SccLocalPath>
-    <SccProvider>{4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}</SccProvider>
+    <SccProjectName>SAK</SccProjectName>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccProvider>SAK</SccProvider>
     <Keyword>ManagedCProj</Keyword>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
   </PropertyGroup>
