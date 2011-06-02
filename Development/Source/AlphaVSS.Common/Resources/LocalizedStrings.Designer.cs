@@ -61,6 +61,15 @@ namespace Alphaleonis.Win32.Vss.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to AlphaVSS requires at least Windows XP..
+        /// </summary>
+        public static string AlphaVSSRequiresAtLeastWindowsXP {
+            get {
+                return ResourceManager.GetString("AlphaVSSRequiresAtLeastWindowsXP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Another LUN resynchronization operation is already in progress..
         /// </summary>
         public static string AnotherLUNResynchronizationOperationIsAlreadyInProgress {
@@ -70,11 +79,29 @@ namespace Alphaleonis.Win32.Vss.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to An unexpected error occurred. The error code is logged in the error log file..
+        /// </summary>
+        public static string AnUnexpectedErrorOccuredTheErrorCodeIsLogg {
+            get {
+                return ResourceManager.GetString("AnUnexpectedErrorOccuredTheErrorCodeIsLogg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to An unexpected error occurred during communication with writers..
         /// </summary>
         public static string AnUnexpectedErrorOccurredDuringCommunicationWithWriters {
             get {
                 return ResourceManager.GetString("AnUnexpectedErrorOccurredDuringCommunicationWithWriters", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Deletion of snapshot failed. See inner exception for details. .
+        /// </summary>
+        public static string DeletionOfSnapshotFailedSeeInnerExceptionF {
+            get {
+                return ResourceManager.GetString("DeletionOfSnapshotFailedSeeInnerExceptionF", resourceCulture);
             }
         }
         
@@ -93,6 +120,24 @@ namespace Alphaleonis.Win32.Vss.Resources {
         public static string ExpectedProviderError {
             get {
                 return ResourceManager.GetString("ExpectedProviderError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failed to detect architecture of running operating system..
+        /// </summary>
+        public static string FailedToDetectArchitectureOfRunningOperati {
+            get {
+                return ResourceManager.GetString("FailedToDetectArchitectureOfRunningOperati", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to IA64 architecture is not supported..
+        /// </summary>
+        public static string IA64ArchitectureIsNotSupported {
+            get {
+                return ResourceManager.GetString("IA64ArchitectureIsNotSupported", resourceCulture);
             }
         }
         

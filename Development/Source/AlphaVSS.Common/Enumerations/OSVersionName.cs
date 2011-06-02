@@ -30,6 +30,9 @@ namespace Alphaleonis.Win32.Vss
    /// </remarks>
    public enum OSVersionName
    {
+      /// <summary>
+      /// A windows version earlier than Windows 2000.
+      /// </summary>
       Earlier = -1,
       /// <summary>
       /// Windows 2000 (Server or Professional)
@@ -60,7 +63,7 @@ namespace Alphaleonis.Win32.Vss
       /// </summary>
       WindowsServer2008R2 = 6,
       /// <summary>
-      /// Unknown operating system
+      /// A Windows version later than Windows Server 2008R2.
       /// </summary>
       Later = 0xffff
    }

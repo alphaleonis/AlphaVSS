@@ -26,11 +26,11 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <OutputPath>..\..\Bin\Debug\</OutputPath>
     <PlatformTarget>AnyCPU</PlatformTarget>
-    <RunCodeAnalysis>true</RunCodeAnalysis>
-    <CodeAnalysisRules>-Microsoft.Naming#CA1704;-Microsoft.Naming#CA1703</CodeAnalysisRules>
+    <RunCodeAnalysis>true</RunCodeAnalysis>    
     <DocumentationFile>..\..\Bin\Debug\AlphaVSS.Common.XML</DocumentationFile>
     <DefineConstants>TRACE;DEBUG;CODE_ANALYSIS</DefineConstants>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <CodeAnalysisRuleSet>..\AlphaVSS.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>..\..\Bin\</OutputPath>
@@ -43,7 +43,7 @@
     <DefineConstants>
     </DefineConstants>
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+     <CodeAnalysisRuleSet>..\AlphaVSS.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -109,6 +109,7 @@
     <Compile Include="Enumerations\VssWriterState.cs" />
     <Compile Include="Exceptions\VssResyncInProgressException.cs" />
     <Compile Include="Exceptions\VssTimeoutWriterException.cs" />
+    <Compile Include="Exceptions\VssUnexpectedErrorException.cs" />
     <Compile Include="Exceptions\VssUnselectedVolumeException.cs" />
     <Compile Include="Exceptions\VssUnsupportedContextException.cs" />
     <Compile Include="Exceptions\VssBadStateException.cs" />

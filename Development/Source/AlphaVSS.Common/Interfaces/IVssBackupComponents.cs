@@ -1817,6 +1817,7 @@ namespace Alphaleonis.Win32.Vss
       /// <exception cref="SystemException">Unexpected VSS system error. The error code is logged in the event log.</exception>
       /// <exception cref="VssBadStateException">The backup components object is not initialized, this method has been called during a restore operation, or this method has not been called within the correct sequence.</exception>
       /// <returns>The requester's session identifier.</returns>
+      [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate")]
       Guid GetSessionId();
 
       /// <summary>

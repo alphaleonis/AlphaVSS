@@ -28,6 +28,7 @@ namespace Alphaleonis.Win32.Vss
    /// 	or restore as a differenced file, that is, backup and restores associated with it are to be implemented as if 
    /// 	entire files are copied to and from backup media (as opposed to using partial files).
    /// </summary>
+   [Serializable]
    public sealed class VssDifferencedFileInfo
    {
       /// <summary>Initializes a new instance of the <see cref="VssDifferencedFileInfo"/> class.</summary>

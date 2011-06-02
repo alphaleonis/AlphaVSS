@@ -19,6 +19,7 @@
  *  THE SOFTWARE.
  */
 
+using System;
 namespace Alphaleonis.Win32.Vss
 {
    /// <summary>
@@ -37,7 +38,8 @@ namespace Alphaleonis.Win32.Vss
    ///         <item><description><see cref="IVssWMComponent.DatabaseLogFiles"/></description></item>
    ///     </list>
    /// </remarks>
-   public class VssWMFileDescription
+   [Serializable]
+   public sealed class VssWMFileDescription
    {
       /// <summary>
       /// Initializes a new instance of the <see cref="VssWMFileDescription"/> class.

@@ -19,12 +19,14 @@
  *  THE SOFTWARE.
  */
 
+using System;
 namespace Alphaleonis.Win32.Vss
 {
    /// <summary>
    /// Represents information about how a writer wants its data to be restored.
    /// </summary>
    /// <remarks>This class is a container for the data returned by <see cref="IVssExamineWriterMetadata.RestoreMethod"/>.</remarks>
+   [Serializable]
    public class VssWMRestoreMethod
    {
       /// <summary>

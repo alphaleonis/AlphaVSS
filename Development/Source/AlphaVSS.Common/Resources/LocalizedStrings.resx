@@ -270,4 +270,24 @@
     <value>The shadow copy contains only a subset of the volumes needed by the writer to correctly back up the application component.</value>
     <comment>VssInconsistentSnapshotWriterExceptionMessage description</comment>
   </data>
+  <data name="AnUnexpectedErrorOccuredTheErrorCodeIsLogg" xml:space="preserve">
+    <value>An unexpected error occurred. The error code is logged in the error log file.</value>
+    <comment>AnUnexpectedErrorOccuredTheErrorCodeIsLogg description</comment>
+  </data>
+  <data name="DeletionOfSnapshotFailedSeeInnerExceptionF" xml:space="preserve">
+    <value>Deletion of snapshot failed. See inner exception for details. </value>
+    <comment>DeletionOfSnapshotFailedSeeInnerExceptionF description</comment>
+  </data>
+  <data name="AlphaVSSRequiresAtLeastWindowsXP" xml:space="preserve">
+    <value>AlphaVSS requires at least Windows XP.</value>
+    <comment>AlphaVSSRequiresAtLeastWindowsXP description</comment>
+  </data>
+  <data name="IA64ArchitectureIsNotSupported" xml:space="preserve">
+    <value>IA64 architecture is not supported.</value>
+    <comment>IA64ArchitectureIsNotSupported description</comment>
+  </data>
+  <data name="FailedToDetectArchitectureOfRunningOperati" xml:space="preserve">
+    <value>Failed to detect architecture of running operating system.</value>
+    <comment>FailedToDetectArchitectureOfRunningOperati description</comment>
+  </data>
 </root>

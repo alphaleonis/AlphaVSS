@@ -19,6 +19,7 @@
  *  THE SOFTWARE.
  */
 
+using System;
 namespace Alphaleonis.Win32.Vss
 {
    /// <summary>
@@ -26,6 +27,7 @@ namespace Alphaleonis.Win32.Vss
    ///		file is to be restored, it (the source file) should be remapped. The file may be restored to a new restore target 
    ///		and/or ranges of its data restored to different locations with the restore target.
    /// </summary>
+   [Serializable]
    public sealed class VssDirectedTargetInfo
    {
       /// <summary>Initializes a new instance of the <see cref="VssDirectedTargetInfo"/> class.</summary>

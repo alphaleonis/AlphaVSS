@@ -26,6 +26,7 @@ namespace Alphaleonis.Win32.Vss
    /// <summary>
    ///     The <see cref="VssProviderProperties"/> class specifies shadow copy provider properties.
    /// </summary>
+   [Serializable]
    public class VssProviderProperties
    {
       /// <summary>

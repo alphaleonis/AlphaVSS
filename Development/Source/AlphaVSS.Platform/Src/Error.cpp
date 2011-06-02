@@ -41,7 +41,8 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
       case E_NOTIMPL:
          return gcnew NotImplementedException();
       case E_UNEXPECTED:
-         return gcnew SystemException(Alphaleonis::Win32::Vss::Resources::LocalizedStrings::UnexpectedSystemError);
+      case VSS_E_UNEXPECTED:
+         return gcnew VssUnexpectedErrorException();
       case VSS_E_INVALID_XML_DOCUMENT:
          return gcnew VssInvalidXmlDocumentException();
       case VSS_E_BAD_STATE:

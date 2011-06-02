@@ -19,12 +19,14 @@
  *  THE SOFTWARE.
  */
 
+using System;
 namespace Alphaleonis.Win32.Vss
 {
    /// <summary>
    /// The <see cref="VssVolumeProperties"/> class contains the properties of a shadow copy source volume.
    /// </summary>
-   public class VssVolumeProperties
+   [Serializable]
+   public sealed class VssVolumeProperties
    {
       /// <summary>
       /// Initializes a new instance of the <see cref="VssVolumeProperties"/> class.

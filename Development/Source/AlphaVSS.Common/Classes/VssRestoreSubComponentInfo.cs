@@ -19,11 +19,13 @@
  *  THE SOFTWARE.
  */
 
+using System;
 namespace Alphaleonis.Win32.Vss
 {
    /// <summary>
    ///		Represents information about a Subcomponent associated with a given component.
    /// </summary>
+   [Serializable]
    public sealed class VssRestoreSubcomponentInfo
    {
       /// <summary>

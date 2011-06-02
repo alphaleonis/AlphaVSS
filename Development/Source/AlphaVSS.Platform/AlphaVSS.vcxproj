@@ -183,7 +183,7 @@
     <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Win2003|x64'" />
     <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Win2008.Debug|Win32'">Migrated rules for AlphaVSS.ruleset</CodeAnalysisRuleSet>
     <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Win2008.Debug|Win32'" />
-    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Win2008.Debug|x64'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Win2008.Debug|x64'">..\AlphaVSS.ruleset</CodeAnalysisRuleSet>
     <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Win2008.Debug|x64'" />
     <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Win2008.Debug|x64'" />
     <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Win2008|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
@@ -216,6 +216,31 @@
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Win2008.Debug|x64'">AlphaVSS.60d.$(PlatformName)</TargetName>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Win2008|Win32'">AlphaVSS.60.$(PlatformName)</TargetName>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Win2008|x64'">AlphaVSS.60.$(PlatformName)</TargetName>
+    <LinkKeyFile Condition="'$(Configuration)|$(Platform)'=='Win2003.Debug|Win32'">../AlphaVSS.pub.snk</LinkKeyFile>
+    <LinkDelaySign Condition="'$(Configuration)|$(Platform)'=='Win2003.Debug|Win32'">true</LinkDelaySign>
+    <LinkKeyFile Condition="'$(Configuration)|$(Platform)'=='Win2003|Win32'">../AlphaVSS.pub.snk</LinkKeyFile>
+    <LinkDelaySign Condition="'$(Configuration)|$(Platform)'=='Win2003|Win32'">true</LinkDelaySign>
+    <LinkKeyFile Condition="'$(Configuration)|$(Platform)'=='Win2008.Debug|Win32'">../AlphaVSS.pub.snk</LinkKeyFile>
+    <LinkDelaySign Condition="'$(Configuration)|$(Platform)'=='Win2008.Debug|Win32'">true</LinkDelaySign>
+    <LinkKeyFile Condition="'$(Configuration)|$(Platform)'=='Win2008|Win32'">../AlphaVSS.pub.snk</LinkKeyFile>
+    <LinkDelaySign Condition="'$(Configuration)|$(Platform)'=='Win2008|Win32'">true</LinkDelaySign>
+    <LinkKeyFile Condition="'$(Configuration)|$(Platform)'=='WinXP.Debug|Win32'">../AlphaVSS.pub.snk</LinkKeyFile>
+    <LinkDelaySign Condition="'$(Configuration)|$(Platform)'=='WinXP.Debug|Win32'">true</LinkDelaySign>
+    <LinkKeyFile Condition="'$(Configuration)|$(Platform)'=='WinXP|Win32'">../AlphaVSS.pub.snk</LinkKeyFile>
+    <LinkDelaySign Condition="'$(Configuration)|$(Platform)'=='WinXP|Win32'">true</LinkDelaySign>
+    <LinkKeyFile Condition="'$(Configuration)|$(Platform)'=='Win2003.Debug|x64'">../AlphaVSS.pub.snk</LinkKeyFile>
+    <LinkDelaySign Condition="'$(Configuration)|$(Platform)'=='Win2003.Debug|x64'">true</LinkDelaySign>
+    <LinkKeyFile Condition="'$(Configuration)|$(Platform)'=='Win2003|x64'">../AlphaVSS.pub.snk</LinkKeyFile>
+    <LinkDelaySign Condition="'$(Configuration)|$(Platform)'=='Win2003|x64'">true</LinkDelaySign>
+    <LinkKeyFile Condition="'$(Configuration)|$(Platform)'=='Win2008.Debug|x64'">../AlphaVSS.pub.snk</LinkKeyFile>
+    <LinkDelaySign Condition="'$(Configuration)|$(Platform)'=='Win2008.Debug|x64'">true</LinkDelaySign>
+    <LinkKeyFile Condition="'$(Configuration)|$(Platform)'=='Win2008|x64'">../AlphaVSS.pub.snk</LinkKeyFile>
+    <LinkDelaySign Condition="'$(Configuration)|$(Platform)'=='Win2008|x64'">true</LinkDelaySign>
+    <LinkKeyFile Condition="'$(Configuration)|$(Platform)'=='WinXP.Debug|x64'">../AlphaVSS.pub.snk</LinkKeyFile>
+    <LinkDelaySign Condition="'$(Configuration)|$(Platform)'=='WinXP.Debug|x64'">true</LinkDelaySign>
+    <LinkKeyFile Condition="'$(Configuration)|$(Platform)'=='WinXP|x64'">../AlphaVSS.pub.snk</LinkKeyFile>
+    <LinkDelaySign Condition="'$(Configuration)|$(Platform)'=='WinXP|x64'">true</LinkDelaySign>
+    <RunCodeAnalysis Condition="'$(Configuration)|$(Platform)'=='Win2008.Debug|x64'">false</RunCodeAnalysis>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Win2008.Debug|Win32'">
     <ClCompile>

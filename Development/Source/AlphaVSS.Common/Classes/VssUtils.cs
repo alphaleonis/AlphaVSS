@@ -50,7 +50,7 @@ namespace Alphaleonis.Win32.Vss
       {
          string winVer;
          if (OperatingSystemInfo.OSVersion < new Version(5, 1))
-            throw new UnsupportedOperatingSystemException("AlphaVSS requires at least Windows XP.");
+            throw new UnsupportedOperatingSystemException(Alphaleonis.Win32.Vss.Resources.LocalizedStrings.AlphaVSSRequiresAtLeastWindowsXP);
          else if (OperatingSystemInfo.OSVersion < new Version(5, 2) && OperatingSystemInfo.ProcessorArchitecture != ProcessorArchitecture.X64)
             winVer = "51";
          else if (OperatingSystemInfo.OSVersion < new Version(6, 0))
@@ -65,13 +65,13 @@ namespace Alphaleonis.Win32.Vss
                archName = "x86";
                break;
             case ProcessorArchitecture.IA64:
-               throw new UnsupportedOperatingSystemException("IA64 architecture is not supported.");
+               throw new UnsupportedOperatingSystemException(Alphaleonis.Win32.Vss.Resources.LocalizedStrings.IA64ArchitectureIsNotSupported);
             case ProcessorArchitecture.X64:
                archName = "x64";
                break;
             case ProcessorArchitecture.Unknown:
             default:
-               throw new UnsupportedOperatingSystemException("Failed to detect architecture of running operating system.");
+               throw new UnsupportedOperatingSystemException(Alphaleonis.Win32.Vss.Resources.LocalizedStrings.FailedToDetectArchitectureOfRunningOperati);
          }
 #if DEBUG
          return "AlphaVSS." + winVer + "d." + archName;

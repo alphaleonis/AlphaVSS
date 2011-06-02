@@ -30,7 +30,7 @@ namespace Alphaleonis.Win32.Vss
    public class VssBadStateException : VssException
    {
       /// <summary>
-      /// Initializes a new instance of the <see cref="VssException"/> class.
+      /// Initializes a new instance of the <see cref="VssBadStateException"/> class.
       /// </summary>
       public VssBadStateException()
          : base(Resources.LocalizedStrings.TheVSSObjectWasInAnIncorrectStateForTheRequestedOperation)
@@ -38,7 +38,7 @@ namespace Alphaleonis.Win32.Vss
       }
 
       /// <summary>
-      /// Initializes a new instance of the <see cref="VssException"/> class with the specified error message.
+      /// Initializes a new instance of the <see cref="VssBadStateException"/> class with the specified error message.
       /// </summary>
       /// <param name="message">The error message.</param>
       public VssBadStateException(string message)
@@ -47,7 +47,7 @@ namespace Alphaleonis.Win32.Vss
       }
 
       /// <summary>
-      /// Initializes a new instance of the <see cref="VssException"/> class with the specified error message
+      /// Initializes a new instance of the <see cref="VssBadStateException"/> class with the specified error message
       /// and a reference to the inner exception that is the cause of this exception.
       /// </summary>
       /// <param name="message">The error message.</param>
@@ -58,7 +58,7 @@ namespace Alphaleonis.Win32.Vss
       }
 
       /// <summary>
-      /// Initializes a new instance of the <see cref="VssException"/> class with serialized data.
+      /// Initializes a new instance of the <see cref="VssBadStateException"/> class with serialized data.
       /// </summary>
       /// <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo"/> that holds the serialized object data about the exception being thrown.</param>
       /// <param name="context">The <see cref="T:System.Runtime.Serialization.StreamingContext"/> that contains contextual information about the source or destination.</param>

@@ -25,7 +25,8 @@ namespace Alphaleonis.Win32.Vss
    /// <summary>
    /// The <see cref="VssDiffVolumeProperties"/> structure describes a shadow copy storage area volume.
    /// </summary>
-   public class VssDiffVolumeProperties
+   [Serializable]
+   public sealed class VssDiffVolumeProperties
    {
       /// <summary>
       /// Initializes a new instance of the <see cref="VssDiffVolumeProperties"/> class.

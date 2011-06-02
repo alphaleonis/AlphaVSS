@@ -25,7 +25,8 @@ namespace Alphaleonis.Win32.Vss
    /// <summary>
    /// Contains information about a volume's shadow copy protection level.
    /// </summary>
-   public class VssVolumeProtectionInfo
+   [Serializable]
+   public sealed class VssVolumeProtectionInfo
    {
       /// <summary>
       /// Initializes a new instance of the <see cref="VssVolumeProtectionInfo"/> class.

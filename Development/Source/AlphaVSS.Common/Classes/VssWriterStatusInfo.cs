@@ -28,6 +28,7 @@ namespace Alphaleonis.Win32.Vss
    /// <remarks>This class acts as a container for the information returned from 
    /// <see href="http://msdn.microsoft.com/en-us/library/aa382680(VS.85).aspx">IVssBackupComponents.GetWriterStatus</see> in the original
    /// VSS API</remarks>
+   [Serializable]
    public sealed class VssWriterStatusInfo
    {
       #region Constructors

@@ -72,23 +72,23 @@ namespace Alphaleonis.Win32.Vss
       /// <param name="nonDeletedSnapshotId">The id of the non deleted snapshot, or <see cref="Guid.Empty"/> if such information is not available.</param>
       /// <param name="innerException">The inner exception.</param>
       public VssDeleteSnapshotsFailedException(int deletedSnapshotsCount, Guid nonDeletedSnapshotId, Exception innerException)
-         : base("Deletion of snapshot failed: " + innerException.Message, innerException)
+         : base(Alphaleonis.Win32.Vss.Resources.LocalizedStrings.DeletionOfSnapshotFailedSeeInnerExceptionF, innerException)
       {
-         mDeletedSnapshotsCount = deletedSnapshotsCount;
-         mNonDeletedSnapshotId = nonDeletedSnapshotId;
+         m_deletedSnapshotsCount = deletedSnapshotsCount;
+         m_nonDeletedSnapshotId = nonDeletedSnapshotId;
       }
 
       /// <summary>
       /// Gets the number of successfully deleted snapshots.
       /// </summary>
       /// <value>The number of successfully deleted snapshots.</value>
-      public int DeletedSnapshotsCount { get { return mDeletedSnapshotsCount; } }
+      public int DeletedSnapshotsCount { get { return m_deletedSnapshotsCount; } }
 
       /// <summary>
       /// Gets the non id of the snapshot that failed to be deleted.
       /// </summary>
       /// <value>The id of the snapshot that could not be deleted.</value>
-      public Guid NonDeletedSnapshotId { get { return mNonDeletedSnapshotId; } }
+      public Guid NonDeletedSnapshotId { get { return m_nonDeletedSnapshotId; } }
 
       /// <summary>
       /// Initializes a new instance of the <see cref="VssDeleteSnapshotsFailedException"/> class.
@@ -120,11 +120,11 @@ namespace Alphaleonis.Win32.Vss
 
          base.GetObjectData(info, context);
 
-         info.AddValue("DeletedSnapshotsCount", mDeletedSnapshotsCount);
-         info.AddValue("NonDeletedSnapshotId", mNonDeletedSnapshotId);
+         info.AddValue("DeletedSnapshotsCount", m_deletedSnapshotsCount);
+         info.AddValue("NonDeletedSnapshotId", m_nonDeletedSnapshotId);
       }
 
-      private int mDeletedSnapshotsCount;
-      private Guid mNonDeletedSnapshotId;
+      private int m_deletedSnapshotsCount;
+      private Guid m_nonDeletedSnapshotId;
    }
 }

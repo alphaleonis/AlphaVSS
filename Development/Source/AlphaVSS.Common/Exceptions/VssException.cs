@@ -32,7 +32,7 @@ namespace Alphaleonis.Win32.Vss
       /// <summary>
       /// Initializes a new instance of the <see cref="VssException"/> class.
       /// </summary>
-      public VssException()
+      protected VssException()
          : base()
       {
       }
@@ -41,7 +41,7 @@ namespace Alphaleonis.Win32.Vss
       /// Initializes a new instance of the <see cref="VssException"/> class with the specified error message.
       /// </summary>
       /// <param name="message">The error message.</param>
-      public VssException(string message)
+      protected VssException(string message)
          : base(message)
       {
       }
@@ -52,7 +52,7 @@ namespace Alphaleonis.Win32.Vss
       /// </summary>
       /// <param name="message">The error message.</param>
       /// <param name="innerException">The inner exception.</param>
-      public VssException(string message, Exception innerException)
+      protected VssException(string message, Exception innerException)
          : base(message, innerException)
       {
       }

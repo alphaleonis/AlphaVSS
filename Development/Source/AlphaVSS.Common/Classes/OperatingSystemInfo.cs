@@ -43,9 +43,9 @@ namespace Alphaleonis.Win32.Vss
          [SecurityPermission(SecurityAction.LinkDemand, UnmanagedCode = true)]
          get
          {
-            if (m_ServicePackVersion == null)
+            if (s_servicePackVersion == null)
                UpdateData();
-            return m_OSVersionName;
+            return s_osVersionName;
          }
       }
 
@@ -56,7 +56,7 @@ namespace Alphaleonis.Win32.Vss
       /// <value>The numeric version of the operating system.</value>
       public static Version OSVersion
       {
-         get { return m_OSVersion; }
+         get { return s_osVersion; }
       }
 
       /// <summary>
@@ -70,9 +70,9 @@ namespace Alphaleonis.Win32.Vss
          [SecurityPermission(SecurityAction.LinkDemand, UnmanagedCode = true)]
          get
          {
-            if (m_ServicePackVersion == null)
+            if (s_servicePackVersion == null)
                UpdateData();
-            return m_ServicePackVersion;
+            return s_servicePackVersion;
          }
       }
 
@@ -88,9 +88,9 @@ namespace Alphaleonis.Win32.Vss
          [SecurityPermission(SecurityAction.LinkDemand, UnmanagedCode = true)]
          get
          {
-            if (m_ServicePackVersion == null)
+            if (s_servicePackVersion == null)
                UpdateData();
-            return m_ProcessorArchitecture;
+            return s_processorArchitecture;
          }
       }
 
@@ -273,13 +273,13 @@ namespace Alphaleonis.Win32.Vss
          Debug.Assert(info.dwMinorVersion == Environment.OSVersion.Version.Minor);
          Debug.Assert(info.dwBuildNumber == Environment.OSVersion.Version.Build);
 
-         m_ProcessorArchitecture = (ProcessorArchitecture)sysInfo.processorArchitecture;
+         s_processorArchitecture = (ProcessorArchitecture)sysInfo.processorArchitecture;
 
-         m_ServicePackVersion = new Version(info.wServicePackMajor, info.wServicePackMinor);
+         s_servicePackVersion = new Version(info.wServicePackMajor, info.wServicePackMinor);
 
          if (info.dwMajorVersion > 6)
          {
-            m_OSVersionName = OSVersionName.Later;
+            s_osVersionName = OSVersionName.Later;
          }
          else if (info.dwMajorVersion == 6) 
          {
@@ -287,65 +287,65 @@ namespace Alphaleonis.Win32.Vss
             {
                if (info.wProductType == NativeMethods.VER_NT_WORKSTATION) // Vista
                {
-                  m_OSVersionName = OSVersionName.WindowsVista;
+                  s_osVersionName = OSVersionName.WindowsVista;
                }
                else
                {
-                  m_OSVersionName = OSVersionName.WindowsServer2008;
+                  s_osVersionName = OSVersionName.WindowsServer2008;
                }
             }
             else if (info.dwMinorVersion == 1) // Windows 7 or Windows Server 2008 R2
             {
                if (info.wProductType == NativeMethods.VER_NT_WORKSTATION)
                {
-                  m_OSVersionName = Vss.OSVersionName.Windows7;
+                  s_osVersionName = Vss.OSVersionName.Windows7;
                }
                else
                {
-                  m_OSVersionName = Vss.OSVersionName.WindowsServer2008R2;
+                  s_osVersionName = Vss.OSVersionName.WindowsServer2008R2;
                }
             }
             else
             {
-               m_OSVersionName = Vss.OSVersionName.Later;
+               s_osVersionName = Vss.OSVersionName.Later;
             }
          }
          else if (info.dwMajorVersion == 5)
          {
             if (info.dwMinorVersion == 0)
             {
-               m_OSVersionName = OSVersionName.Windows2000;
+               s_osVersionName = OSVersionName.Windows2000;
             }
             if (info.dwMinorVersion == 1)
             {
-               m_OSVersionName = OSVersionName.WindowsXP;
+               s_osVersionName = OSVersionName.WindowsXP;
             }
             else if (info.dwMinorVersion == 2)
             {
-               if (info.wProductType == NativeMethods.VER_NT_WORKSTATION && m_ProcessorArchitecture == ProcessorArchitecture.X64)
+               if (info.wProductType == NativeMethods.VER_NT_WORKSTATION && s_processorArchitecture == ProcessorArchitecture.X64)
                {
-                  m_OSVersionName = OSVersionName.WindowsXP;
+                  s_osVersionName = OSVersionName.WindowsXP;
                }
                else if (info.wProductType != NativeMethods.VER_NT_WORKSTATION)
                {
-                  m_OSVersionName = OSVersionName.WindowsServer2003;
+                  s_osVersionName = OSVersionName.WindowsServer2003;
                }
                else
                {
-                  m_OSVersionName = OSVersionName.Later;
+                  s_osVersionName = OSVersionName.Later;
                }
             }
             else
             {
-               m_OSVersionName = OSVersionName.Later;
+               s_osVersionName = OSVersionName.Later;
             }
          }
       }
 
-      private static OSVersionName m_OSVersionName = OSVersionName.Later;
-      private static Version m_OSVersion = Environment.OSVersion.Version;
-      private static Version m_ServicePackVersion;
-      private static ProcessorArchitecture m_ProcessorArchitecture;
+      private static OSVersionName s_osVersionName = OSVersionName.Later;
+      private static Version s_osVersion = Environment.OSVersion.Version;
+      private static Version s_servicePackVersion;
+      private static ProcessorArchitecture s_processorArchitecture;
 
       #endregion
 

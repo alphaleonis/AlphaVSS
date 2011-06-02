@@ -29,7 +29,8 @@ namespace Alphaleonis.Win32.Vss
    /// <note><b>Windows XP:</b> This class is not supported until Windows Server 2003</note>
    /// </remarks>
    /// <seealso href="http://msdn.microsoft.com/en-us/library/aa384301(VS.85).aspx"/>
-   public class VssWMDependency
+   [Serializable]
+   public sealed class VssWMDependency
    {
       /// <summary>
       /// Initializes a new instance of the <see cref="VssWMDependency"/> class.

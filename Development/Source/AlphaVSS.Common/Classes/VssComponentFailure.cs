@@ -27,6 +27,7 @@ namespace Alphaleonis.Win32.Vss
    /// <summary>
    /// Represents a component-level error reported by writers.
    /// </summary>
+   [Serializable]
    public sealed class VssComponentFailure
    {
       /// <summary>

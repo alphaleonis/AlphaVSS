@@ -25,6 +25,7 @@ namespace Alphaleonis.Win32.Vss
    /// <summary>
    ///     The <see cref="VssSnapshotProperties"/> class contains the properties of a shadow copy or shadow copy set.
    /// </summary>
+   [Serializable]
    public sealed class VssSnapshotProperties
    {
       /// <summary>

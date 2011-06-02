@@ -26,6 +26,7 @@ namespace Alphaleonis.Win32.Vss
    ///		Representation of information on a partial file associated with a component.
    /// </summary>
    /// <remarks>See <see href="http://msdn.microsoft.com/en-us/library/aa383529(VS.85).aspx">MSDN documentation on IVssComponent::GetPartialFile Method</see> for more information.</remarks>
+   [Serializable]
    public sealed class VssPartialFileInfo
    {
       /// <summary>Initializes a new instance of the <see cref="VssPartialFileInfo"/> class</summary>
