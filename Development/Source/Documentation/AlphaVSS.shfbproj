@@ -34,13 +34,13 @@ This documentation describes the AlphaVSS managed interface to the VSS API.
     <WorkingPath>..\..\Documentation\Work\</WorkingPath>
     <BuildLogFile>
     </BuildLogFile>
-    <FrameworkVersion>.NET 3.5</FrameworkVersion>
+    <FrameworkVersion>.NET 4.0.30319</FrameworkVersion>
     <RootNamespaceContainer>True</RootNamespaceContainer>
     <RootNamespaceTitle>API Reference</RootNamespaceTitle>
-    <HelpTitle>AlphaVSS 1.1</HelpTitle>
+    <HelpTitle>AlphaVSS 1.2</HelpTitle>
     <FooterText>http://alphavss.codeplex.com</FooterText>
     <PresentationStyle>vs2005</PresentationStyle>
-    <HelpFileVersion>1.1.3000.1</HelpFileVersion>
+    <HelpFileVersion>1.2.3000.1</HelpFileVersion>
     <DocumentationSources>
       <DocumentationSource sourceFile="..\..\Bin\Debug\AlphaVSS.Common.dll" />
       <DocumentationSource sourceFile="..\..\Bin\Debug\AlphaVSS.Common.xml" />
