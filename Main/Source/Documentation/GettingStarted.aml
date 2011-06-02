@@ -21,53 +21,47 @@
                   factories to create instances of them.
                </para>
             </definition>
-            <definedTerm><legacyBold>AlphaVSS.WinXP.x86.dll</legacyBold></definedTerm>
+            <definedTerm><legacyBold>AlphaVSS.51.x86.dll</legacyBold></definedTerm>
             <definition>
                <para>
                   Assembly containing the actual implementation of the platform specific
                   interfaces for 32-bit Windows XP.
                </para>
             </definition>
-            <definedTerm><legacyBold>AlphaVSS.WinXP.x64.dll</legacyBold></definedTerm>
-            <definition>
-               <para>
-                  Assembly containing the actual implementation of the platform specific
-                  interfaces for 64-bit Windows XP.
-               </para>
-            </definition>
-            <definedTerm><legacyBold>AlphaVSS.Win2003.x86.dll</legacyBold></definedTerm>
+            <definedTerm><legacyBold>AlphaVSS.52.x86.dll</legacyBold></definedTerm>
             <definition>
                <para>
                   Assembly containing the actual implementation of the platform specific
                   interfaces for 32-bit Windows Server 2003.
                </para>
             </definition>
-            <definedTerm><legacyBold>AlphaVSS.Win2003.x86.dll</legacyBold></definedTerm>
+            <definedTerm><legacyBold>AlphaVSS.52.x64.dll</legacyBold></definedTerm>
             <definition>
                <para>
                   Assembly containing the actual implementation of the platform specific
-                  interfaces for 64-bit Windows Server 2003.
+                  interfaces for 64-bit Windows Server 2003 and Windows XP.
                </para>
             </definition>
-            <definedTerm><legacyBold>AlphaVSS.Win2008.x86.dll</legacyBold></definedTerm>
+            <definedTerm><legacyBold>AlphaVSS.60.x86.dll</legacyBold></definedTerm>
             <definition>
                <para>
                   Assembly containing the actual implementation of the platform specific
-                  interfaces for 32-bit Windows Vista and Windows Server 2008.
+                  interfaces for 32-bit Windows Vista and Windows Server 2008 and later
+                  windows versions.
                </para>
             </definition>
-            <definedTerm><legacyBold>AlphaVSS.Win2008.x64.dll</legacyBold></definedTerm>
+            <definedTerm><legacyBold>AlphaVSS.60.x64.dll</legacyBold></definedTerm>
             <definition>
                <para>
                   Assembly containing the actual implementation of the platform specific
-                  interfaces for 64-bit Windows Vista and Windows Server 2008.
+                  interfaces for 64-bit Windows Vista and Windows Server 2008 and later
+                  windows versions.
                </para>
             </definition>
          </definitionTable>
         <para>
-           Included are also debug versions of all of the above assemblies. These all
-           have the same name, but with "Debug" included in their name, eg. 
-           <legacyBold>AlphaVSS.Win2008.Debug.x64</legacyBold>.
+           Included are both Debug and Release builds of the above assemblies found under
+           the directories with the corresponding names.
         </para>
          <para>
             The reason for all these assemblies are that the VSS API differs between

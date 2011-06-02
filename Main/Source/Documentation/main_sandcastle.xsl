@@ -3,7 +3,12 @@
 
 	<!-- stuff specified to comments authored in DDUEXML -->
 
-	
+  <xsl:import href="../../shared/transforms/utilities_bibliography.xsl"/>
+  <xsl:param name="bibliographyData" select="'../Data/bibliography.xml'"/>
+
+  <xsl:param name="omitXmlnsBoilerplate" select="'false'" />
+  <xsl:param name="omitVersionInformation" select="'false'" />
+
  <xsl:include href="htmlBody.xsl"/>
   <xsl:include href="utilities_reference.xsl" />
 
@@ -68,6 +73,8 @@
     <xsl:call-template name="permissions" />
 		<!-- exceptions -->
 		<xsl:call-template name="exceptions" />
+		<!-- contracts -->
+		<xsl:call-template name="contracts" />
 		<!-- inheritance -->
 		<xsl:apply-templates select="/document/reference/family" />
     <xsl:apply-templates select="/document/comments/threadsafety" />
@@ -75,6 +82,8 @@
     <xsl:if test="not($group='list' or $group='namespace' or $group='root' )">
       <xsl:apply-templates select="/document/reference/versions" />
     </xsl:if>
+    <!-- bibliography -->
+    <xsl:call-template name="bibliography" />
 		<!-- see also -->
     <xsl:call-template name="seealso" />
 
@@ -272,6 +281,215 @@
 		</xsl:if>
 	</xsl:template>
 
+  <xsl:template name="contracts">
+    <xsl:variable name="requires" select="/document/comments/requires" />
+    <xsl:variable name="ensures" select="/document/comments/ensures" />
+    <xsl:variable name="ensuresOnThrow" select="/document/comments/ensuresOnThrow" />
+    <xsl:variable name="invariants" select="/document/comments/invariant" />
+    <xsl:variable name="setter" select="/document/comments/setter" />
+    <xsl:variable name="getter" select="/document/comments/getter" />
+    <xsl:variable name="pure" select="/document/comments/pure" />
+    <xsl:if test="$requires or $ensures or $ensuresOnThrow or $invariants or $setter or $getter or $pure">
+      <xsl:call-template name="section">
+        <xsl:with-param name="toggleSwitch" select="'contracts'"/>
+        <xsl:with-param name="title">
+          <include item="contractsTitle" />
+        </xsl:with-param>
+        <xsl:with-param name="content">
+          <!--Purity-->
+          <xsl:if test="$pure">
+            <xsl:text>This method is pure.</xsl:text>
+          </xsl:if>
+          <!--Contracts-->
+          <div class="tableSection">
+            <xsl:if test="$getter">
+              <xsl:variable name="getterRequires" select="$getter/requires"/>
+              <xsl:variable name="getterEnsures" select="$getter/ensures"/>
+              <xsl:variable name="getterEnsuresOnThrow" select="$getter/ensuresOnThrow"/>
+              <xsl:call-template name="subSection">
+                <xsl:with-param name="title">
+                  <include item="getterTitle" />
+                </xsl:with-param>
+                <xsl:with-param name="content">
+                  <xsl:if test="$getterRequires">
+                    <xsl:call-template name="contractsTable">
+                      <xsl:with-param name="title">
+                        <include item="requiresNameHeader"/>
+                      </xsl:with-param>
+                      <xsl:with-param name="contracts" select="$getterRequires"/>
+                    </xsl:call-template>
+                  </xsl:if>
+                  <xsl:if test="$getterEnsures">
+                    <xsl:call-template name="contractsTable">
+                      <xsl:with-param name="title">
+                        <include item="ensuresNameHeader"/>
+                      </xsl:with-param>
+                      <xsl:with-param name="contracts" select="$getterEnsures"/>
+                    </xsl:call-template>
+                  </xsl:if>
+                  <xsl:if test="$getterEnsuresOnThrow">
+                    <xsl:call-template name="contractsTable">
+                      <xsl:with-param name="title">
+                        <include item="ensuresOnThrowNameHeader"/>
+                      </xsl:with-param>
+                      <xsl:with-param name="contracts" select="$getterEnsuresOnThrow"/>
+                    </xsl:call-template>
+                  </xsl:if>
+                </xsl:with-param>
+              </xsl:call-template>
+            </xsl:if>
+            <xsl:if test="$setter">
+              <xsl:variable name="setterRequires" select="$setter/requires"/>
+              <xsl:variable name="setterEnsures" select="$setter/ensures"/>
+              <xsl:variable name="setterEnsuresOnThrow" select="$setter/ensuresOnThrow"/>
+              <xsl:call-template name="subSection">
+                <xsl:with-param name="title">
+                  <include item="setterTitle" />
+                </xsl:with-param>
+                <xsl:with-param name="content">
+                  <xsl:if test="$setterRequires">
+                    <xsl:call-template name="contractsTable">
+                      <xsl:with-param name="title">
+                        <include item="requiresNameHeader"/>
+                      </xsl:with-param>
+                      <xsl:with-param name="contracts" select="$setterRequires"/>
+                    </xsl:call-template>
+                  </xsl:if>
+                  <xsl:if test="$setterEnsures">
+                    <xsl:call-template name="contractsTable">
+                      <xsl:with-param name="title">
+                        <include item="ensuresNameHeader"/>
+                      </xsl:with-param>
+                      <xsl:with-param name="contracts" select="$setterEnsures"/>
+                    </xsl:call-template>
+                  </xsl:if>
+                  <xsl:if test="$setterEnsuresOnThrow">
+                    <xsl:call-template name="contractsTable">
+                      <xsl:with-param name="title">
+                        <include item="ensuresOnThrowNameHeader"/>
+                      </xsl:with-param>
+                      <xsl:with-param name="contracts" select="$setterEnsuresOnThrow"/>
+                    </xsl:call-template>
+                  </xsl:if>
+                </xsl:with-param>
+              </xsl:call-template>
+            </xsl:if>
+            <xsl:if test="$requires">
+              <xsl:call-template name="contractsTable">
+                <xsl:with-param name="title">
+                  <include item="requiresNameHeader"/>
+                </xsl:with-param>
+                <xsl:with-param name="contracts" select="$requires"/>
+              </xsl:call-template>
+            </xsl:if>
+            <xsl:if test="$ensures">
+              <xsl:call-template name="contractsTable">
+                <xsl:with-param name="title">
+                  <include item="ensuresNameHeader"/>
+                </xsl:with-param>
+                <xsl:with-param name="contracts" select="$ensures"/>
+              </xsl:call-template>
+            </xsl:if>
+            <xsl:if test="$ensuresOnThrow">
+              <xsl:call-template name="contractsTable">
+                <xsl:with-param name="title">
+                  <include item="ensuresOnThrowNameHeader"/>
+                </xsl:with-param>
+                <xsl:with-param name="contracts" select="$ensuresOnThrow"/>
+              </xsl:call-template>
+            </xsl:if>
+            <xsl:if test="$invariants">
+              <xsl:call-template name="contractsTable">
+                <xsl:with-param name="title">
+                  <include item="invariantsNameHeader"/>
+                </xsl:with-param>
+                <xsl:with-param name="contracts" select="$invariants"/>
+              </xsl:call-template>
+            </xsl:if>
+          </div>
+          <!--Contracts link-->
+          <div class="contractsLink">
+            <a>
+              <xsl:attribute name="target">
+                <xsl:text>_blank</xsl:text>
+              </xsl:attribute>
+              <xsl:attribute name="href">
+                <xsl:text>http://msdn.microsoft.com/en-us/devlabs/dd491992.aspx</xsl:text>
+              </xsl:attribute>
+              <xsl:text>Learn more about contracts</xsl:text>
+            </a>
+          </div>
+        </xsl:with-param>
+      </xsl:call-template>
+    </xsl:if>
+  </xsl:template>
+
+  <xsl:template name="contractsTable">
+    <xsl:param name="title"/>
+    <xsl:param name="contracts"/>
+    <table width="100%" cellspacing="3" cellpadding="5" frame="lhs" >
+      <tr>
+        <th class="contractsNameColumn">
+          <xsl:copy-of select="$title"/>
+        </th>
+      </tr>
+      <xsl:for-each select="$contracts">
+        <tr>
+          <td>
+            <div class="code" style="margin-bottom: 0pt; white-space: pre-wrap;">
+              <pre xml:space="preserve" style="margin-bottom: 0pt"><xsl:value-of select="."/></pre>
+            </div>
+            <xsl:if test="@description or @inheritedFrom or @exception">
+              <div style="font-size:95%; margin-left: 10pt;
+                        margin-bottom: 0pt">
+              <table 
+               class="contractaux"
+               width="100%" frame="void" rules="none" border="0">
+                <colgroup>
+                  <col width="10%"/>
+                  <col width="90%"/>
+                </colgroup>
+                <xsl:if test="@description">
+                  <tr style="border-bottom: 0px none;">
+                    <td style="border-bottom: 0px none;">
+                      <i><xsl:text>Description: </xsl:text></i>
+                    </td>
+                    <td style="border-bottom: 0px none;">
+                      <xsl:value-of select="@description"/>
+                    </td>
+                  </tr>              
+                </xsl:if>
+                <xsl:if test="@inheritedFrom">
+                  <tr style="border-bottom: 0px none;">
+                    <td style="border-bottom: 0px none;">
+                      <i><xsl:text>Inherited From: </xsl:text></i>
+                    </td>
+                    <td style="border-bottom: 0px none;">
+                      <referenceLink target="{@inheritedFrom}">
+                        <xsl:value-of select="@inheritedFromTypeName"/>
+                      </referenceLink>
+                    </td>
+                  </tr>
+                </xsl:if>
+                <xsl:if test="@exception">
+                  <tr style="border-bottom: 0px none;">
+                    <td style="border-bottom: 0px none;">
+                      <i><xsl:text>Exception: </xsl:text></i>
+                    </td>
+                    <td style="border-bottom: 0px none;">
+                      <referenceLink target="{@exception}" qualified="true" />
+                    </td>
+                  </tr>
+                </xsl:if>
+              </table>
+              </div>
+            </xsl:if>
+          </td>
+        </tr>
+      </xsl:for-each>
+    </table>
+  </xsl:template>
+
   <xsl:template name="permissions">
     <xsl:if test="count(/document/comments/permission) &gt; 0">
       <xsl:call-template name="section">
@@ -331,15 +549,38 @@
 	<xsl:template match="list[@type='bullet']">
 		<ul>
 			<xsl:for-each select="item">
-				<li><xsl:apply-templates /></li>
+				<li>
+                    <xsl:choose>
+                        <xsl:when test="term or description">
+                            <xsl:if test="term">
+                                <b><xsl:apply-templates select="term" /></b><xsl:text> - </xsl:text>
+                            </xsl:if>
+                            <xsl:apply-templates select="description" />
+                        </xsl:when>
+                        <xsl:otherwise><xsl:apply-templates /></xsl:otherwise>
+                    </xsl:choose>
+                </li>
 			</xsl:for-each>
 		</ul>
 	</xsl:template>
 
 	<xsl:template match="list[@type='number']">
 		<ol>
+            <xsl:if test="@start">
+              <xsl:attribute name="start"><xsl:value-of select="@start"/></xsl:attribute>
+            </xsl:if>
 			<xsl:for-each select="item">
-				<li><xsl:apply-templates /></li>
+				<li>
+                    <xsl:choose>
+                        <xsl:when test="term or description">
+                            <xsl:if test="term">
+                                <b><xsl:apply-templates select="term" /></b><xsl:text> - </xsl:text>
+                            </xsl:if>
+                            <xsl:apply-templates select="description" />
+                        </xsl:when>
+                        <xsl:otherwise><xsl:apply-templates /></xsl:otherwise>
+                    </xsl:choose>
+                </li>
 			</xsl:for-each>
 		</ol>
 	</xsl:template>
@@ -357,9 +598,7 @@
 			<xsl:for-each select="item">
 				<tr>
 					<xsl:for-each select="*">
-						<td>
-              <xsl:apply-templates />
-            </td>
+						<td><xsl:apply-templates /></td>
 					</xsl:for-each>
 				</tr>
 			</xsl:for-each>
@@ -367,23 +606,17 @@
     </div>
 	</xsl:template>
 
+	<xsl:template match="list[@type='definition']">
+      <dl class="authored">
+        <xsl:for-each select="item">
+          <dt><xsl:apply-templates select="term" /></dt>
+          <dd><xsl:apply-templates select="description" /></dd>
+        </xsl:for-each>
+      </dl>
+	</xsl:template>
+
 	<!-- inline tags -->
 
-	<!-- Removed 
-  <xsl:template match="see[@cref]">
-    <xsl:choose>
-      <xsl:when test="normalize-space(.)">
-        <referenceLink target="{@cref}">
-          <xsl:value-of select="." />
-        </referenceLink>
-      </xsl:when>
-      <xsl:otherwise>
-        <referenceLink target="{@cref}"/>
-      </xsl:otherwise>
-    </xsl:choose>
-  </xsl:template>
-	-->
-	
 	<!-- MODIFIED TO SUPPORT O: FOR OVERLOADS AND CUSTOM TEXT FOR CREF -->
 	<xsl:template match="see[@cref]">
 		<xsl:choose>
@@ -414,42 +647,56 @@
 		</xsl:choose>
 	</xsl:template>
 
-  <xsl:template match="see[@href]">
-    <xsl:choose>
-      <xsl:when test="normalize-space(.)">
-        <a>
-          <xsl:attribute name="href"><xsl:value-of select="@href"/></xsl:attribute>
-          <xsl:value-of select="." />
-        </a>
-      </xsl:when>
-      <xsl:otherwise>
-        <a>
-          <xsl:attribute name="href"><xsl:value-of select="@href"/></xsl:attribute>
-          <xsl:value-of select="@href" />
-        </a>
-      </xsl:otherwise>
-    </xsl:choose>
-  </xsl:template>
 
-  <xsl:template match="seealso[@href]">
-    <xsl:param name="displaySeeAlso" select="false()" />
-    <xsl:if test="$displaySeeAlso">
-    <xsl:choose>
-      <xsl:when test="normalize-space(.)">
-        <a>
-          <xsl:attribute name="href"><xsl:value-of select="@href"/></xsl:attribute>
-          <xsl:value-of select="." />
-        </a>
-      </xsl:when>
-      <xsl:otherwise>
-        <a>
-          <xsl:attribute name="href"><xsl:value-of select="@href"/></xsl:attribute>
-          <xsl:value-of select="@href" />
-        </a>
-      </xsl:otherwise>
-    </xsl:choose>
-    </xsl:if>
-  </xsl:template>
+    <xsl:template match="see[@href]">
+      <xsl:call-template name="hyperlink">
+        <xsl:with-param name="content" select="."/>
+        <xsl:with-param name="href" select="@href"/>
+        <xsl:with-param name="target" select="@target"/>
+        <xsl:with-param name="alt" select="@alt"/>
+      </xsl:call-template>
+    </xsl:template>
+
+    <xsl:template match="seealso[@href]">
+      <xsl:param name="displaySeeAlso" select="false()" />
+      <xsl:if test="$displaySeeAlso">
+        <xsl:call-template name="hyperlink">
+          <xsl:with-param name="content" select="."/>
+          <xsl:with-param name="href" select="@href"/>
+          <xsl:with-param name="target" select="@target"/>
+          <xsl:with-param name="alt" select="@alt"/>
+        </xsl:call-template>
+      </xsl:if>
+    </xsl:template>
+
+    <xsl:template name="hyperlink">
+      <xsl:param name="content"/>
+      <xsl:param name="href"/>
+      <xsl:param name="target"/>
+      <xsl:param name="alt"/>
+      <a>
+        <xsl:attribute name="href"><xsl:value-of select="$href"/></xsl:attribute>
+        <xsl:choose>
+          <xsl:when test="normalize-space($target)">
+            <xsl:attribute name="target"><xsl:value-of select="normalize-space($target)"/></xsl:attribute>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:attribute name="target">_blank</xsl:attribute>
+          </xsl:otherwise>
+        </xsl:choose>
+        <xsl:if test="normalize-space($alt)">
+          <xsl:attribute name="title"><xsl:value-of select="normalize-space($alt)"/></xsl:attribute>
+        </xsl:if>
+        <xsl:choose>
+          <xsl:when test="normalize-space($content)">
+            <xsl:value-of select="$content" />
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:value-of select="$href" />
+          </xsl:otherwise>
+        </xsl:choose>
+      </a>
+    </xsl:template>
 
   <xsl:template match="see[@langword]">
     <span class="keyword">
@@ -573,6 +820,21 @@
           <xsl:apply-templates select="/document/comments/value" />
           <xsl:apply-templates select="/document/comments/returns" />
           <xsl:apply-templates select="/document/reference/implements" />
+          <!-- usage note for extension methods -->
+          <xsl:if test="/document/reference/attributes/attribute/type[@api='T:System.Runtime.CompilerServices.ExtensionAttribute'] and boolean($api-subgroup='method')">
+            <xsl:call-template name="subSection">
+              <xsl:with-param name="title">
+                <include item="extensionUsageTitle" />
+              </xsl:with-param>
+              <xsl:with-param name="content">
+                <include item="extensionUsageText">
+                  <parameter>
+                    <xsl:apply-templates select="/document/reference/parameters/parameter[1]/type" mode="link" />
+                  </parameter>
+                </include>
+              </xsl:with-param>
+            </xsl:call-template>
+          </xsl:if>
         </xsl:with-param>
       </xsl:call-template>
     </xsl:if>
@@ -624,16 +886,134 @@
   </xsl:template>
 
   <xsl:template match="note">
+    <xsl:variable name="title">
+      <xsl:choose>
+        <xsl:when test="@type='note'">
+          <xsl:text>noteTitle</xsl:text>
+        </xsl:when>
+        <xsl:when test="@type='tip'">
+          <xsl:text>tipTitle</xsl:text>
+        </xsl:when>
+        <xsl:when test="@type='caution' or @type='warning'">
+          <xsl:text>cautionTitle</xsl:text>
+        </xsl:when>
+        <xsl:when test="@type='security' or @type='security note'">
+          <xsl:text>securityTitle</xsl:text>
+        </xsl:when>
+        <xsl:when test="@type='important'">
+          <xsl:text>importantTitle</xsl:text>
+        </xsl:when>
+        <xsl:when test="@type='vb' or @type='VB' or @type='VisualBasic' or @type='visual basic note'">
+          <xsl:text>visualBasicTitle</xsl:text>
+        </xsl:when>
+        <xsl:when test="@type='cs' or @type='CSharp' or @type='c#' or @type='C#' or @type='visual c# note'">
+          <xsl:text>visualC#Title</xsl:text>
+        </xsl:when>
+        <xsl:when test="@type='cpp' or @type='c++' or @type='C++' or @type='CPP' or @type='visual c++ note'">
+          <xsl:text>visualC++Title</xsl:text>
+        </xsl:when>
+        <xsl:when test="@type='JSharp' or @type='j#' or @type='J#' or @type='visual j# note'">
+          <xsl:text>visualJ#Title</xsl:text>
+        </xsl:when>
+        <xsl:when test="@type='implement'">
+          <xsl:text>NotesForImplementers</xsl:text>
+        </xsl:when>
+        <xsl:when test="@type='caller'">
+          <xsl:text>NotesForCallers</xsl:text>
+        </xsl:when>
+        <xsl:when test="@type='inherit'">
+          <xsl:text>NotesForInheritors</xsl:text>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:text>noteTitle</xsl:text>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+    <xsl:variable name="altTitle">
+      <xsl:choose>
+        <xsl:when test="@type='note' or @type='implement' or @type='caller' or @type='inherit'">
+          <xsl:text>noteAltText</xsl:text>
+        </xsl:when>
+        <xsl:when test="@type='tip'">
+          <xsl:text>tipAltText</xsl:text>
+        </xsl:when>
+        <xsl:when test="@type='caution' or @type='warning'">
+          <xsl:text>cautionAltText</xsl:text>
+        </xsl:when>
+        <xsl:when test="@type='security' or @type='security note'">
+          <xsl:text>securityAltText</xsl:text>
+        </xsl:when>
+        <xsl:when test="@type='important'">
+          <xsl:text>importantAltText</xsl:text>
+        </xsl:when>
+        <xsl:when test="@type='vb' or @type='VB' or @type='VisualBasic' or @type='visual basic note'">
+          <xsl:text>visualBasicAltText</xsl:text>
+        </xsl:when>
+        <xsl:when test="@type='cs' or @type='CSharp' or @type='c#' or @type='C#' or @type='visual c# note'">
+          <xsl:text>visualC#AltText</xsl:text>
+        </xsl:when>
+        <xsl:when test="@type='cpp' or @type='c++' or @type='C++' or @type='CPP' or @type='visual c++ note'">
+          <xsl:text>visualC++AltText</xsl:text>
+        </xsl:when>
+        <xsl:when test="@type='JSharp' or @type='j#' or @type='J#' or @type='visual j# note'">
+          <xsl:text>visualJ#AltText</xsl:text>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:text>noteAltText</xsl:text>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+    <xsl:variable name="noteImg">
+      <xsl:choose>
+        <xsl:when test="@type='note' or @type='tip' or @type='implement' or @type='caller' or @type='inherit'">
+          <xsl:text>alert_note.gif</xsl:text>
+        </xsl:when>
+        <xsl:when test="@type='caution' or @type='warning'">
+          <xsl:text>alert_caution.gif</xsl:text>
+        </xsl:when>
+        <xsl:when test="@type='security' or @type='security note'">
+          <xsl:text>alert_security.gif</xsl:text>
+        </xsl:when>
+        <xsl:when test="@type='important'">
+          <xsl:text>alert_caution.gif</xsl:text>
+        </xsl:when>
+        <xsl:when test="@type='vb' or @type='VB' or @type='VisualBasic' or @type='visual basic note'">
+          <xsl:text>alert_note.gif</xsl:text>
+        </xsl:when>
+        <xsl:when test="@type='cs' or @type='CSharp' or @type='c#' or @type='C#' or @type='visual c# note'">
+          <xsl:text>alert_note.gif</xsl:text>
+        </xsl:when>
+        <xsl:when test="@type='cpp' or @type='c++' or @type='C++' or @type='CPP' or @type='visual c++ note'">
+          <xsl:text>alert_note.gif</xsl:text>
+        </xsl:when>
+        <xsl:when test="@type='JSharp' or @type='j#' or @type='J#' or @type='visual j# note'">
+          <xsl:text>alert_note.gif</xsl:text>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:text>alert_note.gif</xsl:text>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
     <div class="alert">
-      <img>
-        <includeAttribute item="iconPath" name="src">
-          <parameter>alert_note.gif</parameter>
-        </includeAttribute>
-        <includeAttribute name="title" item="noteAltText" />
-      </img>
-      <xsl:text> </xsl:text>
-      <include item="noteTitle" />
-      <xsl:apply-templates />
+      <table>
+        <tr>
+          <th><img>
+            <includeAttribute item="iconPath" name="src">
+              <parameter>
+                <xsl:value-of select="$noteImg"/>
+              </parameter>
+            </includeAttribute>
+            <includeAttribute name="title" item="{$altTitle}" />
+          </img>
+          <xsl:text> </xsl:text>
+          <include item="{$title}" /></th>
+        </tr>
+        <tr>
+          <td>
+            <xsl:apply-templates />
+          </td>
+        </tr>
+      </table>
     </div>
   </xsl:template>
 
@@ -648,7 +1028,7 @@
   <xsl:template name="createReferenceLink">
     <xsl:param name="id" />
     <xsl:param name="qualified" select="false()" />
-    
+
       <referenceLink target="{$id}" qualified="{$qualified}" />
     
   </xsl:template>
@@ -714,6 +1094,7 @@
           <includeAttribute name="src" item="iconPath">
             <parameter>footer.gif</parameter>
           </includeAttribute>
+          <includeAttribute name="alt" item="footerImage" />
           <includeAttribute name="title" item="footerImage" />
         </img>
       </div>
@@ -734,4 +1115,50 @@
       </include>
     </div>
   </xsl:template>
+  
+  <!-- Bibliography -->
+  <xsl:key name="citations" match="//cite" use="text()" />
+ 
+  <xsl:variable name="hasCitations" select="boolean(count(//cite) > 0)"/>
+ 
+  <xsl:template match="cite">
+    <xsl:variable name="currentCitation" select="text()"/>
+    <xsl:for-each select="//cite[generate-id(.)=generate-id(key('citations',text()))]"> <!-- Distinct citations only -->
+      <xsl:if test="$currentCitation=.">
+        <xsl:choose>
+          <xsl:when test="document($bibliographyData)/bibliography/reference[@name=$currentCitation]">
+            <sup class="citation"><a><xsl:attribute name="href">#cite<xsl:value-of select="position()"/></xsl:attribute>[<xsl:value-of select="position()"/>]</a></sup>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:apply-templates/>
+          </xsl:otherwise>
+        </xsl:choose>
+      </xsl:if>
+    </xsl:for-each>
+  </xsl:template>
+ 
+  <xsl:template name="bibliography">
+    <xsl:if test="$hasCitations">
+      <xsl:call-template name="section">
+        <xsl:with-param name="toggleSwitch" select="'cite'" />
+        <xsl:with-param name="title"><include item="bibliographyTitle"/></xsl:with-param>
+        <xsl:with-param name="content">
+          <xsl:call-template name="autogenBibliographyLinks"/>
+        </xsl:with-param>
+      </xsl:call-template>
+    </xsl:if>
+  </xsl:template>
+ 
+  <xsl:template name="autogenBibliographyLinks">
+    <xsl:for-each select="//cite[generate-id(.)=generate-id(key('citations',text()))]"> <!-- Distinct citations only -->
+      <xsl:variable name="citation" select="."/>
+      <xsl:variable name="entry" select="document($bibliographyData)/bibliography/reference[@name=$citation]"/>
+ 
+      <xsl:call-template name="bibliographyReference">
+        <xsl:with-param name="number" select="position()"/>
+        <xsl:with-param name="data" select="$entry"/>
+      </xsl:call-template>
+    </xsl:for-each>
+  </xsl:template>
+  
 </xsl:stylesheet>
