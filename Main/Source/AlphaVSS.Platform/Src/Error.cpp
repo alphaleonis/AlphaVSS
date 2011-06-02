@@ -41,7 +41,9 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
       case E_NOTIMPL:
          return gcnew NotImplementedException();
       case E_UNEXPECTED:
+#if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WINVISTAORLATER
       case VSS_E_UNEXPECTED:
+#endif
          return gcnew VssUnexpectedErrorException();
       case VSS_E_INVALID_XML_DOCUMENT:
          return gcnew VssInvalidXmlDocumentException();
