@@ -1048,7 +1048,8 @@ namespace AlphaShadow
 
          m_backupComponents.RevertToSnapshot(snapshot.SnapshotId, true);
 
-         m_backupComponents.QueryRevertStatus(snapshot.OriginalVolumeName);
+         IVssAsyncResult ar = m_backupComponents.BeginQueryRevertStatus(snapshot.OriginalVolumeName, null, null);
+         m_backupComponents.EndQueryRevertStatus(ar);
 
          Host.WriteLine("The shadow copy has been successfully reverted.");
       }

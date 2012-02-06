@@ -606,17 +606,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
       }
    }
 
-   void VssBackupComponents::QueryRevertStatus(String^ volume)
-   {
-#if ALPHAVSS_TARGET == ALPHAVSS_TARGET_WIN2003 || ALPHAVSS_TARGET == ALPHAVSS_TARGET_WINVISTAORLATER
-      OperatingSystemInfo::RequireServerOrClientAtLeast(OSVersionName::WindowsServer2003, 1, OSVersionName::WindowsVista, 1);
-      ::IVssAsync *pAsync;
-      CheckCom(m_backup->QueryRevertStatus(NoNullAutoMStr(volume), &pAsync));
-      WaitCheckAndReleaseVssAsyncOperation(pAsync);
-#else
-      UnsupportedOs();
-#endif
-   }
+
 
    IVssAsyncResult^ VssBackupComponents::BeginQueryRevertStatus(String^ volume, AsyncCallback^ userCallback, Object^ stateObject)
    {

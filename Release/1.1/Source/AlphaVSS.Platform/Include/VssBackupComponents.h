@@ -111,7 +111,6 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
       virtual System::Collections::Generic::IEnumerable<VssSnapshotProperties^> ^QuerySnapshots();
       virtual System::Collections::Generic::IEnumerable<VssProviderProperties^> ^QueryProviders();
       
-      virtual void QueryRevertStatus(String^ volumeName);
       virtual IVssAsyncResult^ BeginQueryRevertStatus(String^ volumeName, AsyncCallback^ userCallback, Object^ stateObject);
       virtual void EndQueryRevertStatus(IAsyncResult ^asyncResult);      
 

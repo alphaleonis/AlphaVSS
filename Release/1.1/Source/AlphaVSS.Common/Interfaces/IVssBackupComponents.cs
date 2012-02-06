@@ -1137,32 +1137,43 @@ namespace Alphaleonis.Win32.Vss
       IEnumerable<VssProviderProperties> QueryProviders();
 
       /// <summary>
-      /// 	The <see cref="QueryRevertStatus"/> method returns an <see cref="IVssAsync"/> instance that can be used to determine the status of 
-      /// 	the revert operation.
-      /// </summary>
+      /// The <see cref="BeginQueryRevertStatus"/> method begins an asynchronous operation to determine the status of the revert operation. The 
+      /// returned <see cref="IVssAsyncResult"/> can be used to determine the outcome of the operation.
+      /// </summary>      
+      /// <param name="userCallback">An optional asynchronous callback, to be called when the operation is complete.</param>
+      /// <param name="state">A user-provided object that distinguishes this particular asynchronous read request from other requests.</param>
+      /// <returns>
+      /// An <see cref="IVssAsyncResult"/> instance that represents this asynchronous operation.
+      /// </returns>
       /// <param name="volumeName">Name of the volume. The name of the volume to be checked must be in one of the following formats:
       /// <list type="bullet">
       /// <item><description>The path of a volume mount point with a backslash (\)</description></item>
       /// <item><description>A drive letter with backslash (\), for example, D:\</description></item>
       /// <item><description>A unique volume name of the form \\?\Volume{GUID}\ (where GUID is the unique global identifier of the volume) with a backslash (\)</description></item>
       /// </list></param>
-      /// <returns>A <see cref="IVssAsync"/> instance representing this asynchronous operation.</returns>
+      /// <returns>An <see cref="IVssAsyncResult"/> instance that can be used to determine the status of the revert operation.</returns>
       /// <remarks>
       /// 	The revert operation will continue even if the computer is rebooted, and cannot be canceled or undone, except by restoring a 
       /// 	backup created using another method.
       /// <note><b>Windows XP, Windows Server 2003 and Windows Vista:</b> This method requires Windows Server 2008 or Windows Server 2003 SP1</note>
+      /// </remarks>
+      IVssAsyncResult BeginQueryRevertStatus(string volumeName, AsyncCallback userCallback, object state);
+
+      /// <summary>
+      /// Waits for a pending asynchronous operation to complete.
+      /// </summary>
+      /// <remarks>
+      /// <b>EndQueryRevertStatus</b> can be called once on every <see cref="IVssAsyncResult"/> from <see cref="BeginQueryRevertStatus"/>.
       /// </remarks>
       /// <exception cref="ArgumentException">One of the parameter values is not valid.</exception>
       /// <exception cref="UnauthorizedAccessException">The calling process has insufficient privileges.</exception>
       /// <exception cref="OutOfMemoryException">Out of memory or other system resources.</exception>
       /// <exception cref="SystemException">Unexpected VSS system error. The error code is logged in the event log.</exception>
       /// <exception cref="VssBadStateException">The backup components object is not initialized, this method has been called during a restore operation, or this method has not been called within the correct sequence.</exception>		
-      /// <exception cref="VssObjectNotFoundException">The <paramref name="volumeName"/> parameter is not a valid volume.</exception>
+      /// <exception cref="VssObjectNotFoundException">The specified parameter is not a valid volume.</exception>
       /// <exception cref="VssVolumeNotSupportedException">Revert is not supported on this volume.</exception>
       /// <exception cref="NotImplementedException">The provider for the volume does not support revert operations.</exception>
       /// <exception cref="NotSupportedException">This operation is not supported on the current operating system.</exception>
-      void QueryRevertStatus(string volumeName);
-      IVssAsyncResult BeginQueryRevertStatus(string volumeName, AsyncCallback userCallback, object state);
       void EndQueryRevertStatus(IAsyncResult asyncResult);
 
       /// <summary>
@@ -1857,7 +1868,7 @@ namespace Alphaleonis.Win32.Vss
       /// <remarks>
       ///     <para>
       ///         This method is similar to <see cref="BreakSnapshotSet(System.Guid)"/>, except that is has an extra parameter to specify
-      ///         how the shadow copy set is broken, and returns an <see cref="IVssAsync"/> object to query the status of the operation.
+      ///         how the shadow copy set is broken.
       ///     </para>
       ///     <para>
       ///         Like <see cref="BreakSnapshotSet(System.Guid)"/>, this method can be used only for shadow copies that were created by 
@@ -1868,13 +1879,43 @@ namespace Alphaleonis.Win32.Vss
       ///         For more information, see <see href="http://msdn.microsoft.com/en-us/library/aa381505(VS.85).aspx">Breaking Shadow Copies</see>.
       ///     </para>
       /// </remarks>
-      /// <returns>
-      ///     An <see cref="IVssAsync"/> instance that can be used to retrieve the status of the shadow copy set break operation. 
-      ///     When the break operation is complete, the <c>Dispose</c> method of the <see cref="IVssAsync"/> instance must be called.
-      /// </returns>
       [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1726:UsePreferredTerms", MessageId = "Flags")]
       void BreakSnapshotSet(Guid snapshotSetId, VssHardwareOptions breakFlags);
+
+
+      /// <summary>
+      /// Begins an asynchronous operation to break a shadow copy set according to requester-specified options.
+      /// </summary>
+      /// <param name="snapshotSetId">A shadow copy set identifier.</param>
+      /// <param name="breakFlags">A bitmask of <see cref="VssHardwareOptions"/> flags that specify how the shadow copy set is broken.</param>
+      /// <remarks>
+      ///     <para>
+      ///         This method is similar to <see cref="BreakSnapshotSet(System.Guid)"/>, except that is has an extra parameter to specify
+      ///         how the shadow copy set is broken.
+      ///     </para>
+      ///     <para>
+      ///         Like <see cref="BreakSnapshotSet(System.Guid)"/>, this method can be used only for shadow copies that were created by 
+      ///         a hardware shadow copy provider.
+      ///     </para>
+      ///     <para>
+      ///         After this method returns, the shadow copy volume is still a volume, but it is no longer a shadow copy. 
+      ///         For more information, see <see href="http://msdn.microsoft.com/en-us/library/aa381505(VS.85).aspx">Breaking Shadow Copies</see>.
+      ///     </para>
+      /// </remarks>
+      /// <param name="userCallback">An optional asynchronous callback, to be called when the read is complete.</param>
+      /// <param name="state">A user-provided object that distinguishes this particular asynchronous read request from other requests.</param>
+      /// <returns>
+      /// An <see cref="IVssAsyncResult"/> instance that represents this asynchronous operation.
+      /// </returns>
       IVssAsyncResult BeginBreakSnapshotSet(Guid snapshotSetId, VssHardwareOptions breakFlags, AsyncCallback userCallback, object state);
+
+      /// <summary>
+      /// Waits for an asynchronous operation to complete.
+      /// </summary>
+      /// <remarks>
+      /// <b>EndBreakSnapshotSet</b> can be called once on every <see cref="IVssAsyncResult"/> from <see cref="BeginBreakSnapshotSet"/>.
+      /// </remarks>
+      /// <param name="asyncResult">The reference to the pending asynchronous request to finish. </param>      
       void EndBreakSnapshotSet(IAsyncResult asyncResult);
 
       /// <summary>
@@ -2100,8 +2141,6 @@ namespace Alphaleonis.Win32.Vss
       /// Initiates a LUN resynchronization operation. This method is supported only on Windows server operating systems.
       /// </summary>
       /// <param name="options"><see cref="VssRecoveryOptions"/> flags that specify how the resynchronization is to be performed.</param>
-      /// <returns>An <see cref="IVssAsync"/> instance that can be used to retrieve the status of the LUN resynchronization operation.
-      /// When the operation is complete, the <c>Dispose</c> method of the <see cref="IVssAsync"/> instance must be called.</returns>
       /// <exception cref="ArgumentException">One of the parameter values is not valid.</exception>
       /// <exception cref="UnauthorizedAccessException">The caller does not have sufficient backup privileges or is not an administrator.</exception>
       /// <exception cref="OutOfMemoryException">Out of memory or other system resources.</exception>
@@ -2126,7 +2165,61 @@ namespace Alphaleonis.Win32.Vss
       ///     </para>
       /// </remarks>
       void RecoverSet(VssRecoveryOptions options);
+
+
+      /// <summary>
+      /// Begins an asynchronous operation that initiates a LUN resynchronization operation. This method is supported only on Windows server operating systems.
+      /// </summary>
+      /// <param name="options"><see cref="VssRecoveryOptions"/> flags that specify how the resynchronization is to be performed.</param>
+      /// <param name="userCallback">An optional asynchronous callback, to be called when the read is complete.</param>
+      /// <param name="state">A user-provided object that distinguishes this particular asynchronous read request from other requests.</param>
+      /// <returns>
+      /// An <see cref="IVssAsyncResult"/> instance that represents this asynchronous operation.
+      /// </returns>
+      /// <remarks>
+      ///   <para>
+      /// Pass the <see cref="IVssAsyncResult"/> value returned to the <see cref="EndRecoverSet"/> method to release operating system resources used for this asynchronous operation.
+      ///   <see cref="EndRecoverSet"/> must be called once for every call to <see cref="BeginRecoverSet"/>. You can do this either by using the same code that called <b>BeginRecoverSet</b> or
+      /// in a callback passed to <b>BeginRecoverSet</b>.
+      ///   </para>
+      ///   <para>
+      ///   <note>
+      ///   <b>Windows XP, Windows 2003, Windows Vista, Windows 2008, Windows 7:</b> This method requires Windows Server 2008 R2.
+      ///   </note>
+      ///   </para>
+      /// </remarks>
       IVssAsyncResult BeginRecoverSet(VssRecoveryOptions options, AsyncCallback userCallback, object state);
+
+      /// <summary>
+      /// Waits for a pending asynchronous operation to complete.
+      /// </summary>
+      /// <remarks>
+      /// <b>EndRecoverSet</b> can be called once on every <see cref="IVssAsyncResult"/> from <see cref="BeginRecoverSet"/>.
+      /// </remarks>
+      /// <param name="asyncResult">The reference to the pending asynchronous request to finish. </param>
+      /// /// <exception cref="ArgumentException">One of the parameter values is not valid.</exception>
+      /// <exception cref="UnauthorizedAccessException">The caller does not have sufficient backup privileges or is not an administrator.</exception>
+      /// <exception cref="OutOfMemoryException">Out of memory or other system resources.</exception>
+      /// <exception cref="NotImplementedException">The provider for the volume does not support LUN resynchronization.</exception>
+      /// <exception cref="VssBadStateException">Possible reasons for this return value include:
+      ///		<list type="bullet">
+      ///			<item><description>There is no hardware provider that supports the operation.</description></item>
+      ///			<item><description>The requester did not successfully add any volumes to the recovery set.</description></item>
+      ///			<item><description>The method was called in WinPE or in Safe mode.</description></item>
+      ///			<item><description>he caller did not call the <see cref="InitializeForRestore"/> method before calling this method.</description></item>
+      ///		</list>
+      /// </exception>
+      /// <exception cref="VssLegacyProviderException">This version of the hardware provider does not support this operation.</exception>
+      /// <exception cref="VssProviderVetoException">An unexpected provider error occurred. If this error code is returned, the error must be described in an entry in the application event log, giving the user information on how to resolve the problem.</exception>
+      /// <exception cref="VssUnselectedVolumeException">The resynchronization destination contained a volume that was not explicitly included.</exception>
+      /// <exception cref="VssCannotRevertDiskIdException">The MBR signature or GPT ID for one or more disks could not be set to the intended value. Check the Application event log for more information.</exception>
+      /// <remarks>
+      ///     <para>
+      ///         <note>
+      ///             <b>Windows XP, Windows 2003, Windows Vista, Windows 2008, Windows 7:</b> This method requires Windows Server 2008 R2.
+      ///         </note>
+      ///     </para>
+      /// </remarks>
       void EndRecoverSet(IAsyncResult asyncResult);
       #endregion
    }
