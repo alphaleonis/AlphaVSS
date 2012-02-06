@@ -1,4 +1,4 @@
-﻿/* Copyright (c) 2008-2011 Peter Palotas
+/* Copyright (c) 2008-2012 Peter Palotas
  *  
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -37,3 +37,4 @@ using System.Resources;
 
 [assembly: AssemblyVersion("1.1.3000.1")]
 [assembly: AssemblyFileVersion("1.1.3000.1")]
+

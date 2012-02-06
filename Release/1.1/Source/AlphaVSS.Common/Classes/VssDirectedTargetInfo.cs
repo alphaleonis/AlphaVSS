@@ -1,4 +1,4 @@
-/* Copyright (c) 2008-2011 Peter Palotas
+/* Copyright (c) 2008-2012 Peter Palotas
  *  
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -28,7 +28,7 @@ namespace Alphaleonis.Win32.Vss
    ///		and/or ranges of its data restored to different locations with the restore target.
    /// </summary>
    [Serializable]
-   public sealed class VssDirectedTargetInfo
+   public class VssDirectedTargetInfo
    {
       /// <summary>Initializes a new instance of the <see cref="VssDirectedTargetInfo"/> class.</summary>
       /// <param name="sourcePath">The source path.</param>

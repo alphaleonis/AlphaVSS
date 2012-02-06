@@ -1,4 +1,4 @@
-/* Copyright (c) 2008-2011 Peter Palotas
+/* Copyright (c) 2008-2012 Peter Palotas
  *  
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -132,7 +132,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 #if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WIN2003
 		return m_selectableForRestore;
 #else
-		throw gcnew NotSupportedException(L"This method requires Windows Server 2003 or later");
+		return false;
 #endif
 	}
 
@@ -141,56 +141,56 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 #if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WIN2003
 		return m_componentFlags;
 #else
-		throw gcnew NotSupportedException(L"This method requires Windows Server 2003 or later");
+		return VssComponentFlags::None;
 #endif
 	}
 
-	IList<VssWMFileDescription^>^ VssWMComponent::Files::get()
+	IList<VssWMFileDescriptor^>^ VssWMComponent::Files::get()
 	{
 		if (m_files != nullptr)
 			return m_files;
 
-		List<VssWMFileDescription^>^ list = gcnew List<VssWMFileDescription^>(m_fileCount);
+		List<VssWMFileDescriptor^>^ list = gcnew List<VssWMFileDescriptor^>(m_fileCount);
 
 		for (UINT i = 0; i < m_fileCount; i++)
 		{
 			IVssWMFiledesc *filedesc;
 			CheckCom(m_component->GetFile(i, &filedesc));
-			list->Add(CreateVssWMFileDescription(filedesc));
+			list->Add(CreateVssWMFileDescriptor(filedesc));
 		}
 		m_files = list->AsReadOnly();
 		return m_files;
 	}
 
-	IList<VssWMFileDescription^>^ VssWMComponent::DatabaseFiles::get()
+	IList<VssWMFileDescriptor^>^ VssWMComponent::DatabaseFiles::get()
 	{
 		if (m_databaseFiles != nullptr)
 			return m_databaseFiles;
 
-		List<VssWMFileDescription^>^ list = gcnew List<VssWMFileDescription^>(m_databaseFileCount);
+		List<VssWMFileDescriptor^>^ list = gcnew List<VssWMFileDescriptor^>(m_databaseFileCount);
 
 		for (UINT i = 0; i < m_databaseFileCount; i++)
 		{
 			IVssWMFiledesc *filedesc;
 			CheckCom(m_component->GetDatabaseFile(i, &filedesc));
-			list->Add(CreateVssWMFileDescription(filedesc));
+			list->Add(CreateVssWMFileDescriptor(filedesc));
 		}
 		m_databaseFiles = list->AsReadOnly();
 		return m_databaseFiles;
 	}
 
-	IList<VssWMFileDescription^>^ VssWMComponent::DatabaseLogFiles::get()
+	IList<VssWMFileDescriptor^>^ VssWMComponent::DatabaseLogFiles::get()
 	{
 		if (m_databaseLogFiles != nullptr)
 			return m_databaseLogFiles;
 
-		List<VssWMFileDescription^>^ list = gcnew List<VssWMFileDescription^>(m_databaseLogFileCount);
+		List<VssWMFileDescriptor^>^ list = gcnew List<VssWMFileDescriptor^>(m_databaseLogFileCount);
 
 		for (UINT i = 0; i < m_databaseLogFileCount; i++)
 		{
 			IVssWMFiledesc *filedesc;
 			CheckCom(m_component->GetDatabaseLogFile(i, &filedesc));
-			list->Add(CreateVssWMFileDescription(filedesc));
+			list->Add(CreateVssWMFileDescriptor(filedesc));
 		}
 		m_databaseLogFiles = list->AsReadOnly();
 		return m_databaseLogFiles;
@@ -214,7 +214,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		m_dependencies = list->AsReadOnly();
 		return m_dependencies;
 #else
-		throw gcnew NotSupportedException(L"This method requires Windows Server 2003 or later");
+		return new List<VssVMDependency^>^();
 #endif
 	}
 

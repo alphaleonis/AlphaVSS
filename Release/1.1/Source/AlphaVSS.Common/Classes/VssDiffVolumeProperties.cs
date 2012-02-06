@@ -1,4 +1,4 @@
-/* Copyright (c) 2008-2011 Peter Palotas
+/* Copyright (c) 2008-2012 Peter Palotas
  *  
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -26,7 +26,7 @@ namespace Alphaleonis.Win32.Vss
    /// The <see cref="VssDiffVolumeProperties"/> structure describes a shadow copy storage area volume.
    /// </summary>
    [Serializable]
-   public sealed class VssDiffVolumeProperties
+   public class VssDiffVolumeProperties
    {
       /// <summary>
       /// Initializes a new instance of the <see cref="VssDiffVolumeProperties"/> class.

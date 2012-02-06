@@ -1,4 +1,4 @@
-/* Copyright (c) 2008-2011 Peter Palotas
+/* Copyright (c) 2008-2012 Peter Palotas
  *  
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -25,27 +25,26 @@ using System.Collections.Generic;
 namespace Alphaleonis.Win32.Vss
 {
    /// <summary>
-   /// 	<para>
-   /// 		The <see cref="IVssBackupComponents"/> class is used by a requester to poll writers about file status and to run backup/restore operations.
-   /// 	</para>
+   /// The <see cref="IVssBackupComponents"/> class is used by a requester to poll writers about file status and to run backup/restore operations.
    /// </summary>
-   /// <remarks>
-   /// 	<para>
-   /// 		A <see cref="IVssBackupComponents"/> object can be used for only a single backup, restore, or Query operation.
-   /// 	</para>
-   /// 	<para>
-   /// 		After the backup, restore, or Query operation has either successfully finished or been explicitly terminated, a requester must 
-   /// 		release the <see cref="IVssBackupComponents"/> object by calling <c>Dispose()</c>. 
-   /// 		A <see cref="IVssBackupComponents"/> object must not be reused. For example, you cannot perform a backup or restore operation with the 
-   /// 		same <see cref="IVssBackupComponents"/> object that you have already used for a Query operation.
-   /// 	</para>
-   /// 	<para>
-   /// 	    For information on how to retrieve an instance of <see cref="IVssBackupComponents"/> for the current operating system, see 
-   /// 	    <see cref="VssUtils"/> and <see cref="IVssImplementation"/>.
-   /// 	</para>
-   /// </remarks>
    /// <seealso cref="VssUtils"/>
+   ///   
    /// <seealso cref="IVssImplementation"/>
+   /// <remarks>
+   ///   <para>
+   /// A <see cref="IVssBackupComponents"/> object can be used for only a single backup, restore, or Query operation.
+   ///   </para>
+   ///   <para>
+   /// After the backup, restore, or Query operation has either successfully finished or been explicitly terminated, a requester must
+   /// release the <see cref="IVssBackupComponents"/> object by calling <c>Dispose()</c>.
+   /// A <see cref="IVssBackupComponents"/> object must not be reused. For example, you cannot perform a backup or restore operation with the
+   /// same <see cref="IVssBackupComponents"/> object that you have already used for a Query operation.
+   ///   </para>
+   ///   <para>
+   /// For information on how to retrieve an instance of <see cref="IVssBackupComponents"/> for the current operating system, see
+   ///   <see cref="VssUtils"/> and <see cref="IVssImplementation"/>.
+   ///   </para>
+   /// </remarks>
    public interface IVssBackupComponents : IDisposable
    {
       #region IVssBackupComponents members 
@@ -284,15 +283,44 @@ namespace Alphaleonis.Win32.Vss
       Guid AddToSnapshotSet(string volumeName);
 
       /// <summary>
-      /// The <see cref="BackupComplete"/> method causes VSS to generate a <b>BackupComplete</b> event, which signals writers that the backup 
+      /// This method causes VSS to generate a <b>BackupComplete</b> event, which signals writers that the backup 
       /// process has completed. 
       /// </summary>
-      /// <returns>A <see cref="IVssAsync"/> instance representing this operation.</returns>
       /// <exception cref="OutOfMemoryException">Out of memory or other system resources.</exception>
       /// <exception cref="SystemException">Unexpected VSS system error. The error code is logged in the event log.</exception>
       /// <exception cref="VssBadStateException">The backup components object is not initialized, this method has been called during a restore operation, or this method has not been called within the correct sequence.</exception>
       /// <exception cref="VssUnexpectedWriterErrorException">An unexpected error occurred during communication with writers. The error code is logged in the error log file.</exception>
-      IVssAsync BackupComplete();
+      void BackupComplete();
+
+      /// <summary>
+      /// This method asynchronously causes VSS to generate a <b>BackupComplete</b> event, which signals writers that the backup
+      /// process has completed.
+      /// </summary>
+      /// <remarks>
+      /// Pass the <see cref="IVssAsyncResult"/> value returned to the <see cref="EndBackupComplete"/> method to release operating system resources used for this asynchronous operation. 
+      /// <see cref="EndBackupComplete"/> must be called once for every call to <see cref="BeginBackupComplete"/>. You can do this either by using the same code that called <b>BeginBackupComplete</b> or 
+      /// in a callback passed to <b>BeginBackupComplete</b>.
+      /// </remarks>
+      /// <param name="userCallback">An optional asynchronous callback, to be called when the read is complete.</param>
+      /// <param name="state">A user-provided object that distinguishes this particular asynchronous read request from other requests.</param>
+      /// <returns>
+      /// An <see cref="IVssAsyncResult"/> instance that represents this asynchronous operation.
+      /// </returns>
+      IVssAsyncResult BeginBackupComplete(AsyncCallback userCallback, object state);
+
+      /// <summary>
+      /// Waits for a pending asynchronous operation to complete.
+      /// </summary>
+      /// <remarks>
+      /// <b>EndBackupComplete</b> can be called once on every <see cref="IVssAsyncResult"/> from <see cref="BeginBackupComplete"/>.
+      /// </remarks>
+      /// <param name="asyncResult">The reference to the pending asynchronous request to finish. </param>
+      /// <exception cref="OutOfMemoryException">Out of memory or other system resources.</exception>
+      /// <exception cref="SystemException">Unexpected VSS system error. The error code is logged in the event log.</exception>
+      /// <exception cref="VssBadStateException">The backup components object is not initialized, this method has been called during a restore operation, or this method has not been called within the correct sequence.</exception>
+      /// <exception cref="VssUnexpectedWriterErrorException">An unexpected error occurred during communication with writers. The error code is logged in the error log file.</exception>
+      void EndBackupComplete(IAsyncResult asyncResult);
+
 
       /// <overloads>
       /// <summary>
@@ -394,15 +422,14 @@ namespace Alphaleonis.Win32.Vss
       /// <summary>
       /// Commits all shadow copies in this set simultaneously. 
       /// </summary>
-      /// <returns>A <see cref="IVssAsync"/> instance representing this asynchronous operation.</returns>
       /// <exception cref="UnauthorizedAccessException">The caller does not have sufficient backup privileges or is not an administrator.</exception>
       /// <exception cref="OutOfMemoryException">Out of memory or other system resources.</exception>
       /// <exception cref="SystemException">Unexpected VSS system error. The error code is logged in the event log.</exception>
       /// <exception cref="VssBadStateException">The backup components object has not been initialized or the prerequisite calls for a given shadow copy context have not been made prior to calling <b>DoSnapshotSet</b>. </exception>
-      /// <exception cref="VssInsufficientStorageException">The system or provider has insufficient storage space. If possible delete any old or unnecessary persistent shadow copies and try again. This error code is only returned via the QueryStatus method on the <see cref="IVssAsync"/>.</exception>
+      /// <exception cref="VssInsufficientStorageException">The system or provider has insufficient storage space. If possible delete any old or unnecessary persistent shadow copies and try again.</exception>
       /// <exception cref="VssFlushWritesTimeoutException">The system was unable to flush I/O writes. This can be a transient problem. It is recommended to wait ten minutes and try again, up to three times.</exception>
       /// <exception cref="VssHoldWritesTimeoutException">The system was unable to hold I/O writes. This can be a transient problem. It is recommended to wait ten minutes and try again, up to three times.</exception>
-      /// <exception cref="VssProviderVetoException">The provider was unable to perform the request at this time. This can be a transient problem. It is recommended to wait ten minutes and try again, up to three times. This error code is only returned via the <see cref="IVssAsync.QueryStatus"/> method on the <see cref="IVssAsync"/> instance returned by this method.</exception>
+      /// <exception cref="VssProviderVetoException">The provider was unable to perform the request at this time. This can be a transient problem. It is recommended to wait ten minutes and try again, up to three times.</exception>
       /// <exception cref="VssRebootRequiredException">
       ///		<para>
       ///			The provider encountered an error that requires the user to restart the computer.
@@ -427,8 +454,63 @@ namespace Alphaleonis.Win32.Vss
       ///		    <b>Windows Server 2003 and Windows XP:</b>  This value is not supported until Windows Vista.
       ///		</para>
       /// </exception>
-      /// <exception cref="VssUnexpectedProviderErrorException">The provider returned an unexpected error code. This can be a transient problem. It is recommended to wait ten minutes and try again, up to three times. This error code is only returned via the <see cref="IVssAsync.QueryStatus"/> method on the <see cref="IVssAsync"/> instance returned by this method.</exception> 
-      IVssAsync DoSnapshotSet();
+      /// <exception cref="VssUnexpectedProviderErrorException">The provider returned an unexpected error code. This can be a transient problem. It is recommended to wait ten minutes and try again, up to three times.</exception> 
+      void DoSnapshotSet();
+
+      /// <summary>
+      /// Commits all shadow copies in this set simultaneously as an asynchronous operation.
+      /// </summary>
+      /// <param name="userCallback">An optional asynchronous callback, to be called when the read is complete.</param>
+      /// <param name="state">A user-provided object that distinguishes this particular asynchronous read request from other requests.</param>
+      /// <returns>An <see cref="IVssAsyncResult"/> instance that represents this asynchronous operation.</returns>
+      /// <remarks>
+      /// Pass the <see cref="IVssAsyncResult"/> value returned to the <see cref="EndDoSnapshotSet"/> method to release operating system resources used for this asynchronous operation.
+      /// <see cref="EndDoSnapshotSet"/> must be called once for every call to <see cref="BeginDoSnapshotSet"/>. You can do this either by using the same code that called <b>BeginDoSnapshotSet</b> or
+      /// in a callback passed to <b>BeginDoSnapshotSet</b>.
+      /// </remarks>
+      IVssAsyncResult BeginDoSnapshotSet(AsyncCallback userCallback, object state);
+
+      /// <summary>
+      /// Waits for a pending asynchronous operation to complete.
+      /// </summary>
+      /// <remarks>
+      /// <b>EndDoSnapshotSet</b> can be called once on every <see cref="IVssAsyncResult"/> from <see cref="BeginDoSnapshotSet"/>.
+      /// </remarks>
+      /// <param name="asyncResult">The reference to the pending asynchronous request to finish. </param>
+      /// <exception cref="UnauthorizedAccessException">The caller does not have sufficient backup privileges or is not an administrator.</exception>
+      /// <exception cref="OutOfMemoryException">Out of memory or other system resources.</exception>
+      /// <exception cref="SystemException">Unexpected VSS system error. The error code is logged in the event log.</exception>
+      /// <exception cref="VssBadStateException">The backup components object has not been initialized or the prerequisite calls for a given shadow copy context have not been made prior to calling <b>DoSnapshotSet</b>. </exception>
+      /// <exception cref="VssInsufficientStorageException">The system or provider has insufficient storage space. If possible delete any old or unnecessary persistent shadow copies and try again.</exception>
+      /// <exception cref="VssFlushWritesTimeoutException">The system was unable to flush I/O writes. This can be a transient problem. It is recommended to wait ten minutes and try again, up to three times.</exception>
+      /// <exception cref="VssHoldWritesTimeoutException">The system was unable to hold I/O writes. This can be a transient problem. It is recommended to wait ten minutes and try again, up to three times.</exception>
+      /// <exception cref="VssProviderVetoException">The provider was unable to perform the request at this time. This can be a transient problem. It is recommended to wait ten minutes and try again, up to three times.</exception>
+      /// <exception cref="VssRebootRequiredException">
+      ///		<para>
+      ///			The provider encountered an error that requires the user to restart the computer.
+      ///		</para>
+      ///		<para>
+      ///		    <b>Windows Server 2003 and Windows XP:</b>  This value is not supported until Windows Vista.
+      ///		</para>
+      /// </exception>
+      /// <exception cref="VssTransactionFreezeTimeoutException">
+      ///		<para>
+      ///			The system was unable to freeze the Distributed Transaction Coordinator (DTC) or the Kernel Transaction Manager (KTM).
+      ///		</para>
+      ///		<para>
+      ///		    <b>Windows Server 2003 and Windows XP:</b>  This value is not supported until Windows Vista.
+      ///		</para>
+      /// </exception>
+      /// <exception cref="VssTransactionThawTimeoutException">
+      ///		<para>
+      ///			The system was unable to freeze the Distributed Transaction Coordinator (DTC) or the Kernel Transaction Manager (KTM).
+      ///		</para>
+      ///		<para>
+      ///		    <b>Windows Server 2003 and Windows XP:</b>  This value is not supported until Windows Vista.
+      ///		</para>
+      /// </exception>
+      /// <exception cref="VssUnexpectedProviderErrorException">The provider returned an unexpected error code. This can be a transient problem. It is recommended to wait ten minutes and try again, up to three times.</exception> 
+      void EndDoSnapshotSet(IAsyncResult asyncResult);
 
       /// <summary>
       /// The <b>EnableWriterClasses</b> method enables the specified writers to receive all events.
@@ -515,26 +597,85 @@ namespace Alphaleonis.Win32.Vss
       /// <summary>
       /// 	The <see cref="GatherWriterMetadata"/> method prompts each writer to send the metadata they have collected. The method will generate an <c>Identify</c> event to communicate with writers.
       /// </summary>
-      /// <remarks><see cref="GatherWriterMetadata"/> should be called only once during the lifetime of a given <see cref="IVssBackupComponents"/> object.</remarks>
-      /// <returns>A <see cref="IVssAsync"/> instance representing this asynchronous operation.</returns>
+      /// <remarks><see cref="GatherWriterMetadata"/> should be called only once during the lifetime of a given <see cref="IVssBackupComponents"/> object.</remarks>      
       /// <exception cref="UnauthorizedAccessException">The caller does not have sufficient backup privileges or is not an administrator.</exception>
       /// <exception cref="OutOfMemoryException">Out of memory or other system resources.</exception>
       /// <exception cref="SystemException">Unexpected VSS system error. The error code is logged in the event log.</exception>
       /// <exception cref="VssBadStateException">The backup components object is not initialized, this method has been called during a restore operation, or this method has not been called within the correct sequence.</exception>		
       /// <exception cref="VssWriterInfrastructureException">The writer infrastructure is not operating properly. Check that the Event Service and VSS have been started, and check for errors associated with those services in the error log.</exception>
-      IVssAsync GatherWriterMetadata();
+      void GatherWriterMetadata();
+
+      /// <summary>
+      /// 	The <see cref="BeginGatherWriterMetadata"/> method asynchronously prompts each writer to send the metadata they have collected. 
+      /// 	The method will generate an <c>Identify</c> event to communicate with writers.
+      /// </summary>
+      /// <remarks>
+      /// <para><see cref="BeginGatherWriterMetadata"/> should be called only once during the lifetime of a given <see cref="IVssBackupComponents"/> object.</para>
+      /// <para>
+      /// Pass the <see cref="IVssAsyncResult"/> value returned to the <see cref="EndGatherWriterMetadata"/> method to release operating system resources used for this asynchronous operation.
+      /// <see cref="EndGatherWriterMetadata"/> must be called once for every call to <see cref="BeginGatherWriterMetadata"/>. You can do this either by using the same code that called <b>BeginGatherWriterMetadata</b> or
+      /// in a callback passed to <b>BeginGatherWriterMetadata</b>.
+      /// </para>
+      /// </remarks>      
+      /// <param name="userCallback">An optional asynchronous callback, to be called when the read is complete.</param>
+      /// <param name="state">A user-provided object that distinguishes this particular asynchronous read request from other requests.</param>
+      /// <returns>An <see cref="IVssAsyncResult"/> instance that represents this asynchronous operation.</returns>
+      IVssAsyncResult BeginGatherWriterMetadata(AsyncCallback userCallback, object state);
+
+      /// <summary>
+      /// Waits for a pending asynchronous operation to complete.
+      /// </summary>
+      /// <remarks>
+      /// <b>EndGatherWriterMetadata</b> can be called once on every <see cref="IVssAsyncResult"/> from <see cref="BeginGatherWriterMetadata"/>.
+      /// </remarks>
+      /// <param name="asyncResult">The reference to the pending asynchronous request to finish. </param>
+      /// <exception cref="UnauthorizedAccessException">The caller does not have sufficient backup privileges or is not an administrator.</exception>
+      /// <exception cref="OutOfMemoryException">Out of memory or other system resources.</exception>
+      /// <exception cref="SystemException">Unexpected VSS system error. The error code is logged in the event log.</exception>
+      /// <exception cref="VssBadStateException">The backup components object is not initialized, this method has been called during a restore operation, or this method has not been called within the correct sequence.</exception>		
+      /// <exception cref="VssWriterInfrastructureException">The writer infrastructure is not operating properly. Check that the Event Service and VSS have been started, and check for errors associated with those services in the error log.</exception>
+      void EndGatherWriterMetadata(IAsyncResult asyncResult);
 
       /// <summary>
       /// 	The <see cref="GatherWriterStatus"/> method prompts each writer to send a status message.
       /// </summary>
-      /// <returns>A <see cref="IVssAsync"/> instance representing this asynchronous operation.</returns>
       /// <remarks>The caller of this method should also call <see cref="IVssBackupComponents.FreeWriterStatus"/> after receiving the status of each writer.</remarks>
       /// <exception cref="UnauthorizedAccessException">The caller does not have sufficient backup privileges or is not an administrator.</exception>
       /// <exception cref="OutOfMemoryException">Out of memory or other system resources.</exception>
       /// <exception cref="SystemException">Unexpected VSS system error. The error code is logged in the event log.</exception>
       /// <exception cref="VssBadStateException">The backup components object is not initialized, this method has been called during a restore operation, or this method has not been called within the correct sequence.</exception>		
       /// <exception cref="VssWriterInfrastructureException">The writer infrastructure is not operating properly. Check that the Event Service and VSS have been started, and check for errors associated with those services in the error log.</exception>
-      IVssAsync GatherWriterStatus();
+      void GatherWriterStatus();
+
+      /// <summary>
+      /// 	The <see cref="BeginGatherWriterStatus"/> method asynchronously prompts each writer to send a status message.
+      /// </summary>
+      /// <remarks>
+      /// <para>The caller of this method should also call <see cref="IVssBackupComponents.FreeWriterStatus"/> after receiving the status of each writer.</para>
+      /// <para>
+      /// Pass the <see cref="IVssAsyncResult"/> value returned to the <see cref="EndGatherWriterStatus"/> method to release operating system resources used for this asynchronous operation.
+      /// <see cref="EndGatherWriterStatus"/> must be called once for every call to <see cref="BeginGatherWriterStatus"/>. You can do this either by using the same code that called <b>BeginGatherWriterStatus</b> or
+      /// in a callback passed to <b>BeginGatherWriterStatus</b>.
+      /// </para>
+      /// </remarks>      
+      /// <param name="userCallback">An optional asynchronous callback, to be called when the read is complete.</param>
+      /// <param name="state">A user-provided object that distinguishes this particular asynchronous read request from other requests.</param>
+      /// <returns>An <see cref="IVssAsyncResult"/> instance that represents this asynchronous operation.</returns>
+      IVssAsyncResult BeginGatherWriterStatus(AsyncCallback userCallback, object state);
+
+      /// <summary>
+      /// Waits for a pending asynchronous operation to complete.
+      /// </summary>
+      /// <remarks>
+      /// <b>EndGatherWriterStatus</b> can be called once on every <see cref="IVssAsyncResult"/> from <see cref="BeginGatherWriterStatus"/>.
+      /// </remarks>
+      /// <param name="asyncResult">The reference to the pending asynchronous request to finish. </param>
+      /// <exception cref="UnauthorizedAccessException">The caller does not have sufficient backup privileges or is not an administrator.</exception>
+      /// <exception cref="OutOfMemoryException">Out of memory or other system resources.</exception>
+      /// <exception cref="SystemException">Unexpected VSS system error. The error code is logged in the event log.</exception>
+      /// <exception cref="VssBadStateException">The backup components object is not initialized, this method has been called during a restore operation, or this method has not been called within the correct sequence.</exception>		
+      /// <exception cref="VssWriterInfrastructureException">The writer infrastructure is not operating properly. Check that the Event Service and VSS have been started, and check for errors associated with those services in the error log.</exception>
+      void EndGatherWriterStatus(IAsyncResult asyncResult);
 
       /// <summary>
       /// 	The <see cref="GetSnapshotProperties"/> method gets the properties of the specified shadow copy. 
@@ -650,8 +791,7 @@ namespace Alphaleonis.Win32.Vss
       /// <summary>
       ///     The ImportSnapshots method imports shadow copies transported from a different machine.
       /// </summary>
-      /// <note>This method is supported only on Windows Server operating systems.</note>
-      /// <returns>A <see cref="IVssAsync"/> instance representing this asynchronous operation.</returns>
+      /// <note>This method is supported only on Windows Server operating systems.</note>      
       /// <remarks>
       /// 	<para>Only one shadow copy can be imported at a time.</para>
       /// 	<para>The requester is responsible for serializing the import shadow copy operation.</para>
@@ -662,7 +802,43 @@ namespace Alphaleonis.Win32.Vss
       /// <exception cref="OutOfMemoryException">Out of memory or other system resources.</exception>
       /// <exception cref="SystemException">Unexpected VSS system error. The error code is logged in the event log.</exception>
       /// <exception cref="VssBadStateException">The backup components object is not initialized, this method has been called during a restore operation, or this method has not been called within the correct sequence.</exception>		
-      IVssAsync ImportSnapshots();
+      void ImportSnapshots();
+
+      /// <summary>
+      ///     The <see cref="BeginImportSnapshots"/> method asynchronously imports shadow copies transported from a different machine.
+      /// </summary>
+      /// <note>This method is supported only on Windows Server operating systems.</note>      
+      /// <remarks>
+      /// 	<para>Only one shadow copy can be imported at a time.</para>
+      /// 	<para>The requester is responsible for serializing the import shadow copy operation.</para>
+      ///		<para>For more information see the <see href="http://msdn.microsoft.com/en-us/library/aa382683(VS.85).aspx">MSDN documentation on IIVssBackupComponents::ImportSnapshots Method</see></para>
+      ///		<para>Requires Windows Server 2008, Windows Server 2003 SP1, Windows Server 2003, Enterprise Edition, or Windows Server 2003, Datacenter Edition.</para>
+      /// <para>
+      /// Pass the <see cref="IVssAsyncResult"/> value returned to the <see cref="EndImportSnapshots"/> method to release operating system resources used for this asynchronous operation.
+      /// <see cref="EndImportSnapshots"/> must be called once for every call to <see cref="BeginImportSnapshots"/>. You can do this either by using the same code that called <b>BeginImportSnapshots</b> or
+      /// in a callback passed to <b>BeginImportSnapshots</b>.
+      /// </para>
+      /// </remarks>      
+      /// <param name="userCallback">An optional asynchronous callback, to be called when the read is complete.</param>
+      /// <param name="state">A user-provided object that distinguishes this particular asynchronous read request from other requests.</param>
+      /// <returns>An <see cref="IVssAsyncResult"/> instance that represents this asynchronous operation.</returns>
+      IVssAsyncResult BeginImportSnapshots(AsyncCallback userCallback, object state);
+
+
+
+      /// <summary>
+      /// Waits for a pending asynchronous operation to complete.
+      /// </summary>
+      /// <remarks>
+      /// <b>EndImportSnapshots</b> can be called once on every <see cref="IVssAsyncResult"/> from <see cref="BeginImportSnapshots"/>.
+      /// </remarks>
+      /// <param name="asyncResult">The reference to the pending asynchronous request to finish. </param>
+      /// <exception cref="UnauthorizedAccessException">The caller does not have sufficient backup privileges or is not an administrator.</exception>
+      /// <exception cref="OutOfMemoryException">Out of memory or other system resources.</exception>
+      /// <exception cref="SystemException">Unexpected VSS system error. The error code is logged in the event log.</exception>
+      /// <exception cref="VssBadStateException">The backup components object is not initialized, this method has been called during a restore operation, or this method has not been called within the correct sequence.</exception>		
+      void EndImportSnapshots(IAsyncResult asyncResult);
+
 
       /// <summary>
       /// 	The <see cref="InitializeForBackup"/> method initializes the backup components metadata in preparation for backup.
@@ -772,14 +948,45 @@ namespace Alphaleonis.Win32.Vss
       ///	The <see cref="PostRestore"/> method will cause VSS to generate a <c>PostRestore</c> event, signaling writers that the current 
       ///	restore operation has finished.
       /// </summary>
-      /// <returns>A <see cref="IVssAsync"/> instance representing this asynchronous operation.</returns>
       /// <exception cref="UnauthorizedAccessException">The caller does not have sufficient backup privileges or is not an administrator.</exception>
       /// <exception cref="OutOfMemoryException">Out of memory or other system resources.</exception>
       /// <exception cref="SystemException">Unexpected VSS system error. The error code is logged in the event log.</exception>
       /// <exception cref="VssBadStateException">The backup components object is not initialized, this method has been called during a restore operation, or this method has not been called within the correct sequence.</exception>		
       /// <exception cref="VssObjectNotFoundException">The specified volume was not found or was not available.</exception>
       /// <exception cref="VssProviderVetoException">Expected provider error. The provider logged the error in the event log.</exception>
-      IVssAsync PostRestore();
+      void PostRestore();
+
+      /// <summary>
+      ///	The <see cref="BeginPostRestore"/> method will asynchronously cause VSS to generate a <c>PostRestore</c> event, signaling writers that the current 
+      ///	restore operation has finished.
+      /// </summary>
+      /// <remarks>
+      /// <para>
+      /// Pass the <see cref="IVssAsyncResult"/> value returned to the <see cref="EndPostRestore"/> method to release operating system resources used for this asynchronous operation.
+      /// <see cref="EndPostRestore"/> must be called once for every call to <see cref="BeginPostRestore"/>. You can do this either by using the same code that called <b>BeginPostRestore</b> or
+      /// in a callback passed to <b>BeginPostRestore</b>.
+      /// </para>
+      /// </remarks>      
+      /// <param name="userCallback">An optional asynchronous callback, to be called when the read is complete.</param>
+      /// <param name="state">A user-provided object that distinguishes this particular asynchronous read request from other requests.</param>
+      /// <returns>An <see cref="IVssAsyncResult"/> instance that represents this asynchronous operation.</returns>
+      IVssAsyncResult BeginPostRestore(AsyncCallback userCallback, object state);
+
+
+      /// <summary>
+      /// Waits for a pending asynchronous operation to complete.
+      /// </summary>
+      /// <remarks>
+      /// <b>EndGatherWriterStatus</b> can be called once on every <see cref="IVssAsyncResult"/> from <see cref="BeginPostRestore"/>.
+      /// </remarks>
+      /// <param name="asyncResult">The reference to the pending asynchronous request to finish. </param>
+      /// <exception cref="UnauthorizedAccessException">The caller does not have sufficient backup privileges or is not an administrator.</exception>
+      /// <exception cref="OutOfMemoryException">Out of memory or other system resources.</exception>
+      /// <exception cref="SystemException">Unexpected VSS system error. The error code is logged in the event log.</exception>
+      /// <exception cref="VssBadStateException">The backup components object is not initialized, this method has been called during a restore operation, or this method has not been called within the correct sequence.</exception>		
+      /// <exception cref="VssObjectNotFoundException">The specified volume was not found or was not available.</exception>
+      /// <exception cref="VssProviderVetoException">Expected provider error. The provider logged the error in the event log.</exception>
+      void EndPostRestore(IAsyncResult asyncResult);
 
       /// <summary>
       /// 	The <see cref="PrepareForBackup"/> method will cause VSS to generate a PrepareForBackup event, signaling writers to prepare for an upcoming 
@@ -794,23 +1001,88 @@ namespace Alphaleonis.Win32.Vss
       /// 		Before PrepareForBackup can be called, <see cref="SetBackupState"/> must be called.
       /// 	</para>
       /// </remarks>
-      /// <returns>A <see cref="IVssAsync"/> instance representing this asynchronous operation.</returns>
       /// <exception cref="UnauthorizedAccessException">The caller does not have sufficient backup privileges or is not an administrator.</exception>
       /// <exception cref="OutOfMemoryException">Out of memory or other system resources.</exception>
       /// <exception cref="SystemException">Unexpected VSS system error. The error code is logged in the event log.</exception>
       /// <exception cref="VssBadStateException">The backup components object is not initialized, this method has been called during a restore operation, or this method has not been called within the correct sequence.</exception>		
-      IVssAsync PrepareForBackup();
+      void PrepareForBackup();
+      
+      /// <summary>
+      /// 	The <see cref="BeginPrepareForBackup"/> method will asynchronously cause VSS to generate a PrepareForBackup event, signaling writers to prepare for an upcoming 
+      /// 	backup operation. This makes a requester's Backup Components Document available to writers.
+      /// </summary>
+      /// <remarks>
+      /// 	<para>
+      /// 		<see cref="BeginPrepareForBackup"/> generates a <c>PrepareForBackup</c> event, which is handled by each instance of each writer 
+      /// 		through the CVssWriter::OnPrepareBackup method.
+      /// 	</para>
+      /// 	<para>
+      /// 		Before PrepareForBackup can be called, <see cref="SetBackupState"/> must be called.
+      /// 	</para>
+      /// <para>
+      /// Pass the <see cref="IVssAsyncResult"/> value returned to the <see cref="EndPrepareForBackup"/> method to release operating system resources used for this asynchronous operation.
+      /// <see cref="EndPrepareForBackup"/> must be called once for every call to <see cref="BeginPrepareForBackup"/>. You can do this either by using the same code that called <b>BeginPrepareForBackup</b> or
+      /// in a callback passed to <b>BeginPrepareForBackup</b>.
+      /// </para>
+      /// </remarks>
+      /// <param name="userCallback">An optional asynchronous callback, to be called when the read is complete.</param>
+      /// <param name="state">A user-provided object that distinguishes this particular asynchronous read request from other requests.</param>
+      /// <returns>An <see cref="IVssAsyncResult"/> instance that represents this asynchronous operation.</returns>
+      IVssAsyncResult BeginPrepareForBackup(AsyncCallback userCallback, object state);
+
+
+      /// <summary>
+      /// Waits for a pending asynchronous operation to complete.
+      /// </summary>
+      /// <remarks>
+      /// <b>EndGatherWriterStatus</b> can be called once on every <see cref="IVssAsyncResult"/> from <see cref="BeginPrepareForBackup"/>.
+      /// </remarks>
+      /// <param name="asyncResult">The reference to the pending asynchronous request to finish. </param>
+      /// <exception cref="UnauthorizedAccessException">The caller does not have sufficient backup privileges or is not an administrator.</exception>
+      /// <exception cref="OutOfMemoryException">Out of memory or other system resources.</exception>
+      /// <exception cref="SystemException">Unexpected VSS system error. The error code is logged in the event log.</exception>
+      /// <exception cref="VssBadStateException">The backup components object is not initialized, this method has been called during a restore operation, or this method has not been called within the correct sequence.</exception>		
+      void EndPrepareForBackup(IAsyncResult asyncResult);
 
       /// <summary>
       /// The <see cref="PreRestore"/> method will cause VSS to generate a <c>PreRestore</c> event, signaling writers to prepare for a 
       /// coming restore operation.
       /// </summary>
-      /// <returns>A <see cref="IVssAsync"/> instance representing this asynchronous operation.</returns>
       /// <exception cref="UnauthorizedAccessException">The caller does not have sufficient backup privileges or is not an administrator.</exception>
       /// <exception cref="OutOfMemoryException">Out of memory or other system resources.</exception>
       /// <exception cref="SystemException">Unexpected VSS system error. The error code is logged in the event log.</exception>
       /// <exception cref="VssBadStateException">The backup components object is not initialized, this method has been called during a restore operation, or this method has not been called within the correct sequence.</exception>		
-      IVssAsync PreRestore();
+      void PreRestore();
+
+      /// <summary>
+      /// The <see cref="BeginPreRestore"/> method will asynchronously cause VSS to generate a <c>PreRestore</c> event, signaling writers to prepare for a 
+      /// coming restore operation.
+      /// </summary>
+      /// <remarks>
+      /// <para>
+      /// Pass the <see cref="IVssAsyncResult"/> value returned to the <see cref="EndPreRestore"/> method to release operating system resources used for this asynchronous operation.
+      /// <see cref="EndPreRestore"/> must be called once for every call to <see cref="BeginPreRestore"/>. You can do this either by using the same code that called <b>BeginPreRestore</b> or
+      /// in a callback passed to <b>BeginPreRestore</b>.
+      /// </para>
+      /// </remarks>      
+      /// <param name="userCallback">An optional asynchronous callback, to be called when the read is complete.</param>
+      /// <param name="state">A user-provided object that distinguishes this particular asynchronous read request from other requests.</param>
+      /// <returns>An <see cref="IVssAsyncResult"/> instance that represents this asynchronous operation.</returns>
+      IVssAsyncResult BeginPreRestore(AsyncCallback userCallback, object state);
+
+
+      /// <summary>
+      /// Waits for a pending asynchronous operation to complete.
+      /// </summary>
+      /// <remarks>
+      /// <b>EndGatherWriterStatus</b> can be called once on every <see cref="IVssAsyncResult"/> from <see cref="BeginPreRestore"/>.
+      /// </remarks>
+      /// <param name="asyncResult">The reference to the pending asynchronous request to finish. </param>
+      /// <exception cref="UnauthorizedAccessException">The caller does not have sufficient backup privileges or is not an administrator.</exception>
+      /// <exception cref="OutOfMemoryException">Out of memory or other system resources.</exception>
+      /// <exception cref="SystemException">Unexpected VSS system error. The error code is logged in the event log.</exception>
+      /// <exception cref="VssBadStateException">The backup components object is not initialized, this method has been called during a restore operation, or this method has not been called within the correct sequence.</exception>		
+      void EndPreRestore(IAsyncResult asyncResult);
 
       /// <summary>
       /// 	The <see cref="QuerySnapshots"/> method queries the completed shadow copies in the system that reside in the current context. 
@@ -889,7 +1161,9 @@ namespace Alphaleonis.Win32.Vss
       /// <exception cref="VssVolumeNotSupportedException">Revert is not supported on this volume.</exception>
       /// <exception cref="NotImplementedException">The provider for the volume does not support revert operations.</exception>
       /// <exception cref="NotSupportedException">This operation is not supported on the current operating system.</exception>
-      IVssAsync QueryRevertStatus(string volumeName);
+      void QueryRevertStatus(string volumeName);
+      IVssAsyncResult BeginQueryRevertStatus(string volumeName, AsyncCallback userCallback, object state);
+      void EndQueryRevertStatus(IAsyncResult asyncResult);
 
       /// <summary>
       /// 	The <see cref="RevertToSnapshot"/> method reverts a volume to a previous shadow copy. Only shadow copies created with persistent 
@@ -1599,7 +1873,9 @@ namespace Alphaleonis.Win32.Vss
       ///     When the break operation is complete, the <c>Dispose</c> method of the <see cref="IVssAsync"/> instance must be called.
       /// </returns>
       [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1726:UsePreferredTerms", MessageId = "Flags")]
-      IVssAsync BreakSnapshotSet(Guid snapshotSetId, VssHardwareOptions breakFlags);
+      void BreakSnapshotSet(Guid snapshotSetId, VssHardwareOptions breakFlags);
+      IVssAsyncResult BeginBreakSnapshotSet(Guid snapshotSetId, VssHardwareOptions breakFlags, AsyncCallback userCallback, object state);
+      void EndBreakSnapshotSet(IAsyncResult asyncResult);
 
       /// <summary>
       /// Marks the restore of a component as authoritative for a replicated data store.
@@ -1849,8 +2125,9 @@ namespace Alphaleonis.Win32.Vss
       ///         </note>
       ///     </para>
       /// </remarks>
-      IVssAsync RecoverSet(VssRecoveryOptions options);
-
+      void RecoverSet(VssRecoveryOptions options);
+      IVssAsyncResult BeginRecoverSet(VssRecoveryOptions options, AsyncCallback userCallback, object state);
+      void EndRecoverSet(IAsyncResult asyncResult);
       #endregion
    }
 }

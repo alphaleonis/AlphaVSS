@@ -62,7 +62,7 @@
     <Compile Include="Classes\VssVolumeProperties.cs" />
     <Compile Include="Classes\VssVolumeProtectionInfo.cs" />
     <Compile Include="Classes\VssWMDependency.cs" />
-    <Compile Include="Classes\VssWMFileDescription.cs" />
+    <Compile Include="Classes\VssWMFileDescriptor.cs" />
     <Compile Include="Classes\VssWMRestoreMethod.cs" />
     <Compile Include="Enumerations\OSVersionName.cs" />
     <Compile Include="Enumerations\ProcessorArchitecture.cs" />
@@ -142,9 +142,7 @@
     <Compile Include="Interfaces\ICreateWriterMetadata.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Interfaces\IVssAsync.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="Interfaces\IVssAsyncResult.cs" />
     <Compile Include="Interfaces\IVssBackupComponents.cs">
       <SubType>Code</SubType>
     </Compile>

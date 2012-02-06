@@ -560,6 +560,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\VssAsyncResult.cpp" />
     <ClCompile Include="Src\AssemblyInfo.cpp" />
     <ClCompile Include="Src\Error.cpp" />
     <ClCompile Include="Src\FactoryMethods.cpp" />
@@ -603,7 +604,6 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='WinXP|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='WinXP|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="Src\VssAsync.cpp" />
     <ClCompile Include="Src\VssBackupComponents.cpp" />
     <ClCompile Include="Src\VssComponent.cpp" />
     <ClCompile Include="Src\VssDifferentialSoftwareSnapshotManagement.cpp" />
@@ -621,7 +621,7 @@
     <ClInclude Include="Include\Macros.h" />
     <ClInclude Include="Include\Stdafx.h" />
     <ClInclude Include="Include\Utils.h" />
-    <ClInclude Include="Include\VssAsync.h" />
+    <ClInclude Include="Include\VssAsyncResult.h" />
     <ClInclude Include="Include\VssBackupComponents.h" />
     <ClInclude Include="Include\VssComponent.h" />
     <ClInclude Include="Include\VssDifferentialSoftwareSnapshotManagement.h" />

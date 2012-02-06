@@ -1,4 +1,4 @@
-/* Copyright (c) 2008-2011 Peter Palotas
+/* Copyright (c) 2008-2012 Peter Palotas
  *  
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -22,7 +22,7 @@
 
 #include "VsBackup.h"
 #include "VssBackupComponents.h"
-#include "VssAsync.h"
+#include "VssAsyncResult.h"
 
 #include "Utils.h"
 #include "Macros.h"
@@ -151,11 +151,24 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
    }
 
    [SecurityPermissionAttribute(SecurityAction::LinkDemand)]
-   IVssAsync ^ VssBackupComponents::BackupComplete()
+   void VssBackupComponents::BackupComplete()
+   {
+      ::IVssAsync *pAsync;
+      CheckCom(m_backup->BackupComplete(&pAsync));      
+      WaitCheckAndReleaseVssAsyncOperation(pAsync);
+   }
+
+   IVssAsyncResult^ VssBackupComponents::BeginBackupComplete(AsyncCallback^ userCallback, Object^ stateObject)
    {
       ::IVssAsync *pAsync;
       CheckCom(m_backup->BackupComplete(&pAsync));
-      return VssAsync::Adopt(pAsync);
+      return VssAsyncResult::Create(pAsync, userCallback, stateObject);
+   }
+
+   void VssBackupComponents::EndBackupComplete(IAsyncResult^ asyncResult)
+   {
+      VssAsyncResult^ result = safe_cast<VssAsyncResult^>(asyncResult);
+      result->EndInvoke();
    }
 
    void VssBackupComponents::BreakSnapshotSet(Guid snapshotSetId)
@@ -163,15 +176,32 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
       CheckCom(m_backup->BreakSnapshotSet(ToVssId(snapshotSetId)));
    }
 
-   IVssAsync^ VssBackupComponents::BreakSnapshotSet(Guid snapshotSetId, VssHardwareOptions breakFlags)
+   void VssBackupComponents::BreakSnapshotSet(Guid snapshotSetId, VssHardwareOptions breakFlags)
    {
 #if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WINVISTAORLATER
       ::IVssAsync *pAsync;
       CheckCom(RequireIVssBackupComponentsEx2()->BreakSnapshotSetEx(ToVssId(snapshotSetId), (_VSS_HARDWARE_OPTIONS)breakFlags, &pAsync));
-      return VssAsync::Adopt(pAsync);
+      WaitCheckAndReleaseVssAsyncOperation(pAsync);
 #else
       UnsupportedOs();
 #endif
+   }   
+
+   IVssAsyncResult^ VssBackupComponents::BeginBreakSnapshotSet(Guid snapshotSetId, VssHardwareOptions breakFlags, AsyncCallback^ userCallback, Object^ stateObject)
+   {
+#if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WINVISTAORLATER
+      ::IVssAsync *pAsync;
+      CheckCom(RequireIVssBackupComponentsEx2()->BreakSnapshotSetEx(ToVssId(snapshotSetId), (_VSS_HARDWARE_OPTIONS)breakFlags, &pAsync));
+      return VssAsyncResult::Create(pAsync, userCallback, stateObject);
+#else
+      UnsupportedOs();
+#endif
+   }
+
+   void VssBackupComponents::EndBreakSnapshotSet(IAsyncResult^ asyncResult)
+   {
+      VssAsyncResult^ result = safe_cast<VssAsyncResult^>(asyncResult);
+      result->EndInvoke();
    }
 
    void VssBackupComponents::DeleteSnapshot(Guid snapshotId, bool forceDelete)
@@ -205,11 +235,25 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
       CheckCom(m_backup->DisableWriterInstances(VssIds(writerInstanceIds), writerInstanceIds->Length));
    }
 
-   IVssAsync^ VssBackupComponents::DoSnapshotSet()
+   void VssBackupComponents::DoSnapshotSet()
    {
       ::IVssAsync *vssAsync;
       CheckCom(m_backup->DoSnapshotSet(&vssAsync));
-      return VssAsync::Adopt(vssAsync);
+      WaitCheckAndReleaseVssAsyncOperation(vssAsync);
+   }
+   
+
+   IVssAsyncResult^ VssBackupComponents::BeginDoSnapshotSet(AsyncCallback^ userCallback, Object^ stateObject)
+   {
+      ::IVssAsync *pAsync;
+      CheckCom(m_backup->DoSnapshotSet(&pAsync));
+      return VssAsyncResult::Create(pAsync, userCallback, stateObject);
+   }
+
+   void VssBackupComponents::EndDoSnapshotSet(IAsyncResult^ asyncResult)
+   {
+      VssAsyncResult^ result = safe_cast<VssAsyncResult^>(asyncResult);
+      result->EndInvoke();
    }
 
    void VssBackupComponents::EnableWriterClasses(array<Guid> ^ writerClassIds)
@@ -237,18 +281,44 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
       CheckCom(m_backup->FreeWriterStatus());
    }
 
-   IVssAsync^ VssBackupComponents::GatherWriterMetadata()
+   void VssBackupComponents::GatherWriterMetadata()
    {
-      ::IVssAsync *vssAsync;
-      CheckCom(m_backup->GatherWriterMetadata(&vssAsync));
-      return VssAsync::Adopt(vssAsync);
+      ::IVssAsync *pAsync;
+      CheckCom(m_backup->GatherWriterMetadata(&pAsync));
+      WaitCheckAndReleaseVssAsyncOperation(pAsync);
    }
 
-   IVssAsync^ VssBackupComponents::GatherWriterStatus()
+   IVssAsyncResult^ VssBackupComponents::BeginGatherWriterMetadata(AsyncCallback^ userCallback, Object^ stateObject)
    {
-      ::IVssAsync *vssAsync;
-      CheckCom(m_backup->GatherWriterStatus(&vssAsync));
-      return VssAsync::Adopt(vssAsync);
+      ::IVssAsync *pAsync;
+      CheckCom(m_backup->GatherWriterMetadata(&pAsync));
+      return VssAsyncResult::Create(pAsync, userCallback, stateObject);
+   }
+
+   void VssBackupComponents::EndGatherWriterMetadata(IAsyncResult^ asyncResult)
+   {
+      VssAsyncResult^ result = safe_cast<VssAsyncResult^>(asyncResult);
+      result->EndInvoke();
+   }
+
+   void VssBackupComponents::GatherWriterStatus()
+   {
+      ::IVssAsync *pAsync;
+      CheckCom(m_backup->GatherWriterStatus(&pAsync));
+      WaitCheckAndReleaseVssAsyncOperation(pAsync);
+   }
+
+   IVssAsyncResult^ VssBackupComponents::BeginGatherWriterStatus(AsyncCallback^ userCallback, Object^ stateObject)
+   {
+      ::IVssAsync *pAsync;
+      CheckCom(m_backup->GatherWriterStatus(&pAsync));
+      return VssAsyncResult::Create(pAsync, userCallback, stateObject);
+   }
+
+   void VssBackupComponents::EndGatherWriterStatus(IAsyncResult^ asyncResult)
+   {
+      VssAsyncResult^ result = safe_cast<VssAsyncResult^>(asyncResult);
+      result->EndInvoke();
    }
 
    VssSnapshotProperties^ VssBackupComponents::GetSnapshotProperties(Guid snapshotId)
@@ -369,11 +439,25 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
       return m_writerStatus;
    }
 
-   IVssAsync^ VssBackupComponents::ImportSnapshots()
+   void VssBackupComponents::ImportSnapshots()
    {
       ::IVssAsync *pAsync;
       CheckCom(m_backup->ImportSnapshots(&pAsync));
-      return VssAsync::Adopt(pAsync);
+      WaitCheckAndReleaseVssAsyncOperation(pAsync);
+   }
+
+
+   IVssAsyncResult^ VssBackupComponents::BeginImportSnapshots(AsyncCallback^ userCallback, Object^ stateObject)
+   {
+      ::IVssAsync *pAsync;
+      CheckCom(m_backup->ImportSnapshots(&pAsync));
+      return VssAsyncResult::Create(pAsync, userCallback, stateObject);
+   }
+
+   void VssBackupComponents::EndImportSnapshots(IAsyncResult^ asyncResult)
+   {
+      VssAsyncResult^ result = safe_cast<VssAsyncResult^>(asyncResult);
+      result->EndInvoke();
    }
 
    void VssBackupComponents::InitializeForBackup(String^ xml)
@@ -400,25 +484,64 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
       return (eSupported != 0);
    }
 
-   IVssAsync^ VssBackupComponents::PostRestore()
+   void VssBackupComponents::PostRestore()
    {
       ::IVssAsync *pAsync;
       CheckCom(m_backup->PostRestore(&pAsync));
-      return VssAsync::Adopt(pAsync);
+      WaitCheckAndReleaseVssAsyncOperation(pAsync);
    }
 
-   IVssAsync^ VssBackupComponents::PrepareForBackup()
+   IVssAsyncResult^ VssBackupComponents::BeginPostRestore(AsyncCallback^ userCallback, Object^ stateObject)
+   {
+      ::IVssAsync *pAsync;
+      CheckCom(m_backup->PostRestore(&pAsync));
+      return VssAsyncResult::Create(pAsync, userCallback, stateObject);
+   }
+
+   void VssBackupComponents::EndPostRestore(IAsyncResult^ asyncResult)
+   {
+      VssAsyncResult^ result = safe_cast<VssAsyncResult^>(asyncResult);
+      result->EndInvoke();
+   }
+
+   void VssBackupComponents::PrepareForBackup()
    {
       ::IVssAsync *pAsync;
       CheckCom(m_backup->PrepareForBackup(&pAsync));
-      return VssAsync::Adopt(pAsync);
+      WaitCheckAndReleaseVssAsyncOperation(pAsync);      
    }
 
-   IVssAsync^ VssBackupComponents::PreRestore()
+   IVssAsyncResult^ VssBackupComponents::BeginPrepareForBackup(AsyncCallback^ userCallback, Object^ stateObject)
+   {
+      ::IVssAsync *pAsync;
+      CheckCom(m_backup->PrepareForBackup(&pAsync));
+      return VssAsyncResult::Create(pAsync, userCallback, stateObject);
+   }
+
+   void VssBackupComponents::EndPrepareForBackup(IAsyncResult^ asyncResult)
+   {
+      VssAsyncResult^ result = safe_cast<VssAsyncResult^>(asyncResult);
+      result->EndInvoke();
+   }
+
+   void VssBackupComponents::PreRestore()
    {
       ::IVssAsync *pAsync;
       CheckCom(m_backup->PreRestore(&pAsync));
-      return VssAsync::Adopt(pAsync);
+      WaitCheckAndReleaseVssAsyncOperation(pAsync);      
+   }
+
+   IVssAsyncResult^ VssBackupComponents::BeginPreRestore(AsyncCallback^ userCallback, Object^ stateObject)
+   {
+      ::IVssAsync *pAsync;
+      CheckCom(m_backup->PreRestore(&pAsync));
+      return VssAsyncResult::Create(pAsync, userCallback, stateObject);
+   }
+
+   void VssBackupComponents::EndPreRestore(IAsyncResult^ asyncResult)
+   {
+      VssAsyncResult^ result = safe_cast<VssAsyncResult^>(asyncResult);
+      result->EndInvoke();
    }
 
    IEnumerable<VssSnapshotProperties ^>^ VssBackupComponents::QuerySnapshots()
@@ -483,22 +606,41 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
       }
    }
 
-   IVssAsync^ VssBackupComponents::QueryRevertStatus(String^ volume)
+   void VssBackupComponents::QueryRevertStatus(String^ volume)
    {
 #if ALPHAVSS_TARGET == ALPHAVSS_TARGET_WIN2003 || ALPHAVSS_TARGET == ALPHAVSS_TARGET_WINVISTAORLATER
-      OperatingSystemInfo::RequireWithSPAtLeast(OSVersionName::WindowsServer2003, 1, OSVersionName::WindowsServer2008, 0);
+      OperatingSystemInfo::RequireServerOrClientAtLeast(OSVersionName::WindowsServer2003, 1, OSVersionName::WindowsVista, 1);
       ::IVssAsync *pAsync;
       CheckCom(m_backup->QueryRevertStatus(NoNullAutoMStr(volume), &pAsync));
-      return VssAsync::Adopt(pAsync);
+      WaitCheckAndReleaseVssAsyncOperation(pAsync);
 #else
       UnsupportedOs();
 #endif
    }
 
+   IVssAsyncResult^ VssBackupComponents::BeginQueryRevertStatus(String^ volume, AsyncCallback^ userCallback, Object^ stateObject)
+   {
+#if ALPHAVSS_TARGET == ALPHAVSS_TARGET_WIN2003 || ALPHAVSS_TARGET == ALPHAVSS_TARGET_WINVISTAORLATER
+      OperatingSystemInfo::RequireServerOrClientAtLeast(OSVersionName::WindowsServer2003, 1, OSVersionName::WindowsVista, 1);
+      ::IVssAsync *pAsync;
+      CheckCom(m_backup->QueryRevertStatus(NoNullAutoMStr(volume), &pAsync));
+      return VssAsyncResult::Create(pAsync, userCallback, stateObject);
+#else
+      UnsupportedOs();
+#endif
+   }
+
+   void VssBackupComponents::EndQueryRevertStatus(IAsyncResult^ asyncResult)
+   {
+      VssAsyncResult^ result = safe_cast<VssAsyncResult^>(asyncResult);
+      result->EndInvoke();
+   }
+
+
    void VssBackupComponents::RevertToSnapshot(Guid snapshotId, bool forceDismount)
    {
 #if ALPHAVSS_TARGET == ALPHAVSS_TARGET_WIN2003 || ALPHAVSS_TARGET == ALPHAVSS_TARGET_WINVISTAORLATER
-      OperatingSystemInfo::RequireWithSPAtLeast(OSVersionName::WindowsServer2003, 1, OSVersionName::WindowsServer2008, 0);		
+      OperatingSystemInfo::RequireServer(OSVersionName::WindowsServer2003, 1);
       CheckCom(m_backup->RevertToSnapshot(ToVssId(snapshotId), forceDismount));
 #else
       UnsupportedOs();
@@ -655,15 +797,32 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 #endif
     }
 
-    IVssAsync^ VssBackupComponents::RecoverSet(VssRecoveryOptions options)
+    void VssBackupComponents::RecoverSet(VssRecoveryOptions options)
     {
 #if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WINVISTAORLATER
        ::IVssAsync *pAsync;
        CheckCom(RequireIVssBackupComponentsEx3()->RecoverSet((DWORD)options, &pAsync));
-       return VssAsync::Adopt(pAsync);
+       WaitCheckAndReleaseVssAsyncOperation(pAsync);
 #else
        UnsupportedOs();
 #endif
+    }
+
+    IVssAsyncResult^ VssBackupComponents::BeginRecoverSet(VssRecoveryOptions options, AsyncCallback^ userCallback, Object^ stateObject)
+    {
+#if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WINVISTAORLATER
+       ::IVssAsync *pAsync;
+       CheckCom(RequireIVssBackupComponentsEx3()->RecoverSet((DWORD)options, &pAsync));
+       return VssAsyncResult::Create(pAsync, userCallback, stateObject);
+#else
+       UnsupportedOs();
+#endif
+    }
+
+    void VssBackupComponents::EndRecoverSet(IAsyncResult^ asyncResult)
+    {
+       VssAsyncResult^ result = safe_cast<VssAsyncResult^>(asyncResult);
+       result->EndInvoke();
     }
 }
 } }

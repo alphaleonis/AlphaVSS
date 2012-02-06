@@ -1,4 +1,4 @@
-/* Copyright (c) 2008-2011 Peter Palotas
+/* Copyright (c) 2008-2012 Peter Palotas
  *  
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -29,6 +29,11 @@ namespace Alphaleonis.Win32.Vss
    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1726:UsePreferredTerms", MessageId = "Flags"), Flags]
    public enum VssComponentFlags
    {
+      /// <summary>
+      /// This value is reserved for operating systems that do not support the <see cref="VssComponentFlags"/> enumeration.
+      /// </summary>
+      None = 0,
+
       /// <summary>
       /// <para>
       /// 	The writer will need write access to this component after the shadow copy has been created.
