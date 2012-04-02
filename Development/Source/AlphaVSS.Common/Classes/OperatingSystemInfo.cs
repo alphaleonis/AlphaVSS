@@ -39,8 +39,7 @@ namespace Alphaleonis.Win32.Vss
       /// </summary>
       /// <value>The named version of the operating system.</value>
       public static OSVersionName OSVersionName
-      {
-         [SecurityPermission(SecurityAction.LinkDemand, UnmanagedCode = true)]
+      {         
          get
          {
             if (s_servicePackVersion == null)
@@ -82,8 +81,7 @@ namespace Alphaleonis.Win32.Vss
       /// <remarks>Only the <see cref="Version.Major"/> and <see cref="Version.Minor"/> fields are 
       /// used.</remarks>
       public static Version ServicePackVersion
-      {
-         [SecurityPermission(SecurityAction.LinkDemand, UnmanagedCode = true)]
+      {         
          get
          {
             if (s_servicePackVersion == null)
@@ -100,8 +98,7 @@ namespace Alphaleonis.Win32.Vss
       /// determine if this is the case.
       /// </remarks>
       public static ProcessorArchitecture ProcessorArchitecture
-      {
-         [SecurityPermission(SecurityAction.LinkDemand, UnmanagedCode = true)]
+      {         
          get
          {
             if (s_servicePackVersion == null)
@@ -119,8 +116,7 @@ namespace Alphaleonis.Win32.Vss
       /// </summary>
       /// <returns>
       /// 	<c>true</c> if the current process is running under WOW64; otherwise, <c>false</c>.
-      /// </returns>
-      [SecurityPermission(SecurityAction.LinkDemand, UnmanagedCode = true)]
+      /// </returns>      
       public static bool IsWow64Process()
       {
          IntPtr processHandle = System.Diagnostics.Process.GetCurrentProcess().Handle;
@@ -138,8 +134,7 @@ namespace Alphaleonis.Win32.Vss
       /// <param name="version">The lowest version for which to return <c>true</c>.</param>
       /// <returns>
       /// 	<c>true</c> if the operating system is of the specified <paramref name="version"/> or later; otherwise, <c>false</c>.
-      /// </returns>
-      [SecurityPermission(SecurityAction.LinkDemand, UnmanagedCode = true)]
+      /// </returns>      
       public static bool IsAtLeast(OSVersionName version)
       {
          return OSVersionName >= version;
@@ -154,8 +149,7 @@ namespace Alphaleonis.Win32.Vss
       /// minimum required version to return <c>true</c>. This can be 0 to indicate that no service pack is required.</param>
       /// <returns>
       /// 	<c>true</c> if the operating system matches the specified <paramref name="version"/> with the specified service pack, or if the operating system is of a later version; otherwise, <c>false</c>.
-      /// </returns>
-      [SecurityPermission(SecurityAction.LinkDemand, UnmanagedCode = true)]
+      /// </returns>      
       public static bool IsAtLeast(OSVersionName version, int servicePackVersion)
       {
          return OSVersionName == version && ServicePackVersion.Major >= servicePackVersion || OSVersionName > version;
@@ -192,8 +186,7 @@ namespace Alphaleonis.Win32.Vss
       ///     If not, an exception is thrown.
       /// </summary>
       /// <param name="osVersion">The minimum operating system version required.</param>
-      /// <exception cref="UnsupportedOperatingSystemException">The current operating system is of a version earlier than the specified <paramref name="osVersion"/></exception>
-      [SecurityPermission(SecurityAction.LinkDemand, UnmanagedCode = true)]
+      /// <exception cref="UnsupportedOperatingSystemException">The current operating system is of a version earlier than the specified <paramref name="osVersion"/></exception>      
       public static void RequireAtLeast(OSVersionName osVersion)
       {
          if (!IsAtLeast(osVersion))
@@ -208,8 +201,7 @@ namespace Alphaleonis.Win32.Vss
       /// <param name="servicePackVersion">The minimum service pack version required.</param>
       /// <exception cref="UnsupportedOperatingSystemException">The current operating system is of a version earlier 
       /// than the specified <paramref name="osVersion"/> or the versions match but the operating system does not 
-      /// have at least the specified service pack version <paramref name="servicePackVersion"/> installed.</exception>
-      [SecurityPermission(SecurityAction.LinkDemand, UnmanagedCode = true)]
+      /// have at least the specified service pack version <paramref name="servicePackVersion"/> installed.</exception>      
       public static void RequireAtLeast(OSVersionName osVersion, int servicePackVersion)
       {
          if (!IsAtLeast(osVersion, servicePackVersion))
@@ -219,8 +211,7 @@ namespace Alphaleonis.Win32.Vss
       #endregion
 
       #region Private members            
-
-      [SecurityPermission(SecurityAction.LinkDemand, UnmanagedCode = true)]
+      
       private static void UpdateData()
       {
          NativeMethods.OSVERSIONINFOEX info = new NativeMethods.OSVERSIONINFOEX();
