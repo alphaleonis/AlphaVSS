@@ -1,4 +1,4 @@
-/* Copyright (c) 2008-2011 Peter Palotas
+/* Copyright (c) 2008-2012 Peter Palotas
  *  
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -135,7 +135,7 @@ namespace Alphaleonis.Win32.Vss
       /// <summary>A collection of mapping information for the file set's alternate location for file restoration.</summary>
       /// <value>A read-only list containing the alternate location to which files were actually restored. <note type="caution">This list must not be accessed after the <see cref="IVssComponent"/> from which it was obtained has been disposed.</note></value>
       /// <remarks>See <see href="http://msdn.microsoft.com/en-us/library/aa383473(VS.85).aspx">the MSDN documentation on the IVssComponent::GetAlternateLocationMapping method</see> for more information.</remarks>
-      IList<VssWMFileDescription> AlternateLocationMappings { get; }
+      IList<VssWMFileDescriptor> AlternateLocationMappings { get; }
 
       /// <summary>
       /// 	Information stored by a writer, at backup time, to the Backup Components Document to indicate that when a file is to be 
@@ -149,7 +149,7 @@ namespace Alphaleonis.Win32.Vss
       /// 	The new file restoration locations for the selected component or component set. 
       /// </summary>
       /// <value>A read-only list contianing the new file restoration locations for the selected component or component set. <note type="caution">This list must not be accessed after the <see cref="IVssComponent"/> from which it was obtained has been disposed.</note></value>
-      IList<VssWMFileDescription> NewTargets { get; }
+      IList<VssWMFileDescriptor> NewTargets { get; }
 
       /// <summary>
       ///		Information about any partial files associated with this component.

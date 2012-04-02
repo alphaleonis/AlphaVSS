@@ -1,4 +1,4 @@
-/* Copyright (c) 2008-2011 Peter Palotas
+/* Copyright (c) 2008-2012 Peter Palotas
  *  
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -23,11 +23,11 @@ using System;
 namespace Alphaleonis.Win32.Vss
 {
    /// <summary>
-   /// The <see cref="VssWMFileDescription"/> class is returned to a calling application by a number of query methods. 
+   /// The <see cref="VssWMFileDescriptor"/> class is returned to a calling application by a number of query methods. 
    /// It provides detailed information about a file or set of files (a file set).
    /// </summary>
    /// <remarks>
-   ///     The following methods return a <see cref="VssWMFileDescription"/> instance:
+   ///     The following methods return a <see cref="VssWMFileDescriptor"/> instance:
    ///     <list type="bullet">
    ///         <item><description><see cref="IVssComponent.AlternateLocationMappings"/></description></item>
    ///         <item><description><see cref="IVssComponent.NewTargets"/></description></item>
@@ -39,17 +39,17 @@ namespace Alphaleonis.Win32.Vss
    ///     </list>
    /// </remarks>
    [Serializable]
-   public sealed class VssWMFileDescription
+   public class VssWMFileDescriptor
    {
       /// <summary>
-      /// Initializes a new instance of the <see cref="VssWMFileDescription"/> class.
+      /// Initializes a new instance of the <see cref="VssWMFileDescriptor"/> class.
       /// </summary>
       /// <param name="alternateLocation">The alternate location.</param>
       /// <param name="backupTypeMask">The backup type mask.</param>
       /// <param name="fileSpecification">The file specification.</param>
       /// <param name="path">The path.</param>
       /// <param name="isRecursive">if set to <c>true</c> this file description is recursive.</param>
-      public VssWMFileDescription(string alternateLocation, VssFileSpecificationBackupType backupTypeMask, string fileSpecification, string path, bool isRecursive)
+      public VssWMFileDescriptor(string alternateLocation, VssFileSpecificationBackupType backupTypeMask, string fileSpecification, string path, bool isRecursive)
       {
          AlternateLocation = alternateLocation;
          BackupTypeMask = backupTypeMask;

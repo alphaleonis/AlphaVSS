@@ -55,12 +55,12 @@
     <ProjectName>AlphaVSS.Platform</ProjectName>
     <ProjectGuid>{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}</ProjectGuid>
     <RootNamespace>Temp</RootNamespace>
-    <SccProjectName>$/alphavss/Development/Source/AlphaVSS.Platform</SccProjectName>
-    <SccAuxPath>https://tfs.codeplex.com/tfs/tfs02</SccAuxPath>
-    <SccLocalPath>.</SccLocalPath>
-    <SccProvider>{4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}</SccProvider>
+    <SccProjectName>SAK</SccProjectName>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccProvider>SAK</SccProvider>
     <Keyword>ManagedCProj</Keyword>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Win2003|Win32'" Label="Configuration">
@@ -94,6 +94,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Win2008.Debug|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <CLRSupport>true</CLRSupport>
+    <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Win2003|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
@@ -116,6 +117,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Win2008|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <CLRSupport>true</CLRSupport>
+    <PlatformToolset>v90</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Win2008.Debug|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
@@ -166,7 +168,7 @@
     <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Win2008.Debug|Win32'">
     </CodeAnalysisRules>
     <RunCodeAnalysis Condition="'$(Configuration)|$(Platform)'=='Win2008.Debug|Win32'">false</RunCodeAnalysis>
-    <CodeAnalysisIgnoreGeneratedCode Condition="'$(Configuration)|$(Platform)'=='Win2008.Debug|Win32'">true</CodeAnalysisIgnoreGeneratedCode>
+    <CodeAnalysisIgnoreGeneratedCode Condition="'$(Configuration)|$(Platform)'=='Win2008.Debug|Win32'">false</CodeAnalysisIgnoreGeneratedCode>
     <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Win2003.Debug|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
     <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Win2003.Debug|Win32'" />
     <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Win2003.Debug|Win32'" />
@@ -216,26 +218,16 @@
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Win2008.Debug|x64'">AlphaVSS.60.$(PlatformName)</TargetName>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Win2008|Win32'">AlphaVSS.60.$(PlatformName)</TargetName>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Win2008|x64'">AlphaVSS.60.$(PlatformName)</TargetName>
-    <LinkKeyFile Condition="'$(Configuration)|$(Platform)'=='Win2003.Debug|Win32'">../AlphaVSS.pub.snk</LinkKeyFile>
-    <LinkDelaySign Condition="'$(Configuration)|$(Platform)'=='Win2003.Debug|Win32'">true</LinkDelaySign>
-    <LinkKeyFile Condition="'$(Configuration)|$(Platform)'=='Win2003|Win32'">../AlphaVSS.pub.snk</LinkKeyFile>
-    <LinkDelaySign Condition="'$(Configuration)|$(Platform)'=='Win2003|Win32'">true</LinkDelaySign>
-    <LinkKeyFile Condition="'$(Configuration)|$(Platform)'=='Win2008.Debug|Win32'">../AlphaVSS.pub.snk</LinkKeyFile>
-    <LinkDelaySign Condition="'$(Configuration)|$(Platform)'=='Win2008.Debug|Win32'">true</LinkDelaySign>
-    <LinkKeyFile Condition="'$(Configuration)|$(Platform)'=='Win2008|Win32'">../AlphaVSS.pub.snk</LinkKeyFile>
-    <LinkDelaySign Condition="'$(Configuration)|$(Platform)'=='Win2008|Win32'">true</LinkDelaySign>
-    <LinkKeyFile Condition="'$(Configuration)|$(Platform)'=='WinXP.Debug|Win32'">../AlphaVSS.pub.snk</LinkKeyFile>
-    <LinkDelaySign Condition="'$(Configuration)|$(Platform)'=='WinXP.Debug|Win32'">true</LinkDelaySign>
-    <LinkKeyFile Condition="'$(Configuration)|$(Platform)'=='WinXP|Win32'">../AlphaVSS.pub.snk</LinkKeyFile>
-    <LinkDelaySign Condition="'$(Configuration)|$(Platform)'=='WinXP|Win32'">true</LinkDelaySign>
-    <LinkKeyFile Condition="'$(Configuration)|$(Platform)'=='Win2003.Debug|x64'">../AlphaVSS.pub.snk</LinkKeyFile>
-    <LinkDelaySign Condition="'$(Configuration)|$(Platform)'=='Win2003.Debug|x64'">true</LinkDelaySign>
-    <LinkKeyFile Condition="'$(Configuration)|$(Platform)'=='Win2003|x64'">../AlphaVSS.pub.snk</LinkKeyFile>
-    <LinkDelaySign Condition="'$(Configuration)|$(Platform)'=='Win2003|x64'">true</LinkDelaySign>
-    <LinkKeyFile Condition="'$(Configuration)|$(Platform)'=='Win2008.Debug|x64'">../AlphaVSS.pub.snk</LinkKeyFile>
-    <LinkDelaySign Condition="'$(Configuration)|$(Platform)'=='Win2008.Debug|x64'">true</LinkDelaySign>
-    <LinkKeyFile Condition="'$(Configuration)|$(Platform)'=='Win2008|x64'">../AlphaVSS.pub.snk</LinkKeyFile>
-    <LinkDelaySign Condition="'$(Configuration)|$(Platform)'=='Win2008|x64'">true</LinkDelaySign>
+    <LinkKeyFile Condition="'$(Configuration)|$(Platform)'=='Win2003.Debug|Win32'">../AlphaVSS.snk</LinkKeyFile>
+    <LinkKeyFile Condition="'$(Configuration)|$(Platform)'=='Win2003|Win32'">../AlphaVSS.snk</LinkKeyFile>
+    <LinkKeyFile Condition="'$(Configuration)|$(Platform)'=='Win2008.Debug|Win32'">../AlphaVSS.snk</LinkKeyFile>
+    <LinkKeyFile Condition="'$(Configuration)|$(Platform)'=='Win2008|Win32'">../AlphaVSS.snk</LinkKeyFile>
+    <LinkKeyFile Condition="'$(Configuration)|$(Platform)'=='WinXP.Debug|Win32'">../AlphaVSS.snk</LinkKeyFile>
+    <LinkKeyFile Condition="'$(Configuration)|$(Platform)'=='WinXP|Win32'">../AlphaVSS.snk</LinkKeyFile>
+    <LinkKeyFile Condition="'$(Configuration)|$(Platform)'=='Win2003.Debug|x64'">../AlphaVSS.snk</LinkKeyFile>
+    <LinkKeyFile Condition="'$(Configuration)|$(Platform)'=='Win2003|x64'">../AlphaVSS.snk</LinkKeyFile>
+    <LinkKeyFile Condition="'$(Configuration)|$(Platform)'=='Win2008.Debug|x64'">../AlphaVSS.snk</LinkKeyFile>
+    <LinkKeyFile Condition="'$(Configuration)|$(Platform)'=='Win2008|x64'">../AlphaVSS.snk</LinkKeyFile>
     <LinkKeyFile Condition="'$(Configuration)|$(Platform)'=='WinXP.Debug|x64'">../AlphaVSS.pub.snk</LinkKeyFile>
     <LinkDelaySign Condition="'$(Configuration)|$(Platform)'=='WinXP.Debug|x64'">true</LinkDelaySign>
     <LinkKeyFile Condition="'$(Configuration)|$(Platform)'=='WinXP|x64'">../AlphaVSS.pub.snk</LinkKeyFile>
@@ -558,6 +550,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\VssAsyncResult.cpp" />
     <ClCompile Include="Src\AssemblyInfo.cpp" />
     <ClCompile Include="Src\Error.cpp" />
     <ClCompile Include="Src\FactoryMethods.cpp" />
@@ -601,7 +594,6 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='WinXP|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='WinXP|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="Src\VssAsync.cpp" />
     <ClCompile Include="Src\VssBackupComponents.cpp" />
     <ClCompile Include="Src\VssComponent.cpp" />
     <ClCompile Include="Src\VssDifferentialSoftwareSnapshotManagement.cpp" />
@@ -619,7 +611,7 @@
     <ClInclude Include="Include\Macros.h" />
     <ClInclude Include="Include\Stdafx.h" />
     <ClInclude Include="Include\Utils.h" />
-    <ClInclude Include="Include\VssAsync.h" />
+    <ClInclude Include="Include\VssAsyncResult.h" />
     <ClInclude Include="Include\VssBackupComponents.h" />
     <ClInclude Include="Include\VssComponent.h" />
     <ClInclude Include="Include\VssDifferentialSoftwareSnapshotManagement.h" />

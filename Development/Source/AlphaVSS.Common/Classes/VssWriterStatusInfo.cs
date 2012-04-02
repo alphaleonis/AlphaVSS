@@ -1,4 +1,4 @@
-/* Copyright (c) 2008-2011 Peter Palotas
+/* Copyright (c) 2008-2012 Peter Palotas
  *  
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -29,7 +29,7 @@ namespace Alphaleonis.Win32.Vss
    /// <see href="http://msdn.microsoft.com/en-us/library/aa382680(VS.85).aspx">IVssBackupComponents.GetWriterStatus</see> in the original
    /// VSS API</remarks>
    [Serializable]
-   public sealed class VssWriterStatusInfo
+   public class VssWriterStatusInfo
    {
       #region Constructors
 
