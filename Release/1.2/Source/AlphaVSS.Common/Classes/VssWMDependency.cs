@@ -1,4 +1,4 @@
-/* Copyright (c) 2008-2011 Peter Palotas
+/* Copyright (c) 2008-2012 Peter Palotas
  *  
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -30,7 +30,7 @@ namespace Alphaleonis.Win32.Vss
    /// </remarks>
    /// <seealso href="http://msdn.microsoft.com/en-us/library/aa384301(VS.85).aspx"/>
    [Serializable]
-   public sealed class VssWMDependency
+   public class VssWMDependency
    {
       /// <summary>
       /// Initializes a new instance of the <see cref="VssWMDependency"/> class.

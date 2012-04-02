@@ -1,4 +1,4 @@
-/* Copyright (c) 2008-2011 Peter Palotas
+/* Copyright (c) 2008-2012 Peter Palotas
  *  
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -28,7 +28,7 @@ namespace Alphaleonis.Win32.Vss
    /// assembly is targeted for a different operating system than the one on which it is running.
    /// </summary>
    [Serializable]
-   public sealed class UnsupportedOperatingSystemException : Exception
+   public sealed class UnsupportedOperatingSystemException : NotSupportedException
    {
       /// <summary>
       /// Initializes a new instance of the <see cref="UnsupportedOperatingSystemException"/> class.

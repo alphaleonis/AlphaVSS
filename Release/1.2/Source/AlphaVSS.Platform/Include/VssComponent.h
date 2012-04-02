@@ -1,4 +1,4 @@
-/* Copyright (c) 2008-2011 Peter Palotas
+/* Copyright (c) 2008-2012 Peter Palotas
  *  
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -49,9 +49,9 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
       property String^ RestoreOptions { virtual String^ get(); }
       property VssRestoreTarget RestoreTarget { virtual VssRestoreTarget get(); }
       property bool IsSelectedForRestore { virtual bool get(); }
-      property IList<VssWMFileDescription^>^ AlternateLocationMappings { virtual IList<VssWMFileDescription^>^ get(); }
+      property IList<VssWMFileDescriptor^>^ AlternateLocationMappings { virtual IList<VssWMFileDescriptor^>^ get(); }
       property IList<VssDirectedTargetInfo^>^ DirectedTargets { virtual IList<VssDirectedTargetInfo^>^ get(); }
-      property IList<VssWMFileDescription^>^ NewTargets { virtual IList<VssWMFileDescription^>^ get(); }
+      property IList<VssWMFileDescriptor^>^ NewTargets { virtual IList<VssWMFileDescriptor^>^ get(); }
       property IList<VssPartialFileInfo^>^ PartialFiles { virtual IList<VssPartialFileInfo^>^ get(); }
       property IList<VssDifferencedFileInfo^>^ DifferencedFiles { virtual IList<VssDifferencedFileInfo^>^ get(); }
       property IList<VssRestoreSubcomponentInfo^>^ RestoreSubcomponents { virtual IList<VssRestoreSubcomponentInfo^>^ get(); }
@@ -97,24 +97,24 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
          VssComponent^ m_component;
       };
 
-      ref class NewTargetList sealed : VssListAdapter<VssWMFileDescription^>
+      ref class NewTargetList sealed : VssListAdapter<VssWMFileDescriptor^>
       {
       public:
          NewTargetList(VssComponent^ component);
 
          property int Count { virtual int get() override; }
-         property VssWMFileDescription^ default[int] { virtual VssWMFileDescription^ get(int index) override; }
+         property VssWMFileDescriptor^ default[int] { virtual VssWMFileDescriptor^ get(int index) override; }
       private:
          VssComponent^ m_component;
       };
 
-      ref class AlternateLocationMappingList sealed : VssListAdapter<VssWMFileDescription^>
+      ref class AlternateLocationMappingList sealed : VssListAdapter<VssWMFileDescriptor^>
       {
       public:
          AlternateLocationMappingList(VssComponent^ component);
 
          property int Count { virtual int get() override; }
-         property VssWMFileDescription^ default[int] { virtual VssWMFileDescription^ get(int index) override; }
+         property VssWMFileDescriptor^ default[int] { virtual VssWMFileDescriptor^ get(int index) override; }
       private:
          VssComponent^ m_component;
       };

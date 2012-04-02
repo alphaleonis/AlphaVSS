@@ -1,4 +1,4 @@
-/* Copyright (c) 2008-2011 Peter Palotas
+/* Copyright (c) 2008-2012 Peter Palotas
  *  
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -59,7 +59,7 @@ namespace Alphaleonis.Win32.Vss
       /// The alternate location mappings of the file sets.
       /// </summary>
       /// <value>A read-only list containing the alternate location mappings of the file sets.</value>
-      IList<VssWMFileDescription> AlternateLocationMappings { get; }
+      IList<VssWMFileDescriptor> AlternateLocationMappings { get; }
 
       /// <summary>
       /// Information about how a writer wants its data to be restored.
@@ -74,7 +74,7 @@ namespace Alphaleonis.Win32.Vss
 
       /// <summary>Information about files that have been explicitly excluded from backup.</summary>
       /// <value>a read-only list containing information about files that have been explicitly excluded from backup.</value>
-      IList<VssWMFileDescription> ExcludeFiles { get; }
+      IList<VssWMFileDescriptor> ExcludeFiles { get; }
 
       /// <summary>
       /// The instance identifier of the writer
@@ -138,6 +138,6 @@ namespace Alphaleonis.Win32.Vss
       ///     </para>
       /// </remarks>
       /// <value>The exclude from snapshot files.</value>
-      IList<VssWMFileDescription> ExcludeFromSnapshotFiles { get; }
+      IList<VssWMFileDescriptor> ExcludeFromSnapshotFiles { get; }
    }
 }

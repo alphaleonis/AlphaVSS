@@ -1,8 +1,20 @@
-Version 1.2
------------
-* Changed target framework to .NET 4.0.
+Version 1.1.4000
+------------------
+* BREAKING CHANGE: The class VssWMFileDescription has been renamed to VssWMFileDescriptor
 
-Version 1.1
+* BREAKING CHANGE: The IVssAsync interface has been removed. Any methods previously returning 
+                   IVssAsync are now synchronous and returns void. Asynchronous versions of these
+                   methods have been added with the standard APM naming scheme of BeginXXX, EndXXX
+                   where the Begin method returns an IVssAsyncResult instance which implements
+                   the standard IAsyncResult interface.
+
+* The properties of IVssWMComponent that are not supported on earlier operating systems no longer 
+  throw exceptions but return default values instead.
+
+* A new sample application was added; AlphaShadow, which implements much of the same functionality as 
+  the VShadow sample application from the Windows SDK.
+
+Version 1.1.3000
 --------------
 * Changed assembly naming of the platform specifiec assemblies so that their names 
   are the same regardless of the build configuration.

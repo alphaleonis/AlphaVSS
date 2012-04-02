@@ -1,4 +1,4 @@
-/* Copyright (c) 2008-2011 Peter Palotas
+/* Copyright (c) 2008-2012 Peter Palotas
  *  
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -96,7 +96,7 @@ namespace Alphaleonis.Win32.Vss
       ///     </para>
       ///     <para>
       ///         <note>
-      ///             <b>Windows XP:</b> This  requires Windows Server 2003 or later
+      ///             <b>Windows XP:</b> This  requires Windows Server 2003 or later. It will always return false on earlier operating systems.
       ///         </note>
       ///     </para>
       /// </remarks>    
@@ -111,7 +111,8 @@ namespace Alphaleonis.Win32.Vss
       /// </summary>
       /// <remarks>
       ///     <note>
-      ///         <b>Windows Server 2003 and Windows XP:</b>  Before Windows Server 2003 SP1, this member is reserved for system use.
+      ///         <b>Windows Server 2003 and Windows XP:</b>  Before Windows Server 2003 SP1, this member is reserved for system use and 
+      ///         	will always return <see cref="VssComponentFlags.None"/>.
       ///     </note>
       /// </remarks>
       [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1726:UsePreferredTerms", MessageId = "Flags")]
@@ -121,22 +122,23 @@ namespace Alphaleonis.Win32.Vss
       ///     The file descriptors associated with this component.
       /// </summary>
       /// <remarks>This collection represents the method <c>GetFile()</c> of <c>IVssWMComponent</c> in the VSS API</remarks>
-      IList<VssWMFileDescription> Files { get; }
+      IList<VssWMFileDescriptor> Files { get; }
 
       /// <summary>
-      ///     A list of <see cref="VssWMFileDescription"/> instances containing information about the database backup component files.
+      ///     A list of <see cref="VssWMFileDescriptor"/> instances containing information about the database backup component files.
       /// </summary>
-      IList<VssWMFileDescription> DatabaseFiles { get; }
+      IList<VssWMFileDescriptor> DatabaseFiles { get; }
 
       /// <summary>
       ///     A list of file descriptors for the log files associated with the specified database backup component.
       /// </summary>
-      IList<VssWMFileDescription> DatabaseLogFiles { get; }
+      IList<VssWMFileDescriptor> DatabaseLogFiles { get; }
 
       /// <summary>
       ///     A list of  <see cref="VssWMDependency"/> instances containing accessors for obtaining information about explicit writer-component 
       ///     dependencies of one of the current components.
       /// </summary>
+      /// <remarks>This will always be an empty list on operating systems earlier than Windows Server 2003.</remarks>
       IList<VssWMDependency> Dependencies { get; }
    }
 }

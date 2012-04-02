@@ -1,4 +1,4 @@
-/* Copyright (c) 2008-2011 Peter Palotas
+/* Copyright (c) 2008-2012 Peter Palotas
  *  
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -42,9 +42,9 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
       property bool Selectable { virtual bool get(); }
       property bool SelectableForRestore { virtual bool get(); }
       property VssComponentFlags ComponentFlags { virtual VssComponentFlags get(); }
-      property IList<VssWMFileDescription^>^ Files { virtual IList<VssWMFileDescription^>^ get(); }
-      property IList<VssWMFileDescription^>^ DatabaseFiles { virtual IList<VssWMFileDescription^>^ get(); }
-      property IList<VssWMFileDescription^>^ DatabaseLogFiles { virtual IList<VssWMFileDescription^>^ get(); }
+      property IList<VssWMFileDescriptor^>^ Files { virtual IList<VssWMFileDescriptor^>^ get(); }
+      property IList<VssWMFileDescriptor^>^ DatabaseFiles { virtual IList<VssWMFileDescriptor^>^ get(); }
+      property IList<VssWMFileDescriptor^>^ DatabaseLogFiles { virtual IList<VssWMFileDescriptor^>^ get(); }
       property IList<VssWMDependency^>^ Dependencies { virtual IList<VssWMDependency^>^ get(); }
    internal:
       static VssWMComponent^ Adopt(::IVssWMComponent *component);
@@ -68,9 +68,9 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
       UInt32 m_databaseLogFileCount;
       UInt32 m_dependencyCount;
 
-      IList<VssWMFileDescription^>^ m_files;
-      IList<VssWMFileDescription^>^ m_databaseFiles;
-      IList<VssWMFileDescription^>^ m_databaseLogFiles;
+      IList<VssWMFileDescriptor^>^ m_files;
+      IList<VssWMFileDescriptor^>^ m_databaseFiles;
+      IList<VssWMFileDescriptor^>^ m_databaseLogFiles;
       IList<VssWMDependency^>^ m_dependencies;
    };
 }

@@ -1,4 +1,4 @@
-/* Copyright (c) 2008-2011 Peter Palotas
+/* Copyright (c) 2008-2012 Peter Palotas
  *  
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -36,7 +36,7 @@ using namespace System::Security::Permissions;
 [assembly:AssemblyConfigurationAttribute("")];
 [assembly:AssemblyCompanyAttribute("Alphaleonis")];
 [assembly:AssemblyProductAttribute("AlphaVSS")];
-[assembly:AssemblyCopyrightAttribute("Copyright (c) Peter Palotas 2008-2011")];
+[assembly:AssemblyCopyrightAttribute("Copyright (c) Peter Palotas 2008-2012")];
 [assembly:AssemblyTrademarkAttribute("")];
 [assembly:AssemblyCultureAttribute("")];
 
@@ -58,3 +58,4 @@ using namespace System::Security::Permissions;
 [assembly:CLSCompliantAttribute(true)];
 
 [assembly:SecurityPermission(SecurityAction::RequestMinimum, UnmanagedCode = true)];
+

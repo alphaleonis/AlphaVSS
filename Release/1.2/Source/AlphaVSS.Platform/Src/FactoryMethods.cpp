@@ -1,4 +1,4 @@
-/* Copyright (c) 2008-2011 Peter Palotas
+/* Copyright (c) 2008-2012 Peter Palotas
  *  
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -26,7 +26,7 @@
 
 namespace Alphaleonis { namespace Win32 { namespace Vss
 {
-   VssWMFileDescription^ CreateVssWMFileDescription(IVssWMFiledesc *vssWMFiledesc)
+   VssWMFileDescriptor^ CreateVssWMFileDescriptor(IVssWMFiledesc *vssWMFiledesc)
    {
       try
       {
@@ -44,7 +44,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
          bool bRecursive;
          CheckCom(vssWMFiledesc->GetRecursive(&bRecursive));
 
-         return gcnew VssWMFileDescription(bstrAlternateLocation, (VssFileSpecificationBackupType)dwTypeMask, bstrFilespec, bstrPath, bRecursive);
+         return gcnew VssWMFileDescriptor(bstrAlternateLocation, (VssFileSpecificationBackupType)dwTypeMask, bstrFilespec, bstrPath, bRecursive);
       }
       finally
       {
