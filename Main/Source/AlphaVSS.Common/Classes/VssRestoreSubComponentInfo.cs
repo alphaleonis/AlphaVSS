@@ -1,4 +1,4 @@
-/* Copyright (c) 2008-2011 Peter Palotas
+/* Copyright (c) 2008-2012 Peter Palotas
  *  
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -26,7 +26,7 @@ namespace Alphaleonis.Win32.Vss
    ///		Represents information about a Subcomponent associated with a given component.
    /// </summary>
    [Serializable]
-   public sealed class VssRestoreSubcomponentInfo
+   public class VssRestoreSubcomponentInfo
    {
       /// <summary>
       ///     Initializes a new instance of <see cref="VssRestoreSubcomponentInfo" />.

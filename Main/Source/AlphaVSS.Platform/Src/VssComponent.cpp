@@ -1,4 +1,4 @@
-/* Copyright (c) 2008-2011 Peter Palotas
+/* Copyright (c) 2008-2012 Peter Palotas
  *  
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -276,7 +276,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
       return m_partialFiles;
    }
 
-   IList<VssWMFileDescription^>^ VssComponent::NewTargets::get()
+   IList<VssWMFileDescriptor^>^ VssComponent::NewTargets::get()
    {
       return m_newTargets;
    }
@@ -296,7 +296,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
       return m_restoreSubcomponents;
    }
 
-   IList<VssWMFileDescription^>^ VssComponent::AlternateLocationMappings::get()
+   IList<VssWMFileDescriptor^>^ VssComponent::AlternateLocationMappings::get()
    {
       return m_alternateLocationMappings;
    }
@@ -353,7 +353,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
    }
 
    
-   VssWMFileDescription^ VssComponent::NewTargetList::default::get(int index)
+   VssWMFileDescriptor^ VssComponent::NewTargetList::default::get(int index)
    {
       if (m_component->m_vssComponent == 0)
          throw gcnew ObjectDisposedException("Instance of IList used after the object creating it was disposed.");
@@ -363,7 +363,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 
       IVssWMFiledesc *vssWMFiledesc;
       CheckCom(m_component->m_vssComponent->GetNewTarget(index, &vssWMFiledesc));
-      return CreateVssWMFileDescription(vssWMFiledesc);
+      return CreateVssWMFileDescriptor(vssWMFiledesc);
    }
 
    VssComponent::NewTargetList::NewTargetList(VssComponent^ component)
@@ -486,7 +486,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
    }
 
    
-   VssWMFileDescription^ VssComponent::AlternateLocationMappingList::default::get(int index)
+   VssWMFileDescriptor^ VssComponent::AlternateLocationMappingList::default::get(int index)
    {
       if (m_component->m_vssComponent == 0)
          throw gcnew ObjectDisposedException("Instance of IList used after the object creating it was disposed.");
@@ -496,7 +496,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 
       IVssWMFiledesc *vssWMFiledesc;
       CheckCom(m_component->m_vssComponent->GetAlternateLocationMapping(index, &vssWMFiledesc));
-      return CreateVssWMFileDescription(vssWMFiledesc);
+      return CreateVssWMFileDescriptor(vssWMFiledesc);
    }
 
    VssComponent::AlternateLocationMappingList::AlternateLocationMappingList(VssComponent^ component)

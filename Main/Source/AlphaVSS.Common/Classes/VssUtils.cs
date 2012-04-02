@@ -1,4 +1,4 @@
-/* Copyright (c) 2008-2011 Peter Palotas
+/* Copyright (c) 2008-2012 Peter Palotas
  *  
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -89,7 +89,7 @@ namespace Alphaleonis.Win32.Vss
       [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate")]
       public static AssemblyName GetPlatformSpecificAssemblyName()
       {
-         return new AssemblyName(String.Format(CultureInfo.InvariantCulture, "{0}, Version={1}, Culture=neutral, PublicKeyToken=3033cf2dbd31cad3", GetPlatformSpecificAssemblyShortName(), Assembly.GetExecutingAssembly().GetName().Version.ToString()));
+         return new AssemblyName(String.Format(CultureInfo.InvariantCulture, "{0}, Version={1}, Culture=neutral, PublicKeyToken=959d3993561034e3", GetPlatformSpecificAssemblyShortName(), Assembly.GetExecutingAssembly().GetName().Version.ToString()));
       }
 
       /// <summary>

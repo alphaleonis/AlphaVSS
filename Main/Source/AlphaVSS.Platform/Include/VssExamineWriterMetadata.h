@@ -1,4 +1,4 @@
-/* Copyright (c) 2008-2011 Peter Palotas
+/* Copyright (c) 2008-2012 Peter Palotas
  *  
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -41,12 +41,12 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
       virtual String^ SaveAsXml();
       property VssBackupSchema BackupSchema { virtual VssBackupSchema get(); }
 
-      property IList<VssWMFileDescription^>^ AlternateLocationMappings { virtual IList<VssWMFileDescription^>^ get(); }
+      property IList<VssWMFileDescriptor^>^ AlternateLocationMappings { virtual IList<VssWMFileDescriptor^>^ get(); }
 
       property VssWMRestoreMethod^ RestoreMethod { virtual VssWMRestoreMethod^ get(); }
       property IList<IVssWMComponent^>^ Components { virtual IList<IVssWMComponent^>^ get(); }
 
-      property IList<VssWMFileDescription^>^ ExcludeFiles { virtual IList<VssWMFileDescription^>^ get(); }
+      property IList<VssWMFileDescriptor^>^ ExcludeFiles { virtual IList<VssWMFileDescriptor^>^ get(); }
 
       property Guid InstanceId { virtual Guid get(); }
 
@@ -59,7 +59,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
       property VssSourceType Source { virtual VssSourceType get(); }
       property String^ InstanceName { virtual String^ get(); }
       property System::Version^ Version { virtual System::Version^ get(); }
-      property IList<VssWMFileDescription^>^ ExcludeFromSnapshotFiles { virtual IList<VssWMFileDescription^>^ get(); }
+      property IList<VssWMFileDescriptor^>^ ExcludeFromSnapshotFiles { virtual IList<VssWMFileDescriptor^>^ get(); }
    internal:
       [SecurityPermission(SecurityAction::LinkDemand)]
       static IVssExamineWriterMetadata^ Adopt(::IVssExamineWriterMetadata *ewm);
@@ -83,11 +83,11 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
       String^ m_instanceName;
       VssUsageType m_usage;
       VssSourceType m_source;
-      IList<VssWMFileDescription^> ^m_excludeFiles;
+      IList<VssWMFileDescriptor^> ^m_excludeFiles;
       IList<IVssWMComponent^> ^m_components;
-      IList<VssWMFileDescription^>^ m_excludeFilesFromSnapshot;
+      IList<VssWMFileDescriptor^>^ m_excludeFilesFromSnapshot;
       VssWMRestoreMethod^ m_restoreMethod;
-      IList<VssWMFileDescription^>^ m_alternateLocationMappings;
+      IList<VssWMFileDescriptor^>^ m_alternateLocationMappings;
       System::Version^ m_version;
    };
 }

@@ -1,4 +1,4 @@
-/* Copyright (c) 2008-2011 Peter Palotas
+/* Copyright (c) 2008-2012 Peter Palotas
  *  
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -48,36 +48,73 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
       virtual Guid AddToSnapshotSet(String^ volumeName, Guid providerId);
       virtual Guid AddToSnapshotSet(String^ volumeName);
 
-      virtual IVssAsync^ BackupComplete();
+      virtual void BackupComplete();
+      virtual IVssAsyncResult^ BeginBackupComplete(AsyncCallback^ userCallback, Object^ stateObject);
+      virtual void EndBackupComplete(IAsyncResult ^asyncResult);      
+
       virtual void BreakSnapshotSet(Guid snapshotSetId);
-      virtual IVssAsync^ BreakSnapshotSet(Guid snapshotSetId, VssHardwareOptions breakFlags);
+
+      virtual void BreakSnapshotSet(Guid snapshotSetId, VssHardwareOptions breakFlags);
+      virtual IVssAsyncResult^ BeginBreakSnapshotSet(Guid snapshotSetId, VssHardwareOptions breakFlags, AsyncCallback^ userCallback, Object^ stateObject);
+      virtual void EndBreakSnapshotSet(IAsyncResult ^asyncResult);      
+
       virtual void DeleteSnapshot(Guid snapshotId, bool forceDelete);
       virtual int DeleteSnapshotSet(Guid snapshotSetId, bool forceDelete);
 
       virtual void DisableWriterClasses(array<Guid> ^ writerClassIds);
       virtual void DisableWriterInstances(array<Guid> ^ writerInstanceIds);
-      virtual IVssAsync^ DoSnapshotSet();
+      
+      virtual void DoSnapshotSet();
+      virtual IVssAsyncResult^ BeginDoSnapshotSet(AsyncCallback^ userCallback, Object^ stateObject);
+      virtual void EndDoSnapshotSet(IAsyncResult ^asyncResult);      
+
       virtual void EnableWriterClasses(array<Guid> ^ writerClassIds);
       virtual String^ ExposeSnapshot(Guid snapshotId, String ^ pathFromRoot, VssVolumeSnapshotAttributes attributes, String ^ expose);
       virtual void FreeWriterMetadata();
       virtual void FreeWriterStatus();
-      virtual IVssAsync^ GatherWriterMetadata();
-      virtual IVssAsync^ GatherWriterStatus();
+
+      virtual void GatherWriterMetadata();
+      virtual IVssAsyncResult^ BeginGatherWriterMetadata(AsyncCallback^ userCallback, Object^ stateObject);
+      virtual void EndGatherWriterMetadata(IAsyncResult ^asyncResult);
+
+      virtual void GatherWriterStatus();
+      virtual IVssAsyncResult^ BeginGatherWriterStatus(AsyncCallback^ userCallback, Object^ stateObject);
+      virtual void EndGatherWriterStatus(IAsyncResult ^asyncResult);      
+
       virtual VssSnapshotProperties^ GetSnapshotProperties(Guid snapshotId);
       property IList<IVssWriterComponents^>^ WriterComponents { virtual IList<IVssWriterComponents^>^ get(); }
       property IList<IVssExamineWriterMetadata^>^ WriterMetadata { virtual IList<IVssExamineWriterMetadata^>^ get(); }
       property IList<VssWriterStatusInfo^>^ WriterStatus { virtual IList<VssWriterStatusInfo^>^ get(); }
-      virtual IVssAsync^ ImportSnapshots();
+      
+      virtual void ImportSnapshots();
+      virtual IVssAsyncResult^ BeginImportSnapshots(AsyncCallback^ userCallback, Object^ stateObject);
+      virtual void EndImportSnapshots(IAsyncResult ^asyncResult);      
+
       virtual void InitializeForBackup(String^ xml);
       virtual void InitializeForRestore(String^ xml);
       virtual bool IsVolumeSupported(String^ volumeName, Guid providerId);
       virtual bool IsVolumeSupported(String^ volumeName);
-      virtual IVssAsync^ PostRestore();
-      virtual IVssAsync^ PrepareForBackup();
-      virtual IVssAsync^ PreRestore();
+      
+      virtual void PostRestore();
+      virtual IVssAsyncResult^ BeginPostRestore(AsyncCallback^ userCallback, Object^ stateObject);
+      virtual void EndPostRestore(IAsyncResult ^asyncResult);      
+      
+      virtual void PrepareForBackup();
+      virtual IVssAsyncResult^ BeginPrepareForBackup(AsyncCallback^ userCallback, Object^ stateObject);
+      virtual void EndPrepareForBackup(IAsyncResult ^asyncResult);      
+      
+
+      virtual void PreRestore();
+      virtual IVssAsyncResult^ BeginPreRestore(AsyncCallback^ userCallback, Object^ stateObject);
+      virtual void EndPreRestore(IAsyncResult ^asyncResult);      
+
       virtual System::Collections::Generic::IEnumerable<VssSnapshotProperties^> ^QuerySnapshots();
       virtual System::Collections::Generic::IEnumerable<VssProviderProperties^> ^QueryProviders();
-      virtual IVssAsync^ QueryRevertStatus(String^ volumeName);
+      
+      virtual IVssAsyncResult^ BeginQueryRevertStatus(String^ volumeName, AsyncCallback^ userCallback, Object^ stateObject);
+      virtual void EndQueryRevertStatus(IAsyncResult ^asyncResult);      
+
+
       virtual void RevertToSnapshot(Guid snapshotId, bool forceDismount);
       virtual String^ SaveAsXml();
       virtual void SetAdditionalRestores(Guid writerId, VssComponentType componentType, String^ logicalPath, String^ componentName, bool additionalResources);
@@ -102,7 +139,11 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 
       virtual Guid GetSessionId(); 
       virtual void AddSnapshotToRecoverySet(Guid snapshotId, String^ destinationVolume);
-      virtual IVssAsync^ RecoverSet(VssRecoveryOptions options);
+      
+      virtual void RecoverSet(VssRecoveryOptions options);
+      virtual IVssAsyncResult^ BeginRecoverSet(VssRecoveryOptions options, AsyncCallback^ userCallback, Object^ stateObject);
+      virtual void EndRecoverSet(IAsyncResult ^asyncResult);      
+
    private:
       ::IVssBackupComponents *m_backup;
 

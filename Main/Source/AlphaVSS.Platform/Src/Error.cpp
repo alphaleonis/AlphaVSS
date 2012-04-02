@@ -1,4 +1,4 @@
-/* Copyright (c) 2008-2011 Peter Palotas
+/* Copyright (c) 2008-2012 Peter Palotas
  *  
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -39,7 +39,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
       case E_OUTOFMEMORY:
          return gcnew OutOfMemoryException();
       case E_NOTIMPL:
-         return gcnew NotImplementedException();
+         return gcnew NotImplementedException(L"The requested operation is not supported on the current operating system or by the current provider.");
       case E_UNEXPECTED:
 #if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WINVISTAORLATER
       case VSS_E_UNEXPECTED:
@@ -125,6 +125,17 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
       default:
          return System::Runtime::InteropServices::Marshal::GetExceptionForHR(errorCode);
       }
+   }
+
+   void WaitCheckAndReleaseVssAsyncOperation(::IVssAsync *pAsync)
+   {
+      CComPtr<::IVssAsync> spAsync(pAsync);
+      CheckCom(spAsync->Wait());
+      HRESULT hr;
+      CheckCom(spAsync->QueryStatus(&hr, NULL));
+      CheckCom(hr);
+      if (hr == VSS_S_ASYNC_CANCELLED)
+         throw gcnew OperationCanceledException();
    }
 }	
 } }

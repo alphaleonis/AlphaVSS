@@ -1,23 +1,23 @@
-/* Copyright (c) 2008-2011 Peter Palotas
-*  
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*  
-*  The above copyright notice and this permission notice shall be included in
-*  all copies or substantial portions of the Software.
-*  
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
-*/
+/* Copyright (c) 2008-2012 Peter Palotas
+ *  
+ *  Permission is hereby granted, free of charge, to any person obtaining a copy
+ *  of this software and associated documentation files (the "Software"), to deal
+ *  in the Software without restriction, including without limitation the rights
+ *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ *  copies of the Software, and to permit persons to whom the Software is
+ *  furnished to do so, subject to the following conditions:
+ *  
+ *  The above copyright notice and this permission notice shall be included in
+ *  all copies or substantial portions of the Software.
+ *  
+ *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ *  THE SOFTWARE.
+ */
 #include "StdAfx.h"
 
 #include "VssExamineWriterMetadata.h"
@@ -158,7 +158,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
       return m_source;
    }
 
-   IList<VssWMFileDescription^>^ VssExamineWriterMetadata::ExcludeFiles::get()
+   IList<VssWMFileDescriptor^>^ VssExamineWriterMetadata::ExcludeFiles::get()
    {
       if (m_excludeFiles != nullptr)
          return m_excludeFiles;
@@ -166,12 +166,12 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
       UINT cIncludeFiles, cExcludeFiles, cComponents;
       CheckCom(mExamineWriterMetadata->GetFileCounts(&cIncludeFiles, &cExcludeFiles, &cComponents));
 
-      IList<VssWMFileDescription^>^ list = gcnew List<VssWMFileDescription^>(cExcludeFiles);
+      IList<VssWMFileDescriptor^>^ list = gcnew List<VssWMFileDescriptor^>(cExcludeFiles);
       for (UINT i = 0; i < cExcludeFiles; i++)
       {
          IVssWMFiledesc *filedesc;
          CheckCom(mExamineWriterMetadata->GetExcludeFile(i, &filedesc));
-         list->Add(CreateVssWMFileDescription(filedesc));
+         list->Add(CreateVssWMFileDescriptor(filedesc));
       }
       m_excludeFiles = list;
       return m_excludeFiles;
@@ -219,22 +219,22 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 
    }
 
-   IList<VssWMFileDescription^>^ VssExamineWriterMetadata::AlternateLocationMappings::get()
+   IList<VssWMFileDescriptor^>^ VssExamineWriterMetadata::AlternateLocationMappings::get()
    {
       if (m_alternateLocationMappings != nullptr)
          return m_alternateLocationMappings;
 
       // Return an empty list if no restore method is available
       if (this->RestoreMethod == nullptr)
-         return (gcnew List<VssWMFileDescription^>(0))->AsReadOnly();
+         return (gcnew List<VssWMFileDescriptor^>(0))->AsReadOnly();
 
-      IList<VssWMFileDescription^>^ list = gcnew List<VssWMFileDescription^>(this->RestoreMethod->MappingCount);
+      IList<VssWMFileDescriptor^>^ list = gcnew List<VssWMFileDescriptor^>(this->RestoreMethod->MappingCount);
 
       for (int i = 0; i < this->RestoreMethod->MappingCount; i++)
       {
          IVssWMFiledesc *filedesc;
          CheckCom(mExamineWriterMetadata->GetAlternateLocationMapping(i, &filedesc));
-         list->Add(CreateVssWMFileDescription(filedesc));
+         list->Add(CreateVssWMFileDescriptor(filedesc));
       }
       m_alternateLocationMappings = list;
       return m_alternateLocationMappings;
@@ -271,7 +271,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
       return m_version;
    }
 
-   IList<VssWMFileDescription^>^ VssExamineWriterMetadata::ExcludeFromSnapshotFiles::get()
+   IList<VssWMFileDescriptor^>^ VssExamineWriterMetadata::ExcludeFromSnapshotFiles::get()
    {
       if (m_excludeFilesFromSnapshot != nullptr)
          return m_excludeFilesFromSnapshot;
@@ -281,16 +281,16 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 
       CheckCom(RequireIVssExamineWriterMetadataEx2()->GetExcludeFromSnapshotCount(&cExcludedFromSnapshot));
 
-      IList<VssWMFileDescription^>^ list = gcnew List<VssWMFileDescription^>(cExcludedFromSnapshot);
+      IList<VssWMFileDescriptor^>^ list = gcnew List<VssWMFileDescriptor^>(cExcludedFromSnapshot);
       for (UINT i = 0; i < cExcludedFromSnapshot; i++)
       {
          IVssWMFiledesc *filedesc;
          CheckCom(RequireIVssExamineWriterMetadataEx2()->GetExcludeFromSnapshotFile(i, &filedesc));
-         list->Add(CreateVssWMFileDescription(filedesc));
+         list->Add(CreateVssWMFileDescriptor(filedesc));
       }
       m_excludeFiles = list;
 #else
-      m_excludeFiles = gcnew List<VssWMFileDescription^>();
+      m_excludeFiles = gcnew List<VssWMFileDescriptor^>();
 #endif
       return m_excludeFiles;
    }

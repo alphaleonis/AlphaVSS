@@ -1,4 +1,4 @@
-/* Copyright (c) 2008-2011 Peter Palotas
+/* Copyright (c) 2008-2012 Peter Palotas
  *  
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -27,7 +27,7 @@ namespace Alphaleonis.Win32.Vss
    /// </summary>
    /// <remarks>See <see href="http://msdn.microsoft.com/en-us/library/aa383529(VS.85).aspx">MSDN documentation on IVssComponent::GetPartialFile Method</see> for more information.</remarks>
    [Serializable]
-   public sealed class VssPartialFileInfo
+   public class VssPartialFileInfo
    {
       /// <summary>Initializes a new instance of the <see cref="VssPartialFileInfo"/> class</summary>
       /// <param name="path">The path of the partial file.</param>
