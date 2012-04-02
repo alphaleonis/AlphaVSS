@@ -32,9 +32,9 @@ using System.Resources;
 
 [assembly: AssemblyCompany("Alphaleonis")]
 [assembly: AssemblyProduct("AlphaVSS")]
-[assembly: AssemblyCopyright("Copyright © Peter Palotas 2008-2011")]
+[assembly: AssemblyCopyright("Copyright © Peter Palotas 2008-2012")]
 [assembly: AssemblyTrademark("")]
 
-[assembly: AssemblyVersion("1.1.3000.1")]
-[assembly: AssemblyFileVersion("1.1.3000.1")]
+[assembly: AssemblyVersion("1.1.4000.1")]
+[assembly: AssemblyFileVersion("1.1.4000.1")]
 

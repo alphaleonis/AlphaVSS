@@ -36,7 +36,7 @@ using namespace System::Security::Permissions;
 [assembly:AssemblyConfigurationAttribute("")];
 [assembly:AssemblyCompanyAttribute("Alphaleonis")];
 [assembly:AssemblyProductAttribute("AlphaVSS")];
-[assembly:AssemblyCopyrightAttribute("Copyright (c) Peter Palotas 2008-2011")];
+[assembly:AssemblyCopyrightAttribute("Copyright (c) Peter Palotas 2008-2012")];
 [assembly:AssemblyTrademarkAttribute("")];
 [assembly:AssemblyCultureAttribute("")];
 

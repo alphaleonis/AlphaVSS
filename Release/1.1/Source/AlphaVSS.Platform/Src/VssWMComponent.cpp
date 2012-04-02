@@ -214,7 +214,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 		m_dependencies = list->AsReadOnly();
 		return m_dependencies;
 #else
-		return new List<VssVMDependency^>^();
+		return gcnew List<VssWMDependency^>();
 #endif
 	}
 

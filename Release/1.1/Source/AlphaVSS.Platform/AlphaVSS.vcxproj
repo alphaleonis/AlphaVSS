@@ -218,26 +218,16 @@
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Win2008.Debug|x64'">AlphaVSS.60.$(PlatformName)</TargetName>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Win2008|Win32'">AlphaVSS.60.$(PlatformName)</TargetName>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Win2008|x64'">AlphaVSS.60.$(PlatformName)</TargetName>
-    <LinkKeyFile Condition="'$(Configuration)|$(Platform)'=='Win2003.Debug|Win32'">../AlphaVSS.pub.snk</LinkKeyFile>
-    <LinkDelaySign Condition="'$(Configuration)|$(Platform)'=='Win2003.Debug|Win32'">true</LinkDelaySign>
-    <LinkKeyFile Condition="'$(Configuration)|$(Platform)'=='Win2003|Win32'">../AlphaVSS.pub.snk</LinkKeyFile>
-    <LinkDelaySign Condition="'$(Configuration)|$(Platform)'=='Win2003|Win32'">true</LinkDelaySign>
-    <LinkKeyFile Condition="'$(Configuration)|$(Platform)'=='Win2008.Debug|Win32'">../AlphaVSS.pub.snk</LinkKeyFile>
-    <LinkDelaySign Condition="'$(Configuration)|$(Platform)'=='Win2008.Debug|Win32'">true</LinkDelaySign>
-    <LinkKeyFile Condition="'$(Configuration)|$(Platform)'=='Win2008|Win32'">../AlphaVSS.pub.snk</LinkKeyFile>
-    <LinkDelaySign Condition="'$(Configuration)|$(Platform)'=='Win2008|Win32'">true</LinkDelaySign>
-    <LinkKeyFile Condition="'$(Configuration)|$(Platform)'=='WinXP.Debug|Win32'">../AlphaVSS.pub.snk</LinkKeyFile>
-    <LinkDelaySign Condition="'$(Configuration)|$(Platform)'=='WinXP.Debug|Win32'">true</LinkDelaySign>
-    <LinkKeyFile Condition="'$(Configuration)|$(Platform)'=='WinXP|Win32'">../AlphaVSS.pub.snk</LinkKeyFile>
-    <LinkDelaySign Condition="'$(Configuration)|$(Platform)'=='WinXP|Win32'">true</LinkDelaySign>
-    <LinkKeyFile Condition="'$(Configuration)|$(Platform)'=='Win2003.Debug|x64'">../AlphaVSS.pub.snk</LinkKeyFile>
-    <LinkDelaySign Condition="'$(Configuration)|$(Platform)'=='Win2003.Debug|x64'">true</LinkDelaySign>
-    <LinkKeyFile Condition="'$(Configuration)|$(Platform)'=='Win2003|x64'">../AlphaVSS.pub.snk</LinkKeyFile>
-    <LinkDelaySign Condition="'$(Configuration)|$(Platform)'=='Win2003|x64'">true</LinkDelaySign>
-    <LinkKeyFile Condition="'$(Configuration)|$(Platform)'=='Win2008.Debug|x64'">../AlphaVSS.pub.snk</LinkKeyFile>
-    <LinkDelaySign Condition="'$(Configuration)|$(Platform)'=='Win2008.Debug|x64'">true</LinkDelaySign>
-    <LinkKeyFile Condition="'$(Configuration)|$(Platform)'=='Win2008|x64'">../AlphaVSS.pub.snk</LinkKeyFile>
-    <LinkDelaySign Condition="'$(Configuration)|$(Platform)'=='Win2008|x64'">true</LinkDelaySign>
+    <LinkKeyFile Condition="'$(Configuration)|$(Platform)'=='Win2003.Debug|Win32'">../AlphaVSS.snk</LinkKeyFile>
+    <LinkKeyFile Condition="'$(Configuration)|$(Platform)'=='Win2003|Win32'">../AlphaVSS.snk</LinkKeyFile>
+    <LinkKeyFile Condition="'$(Configuration)|$(Platform)'=='Win2008.Debug|Win32'">../AlphaVSS.snk</LinkKeyFile>
+    <LinkKeyFile Condition="'$(Configuration)|$(Platform)'=='Win2008|Win32'">../AlphaVSS.snk</LinkKeyFile>
+    <LinkKeyFile Condition="'$(Configuration)|$(Platform)'=='WinXP.Debug|Win32'">../AlphaVSS.snk</LinkKeyFile>
+    <LinkKeyFile Condition="'$(Configuration)|$(Platform)'=='WinXP|Win32'">../AlphaVSS.snk</LinkKeyFile>
+    <LinkKeyFile Condition="'$(Configuration)|$(Platform)'=='Win2003.Debug|x64'">../AlphaVSS.snk</LinkKeyFile>
+    <LinkKeyFile Condition="'$(Configuration)|$(Platform)'=='Win2003|x64'">../AlphaVSS.snk</LinkKeyFile>
+    <LinkKeyFile Condition="'$(Configuration)|$(Platform)'=='Win2008.Debug|x64'">../AlphaVSS.snk</LinkKeyFile>
+    <LinkKeyFile Condition="'$(Configuration)|$(Platform)'=='Win2008|x64'">../AlphaVSS.snk</LinkKeyFile>
     <LinkKeyFile Condition="'$(Configuration)|$(Platform)'=='WinXP.Debug|x64'">../AlphaVSS.pub.snk</LinkKeyFile>
     <LinkDelaySign Condition="'$(Configuration)|$(Platform)'=='WinXP.Debug|x64'">true</LinkDelaySign>
     <LinkKeyFile Condition="'$(Configuration)|$(Platform)'=='WinXP|x64'">../AlphaVSS.pub.snk</LinkKeyFile>
