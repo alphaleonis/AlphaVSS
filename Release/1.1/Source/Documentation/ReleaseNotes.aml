@@ -5,6 +5,32 @@
       <introduction>
          <para>This section contains the release notes for AlphaVSS.</para>
       </introduction>
+      <section address="release_1_1_4000_1">
+         <title>Version 1.1.4000</title>
+         <content>
+            <para>
+               <legacyBold>
+                  BREAKING CHANGE:
+               </legacyBold> The class VssWMFileDescription has been renamed to VssWMFileDescriptor
+            </para>
+            <para>
+               <legacyBold>BREAKING CHANGE: </legacyBold>
+               The IVssAsync interface has been removed. Any methods previously returning
+               IVssAsync are now synchronous and returns void. Asynchronous versions of these
+               methods have been added with the standard APM naming scheme of BeginXXX, EndXXX
+               where the Begin method returns an IVssAsyncResult instance which implements
+               the standard IAsyncResult interface.
+            </para>
+            <para>
+               The properties of IVssWMComponent that are not supported on earlier operating systems no longer
+               throw exceptions but return default values instead.
+            </para>
+            <para>
+               A new sample application was added; AlphaShadow, which implements much of the same functionality as
+               the VShadow sample application from the Windows SDK.
+            </para>
+         </content>
+      </section>      
       <section address="release_1_1_3000_1">
          <title>Version 1.1 Beta1</title>
          <content>
