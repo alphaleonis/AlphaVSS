@@ -1,4 +1,4 @@
-Version 1.1.4000
+Version 1.2.4000
 ------------------
 * BREAKING CHANGE: The class VssWMFileDescription has been renamed to VssWMFileDescriptor
 
@@ -14,7 +14,10 @@ Version 1.1.4000
 * A new sample application was added; AlphaShadow, which implements much of the same functionality as 
   the VShadow sample application from the Windows SDK.
 
-Version 1.1.3000
+* Delay signing has been removed and the public key of the assemblies has changed from the previous 
+  version.
+
+Version 1.2.3000
 --------------
 * Changed assembly naming of the platform specifiec assemblies so that their names 
   are the same regardless of the build configuration.
