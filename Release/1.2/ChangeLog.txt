@@ -1,4 +1,9 @@
-Version 1.2.4000
+Version 1.2.4000.2
+------------------
+* BUG-17860: All platfom-specific X86 assemblies were signed with the wrong public key and 
+             failed to load.
+
+Version 1.2.4000.1
 ------------------
 * BREAKING CHANGE: The class VssWMFileDescription has been renamed to VssWMFileDescriptor
 
