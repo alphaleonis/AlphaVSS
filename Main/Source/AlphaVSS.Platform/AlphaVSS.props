@@ -13,15 +13,11 @@
     <IntDir>$(ProjectDir)\..\..\Obj\$(Configuration)\$(PlatformName)\</IntDir>
     <TargetName>AlphaVSS.$(Configuration).$(PlatformName)</TargetName>
     <LinkIncremental>false</LinkIncremental>
+    <LinkKeyFile>$(SolutionDir)AlphaVSS.snk</LinkKeyFile>
+    <LinkDelaySign>false</LinkDelaySign>
   </PropertyGroup>
   <ItemDefinitionGroup>
     <Link>
-      <KeyFile>$(SolutionDir)\AlphaVSS.pub.snk</KeyFile>
-    </Link>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup>
-    <Link>
-      <DelaySign>true</DelaySign>
       <Version>$(AlphaVssVersion)</Version>
     </Link>
     <ClCompile>
