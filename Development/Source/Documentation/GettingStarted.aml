@@ -77,7 +77,7 @@
          </para>
          <para>
             All of the assemblies are signed with a strong name, having the public 
-            key <legacyBold>3033cf2dbd31cad3</legacyBold>. The strong name are 
+            key token <legacyBold>959d3993561034e3</legacyBold>. The strong name are 
             used to refer to the assemblies by the dynamic loading code in
             <codeEntityReference>T:Alphaleonis.Win32.Vss.VssUtils</codeEntityReference>.
             Normally you don't need to be concerned about this, but if you intend

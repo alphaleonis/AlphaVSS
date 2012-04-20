@@ -35,5 +35,5 @@ using System.Resources;
 [assembly: AssemblyCopyright("Copyright © Peter Palotas 2008-2012")]
 [assembly: AssemblyTrademark("")]
 
-[assembly: AssemblyVersion("1.2.4000.1")]
-[assembly: AssemblyFileVersion("1.2.4000.1")]
+[assembly: AssemblyVersion("1.2.4000.2")]
+[assembly: AssemblyFileVersion("1.2.4000.2")]
