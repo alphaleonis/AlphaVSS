@@ -355,15 +355,19 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
       AutoBStr bstrWriter;
       VSS_WRITER_STATE eState;
       HRESULT hrResultFailure;
-#if ALPHAVSS_TARGET < ALPHAVSS_TARGET_WINVISTAORLATER
-      CheckCom(m_backupComponents->m_backup->GetWriterStatus(index, &idInstance, &idWriter, &bstrWriter, &eState, &hrResultFailure));
-      return gcnew VssWriterStatusInfo(ToGuid(idInstance), ToGuid(idWriter), bstrWriter, (VssWriterState)eState, (VssError)hrResultFailure);
-#else
+
+#if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WINVISTAORLATER
       HRESULT hrApplication;
       AutoBStr bstrApplicationMessage = NULL;
-      CheckCom(m_backupComponents->RequireIVssBackupComponentsEx3()->GetWriterStatusEx(index, &idInstance, &idWriter, &bstrWriter, &eState, &hrResultFailure, &hrApplication, &bstrApplicationMessage));
-      return gcnew VssWriterStatusInfo(ToGuid(idInstance), ToGuid(idWriter), bstrWriter, (VssWriterState)eState, (VssError)hrResultFailure, hrApplication, bstrApplicationMessage);
+      IVssBackupComponentsEx3 *pVbc3 = m_backupComponents->GetIVssBackupComponentsEx3();
+      if (pVbc3 != NULL)
+      {
+         CheckCom(pVbc3->GetWriterStatusEx(index, &idInstance, &idWriter, &bstrWriter, &eState, &hrResultFailure, &hrApplication, &bstrApplicationMessage));
+         return gcnew VssWriterStatusInfo(ToGuid(idInstance), ToGuid(idWriter), bstrWriter, (VssWriterState)eState, (VssError)hrResultFailure, hrApplication, bstrApplicationMessage);
+      }
 #endif
+      CheckCom(m_backupComponents->m_backup->GetWriterStatus(index, &idInstance, &idWriter, &bstrWriter, &eState, &hrResultFailure));
+      return gcnew VssWriterStatusInfo(ToGuid(idInstance), ToGuid(idWriter), bstrWriter, (VssWriterState)eState, (VssError)hrResultFailure);
    }
 
 
