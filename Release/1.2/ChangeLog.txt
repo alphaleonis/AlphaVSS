@@ -1,3 +1,9 @@
+Version 1.2.4000.3
+------------------
+* BUG-18251: Fixed bug causing IVssBackupComponents.WriterStatus to incorrectly throw exception 
+             stating that the operation is not supported on the current operating system on 
+             Windows 2008 and Windows Vista.
+
 Version 1.2.4000.2
 ------------------
 * BUG-17860: All platfom-specific X86 assemblies were signed with the wrong public key and 
