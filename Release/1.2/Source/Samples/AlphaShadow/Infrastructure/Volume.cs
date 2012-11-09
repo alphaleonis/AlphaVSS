@@ -134,10 +134,17 @@ namespace Alphaleonis.Win32.Filesystem
 
          if (!NativeMethods.GetVolumePathNamesForVolumeNameW(volumeName, buffer, (uint)buffer.Length, ref requiredLength))
          {
-            // Not enough room in buffer perhaps? Try a bigger one
-            buffer = new char[requiredLength];
-            if (!NativeMethods.GetVolumePathNamesForVolumeNameW(volumeName, buffer, (uint)buffer.Length, ref requiredLength))
-               Marshal.ThrowExceptionForHR(Marshal.GetHRForLastWin32Error());
+            int errorCode = Marshal.GetLastWin32Error();
+            if (errorCode == NativeMethods.ERROR_MORE_DATA || errorCode == NativeMethods.ERROR_INSUFFICIENT_BUFFER)
+            {
+               buffer = new char[requiredLength];
+               if (!NativeMethods.GetVolumePathNamesForVolumeNameW(volumeName, buffer, (uint)buffer.Length, ref requiredLength))
+                  Marshal.ThrowExceptionForHR(Marshal.GetHRForLastWin32Error());
+            }
+            else
+            {
+               throw new Win32Exception();
+            }
          }
 
          List<string> displayNames = new List<string>();
@@ -356,6 +363,7 @@ namespace Alphaleonis.Win32.Filesystem
       {
          public const int MAX_PATH = 261;
          public const uint ERROR_INSUFFICIENT_BUFFER = 122;
+         public const uint ERROR_MORE_DATA = 234;
 
          [DllImport("kernel32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
          [return: MarshalAs(UnmanagedType.Bool)]
