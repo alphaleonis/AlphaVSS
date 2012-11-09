@@ -129,7 +129,8 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 
    void WaitCheckAndReleaseVssAsyncOperation(::IVssAsync *pAsync)
    {
-      CComPtr<::IVssAsync> spAsync(pAsync);
+      CComPtr<::IVssAsync> spAsync;
+      spAsync.Attach(pAsync);
       CheckCom(spAsync->Wait());
       HRESULT hr;
       CheckCom(spAsync->QueryStatus(&hr, NULL));
