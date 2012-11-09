@@ -541,7 +541,16 @@ namespace AlphaShadow
 
                   if (!shadowSourceVolumes.Contains(component.AffectedVolumes[i]))
                   {
-                     string localVolume = Volume.GetDisplayNameForVolume(component.AffectedVolumes[i]);
+                     string localVolume;
+                     try
+                     {
+                        localVolume = Volume.GetDisplayNameForVolume(component.AffectedVolumes[i]);
+                     }
+                     catch
+                     {
+                        localVolume = null;
+                     }
+
                      if (localVolume != null)
                      {
                         Host.WriteLine("- Component '{0}' from writer '{1}' is excluded from backup (it requires {2} in the shadow set)",
