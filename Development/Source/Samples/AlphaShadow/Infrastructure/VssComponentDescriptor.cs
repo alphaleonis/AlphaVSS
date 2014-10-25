@@ -56,9 +56,9 @@ namespace AlphaShadow
 
          ComponentName = component.ComponentName;
          ComponentType = component.ComponentType;
-         LogicalPath = component.LogicalPath;
+         LogicalPath = component.LogicalPath ?? String.Empty;
 
-         if (!LogicalPath.EndsWith("\\"))
+         if (LogicalPath.EndsWith("\\"))
             FullPath = LogicalPath + ComponentName;
          else
             FullPath = LogicalPath + "\\" + ComponentName;
