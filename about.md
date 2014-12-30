@@ -2,7 +2,7 @@
 layout: page
 title: About
 inMenu: true
-permalink: /about/
+permalink: /AlphaVSS/about/
 ---
 
 Work in progress.
