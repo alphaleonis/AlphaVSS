@@ -1,0 +1,158 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2D2D5045-46A9-490F-A79D-78B261C35231}"
+	ProjectSection(SolutionItems) = preProject
+		AlphaVSS.ruleset = AlphaVSS.ruleset
+		AlphaVSS.snk = AlphaVSS.snk
+		..\ChangeLog.txt = ..\ChangeLog.txt
+		..\LICENSE.TXT = ..\LICENSE.TXT
+		Version.msbuild = Version.msbuild
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{202D432F-679C-44A2-A3AE-4100E6BBA0ED}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AlphaVSS.Platform", "AlphaVSS.Platform\AlphaVSS.vcxproj", "{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlphaVSS.Common", "AlphaVSS.Common\AlphaVSS.Common.csproj", "{2FB97B30-1050-4F6B-B729-B94AAA178EE4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnapshotQuery", "Samples\SnapshotQuery\SnapshotQuery.csproj", "{8407087E-7FC5-4996-A0AE-D399060C8AD3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlphaShadow", "Samples\AlphaShadow\AlphaShadow.csproj", "{22958F18-D607-4C5B-9EF0-F143A533B61A}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs02
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = AlphaVSS.Common\\AlphaVSS.Common.csproj
+		SccProjectName1 = AlphaVSS.Common
+		SccLocalPath1 = AlphaVSS.Common
+		SccProjectUniqueName2 = Samples\\SnapshotQuery\\SnapshotQuery.csproj
+		SccProjectTopLevelParentUniqueName2 = AlphaVSS.sln
+		SccProjectName2 = Samples/SnapshotQuery
+		SccLocalPath2 = Samples\\SnapshotQuery
+		SccProjectUniqueName3 = AlphaVSS.Platform\\AlphaVSS.vcxproj
+		SccProjectName3 = AlphaVSS.Platform
+		SccLocalPath3 = AlphaVSS.Platform
+		SccProjectUniqueName4 = Samples\\AlphaShadow\\AlphaShadow.csproj
+		SccProjectTopLevelParentUniqueName4 = AlphaVSS.sln
+		SccProjectName4 = Samples/AlphaShadow
+		SccLocalPath4 = Samples\\AlphaShadow
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Win2003.Debug|x64 = Win2003.Debug|x64
+		Win2003.Debug|x86 = Win2003.Debug|x86
+		Win2003|x64 = Win2003|x64
+		Win2003|x86 = Win2003|x86
+		Win2008.Debug|x64 = Win2008.Debug|x64
+		Win2008.Debug|x86 = Win2008.Debug|x86
+		Win2008|x64 = Win2008|x64
+		Win2008|x86 = Win2008|x86
+		WinXP.Debug|x64 = WinXP.Debug|x64
+		WinXP.Debug|x86 = WinXP.Debug|x86
+		WinXP|x64 = WinXP|x64
+		WinXP|x86 = WinXP|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Win2003.Debug|x64.ActiveCfg = Win2003.Debug|x64
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Win2003.Debug|x64.Build.0 = Win2003.Debug|x64
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Win2003.Debug|x86.ActiveCfg = Win2003.Debug|Win32
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Win2003.Debug|x86.Build.0 = Win2003.Debug|Win32
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Win2003|x64.ActiveCfg = Win2003|x64
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Win2003|x64.Build.0 = Win2003|x64
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Win2003|x86.ActiveCfg = Win2003|Win32
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Win2003|x86.Build.0 = Win2003|Win32
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Win2008.Debug|x64.ActiveCfg = Win2008.Debug|x64
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Win2008.Debug|x64.Build.0 = Win2008.Debug|x64
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Win2008.Debug|x86.ActiveCfg = Win2008.Debug|Win32
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Win2008.Debug|x86.Build.0 = Win2008.Debug|Win32
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Win2008|x64.ActiveCfg = Win2008|x64
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Win2008|x64.Build.0 = Win2008|x64
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Win2008|x86.ActiveCfg = Win2008|Win32
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.Win2008|x86.Build.0 = Win2008|Win32
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.WinXP.Debug|x64.ActiveCfg = WinXP.Debug|x64
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.WinXP.Debug|x86.ActiveCfg = WinXP.Debug|Win32
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.WinXP.Debug|x86.Build.0 = WinXP.Debug|Win32
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.WinXP|x64.ActiveCfg = WinXP|x64
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.WinXP|x86.ActiveCfg = WinXP|Win32
+		{492458C9-0A41-41C3-BC18-B1F8C3D0AAF1}.WinXP|x86.Build.0 = WinXP|Win32
+		{2FB97B30-1050-4F6B-B729-B94AAA178EE4}.Win2003.Debug|x64.ActiveCfg = Debug|Any CPU
+		{2FB97B30-1050-4F6B-B729-B94AAA178EE4}.Win2003.Debug|x64.Build.0 = Debug|Any CPU
+		{2FB97B30-1050-4F6B-B729-B94AAA178EE4}.Win2003.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2FB97B30-1050-4F6B-B729-B94AAA178EE4}.Win2003.Debug|x86.Build.0 = Debug|Any CPU
+		{2FB97B30-1050-4F6B-B729-B94AAA178EE4}.Win2003|x64.ActiveCfg = Release|Any CPU
+		{2FB97B30-1050-4F6B-B729-B94AAA178EE4}.Win2003|x64.Build.0 = Release|Any CPU
+		{2FB97B30-1050-4F6B-B729-B94AAA178EE4}.Win2003|x86.ActiveCfg = Release|Any CPU
+		{2FB97B30-1050-4F6B-B729-B94AAA178EE4}.Win2003|x86.Build.0 = Release|Any CPU
+		{2FB97B30-1050-4F6B-B729-B94AAA178EE4}.Win2008.Debug|x64.ActiveCfg = Debug|Any CPU
+		{2FB97B30-1050-4F6B-B729-B94AAA178EE4}.Win2008.Debug|x64.Build.0 = Debug|Any CPU
+		{2FB97B30-1050-4F6B-B729-B94AAA178EE4}.Win2008.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2FB97B30-1050-4F6B-B729-B94AAA178EE4}.Win2008.Debug|x86.Build.0 = Debug|Any CPU
+		{2FB97B30-1050-4F6B-B729-B94AAA178EE4}.Win2008|x64.ActiveCfg = Release|Any CPU
+		{2FB97B30-1050-4F6B-B729-B94AAA178EE4}.Win2008|x64.Build.0 = Release|Any CPU
+		{2FB97B30-1050-4F6B-B729-B94AAA178EE4}.Win2008|x86.ActiveCfg = Release|Any CPU
+		{2FB97B30-1050-4F6B-B729-B94AAA178EE4}.Win2008|x86.Build.0 = Release|Any CPU
+		{2FB97B30-1050-4F6B-B729-B94AAA178EE4}.WinXP.Debug|x64.ActiveCfg = Debug|Any CPU
+		{2FB97B30-1050-4F6B-B729-B94AAA178EE4}.WinXP.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2FB97B30-1050-4F6B-B729-B94AAA178EE4}.WinXP.Debug|x86.Build.0 = Debug|Any CPU
+		{2FB97B30-1050-4F6B-B729-B94AAA178EE4}.WinXP|x64.ActiveCfg = Release|Any CPU
+		{2FB97B30-1050-4F6B-B729-B94AAA178EE4}.WinXP|x86.ActiveCfg = Release|Any CPU
+		{2FB97B30-1050-4F6B-B729-B94AAA178EE4}.WinXP|x86.Build.0 = Release|Any CPU
+		{8407087E-7FC5-4996-A0AE-D399060C8AD3}.Win2003.Debug|x64.ActiveCfg = Debug|Any CPU
+		{8407087E-7FC5-4996-A0AE-D399060C8AD3}.Win2003.Debug|x64.Build.0 = Debug|Any CPU
+		{8407087E-7FC5-4996-A0AE-D399060C8AD3}.Win2003.Debug|x86.ActiveCfg = Debug|Any CPU
+		{8407087E-7FC5-4996-A0AE-D399060C8AD3}.Win2003.Debug|x86.Build.0 = Debug|Any CPU
+		{8407087E-7FC5-4996-A0AE-D399060C8AD3}.Win2003|x64.ActiveCfg = Release|Any CPU
+		{8407087E-7FC5-4996-A0AE-D399060C8AD3}.Win2003|x64.Build.0 = Release|Any CPU
+		{8407087E-7FC5-4996-A0AE-D399060C8AD3}.Win2003|x86.ActiveCfg = Release|Any CPU
+		{8407087E-7FC5-4996-A0AE-D399060C8AD3}.Win2003|x86.Build.0 = Release|Any CPU
+		{8407087E-7FC5-4996-A0AE-D399060C8AD3}.Win2008.Debug|x64.ActiveCfg = Debug|Any CPU
+		{8407087E-7FC5-4996-A0AE-D399060C8AD3}.Win2008.Debug|x64.Build.0 = Debug|Any CPU
+		{8407087E-7FC5-4996-A0AE-D399060C8AD3}.Win2008.Debug|x86.ActiveCfg = Debug|Any CPU
+		{8407087E-7FC5-4996-A0AE-D399060C8AD3}.Win2008.Debug|x86.Build.0 = Debug|Any CPU
+		{8407087E-7FC5-4996-A0AE-D399060C8AD3}.Win2008|x64.ActiveCfg = Release|Any CPU
+		{8407087E-7FC5-4996-A0AE-D399060C8AD3}.Win2008|x64.Build.0 = Release|Any CPU
+		{8407087E-7FC5-4996-A0AE-D399060C8AD3}.Win2008|x86.ActiveCfg = Release|Any CPU
+		{8407087E-7FC5-4996-A0AE-D399060C8AD3}.Win2008|x86.Build.0 = Release|Any CPU
+		{8407087E-7FC5-4996-A0AE-D399060C8AD3}.WinXP.Debug|x64.ActiveCfg = Debug|Any CPU
+		{8407087E-7FC5-4996-A0AE-D399060C8AD3}.WinXP.Debug|x86.ActiveCfg = Debug|Any CPU
+		{8407087E-7FC5-4996-A0AE-D399060C8AD3}.WinXP.Debug|x86.Build.0 = Debug|Any CPU
+		{8407087E-7FC5-4996-A0AE-D399060C8AD3}.WinXP|x64.ActiveCfg = Release|Any CPU
+		{8407087E-7FC5-4996-A0AE-D399060C8AD3}.WinXP|x86.ActiveCfg = Release|Any CPU
+		{8407087E-7FC5-4996-A0AE-D399060C8AD3}.WinXP|x86.Build.0 = Release|Any CPU
+		{22958F18-D607-4C5B-9EF0-F143A533B61A}.Win2003.Debug|x64.ActiveCfg = Debug|Any CPU
+		{22958F18-D607-4C5B-9EF0-F143A533B61A}.Win2003.Debug|x64.Build.0 = Debug|Any CPU
+		{22958F18-D607-4C5B-9EF0-F143A533B61A}.Win2003.Debug|x86.ActiveCfg = Debug|Any CPU
+		{22958F18-D607-4C5B-9EF0-F143A533B61A}.Win2003.Debug|x86.Build.0 = Debug|Any CPU
+		{22958F18-D607-4C5B-9EF0-F143A533B61A}.Win2003|x64.ActiveCfg = Release|Any CPU
+		{22958F18-D607-4C5B-9EF0-F143A533B61A}.Win2003|x64.Build.0 = Release|Any CPU
+		{22958F18-D607-4C5B-9EF0-F143A533B61A}.Win2003|x86.ActiveCfg = Release|Any CPU
+		{22958F18-D607-4C5B-9EF0-F143A533B61A}.Win2003|x86.Build.0 = Release|Any CPU
+		{22958F18-D607-4C5B-9EF0-F143A533B61A}.Win2008.Debug|x64.ActiveCfg = Debug|Any CPU
+		{22958F18-D607-4C5B-9EF0-F143A533B61A}.Win2008.Debug|x64.Build.0 = Debug|Any CPU
+		{22958F18-D607-4C5B-9EF0-F143A533B61A}.Win2008.Debug|x86.ActiveCfg = Debug|Any CPU
+		{22958F18-D607-4C5B-9EF0-F143A533B61A}.Win2008.Debug|x86.Build.0 = Debug|Any CPU
+		{22958F18-D607-4C5B-9EF0-F143A533B61A}.Win2008|x64.ActiveCfg = Release|Any CPU
+		{22958F18-D607-4C5B-9EF0-F143A533B61A}.Win2008|x64.Build.0 = Release|Any CPU
+		{22958F18-D607-4C5B-9EF0-F143A533B61A}.Win2008|x86.ActiveCfg = Release|Any CPU
+		{22958F18-D607-4C5B-9EF0-F143A533B61A}.Win2008|x86.Build.0 = Release|Any CPU
+		{22958F18-D607-4C5B-9EF0-F143A533B61A}.WinXP.Debug|x64.ActiveCfg = Debug|Any CPU
+		{22958F18-D607-4C5B-9EF0-F143A533B61A}.WinXP.Debug|x86.ActiveCfg = Debug|Any CPU
+		{22958F18-D607-4C5B-9EF0-F143A533B61A}.WinXP.Debug|x86.Build.0 = Debug|Any CPU
+		{22958F18-D607-4C5B-9EF0-F143A533B61A}.WinXP|x64.ActiveCfg = Release|Any CPU
+		{22958F18-D607-4C5B-9EF0-F143A533B61A}.WinXP|x86.ActiveCfg = Release|Any CPU
+		{22958F18-D607-4C5B-9EF0-F143A533B61A}.WinXP|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8407087E-7FC5-4996-A0AE-D399060C8AD3} = {202D432F-679C-44A2-A3AE-4100E6BBA0ED}
+		{22958F18-D607-4C5B-9EF0-F143A533B61A} = {202D432F-679C-44A2-A3AE-4100E6BBA0ED}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		VisualSVNWorkingCopyRoot = ..\..
+	EndGlobalSection
+EndGlobal
