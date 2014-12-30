@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros">
+    <VSSSDK72Dir>C:\Program Files (x86)\Microsoft\VSSSDK72\</VSSSDK72Dir>
+  </PropertyGroup>
+  <PropertyGroup Label="Custom">
+    <PlatformName Condition="'$(Platform)' == 'Win32'">x86</PlatformName>
+    <PlatformName Condition="'$(Platform)' == 'x64'">x64</PlatformName>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OutDir>$(ProjectDir)\..\..\Bin\</OutDir>
+    <IntDir>$(ProjectDir)\..\..\Obj\$(Configuration)\$(PlatformName)\</IntDir>
+    <TargetName>AlphaVSS.$(Configuration).$(PlatformName)</TargetName>
+    <LinkIncremental>false</LinkIncremental>
+    <LinkKeyFile>$(SolutionDir)AlphaVSS.snk</LinkKeyFile>
+    <LinkDelaySign>false</LinkDelaySign>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <Link>
+      <Version>$(AlphaVssVersion)</Version>
+    </Link>
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <AdditionalIncludeDirectories>$(ProjectDir)\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_WINDLL;ALPHAVSS_VERSION=$(AlphaVssVersion);ALPHAVSS_VERSION_RC=$(AlphaVssVersionRc);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_UNICODE;UNICODE;ALPHAVSS_VERSION=$(AlphaVssVersion);ALPHAVSS_VERSION_RC=$(AlphaVssVersionRc);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <BuildMacro Include="PlatformName">
+      <Value>$(PlatformName)</Value>
+    </BuildMacro>
+    <BuildMacro Include="VSSSDK72Dir">
+      <Value>$(VSSSDK72Dir)</Value>
+    </BuildMacro>
+  </ItemGroup>
+</Project>

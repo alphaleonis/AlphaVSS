@@ -1,0 +1,208 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="70a14249-f7ef-4e8d-aa01-4f477460e881" revisionNumber="1">
+   <developerConceptualDocument xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+      <introduction>
+         <para>This section contains the release notes for AlphaVSS.</para>
+      </introduction>
+      <section address="release_1_2_4000_1">
+         <title>Version 1.2.4000</title>
+         <content>
+            <para>
+               <legacyBold>
+                  BREAKING CHANGE:
+               </legacyBold> The class VssWMFileDescription has been renamed to VssWMFileDescriptor               
+            </para>
+            <para>
+               <legacyBold>BREAKING CHANGE: </legacyBold>
+               The IVssAsync interface has been removed. Any methods previously returning
+               IVssAsync are now synchronous and returns void. Asynchronous versions of these
+               methods have been added with the standard APM naming scheme of BeginXXX, EndXXX
+               where the Begin method returns an IVssAsyncResult instance which implements
+               the standard IAsyncResult interface.
+            </para>
+            <para>
+               The properties of IVssWMComponent that are not supported on earlier operating systems no longer
+               throw exceptions but return default values instead.
+            </para>
+            <para>
+               A new sample application was added; AlphaShadow, which implements much of the same functionality as
+               the VShadow sample application from the Windows SDK.
+            </para>
+         </content>
+      </section>
+      <section address="release_1_2_3000_1">
+         <title>Version 1.2 Beta1</title>
+         <content>
+            <para>All AlphaVSS binaries are now built against the .NET 4.0 target framework.</para>
+         </content>
+      </section>
+
+      <section address="release_1_1_3000_1">
+         <title>Version 1.1 Beta1</title>
+         <content>
+            <para>AlphaVSS is now built using Visual Studio 2010.</para>
+            <para>
+               Support for some of the VSS functionality introduced in Windows 7 and
+               Windows Server 2008 R2 has been added.
+            </para>
+            <para>
+               Fixed invalid initialization VssBackupComponents of that caused potential memory issue
+               during finalization of this object (calling Release on IVssBackupComponentsEx and Ex2).
+            </para>
+            <para>
+               Changed naming of the platform specific libraries, since the same library works on any
+               windows version >= Vista. They are now called <literal>AlphaVSS.XX.&lt;platform&gt;.dll</literal>
+               where XX is 51 for XP, 52 for 2003 (and XP x64), and 60 for Vista and later windows versions.
+            </para>
+            <para>
+               The VssAsync interface now has a Wait-method accepting a timeout that is supported on
+               Windows Vista or later operating systems.
+            </para>
+            <para>
+               Added new exception VssUnexpectedErrorException to represent the error codes E_UNEXPECTED
+               and VSS_E_UNEXPECTED.
+            </para>
+            <para>
+               * Made most classes in AlphaVSS.Common serializable.
+            </para>
+         </content>
+      </section>
+      <section address="release_10beta">
+         <title>Version 1.0 Beta</title>
+         <content>
+            <para>
+               The differences from version 1.0 alpha are subtle and consist mostly of
+               bugfixes. Most significantly the nasty assembly version bug is finally
+               gone, and loading of the platform specific assemblies should now work without
+               a problem.
+            </para>
+            <para>
+               The other major difference is an update of the documentation which now
+               also include conceptual content (such as these release notes) and
+               some basic usage guidelines to make getting started using AlphaVSS
+               easier.
+            </para>
+            <para>
+               A couple of simple samples have also been included to demonstrate
+               the basic usage of AlphaVSS.
+            </para>
+            <para>
+               Please continue to send feedback and bugreports using the discussion forum
+               and issue tracker on the official homepage at
+               <externalLink>
+                  <linkText>http://alphavss.codeplex.com/</linkText>
+                  <linkUri><![CDATA[http://alphavss.codeplex.com/]]></linkUri>
+               </externalLink>
+            </para>
+         </content>
+      </section>
+
+      <section address="release_10alpha">
+         <title>Version 1.0 alpha</title>
+         <content>
+            <!-- Uncomment this to create a sub-section outline
+        <autoOutline /> -->
+            <para>
+               With version 1.0 Alpha the public interface of AlphaVSS should have stabilized somewhat,
+               and no major changes will be made to the interface before 1.0 final is released unless
+               required by a serious bug or flaw. Please report any usages, both successful and
+               unsuccessful by posting a message at the discussion board or filing a work item in
+               the Issue Tracker. This is vital if I should be able to release a Beta and Final
+               releases in the near future.
+            </para>
+            <para>
+               Listed below are the most important new features in AlphaVSS version 1.0 alpha.
+               For a full list, see ChangeLog.txt included in both the binary and source releases.
+            </para>
+            <list class="bullet">
+               <listItem>
+                  <para>
+                     All VSS API classes that are platform specific are now exposed as interfaces instead of classes.
+                     The code common to all platforms have been extracted into a separate assembly called AlphaVSS.Common,
+                     which is written in C#, greatly reducing the maintenance workload.
+                  </para>
+               </listItem>
+               <listItem>
+                  <para>
+                     Only one executable need to be produced for all platforms now.
+                     VssUtils and IVssImplementation provide the entry point to the VSS API, providing automatic detection of
+                     the operating system and loading of the correct dll and creating an instance of IVssImplementation which provide
+                     further methods to aquire the relevant VSS interfaces.
+                     See the API documentation for <codeEntityReference>T:Alphaleonis.Win32.Vss.VssUtils</codeEntityReference> for more information about this.
+                  </para>
+               </listItem>
+               <listItem>
+                  <para>
+                     All of the VSS API (as of Windows SDK version 6.1) relevant to requesters should now be available for use in AlphaVSS.
+                  </para>
+               </listItem>
+               <listItem>
+                  <para>
+                     Documentation has been updated and many erroneous links have been corrected.
+                  </para>
+               </listItem>
+               <listItem>
+                  <para>
+                     All assemblies now have a strong name. This is used by the dynamic loading facility, but may cause problems when you build AlphaVSS from source. See [Building AlphaVSS from Source] for more information.
+                  </para>
+               </listItem>
+               <listItem>
+                  <para>
+                     Target framework for AlphaVSS was changed to .NET 2.0 since it doesn't use any of the features introduced in the later framework versions.
+                  </para>
+               </listItem>
+            </list>
+         </content>
+      </section>
+
+      <section address="release_08_alpha">
+         <title>0.8 alpha</title>
+         <content>
+            <para>
+               Major new feature in this version is the compatibility with both x86 and x64 versions of Windows 2003, XP, Vista and 2008. The binary release contains one .dll for each of these targets and platforms.
+            </para>
+            <list class="bullet">
+               <listItem>
+                  <para>
+                     New build targets and dll-naming to support more versions of windows (WinXP, Win2003, Vista, Win 2008, all in both x86 and x64 versions)
+                  </para>
+               </listItem>
+               <listItem>
+                  <para>
+                     DeleteSnapshots modified to remove out parameters and remove return of error code. Errors now handled through exceptions.
+                  </para>
+               </listItem>
+               <listItem>
+                  <para>
+                     VssBackupComponents.Query was removed and replaced with the methods QuerySnapshots and QueryProviders.
+                  </para>
+               </listItem>
+               <listItem>
+                  <para>
+                     VssSnapshotProp and VssProviderProp renamed and no longer implements the IVssObjectProp interface which in turn was removed.
+                  </para>
+               </listItem>
+               <listItem>
+                  <para>
+                     Vss-prefix added to classes that previously did not have it.
+                  </para>
+               </listItem>
+               <listItem>
+                  <para>
+                     Multiple classes renamed to remove abbreviations, to follow the .NET naming guidelines.
+                  </para>
+               </listItem>
+               <listItem>
+                  <para>
+                     ChangeLog.txt file added to keep track of changes between releases.
+                  </para>
+               </listItem>
+            </list>
+         </content>
+      </section>
+
+      <relatedTopics>
+      </relatedTopics>
+   </developerConceptualDocument>
+</topic>

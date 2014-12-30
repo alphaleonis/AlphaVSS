@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="4d72ab08-78e9-40cf-a85e-3f979540d009" revisionNumber="1">
+   <developerConceptualDocument xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <introduction>
+         <para>
+            This chapter describes how to build AlphaVSS from the sources downloadable separately or from the
+            source control server at
+            <externalLink>
+               <linkText>CodePlex</linkText>
+               <linkUri>http://alphavss.codeplex.com/SourceControl/ListDownloadableCommits.aspx</linkUri>
+            </externalLink>.
+         </para>
+      </introduction>
+      <section address="FilesAndProjects">
+         <title>Files and Projects</title>
+         <content>
+            <para>
+               The AlphaVSS solution and project files were created using Visual Studio 2010 which is required to build
+               AlphaVSS.
+            </para>
+            <para>
+               If you download source code from the code plex webpage, 
+               chances are you will get an error message about missing TFS bindings. This is no cause for alarm as
+               Visual Studio should present you with an option to remove these bindings.
+            </para>
+            <para>
+               The solution contains two main projects, <application>AlphaVSS.Common</application> which is common to all
+               platforms and can be built in two configurations, Release and Debug, as well as
+               <application>AlphaVSS.Platform</application> which contains the platform specific code.
+               This is available in 10 configurations in total, WinXP, Win2003, and Win2008 all in both Release and Debug modes
+               as well as targeted for x86 and x64 platforms except for WinXP which uses the Win2003 version for x64 platforms.
+               Note that the Win2008 target is for all windows version from Windows Vista and later.
+            </para>
+            <para>
+               Included in the solution are also some Sample projects. The most complete of these are <application>AlphaShadow</application> 
+               which is a command-line application that replicates much of the functionality of the official VShadow sample included in the Windows SDK.
+            </para>
+            <para>
+               To be able to build the WinXP and Win2003 targets you need
+               from <externalLink>
+                  <linkText>Volume Shadow Copy Service SDK 7.2</linkText>
+                  <linkUri>
+                     <![CDATA[http://www.microsoft.com/downloads/details.aspx?familyid=0b4f56e4-0ccc-4626-826a-ed2c4c95c871&displaylang=en]]>
+                  </linkUri>
+               </externalLink> installed.
+               The projects assume that this is installed in its default location "C:\Program Files\Microsoft\VSSSDK72". If it is not,
+               you will have to change this in the AlphaVSS.props file in <application>AlphaVSS.Platform</application>.
+            </para>
+            <para>
+               To build the Win2008 targets you need
+               <externalLink>
+                  <linkText>Windows SDK version 7.1</linkText>
+                  <linkUri>
+                     <![CDATA[http://msdn.microsoft.com/en-us/windows/bb980924]]>
+                  </linkUri>
+               </externalLink> installed. This should integrate with your build environment automatically upon installation, so
+               no specific directories should have to be set.
+            </para>
+         </content>
+      </section>     
+      <section>
+         <title>Running the Build</title>
+         <content>
+            <para>
+               Actually performing the build is preferrably done using <application>Visual Studio 2010</application>
+               in the same way as you would build any other application or project that you have developed.
+            </para>
+            <para>
+               You can also use batch build to build all targets for all platforms at once. Note though that the targets <literal>WinXP</literal>
+               and <literal>WinXP.Debug</literal> should NOT be built in x64 mode.
+            </para>
+         </content>
+      </section>
+      <relatedTopics>
+         <codeEntityReference>M:Alphaleonis.Win32.Vss.VssUtils.LoadImplementation</codeEntityReference>        
+      </relatedTopics>
+   </developerConceptualDocument>
+</topic>
