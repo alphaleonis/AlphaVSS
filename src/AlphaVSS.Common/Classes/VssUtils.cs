@@ -51,32 +51,11 @@ namespace Alphaleonis.Win32.Vss
       public static string GetPlatformSpecificAssemblyShortName()
       {
          StringBuilder result = new StringBuilder("AlphaVSS.");
-         
-         if (OperatingSystemInfo.OSVersion < new Version(5, 1))
-            throw new UnsupportedOperatingSystemException(Alphaleonis.Win32.Vss.Resources.LocalizedStrings.AlphaVSSRequiresAtLeastWindowsXP);
-         else if (OperatingSystemInfo.OSVersion < new Version(5, 2) && OperatingSystemInfo.ProcessorArchitecture != ProcessorArchitecture.X64)
-            result.Append("51");
-         else if (OperatingSystemInfo.OSVersion < new Version(6, 0))
-            result.Append("52");
+
+         if (Environment.Is64BitOperatingSystem)
+            result.Append("x64");
          else
-            result.Append("60");
-
-         result.Append('.');
-
-         switch (OperatingSystemInfo.ProcessorArchitecture)
-         {
-            case ProcessorArchitecture.X86:
-               result.Append("x86");
-               break;
-            case ProcessorArchitecture.IA64:
-               throw new UnsupportedOperatingSystemException(Alphaleonis.Win32.Vss.Resources.LocalizedStrings.IA64ArchitectureIsNotSupported);
-            case ProcessorArchitecture.X64:
-               result.Append("x64");
-               break;
-            case ProcessorArchitecture.Unknown:
-            default:
-               throw new UnsupportedOperatingSystemException(Alphaleonis.Win32.Vss.Resources.LocalizedStrings.FailedToDetectArchitectureOfRunningOperati);
-         }
+            result.Append("x86");         
 
          return result.ToString();
       }

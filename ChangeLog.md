@@ -1,3 +1,11 @@
+Version 1.3.0.0
+---------------
+
+* Moved source to GitHub, reorganized file structure of sources. 
+* Removed support for any pre-vista operating system.
+* Changed target .NET framework to 4.5
+* Changed assembly name of platform specific dll's so they no longer include the version number since the same assembly can be used on all supported operating systems. (eg. AlphaVSS.x86.dll)
+
 Version 1.2.4000.3
 ------------------
 * BUG-18251: Fixed bug causing IVssBackupComponents.WriterStatus to incorrectly throw exception 
