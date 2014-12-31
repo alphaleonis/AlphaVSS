@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Documentation
+title: AlphaVSS 1.3.0
 inMenu: false
 toc: true
 ---
@@ -81,3 +81,7 @@ Once you have an instance of `IVssImplementation` you have access to methods cor
 Once you have created an instance of this interface you are ready to start using VSS. For more information refer to the [official VSS documentation from microsoft](http://msdn.microsoft.com/en-us/library/aa382175(VS.85).aspx), and the API Reference for AlphaVSS.
 
 Note that most interfaces and classes created in AlphaVSS are disposable and should be disposed when no longer needed. Always create instances of these interfaces and classes in a using block to ensure they are correctly disposed. See the included samples for an example. 
+
+# API Reference
+
+The API reference can be found [here](api)

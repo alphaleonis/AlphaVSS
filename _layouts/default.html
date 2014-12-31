@@ -1,59 +1,92 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+<head>
+   <meta charset="utf-8" />
+   <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+   <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
 
-    <title>{% if page.title %}{{ page.title }} – {% endif %}{{ site.name }} – {{ site.description }}</title>
+   <title>{% if page.title %}{{ page.title }} – {% endif %}{{ site.name }} – {{ site.description }}</title>
 
-    <meta name="author" content="{{ site.name }}" />
-    <meta name="description" content="{{ site.description }}">
+   <meta name="author" content="{{ site.name }}" />
+   <meta name="description" content="{{ site.description }}">
 
-    <!--[if lt IE 9]>
-      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+   <!--[if lt IE 9]>
+     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+   <![endif]-->
 
-    <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/style.css" />
-    <link rel="alternate" type="application/rss+xml" title="{{ site.name }} - {{ site.description }}" href="{{ site.baseurl }}/feed.xml" />
+   <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+   <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/jquery.tocify.css" />
+   <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/bootstrap.min.css" />
+   <!--<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/bootstrap-theme.min.css" />-->
+   <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/style.css" />
+</head>
 
-    <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
-  </head>
-
-  <body>
-    <div class="wrapper-masthead">
+<body>
+   <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
-        <header class="masthead clearfix">
-          <a href="{{ site.baseurl }}/" class="site-avatar"><img src="{{site.baseurl}}/{{ site.avatar }}" /></a>
-          
-          <div class="site-info">
-            <h1 class="site-name"><a href="{{ site.baseurl }}/">{{ site.name }}</a></h1>
-            <p class="site-description">{{ site.description }}</p>
-          </div>
-          
-          <nav>
-          {% for post in site.pages %}
-            {% if post.inMenu %}
-              <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
-            {% endif %}
-          {% endfor %}
-          </nav>
-        </header>
+         <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+               <span class="sr-only"> Toggle navigation</span>
+               <span class="icon-bar">
+               </span> <span class="icon-bar">
+               </span> <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand" href="{{ site.baseurl }}/index.html">{{site.name}}</a>
+         </div>
+         <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+               {% for post in site.pages %}
+                  {% if post.inMenu %}
+                     <li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
+                  {% endif %}
+               {% endfor %}               
+            </ul>
+         </div><!-- /.navbar-collapse -->
       </div>
-    </div>
+   </nav>
 
-    <div id="main" role="main" class="container">
-      {{ content }}
-    </div>
-
-    <div class="wrapper-footer">
+   {% if page.title %}
+   <div class="doc-header bg-danger">
       <div class="container">
-        <footer class="footer">
-          {% include svg-icons.html %}
-        </footer>
+         <h1 class="title">{{ page.title }}</h1>
+         {% if page.lead %}
+            <p>{{ page.lead }}</p>
+         {% endif %}
       </div>
-    </div>
+   </div>
+   {% endif %}
 
-    {% include analytics.html %}
-  </body>
+   <div class="row">
+      <div class="container">
+         <div class="{% if page.toc %}col-md-9{% endif %}" role="main">
+            {{ content }}
+         </div>
+         {% if page.toc %}
+         <div class="col-md-3" role="complementary">
+            <nav id="toc"></nav>
+         </div>
+         {% endif %}
+      </div>
+   </div>
+
+   <script src="{{ site.baseurl }}/js/jquery-1.11.2.min.js"></script>
+   <script src="{{ site.baseurl }}/js/jquery-ui-1.9.1.custom.min.js"></script>
+   <script src="{{ site.baseurl }}/js/bootstrap.min.js"></script>
+   {% if page.toc %}
+      <script src="{{ site.baseurl }}/js/jquery.tocify.min.js"></script>
+   <script language="javascript">
+   $(function () {
+      $('#toc').tocify({
+         'selectors': 'h1,h2,h3',
+         'container': 'article.page',
+         scrollTo: 70,
+         highlightOffset: 0,
+         extendPage: false,
+         ignoreSelector: 'h1.title'
+      });
+   });
+   </script>
+   {% endif %}
+   {% include analytics.html %}
+</body>
 </html>
