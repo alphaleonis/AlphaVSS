@@ -2,9 +2,9 @@
 layout: page
 inMenu: true
 toc: true
+permalink: /changelog/
+title: Changelog
 ---
-
-# Changelog
 
 Version 1.3.0.0
 ---------------
