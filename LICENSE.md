@@ -1,3 +1,6 @@
+The MIT License
+===============
+
 Copyright (c) 2008-2014 Peter Palotas
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
