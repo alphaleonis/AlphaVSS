@@ -1,0 +1,1339 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<HelpKI>
+  <HelpKINode Title="AbortBackup method" Url="html/32c55e83-7e77-a545-ab02-17da06fa89f1.htm" />
+  <HelpKINode Title="Aborted enumeration member" Url="html/b5b9baba-8e19-eeb4-2ec6-bf8e3f9d9845.htm" />
+  <HelpKINode Title="AddAlternativeLocationMapping method" Url="html/19cfc523-a16a-7997-86fd-2cf200138eb3.htm" />
+  <HelpKINode Title="AddComponent method" Url="html/a53944f8-8a8a-4e17-aa2f-f0ee3c1eb5d1.htm" />
+  <HelpKINode Title="AddDiffArea method" Url="html/8a631716-6961-80af-05b2-e45961d7c47c.htm" />
+  <HelpKINode Title="AdditionalRestores property" Url="html/934d7288-de9f-7a3c-a5ad-a0d40b5e6e8d.htm" />
+  <HelpKINode Title="AddNewTarget method" Url="html/b440f360-e191-de87-0d03-72110f8c48f1.htm" />
+  <HelpKINode Title="AddRestoreSubcomponent method" Url="html/0c3b6adf-d3da-482c-c067-3eda1fa308a6.htm" />
+  <HelpKINode Title="AddSnapshotToRecoverySet method" Url="html/55a626d5-ff45-1321-f47d-313b4e06d172.htm" />
+  <HelpKINode Title="AddToSnapshotSet method" Url="html/f3a7c16f-b9a1-6183-220d-314addb39ed0.htm" />
+  <HelpKINode Title="All enumeration member">
+    <HelpKINode Title="VssFileRestoreStatus Enumeration" Url="html/dd441f6b-2e9a-286f-74ec-c3319a5a1f33.htm" />
+    <HelpKINode Title="VssRollForwardType Enumeration" Url="html/fc0ddc14-0f0f-1469-b9c6-ee878536d976.htm" />
+    <HelpKINode Title="VssSnapshotContext Enumeration" Url="html/e4076f72-7bc1-c300-9b90-782bea55ae7f.htm" />
+  </HelpKINode>
+  <HelpKINode Title="AllBackupRequired enumeration member" Url="html/d3773cc1-85a3-6011-c8dd-7739654a2423.htm" />
+  <HelpKINode Title="AllocatedDiffSpace property" Url="html/7eca2a98-4224-636b-bde2-ba0891f9da20.htm" />
+  <HelpKINode Title="AllSnapshotRequired enumeration member" Url="html/d3773cc1-85a3-6011-c8dd-7739654a2423.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss namespace" Url="html/b5711c21-b45f-01d5-b98a-b4f6ca08cc06.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.IVssAsyncResult interface" Url="html/b8c03d63-fa18-dc67-45a2-9c3f4f8f4c25.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.IVssBackupComponents interface" Url="html/58b72cd0-6f3c-a43e-3d30-2039075ceda9.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.IVssComponent interface" Url="html/65898077-5f18-ea82-66c4-9e84c03d97f7.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.IVssDifferentialSoftwareSnapshotManagement interface" Url="html/36d1324d-ea40-8760-450a-ddad3e4716ca.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.IVssExamineWriterMetadata interface" Url="html/37886f41-f4f2-67d8-b5c4-2e1b5e67b0d5.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.IVssImplementation interface" Url="html/ed860dc4-e774-a73f-e1ae-7b73d638c90c.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.IVssSnapshotManagement interface" Url="html/b3619552-c195-c276-2011-35527e0c25e8.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.IVssWMComponent interface" Url="html/b19a5497-a74c-430e-1508-37091f77839a.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.IVssWriterComponents interface" Url="html/c5c9c815-fa87-dac7-fa6a-c2e316ad15d6.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.OperatingSystemInfo class" Url="html/5d61ec28-e649-36a4-96b4-c95241af8e59.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.OSVersionName enumeration" Url="html/fbc5c21c-d2ad-eaae-649c-964c6a80b061.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.ProcessorArchitecture enumeration" Url="html/26d6acb2-0bbe-9c42-f3f7-f97d4fbec105.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.UnsupportedOperatingSystemException class" Url="html/6756fc67-c452-4a4e-158e-63bdf36a9a09.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssBackupSchema enumeration" Url="html/f22ba651-dc95-1bc6-c6c4-c6bc4c9b822c.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssBackupType enumeration" Url="html/8a10c778-ba52-f195-d2d0-8bb60cc58d9a.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssBadStateException class" Url="html/d29cf4d9-43eb-75f3-0215-d330f3a92abb.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssCannotRevertDiskIdException class" Url="html/97d000ac-7f8f-1e08-db32-859e1700cf28.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssComponentFailure class" Url="html/73b5e648-2c60-a05d-cb37-efa6c4080d26.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssComponentFlags enumeration" Url="html/458d8cb2-41a1-cbc2-e799-f9e57832f914.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssComponentType enumeration" Url="html/c26f93e5-ff97-796e-581d-d074f6f7d4b0.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssDeleteSnapshotsFailedException class" Url="html/1f763a88-44da-799f-399a-4b8318f1041b.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssDiffAreaProperties class" Url="html/fa0e5928-baa7-df04-bf10-18133e240e18.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssDifferencedFileInfo class" Url="html/12cbfddd-e84a-7dbe-83e0-e4137a3a383a.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssDiffVolumeProperties class" Url="html/1e52f783-8daf-bf42-c0e6-80d85a096728.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssDirectedTargetInfo class" Url="html/c2f09303-0288-32da-c2ba-a564afdb2316.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssError enumeration" Url="html/b94765b3-efc6-7fcb-3336-727f60e38278.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssException class" Url="html/36fea4e1-0694-ded3-be88-2c99dc284e40.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssFileRestoreStatus enumeration" Url="html/dd441f6b-2e9a-286f-74ec-c3319a5a1f33.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssFileSpecificationBackupType enumeration" Url="html/d3773cc1-85a3-6011-c8dd-7739654a2423.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssFlushWritesTimeoutException class" Url="html/9e13d6d8-7201-33e8-50ca-fbd89775f30e.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssHardwareOptions enumeration" Url="html/8fe968e4-36b3-82db-bb76-8b8abf9e66ea.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssHoldWritesTimeoutException class" Url="html/460984a0-09a5-db64-18c6-4c8d7f54a1eb.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssInconsistentSnapshotWriterException class" Url="html/7d662682-8fef-6da7-b4df-6460d9fb2507.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssInsufficientStorageException class" Url="html/497202a6-833c-07f6-8ca9-abcbcf26b04a.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssInvalidXmlDocumentException class" Url="html/a7ee78a4-029d-19ab-c751-203df2479a6a.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssLegacyProviderException class" Url="html/6b757f6b-2a21-c21b-72e6-d222a99761e6.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssMaximumDiffAreaAssociationsReachedException class" Url="html/8ecee09c-d39d-9c21-b4ab-c8c59c11e05c.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssMaximumNumberOfSnapshotsReachedException class" Url="html/863c21c4-0a89-d468-b363-8fd7b542edf4.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssMaximumNumberOfVolumesReachedException class" Url="html/ad0ce338-a248-b4d0-030d-052d8badf6ed.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssNonRetryableWriterException class" Url="html/1e9f8a52-8cdb-f24f-6cba-7230a30a21c7.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssObjectAlreadyExistsException class" Url="html/ae8a3908-d3af-b4aa-df78-d90c24008277.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssObjectNotFoundException class" Url="html/e1886a3d-d6c4-7520-5cf1-d60063a2340a.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssObjectType enumeration" Url="html/de482a35-2367-be24-4d65-61e28f1d9669.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssOutOfResourcesWriterException class" Url="html/97b977e6-71b7-dd96-b041-62960d660b01.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssPartialFailureWriterException class" Url="html/8a103239-d9de-44dd-7020-81d819b91552.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssPartialFileInfo class" Url="html/a1b8ad13-5acf-282a-8c25-7e81a450cbac.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssProtectionFault enumeration" Url="html/c8dd6131-d6b8-c5bf-374c-95fc7968ac6a.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssProtectionLevel enumeration" Url="html/72349f53-adca-87d7-0c08-9a1ac5de599b.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssProviderNotRegisteredException class" Url="html/e60615b3-b028-e911-0265-282327efe423.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssProviderProperties class" Url="html/78794d64-c7a7-b6bc-c06f-8f6ac96ed079.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssProviderType enumeration" Url="html/93488002-bcb4-0b8c-71b5-eef8ec0011c3.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssProviderVetoException class" Url="html/ee49a348-54bc-26cd-3406-ab34b28f85da.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssRebootRequiredException class" Url="html/94529ea1-91a4-2efb-c645-373203b98e1b.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssRecoveryOptions enumeration" Url="html/19e8122c-c2c9-56bd-5a92-676108cd5d86.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssRestoreMethod enumeration" Url="html/24c42455-4bf1-6932-0997-9780fad64177.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssRestoreSubcomponentInfo class" Url="html/43b4bf56-0edc-796d-9e0d-aee6fc97c1dc.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssRestoreTarget enumeration" Url="html/4d8e8837-ec24-6948-4a7a-ce690f337aae.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssRestoreType enumeration" Url="html/2057e401-0bef-53c6-4167-54a3d1389fda.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssResyncInProgressException class" Url="html/d8b4f972-adfb-02e6-8b76-abc1034d17bc.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssRetryableWriterException class" Url="html/fa949404-17a1-c337-bae2-1083a88a88ca.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssRevertInProgressException class" Url="html/d5871d80-c4ac-ec5c-4c6a-f97ac19c6fd8.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssRollForwardType enumeration" Url="html/fc0ddc14-0f0f-1469-b9c6-ee878536d976.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssSnapshotCompatibility enumeration" Url="html/feb829d1-631e-f726-a2f4-e2cdb5ca41a8.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssSnapshotContext enumeration" Url="html/e4076f72-7bc1-c300-9b90-782bea55ae7f.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssSnapshotNotInSetException class" Url="html/6d7ecb92-5eb1-d5ac-68fc-d8496f1a7eec.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssSnapshotProperties class" Url="html/be41b097-e967-b650-da31-2e326b17f3cd.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssSnapshotSetInProgressException class" Url="html/8f55cc8f-4b65-15c0-4a80-20e6dd136345.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssSnapshotState enumeration" Url="html/b5b9baba-8e19-eeb4-2ec6-bf8e3f9d9845.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssSourceType enumeration" Url="html/1577a7e5-13c7-c8ef-95d9-77ad93e3550b.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssTimeoutWriterException class" Url="html/6dede8d5-8a5d-c44a-3200-d0bd85cb024c.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssTransactionFreezeTimeoutException class" Url="html/83af1539-49e8-3e51-cadf-62cb99963e94.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssTransactionThawTimeoutException class" Url="html/45a44f41-088e-dc32-6d2e-991cde8c466e.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssUnexpectedErrorException class" Url="html/99512b81-d343-ff19-1d59-0036638a06ab.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssUnexpectedProviderErrorException class" Url="html/eea108a3-9750-acd5-ce5c-73dd0f93deca.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssUnexpectedWriterErrorException class" Url="html/011aa140-d6ba-695b-c874-9503729ae8b8.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssUnselectedVolumeException class" Url="html/93e395a8-1ef4-4c77-361e-522125863b13.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssUnsupportedContextException class" Url="html/6f7ba033-a28a-f6c1-1d7b-83199027fd0a.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssUsageType enumeration" Url="html/e4ed6c17-a6fe-9102-801f-98848d60dd23.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssUtils class" Url="html/932990b0-f54e-3789-248f-b433770e3794.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssVolumeInUseException class" Url="html/d98293c5-ead5-229b-4d19-7f730c024cde.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssVolumeNotSupportedByProviderException class" Url="html/c16ddd42-fa24-0d00-27da-4e038c1ada49.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssVolumeNotSupportedException class" Url="html/f7e05048-7667-cc43-d858-76b665a3723f.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssVolumeProperties class" Url="html/d8fcbf65-0618-52f7-fd8f-85ec161707f0.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssVolumeProtectionInfo class" Url="html/f498e10c-3f82-f15c-a034-d32d3b477d0f.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssVolumeSnapshotAttributes enumeration" Url="html/27f6ef93-4d42-cf5e-8aaf-fe7c819fec04.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssWMDependency class" Url="html/f0cf1835-7b6d-4105-5172-c7d52fdc3273.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssWMFileDescriptor class" Url="html/23b52f32-8818-52ff-4229-4b3d3a5540f0.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssWMRestoreMethod class" Url="html/0f60597b-1db6-5f52-e8ab-2c5320036a5c.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssWriterException class" Url="html/18b987bf-9e5c-273d-89ac-15b7499ea6f5.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssWriterInfrastructureException class" Url="html/60782674-a26b-febd-fda2-572560dff3f4.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssWriterNotRespondingException class" Url="html/f24e969c-fb95-14d4-6b89-0acaa6dce531.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssWriterRestore enumeration" Url="html/644341ad-f1e1-d17b-d6c7-2f9b68d9c451.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssWriterState enumeration" Url="html/6517e5ab-71d6-6fd8-1266-b6c66d6b2a49.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssWriterStatusInfo class" Url="html/5cad6584-f4b4-2530-3f2b-f1b38dc88320.htm" />
+  <HelpKINode Title="Alphaleonis.Win32.Vss.VssWriterStatusNotAvailableException class" Url="html/fc6d38ec-3055-d05a-562c-42de082829c1.htm" />
+  <HelpKINode Title="Alternate enumeration member" Url="html/4d8e8837-ec24-6948-4a7a-ce690f337aae.htm" />
+  <HelpKINode Title="AlternateLocation property" Url="html/80d58318-cbbb-6856-5ee9-f24ba7f66166.htm" />
+  <HelpKINode Title="AlternateLocationMappings property">
+    <HelpKINode Title="IVssComponent.AlternateLocationMappings Property " Url="html/1d648929-091f-4e1a-0e43-dc04ac55fd9e.htm" />
+    <HelpKINode Title="IVssExamineWriterMetadata.AlternateLocationMappings Property " Url="html/565b9948-5c74-5819-c3a8-3c586f8acaa0.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Always enumeration member" Url="html/644341ad-f1e1-d17b-d6c7-2f9b68d9c451.htm" />
+  <HelpKINode Title="ApplicationErrorCode property">
+    <HelpKINode Title="VssComponentFailure.ApplicationErrorCode Property " Url="html/52fae089-ac66-17d7-c32a-d74f42c3d78d.htm" />
+    <HelpKINode Title="VssWriterStatusInfo.ApplicationErrorCode Property " Url="html/7159910f-441d-e0a3-e40f-7c8f00fe2484.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ApplicationErrorMessage property" Url="html/2d271059-e937-b6f3-e6f7-a9ca4eddff4d.htm" />
+  <HelpKINode Title="ApplicationMessage property" Url="html/3f491128-7efd-1f77-8093-c0f54cf02ecd.htm" />
+  <HelpKINode Title="AppRollback enumeration member" Url="html/e4076f72-7bc1-c300-9b90-782bea55ae7f.htm" />
+  <HelpKINode Title="AsrCriticalDisksTooSmall enumeration member" Url="html/b94765b3-efc6-7fcb-3336-727f60e38278.htm" />
+  <HelpKINode Title="AsrDatadiskRdisk0 enumeration member" Url="html/b94765b3-efc6-7fcb-3336-727f60e38278.htm" />
+  <HelpKINode Title="AsrDiskAssignmentFailed enumeration member" Url="html/b94765b3-efc6-7fcb-3336-727f60e38278.htm" />
+  <HelpKINode Title="AsrDiskRecreationFailed enumeration member" Url="html/b94765b3-efc6-7fcb-3336-727f60e38278.htm" />
+  <HelpKINode Title="AsrMissingDynamicDisk enumeration member" Url="html/b94765b3-efc6-7fcb-3336-727f60e38278.htm" />
+  <HelpKINode Title="AsrNoArcPath enumeration member" Url="html/b94765b3-efc6-7fcb-3336-727f60e38278.htm" />
+  <HelpKINode Title="AsrRdisk0TooSmall enumeration member" Url="html/b94765b3-efc6-7fcb-3336-727f60e38278.htm" />
+  <HelpKINode Title="AsrSharedCriticalDiskError enumeration member" Url="html/b94765b3-efc6-7fcb-3336-727f60e38278.htm" />
+  <HelpKINode Title="AsyncCanceled enumeration member" Url="html/b94765b3-efc6-7fcb-3336-727f60e38278.htm" />
+  <HelpKINode Title="AsyncFinished enumeration member" Url="html/b94765b3-efc6-7fcb-3336-727f60e38278.htm" />
+  <HelpKINode Title="AsyncPending enumeration member" Url="html/b94765b3-efc6-7fcb-3336-727f60e38278.htm" />
+  <HelpKINode Title="AuthoritativeRestore enumeration member" Url="html/f22ba651-dc95-1bc6-c6c4-c6bc4c9b822c.htm" />
+  <HelpKINode Title="AutoRecover enumeration member" Url="html/27f6ef93-4d42-cf5e-8aaf-fe7c819fec04.htm" />
+  <HelpKINode Title="Backup enumeration member" Url="html/e4076f72-7bc1-c300-9b90-782bea55ae7f.htm" />
+  <HelpKINode Title="BackupComplete method" Url="html/7e45dc73-e55a-e064-b218-21e84c3ce0b2.htm" />
+  <HelpKINode Title="BackupOptions property" Url="html/094a24fb-a19d-f69e-cbb9-7dc4e6ba4167.htm" />
+  <HelpKINode Title="BackupRecovery enumeration member" Url="html/458d8cb2-41a1-cbc2-e799-f9e57832f914.htm" />
+  <HelpKINode Title="BackupSchema property" Url="html/9bd63a71-0d8a-9120-8807-4b2c7388e242.htm" />
+  <HelpKINode Title="BackupStamp property" Url="html/a2a5f82c-47e2-aaca-2914-1bffe0355891.htm" />
+  <HelpKINode Title="BackupSucceeded property" Url="html/43fdbe5a-673a-1067-9f1a-7220090d1d1e.htm" />
+  <HelpKINode Title="BackupTypeMask property" Url="html/8cf102fc-2d7e-0379-9aa0-5f3dbe786596.htm" />
+  <HelpKINode Title="BadState enumeration member" Url="html/b94765b3-efc6-7fcb-3336-727f60e38278.htm" />
+  <HelpKINode Title="BeginBackupComplete method" Url="html/e43bd59f-37b5-e132-9172-09ba48378eb4.htm" />
+  <HelpKINode Title="BeginBreakSnapshotSet method" Url="html/68874cf6-096a-573f-a3ea-067843279d9c.htm" />
+  <HelpKINode Title="BeginDoSnapshotSet method" Url="html/8076ca41-c609-82ac-83e9-365f90736c17.htm" />
+  <HelpKINode Title="BeginGatherWriterMetadata method" Url="html/fed17633-cb21-76bf-847f-9a7978ca2757.htm" />
+  <HelpKINode Title="BeginGatherWriterStatus method" Url="html/4df4d34e-c2e9-bff6-2f10-62683303b370.htm" />
+  <HelpKINode Title="BeginImportSnapshots method" Url="html/eed27c99-4cd9-8924-3a21-7a37699cc8ee.htm" />
+  <HelpKINode Title="BeginPostRestore method" Url="html/a31d8d79-d44f-9541-83a0-1ccf50906197.htm" />
+  <HelpKINode Title="BeginPrepareForBackup method" Url="html/425fd828-b475-c1ff-d535-a38339025d62.htm" />
+  <HelpKINode Title="BeginPreRestore method" Url="html/25d6203f-0bbd-0c6f-578c-984f6effc7ef.htm" />
+  <HelpKINode Title="BeginQueryRevertStatus method" Url="html/4f123cba-930b-6e77-882a-cd23aaaa6287.htm" />
+  <HelpKINode Title="BeginRecoverSet method" Url="html/7980db8f-72cd-f9ef-5000-3714108c837b.htm" />
+  <HelpKINode Title="BootableSystemState enumeration member" Url="html/e4ed6c17-a6fe-9102-801f-98848d60dd23.htm" />
+  <HelpKINode Title="BreakFailFromProvider enumeration member" Url="html/b94765b3-efc6-7fcb-3336-727f60e38278.htm" />
+  <HelpKINode Title="BreakRevertIdFailed enumeration member" Url="html/b94765b3-efc6-7fcb-3336-727f60e38278.htm" />
+  <HelpKINode Title="BreakSnapshotSet method" Url="html/9e6d4558-8e96-f86b-1b79-4af8311d9eeb.htm" />
+  <HelpKINode Title="ByCopy enumeration member" Url="html/2057e401-0bef-53c6-4167-54a3d1389fda.htm" />
+  <HelpKINode Title="Cancel method" Url="html/7b8be317-bccc-a3af-7f1a-41698517b7cc.htm" />
+  <HelpKINode Title="Caption property" Url="html/d1328135-bd7b-ec9b-f6d1-8966788ee7d8.htm" />
+  <HelpKINode Title="ChangeDiffAreaMaximumSize method" Url="html/b033d646-7fc4-615e-ce4e-38d373ddaef5.htm" />
+  <HelpKINode Title="ClassId property">
+    <HelpKINode Title="VssProviderProperties.ClassId Property " Url="html/a5c6947f-7412-ba1c-e869-671b2a756a04.htm" />
+    <HelpKINode Title="VssWriterStatusInfo.ClassId Property " Url="html/002657f3-c951-e861-85fe-08087c433b76.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ClearVolumeProtectFault method" Url="html/0497095b-5381-aef4-bf36-5845b913dae9.htm" />
+  <HelpKINode Title="ClientAccessible enumeration member">
+    <HelpKINode Title="VssSnapshotContext Enumeration" Url="html/e4076f72-7bc1-c300-9b90-782bea55ae7f.htm" />
+    <HelpKINode Title="VssVolumeSnapshotAttributes Enumeration" Url="html/27f6ef93-4d42-cf5e-8aaf-fe7c819fec04.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ClientAccessibleWriters enumeration member" Url="html/e4076f72-7bc1-c300-9b90-782bea55ae7f.htm" />
+  <HelpKINode Title="Committed enumeration member" Url="html/b5b9baba-8e19-eeb4-2ec6-bf8e3f9d9845.htm" />
+  <HelpKINode Title="ComponentFlags property" Url="html/8a088947-de9a-6935-e269-0afcbdbe55ab.htm" />
+  <HelpKINode Title="ComponentName property">
+    <HelpKINode Title="IVssComponent.ComponentName Property " Url="html/7054f069-8206-57ab-6a20-7ee97fe8d832.htm" />
+    <HelpKINode Title="IVssWMComponent.ComponentName Property " Url="html/0b3b9249-7ae8-36a8-4c41-c7fc0534bc62.htm" />
+    <HelpKINode Title="VssRestoreSubcomponentInfo.ComponentName Property " Url="html/a8db7a92-b633-7208-7c84-eb8d2806a5dc.htm" />
+    <HelpKINode Title="VssWMDependency.ComponentName Property " Url="html/f5e3a469-fdc0-c9f9-5f09-e16defe2651b.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Components property">
+    <HelpKINode Title="IVssExamineWriterMetadata.Components Property " Url="html/dea78041-71c1-3cf5-6c69-6c25f5ca2796.htm" />
+    <HelpKINode Title="IVssWriterComponents.Components Property " Url="html/40eb3893-ae9c-fe7f-69c0-f47f2b23e007.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ComponentType property" Url="html/a6cbc731-ff86-031c-ce04-905b4c5961ed.htm" />
+  <HelpKINode Title="Copy enumeration member">
+    <HelpKINode Title="VssBackupSchema Enumeration" Url="html/f22ba651-dc95-1bc6-c6c4-c6bc4c9b822c.htm" />
+    <HelpKINode Title="VssBackupType Enumeration" Url="html/8a10c778-ba52-f195-d2d0-8bb60cc58d9a.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CowReadFailure enumeration member" Url="html/c8dd6131-d6b8-c5bf-374c-95fc7968ac6a.htm" />
+  <HelpKINode Title="CowWriteFailure enumeration member" Url="html/c8dd6131-d6b8-c5bf-374c-95fc7968ac6a.htm" />
+  <HelpKINode Title="Created enumeration member" Url="html/b5b9baba-8e19-eeb4-2ec6-bf8e3f9d9845.htm" />
+  <HelpKINode Title="CreateVssBackupComponents method" Url="html/ebf4ac69-5a4e-41ce-23f1-2e421135db2f.htm" />
+  <HelpKINode Title="CreateVssExamineWriterMetadata method" Url="html/5864b838-e772-3a19-43a0-848a04086e0f.htm" />
+  <HelpKINode Title="CreationTimestamp property" Url="html/624f3337-156a-b3fe-a36c-31cda5bd88ef.htm" />
+  <HelpKINode Title="Custom enumeration member" Url="html/24c42455-4bf1-6932-0997-9780fad64177.htm" />
+  <HelpKINode Title="Database enumeration member" Url="html/c26f93e5-ff97-796e-581d-d074f6f7d4b0.htm" />
+  <HelpKINode Title="DatabaseFiles property" Url="html/e55c13e9-d38b-5003-afbd-5ab494d677a2.htm" />
+  <HelpKINode Title="DatabaseLogFiles property" Url="html/14e61635-1642-bb64-a4a1-1493f1206bae.htm" />
+  <HelpKINode Title="DelayedPostSnapshot enumeration member" Url="html/27f6ef93-4d42-cf5e-8aaf-fe7c819fec04.htm" />
+  <HelpKINode Title="Deleted enumeration member" Url="html/b5b9baba-8e19-eeb4-2ec6-bf8e3f9d9845.htm" />
+  <HelpKINode Title="DeletedSnapshotsCount property" Url="html/f5c33707-ff82-865a-521c-b4f8297def93.htm" />
+  <HelpKINode Title="DeleteSnapshot method" Url="html/a38aa617-247a-fe21-41b8-66e9c19183fa.htm" />
+  <HelpKINode Title="DeleteSnapshotSet method" Url="html/8db76262-5d28-f535-1eea-8d8dc9fa2b2b.htm" />
+  <HelpKINode Title="DeleteUnusedDiffAreas method" Url="html/af7a9d22-959f-165e-9b04-22f84a444e31.htm" />
+  <HelpKINode Title="Dependencies property" Url="html/d2a0900e-11ca-bc76-51d5-4475b8141f42.htm" />
+  <HelpKINode Title="DestinationFileName property" Url="html/bd57d088-9d84-a3d4-d62f-f4dadfb9a7f6.htm" />
+  <HelpKINode Title="DestinationPath property" Url="html/892b788b-0ca9-a6e7-4bb4-080ac80e7833.htm" />
+  <HelpKINode Title="DestinationRangeList property" Url="html/194fee53-c6ac-737d-1a04-49f5bf4c04ec.htm" />
+  <HelpKINode Title="DestroyAllSnapshots enumeration member" Url="html/c8dd6131-d6b8-c5bf-374c-95fc7968ac6a.htm" />
+  <HelpKINode Title="DiffAreaFull enumeration member" Url="html/c8dd6131-d6b8-c5bf-374c-95fc7968ac6a.htm" />
+  <HelpKINode Title="DiffAreaMissing enumeration member" Url="html/c8dd6131-d6b8-c5bf-374c-95fc7968ac6a.htm" />
+  <HelpKINode Title="DiffAreaRemoved enumeration member" Url="html/c8dd6131-d6b8-c5bf-374c-95fc7968ac6a.htm" />
+  <HelpKINode Title="DiffAreaVolumeName property" Url="html/dd2676e7-9634-2a3b-e93f-6e7491cf9d43.htm" />
+  <HelpKINode Title="DifferencedFiles property" Url="html/9dbd6cb9-f3ef-40cc-be8d-0d5b35ea24fd.htm" />
+  <HelpKINode Title="Differential enumeration member">
+    <HelpKINode Title="VssBackupSchema Enumeration" Url="html/f22ba651-dc95-1bc6-c6c4-c6bc4c9b822c.htm" />
+    <HelpKINode Title="VssBackupType Enumeration" Url="html/8a10c778-ba52-f195-d2d0-8bb60cc58d9a.htm" />
+    <HelpKINode Title="VssVolumeSnapshotAttributes Enumeration" Url="html/27f6ef93-4d42-cf5e-8aaf-fe7c819fec04.htm" />
+  </HelpKINode>
+  <HelpKINode Title="DifferentialBackupRequired enumeration member" Url="html/d3773cc1-85a3-6011-c8dd-7739654a2423.htm" />
+  <HelpKINode Title="DifferentialSnapshotRequired enumeration member" Url="html/d3773cc1-85a3-6011-c8dd-7739654a2423.htm" />
+  <HelpKINode Title="Directed enumeration member" Url="html/4d8e8837-ec24-6948-4a7a-ce690f337aae.htm" />
+  <HelpKINode Title="DirectedTargets property" Url="html/6a6316c5-aa6f-67e6-e5ed-5f87c8335938.htm" />
+  <HelpKINode Title="DisableContentIndex enumeration member" Url="html/feb829d1-631e-f726-a2f4-e2cdb5ca41a8.htm" />
+  <HelpKINode Title="DisableDefrag enumeration member" Url="html/feb829d1-631e-f726-a2f4-e2cdb5ca41a8.htm" />
+  <HelpKINode Title="DisableWriterClasses method" Url="html/e6937c88-1421-2dd8-3539-490da2d0542b.htm" />
+  <HelpKINode Title="DisableWriterInstances method" Url="html/17eff17c-191a-06e5-3f11-b6a6a0a2a060.htm" />
+  <HelpKINode Title="DoSnapshotSet method" Url="html/9cce7974-08b5-8f4d-997b-acb688ad7a9a.htm" />
+  <HelpKINode Title="Earlier enumeration member" Url="html/fbc5c21c-d2ad-eaae-649c-964c6a80b061.htm" />
+  <HelpKINode Title="EnableWriterClasses method" Url="html/78ed7927-3a41-4a16-4004-bbd2f330418d.htm" />
+  <HelpKINode Title="EndBackupComplete method" Url="html/97ddce62-b925-76dd-fc80-6ed3d2e9a9eb.htm" />
+  <HelpKINode Title="EndBreakSnapshotSet method" Url="html/4d727c77-b75a-bbca-2a9e-2621336bfbb8.htm" />
+  <HelpKINode Title="EndDoSnapshotSet method" Url="html/c397bdf6-863c-a5ce-a14a-53584d3d5807.htm" />
+  <HelpKINode Title="EndGatherWriterMetadata method" Url="html/0d40c04f-1b9a-d200-b467-4ab4d3521936.htm" />
+  <HelpKINode Title="EndGatherWriterStatus method" Url="html/ff17ca3c-2d9a-c073-5d1f-01ec94a5c0d2.htm" />
+  <HelpKINode Title="EndImportSnapshots method" Url="html/383c116d-bd60-5147-68b5-264020b63e1a.htm" />
+  <HelpKINode Title="EndPostRestore method" Url="html/34fd11d3-a746-088f-e653-4ecd95a6ee71.htm" />
+  <HelpKINode Title="EndPrepareForBackup method" Url="html/d8783538-20ea-c222-798b-34375f3223df.htm" />
+  <HelpKINode Title="EndPreRestore method" Url="html/310946fa-1ab9-6da4-51ae-088769e4eba5.htm" />
+  <HelpKINode Title="EndQueryRevertStatus method" Url="html/8819b01f-cf05-614e-74df-b69a1e7d3e93.htm" />
+  <HelpKINode Title="EndRecoverSet method" Url="html/c72e2ba7-ba02-3a7d-d409-4e765b417e76.htm" />
+  <HelpKINode Title="ErrorCode property" Url="html/73d19540-0d30-f259-8614-68a7dd559a5c.htm" />
+  <HelpKINode Title="ExcludeFiles property" Url="html/1e7622b3-cd94-0f49-c776-a02727732536.htm" />
+  <HelpKINode Title="ExcludeFromSnapshotFiles property" Url="html/33b8b2a2-2f30-4377-8919-44eab20ca467.htm" />
+  <HelpKINode Title="ExclusiveIncrementalDifferential enumeration member" Url="html/f22ba651-dc95-1bc6-c6c4-c6bc4c9b822c.htm" />
+  <HelpKINode Title="ExposedLocally enumeration member" Url="html/27f6ef93-4d42-cf5e-8aaf-fe7c819fec04.htm" />
+  <HelpKINode Title="ExposedName property" Url="html/7e7304f6-6dfa-7810-5433-53c3b8b74d47.htm" />
+  <HelpKINode Title="ExposedPath property" Url="html/7cf95e72-39d9-b188-3fbf-e341fe2d990c.htm" />
+  <HelpKINode Title="ExposedRemotely enumeration member" Url="html/27f6ef93-4d42-cf5e-8aaf-fe7c819fec04.htm" />
+  <HelpKINode Title="ExposeSnapshot method" Url="html/8353936d-3964-524a-70c6-0b1484c554b0.htm" />
+  <HelpKINode Title="ExternalWriterToDiffArea enumeration member" Url="html/c8dd6131-d6b8-c5bf-374c-95fc7968ac6a.htm" />
+  <HelpKINode Title="Failed enumeration member" Url="html/dd441f6b-2e9a-286f-74ec-c3319a5a1f33.htm" />
+  <HelpKINode Title="FailedAtBackupComplete enumeration member" Url="html/6517e5ab-71d6-6fd8-1266-b6c66d6b2a49.htm" />
+  <HelpKINode Title="FailedAtBackupShutdown enumeration member" Url="html/6517e5ab-71d6-6fd8-1266-b6c66d6b2a49.htm" />
+  <HelpKINode Title="FailedAtFreeze enumeration member" Url="html/6517e5ab-71d6-6fd8-1266-b6c66d6b2a49.htm" />
+  <HelpKINode Title="FailedAtIdentify enumeration member" Url="html/6517e5ab-71d6-6fd8-1266-b6c66d6b2a49.htm" />
+  <HelpKINode Title="FailedAtPostRestore enumeration member" Url="html/6517e5ab-71d6-6fd8-1266-b6c66d6b2a49.htm" />
+  <HelpKINode Title="FailedAtPostSnapshot enumeration member" Url="html/6517e5ab-71d6-6fd8-1266-b6c66d6b2a49.htm" />
+  <HelpKINode Title="FailedAtPrepareBackup enumeration member" Url="html/6517e5ab-71d6-6fd8-1266-b6c66d6b2a49.htm" />
+  <HelpKINode Title="FailedAtPrepareSnapshot enumeration member" Url="html/6517e5ab-71d6-6fd8-1266-b6c66d6b2a49.htm" />
+  <HelpKINode Title="FailedAtPreRestore enumeration member" Url="html/6517e5ab-71d6-6fd8-1266-b6c66d6b2a49.htm" />
+  <HelpKINode Title="FailedAtThaw enumeration member" Url="html/6517e5ab-71d6-6fd8-1266-b6c66d6b2a49.htm" />
+  <HelpKINode Title="Failure property">
+    <HelpKINode Title="IVssComponent.Failure Property " Url="html/0ea85814-4523-c554-1d27-47286705a395.htm" />
+    <HelpKINode Title="VssWriterStatusInfo.Failure Property " Url="html/78f375f2-b8c8-7e8d-7402-de733ef6d419.htm" />
+  </HelpKINode>
+  <HelpKINode Title="FailureStatus property" Url="html/3f16d2d6-55ef-6c49-65b2-3b14c1f3945e.htm" />
+  <HelpKINode Title="FileGroup enumeration member" Url="html/c26f93e5-ff97-796e-581d-d074f6f7d4b0.htm" />
+  <HelpKINode Title="FileName property" Url="html/ed27a7a2-ce55-e8b6-4221-79fac92e8622.htm" />
+  <HelpKINode Title="FileRestoreStatus property" Url="html/a95b47c7-7005-6197-3662-c357136afb70.htm" />
+  <HelpKINode Title="Files property" Url="html/b70ccac6-13e1-1c68-7fae-8e93f2cf42b9.htm" />
+  <HelpKINode Title="FileShareBackup enumeration member" Url="html/e4076f72-7bc1-c300-9b90-782bea55ae7f.htm" />
+  <HelpKINode Title="FileSpecification property">
+    <HelpKINode Title="VssDifferencedFileInfo.FileSpecification Property " Url="html/4c192e12-a47d-17a8-b693-76e1115e9619.htm" />
+    <HelpKINode Title="VssWMFileDescriptor.FileSpecification Property " Url="html/8eaa2d43-66c2-09c5-95ea-843f7e838a67.htm" />
+  </HelpKINode>
+  <HelpKINode Title="FileSystemFailure enumeration member" Url="html/c8dd6131-d6b8-c5bf-374c-95fc7968ac6a.htm" />
+  <HelpKINode Title="FlushWritesTimeout enumeration member" Url="html/b94765b3-efc6-7fcb-3336-727f60e38278.htm" />
+  <HelpKINode Title="FreeWriterMetadata method" Url="html/b2faf0da-f256-2f18-c9cf-1f2eede84619.htm" />
+  <HelpKINode Title="FreeWriterStatus method" Url="html/2a017a0d-d12c-1426-f433-7b27876262b7.htm" />
+  <HelpKINode Title="Full enumeration member" Url="html/8a10c778-ba52-f195-d2d0-8bb60cc58d9a.htm" />
+  <HelpKINode Title="FullBackupRequired enumeration member" Url="html/d3773cc1-85a3-6011-c8dd-7739654a2423.htm" />
+  <HelpKINode Title="FullSnapshotRequired enumeration member" Url="html/d3773cc1-85a3-6011-c8dd-7739654a2423.htm" />
+  <HelpKINode Title="GatherWriterMetadata method" Url="html/f0a23c3a-5021-44e1-902f-44065ec32949.htm" />
+  <HelpKINode Title="GatherWriterStatus method" Url="html/0de8c8bd-3bff-6e9d-3347-1163fdd3edc0.htm" />
+  <HelpKINode Title="GetDifferentialSoftwareSnapshotManagementInterface method" Url="html/68547f79-7a02-779f-a936-e5d1dd9ca645.htm" />
+  <HelpKINode Title="GetIcon method" Url="html/27252c20-8f36-0064-3376-15d7e3db2ef5.htm" />
+  <HelpKINode Title="GetMinDiffAreaSize method" Url="html/c91468c7-c545-f266-8c75-5fe4b39335b8.htm" />
+  <HelpKINode Title="GetObjectData method" Url="html/e2c44a7a-bc01-5420-7488-1bceeca3ef6d.htm" />
+  <HelpKINode Title="GetPlatformSpecificAssemblyName method" Url="html/6bdd09d1-5c47-14ed-835e-23ae81f5737f.htm" />
+  <HelpKINode Title="GetPlatformSpecificAssemblyShortName method" Url="html/f5d7088a-7146-cc72-e3ec-a150761f07be.htm" />
+  <HelpKINode Title="GetSessionId method" Url="html/f3d09b61-b038-bf20-2a9a-da9ff495d746.htm" />
+  <HelpKINode Title="GetSnapshotCompatibility method" Url="html/556ea763-f6b6-a51a-de93-2e89f48f06eb.htm" />
+  <HelpKINode Title="GetSnapshotManagementInterface method" Url="html/96ec58a0-b239-d4a5-23ab-f9c3f52bc7dc.htm" />
+  <HelpKINode Title="GetSnapshotProperties method" Url="html/c7c4a7bc-be60-7d3b-a098-a5d2fab27b6d.htm" />
+  <HelpKINode Title="GetVolumeProtectionLevel method" Url="html/3283953d-31fc-ee30-796b-41fbeb7fc364.htm" />
+  <HelpKINode Title="GrowFailed enumeration member" Url="html/c8dd6131-d6b8-c5bf-374c-95fc7968ac6a.htm" />
+  <HelpKINode Title="GrowTooSlow enumeration member" Url="html/c8dd6131-d6b8-c5bf-374c-95fc7968ac6a.htm" />
+  <HelpKINode Title="Hardware enumeration member" Url="html/93488002-bcb4-0b8c-71b5-eef8ec0011c3.htm" />
+  <HelpKINode Title="HardwareAssisted enumeration member" Url="html/27f6ef93-4d42-cf5e-8aaf-fe7c819fec04.htm" />
+  <HelpKINode Title="HoldWritesTimeout enumeration member" Url="html/b94765b3-efc6-7fcb-3336-727f60e38278.htm" />
+  <HelpKINode Title="IA64 enumeration member" Url="html/26d6acb2-0bbe-9c42-f3f7-f97d4fbec105.htm" />
+  <HelpKINode Title="IfReplaceFails enumeration member" Url="html/644341ad-f1e1-d17b-d6c7-2f9b68d9c451.htm" />
+  <HelpKINode Title="Import enumeration member" Url="html/2057e401-0bef-53c6-4167-54a3d1389fda.htm" />
+  <HelpKINode Title="Imported enumeration member" Url="html/27f6ef93-4d42-cf5e-8aaf-fe7c819fec04.htm" />
+  <HelpKINode Title="ImportSnapshots method" Url="html/3a09a68a-1944-eea6-9cc3-ee1caa6d5a24.htm" />
+  <HelpKINode Title="Incremental enumeration member">
+    <HelpKINode Title="VssBackupSchema Enumeration" Url="html/f22ba651-dc95-1bc6-c6c4-c6bc4c9b822c.htm" />
+    <HelpKINode Title="VssBackupType Enumeration" Url="html/8a10c778-ba52-f195-d2d0-8bb60cc58d9a.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IncrementalBackupRequired enumeration member" Url="html/d3773cc1-85a3-6011-c8dd-7739654a2423.htm" />
+  <HelpKINode Title="IncrementalSnapshotRequired enumeration member" Url="html/d3773cc1-85a3-6011-c8dd-7739654a2423.htm" />
+  <HelpKINode Title="IndependentSystemState enumeration member" Url="html/f22ba651-dc95-1bc6-c6c4-c6bc4c9b822c.htm" />
+  <HelpKINode Title="InitializeForBackup method" Url="html/78a199c8-55bc-c1c0-0417-9271d1043f20.htm" />
+  <HelpKINode Title="InitializeForRestore method" Url="html/68be23ef-bc64-1c79-3904-1a740a23e50f.htm" />
+  <HelpKINode Title="InstanceId property">
+    <HelpKINode Title="IVssExamineWriterMetadata.InstanceId Property " Url="html/ba7e1484-d9cc-5a09-d690-595b652ed28d.htm" />
+    <HelpKINode Title="IVssWriterComponents.InstanceId Property " Url="html/bc56fcad-d2fe-12e6-2eee-9c6a21cfe509.htm" />
+    <HelpKINode Title="VssWriterStatusInfo.InstanceId Property " Url="html/af436e92-a15d-db68-fbfc-08b53bd7de2b.htm" />
+  </HelpKINode>
+  <HelpKINode Title="InstanceName property" Url="html/b23e8ec3-1175-fcfe-cde9-8e7c67c36e74.htm" />
+  <HelpKINode Title="InsufficientStorage enumeration member" Url="html/b94765b3-efc6-7fcb-3336-727f60e38278.htm" />
+  <HelpKINode Title="InvalidXmlDocument enumeration member" Url="html/b94765b3-efc6-7fcb-3336-727f60e38278.htm" />
+  <HelpKINode Title="IOFailure enumeration member" Url="html/c8dd6131-d6b8-c5bf-374c-95fc7968ac6a.htm" />
+  <HelpKINode Title="IOFailureDuringOnline enumeration member" Url="html/c8dd6131-d6b8-c5bf-374c-95fc7968ac6a.htm" />
+  <HelpKINode Title="IsAtLeast method" Url="html/211f4bb3-696c-5de2-e464-a6d8f034733f.htm" />
+  <HelpKINode Title="IsAuthoritativeRestore property" Url="html/18eb67fd-d0a8-e5e6-bc96-46d1e104c6d6.htm" />
+  <HelpKINode Title="IsRecursive property">
+    <HelpKINode Title="VssDifferencedFileInfo.IsRecursive Property " Url="html/2f7f634c-a3af-47dd-f255-afa91bb23c71.htm" />
+    <HelpKINode Title="VssWMFileDescriptor.IsRecursive Property " Url="html/d430e965-9486-f33e-8670-c7a8739460fc.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IsSelectedForRestore property" Url="html/288e0a0a-7e60-9d27-6983-afee4b6cdcfd.htm" />
+  <HelpKINode Title="IsServer property" Url="html/48fe5d1b-024d-7772-cb27-9da16950370d.htm" />
+  <HelpKINode Title="IsVolumeSnapshotted method" Url="html/9e6d8e68-34f0-a874-10ab-d69bdfbe2b6b.htm" />
+  <HelpKINode Title="IsVolumeSupported method" Url="html/30ed7030-763e-2e41-529f-4f272ff7bfa4.htm" />
+  <HelpKINode Title="IsWow64Process method" Url="html/f3a0f0ff-c7d7-08b3-6df8-ff9adfef828f.htm" />
+  <HelpKINode Title="IVssAsyncResult interface">
+    <HelpKINode Title="IVssAsyncResult Interface" Url="html/b8c03d63-fa18-dc67-45a2-9c3f4f8f4c25.htm" />
+    <HelpKINode Title="about IVssAsyncResult interface" Url="html/b8c03d63-fa18-dc67-45a2-9c3f4f8f4c25.htm" />
+    <HelpKINode Title="methods" Url="html/fbde523d-5aac-6735-936c-0f29cf21af34.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IVssAsyncResult.Cancel method" Url="html/7b8be317-bccc-a3af-7f1a-41698517b7cc.htm" />
+  <HelpKINode Title="IVssBackupComponents interface">
+    <HelpKINode Title="IVssBackupComponents Interface" Url="html/58b72cd0-6f3c-a43e-3d30-2039075ceda9.htm" />
+    <HelpKINode Title="about IVssBackupComponents interface" Url="html/58b72cd0-6f3c-a43e-3d30-2039075ceda9.htm" />
+    <HelpKINode Title="methods" Url="html/b73d2e19-c364-4701-7b69-b7887153bf03.htm" />
+    <HelpKINode Title="properties" Url="html/7789179c-c7ad-d697-9429-82d5a461f34a.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IVssBackupComponents.AbortBackup method" Url="html/32c55e83-7e77-a545-ab02-17da06fa89f1.htm" />
+  <HelpKINode Title="IVssBackupComponents.AddAlternativeLocationMapping method" Url="html/19cfc523-a16a-7997-86fd-2cf200138eb3.htm" />
+  <HelpKINode Title="IVssBackupComponents.AddComponent method" Url="html/a53944f8-8a8a-4e17-aa2f-f0ee3c1eb5d1.htm" />
+  <HelpKINode Title="IVssBackupComponents.AddNewTarget method" Url="html/b440f360-e191-de87-0d03-72110f8c48f1.htm" />
+  <HelpKINode Title="IVssBackupComponents.AddRestoreSubcomponent method" Url="html/0c3b6adf-d3da-482c-c067-3eda1fa308a6.htm" />
+  <HelpKINode Title="IVssBackupComponents.AddSnapshotToRecoverySet method" Url="html/55a626d5-ff45-1321-f47d-313b4e06d172.htm" />
+  <HelpKINode Title="IVssBackupComponents.AddToSnapshotSet method" Url="html/f3a7c16f-b9a1-6183-220d-314addb39ed0.htm" />
+  <HelpKINode Title="IVssBackupComponents.BackupComplete method" Url="html/7e45dc73-e55a-e064-b218-21e84c3ce0b2.htm" />
+  <HelpKINode Title="IVssBackupComponents.BeginBackupComplete method" Url="html/e43bd59f-37b5-e132-9172-09ba48378eb4.htm" />
+  <HelpKINode Title="IVssBackupComponents.BeginBreakSnapshotSet method" Url="html/68874cf6-096a-573f-a3ea-067843279d9c.htm" />
+  <HelpKINode Title="IVssBackupComponents.BeginDoSnapshotSet method" Url="html/8076ca41-c609-82ac-83e9-365f90736c17.htm" />
+  <HelpKINode Title="IVssBackupComponents.BeginGatherWriterMetadata method" Url="html/fed17633-cb21-76bf-847f-9a7978ca2757.htm" />
+  <HelpKINode Title="IVssBackupComponents.BeginGatherWriterStatus method" Url="html/4df4d34e-c2e9-bff6-2f10-62683303b370.htm" />
+  <HelpKINode Title="IVssBackupComponents.BeginImportSnapshots method" Url="html/eed27c99-4cd9-8924-3a21-7a37699cc8ee.htm" />
+  <HelpKINode Title="IVssBackupComponents.BeginPostRestore method" Url="html/a31d8d79-d44f-9541-83a0-1ccf50906197.htm" />
+  <HelpKINode Title="IVssBackupComponents.BeginPrepareForBackup method" Url="html/425fd828-b475-c1ff-d535-a38339025d62.htm" />
+  <HelpKINode Title="IVssBackupComponents.BeginPreRestore method" Url="html/25d6203f-0bbd-0c6f-578c-984f6effc7ef.htm" />
+  <HelpKINode Title="IVssBackupComponents.BeginQueryRevertStatus method" Url="html/4f123cba-930b-6e77-882a-cd23aaaa6287.htm" />
+  <HelpKINode Title="IVssBackupComponents.BeginRecoverSet method" Url="html/7980db8f-72cd-f9ef-5000-3714108c837b.htm" />
+  <HelpKINode Title="IVssBackupComponents.BreakSnapshotSet method" Url="html/9e6d4558-8e96-f86b-1b79-4af8311d9eeb.htm" />
+  <HelpKINode Title="IVssBackupComponents.DeleteSnapshot method" Url="html/a38aa617-247a-fe21-41b8-66e9c19183fa.htm" />
+  <HelpKINode Title="IVssBackupComponents.DeleteSnapshotSet method" Url="html/8db76262-5d28-f535-1eea-8d8dc9fa2b2b.htm" />
+  <HelpKINode Title="IVssBackupComponents.DisableWriterClasses method" Url="html/e6937c88-1421-2dd8-3539-490da2d0542b.htm" />
+  <HelpKINode Title="IVssBackupComponents.DisableWriterInstances method" Url="html/17eff17c-191a-06e5-3f11-b6a6a0a2a060.htm" />
+  <HelpKINode Title="IVssBackupComponents.DoSnapshotSet method" Url="html/9cce7974-08b5-8f4d-997b-acb688ad7a9a.htm" />
+  <HelpKINode Title="IVssBackupComponents.EnableWriterClasses method" Url="html/78ed7927-3a41-4a16-4004-bbd2f330418d.htm" />
+  <HelpKINode Title="IVssBackupComponents.EndBackupComplete method" Url="html/97ddce62-b925-76dd-fc80-6ed3d2e9a9eb.htm" />
+  <HelpKINode Title="IVssBackupComponents.EndBreakSnapshotSet method" Url="html/4d727c77-b75a-bbca-2a9e-2621336bfbb8.htm" />
+  <HelpKINode Title="IVssBackupComponents.EndDoSnapshotSet method" Url="html/c397bdf6-863c-a5ce-a14a-53584d3d5807.htm" />
+  <HelpKINode Title="IVssBackupComponents.EndGatherWriterMetadata method" Url="html/0d40c04f-1b9a-d200-b467-4ab4d3521936.htm" />
+  <HelpKINode Title="IVssBackupComponents.EndGatherWriterStatus method" Url="html/ff17ca3c-2d9a-c073-5d1f-01ec94a5c0d2.htm" />
+  <HelpKINode Title="IVssBackupComponents.EndImportSnapshots method" Url="html/383c116d-bd60-5147-68b5-264020b63e1a.htm" />
+  <HelpKINode Title="IVssBackupComponents.EndPostRestore method" Url="html/34fd11d3-a746-088f-e653-4ecd95a6ee71.htm" />
+  <HelpKINode Title="IVssBackupComponents.EndPrepareForBackup method" Url="html/d8783538-20ea-c222-798b-34375f3223df.htm" />
+  <HelpKINode Title="IVssBackupComponents.EndPreRestore method" Url="html/310946fa-1ab9-6da4-51ae-088769e4eba5.htm" />
+  <HelpKINode Title="IVssBackupComponents.EndQueryRevertStatus method" Url="html/8819b01f-cf05-614e-74df-b69a1e7d3e93.htm" />
+  <HelpKINode Title="IVssBackupComponents.EndRecoverSet method" Url="html/c72e2ba7-ba02-3a7d-d409-4e765b417e76.htm" />
+  <HelpKINode Title="IVssBackupComponents.ExposeSnapshot method" Url="html/8353936d-3964-524a-70c6-0b1484c554b0.htm" />
+  <HelpKINode Title="IVssBackupComponents.FreeWriterMetadata method" Url="html/b2faf0da-f256-2f18-c9cf-1f2eede84619.htm" />
+  <HelpKINode Title="IVssBackupComponents.FreeWriterStatus method" Url="html/2a017a0d-d12c-1426-f433-7b27876262b7.htm" />
+  <HelpKINode Title="IVssBackupComponents.GatherWriterMetadata method" Url="html/f0a23c3a-5021-44e1-902f-44065ec32949.htm" />
+  <HelpKINode Title="IVssBackupComponents.GatherWriterStatus method" Url="html/0de8c8bd-3bff-6e9d-3347-1163fdd3edc0.htm" />
+  <HelpKINode Title="IVssBackupComponents.GetSessionId method" Url="html/f3d09b61-b038-bf20-2a9a-da9ff495d746.htm" />
+  <HelpKINode Title="IVssBackupComponents.GetSnapshotProperties method" Url="html/c7c4a7bc-be60-7d3b-a098-a5d2fab27b6d.htm" />
+  <HelpKINode Title="IVssBackupComponents.ImportSnapshots method" Url="html/3a09a68a-1944-eea6-9cc3-ee1caa6d5a24.htm" />
+  <HelpKINode Title="IVssBackupComponents.InitializeForBackup method" Url="html/78a199c8-55bc-c1c0-0417-9271d1043f20.htm" />
+  <HelpKINode Title="IVssBackupComponents.InitializeForRestore method" Url="html/68be23ef-bc64-1c79-3904-1a740a23e50f.htm" />
+  <HelpKINode Title="IVssBackupComponents.IsVolumeSupported method" Url="html/30ed7030-763e-2e41-529f-4f272ff7bfa4.htm" />
+  <HelpKINode Title="IVssBackupComponents.PostRestore method" Url="html/cd09f046-7bc3-4ed2-4944-f1137e3b7057.htm" />
+  <HelpKINode Title="IVssBackupComponents.PrepareForBackup method" Url="html/afa43c92-8d1c-645c-6748-59ccc5c076dd.htm" />
+  <HelpKINode Title="IVssBackupComponents.PreRestore method" Url="html/6d031187-4866-c4a2-4dd9-70556cbcc47e.htm" />
+  <HelpKINode Title="IVssBackupComponents.QueryProviders method" Url="html/78117370-99d5-5307-f781-6cac524c5f97.htm" />
+  <HelpKINode Title="IVssBackupComponents.QuerySnapshots method" Url="html/35728291-8bce-173e-67ac-537b4c44c8c2.htm" />
+  <HelpKINode Title="IVssBackupComponents.RecoverSet method" Url="html/19d937ef-0b09-b7d3-1862-2fe21f81aa0a.htm" />
+  <HelpKINode Title="IVssBackupComponents.RevertToSnapshot method" Url="html/fb78bfd1-cdc9-56b2-736e-39f1e217ae3c.htm" />
+  <HelpKINode Title="IVssBackupComponents.SaveAsXml method" Url="html/6a1644f6-59a8-930e-5afd-62b7de041164.htm" />
+  <HelpKINode Title="IVssBackupComponents.SetAdditionalRestores method" Url="html/f342082c-e620-9314-9fac-12c502e133b2.htm" />
+  <HelpKINode Title="IVssBackupComponents.SetAuthoritativeRestore method" Url="html/e54935b8-3fbc-5005-235f-f554b93ce747.htm" />
+  <HelpKINode Title="IVssBackupComponents.SetBackupOptions method" Url="html/bd3f4ad8-dfa3-e935-3fc6-2a9e535c5a18.htm" />
+  <HelpKINode Title="IVssBackupComponents.SetBackupState method" Url="html/323892e4-2114-474a-8dc9-ebd9bb8b53dc.htm" />
+  <HelpKINode Title="IVssBackupComponents.SetBackupSucceeded method" Url="html/d8b27c41-3f6f-8bf1-43fc-d8d52ebdeff3.htm" />
+  <HelpKINode Title="IVssBackupComponents.SetContext method" Url="html/6855ddd6-2f94-6699-61ee-05c633ca4fdc.htm" />
+  <HelpKINode Title="IVssBackupComponents.SetFileRestoreStatus method" Url="html/c7d913c5-d96e-89d6-145a-0c4527c2dd35.htm" />
+  <HelpKINode Title="IVssBackupComponents.SetPreviousBackupStamp method" Url="html/72ee2e46-bd20-961e-9072-ae35553a41a4.htm" />
+  <HelpKINode Title="IVssBackupComponents.SetRangesFilePath method" Url="html/89f7bee8-7876-e393-5c8e-8e2476af82f5.htm" />
+  <HelpKINode Title="IVssBackupComponents.SetRestoreName method" Url="html/727f3091-d86a-96b8-9675-a56bdc19624c.htm" />
+  <HelpKINode Title="IVssBackupComponents.SetRestoreOptions method" Url="html/df033a10-d7d8-464f-402d-4a7cc61b59f0.htm" />
+  <HelpKINode Title="IVssBackupComponents.SetRestoreState method" Url="html/e02c7c7a-1351-7566-4905-86cbf753258e.htm" />
+  <HelpKINode Title="IVssBackupComponents.SetRollForward method" Url="html/749a3ef4-3be9-59bb-37ca-91d2e87f30b5.htm" />
+  <HelpKINode Title="IVssBackupComponents.SetSelectedForRestore method" Url="html/7c85016c-ac7d-d816-b89e-dedd8164eebe.htm" />
+  <HelpKINode Title="IVssBackupComponents.StartSnapshotSet method" Url="html/faf9d8df-e1ec-b636-70a1-7ce83514d043.htm" />
+  <HelpKINode Title="IVssBackupComponents.UnexposeSnapshot method" Url="html/88b93358-2714-0e70-42d2-d58878ca0ee7.htm" />
+  <HelpKINode Title="IVssBackupComponents.WriterComponents property" Url="html/a3624374-5a40-5081-ad58-31b2cef2f879.htm" />
+  <HelpKINode Title="IVssBackupComponents.WriterMetadata property" Url="html/8356f6f4-4b14-4390-05a0-f734f3201ae6.htm" />
+  <HelpKINode Title="IVssBackupComponents.WriterStatus property" Url="html/fb45ae8b-c0af-5725-35d8-e1c0500c1ca6.htm" />
+  <HelpKINode Title="IVssComponent interface">
+    <HelpKINode Title="IVssComponent Interface" Url="html/65898077-5f18-ea82-66c4-9e84c03d97f7.htm" />
+    <HelpKINode Title="about IVssComponent interface" Url="html/65898077-5f18-ea82-66c4-9e84c03d97f7.htm" />
+    <HelpKINode Title="properties" Url="html/c858780f-ea50-0036-57cd-811db904a04c.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IVssComponent.AdditionalRestores property" Url="html/934d7288-de9f-7a3c-a5ad-a0d40b5e6e8d.htm" />
+  <HelpKINode Title="IVssComponent.AlternateLocationMappings property" Url="html/1d648929-091f-4e1a-0e43-dc04ac55fd9e.htm" />
+  <HelpKINode Title="IVssComponent.BackupOptions property" Url="html/094a24fb-a19d-f69e-cbb9-7dc4e6ba4167.htm" />
+  <HelpKINode Title="IVssComponent.BackupStamp property" Url="html/a2a5f82c-47e2-aaca-2914-1bffe0355891.htm" />
+  <HelpKINode Title="IVssComponent.BackupSucceeded property" Url="html/43fdbe5a-673a-1067-9f1a-7220090d1d1e.htm" />
+  <HelpKINode Title="IVssComponent.ComponentName property" Url="html/7054f069-8206-57ab-6a20-7ee97fe8d832.htm" />
+  <HelpKINode Title="IVssComponent.ComponentType property" Url="html/a6cbc731-ff86-031c-ce04-905b4c5961ed.htm" />
+  <HelpKINode Title="IVssComponent.DifferencedFiles property" Url="html/9dbd6cb9-f3ef-40cc-be8d-0d5b35ea24fd.htm" />
+  <HelpKINode Title="IVssComponent.DirectedTargets property" Url="html/6a6316c5-aa6f-67e6-e5ed-5f87c8335938.htm" />
+  <HelpKINode Title="IVssComponent.Failure property" Url="html/0ea85814-4523-c554-1d27-47286705a395.htm" />
+  <HelpKINode Title="IVssComponent.FileRestoreStatus property" Url="html/a95b47c7-7005-6197-3662-c357136afb70.htm" />
+  <HelpKINode Title="IVssComponent.IsAuthoritativeRestore property" Url="html/18eb67fd-d0a8-e5e6-bc96-46d1e104c6d6.htm" />
+  <HelpKINode Title="IVssComponent.IsSelectedForRestore property" Url="html/288e0a0a-7e60-9d27-6983-afee4b6cdcfd.htm" />
+  <HelpKINode Title="IVssComponent.LogicalPath property" Url="html/39f7534b-417f-1eec-f8b8-570883aef779.htm" />
+  <HelpKINode Title="IVssComponent.NewTargets property" Url="html/a00a491f-be52-2bd9-a64a-5f6b97f9b4e9.htm" />
+  <HelpKINode Title="IVssComponent.PartialFiles property" Url="html/792d87ae-8425-2410-0af6-d7a5ce51af7a.htm" />
+  <HelpKINode Title="IVssComponent.PostRestoreFailureMsg property" Url="html/53dc80b4-7059-fc21-b2bb-6310e88894a9.htm" />
+  <HelpKINode Title="IVssComponent.PostSnapshotFailureMsg property" Url="html/fd0bd8e0-1bde-e765-2864-48e5a2d6462e.htm" />
+  <HelpKINode Title="IVssComponent.PrepareForBackupFailureMsg property" Url="html/d2281597-8a9c-e308-f8dc-29aa1865d8dc.htm" />
+  <HelpKINode Title="IVssComponent.PreRestoreFailureMsg property" Url="html/14c663c3-7831-882c-4325-2e3666974331.htm" />
+  <HelpKINode Title="IVssComponent.PreviousBackupStamp property" Url="html/f09a7b25-79b7-9163-b433-8d0f6365f44f.htm" />
+  <HelpKINode Title="IVssComponent.RestoreName property" Url="html/b0b40485-debd-311f-eefd-bb867febce2d.htm" />
+  <HelpKINode Title="IVssComponent.RestoreOptions property" Url="html/b154b45d-4e54-8365-22d2-96703ba40aa5.htm" />
+  <HelpKINode Title="IVssComponent.RestoreSubcomponents property" Url="html/69ded684-ce2d-d3ce-5666-4ecdd6afb288.htm" />
+  <HelpKINode Title="IVssComponent.RestoreTarget property" Url="html/5de10967-fc4b-84b8-ea5e-ce1d3fc8c1b1.htm" />
+  <HelpKINode Title="IVssComponent.RollForwardRestorePoint property" Url="html/91cb5191-f254-3864-f2ba-246365bbb045.htm" />
+  <HelpKINode Title="IVssComponent.RollForwardType property" Url="html/61bcdbf9-18f0-2eb6-2e8d-fca7e6ea9c85.htm" />
+  <HelpKINode Title="IVssDifferentialSoftwareSnapshotManagement interface">
+    <HelpKINode Title="IVssDifferentialSoftwareSnapshotManagement Interface" Url="html/36d1324d-ea40-8760-450a-ddad3e4716ca.htm" />
+    <HelpKINode Title="about IVssDifferentialSoftwareSnapshotManagement interface" Url="html/36d1324d-ea40-8760-450a-ddad3e4716ca.htm" />
+    <HelpKINode Title="methods" Url="html/0584c67a-d91d-dc95-b501-7140ed18317b.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IVssDifferentialSoftwareSnapshotManagement.AddDiffArea method" Url="html/8a631716-6961-80af-05b2-e45961d7c47c.htm" />
+  <HelpKINode Title="IVssDifferentialSoftwareSnapshotManagement.ChangeDiffAreaMaximumSize method" Url="html/b033d646-7fc4-615e-ce4e-38d373ddaef5.htm" />
+  <HelpKINode Title="IVssDifferentialSoftwareSnapshotManagement.ClearVolumeProtectFault method" Url="html/0497095b-5381-aef4-bf36-5845b913dae9.htm" />
+  <HelpKINode Title="IVssDifferentialSoftwareSnapshotManagement.DeleteUnusedDiffAreas method" Url="html/af7a9d22-959f-165e-9b04-22f84a444e31.htm" />
+  <HelpKINode Title="IVssDifferentialSoftwareSnapshotManagement.GetVolumeProtectionLevel method" Url="html/3283953d-31fc-ee30-796b-41fbeb7fc364.htm" />
+  <HelpKINode Title="IVssDifferentialSoftwareSnapshotManagement.QueryDiffAreasForSnapshot method" Url="html/358f0786-0b27-d47b-9c36-634d9ca4e020.htm" />
+  <HelpKINode Title="IVssDifferentialSoftwareSnapshotManagement.QueryDiffAreasForVolume method" Url="html/b83ce3af-3795-3330-ea5a-5d7e771c79c6.htm" />
+  <HelpKINode Title="IVssDifferentialSoftwareSnapshotManagement.QueryDiffAreasOnVolume method" Url="html/3a53351d-df3e-636b-07bf-5b56812a7aa5.htm" />
+  <HelpKINode Title="IVssDifferentialSoftwareSnapshotManagement.QueryVolumesSupportedForDiffAreas method" Url="html/7d426ad6-ce56-fd93-2db1-5a67d8c4fa9a.htm" />
+  <HelpKINode Title="IVssDifferentialSoftwareSnapshotManagement.SetVolumeProtectionLevel method" Url="html/ff548fc5-37c8-d3e7-1c2c-2809722acfe0.htm" />
+  <HelpKINode Title="IVssExamineWriterMetadata interface">
+    <HelpKINode Title="IVssExamineWriterMetadata Interface" Url="html/37886f41-f4f2-67d8-b5c4-2e1b5e67b0d5.htm" />
+    <HelpKINode Title="about IVssExamineWriterMetadata interface" Url="html/37886f41-f4f2-67d8-b5c4-2e1b5e67b0d5.htm" />
+    <HelpKINode Title="methods" Url="html/5cb7ab78-964b-5b38-f46d-53c8d86406f7.htm" />
+    <HelpKINode Title="properties" Url="html/7d7d7c76-9b59-af95-3f5f-4c1ad88af058.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IVssExamineWriterMetadata.AlternateLocationMappings property" Url="html/565b9948-5c74-5819-c3a8-3c586f8acaa0.htm" />
+  <HelpKINode Title="IVssExamineWriterMetadata.BackupSchema property" Url="html/9bd63a71-0d8a-9120-8807-4b2c7388e242.htm" />
+  <HelpKINode Title="IVssExamineWriterMetadata.Components property" Url="html/dea78041-71c1-3cf5-6c69-6c25f5ca2796.htm" />
+  <HelpKINode Title="IVssExamineWriterMetadata.ExcludeFiles property" Url="html/1e7622b3-cd94-0f49-c776-a02727732536.htm" />
+  <HelpKINode Title="IVssExamineWriterMetadata.ExcludeFromSnapshotFiles property" Url="html/33b8b2a2-2f30-4377-8919-44eab20ca467.htm" />
+  <HelpKINode Title="IVssExamineWriterMetadata.InstanceId property" Url="html/ba7e1484-d9cc-5a09-d690-595b652ed28d.htm" />
+  <HelpKINode Title="IVssExamineWriterMetadata.InstanceName property" Url="html/b23e8ec3-1175-fcfe-cde9-8e7c67c36e74.htm" />
+  <HelpKINode Title="IVssExamineWriterMetadata.LoadFromXml method" Url="html/0732ced5-ff7a-296a-4021-b504ec735b9d.htm" />
+  <HelpKINode Title="IVssExamineWriterMetadata.RestoreMethod property" Url="html/60edbd8d-0e64-5eb4-b8c7-9da5c1e2b4f8.htm" />
+  <HelpKINode Title="IVssExamineWriterMetadata.SaveAsXml method" Url="html/c34de6d7-44e6-c05f-04ab-f6f1d04f17b7.htm" />
+  <HelpKINode Title="IVssExamineWriterMetadata.Source property" Url="html/789616e5-2f4c-ecaa-054b-ea2aad9b1867.htm" />
+  <HelpKINode Title="IVssExamineWriterMetadata.Usage property" Url="html/e8ff5031-29b0-f063-70d1-04179e785a0d.htm" />
+  <HelpKINode Title="IVssExamineWriterMetadata.Version property" Url="html/565f3d6e-b6c6-d295-66ea-29fee777bae8.htm" />
+  <HelpKINode Title="IVssExamineWriterMetadata.WriterId property" Url="html/23d91b80-4d53-d321-a0c7-733e8652650b.htm" />
+  <HelpKINode Title="IVssExamineWriterMetadata.WriterName property" Url="html/8e5f85d2-f642-3596-2b4e-e4db1d3b01ee.htm" />
+  <HelpKINode Title="IVssImplementation interface">
+    <HelpKINode Title="IVssImplementation Interface" Url="html/ed860dc4-e774-a73f-e1ae-7b73d638c90c.htm" />
+    <HelpKINode Title="about IVssImplementation interface" Url="html/ed860dc4-e774-a73f-e1ae-7b73d638c90c.htm" />
+    <HelpKINode Title="methods" Url="html/2a51c5c2-782e-5162-3f6c-9e20c577cc95.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IVssImplementation.CreateVssBackupComponents method" Url="html/ebf4ac69-5a4e-41ce-23f1-2e421135db2f.htm" />
+  <HelpKINode Title="IVssImplementation.CreateVssExamineWriterMetadata method" Url="html/5864b838-e772-3a19-43a0-848a04086e0f.htm" />
+  <HelpKINode Title="IVssImplementation.GetSnapshotCompatibility method" Url="html/556ea763-f6b6-a51a-de93-2e89f48f06eb.htm" />
+  <HelpKINode Title="IVssImplementation.GetSnapshotManagementInterface method" Url="html/96ec58a0-b239-d4a5-23ab-f9c3f52bc7dc.htm" />
+  <HelpKINode Title="IVssImplementation.IsVolumeSnapshotted method" Url="html/9e6d8e68-34f0-a874-10ab-d69bdfbe2b6b.htm" />
+  <HelpKINode Title="IVssImplementation.ShouldBlockRevert method" Url="html/0378a76f-cdfc-f2bb-c0bb-b711a95717b8.htm" />
+  <HelpKINode Title="IVssSnapshotManagement interface">
+    <HelpKINode Title="IVssSnapshotManagement Interface" Url="html/b3619552-c195-c276-2011-35527e0c25e8.htm" />
+    <HelpKINode Title="about IVssSnapshotManagement interface" Url="html/b3619552-c195-c276-2011-35527e0c25e8.htm" />
+    <HelpKINode Title="methods" Url="html/7c50d792-98fc-7d6c-56c2-cf4a120fde83.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IVssSnapshotManagement.GetDifferentialSoftwareSnapshotManagementInterface method" Url="html/68547f79-7a02-779f-a936-e5d1dd9ca645.htm" />
+  <HelpKINode Title="IVssSnapshotManagement.GetMinDiffAreaSize method" Url="html/c91468c7-c545-f266-8c75-5fe4b39335b8.htm" />
+  <HelpKINode Title="IVssWMComponent interface">
+    <HelpKINode Title="IVssWMComponent Interface" Url="html/b19a5497-a74c-430e-1508-37091f77839a.htm" />
+    <HelpKINode Title="about IVssWMComponent interface" Url="html/b19a5497-a74c-430e-1508-37091f77839a.htm" />
+    <HelpKINode Title="methods" Url="html/51ab4c35-c9e9-65ea-5760-9e4079a97b05.htm" />
+    <HelpKINode Title="properties" Url="html/7b4a578d-735b-9193-1943-6531a1b02c6c.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IVssWMComponent.Caption property" Url="html/d1328135-bd7b-ec9b-f6d1-8966788ee7d8.htm" />
+  <HelpKINode Title="IVssWMComponent.ComponentFlags property" Url="html/8a088947-de9a-6935-e269-0afcbdbe55ab.htm" />
+  <HelpKINode Title="IVssWMComponent.ComponentName property" Url="html/0b3b9249-7ae8-36a8-4c41-c7fc0534bc62.htm" />
+  <HelpKINode Title="IVssWMComponent.DatabaseFiles property" Url="html/e55c13e9-d38b-5003-afbd-5ab494d677a2.htm" />
+  <HelpKINode Title="IVssWMComponent.DatabaseLogFiles property" Url="html/14e61635-1642-bb64-a4a1-1493f1206bae.htm" />
+  <HelpKINode Title="IVssWMComponent.Dependencies property" Url="html/d2a0900e-11ca-bc76-51d5-4475b8141f42.htm" />
+  <HelpKINode Title="IVssWMComponent.Files property" Url="html/b70ccac6-13e1-1c68-7fae-8e93f2cf42b9.htm" />
+  <HelpKINode Title="IVssWMComponent.GetIcon method" Url="html/27252c20-8f36-0064-3376-15d7e3db2ef5.htm" />
+  <HelpKINode Title="IVssWMComponent.LogicalPath property" Url="html/fd4508c9-50a2-86b9-5bf5-49b029aa029b.htm" />
+  <HelpKINode Title="IVssWMComponent.NotifyOnBackupComplete property" Url="html/86aee8c1-44fd-fb88-b48e-522f4297a2fc.htm" />
+  <HelpKINode Title="IVssWMComponent.RestoreMetadata property" Url="html/de384852-0c94-eab5-a623-3883d4eafe06.htm" />
+  <HelpKINode Title="IVssWMComponent.Selectable property" Url="html/f40afed0-2637-9361-77e7-7866aeba3d8c.htm" />
+  <HelpKINode Title="IVssWMComponent.SelectableForRestore property" Url="html/904fd04b-314f-2b6b-289e-20fb33afaf58.htm" />
+  <HelpKINode Title="IVssWMComponent.Type property" Url="html/710c3234-64b0-f8d2-5e14-290e27a18111.htm" />
+  <HelpKINode Title="IVssWriterComponents interface">
+    <HelpKINode Title="IVssWriterComponents Interface" Url="html/c5c9c815-fa87-dac7-fa6a-c2e316ad15d6.htm" />
+    <HelpKINode Title="about IVssWriterComponents interface" Url="html/c5c9c815-fa87-dac7-fa6a-c2e316ad15d6.htm" />
+    <HelpKINode Title="properties" Url="html/9e9953a4-8d75-e5a3-f0e8-96777f61e5d7.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IVssWriterComponents.Components property" Url="html/40eb3893-ae9c-fe7f-69c0-f47f2b23e007.htm" />
+  <HelpKINode Title="IVssWriterComponents.InstanceId property" Url="html/bc56fcad-d2fe-12e6-2eee-9c6a21cfe509.htm" />
+  <HelpKINode Title="IVssWriterComponents.WriterId property" Url="html/32b94490-bd9e-801c-52db-97f3bf37b840.htm" />
+  <HelpKINode Title="LastModify enumeration member" Url="html/f22ba651-dc95-1bc6-c6c4-c6bc4c9b822c.htm" />
+  <HelpKINode Title="LastModifyTime property" Url="html/d7bc55c3-a289-47cc-45f1-856469b9e98b.htm" />
+  <HelpKINode Title="Later enumeration member" Url="html/fbc5c21c-d2ad-eaae-649c-964c6a80b061.htm" />
+  <HelpKINode Title="LegacyProvider enumeration member" Url="html/b94765b3-efc6-7fcb-3336-727f60e38278.htm" />
+  <HelpKINode Title="LoadFromXml method" Url="html/0732ced5-ff7a-296a-4021-b504ec735b9d.htm" />
+  <HelpKINode Title="LoadImplementation method" Url="html/4b8ee3ed-ae81-e7ed-3f45-c30835629c73.htm" />
+  <HelpKINode Title="Log enumeration member">
+    <HelpKINode Title="VssBackupSchema Enumeration" Url="html/f22ba651-dc95-1bc6-c6c4-c6bc4c9b822c.htm" />
+    <HelpKINode Title="VssBackupType Enumeration" Url="html/8a10c778-ba52-f195-d2d0-8bb60cc58d9a.htm" />
+  </HelpKINode>
+  <HelpKINode Title="LogBackupRequired enumeration member" Url="html/d3773cc1-85a3-6011-c8dd-7739654a2423.htm" />
+  <HelpKINode Title="LogicalPath property">
+    <HelpKINode Title="IVssComponent.LogicalPath Property " Url="html/39f7534b-417f-1eec-f8b8-570883aef779.htm" />
+    <HelpKINode Title="IVssWMComponent.LogicalPath Property " Url="html/fd4508c9-50a2-86b9-5bf5-49b029aa029b.htm" />
+    <HelpKINode Title="VssRestoreSubcomponentInfo.LogicalPath Property " Url="html/3deefa85-164b-a8f3-90e4-7e7b886a64cf.htm" />
+    <HelpKINode Title="VssWMDependency.LogicalPath Property " Url="html/5fe7fe84-e938-b05b-8e5f-aa60766fc867.htm" />
+  </HelpKINode>
+  <HelpKINode Title="LogSnapshotRequired enumeration member" Url="html/d3773cc1-85a3-6011-c8dd-7739654a2423.htm" />
+  <HelpKINode Title="Lsn enumeration member" Url="html/f22ba651-dc95-1bc6-c6c4-c6bc4c9b822c.htm" />
+  <HelpKINode Title="MakeReadWrite enumeration member" Url="html/8fe968e4-36b3-82db-bb76-8b8abf9e66ea.htm" />
+  <HelpKINode Title="MappedMemoryFailure enumeration member" Url="html/c8dd6131-d6b8-c5bf-374c-95fc7968ac6a.htm" />
+  <HelpKINode Title="MappingCount property" Url="html/8f6db02d-8e23-f106-5e69-366c516c91b8.htm" />
+  <HelpKINode Title="MaskLuns enumeration member" Url="html/8fe968e4-36b3-82db-bb76-8b8abf9e66ea.htm" />
+  <HelpKINode Title="MaximumDiffareaAssociationsReached enumeration member" Url="html/b94765b3-efc6-7fcb-3336-727f60e38278.htm" />
+  <HelpKINode Title="MaximumDiffSpace property" Url="html/d88b9256-5291-4c5a-d916-0647df93c43d.htm" />
+  <HelpKINode Title="MaximumNumberOfRemoteMachinesReached enumeration member" Url="html/b94765b3-efc6-7fcb-3336-727f60e38278.htm" />
+  <HelpKINode Title="MaximumNumberOfSnapshotsReached enumeration member" Url="html/b94765b3-efc6-7fcb-3336-727f60e38278.htm" />
+  <HelpKINode Title="MaximumNumberOfVolumesReached enumeration member" Url="html/b94765b3-efc6-7fcb-3336-727f60e38278.htm" />
+  <HelpKINode Title="MemoryAllocationFailure enumeration member" Url="html/c8dd6131-d6b8-c5bf-374c-95fc7968ac6a.htm" />
+  <HelpKINode Title="Metadata property" Url="html/b4738a81-0568-f914-80d9-835e636f22fd.htm" />
+  <HelpKINode Title="MetadataCorruption enumeration member" Url="html/c8dd6131-d6b8-c5bf-374c-95fc7968ac6a.htm" />
+  <HelpKINode Title="Method property" Url="html/e51418ae-b7c7-0ea9-cc1f-ce5ce4a19329.htm" />
+  <HelpKINode Title="Name property" Url="html/face5f61-2d5b-93cf-b8ea-643b8356c409.htm" />
+  <HelpKINode Title="NasRollback enumeration member" Url="html/e4076f72-7bc1-c300-9b90-782bea55ae7f.htm" />
+  <HelpKINode Title="Never enumeration member" Url="html/644341ad-f1e1-d17b-d6c7-2f9b68d9c451.htm" />
+  <HelpKINode Title="NewTargets property" Url="html/a00a491f-be52-2bd9-a64a-5f6b97f9b4e9.htm" />
+  <HelpKINode Title="NoAutoRecovery enumeration member" Url="html/27f6ef93-4d42-cf5e-8aaf-fe7c819fec04.htm" />
+  <HelpKINode Title="NoAutoRelease enumeration member" Url="html/27f6ef93-4d42-cf5e-8aaf-fe7c819fec04.htm" />
+  <HelpKINode Title="NonDeletedSnapshotId property" Url="html/0d4f4759-f07c-4b02-ba95-bde10ccef061.htm" />
+  <HelpKINode Title="None enumeration member">
+    <HelpKINode Title="VssComponentFlags Enumeration" Url="html/458d8cb2-41a1-cbc2-e799-f9e57832f914.htm" />
+    <HelpKINode Title="VssFileRestoreStatus Enumeration" Url="html/dd441f6b-2e9a-286f-74ec-c3319a5a1f33.htm" />
+    <HelpKINode Title="VssObjectType Enumeration" Url="html/de482a35-2367-be24-4d65-61e28f1d9669.htm" />
+    <HelpKINode Title="VssProtectionFault Enumeration" Url="html/c8dd6131-d6b8-c5bf-374c-95fc7968ac6a.htm" />
+    <HelpKINode Title="VssRecoveryOptions Enumeration" Url="html/19e8122c-c2c9-56bd-5a92-676108cd5d86.htm" />
+    <HelpKINode Title="VssRollForwardType Enumeration" Url="html/fc0ddc14-0f0f-1469-b9c6-ee878536d976.htm" />
+    <HelpKINode Title="VssSnapshotCompatibility Enumeration" Url="html/feb829d1-631e-f726-a2f4-e2cdb5ca41a8.htm" />
+  </HelpKINode>
+  <HelpKINode Title="NonTransactedDB enumeration member" Url="html/1577a7e5-13c7-c8ef-95d9-77ad93e3550b.htm" />
+  <HelpKINode Title="NoSnapshotsImported enumeration member" Url="html/b94765b3-efc6-7fcb-3336-727f60e38278.htm" />
+  <HelpKINode Title="NotifyOnBackupComplete property" Url="html/86aee8c1-44fd-fb88-b48e-522f4297a2fc.htm" />
+  <HelpKINode Title="NotSurfaced enumeration member" Url="html/27f6ef93-4d42-cf5e-8aaf-fe7c819fec04.htm" />
+  <HelpKINode Title="NotSystemState enumeration member" Url="html/458d8cb2-41a1-cbc2-e799-f9e57832f914.htm" />
+  <HelpKINode Title="NotTransacted enumeration member" Url="html/27f6ef93-4d42-cf5e-8aaf-fe7c819fec04.htm" />
+  <HelpKINode Title="NoVolumeCheck enumeration member" Url="html/19e8122c-c2c9-56bd-5a92-676108cd5d86.htm" />
+  <HelpKINode Title="NoWriters enumeration member" Url="html/27f6ef93-4d42-cf5e-8aaf-fe7c819fec04.htm" />
+  <HelpKINode Title="ObjectAlreadyExists enumeration member" Url="html/b94765b3-efc6-7fcb-3336-727f60e38278.htm" />
+  <HelpKINode Title="ObjectNotFound enumeration member" Url="html/b94765b3-efc6-7fcb-3336-727f60e38278.htm" />
+  <HelpKINode Title="OnLunStateChangeDoMaskLuns enumeration member" Url="html/8fe968e4-36b3-82db-bb76-8b8abf9e66ea.htm" />
+  <HelpKINode Title="OnLunStateChangeNotifyLunPostRecovery enumeration member" Url="html/8fe968e4-36b3-82db-bb76-8b8abf9e66ea.htm" />
+  <HelpKINode Title="OnLunStateChangeNotifyLunPreRecovery enumeration member" Url="html/8fe968e4-36b3-82db-bb76-8b8abf9e66ea.htm" />
+  <HelpKINode Title="OnLunStateChangeNotifyReadWrite enumeration member" Url="html/8fe968e4-36b3-82db-bb76-8b8abf9e66ea.htm" />
+  <HelpKINode Title="OperatingSystemInfo class">
+    <HelpKINode Title="OperatingSystemInfo Class" Url="html/5d61ec28-e649-36a4-96b4-c95241af8e59.htm" />
+    <HelpKINode Title="about OperatingSystemInfo class" Url="html/5d61ec28-e649-36a4-96b4-c95241af8e59.htm" />
+    <HelpKINode Title="methods" Url="html/39695179-0eb2-cb47-8d5a-7cd964361f69.htm" />
+    <HelpKINode Title="properties" Url="html/158255ab-f704-3fc3-7e15-59c984cc48f5.htm" />
+  </HelpKINode>
+  <HelpKINode Title="OperatingSystemInfo.IsAtLeast method" Url="html/211f4bb3-696c-5de2-e464-a6d8f034733f.htm" />
+  <HelpKINode Title="OperatingSystemInfo.IsServer property" Url="html/48fe5d1b-024d-7772-cb27-9da16950370d.htm" />
+  <HelpKINode Title="OperatingSystemInfo.IsWow64Process method" Url="html/f3a0f0ff-c7d7-08b3-6df8-ff9adfef828f.htm" />
+  <HelpKINode Title="OperatingSystemInfo.OSVersion property" Url="html/ea0d9923-2337-2aca-c071-ae9c0b9dfee2.htm" />
+  <HelpKINode Title="OperatingSystemInfo.OSVersionName property" Url="html/d13ff20c-f634-fded-b75b-979cc34cdccd.htm" />
+  <HelpKINode Title="OperatingSystemInfo.ProcessorArchitecture property" Url="html/a34114ce-7727-f379-9ddc-b5e2cb645649.htm" />
+  <HelpKINode Title="OperatingSystemInfo.RequireAtLeast method" Url="html/03a54001-45e4-3678-4ae2-4d99cb79c2f5.htm" />
+  <HelpKINode Title="OperatingSystemInfo.RequireServer method" Url="html/c124e343-a8ac-ba99-ed90-27b66a522719.htm" />
+  <HelpKINode Title="OperatingSystemInfo.RequireServerOrClientAtLeast method" Url="html/bb2f8b21-5a6b-910d-659c-b00d70fcbde0.htm" />
+  <HelpKINode Title="OperatingSystemInfo.ServicePackVersion property" Url="html/d6e252fb-016d-a950-6751-f09dfde82c73.htm" />
+  <HelpKINode Title="Original enumeration member" Url="html/4d8e8837-ec24-6948-4a7a-ce690f337aae.htm" />
+  <HelpKINode Title="OriginalLocation enumeration member" Url="html/4d8e8837-ec24-6948-4a7a-ce690f337aae.htm" />
+  <HelpKINode Title="OriginalVolume enumeration member" Url="html/72349f53-adca-87d7-0c08-9a1ac5de599b.htm" />
+  <HelpKINode Title="OriginalVolumeName property" Url="html/5bcd2fc1-dcc6-a767-91c3-00f15373a3ff.htm" />
+  <HelpKINode Title="OriginatingMachine property" Url="html/911ac4a3-f284-534e-e04e-0dd8109e54ff.htm" />
+  <HelpKINode Title="OSVersion property" Url="html/ea0d9923-2337-2aca-c071-ae9c0b9dfee2.htm" />
+  <HelpKINode Title="OSVersionName enumeration" Url="html/fbc5c21c-d2ad-eaae-649c-964c6a80b061.htm" />
+  <HelpKINode Title="OSVersionName property" Url="html/d13ff20c-f634-fded-b75b-979cc34cdccd.htm" />
+  <HelpKINode Title="Other enumeration member">
+    <HelpKINode Title="VssBackupType Enumeration" Url="html/8a10c778-ba52-f195-d2d0-8bb60cc58d9a.htm" />
+    <HelpKINode Title="VssRestoreType Enumeration" Url="html/2057e401-0bef-53c6-4167-54a3d1389fda.htm" />
+    <HelpKINode Title="VssSourceType Enumeration" Url="html/1577a7e5-13c7-c8ef-95d9-77ad93e3550b.htm" />
+    <HelpKINode Title="VssUsageType Enumeration" Url="html/e4ed6c17-a6fe-9102-801f-98848d60dd23.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Partial enumeration member" Url="html/fc0ddc14-0f0f-1469-b9c6-ee878536d976.htm" />
+  <HelpKINode Title="PartialFiles property" Url="html/792d87ae-8425-2410-0af6-d7a5ce51af7a.htm" />
+  <HelpKINode Title="Path property">
+    <HelpKINode Title="VssDifferencedFileInfo.Path Property " Url="html/72db0513-96d0-4d27-221b-8a23e8bffe09.htm" />
+    <HelpKINode Title="VssPartialFileInfo.Path Property " Url="html/3daed49e-081f-bd6e-c7a1-76a6bc4d0be1.htm" />
+    <HelpKINode Title="VssWMFileDescriptor.Path Property " Url="html/d8b876d6-8f33-3b02-e536-7047a0582d2d.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Persistent enumeration member" Url="html/27f6ef93-4d42-cf5e-8aaf-fe7c819fec04.htm" />
+  <HelpKINode Title="Plex enumeration member" Url="html/27f6ef93-4d42-cf5e-8aaf-fe7c819fec04.htm" />
+  <HelpKINode Title="PostCommitted enumeration member" Url="html/b5b9baba-8e19-eeb4-2ec6-bf8e3f9d9845.htm" />
+  <HelpKINode Title="PostRestore method" Url="html/cd09f046-7bc3-4ed2-4944-f1137e3b7057.htm" />
+  <HelpKINode Title="PostRestoreFailureMsg property" Url="html/53dc80b4-7059-fc21-b2bb-6310e88894a9.htm" />
+  <HelpKINode Title="PostSnapshotFailureMsg property" Url="html/fd0bd8e0-1bde-e765-2864-48e5a2d6462e.htm" />
+  <HelpKINode Title="PreComitted enumeration member" Url="html/b5b9baba-8e19-eeb4-2ec6-bf8e3f9d9845.htm" />
+  <HelpKINode Title="PreFinalCommitted enumeration member" Url="html/b5b9baba-8e19-eeb4-2ec6-bf8e3f9d9845.htm" />
+  <HelpKINode Title="Prepared enumeration member" Url="html/b5b9baba-8e19-eeb4-2ec6-bf8e3f9d9845.htm" />
+  <HelpKINode Title="PrepareForBackup method" Url="html/afa43c92-8d1c-645c-6748-59ccc5c076dd.htm" />
+  <HelpKINode Title="PrepareForBackupFailureMsg property" Url="html/d2281597-8a9c-e308-f8dc-29aa1865d8dc.htm" />
+  <HelpKINode Title="Preparing enumeration member" Url="html/b5b9baba-8e19-eeb4-2ec6-bf8e3f9d9845.htm" />
+  <HelpKINode Title="PreRestore method" Url="html/6d031187-4866-c4a2-4dd9-70556cbcc47e.htm" />
+  <HelpKINode Title="PreRestoreFailureMsg property" Url="html/14c663c3-7831-882c-4325-2e3666974331.htm" />
+  <HelpKINode Title="PreviousBackupStamp property" Url="html/f09a7b25-79b7-9163-b433-8d0f6365f44f.htm" />
+  <HelpKINode Title="ProcessingCommit enumeration member" Url="html/b5b9baba-8e19-eeb4-2ec6-bf8e3f9d9845.htm" />
+  <HelpKINode Title="ProcessingPostCommit enumeration member" Url="html/b5b9baba-8e19-eeb4-2ec6-bf8e3f9d9845.htm" />
+  <HelpKINode Title="ProcessingPostFinalCommit enumeration member" Url="html/b5b9baba-8e19-eeb4-2ec6-bf8e3f9d9845.htm" />
+  <HelpKINode Title="ProcessingPreCommit enumeration member" Url="html/b5b9baba-8e19-eeb4-2ec6-bf8e3f9d9845.htm" />
+  <HelpKINode Title="ProcessingPreFinalCommit enumeration member" Url="html/b5b9baba-8e19-eeb4-2ec6-bf8e3f9d9845.htm" />
+  <HelpKINode Title="ProcessingPrepare enumeration member" Url="html/b5b9baba-8e19-eeb4-2ec6-bf8e3f9d9845.htm" />
+  <HelpKINode Title="ProcessorArchitecture enumeration" Url="html/26d6acb2-0bbe-9c42-f3f7-f97d4fbec105.htm" />
+  <HelpKINode Title="ProcessorArchitecture property" Url="html/a34114ce-7727-f379-9ddc-b5e2cb645649.htm" />
+  <HelpKINode Title="ProtectionFault property" Url="html/c70ba8c4-b8b7-fe5b-f299-354a3cb015a7.htm" />
+  <HelpKINode Title="ProtectionLevel property" Url="html/a16b5926-f870-524b-396f-591e23fb10b2.htm" />
+  <HelpKINode Title="Provider enumeration member" Url="html/de482a35-2367-be24-4d65-61e28f1d9669.htm" />
+  <HelpKINode Title="ProviderAlreadyRegistered enumeration member" Url="html/b94765b3-efc6-7fcb-3336-727f60e38278.htm" />
+  <HelpKINode Title="ProviderId property">
+    <HelpKINode Title="VssProviderProperties.ProviderId Property " Url="html/edc32fe2-5f3b-88a5-1ec6-36cfeabad68f.htm" />
+    <HelpKINode Title="VssSnapshotProperties.ProviderId Property " Url="html/f4e65841-286e-2caa-80a3-4489985b9a90.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ProviderInUse enumeration member" Url="html/b94765b3-efc6-7fcb-3336-727f60e38278.htm" />
+  <HelpKINode Title="ProviderName property" Url="html/03c601b1-a2e6-8400-12f6-a7d6d2ab7eb5.htm" />
+  <HelpKINode Title="ProviderNotRegistered enumeration member" Url="html/b94765b3-efc6-7fcb-3336-727f60e38278.htm" />
+  <HelpKINode Title="ProviderType property" Url="html/68857765-d2df-cbc9-62ea-955ab52e52b9.htm" />
+  <HelpKINode Title="ProviderVersion property" Url="html/14dd387b-adb4-ab94-e526-0cbcf066ce94.htm" />
+  <HelpKINode Title="ProviderVersionId property" Url="html/2fbd8e77-83cb-672c-1f9e-a0e388c57793.htm" />
+  <HelpKINode Title="ProviderVeto enumeration member" Url="html/b94765b3-efc6-7fcb-3336-727f60e38278.htm" />
+  <HelpKINode Title="QueryDiffAreasForSnapshot method" Url="html/358f0786-0b27-d47b-9c36-634d9ca4e020.htm" />
+  <HelpKINode Title="QueryDiffAreasForVolume method" Url="html/b83ce3af-3795-3330-ea5a-5d7e771c79c6.htm" />
+  <HelpKINode Title="QueryDiffAreasOnVolume method" Url="html/3a53351d-df3e-636b-07bf-5b56812a7aa5.htm" />
+  <HelpKINode Title="QueryProviders method" Url="html/78117370-99d5-5307-f781-6cac524c5f97.htm" />
+  <HelpKINode Title="QuerySnapshots method" Url="html/35728291-8bce-173e-67ac-537b4c44c8c2.htm" />
+  <HelpKINode Title="QueryVolumesSupportedForDiffAreas method" Url="html/7d426ad6-ce56-fd93-2db1-5a67d8c4fa9a.htm" />
+  <HelpKINode Title="Range property" Url="html/eaa5675f-07e6-62e0-59ae-0424675aa312.htm" />
+  <HelpKINode Title="RebootRequired enumeration member" Url="html/b94765b3-efc6-7fcb-3336-727f60e38278.htm" />
+  <HelpKINode Title="RebootRequired property" Url="html/8b54e110-6047-6e8f-0882-46c3ce134964.htm" />
+  <HelpKINode Title="RecoverSet method" Url="html/19d937ef-0b09-b7d3-1862-2fe21f81aa0a.htm" />
+  <HelpKINode Title="RemoteServerUnavailable enumeration member" Url="html/b94765b3-efc6-7fcb-3336-727f60e38278.htm" />
+  <HelpKINode Title="RemoteServerUnsupported enumeration member" Url="html/b94765b3-efc6-7fcb-3336-727f60e38278.htm" />
+  <HelpKINode Title="RequireAtLeast method" Url="html/03a54001-45e4-3678-4ae2-4d99cb79c2f5.htm" />
+  <HelpKINode Title="RequireServer method" Url="html/c124e343-a8ac-ba99-ed90-27b66a522719.htm" />
+  <HelpKINode Title="RequireServerOrClientAtLeast method" Url="html/bb2f8b21-5a6b-910d-659c-b00d70fcbde0.htm" />
+  <HelpKINode Title="RestoreAtReboot enumeration member" Url="html/24c42455-4bf1-6932-0997-9780fad64177.htm" />
+  <HelpKINode Title="RestoreAtRebootIfCannotReplace enumeration member" Url="html/24c42455-4bf1-6932-0997-9780fad64177.htm" />
+  <HelpKINode Title="RestoreIfCanReplace enumeration member" Url="html/24c42455-4bf1-6932-0997-9780fad64177.htm" />
+  <HelpKINode Title="RestoreIfNotThere enumeration member" Url="html/24c42455-4bf1-6932-0997-9780fad64177.htm" />
+  <HelpKINode Title="RestoreMetadata property" Url="html/de384852-0c94-eab5-a623-3883d4eafe06.htm" />
+  <HelpKINode Title="RestoreMethod property" Url="html/60edbd8d-0e64-5eb4-b8c7-9da5c1e2b4f8.htm" />
+  <HelpKINode Title="RestoreName property" Url="html/b0b40485-debd-311f-eefd-bb867febce2d.htm" />
+  <HelpKINode Title="RestoreOptions property" Url="html/b154b45d-4e54-8365-22d2-96703ba40aa5.htm" />
+  <HelpKINode Title="RestoreRename enumeration member" Url="html/f22ba651-dc95-1bc6-c6c4-c6bc4c9b822c.htm" />
+  <HelpKINode Title="RestoreStopStart enumeration member" Url="html/24c42455-4bf1-6932-0997-9780fad64177.htm" />
+  <HelpKINode Title="RestoreSubcomponents property" Url="html/69ded684-ce2d-d3ce-5666-4ecdd6afb288.htm" />
+  <HelpKINode Title="RestoreTarget property" Url="html/5de10967-fc4b-84b8-ea5e-ce1d3fc8c1b1.htm" />
+  <HelpKINode Title="RestoreToAlternateLocation enumeration member" Url="html/24c42455-4bf1-6932-0997-9780fad64177.htm" />
+  <HelpKINode Title="RevertIdentityAll enumeration member">
+    <HelpKINode Title="VssHardwareOptions Enumeration" Url="html/8fe968e4-36b3-82db-bb76-8b8abf9e66ea.htm" />
+    <HelpKINode Title="VssRecoveryOptions Enumeration" Url="html/19e8122c-c2c9-56bd-5a92-676108cd5d86.htm" />
+  </HelpKINode>
+  <HelpKINode Title="RevertIdentityNone enumeration member" Url="html/8fe968e4-36b3-82db-bb76-8b8abf9e66ea.htm" />
+  <HelpKINode Title="RevertInProgress enumeration member" Url="html/b94765b3-efc6-7fcb-3336-727f60e38278.htm" />
+  <HelpKINode Title="RevertToSnapshot method" Url="html/fb78bfd1-cdc9-56b2-736e-39f1e217ae3c.htm" />
+  <HelpKINode Title="RevertVolumeLost enumeration member" Url="html/b94765b3-efc6-7fcb-3336-727f60e38278.htm" />
+  <HelpKINode Title="RollbackRecovery enumeration member">
+    <HelpKINode Title="VssComponentFlags Enumeration" Url="html/458d8cb2-41a1-cbc2-e799-f9e57832f914.htm" />
+    <HelpKINode Title="VssVolumeSnapshotAttributes Enumeration" Url="html/27f6ef93-4d42-cf5e-8aaf-fe7c819fec04.htm" />
+  </HelpKINode>
+  <HelpKINode Title="RollForwardRestore enumeration member" Url="html/f22ba651-dc95-1bc6-c6c4-c6bc4c9b822c.htm" />
+  <HelpKINode Title="RollForwardRestorePoint property" Url="html/91cb5191-f254-3864-f2ba-246365bbb045.htm" />
+  <HelpKINode Title="RollForwardType property" Url="html/61bcdbf9-18f0-2eb6-2e8d-fca7e6ea9c85.htm" />
+  <HelpKINode Title="SaveAsXml method">
+    <HelpKINode Title="IVssBackupComponents.SaveAsXml Method " Url="html/6a1644f6-59a8-930e-5afd-62b7de041164.htm" />
+    <HelpKINode Title="IVssExamineWriterMetadata.SaveAsXml Method " Url="html/c34de6d7-44e6-c05f-04ab-f6f1d04f17b7.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Selectable property" Url="html/f40afed0-2637-9361-77e7-7866aeba3d8c.htm" />
+  <HelpKINode Title="SelectableForRestore property" Url="html/904fd04b-314f-2b6b-289e-20fb33afaf58.htm" />
+  <HelpKINode Title="Service property" Url="html/784e84ff-69e2-4ba2-084d-c963c07a930f.htm" />
+  <HelpKINode Title="ServiceMachine property" Url="html/588b7216-236f-e80c-3be2-5295d3ed49f2.htm" />
+  <HelpKINode Title="ServicePackVersion property" Url="html/d6e252fb-016d-a950-6751-f09dfde82c73.htm" />
+  <HelpKINode Title="SetAdditionalRestores method" Url="html/f342082c-e620-9314-9fac-12c502e133b2.htm" />
+  <HelpKINode Title="SetAuthoritativeRestore method" Url="html/e54935b8-3fbc-5005-235f-f554b93ce747.htm" />
+  <HelpKINode Title="SetBackupOptions method" Url="html/bd3f4ad8-dfa3-e935-3fc6-2a9e535c5a18.htm" />
+  <HelpKINode Title="SetBackupState method" Url="html/323892e4-2114-474a-8dc9-ebd9bb8b53dc.htm" />
+  <HelpKINode Title="SetBackupSucceeded method" Url="html/d8b27c41-3f6f-8bf1-43fc-d8d52ebdeff3.htm" />
+  <HelpKINode Title="SetContext method" Url="html/6855ddd6-2f94-6699-61ee-05c633ca4fdc.htm" />
+  <HelpKINode Title="SetFileRestoreStatus method" Url="html/c7d913c5-d96e-89d6-145a-0c4527c2dd35.htm" />
+  <HelpKINode Title="SetPreviousBackupStamp method" Url="html/72ee2e46-bd20-961e-9072-ae35553a41a4.htm" />
+  <HelpKINode Title="SetRangesFilePath method" Url="html/89f7bee8-7876-e393-5c8e-8e2476af82f5.htm" />
+  <HelpKINode Title="SetRestoreName method" Url="html/727f3091-d86a-96b8-9675-a56bdc19624c.htm" />
+  <HelpKINode Title="SetRestoreOptions method" Url="html/df033a10-d7d8-464f-402d-4a7cc61b59f0.htm" />
+  <HelpKINode Title="SetRestoreState method" Url="html/e02c7c7a-1351-7566-4905-86cbf753258e.htm" />
+  <HelpKINode Title="SetRollForward method" Url="html/749a3ef4-3be9-59bb-37ca-91d2e87f30b5.htm" />
+  <HelpKINode Title="SetSelectedForRestore method" Url="html/7c85016c-ac7d-d816-b89e-dedd8164eebe.htm" />
+  <HelpKINode Title="SetVolumeProtectionLevel method" Url="html/ff548fc5-37c8-d3e7-1c2c-2809722acfe0.htm" />
+  <HelpKINode Title="ShouldBlockRevert method" Url="html/0378a76f-cdfc-f2bb-c0bb-b711a95717b8.htm" />
+  <HelpKINode Title="Snapshot enumeration member">
+    <HelpKINode Title="VssObjectType Enumeration" Url="html/de482a35-2367-be24-4d65-61e28f1d9669.htm" />
+    <HelpKINode Title="VssProtectionLevel Enumeration" Url="html/72349f53-adca-87d7-0c08-9a1ac5de599b.htm" />
+  </HelpKINode>
+  <HelpKINode Title="SnapshotAttributes property" Url="html/7b9e4533-19c3-4a39-d844-61ea5b9e59c2.htm" />
+  <HelpKINode Title="SnapshotDeviceObject property" Url="html/96a07050-bfba-df12-2fe0-756eb2e53009.htm" />
+  <HelpKINode Title="SnapshotId property" Url="html/e62647c0-f15c-0309-5ca1-52e14891595d.htm" />
+  <HelpKINode Title="SnapshotsCount property" Url="html/2236b82d-fe63-79c7-ff54-9c397e6f700a.htm" />
+  <HelpKINode Title="SnapshotSet enumeration member" Url="html/de482a35-2367-be24-4d65-61e28f1d9669.htm" />
+  <HelpKINode Title="SnapshotSetId property" Url="html/36337395-331c-b94a-107e-1f8e9d5af6af.htm" />
+  <HelpKINode Title="SnapshotSetInProgress enumeration member" Url="html/b94765b3-efc6-7fcb-3336-727f60e38278.htm" />
+  <HelpKINode Title="Software enumeration member" Url="html/93488002-bcb4-0b8c-71b5-eef8ec0011c3.htm" />
+  <HelpKINode Title="SomeSnapshotsNotImportedError enumeration member" Url="html/b94765b3-efc6-7fcb-3336-727f60e38278.htm" />
+  <HelpKINode Title="SomeSnapshotsNotImportedSuccess enumeration member" Url="html/b94765b3-efc6-7fcb-3336-727f60e38278.htm" />
+  <HelpKINode Title="Source property" Url="html/789616e5-2f4c-ecaa-054b-ea2aad9b1867.htm" />
+  <HelpKINode Title="SourceFileName property" Url="html/a69df733-52bd-8ff6-7567-14e3f53d17dd.htm" />
+  <HelpKINode Title="SourcePath property" Url="html/c2534e52-6c1a-e107-6654-85caaae553c9.htm" />
+  <HelpKINode Title="SourceRangeList property" Url="html/311cdfd1-2d73-0082-23f8-e76a0e62ee33.htm" />
+  <HelpKINode Title="Stable enumeration member" Url="html/6517e5ab-71d6-6fd8-1266-b6c66d6b2a49.htm" />
+  <HelpKINode Title="StartSnapshotSet method" Url="html/faf9d8df-e1ec-b636-70a1-7ce83514d043.htm" />
+  <HelpKINode Title="State property" Url="html/2df8c3ca-9ce2-1013-fa81-efe4fb62f200.htm" />
+  <HelpKINode Title="Status property" Url="html/de210496-5c79-44a9-b679-827274fa3303.htm" />
+  <HelpKINode Title="StopRestoreStart enumeration member" Url="html/24c42455-4bf1-6932-0997-9780fad64177.htm" />
+  <HelpKINode Title="Success enumeration member" Url="html/b94765b3-efc6-7fcb-3336-727f60e38278.htm" />
+  <HelpKINode Title="System enumeration member" Url="html/93488002-bcb4-0b8c-71b5-eef8ec0011c3.htm" />
+  <HelpKINode Title="SystemService enumeration member" Url="html/e4ed6c17-a6fe-9102-801f-98848d60dd23.htm" />
+  <HelpKINode Title="Timestamped enumeration member" Url="html/f22ba651-dc95-1bc6-c6c4-c6bc4c9b822c.htm" />
+  <HelpKINode Title="TransactedDB enumeration member" Url="html/1577a7e5-13c7-c8ef-95d9-77ad93e3550b.htm" />
+  <HelpKINode Title="TransactionFreezeTimeout enumeration member" Url="html/b94765b3-efc6-7fcb-3336-727f60e38278.htm" />
+  <HelpKINode Title="TransactionThawTimeout enumeration member" Url="html/b94765b3-efc6-7fcb-3336-727f60e38278.htm" />
+  <HelpKINode Title="Transportable enumeration member" Url="html/27f6ef93-4d42-cf5e-8aaf-fe7c819fec04.htm" />
+  <HelpKINode Title="TxFRecovery enumeration member" Url="html/27f6ef93-4d42-cf5e-8aaf-fe7c819fec04.htm" />
+  <HelpKINode Title="Type property" Url="html/710c3234-64b0-f8d2-5e14-290e27a18111.htm" />
+  <HelpKINode Title="Undefined enumeration member">
+    <HelpKINode Title="VssBackupSchema Enumeration" Url="html/f22ba651-dc95-1bc6-c6c4-c6bc4c9b822c.htm" />
+    <HelpKINode Title="VssBackupType Enumeration" Url="html/8a10c778-ba52-f195-d2d0-8bb60cc58d9a.htm" />
+    <HelpKINode Title="VssComponentType Enumeration" Url="html/c26f93e5-ff97-796e-581d-d074f6f7d4b0.htm" />
+    <HelpKINode Title="VssFileRestoreStatus Enumeration" Url="html/dd441f6b-2e9a-286f-74ec-c3319a5a1f33.htm" />
+    <HelpKINode Title="VssRestoreMethod Enumeration" Url="html/24c42455-4bf1-6932-0997-9780fad64177.htm" />
+    <HelpKINode Title="VssRestoreTarget Enumeration" Url="html/4d8e8837-ec24-6948-4a7a-ce690f337aae.htm" />
+    <HelpKINode Title="VssRestoreType Enumeration" Url="html/2057e401-0bef-53c6-4167-54a3d1389fda.htm" />
+    <HelpKINode Title="VssRollForwardType Enumeration" Url="html/fc0ddc14-0f0f-1469-b9c6-ee878536d976.htm" />
+    <HelpKINode Title="VssSourceType Enumeration" Url="html/1577a7e5-13c7-c8ef-95d9-77ad93e3550b.htm" />
+    <HelpKINode Title="VssUsageType Enumeration" Url="html/e4ed6c17-a6fe-9102-801f-98848d60dd23.htm" />
+    <HelpKINode Title="VssWriterRestore Enumeration" Url="html/644341ad-f1e1-d17b-d6c7-2f9b68d9c451.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Unexpected enumeration member" Url="html/b94765b3-efc6-7fcb-3336-727f60e38278.htm" />
+  <HelpKINode Title="UnexpectedProviderError enumeration member" Url="html/b94765b3-efc6-7fcb-3336-727f60e38278.htm" />
+  <HelpKINode Title="UnexpectedWriterError enumeration member" Url="html/b94765b3-efc6-7fcb-3336-727f60e38278.htm" />
+  <HelpKINode Title="UnexposeSnapshot method" Url="html/88b93358-2714-0e70-42d2-d58878ca0ee7.htm" />
+  <HelpKINode Title="Unknown enumeration member">
+    <HelpKINode Title="ProcessorArchitecture Enumeration" Url="html/26d6acb2-0bbe-9c42-f3f7-f97d4fbec105.htm" />
+    <HelpKINode Title="VssFileSpecificationBackupType Enumeration" Url="html/d3773cc1-85a3-6011-c8dd-7739654a2423.htm" />
+    <HelpKINode Title="VssObjectType Enumeration" Url="html/de482a35-2367-be24-4d65-61e28f1d9669.htm" />
+    <HelpKINode Title="VssProviderType Enumeration" Url="html/93488002-bcb4-0b8c-71b5-eef8ec0011c3.htm" />
+    <HelpKINode Title="VssSnapshotState Enumeration" Url="html/b5b9baba-8e19-eeb4-2ec6-bf8e3f9d9845.htm" />
+    <HelpKINode Title="VssWriterState Enumeration" Url="html/6517e5ab-71d6-6fd8-1266-b6c66d6b2a49.htm" />
+  </HelpKINode>
+  <HelpKINode Title="UnsupportedContext enumeration member" Url="html/b94765b3-efc6-7fcb-3336-727f60e38278.htm" />
+  <HelpKINode Title="UnsupportedOperatingSystemException class">
+    <HelpKINode Title="UnsupportedOperatingSystemException Class" Url="html/6756fc67-c452-4a4e-158e-63bdf36a9a09.htm" />
+    <HelpKINode Title="about UnsupportedOperatingSystemException class" Url="html/6756fc67-c452-4a4e-158e-63bdf36a9a09.htm" />
+    <HelpKINode Title="constructor" Url="html/bc9c896d-cd7e-b056-9f95-58b0aff197fa.htm" />
+  </HelpKINode>
+  <HelpKINode Title="UnsupportedOperatingSystemException.UnsupportedOperatingSystemException constructor" Url="html/bc9c896d-cd7e-b056-9f95-58b0aff197fa.htm" />
+  <HelpKINode Title="Usage property" Url="html/e8ff5031-29b0-f063-70d1-04179e785a0d.htm" />
+  <HelpKINode Title="UsedDiffSpace property" Url="html/13cca986-1836-c294-7d09-d2a088da9752.htm" />
+  <HelpKINode Title="UserData enumeration member" Url="html/e4ed6c17-a6fe-9102-801f-98848d60dd23.htm" />
+  <HelpKINode Title="UserProcedure property" Url="html/76086274-16ce-c1c4-9114-a2def77df6bd.htm" />
+  <HelpKINode Title="Version property" Url="html/565f3d6e-b6c6-d295-66ea-29fee777bae8.htm" />
+  <HelpKINode Title="VolumeDisplayName property">
+    <HelpKINode Title="VssDiffVolumeProperties.VolumeDisplayName Property " Url="html/af808291-4d65-7bb8-eb43-c0ef41e9efea.htm" />
+    <HelpKINode Title="VssVolumeProperties.VolumeDisplayName Property " Url="html/642a4b5f-d47a-b469-eed7-64ddc80bae77.htm" />
+  </HelpKINode>
+  <HelpKINode Title="VolumeFreeSpace property" Url="html/8423265c-f8d7-da12-38dc-fe27a5c207ae.htm" />
+  <HelpKINode Title="VolumeHasUnusedDiffArea property" Url="html/4f9bc246-6e16-2edb-9084-7c2f6fe67a90.htm" />
+  <HelpKINode Title="VolumeInUse enumeration member" Url="html/b94765b3-efc6-7fcb-3336-727f60e38278.htm" />
+  <HelpKINode Title="VolumeIsOfflineForProtection property" Url="html/2d7a207b-095a-ddb0-6be6-b42357d2e7f2.htm" />
+  <HelpKINode Title="VolumeName property">
+    <HelpKINode Title="VssDiffAreaProperties.VolumeName Property " Url="html/efc83d94-5f65-07d0-08e4-6939406cfd11.htm" />
+    <HelpKINode Title="VssDiffVolumeProperties.VolumeName Property " Url="html/24931b6c-4957-aaef-40e1-65e8a79cae53.htm" />
+    <HelpKINode Title="VssVolumeProperties.VolumeName Property " Url="html/b0c713b8-1aa1-2a5d-8642-32f866d79b1d.htm" />
+  </HelpKINode>
+  <HelpKINode Title="VolumeNotSupported enumeration member" Url="html/b94765b3-efc6-7fcb-3336-727f60e38278.htm" />
+  <HelpKINode Title="VolumeNotSupportedByProvider enumeration member" Url="html/b94765b3-efc6-7fcb-3336-727f60e38278.htm" />
+  <HelpKINode Title="VolumeTotalSpace property" Url="html/f5950832-7a07-bb67-59bb-7c2a09f1244d.htm" />
+  <HelpKINode Title="VssBackupSchema enumeration" Url="html/f22ba651-dc95-1bc6-c6c4-c6bc4c9b822c.htm" />
+  <HelpKINode Title="VssBackupType enumeration" Url="html/8a10c778-ba52-f195-d2d0-8bb60cc58d9a.htm" />
+  <HelpKINode Title="VssBadStateException class">
+    <HelpKINode Title="VssBadStateException Class" Url="html/d29cf4d9-43eb-75f3-0215-d330f3a92abb.htm" />
+    <HelpKINode Title="about VssBadStateException class" Url="html/d29cf4d9-43eb-75f3-0215-d330f3a92abb.htm" />
+    <HelpKINode Title="constructor" Url="html/d304adaa-422e-9dab-1eb1-34b06645fb18.htm" />
+  </HelpKINode>
+  <HelpKINode Title="VssBadStateException.VssBadStateException constructor" Url="html/d304adaa-422e-9dab-1eb1-34b06645fb18.htm" />
+  <HelpKINode Title="VssCannotRevertDiskIdException class">
+    <HelpKINode Title="VssCannotRevertDiskIdException Class" Url="html/97d000ac-7f8f-1e08-db32-859e1700cf28.htm" />
+    <HelpKINode Title="about VssCannotRevertDiskIdException class" Url="html/97d000ac-7f8f-1e08-db32-859e1700cf28.htm" />
+    <HelpKINode Title="constructor" Url="html/65696058-2f09-bb0f-9083-9b63cf5bc393.htm" />
+  </HelpKINode>
+  <HelpKINode Title="VssCannotRevertDiskIdException.VssCannotRevertDiskIdException constructor" Url="html/65696058-2f09-bb0f-9083-9b63cf5bc393.htm" />
+  <HelpKINode Title="VssComponentFailure class">
+    <HelpKINode Title="VssComponentFailure Class" Url="html/73b5e648-2c60-a05d-cb37-efa6c4080d26.htm" />
+    <HelpKINode Title="about VssComponentFailure class" Url="html/73b5e648-2c60-a05d-cb37-efa6c4080d26.htm" />
+    <HelpKINode Title="constructor" Url="html/0d344590-1b6c-0eba-2a29-f6357a148c05.htm" />
+    <HelpKINode Title="properties" Url="html/b326fb27-0a48-2c0b-146a-253404560726.htm" />
+  </HelpKINode>
+  <HelpKINode Title="VssComponentFailure.ApplicationErrorCode property" Url="html/52fae089-ac66-17d7-c32a-d74f42c3d78d.htm" />
+  <HelpKINode Title="VssComponentFailure.ApplicationMessage property" Url="html/3f491128-7efd-1f77-8093-c0f54cf02ecd.htm" />
+  <HelpKINode Title="VssComponentFailure.ErrorCode property" Url="html/73d19540-0d30-f259-8614-68a7dd559a5c.htm" />
+  <HelpKINode Title="VssComponentFailure.VssComponentFailure constructor" Url="html/0d344590-1b6c-0eba-2a29-f6357a148c05.htm" />
+  <HelpKINode Title="VssComponentFlags enumeration" Url="html/458d8cb2-41a1-cbc2-e799-f9e57832f914.htm" />
+  <HelpKINode Title="VssComponentType enumeration" Url="html/c26f93e5-ff97-796e-581d-d074f6f7d4b0.htm" />
+  <HelpKINode Title="VssDeleteSnapshotsFailedException class">
+    <HelpKINode Title="VssDeleteSnapshotsFailedException Class" Url="html/1f763a88-44da-799f-399a-4b8318f1041b.htm" />
+    <HelpKINode Title="about VssDeleteSnapshotsFailedException class" Url="html/1f763a88-44da-799f-399a-4b8318f1041b.htm" />
+    <HelpKINode Title="constructor" Url="html/972bcefd-acd5-a1cf-f1e8-819d3b9120fa.htm" />
+    <HelpKINode Title="methods" Url="html/a4763427-cc90-8102-cd93-6d627cf9d82c.htm" />
+    <HelpKINode Title="properties" Url="html/7a6b6502-9a37-c65d-5207-3cfeb525c8f5.htm" />
+  </HelpKINode>
+  <HelpKINode Title="VssDeleteSnapshotsFailedException.DeletedSnapshotsCount property" Url="html/f5c33707-ff82-865a-521c-b4f8297def93.htm" />
+  <HelpKINode Title="VssDeleteSnapshotsFailedException.GetObjectData method" Url="html/e2c44a7a-bc01-5420-7488-1bceeca3ef6d.htm" />
+  <HelpKINode Title="VssDeleteSnapshotsFailedException.NonDeletedSnapshotId property" Url="html/0d4f4759-f07c-4b02-ba95-bde10ccef061.htm" />
+  <HelpKINode Title="VssDeleteSnapshotsFailedException.VssDeleteSnapshotsFailedException constructor" Url="html/972bcefd-acd5-a1cf-f1e8-819d3b9120fa.htm" />
+  <HelpKINode Title="VssDiffAreaProperties class">
+    <HelpKINode Title="VssDiffAreaProperties Class" Url="html/fa0e5928-baa7-df04-bf10-18133e240e18.htm" />
+    <HelpKINode Title="about VssDiffAreaProperties class" Url="html/fa0e5928-baa7-df04-bf10-18133e240e18.htm" />
+    <HelpKINode Title="constructor" Url="html/71e4c214-08cf-c660-2e79-2637b7ebfcc7.htm" />
+    <HelpKINode Title="properties" Url="html/8fc490d7-8b39-495b-a030-1abe483f374a.htm" />
+  </HelpKINode>
+  <HelpKINode Title="VssDiffAreaProperties.AllocatedDiffSpace property" Url="html/7eca2a98-4224-636b-bde2-ba0891f9da20.htm" />
+  <HelpKINode Title="VssDiffAreaProperties.DiffAreaVolumeName property" Url="html/dd2676e7-9634-2a3b-e93f-6e7491cf9d43.htm" />
+  <HelpKINode Title="VssDiffAreaProperties.MaximumDiffSpace property" Url="html/d88b9256-5291-4c5a-d916-0647df93c43d.htm" />
+  <HelpKINode Title="VssDiffAreaProperties.UsedDiffSpace property" Url="html/13cca986-1836-c294-7d09-d2a088da9752.htm" />
+  <HelpKINode Title="VssDiffAreaProperties.VolumeName property" Url="html/efc83d94-5f65-07d0-08e4-6939406cfd11.htm" />
+  <HelpKINode Title="VssDiffAreaProperties.VssDiffAreaProperties constructor" Url="html/71e4c214-08cf-c660-2e79-2637b7ebfcc7.htm" />
+  <HelpKINode Title="VssDifferencedFileInfo class">
+    <HelpKINode Title="VssDifferencedFileInfo Class" Url="html/12cbfddd-e84a-7dbe-83e0-e4137a3a383a.htm" />
+    <HelpKINode Title="about VssDifferencedFileInfo class" Url="html/12cbfddd-e84a-7dbe-83e0-e4137a3a383a.htm" />
+    <HelpKINode Title="constructor" Url="html/26c125d1-0fd4-5e91-4312-a3131ce2a794.htm" />
+    <HelpKINode Title="properties" Url="html/6faeae25-b059-aa35-2519-c25ab250f351.htm" />
+  </HelpKINode>
+  <HelpKINode Title="VssDifferencedFileInfo.FileSpecification property" Url="html/4c192e12-a47d-17a8-b693-76e1115e9619.htm" />
+  <HelpKINode Title="VssDifferencedFileInfo.IsRecursive property" Url="html/2f7f634c-a3af-47dd-f255-afa91bb23c71.htm" />
+  <HelpKINode Title="VssDifferencedFileInfo.LastModifyTime property" Url="html/d7bc55c3-a289-47cc-45f1-856469b9e98b.htm" />
+  <HelpKINode Title="VssDifferencedFileInfo.Path property" Url="html/72db0513-96d0-4d27-221b-8a23e8bffe09.htm" />
+  <HelpKINode Title="VssDifferencedFileInfo.VssDifferencedFileInfo constructor" Url="html/26c125d1-0fd4-5e91-4312-a3131ce2a794.htm" />
+  <HelpKINode Title="VssDiffVolumeProperties class">
+    <HelpKINode Title="VssDiffVolumeProperties Class" Url="html/1e52f783-8daf-bf42-c0e6-80d85a096728.htm" />
+    <HelpKINode Title="about VssDiffVolumeProperties class" Url="html/1e52f783-8daf-bf42-c0e6-80d85a096728.htm" />
+    <HelpKINode Title="constructor" Url="html/49aa207b-dd84-8cdf-27c8-9d97050b5042.htm" />
+    <HelpKINode Title="properties" Url="html/9c2f8aef-cda7-6bbd-5bbd-9e96a6e05098.htm" />
+  </HelpKINode>
+  <HelpKINode Title="VssDiffVolumeProperties.VolumeDisplayName property" Url="html/af808291-4d65-7bb8-eb43-c0ef41e9efea.htm" />
+  <HelpKINode Title="VssDiffVolumeProperties.VolumeFreeSpace property" Url="html/8423265c-f8d7-da12-38dc-fe27a5c207ae.htm" />
+  <HelpKINode Title="VssDiffVolumeProperties.VolumeName property" Url="html/24931b6c-4957-aaef-40e1-65e8a79cae53.htm" />
+  <HelpKINode Title="VssDiffVolumeProperties.VolumeTotalSpace property" Url="html/f5950832-7a07-bb67-59bb-7c2a09f1244d.htm" />
+  <HelpKINode Title="VssDiffVolumeProperties.VssDiffVolumeProperties constructor" Url="html/49aa207b-dd84-8cdf-27c8-9d97050b5042.htm" />
+  <HelpKINode Title="VssDirectedTargetInfo class">
+    <HelpKINode Title="VssDirectedTargetInfo Class" Url="html/c2f09303-0288-32da-c2ba-a564afdb2316.htm" />
+    <HelpKINode Title="about VssDirectedTargetInfo class" Url="html/c2f09303-0288-32da-c2ba-a564afdb2316.htm" />
+    <HelpKINode Title="constructor" Url="html/2aec6468-3ad9-4ef8-e0dd-5fab5c72b17a.htm" />
+    <HelpKINode Title="properties" Url="html/c6b5d125-2894-d635-30c4-c8aa745514ac.htm" />
+  </HelpKINode>
+  <HelpKINode Title="VssDirectedTargetInfo.DestinationFileName property" Url="html/bd57d088-9d84-a3d4-d62f-f4dadfb9a7f6.htm" />
+  <HelpKINode Title="VssDirectedTargetInfo.DestinationPath property" Url="html/892b788b-0ca9-a6e7-4bb4-080ac80e7833.htm" />
+  <HelpKINode Title="VssDirectedTargetInfo.DestinationRangeList property" Url="html/194fee53-c6ac-737d-1a04-49f5bf4c04ec.htm" />
+  <HelpKINode Title="VssDirectedTargetInfo.SourceFileName property" Url="html/a69df733-52bd-8ff6-7567-14e3f53d17dd.htm" />
+  <HelpKINode Title="VssDirectedTargetInfo.SourcePath property" Url="html/c2534e52-6c1a-e107-6654-85caaae553c9.htm" />
+  <HelpKINode Title="VssDirectedTargetInfo.SourceRangeList property" Url="html/311cdfd1-2d73-0082-23f8-e76a0e62ee33.htm" />
+  <HelpKINode Title="VssDirectedTargetInfo.VssDirectedTargetInfo constructor" Url="html/2aec6468-3ad9-4ef8-e0dd-5fab5c72b17a.htm" />
+  <HelpKINode Title="VssError enumeration" Url="html/b94765b3-efc6-7fcb-3336-727f60e38278.htm" />
+  <HelpKINode Title="VssException class">
+    <HelpKINode Title="VssException Class" Url="html/36fea4e1-0694-ded3-be88-2c99dc284e40.htm" />
+    <HelpKINode Title="about VssException class" Url="html/36fea4e1-0694-ded3-be88-2c99dc284e40.htm" />
+    <HelpKINode Title="constructor" Url="html/0d783826-daf5-dbc2-cb8b-377efd98ca27.htm" />
+  </HelpKINode>
+  <HelpKINode Title="VssException.VssException constructor" Url="html/0d783826-daf5-dbc2-cb8b-377efd98ca27.htm" />
+  <HelpKINode Title="VssFileRestoreStatus enumeration" Url="html/dd441f6b-2e9a-286f-74ec-c3319a5a1f33.htm" />
+  <HelpKINode Title="VssFileSpecificationBackupType enumeration" Url="html/d3773cc1-85a3-6011-c8dd-7739654a2423.htm" />
+  <HelpKINode Title="VssFlushWritesTimeoutException class">
+    <HelpKINode Title="VssFlushWritesTimeoutException Class" Url="html/9e13d6d8-7201-33e8-50ca-fbd89775f30e.htm" />
+    <HelpKINode Title="about VssFlushWritesTimeoutException class" Url="html/9e13d6d8-7201-33e8-50ca-fbd89775f30e.htm" />
+    <HelpKINode Title="constructor" Url="html/d634fc20-fc17-3aaf-51c1-8a7e13444c32.htm" />
+  </HelpKINode>
+  <HelpKINode Title="VssFlushWritesTimeoutException.VssFlushWritesTimeoutException constructor" Url="html/d634fc20-fc17-3aaf-51c1-8a7e13444c32.htm" />
+  <HelpKINode Title="VssHardwareOptions enumeration" Url="html/8fe968e4-36b3-82db-bb76-8b8abf9e66ea.htm" />
+  <HelpKINode Title="VssHoldWritesTimeoutException class">
+    <HelpKINode Title="VssHoldWritesTimeoutException Class" Url="html/460984a0-09a5-db64-18c6-4c8d7f54a1eb.htm" />
+    <HelpKINode Title="about VssHoldWritesTimeoutException class" Url="html/460984a0-09a5-db64-18c6-4c8d7f54a1eb.htm" />
+    <HelpKINode Title="constructor" Url="html/b4351485-d791-b9bc-7fc8-0f352b8a3b5c.htm" />
+  </HelpKINode>
+  <HelpKINode Title="VssHoldWritesTimeoutException.VssHoldWritesTimeoutException constructor" Url="html/b4351485-d791-b9bc-7fc8-0f352b8a3b5c.htm" />
+  <HelpKINode Title="VssInconsistentSnapshotWriterException class">
+    <HelpKINode Title="VssInconsistentSnapshotWriterException Class" Url="html/7d662682-8fef-6da7-b4df-6460d9fb2507.htm" />
+    <HelpKINode Title="about VssInconsistentSnapshotWriterException class" Url="html/7d662682-8fef-6da7-b4df-6460d9fb2507.htm" />
+    <HelpKINode Title="constructor" Url="html/55b970a5-8914-fd6c-bb01-e58948aed27f.htm" />
+  </HelpKINode>
+  <HelpKINode Title="VssInconsistentSnapshotWriterException.VssInconsistentSnapshotWriterException constructor" Url="html/55b970a5-8914-fd6c-bb01-e58948aed27f.htm" />
+  <HelpKINode Title="VssInsufficientStorageException class">
+    <HelpKINode Title="VssInsufficientStorageException Class" Url="html/497202a6-833c-07f6-8ca9-abcbcf26b04a.htm" />
+    <HelpKINode Title="about VssInsufficientStorageException class" Url="html/497202a6-833c-07f6-8ca9-abcbcf26b04a.htm" />
+    <HelpKINode Title="constructor" Url="html/843077fa-9f4b-ae30-ce2a-0c3c0fe48061.htm" />
+  </HelpKINode>
+  <HelpKINode Title="VssInsufficientStorageException.VssInsufficientStorageException constructor" Url="html/843077fa-9f4b-ae30-ce2a-0c3c0fe48061.htm" />
+  <HelpKINode Title="VssInvalidXmlDocumentException class">
+    <HelpKINode Title="VssInvalidXmlDocumentException Class" Url="html/a7ee78a4-029d-19ab-c751-203df2479a6a.htm" />
+    <HelpKINode Title="about VssInvalidXmlDocumentException class" Url="html/a7ee78a4-029d-19ab-c751-203df2479a6a.htm" />
+    <HelpKINode Title="constructor" Url="html/a892b4f3-3c29-3b0a-fb0f-220909e2171b.htm" />
+  </HelpKINode>
+  <HelpKINode Title="VssInvalidXmlDocumentException.VssInvalidXmlDocumentException constructor" Url="html/a892b4f3-3c29-3b0a-fb0f-220909e2171b.htm" />
+  <HelpKINode Title="VssLegacyProviderException class">
+    <HelpKINode Title="VssLegacyProviderException Class" Url="html/6b757f6b-2a21-c21b-72e6-d222a99761e6.htm" />
+    <HelpKINode Title="about VssLegacyProviderException class" Url="html/6b757f6b-2a21-c21b-72e6-d222a99761e6.htm" />
+    <HelpKINode Title="constructor" Url="html/d2c2af9b-330b-f1bb-10c5-ca53dcbfd2a7.htm" />
+  </HelpKINode>
+  <HelpKINode Title="VssLegacyProviderException.VssLegacyProviderException constructor" Url="html/d2c2af9b-330b-f1bb-10c5-ca53dcbfd2a7.htm" />
+  <HelpKINode Title="VssMaximumDiffAreaAssociationsReachedException class">
+    <HelpKINode Title="VssMaximumDiffAreaAssociationsReachedException Class" Url="html/8ecee09c-d39d-9c21-b4ab-c8c59c11e05c.htm" />
+    <HelpKINode Title="about VssMaximumDiffAreaAssociationsReachedException class" Url="html/8ecee09c-d39d-9c21-b4ab-c8c59c11e05c.htm" />
+    <HelpKINode Title="constructor" Url="html/349581bc-c4e3-6cf8-0ee1-43523b93a202.htm" />
+  </HelpKINode>
+  <HelpKINode Title="VssMaximumDiffAreaAssociationsReachedException.VssMaximumDiffAreaAssociationsReachedException constructor" Url="html/349581bc-c4e3-6cf8-0ee1-43523b93a202.htm" />
+  <HelpKINode Title="VssMaximumNumberOfSnapshotsReachedException class">
+    <HelpKINode Title="VssMaximumNumberOfSnapshotsReachedException Class" Url="html/863c21c4-0a89-d468-b363-8fd7b542edf4.htm" />
+    <HelpKINode Title="about VssMaximumNumberOfSnapshotsReachedException class" Url="html/863c21c4-0a89-d468-b363-8fd7b542edf4.htm" />
+    <HelpKINode Title="constructor" Url="html/8c63192b-2e30-343d-b077-12053293e7cb.htm" />
+  </HelpKINode>
+  <HelpKINode Title="VssMaximumNumberOfSnapshotsReachedException.VssMaximumNumberOfSnapshotsReachedException constructor" Url="html/8c63192b-2e30-343d-b077-12053293e7cb.htm" />
+  <HelpKINode Title="VssMaximumNumberOfVolumesReachedException class">
+    <HelpKINode Title="VssMaximumNumberOfVolumesReachedException Class" Url="html/ad0ce338-a248-b4d0-030d-052d8badf6ed.htm" />
+    <HelpKINode Title="about VssMaximumNumberOfVolumesReachedException class" Url="html/ad0ce338-a248-b4d0-030d-052d8badf6ed.htm" />
+    <HelpKINode Title="constructor" Url="html/3b2fe8ed-e0d4-db7d-de05-2809a34f7695.htm" />
+  </HelpKINode>
+  <HelpKINode Title="VssMaximumNumberOfVolumesReachedException.VssMaximumNumberOfVolumesReachedException constructor" Url="html/3b2fe8ed-e0d4-db7d-de05-2809a34f7695.htm" />
+  <HelpKINode Title="VssNonRetryableWriterException class">
+    <HelpKINode Title="VssNonRetryableWriterException Class" Url="html/1e9f8a52-8cdb-f24f-6cba-7230a30a21c7.htm" />
+    <HelpKINode Title="about VssNonRetryableWriterException class" Url="html/1e9f8a52-8cdb-f24f-6cba-7230a30a21c7.htm" />
+    <HelpKINode Title="constructor" Url="html/76b88f83-d65a-0ef8-170c-2eef2fda82ed.htm" />
+  </HelpKINode>
+  <HelpKINode Title="VssNonRetryableWriterException.VssNonRetryableWriterException constructor" Url="html/76b88f83-d65a-0ef8-170c-2eef2fda82ed.htm" />
+  <HelpKINode Title="VssObjectAlreadyExistsException class">
+    <HelpKINode Title="VssObjectAlreadyExistsException Class" Url="html/ae8a3908-d3af-b4aa-df78-d90c24008277.htm" />
+    <HelpKINode Title="about VssObjectAlreadyExistsException class" Url="html/ae8a3908-d3af-b4aa-df78-d90c24008277.htm" />
+    <HelpKINode Title="constructor" Url="html/81197196-51bf-bda9-963e-39fa66555636.htm" />
+  </HelpKINode>
+  <HelpKINode Title="VssObjectAlreadyExistsException.VssObjectAlreadyExistsException constructor" Url="html/81197196-51bf-bda9-963e-39fa66555636.htm" />
+  <HelpKINode Title="VssObjectNotFoundException class">
+    <HelpKINode Title="VssObjectNotFoundException Class" Url="html/e1886a3d-d6c4-7520-5cf1-d60063a2340a.htm" />
+    <HelpKINode Title="about VssObjectNotFoundException class" Url="html/e1886a3d-d6c4-7520-5cf1-d60063a2340a.htm" />
+    <HelpKINode Title="constructor" Url="html/f05eade9-3365-a1c3-1ea5-0c052e092bd2.htm" />
+  </HelpKINode>
+  <HelpKINode Title="VssObjectNotFoundException.VssObjectNotFoundException constructor" Url="html/f05eade9-3365-a1c3-1ea5-0c052e092bd2.htm" />
+  <HelpKINode Title="VssObjectType enumeration" Url="html/de482a35-2367-be24-4d65-61e28f1d9669.htm" />
+  <HelpKINode Title="VssOutOfResourcesWriterException class">
+    <HelpKINode Title="VssOutOfResourcesWriterException Class" Url="html/97b977e6-71b7-dd96-b041-62960d660b01.htm" />
+    <HelpKINode Title="about VssOutOfResourcesWriterException class" Url="html/97b977e6-71b7-dd96-b041-62960d660b01.htm" />
+    <HelpKINode Title="constructor" Url="html/c977dffb-589b-b38d-4332-389052d02ae8.htm" />
+  </HelpKINode>
+  <HelpKINode Title="VssOutOfResourcesWriterException.VssOutOfResourcesWriterException constructor" Url="html/c977dffb-589b-b38d-4332-389052d02ae8.htm" />
+  <HelpKINode Title="VssPartialFailureWriterException class">
+    <HelpKINode Title="VssPartialFailureWriterException Class" Url="html/8a103239-d9de-44dd-7020-81d819b91552.htm" />
+    <HelpKINode Title="about VssPartialFailureWriterException class" Url="html/8a103239-d9de-44dd-7020-81d819b91552.htm" />
+    <HelpKINode Title="constructor" Url="html/1cec0a19-6afd-0731-6ecb-5e2130a40b06.htm" />
+  </HelpKINode>
+  <HelpKINode Title="VssPartialFailureWriterException.VssPartialFailureWriterException constructor" Url="html/1cec0a19-6afd-0731-6ecb-5e2130a40b06.htm" />
+  <HelpKINode Title="VssPartialFileInfo class">
+    <HelpKINode Title="VssPartialFileInfo Class" Url="html/a1b8ad13-5acf-282a-8c25-7e81a450cbac.htm" />
+    <HelpKINode Title="about VssPartialFileInfo class" Url="html/a1b8ad13-5acf-282a-8c25-7e81a450cbac.htm" />
+    <HelpKINode Title="constructor" Url="html/6c9f8309-9c54-70b8-f817-3f793ae27f56.htm" />
+    <HelpKINode Title="properties" Url="html/1bf91ef6-9ff7-1a76-8cd0-3145ec669500.htm" />
+  </HelpKINode>
+  <HelpKINode Title="VssPartialFileInfo.FileName property" Url="html/ed27a7a2-ce55-e8b6-4221-79fac92e8622.htm" />
+  <HelpKINode Title="VssPartialFileInfo.Metadata property" Url="html/b4738a81-0568-f914-80d9-835e636f22fd.htm" />
+  <HelpKINode Title="VssPartialFileInfo.Path property" Url="html/3daed49e-081f-bd6e-c7a1-76a6bc4d0be1.htm" />
+  <HelpKINode Title="VssPartialFileInfo.Range property" Url="html/eaa5675f-07e6-62e0-59ae-0424675aa312.htm" />
+  <HelpKINode Title="VssPartialFileInfo.VssPartialFileInfo constructor" Url="html/6c9f8309-9c54-70b8-f817-3f793ae27f56.htm" />
+  <HelpKINode Title="VssProtectionFault enumeration" Url="html/c8dd6131-d6b8-c5bf-374c-95fc7968ac6a.htm" />
+  <HelpKINode Title="VssProtectionLevel enumeration" Url="html/72349f53-adca-87d7-0c08-9a1ac5de599b.htm" />
+  <HelpKINode Title="VssProviderNotRegisteredException class">
+    <HelpKINode Title="VssProviderNotRegisteredException Class" Url="html/e60615b3-b028-e911-0265-282327efe423.htm" />
+    <HelpKINode Title="about VssProviderNotRegisteredException class" Url="html/e60615b3-b028-e911-0265-282327efe423.htm" />
+    <HelpKINode Title="constructor" Url="html/d2fdfc5c-07a9-917f-df21-c0351e050b60.htm" />
+  </HelpKINode>
+  <HelpKINode Title="VssProviderNotRegisteredException.VssProviderNotRegisteredException constructor" Url="html/d2fdfc5c-07a9-917f-df21-c0351e050b60.htm" />
+  <HelpKINode Title="VssProviderProperties class">
+    <HelpKINode Title="VssProviderProperties Class" Url="html/78794d64-c7a7-b6bc-c06f-8f6ac96ed079.htm" />
+    <HelpKINode Title="about VssProviderProperties class" Url="html/78794d64-c7a7-b6bc-c06f-8f6ac96ed079.htm" />
+    <HelpKINode Title="constructor" Url="html/9b85ece6-c7cd-46d2-0317-b18f956330c5.htm" />
+    <HelpKINode Title="properties" Url="html/13acf412-c907-38d3-9286-8a36d2fdabea.htm" />
+  </HelpKINode>
+  <HelpKINode Title="VssProviderProperties.ClassId property" Url="html/a5c6947f-7412-ba1c-e869-671b2a756a04.htm" />
+  <HelpKINode Title="VssProviderProperties.ProviderId property" Url="html/edc32fe2-5f3b-88a5-1ec6-36cfeabad68f.htm" />
+  <HelpKINode Title="VssProviderProperties.ProviderName property" Url="html/03c601b1-a2e6-8400-12f6-a7d6d2ab7eb5.htm" />
+  <HelpKINode Title="VssProviderProperties.ProviderType property" Url="html/68857765-d2df-cbc9-62ea-955ab52e52b9.htm" />
+  <HelpKINode Title="VssProviderProperties.ProviderVersion property" Url="html/14dd387b-adb4-ab94-e526-0cbcf066ce94.htm" />
+  <HelpKINode Title="VssProviderProperties.ProviderVersionId property" Url="html/2fbd8e77-83cb-672c-1f9e-a0e388c57793.htm" />
+  <HelpKINode Title="VssProviderProperties.VssProviderProperties constructor" Url="html/9b85ece6-c7cd-46d2-0317-b18f956330c5.htm" />
+  <HelpKINode Title="VssProviderType enumeration" Url="html/93488002-bcb4-0b8c-71b5-eef8ec0011c3.htm" />
+  <HelpKINode Title="VssProviderVetoException class">
+    <HelpKINode Title="VssProviderVetoException Class" Url="html/ee49a348-54bc-26cd-3406-ab34b28f85da.htm" />
+    <HelpKINode Title="about VssProviderVetoException class" Url="html/ee49a348-54bc-26cd-3406-ab34b28f85da.htm" />
+    <HelpKINode Title="constructor" Url="html/6edec0a7-49ea-2ca6-268c-e6745d219757.htm" />
+  </HelpKINode>
+  <HelpKINode Title="VssProviderVetoException.VssProviderVetoException constructor" Url="html/6edec0a7-49ea-2ca6-268c-e6745d219757.htm" />
+  <HelpKINode Title="VssRebootRequiredException class">
+    <HelpKINode Title="VssRebootRequiredException Class" Url="html/94529ea1-91a4-2efb-c645-373203b98e1b.htm" />
+    <HelpKINode Title="about VssRebootRequiredException class" Url="html/94529ea1-91a4-2efb-c645-373203b98e1b.htm" />
+    <HelpKINode Title="constructor" Url="html/9a1aad7c-0a52-0d2c-e3aa-88956f92a1df.htm" />
+  </HelpKINode>
+  <HelpKINode Title="VssRebootRequiredException.VssRebootRequiredException constructor" Url="html/9a1aad7c-0a52-0d2c-e3aa-88956f92a1df.htm" />
+  <HelpKINode Title="VssRecoveryOptions enumeration" Url="html/19e8122c-c2c9-56bd-5a92-676108cd5d86.htm" />
+  <HelpKINode Title="VssRestoreMethod enumeration" Url="html/24c42455-4bf1-6932-0997-9780fad64177.htm" />
+  <HelpKINode Title="VssRestoreSubcomponentInfo class">
+    <HelpKINode Title="VssRestoreSubcomponentInfo Class" Url="html/43b4bf56-0edc-796d-9e0d-aee6fc97c1dc.htm" />
+    <HelpKINode Title="about VssRestoreSubcomponentInfo class" Url="html/43b4bf56-0edc-796d-9e0d-aee6fc97c1dc.htm" />
+    <HelpKINode Title="constructor" Url="html/c6f6d458-06a5-3a2f-4462-f465b2d30cfe.htm" />
+    <HelpKINode Title="properties" Url="html/2bbed880-3c0b-75b4-9ddb-b231e921eff4.htm" />
+  </HelpKINode>
+  <HelpKINode Title="VssRestoreSubcomponentInfo.ComponentName property" Url="html/a8db7a92-b633-7208-7c84-eb8d2806a5dc.htm" />
+  <HelpKINode Title="VssRestoreSubcomponentInfo.LogicalPath property" Url="html/3deefa85-164b-a8f3-90e4-7e7b886a64cf.htm" />
+  <HelpKINode Title="VssRestoreSubcomponentInfo.VssRestoreSubcomponentInfo constructor" Url="html/c6f6d458-06a5-3a2f-4462-f465b2d30cfe.htm" />
+  <HelpKINode Title="VssRestoreTarget enumeration" Url="html/4d8e8837-ec24-6948-4a7a-ce690f337aae.htm" />
+  <HelpKINode Title="VssRestoreType enumeration" Url="html/2057e401-0bef-53c6-4167-54a3d1389fda.htm" />
+  <HelpKINode Title="VssResyncInProgressException class">
+    <HelpKINode Title="VssResyncInProgressException Class" Url="html/d8b4f972-adfb-02e6-8b76-abc1034d17bc.htm" />
+    <HelpKINode Title="about VssResyncInProgressException class" Url="html/d8b4f972-adfb-02e6-8b76-abc1034d17bc.htm" />
+    <HelpKINode Title="constructor" Url="html/90b5cc46-a7f5-8a5f-aa40-52fb318ce6cd.htm" />
+  </HelpKINode>
+  <HelpKINode Title="VssResyncInProgressException.VssResyncInProgressException constructor" Url="html/90b5cc46-a7f5-8a5f-aa40-52fb318ce6cd.htm" />
+  <HelpKINode Title="VssRetryableWriterException class">
+    <HelpKINode Title="VssRetryableWriterException Class" Url="html/fa949404-17a1-c337-bae2-1083a88a88ca.htm" />
+    <HelpKINode Title="about VssRetryableWriterException class" Url="html/fa949404-17a1-c337-bae2-1083a88a88ca.htm" />
+    <HelpKINode Title="constructor" Url="html/7e015073-34f5-19ac-0cbd-ca615055f370.htm" />
+  </HelpKINode>
+  <HelpKINode Title="VssRetryableWriterException.VssRetryableWriterException constructor" Url="html/7e015073-34f5-19ac-0cbd-ca615055f370.htm" />
+  <HelpKINode Title="VssRevertInProgressException class">
+    <HelpKINode Title="VssRevertInProgressException Class" Url="html/d5871d80-c4ac-ec5c-4c6a-f97ac19c6fd8.htm" />
+    <HelpKINode Title="about VssRevertInProgressException class" Url="html/d5871d80-c4ac-ec5c-4c6a-f97ac19c6fd8.htm" />
+    <HelpKINode Title="constructor" Url="html/65e50534-0f21-f025-88d8-dabd295befbb.htm" />
+  </HelpKINode>
+  <HelpKINode Title="VssRevertInProgressException.VssRevertInProgressException constructor" Url="html/65e50534-0f21-f025-88d8-dabd295befbb.htm" />
+  <HelpKINode Title="VssRollForwardType enumeration" Url="html/fc0ddc14-0f0f-1469-b9c6-ee878536d976.htm" />
+  <HelpKINode Title="VssSnapshotCompatibility enumeration" Url="html/feb829d1-631e-f726-a2f4-e2cdb5ca41a8.htm" />
+  <HelpKINode Title="VssSnapshotContext enumeration" Url="html/e4076f72-7bc1-c300-9b90-782bea55ae7f.htm" />
+  <HelpKINode Title="VssSnapshotNotInSetException class">
+    <HelpKINode Title="VssSnapshotNotInSetException Class" Url="html/6d7ecb92-5eb1-d5ac-68fc-d8496f1a7eec.htm" />
+    <HelpKINode Title="about VssSnapshotNotInSetException class" Url="html/6d7ecb92-5eb1-d5ac-68fc-d8496f1a7eec.htm" />
+    <HelpKINode Title="constructor" Url="html/cb93d49e-2cfa-3d11-10a0-c98817c89cb8.htm" />
+  </HelpKINode>
+  <HelpKINode Title="VssSnapshotNotInSetException.VssSnapshotNotInSetException constructor" Url="html/cb93d49e-2cfa-3d11-10a0-c98817c89cb8.htm" />
+  <HelpKINode Title="VssSnapshotProperties class">
+    <HelpKINode Title="VssSnapshotProperties Class" Url="html/be41b097-e967-b650-da31-2e326b17f3cd.htm" />
+    <HelpKINode Title="about VssSnapshotProperties class" Url="html/be41b097-e967-b650-da31-2e326b17f3cd.htm" />
+    <HelpKINode Title="constructor" Url="html/b20ed463-a9a5-3100-ee4f-98373b97b81e.htm" />
+    <HelpKINode Title="properties" Url="html/519a679b-0d57-24b7-acca-d706f22e2161.htm" />
+  </HelpKINode>
+  <HelpKINode Title="VssSnapshotProperties.CreationTimestamp property" Url="html/624f3337-156a-b3fe-a36c-31cda5bd88ef.htm" />
+  <HelpKINode Title="VssSnapshotProperties.ExposedName property" Url="html/7e7304f6-6dfa-7810-5433-53c3b8b74d47.htm" />
+  <HelpKINode Title="VssSnapshotProperties.ExposedPath property" Url="html/7cf95e72-39d9-b188-3fbf-e341fe2d990c.htm" />
+  <HelpKINode Title="VssSnapshotProperties.OriginalVolumeName property" Url="html/5bcd2fc1-dcc6-a767-91c3-00f15373a3ff.htm" />
+  <HelpKINode Title="VssSnapshotProperties.OriginatingMachine property" Url="html/911ac4a3-f284-534e-e04e-0dd8109e54ff.htm" />
+  <HelpKINode Title="VssSnapshotProperties.ProviderId property" Url="html/f4e65841-286e-2caa-80a3-4489985b9a90.htm" />
+  <HelpKINode Title="VssSnapshotProperties.ServiceMachine property" Url="html/588b7216-236f-e80c-3be2-5295d3ed49f2.htm" />
+  <HelpKINode Title="VssSnapshotProperties.SnapshotAttributes property" Url="html/7b9e4533-19c3-4a39-d844-61ea5b9e59c2.htm" />
+  <HelpKINode Title="VssSnapshotProperties.SnapshotDeviceObject property" Url="html/96a07050-bfba-df12-2fe0-756eb2e53009.htm" />
+  <HelpKINode Title="VssSnapshotProperties.SnapshotId property" Url="html/e62647c0-f15c-0309-5ca1-52e14891595d.htm" />
+  <HelpKINode Title="VssSnapshotProperties.SnapshotsCount property" Url="html/2236b82d-fe63-79c7-ff54-9c397e6f700a.htm" />
+  <HelpKINode Title="VssSnapshotProperties.SnapshotSetId property" Url="html/36337395-331c-b94a-107e-1f8e9d5af6af.htm" />
+  <HelpKINode Title="VssSnapshotProperties.Status property" Url="html/de210496-5c79-44a9-b679-827274fa3303.htm" />
+  <HelpKINode Title="VssSnapshotProperties.VssSnapshotProperties constructor" Url="html/b20ed463-a9a5-3100-ee4f-98373b97b81e.htm" />
+  <HelpKINode Title="VssSnapshotSetInProgressException class">
+    <HelpKINode Title="VssSnapshotSetInProgressException Class" Url="html/8f55cc8f-4b65-15c0-4a80-20e6dd136345.htm" />
+    <HelpKINode Title="about VssSnapshotSetInProgressException class" Url="html/8f55cc8f-4b65-15c0-4a80-20e6dd136345.htm" />
+    <HelpKINode Title="constructor" Url="html/089c3f2a-9efc-3a4f-1a3f-633d849b9ea6.htm" />
+  </HelpKINode>
+  <HelpKINode Title="VssSnapshotSetInProgressException.VssSnapshotSetInProgressException constructor" Url="html/089c3f2a-9efc-3a4f-1a3f-633d849b9ea6.htm" />
+  <HelpKINode Title="VssSnapshotState enumeration" Url="html/b5b9baba-8e19-eeb4-2ec6-bf8e3f9d9845.htm" />
+  <HelpKINode Title="VssSourceType enumeration" Url="html/1577a7e5-13c7-c8ef-95d9-77ad93e3550b.htm" />
+  <HelpKINode Title="VssTimeoutWriterException class">
+    <HelpKINode Title="VssTimeoutWriterException Class" Url="html/6dede8d5-8a5d-c44a-3200-d0bd85cb024c.htm" />
+    <HelpKINode Title="about VssTimeoutWriterException class" Url="html/6dede8d5-8a5d-c44a-3200-d0bd85cb024c.htm" />
+    <HelpKINode Title="constructor" Url="html/e0aaca5c-6c21-959b-716f-c49ba4a14e51.htm" />
+  </HelpKINode>
+  <HelpKINode Title="VssTimeoutWriterException.VssTimeoutWriterException constructor" Url="html/e0aaca5c-6c21-959b-716f-c49ba4a14e51.htm" />
+  <HelpKINode Title="VssTransactionFreezeTimeoutException class">
+    <HelpKINode Title="VssTransactionFreezeTimeoutException Class" Url="html/83af1539-49e8-3e51-cadf-62cb99963e94.htm" />
+    <HelpKINode Title="about VssTransactionFreezeTimeoutException class" Url="html/83af1539-49e8-3e51-cadf-62cb99963e94.htm" />
+    <HelpKINode Title="constructor" Url="html/8d1e4c27-2dde-5439-640e-18f64eb92ee7.htm" />
+  </HelpKINode>
+  <HelpKINode Title="VssTransactionFreezeTimeoutException.VssTransactionFreezeTimeoutException constructor" Url="html/8d1e4c27-2dde-5439-640e-18f64eb92ee7.htm" />
+  <HelpKINode Title="VssTransactionThawTimeoutException class">
+    <HelpKINode Title="VssTransactionThawTimeoutException Class" Url="html/45a44f41-088e-dc32-6d2e-991cde8c466e.htm" />
+    <HelpKINode Title="about VssTransactionThawTimeoutException class" Url="html/45a44f41-088e-dc32-6d2e-991cde8c466e.htm" />
+    <HelpKINode Title="constructor" Url="html/af5fc912-2c99-8c09-f42d-68609caa8a95.htm" />
+  </HelpKINode>
+  <HelpKINode Title="VssTransactionThawTimeoutException.VssTransactionThawTimeoutException constructor" Url="html/af5fc912-2c99-8c09-f42d-68609caa8a95.htm" />
+  <HelpKINode Title="VssUnexpectedErrorException class">
+    <HelpKINode Title="VssUnexpectedErrorException Class" Url="html/99512b81-d343-ff19-1d59-0036638a06ab.htm" />
+    <HelpKINode Title="about VssUnexpectedErrorException class" Url="html/99512b81-d343-ff19-1d59-0036638a06ab.htm" />
+    <HelpKINode Title="constructor" Url="html/f1fff2e7-6567-5466-e863-54338791be18.htm" />
+  </HelpKINode>
+  <HelpKINode Title="VssUnexpectedErrorException.VssUnexpectedErrorException constructor" Url="html/f1fff2e7-6567-5466-e863-54338791be18.htm" />
+  <HelpKINode Title="VssUnexpectedProviderErrorException class">
+    <HelpKINode Title="VssUnexpectedProviderErrorException Class" Url="html/eea108a3-9750-acd5-ce5c-73dd0f93deca.htm" />
+    <HelpKINode Title="about VssUnexpectedProviderErrorException class" Url="html/eea108a3-9750-acd5-ce5c-73dd0f93deca.htm" />
+    <HelpKINode Title="constructor" Url="html/6586d0b8-a83e-0b78-d970-57fc5197444c.htm" />
+  </HelpKINode>
+  <HelpKINode Title="VssUnexpectedProviderErrorException.VssUnexpectedProviderErrorException constructor" Url="html/6586d0b8-a83e-0b78-d970-57fc5197444c.htm" />
+  <HelpKINode Title="VssUnexpectedWriterErrorException class">
+    <HelpKINode Title="VssUnexpectedWriterErrorException Class" Url="html/011aa140-d6ba-695b-c874-9503729ae8b8.htm" />
+    <HelpKINode Title="about VssUnexpectedWriterErrorException class" Url="html/011aa140-d6ba-695b-c874-9503729ae8b8.htm" />
+    <HelpKINode Title="constructor" Url="html/872c9965-3550-8994-f677-fca74bebe03a.htm" />
+  </HelpKINode>
+  <HelpKINode Title="VssUnexpectedWriterErrorException.VssUnexpectedWriterErrorException constructor" Url="html/872c9965-3550-8994-f677-fca74bebe03a.htm" />
+  <HelpKINode Title="VssUnselectedVolumeException class">
+    <HelpKINode Title="VssUnselectedVolumeException Class" Url="html/93e395a8-1ef4-4c77-361e-522125863b13.htm" />
+    <HelpKINode Title="about VssUnselectedVolumeException class" Url="html/93e395a8-1ef4-4c77-361e-522125863b13.htm" />
+    <HelpKINode Title="constructor" Url="html/66264c38-ff7c-5cd7-d6e2-1226ae78ed62.htm" />
+  </HelpKINode>
+  <HelpKINode Title="VssUnselectedVolumeException.VssUnselectedVolumeException constructor" Url="html/66264c38-ff7c-5cd7-d6e2-1226ae78ed62.htm" />
+  <HelpKINode Title="VssUnsupportedContextException class">
+    <HelpKINode Title="VssUnsupportedContextException Class" Url="html/6f7ba033-a28a-f6c1-1d7b-83199027fd0a.htm" />
+    <HelpKINode Title="about VssUnsupportedContextException class" Url="html/6f7ba033-a28a-f6c1-1d7b-83199027fd0a.htm" />
+    <HelpKINode Title="constructor" Url="html/96fbcb9f-5d9e-6726-0681-0e63946d4fcc.htm" />
+  </HelpKINode>
+  <HelpKINode Title="VssUnsupportedContextException.VssUnsupportedContextException constructor" Url="html/96fbcb9f-5d9e-6726-0681-0e63946d4fcc.htm" />
+  <HelpKINode Title="VssUsageType enumeration" Url="html/e4ed6c17-a6fe-9102-801f-98848d60dd23.htm" />
+  <HelpKINode Title="VssUtils class">
+    <HelpKINode Title="VssUtils Class" Url="html/932990b0-f54e-3789-248f-b433770e3794.htm" />
+    <HelpKINode Title="about VssUtils class" Url="html/932990b0-f54e-3789-248f-b433770e3794.htm" />
+    <HelpKINode Title="methods" Url="html/b6f72bbf-7d47-1515-a782-426a495bc033.htm" />
+  </HelpKINode>
+  <HelpKINode Title="VssUtils.GetPlatformSpecificAssemblyName method" Url="html/6bdd09d1-5c47-14ed-835e-23ae81f5737f.htm" />
+  <HelpKINode Title="VssUtils.GetPlatformSpecificAssemblyShortName method" Url="html/f5d7088a-7146-cc72-e3ec-a150761f07be.htm" />
+  <HelpKINode Title="VssUtils.LoadImplementation method" Url="html/4b8ee3ed-ae81-e7ed-3f45-c30835629c73.htm" />
+  <HelpKINode Title="VssVolumeInUseException class">
+    <HelpKINode Title="VssVolumeInUseException Class" Url="html/d98293c5-ead5-229b-4d19-7f730c024cde.htm" />
+    <HelpKINode Title="about VssVolumeInUseException class" Url="html/d98293c5-ead5-229b-4d19-7f730c024cde.htm" />
+    <HelpKINode Title="constructor" Url="html/0d7acf23-ad5f-8f54-beb3-dea7f3e10d27.htm" />
+  </HelpKINode>
+  <HelpKINode Title="VssVolumeInUseException.VssVolumeInUseException constructor" Url="html/0d7acf23-ad5f-8f54-beb3-dea7f3e10d27.htm" />
+  <HelpKINode Title="VssVolumeNotSupportedByProviderException class">
+    <HelpKINode Title="VssVolumeNotSupportedByProviderException Class" Url="html/c16ddd42-fa24-0d00-27da-4e038c1ada49.htm" />
+    <HelpKINode Title="about VssVolumeNotSupportedByProviderException class" Url="html/c16ddd42-fa24-0d00-27da-4e038c1ada49.htm" />
+    <HelpKINode Title="constructor" Url="html/e4942701-8ea9-7115-6928-759d58099ef6.htm" />
+  </HelpKINode>
+  <HelpKINode Title="VssVolumeNotSupportedByProviderException.VssVolumeNotSupportedByProviderException constructor" Url="html/e4942701-8ea9-7115-6928-759d58099ef6.htm" />
+  <HelpKINode Title="VssVolumeNotSupportedException class">
+    <HelpKINode Title="VssVolumeNotSupportedException Class" Url="html/f7e05048-7667-cc43-d858-76b665a3723f.htm" />
+    <HelpKINode Title="about VssVolumeNotSupportedException class" Url="html/f7e05048-7667-cc43-d858-76b665a3723f.htm" />
+    <HelpKINode Title="constructor" Url="html/d957c93f-776d-7316-a21d-8fd499af91de.htm" />
+  </HelpKINode>
+  <HelpKINode Title="VssVolumeNotSupportedException.VssVolumeNotSupportedException constructor" Url="html/d957c93f-776d-7316-a21d-8fd499af91de.htm" />
+  <HelpKINode Title="VssVolumeProperties class">
+    <HelpKINode Title="VssVolumeProperties Class" Url="html/d8fcbf65-0618-52f7-fd8f-85ec161707f0.htm" />
+    <HelpKINode Title="about VssVolumeProperties class" Url="html/d8fcbf65-0618-52f7-fd8f-85ec161707f0.htm" />
+    <HelpKINode Title="constructor" Url="html/315ae63b-3e82-a83d-a546-1ec76fced6c5.htm" />
+    <HelpKINode Title="properties" Url="html/7e779727-b82e-cd5d-fc80-0dd21efac5f9.htm" />
+  </HelpKINode>
+  <HelpKINode Title="VssVolumeProperties.VolumeDisplayName property" Url="html/642a4b5f-d47a-b469-eed7-64ddc80bae77.htm" />
+  <HelpKINode Title="VssVolumeProperties.VolumeName property" Url="html/b0c713b8-1aa1-2a5d-8642-32f866d79b1d.htm" />
+  <HelpKINode Title="VssVolumeProperties.VssVolumeProperties constructor" Url="html/315ae63b-3e82-a83d-a546-1ec76fced6c5.htm" />
+  <HelpKINode Title="VssVolumeProtectionInfo class">
+    <HelpKINode Title="VssVolumeProtectionInfo Class" Url="html/f498e10c-3f82-f15c-a034-d32d3b477d0f.htm" />
+    <HelpKINode Title="about VssVolumeProtectionInfo class" Url="html/f498e10c-3f82-f15c-a034-d32d3b477d0f.htm" />
+    <HelpKINode Title="constructor" Url="html/7188edb1-0906-f5bf-0563-207b342092dc.htm" />
+    <HelpKINode Title="properties" Url="html/45d3aef3-c04e-fdf1-3b17-32e8b7d3e154.htm" />
+  </HelpKINode>
+  <HelpKINode Title="VssVolumeProtectionInfo.FailureStatus property" Url="html/3f16d2d6-55ef-6c49-65b2-3b14c1f3945e.htm" />
+  <HelpKINode Title="VssVolumeProtectionInfo.ProtectionFault property" Url="html/c70ba8c4-b8b7-fe5b-f299-354a3cb015a7.htm" />
+  <HelpKINode Title="VssVolumeProtectionInfo.ProtectionLevel property" Url="html/a16b5926-f870-524b-396f-591e23fb10b2.htm" />
+  <HelpKINode Title="VssVolumeProtectionInfo.VolumeHasUnusedDiffArea property" Url="html/4f9bc246-6e16-2edb-9084-7c2f6fe67a90.htm" />
+  <HelpKINode Title="VssVolumeProtectionInfo.VolumeIsOfflineForProtection property" Url="html/2d7a207b-095a-ddb0-6be6-b42357d2e7f2.htm" />
+  <HelpKINode Title="VssVolumeProtectionInfo.VssVolumeProtectionInfo constructor" Url="html/7188edb1-0906-f5bf-0563-207b342092dc.htm" />
+  <HelpKINode Title="VssVolumeSnapshotAttributes enumeration" Url="html/27f6ef93-4d42-cf5e-8aaf-fe7c819fec04.htm" />
+  <HelpKINode Title="VssWMDependency class">
+    <HelpKINode Title="VssWMDependency Class" Url="html/f0cf1835-7b6d-4105-5172-c7d52fdc3273.htm" />
+    <HelpKINode Title="about VssWMDependency class" Url="html/f0cf1835-7b6d-4105-5172-c7d52fdc3273.htm" />
+    <HelpKINode Title="constructor" Url="html/e0adebd1-736b-0c15-4199-44c83f85f06b.htm" />
+    <HelpKINode Title="properties" Url="html/7733728b-d781-afd2-e49b-4979fec8b5aa.htm" />
+  </HelpKINode>
+  <HelpKINode Title="VssWMDependency.ComponentName property" Url="html/f5e3a469-fdc0-c9f9-5f09-e16defe2651b.htm" />
+  <HelpKINode Title="VssWMDependency.LogicalPath property" Url="html/5fe7fe84-e938-b05b-8e5f-aa60766fc867.htm" />
+  <HelpKINode Title="VssWMDependency.VssWMDependency constructor" Url="html/e0adebd1-736b-0c15-4199-44c83f85f06b.htm" />
+  <HelpKINode Title="VssWMDependency.WriterId property" Url="html/86a24ef6-0dcc-524a-052b-fdfb865be0f9.htm" />
+  <HelpKINode Title="VssWMFileDescriptor class">
+    <HelpKINode Title="VssWMFileDescriptor Class" Url="html/23b52f32-8818-52ff-4229-4b3d3a5540f0.htm" />
+    <HelpKINode Title="about VssWMFileDescriptor class" Url="html/23b52f32-8818-52ff-4229-4b3d3a5540f0.htm" />
+    <HelpKINode Title="constructor" Url="html/37158f0e-d3c9-ff9d-4847-287c959bff64.htm" />
+    <HelpKINode Title="properties" Url="html/1fcb4e74-fd2c-c8fc-f00b-805e48b3dfd4.htm" />
+  </HelpKINode>
+  <HelpKINode Title="VssWMFileDescriptor.AlternateLocation property" Url="html/80d58318-cbbb-6856-5ee9-f24ba7f66166.htm" />
+  <HelpKINode Title="VssWMFileDescriptor.BackupTypeMask property" Url="html/8cf102fc-2d7e-0379-9aa0-5f3dbe786596.htm" />
+  <HelpKINode Title="VssWMFileDescriptor.FileSpecification property" Url="html/8eaa2d43-66c2-09c5-95ea-843f7e838a67.htm" />
+  <HelpKINode Title="VssWMFileDescriptor.IsRecursive property" Url="html/d430e965-9486-f33e-8670-c7a8739460fc.htm" />
+  <HelpKINode Title="VssWMFileDescriptor.Path property" Url="html/d8b876d6-8f33-3b02-e536-7047a0582d2d.htm" />
+  <HelpKINode Title="VssWMFileDescriptor.VssWMFileDescriptor constructor" Url="html/37158f0e-d3c9-ff9d-4847-287c959bff64.htm" />
+  <HelpKINode Title="VssWMRestoreMethod class">
+    <HelpKINode Title="VssWMRestoreMethod Class" Url="html/0f60597b-1db6-5f52-e8ab-2c5320036a5c.htm" />
+    <HelpKINode Title="about VssWMRestoreMethod class" Url="html/0f60597b-1db6-5f52-e8ab-2c5320036a5c.htm" />
+    <HelpKINode Title="constructor" Url="html/f1faa32d-a358-232c-ccd6-5edec9828b0a.htm" />
+    <HelpKINode Title="properties" Url="html/82ae169b-40dc-cbf5-eafe-e853d7ab35cc.htm" />
+  </HelpKINode>
+  <HelpKINode Title="VssWMRestoreMethod.MappingCount property" Url="html/8f6db02d-8e23-f106-5e69-366c516c91b8.htm" />
+  <HelpKINode Title="VssWMRestoreMethod.Method property" Url="html/e51418ae-b7c7-0ea9-cc1f-ce5ce4a19329.htm" />
+  <HelpKINode Title="VssWMRestoreMethod.RebootRequired property" Url="html/8b54e110-6047-6e8f-0882-46c3ce134964.htm" />
+  <HelpKINode Title="VssWMRestoreMethod.Service property" Url="html/784e84ff-69e2-4ba2-084d-c963c07a930f.htm" />
+  <HelpKINode Title="VssWMRestoreMethod.UserProcedure property" Url="html/76086274-16ce-c1c4-9114-a2def77df6bd.htm" />
+  <HelpKINode Title="VssWMRestoreMethod.VssWMRestoreMethod constructor" Url="html/f1faa32d-a358-232c-ccd6-5edec9828b0a.htm" />
+  <HelpKINode Title="VssWMRestoreMethod.WriterRestore property" Url="html/a5e4e678-58dc-b353-eff4-f11d5d640238.htm" />
+  <HelpKINode Title="VssWriterException class">
+    <HelpKINode Title="VssWriterException Class" Url="html/18b987bf-9e5c-273d-89ac-15b7499ea6f5.htm" />
+    <HelpKINode Title="about VssWriterException class" Url="html/18b987bf-9e5c-273d-89ac-15b7499ea6f5.htm" />
+    <HelpKINode Title="constructor" Url="html/921fd8b9-1938-9bbf-e5da-72f2feddf116.htm" />
+  </HelpKINode>
+  <HelpKINode Title="VssWriterException.VssWriterException constructor" Url="html/921fd8b9-1938-9bbf-e5da-72f2feddf116.htm" />
+  <HelpKINode Title="VssWriterInfrastructureException class">
+    <HelpKINode Title="VssWriterInfrastructureException Class" Url="html/60782674-a26b-febd-fda2-572560dff3f4.htm" />
+    <HelpKINode Title="about VssWriterInfrastructureException class" Url="html/60782674-a26b-febd-fda2-572560dff3f4.htm" />
+    <HelpKINode Title="constructor" Url="html/16cfc16f-8151-50c7-cecd-ddd9d95a36f7.htm" />
+  </HelpKINode>
+  <HelpKINode Title="VssWriterInfrastructureException.VssWriterInfrastructureException constructor" Url="html/16cfc16f-8151-50c7-cecd-ddd9d95a36f7.htm" />
+  <HelpKINode Title="VssWriterNotRespondingException class">
+    <HelpKINode Title="VssWriterNotRespondingException Class" Url="html/f24e969c-fb95-14d4-6b89-0acaa6dce531.htm" />
+    <HelpKINode Title="about VssWriterNotRespondingException class" Url="html/f24e969c-fb95-14d4-6b89-0acaa6dce531.htm" />
+    <HelpKINode Title="constructor" Url="html/07cc4871-10fc-6174-e71b-5a5fbd17f203.htm" />
+  </HelpKINode>
+  <HelpKINode Title="VssWriterNotRespondingException.VssWriterNotRespondingException constructor" Url="html/07cc4871-10fc-6174-e71b-5a5fbd17f203.htm" />
+  <HelpKINode Title="VssWriterRestore enumeration" Url="html/644341ad-f1e1-d17b-d6c7-2f9b68d9c451.htm" />
+  <HelpKINode Title="VssWriterState enumeration" Url="html/6517e5ab-71d6-6fd8-1266-b6c66d6b2a49.htm" />
+  <HelpKINode Title="VssWriterStatusInfo class">
+    <HelpKINode Title="VssWriterStatusInfo Class" Url="html/5cad6584-f4b4-2530-3f2b-f1b38dc88320.htm" />
+    <HelpKINode Title="about VssWriterStatusInfo class" Url="html/5cad6584-f4b4-2530-3f2b-f1b38dc88320.htm" />
+    <HelpKINode Title="constructor" Url="html/65e25a27-b724-5dbe-bbf1-deafee853835.htm" />
+    <HelpKINode Title="properties" Url="html/3782e456-60df-70cf-39aa-4b56d84eff2e.htm" />
+  </HelpKINode>
+  <HelpKINode Title="VssWriterStatusInfo.ApplicationErrorCode property" Url="html/7159910f-441d-e0a3-e40f-7c8f00fe2484.htm" />
+  <HelpKINode Title="VssWriterStatusInfo.ApplicationErrorMessage property" Url="html/2d271059-e937-b6f3-e6f7-a9ca4eddff4d.htm" />
+  <HelpKINode Title="VssWriterStatusInfo.ClassId property" Url="html/002657f3-c951-e861-85fe-08087c433b76.htm" />
+  <HelpKINode Title="VssWriterStatusInfo.Failure property" Url="html/78f375f2-b8c8-7e8d-7402-de733ef6d419.htm" />
+  <HelpKINode Title="VssWriterStatusInfo.InstanceId property" Url="html/af436e92-a15d-db68-fbfc-08b53bd7de2b.htm" />
+  <HelpKINode Title="VssWriterStatusInfo.Name property" Url="html/face5f61-2d5b-93cf-b8ea-643b8356c409.htm" />
+  <HelpKINode Title="VssWriterStatusInfo.State property" Url="html/2df8c3ca-9ce2-1013-fa81-efe4fb62f200.htm" />
+  <HelpKINode Title="VssWriterStatusInfo.VssWriterStatusInfo constructor" Url="html/65e25a27-b724-5dbe-bbf1-deafee853835.htm" />
+  <HelpKINode Title="VssWriterStatusNotAvailableException class">
+    <HelpKINode Title="VssWriterStatusNotAvailableException Class" Url="html/fc6d38ec-3055-d05a-562c-42de082829c1.htm" />
+    <HelpKINode Title="about VssWriterStatusNotAvailableException class" Url="html/fc6d38ec-3055-d05a-562c-42de082829c1.htm" />
+    <HelpKINode Title="constructor" Url="html/5bfa8370-7f50-842c-3dba-5c06b36a755f.htm" />
+  </HelpKINode>
+  <HelpKINode Title="VssWriterStatusNotAvailableException.VssWriterStatusNotAvailableException constructor" Url="html/5bfa8370-7f50-842c-3dba-5c06b36a755f.htm" />
+  <HelpKINode Title="WaitingForBackupComplete enumeration member" Url="html/6517e5ab-71d6-6fd8-1266-b6c66d6b2a49.htm" />
+  <HelpKINode Title="WaitingForFreeze enumeration member" Url="html/6517e5ab-71d6-6fd8-1266-b6c66d6b2a49.htm" />
+  <HelpKINode Title="WaitingForPostSnapshot enumeration member" Url="html/6517e5ab-71d6-6fd8-1266-b6c66d6b2a49.htm" />
+  <HelpKINode Title="WaitingForThaw enumeration member" Url="html/6517e5ab-71d6-6fd8-1266-b6c66d6b2a49.htm" />
+  <HelpKINode Title="Windows2000 enumeration member" Url="html/fbc5c21c-d2ad-eaae-649c-964c6a80b061.htm" />
+  <HelpKINode Title="Windows7 enumeration member" Url="html/fbc5c21c-d2ad-eaae-649c-964c6a80b061.htm" />
+  <HelpKINode Title="WindowsServer2003 enumeration member" Url="html/fbc5c21c-d2ad-eaae-649c-964c6a80b061.htm" />
+  <HelpKINode Title="WindowsServer2008 enumeration member" Url="html/fbc5c21c-d2ad-eaae-649c-964c6a80b061.htm" />
+  <HelpKINode Title="WindowsServer2008R2 enumeration member" Url="html/fbc5c21c-d2ad-eaae-649c-964c6a80b061.htm" />
+  <HelpKINode Title="WindowsVista enumeration member" Url="html/fbc5c21c-d2ad-eaae-649c-964c6a80b061.htm" />
+  <HelpKINode Title="WindowsXP enumeration member" Url="html/fbc5c21c-d2ad-eaae-649c-964c6a80b061.htm" />
+  <HelpKINode Title="WriterAlreadySubscribed enumeration member" Url="html/b94765b3-efc6-7fcb-3336-727f60e38278.htm" />
+  <HelpKINode Title="WriterComponents property" Url="html/a3624374-5a40-5081-ad58-31b2cef2f879.htm" />
+  <HelpKINode Title="WriterErrorInconsistentSnapshot enumeration member" Url="html/b94765b3-efc6-7fcb-3336-727f60e38278.htm" />
+  <HelpKINode Title="WriterErrorNonRetryable enumeration member" Url="html/b94765b3-efc6-7fcb-3336-727f60e38278.htm" />
+  <HelpKINode Title="WriterErrorRecoveryFailed enumeration member" Url="html/b94765b3-efc6-7fcb-3336-727f60e38278.htm" />
+  <HelpKINode Title="WriterErrorRetryable enumeration member" Url="html/b94765b3-efc6-7fcb-3336-727f60e38278.htm" />
+  <HelpKINode Title="WriterId property">
+    <HelpKINode Title="IVssExamineWriterMetadata.WriterId Property " Url="html/23d91b80-4d53-d321-a0c7-733e8652650b.htm" />
+    <HelpKINode Title="IVssWriterComponents.WriterId Property " Url="html/32b94490-bd9e-801c-52db-97f3bf37b840.htm" />
+    <HelpKINode Title="VssWMDependency.WriterId Property " Url="html/86a24ef6-0dcc-524a-052b-fdfb865be0f9.htm" />
+  </HelpKINode>
+  <HelpKINode Title="WriterInfrastructureError enumeration member" Url="html/b94765b3-efc6-7fcb-3336-727f60e38278.htm" />
+  <HelpKINode Title="WriterMetadata property" Url="html/8356f6f4-4b14-4390-05a0-f734f3201ae6.htm" />
+  <HelpKINode Title="WriterName property" Url="html/8e5f85d2-f642-3596-2b4e-e4db1d3b01ee.htm" />
+  <HelpKINode Title="WriterNotResponding enumeration member" Url="html/b94765b3-efc6-7fcb-3336-727f60e38278.htm" />
+  <HelpKINode Title="WriterOutOfResources enumeration member" Url="html/b94765b3-efc6-7fcb-3336-727f60e38278.htm" />
+  <HelpKINode Title="WriterRestore property" Url="html/a5e4e678-58dc-b353-eff4-f11d5d640238.htm" />
+  <HelpKINode Title="WriterStatus property" Url="html/fb45ae8b-c0af-5725-35d8-e1c0500c1ca6.htm" />
+  <HelpKINode Title="WriterStatusNotAvailable enumeration member" Url="html/b94765b3-efc6-7fcb-3336-727f60e38278.htm" />
+  <HelpKINode Title="WriterSupportsNewTarget enumeration member" Url="html/f22ba651-dc95-1bc6-c6c4-c6bc4c9b822c.htm" />
+  <HelpKINode Title="WriterSupportsParallelRestores enumeration member" Url="html/f22ba651-dc95-1bc6-c6c4-c6bc4c9b822c.htm" />
+  <HelpKINode Title="WriterSupportsRestoreWithMove enumeration member" Url="html/f22ba651-dc95-1bc6-c6c4-c6bc4c9b822c.htm" />
+  <HelpKINode Title="WriterTimeout enumeration member" Url="html/b94765b3-efc6-7fcb-3336-727f60e38278.htm" />
+  <HelpKINode Title="X64 enumeration member" Url="html/26d6acb2-0bbe-9c42-f3f7-f97d4fbec105.htm" />
+  <HelpKINode Title="X86 enumeration member" Url="html/26d6acb2-0bbe-9c42-f3f7-f97d4fbec105.htm" />
+</HelpKI>
