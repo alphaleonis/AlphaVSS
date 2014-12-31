@@ -1,756 +1,746 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <HelpTOC>
 
-  <HelpTOCNode Id="088cc4fb-984d-4ba9-81e7-1eec0e801c9a" Title="About" Url="html/33ad87b5-1897-4b0a-885b-bc817edd9ebb.htm">
-    <HelpTOCNode Title="Release Notes" Url="html/70a14249-f7ef-4e8d-aa01-4f477460e881.htm" />
-    <HelpTOCNode Title="License" Url="html/8ca0d964-73f8-4191-bcc3-f0c3ca127dbf.htm" />
-  </HelpTOCNode>
-  <HelpTOCNode Id="6eda7cea-7452-4bf1-892b-008b3001af83" Title="Using AlphaVSS">
-    <HelpTOCNode Title="Introduction" Url="html/BD064C3D-8C26-4418-8D6E-B7D5A50861E3.htm" />
-    <HelpTOCNode Title="Getting Started" Url="html/0914ef63-d2d2-4c5a-906b-3851347852c1.htm" />
-  </HelpTOCNode>
-  <HelpTOCNode Id="11201676-ced9-49cd-b22d-4affd185c11c" Title="API Reference" Url="html/61b35613-fdfb-7ce6-e8b3-470df0f81a3d.htm">
-    <HelpTOCNode Id="ac67c34c-9685-4c79-b840-c8727ace7c31" Title="Alphaleonis.Win32.Vss" Url="html/b5711c21-b45f-01d5-b98a-b4f6ca08cc06.htm">
-      <HelpTOCNode Id="dacaf551-4483-4bca-a7dc-e5312f9387cd" Title="IVssAsyncResult Interface" Url="html/b8c03d63-fa18-dc67-45a2-9c3f4f8f4c25.htm">
-        <HelpTOCNode Id="b512137c-7dbb-4d9c-8111-0490080d8868" Title="IVssAsyncResult Methods" Url="html/fbde523d-5aac-6735-936c-0f29cf21af34.htm">
-          <HelpTOCNode Title="Cancel Method " Url="html/7b8be317-bccc-a3af-7f1a-41698517b7cc.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-      <HelpTOCNode Id="cb7e2975-5778-40f1-b670-e2aa122ea87e" Title="IVssBackupComponents Interface" Url="html/58b72cd0-6f3c-a43e-3d30-2039075ceda9.htm">
-        <HelpTOCNode Id="4e4c0646-ea18-4909-b47a-1c6f6996e9c6" Title="IVssBackupComponents Methods" Url="html/b73d2e19-c364-4701-7b69-b7887153bf03.htm">
-          <HelpTOCNode Title="AbortBackup Method " Url="html/32c55e83-7e77-a545-ab02-17da06fa89f1.htm" />
-          <HelpTOCNode Title="AddAlternativeLocationMapping Method " Url="html/19cfc523-a16a-7997-86fd-2cf200138eb3.htm" />
-          <HelpTOCNode Title="AddComponent Method " Url="html/a53944f8-8a8a-4e17-aa2f-f0ee3c1eb5d1.htm" />
-          <HelpTOCNode Title="AddNewTarget Method " Url="html/b440f360-e191-de87-0d03-72110f8c48f1.htm" />
-          <HelpTOCNode Title="AddRestoreSubcomponent Method " Url="html/0c3b6adf-d3da-482c-c067-3eda1fa308a6.htm" />
-          <HelpTOCNode Title="AddSnapshotToRecoverySet Method " Url="html/55a626d5-ff45-1321-f47d-313b4e06d172.htm" />
-          <HelpTOCNode Id="d77cb665-618e-472b-9016-79ca3459496f" Title="AddToSnapshotSet Method " Url="html/f3a7c16f-b9a1-6183-220d-314addb39ed0.htm">
-            <HelpTOCNode Title="AddToSnapshotSet Method (String)" Url="html/f55c4d6e-92e0-1045-9f4b-20bccae693c6.htm" />
-            <HelpTOCNode Title="AddToSnapshotSet Method (String, Guid)" Url="html/703a02d4-11c2-95a7-7bdc-20584cd6a749.htm" />
-          </HelpTOCNode>
-          <HelpTOCNode Title="BackupComplete Method " Url="html/7e45dc73-e55a-e064-b218-21e84c3ce0b2.htm" />
-          <HelpTOCNode Title="BeginBackupComplete Method " Url="html/e43bd59f-37b5-e132-9172-09ba48378eb4.htm" />
-          <HelpTOCNode Title="BeginBreakSnapshotSet Method " Url="html/68874cf6-096a-573f-a3ea-067843279d9c.htm" />
-          <HelpTOCNode Title="BeginDoSnapshotSet Method " Url="html/8076ca41-c609-82ac-83e9-365f90736c17.htm" />
-          <HelpTOCNode Title="BeginGatherWriterMetadata Method " Url="html/fed17633-cb21-76bf-847f-9a7978ca2757.htm" />
-          <HelpTOCNode Title="BeginGatherWriterStatus Method " Url="html/4df4d34e-c2e9-bff6-2f10-62683303b370.htm" />
-          <HelpTOCNode Title="BeginImportSnapshots Method " Url="html/eed27c99-4cd9-8924-3a21-7a37699cc8ee.htm" />
-          <HelpTOCNode Title="BeginPostRestore Method " Url="html/a31d8d79-d44f-9541-83a0-1ccf50906197.htm" />
-          <HelpTOCNode Title="BeginPrepareForBackup Method " Url="html/425fd828-b475-c1ff-d535-a38339025d62.htm" />
-          <HelpTOCNode Title="BeginPreRestore Method " Url="html/25d6203f-0bbd-0c6f-578c-984f6effc7ef.htm" />
-          <HelpTOCNode Title="BeginQueryRevertStatus Method " Url="html/4f123cba-930b-6e77-882a-cd23aaaa6287.htm" />
-          <HelpTOCNode Title="BeginRecoverSet Method " Url="html/7980db8f-72cd-f9ef-5000-3714108c837b.htm" />
-          <HelpTOCNode Id="f770f16b-0ce5-433c-bb2a-c45de58ff0fe" Title="BreakSnapshotSet Method " Url="html/9e6d4558-8e96-f86b-1b79-4af8311d9eeb.htm">
-            <HelpTOCNode Title="BreakSnapshotSet Method (Guid)" Url="html/5c60f1bf-7f70-01a0-dd00-7bb5bcee3a16.htm" />
-            <HelpTOCNode Title="BreakSnapshotSet Method (Guid, VssHardwareOptions)" Url="html/81dd70bf-2c7a-849b-76a6-31a1ea3bb56d.htm" />
-          </HelpTOCNode>
-          <HelpTOCNode Title="DeleteSnapshot Method " Url="html/a38aa617-247a-fe21-41b8-66e9c19183fa.htm" />
-          <HelpTOCNode Title="DeleteSnapshotSet Method " Url="html/8db76262-5d28-f535-1eea-8d8dc9fa2b2b.htm" />
-          <HelpTOCNode Title="DisableWriterClasses Method " Url="html/e6937c88-1421-2dd8-3539-490da2d0542b.htm" />
-          <HelpTOCNode Title="DisableWriterInstances Method " Url="html/17eff17c-191a-06e5-3f11-b6a6a0a2a060.htm" />
-          <HelpTOCNode Title="DoSnapshotSet Method " Url="html/9cce7974-08b5-8f4d-997b-acb688ad7a9a.htm" />
-          <HelpTOCNode Title="EnableWriterClasses Method " Url="html/78ed7927-3a41-4a16-4004-bbd2f330418d.htm" />
-          <HelpTOCNode Title="EndBackupComplete Method " Url="html/97ddce62-b925-76dd-fc80-6ed3d2e9a9eb.htm" />
-          <HelpTOCNode Title="EndBreakSnapshotSet Method " Url="html/4d727c77-b75a-bbca-2a9e-2621336bfbb8.htm" />
-          <HelpTOCNode Title="EndDoSnapshotSet Method " Url="html/c397bdf6-863c-a5ce-a14a-53584d3d5807.htm" />
-          <HelpTOCNode Title="EndGatherWriterMetadata Method " Url="html/0d40c04f-1b9a-d200-b467-4ab4d3521936.htm" />
-          <HelpTOCNode Title="EndGatherWriterStatus Method " Url="html/ff17ca3c-2d9a-c073-5d1f-01ec94a5c0d2.htm" />
-          <HelpTOCNode Title="EndImportSnapshots Method " Url="html/383c116d-bd60-5147-68b5-264020b63e1a.htm" />
-          <HelpTOCNode Title="EndPostRestore Method " Url="html/34fd11d3-a746-088f-e653-4ecd95a6ee71.htm" />
-          <HelpTOCNode Title="EndPrepareForBackup Method " Url="html/d8783538-20ea-c222-798b-34375f3223df.htm" />
-          <HelpTOCNode Title="EndPreRestore Method " Url="html/310946fa-1ab9-6da4-51ae-088769e4eba5.htm" />
-          <HelpTOCNode Title="EndQueryRevertStatus Method " Url="html/8819b01f-cf05-614e-74df-b69a1e7d3e93.htm" />
-          <HelpTOCNode Title="EndRecoverSet Method " Url="html/c72e2ba7-ba02-3a7d-d409-4e765b417e76.htm" />
-          <HelpTOCNode Title="ExposeSnapshot Method " Url="html/8353936d-3964-524a-70c6-0b1484c554b0.htm" />
-          <HelpTOCNode Title="FreeWriterMetadata Method " Url="html/b2faf0da-f256-2f18-c9cf-1f2eede84619.htm" />
-          <HelpTOCNode Title="FreeWriterStatus Method " Url="html/2a017a0d-d12c-1426-f433-7b27876262b7.htm" />
-          <HelpTOCNode Title="GatherWriterMetadata Method " Url="html/f0a23c3a-5021-44e1-902f-44065ec32949.htm" />
-          <HelpTOCNode Title="GatherWriterStatus Method " Url="html/0de8c8bd-3bff-6e9d-3347-1163fdd3edc0.htm" />
-          <HelpTOCNode Title="GetSessionId Method " Url="html/f3d09b61-b038-bf20-2a9a-da9ff495d746.htm" />
-          <HelpTOCNode Title="GetSnapshotProperties Method " Url="html/c7c4a7bc-be60-7d3b-a098-a5d2fab27b6d.htm" />
-          <HelpTOCNode Title="ImportSnapshots Method " Url="html/3a09a68a-1944-eea6-9cc3-ee1caa6d5a24.htm" />
-          <HelpTOCNode Title="InitializeForBackup Method " Url="html/78a199c8-55bc-c1c0-0417-9271d1043f20.htm" />
-          <HelpTOCNode Title="InitializeForRestore Method " Url="html/68be23ef-bc64-1c79-3904-1a740a23e50f.htm" />
-          <HelpTOCNode Id="f6bf70ea-1616-4049-8268-5b79918bd1e8" Title="IsVolumeSupported Method " Url="html/30ed7030-763e-2e41-529f-4f272ff7bfa4.htm">
-            <HelpTOCNode Title="IsVolumeSupported Method (String)" Url="html/2fd4b035-0b51-6ad7-b772-f9579c7b10ff.htm" />
-            <HelpTOCNode Title="IsVolumeSupported Method (String, Guid)" Url="html/37d2cbe4-79b5-52ac-1e30-13068995c3dd.htm" />
-          </HelpTOCNode>
-          <HelpTOCNode Title="PostRestore Method " Url="html/cd09f046-7bc3-4ed2-4944-f1137e3b7057.htm" />
-          <HelpTOCNode Title="PrepareForBackup Method " Url="html/afa43c92-8d1c-645c-6748-59ccc5c076dd.htm" />
-          <HelpTOCNode Title="PreRestore Method " Url="html/6d031187-4866-c4a2-4dd9-70556cbcc47e.htm" />
-          <HelpTOCNode Title="QueryProviders Method " Url="html/78117370-99d5-5307-f781-6cac524c5f97.htm" />
-          <HelpTOCNode Title="QuerySnapshots Method " Url="html/35728291-8bce-173e-67ac-537b4c44c8c2.htm" />
-          <HelpTOCNode Title="RecoverSet Method " Url="html/19d937ef-0b09-b7d3-1862-2fe21f81aa0a.htm" />
-          <HelpTOCNode Title="RevertToSnapshot Method " Url="html/fb78bfd1-cdc9-56b2-736e-39f1e217ae3c.htm" />
-          <HelpTOCNode Title="SaveAsXml Method " Url="html/6a1644f6-59a8-930e-5afd-62b7de041164.htm" />
-          <HelpTOCNode Title="SetAdditionalRestores Method " Url="html/f342082c-e620-9314-9fac-12c502e133b2.htm" />
-          <HelpTOCNode Title="SetAuthoritativeRestore Method " Url="html/e54935b8-3fbc-5005-235f-f554b93ce747.htm" />
-          <HelpTOCNode Title="SetBackupOptions Method " Url="html/bd3f4ad8-dfa3-e935-3fc6-2a9e535c5a18.htm" />
-          <HelpTOCNode Title="SetBackupState Method " Url="html/323892e4-2114-474a-8dc9-ebd9bb8b53dc.htm" />
-          <HelpTOCNode Title="SetBackupSucceeded Method " Url="html/d8b27c41-3f6f-8bf1-43fc-d8d52ebdeff3.htm" />
-          <HelpTOCNode Id="40c3a66d-49a5-4f4c-89f8-55b7246cdd0c" Title="SetContext Method " Url="html/6855ddd6-2f94-6699-61ee-05c633ca4fdc.htm">
-            <HelpTOCNode Title="SetContext Method (VssSnapshotContext)" Url="html/2e753439-1782-7a23-33a3-bce4a3b3a200.htm" />
-            <HelpTOCNode Title="SetContext Method (VssVolumeSnapshotAttributes)" Url="html/46ede9bb-afca-0588-d95f-ae8d40896689.htm" />
-          </HelpTOCNode>
-          <HelpTOCNode Title="SetFileRestoreStatus Method " Url="html/c7d913c5-d96e-89d6-145a-0c4527c2dd35.htm" />
-          <HelpTOCNode Title="SetPreviousBackupStamp Method " Url="html/72ee2e46-bd20-961e-9072-ae35553a41a4.htm" />
-          <HelpTOCNode Title="SetRangesFilePath Method " Url="html/89f7bee8-7876-e393-5c8e-8e2476af82f5.htm" />
-          <HelpTOCNode Title="SetRestoreName Method " Url="html/727f3091-d86a-96b8-9675-a56bdc19624c.htm" />
-          <HelpTOCNode Title="SetRestoreOptions Method " Url="html/df033a10-d7d8-464f-402d-4a7cc61b59f0.htm" />
-          <HelpTOCNode Title="SetRestoreState Method " Url="html/e02c7c7a-1351-7566-4905-86cbf753258e.htm" />
-          <HelpTOCNode Title="SetRollForward Method " Url="html/749a3ef4-3be9-59bb-37ca-91d2e87f30b5.htm" />
-          <HelpTOCNode Id="3cdf242a-114c-43fa-b167-b04891bcae43" Title="SetSelectedForRestore Method " Url="html/7c85016c-ac7d-d816-b89e-dedd8164eebe.htm">
-            <HelpTOCNode Title="SetSelectedForRestore Method (Guid, VssComponentType, String, String, Boolean)" Url="html/265fb3cb-34c3-380c-dbb5-c61792a839ef.htm" />
-            <HelpTOCNode Title="SetSelectedForRestore Method (Guid, VssComponentType, String, String, Boolean, Guid)" Url="html/29184be8-5835-a960-0e53-3b2c2d9bc364.htm" />
-          </HelpTOCNode>
-          <HelpTOCNode Title="StartSnapshotSet Method " Url="html/faf9d8df-e1ec-b636-70a1-7ce83514d043.htm" />
-          <HelpTOCNode Title="UnexposeSnapshot Method " Url="html/88b93358-2714-0e70-42d2-d58878ca0ee7.htm" />
-        </HelpTOCNode>
-        <HelpTOCNode Id="5affba0c-a1d5-4e78-82b8-ebb2f59e78c4" Title="IVssBackupComponents Properties" Url="html/7789179c-c7ad-d697-9429-82d5a461f34a.htm">
-          <HelpTOCNode Title="WriterComponents Property " Url="html/a3624374-5a40-5081-ad58-31b2cef2f879.htm" />
-          <HelpTOCNode Title="WriterMetadata Property " Url="html/8356f6f4-4b14-4390-05a0-f734f3201ae6.htm" />
-          <HelpTOCNode Title="WriterStatus Property " Url="html/fb45ae8b-c0af-5725-35d8-e1c0500c1ca6.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-      <HelpTOCNode Id="782955cf-a30b-4c06-aab8-0f09d1f682b9" Title="IVssComponent Interface" Url="html/65898077-5f18-ea82-66c4-9e84c03d97f7.htm">
-        <HelpTOCNode Id="e16aa1d7-0dfa-46e5-ac71-4c3e818cccf0" Title="IVssComponent Properties" Url="html/c858780f-ea50-0036-57cd-811db904a04c.htm">
-          <HelpTOCNode Title="AdditionalRestores Property " Url="html/934d7288-de9f-7a3c-a5ad-a0d40b5e6e8d.htm" />
-          <HelpTOCNode Title="AlternateLocationMappings Property " Url="html/1d648929-091f-4e1a-0e43-dc04ac55fd9e.htm" />
-          <HelpTOCNode Title="BackupOptions Property " Url="html/094a24fb-a19d-f69e-cbb9-7dc4e6ba4167.htm" />
-          <HelpTOCNode Title="BackupStamp Property " Url="html/a2a5f82c-47e2-aaca-2914-1bffe0355891.htm" />
-          <HelpTOCNode Title="BackupSucceeded Property " Url="html/43fdbe5a-673a-1067-9f1a-7220090d1d1e.htm" />
-          <HelpTOCNode Title="ComponentName Property " Url="html/7054f069-8206-57ab-6a20-7ee97fe8d832.htm" />
-          <HelpTOCNode Title="ComponentType Property " Url="html/a6cbc731-ff86-031c-ce04-905b4c5961ed.htm" />
-          <HelpTOCNode Title="DifferencedFiles Property " Url="html/9dbd6cb9-f3ef-40cc-be8d-0d5b35ea24fd.htm" />
-          <HelpTOCNode Title="DirectedTargets Property " Url="html/6a6316c5-aa6f-67e6-e5ed-5f87c8335938.htm" />
-          <HelpTOCNode Title="Failure Property " Url="html/0ea85814-4523-c554-1d27-47286705a395.htm" />
-          <HelpTOCNode Title="FileRestoreStatus Property " Url="html/a95b47c7-7005-6197-3662-c357136afb70.htm" />
-          <HelpTOCNode Title="IsAuthoritativeRestore Property " Url="html/18eb67fd-d0a8-e5e6-bc96-46d1e104c6d6.htm" />
-          <HelpTOCNode Title="IsSelectedForRestore Property " Url="html/288e0a0a-7e60-9d27-6983-afee4b6cdcfd.htm" />
-          <HelpTOCNode Title="LogicalPath Property " Url="html/39f7534b-417f-1eec-f8b8-570883aef779.htm" />
-          <HelpTOCNode Title="NewTargets Property " Url="html/a00a491f-be52-2bd9-a64a-5f6b97f9b4e9.htm" />
-          <HelpTOCNode Title="PartialFiles Property " Url="html/792d87ae-8425-2410-0af6-d7a5ce51af7a.htm" />
-          <HelpTOCNode Title="PostRestoreFailureMsg Property " Url="html/53dc80b4-7059-fc21-b2bb-6310e88894a9.htm" />
-          <HelpTOCNode Title="PostSnapshotFailureMsg Property " Url="html/fd0bd8e0-1bde-e765-2864-48e5a2d6462e.htm" />
-          <HelpTOCNode Title="PrepareForBackupFailureMsg Property " Url="html/d2281597-8a9c-e308-f8dc-29aa1865d8dc.htm" />
-          <HelpTOCNode Title="PreRestoreFailureMsg Property " Url="html/14c663c3-7831-882c-4325-2e3666974331.htm" />
-          <HelpTOCNode Title="PreviousBackupStamp Property " Url="html/f09a7b25-79b7-9163-b433-8d0f6365f44f.htm" />
-          <HelpTOCNode Title="RestoreName Property " Url="html/b0b40485-debd-311f-eefd-bb867febce2d.htm" />
-          <HelpTOCNode Title="RestoreOptions Property " Url="html/b154b45d-4e54-8365-22d2-96703ba40aa5.htm" />
-          <HelpTOCNode Title="RestoreSubcomponents Property " Url="html/69ded684-ce2d-d3ce-5666-4ecdd6afb288.htm" />
-          <HelpTOCNode Title="RestoreTarget Property " Url="html/5de10967-fc4b-84b8-ea5e-ce1d3fc8c1b1.htm" />
-          <HelpTOCNode Title="RollForwardRestorePoint Property " Url="html/91cb5191-f254-3864-f2ba-246365bbb045.htm" />
-          <HelpTOCNode Title="RollForwardType Property " Url="html/61bcdbf9-18f0-2eb6-2e8d-fca7e6ea9c85.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-      <HelpTOCNode Id="05b94b93-7bac-49da-b177-29e3534904cd" Title="IVssDifferentialSoftwareSnapshotManagement Interface" Url="html/36d1324d-ea40-8760-450a-ddad3e4716ca.htm">
-        <HelpTOCNode Id="17b38840-d3e7-4533-bbaa-857f9afc09c3" Title="IVssDifferentialSoftwareSnapshotManagement Methods" Url="html/0584c67a-d91d-dc95-b501-7140ed18317b.htm">
-          <HelpTOCNode Title="AddDiffArea Method " Url="html/8a631716-6961-80af-05b2-e45961d7c47c.htm" />
-          <HelpTOCNode Id="e246d4fe-c33d-48c5-bb05-2c35e7f6a260" Title="ChangeDiffAreaMaximumSize Method " Url="html/b033d646-7fc4-615e-ce4e-38d373ddaef5.htm">
-            <HelpTOCNode Title="ChangeDiffAreaMaximumSize Method (String, String, Int64)" Url="html/336999b2-1ffa-3bb2-8390-96e36b546f64.htm" />
-            <HelpTOCNode Title="ChangeDiffAreaMaximumSize Method (String, String, Int64, Boolean)" Url="html/14a10736-b78c-981b-7891-7547b6c5f3b3.htm" />
-          </HelpTOCNode>
-          <HelpTOCNode Title="ClearVolumeProtectFault Method " Url="html/0497095b-5381-aef4-bf36-5845b913dae9.htm" />
-          <HelpTOCNode Title="DeleteUnusedDiffAreas Method " Url="html/af7a9d22-959f-165e-9b04-22f84a444e31.htm" />
-          <HelpTOCNode Title="GetVolumeProtectionLevel Method " Url="html/3283953d-31fc-ee30-796b-41fbeb7fc364.htm" />
-          <HelpTOCNode Title="QueryDiffAreasForSnapshot Method " Url="html/358f0786-0b27-d47b-9c36-634d9ca4e020.htm" />
-          <HelpTOCNode Title="QueryDiffAreasForVolume Method " Url="html/b83ce3af-3795-3330-ea5a-5d7e771c79c6.htm" />
-          <HelpTOCNode Title="QueryDiffAreasOnVolume Method " Url="html/3a53351d-df3e-636b-07bf-5b56812a7aa5.htm" />
-          <HelpTOCNode Title="QueryVolumesSupportedForDiffAreas Method " Url="html/7d426ad6-ce56-fd93-2db1-5a67d8c4fa9a.htm" />
-          <HelpTOCNode Title="SetVolumeProtectionLevel Method " Url="html/ff548fc5-37c8-d3e7-1c2c-2809722acfe0.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-      <HelpTOCNode Id="d8c2a601-ba1d-4def-a5ca-449383ceaf72" Title="IVssExamineWriterMetadata Interface" Url="html/37886f41-f4f2-67d8-b5c4-2e1b5e67b0d5.htm">
-        <HelpTOCNode Id="f43c293c-fd5a-466b-9bb6-d92755ecfdef" Title="IVssExamineWriterMetadata Methods" Url="html/5cb7ab78-964b-5b38-f46d-53c8d86406f7.htm">
-          <HelpTOCNode Title="LoadFromXml Method " Url="html/0732ced5-ff7a-296a-4021-b504ec735b9d.htm" />
-          <HelpTOCNode Title="SaveAsXml Method " Url="html/c34de6d7-44e6-c05f-04ab-f6f1d04f17b7.htm" />
-        </HelpTOCNode>
-        <HelpTOCNode Id="69b135ad-9a80-47ac-83ba-69c06726e847" Title="IVssExamineWriterMetadata Properties" Url="html/7d7d7c76-9b59-af95-3f5f-4c1ad88af058.htm">
-          <HelpTOCNode Title="AlternateLocationMappings Property " Url="html/565b9948-5c74-5819-c3a8-3c586f8acaa0.htm" />
-          <HelpTOCNode Title="BackupSchema Property " Url="html/9bd63a71-0d8a-9120-8807-4b2c7388e242.htm" />
-          <HelpTOCNode Title="Components Property " Url="html/dea78041-71c1-3cf5-6c69-6c25f5ca2796.htm" />
-          <HelpTOCNode Title="ExcludeFiles Property " Url="html/1e7622b3-cd94-0f49-c776-a02727732536.htm" />
-          <HelpTOCNode Title="ExcludeFromSnapshotFiles Property " Url="html/33b8b2a2-2f30-4377-8919-44eab20ca467.htm" />
-          <HelpTOCNode Title="InstanceId Property " Url="html/ba7e1484-d9cc-5a09-d690-595b652ed28d.htm" />
-          <HelpTOCNode Title="InstanceName Property " Url="html/b23e8ec3-1175-fcfe-cde9-8e7c67c36e74.htm" />
-          <HelpTOCNode Title="RestoreMethod Property " Url="html/60edbd8d-0e64-5eb4-b8c7-9da5c1e2b4f8.htm" />
-          <HelpTOCNode Title="Source Property " Url="html/789616e5-2f4c-ecaa-054b-ea2aad9b1867.htm" />
-          <HelpTOCNode Title="Usage Property " Url="html/e8ff5031-29b0-f063-70d1-04179e785a0d.htm" />
-          <HelpTOCNode Title="Version Property " Url="html/565f3d6e-b6c6-d295-66ea-29fee777bae8.htm" />
-          <HelpTOCNode Title="WriterId Property " Url="html/23d91b80-4d53-d321-a0c7-733e8652650b.htm" />
-          <HelpTOCNode Title="WriterName Property " Url="html/8e5f85d2-f642-3596-2b4e-e4db1d3b01ee.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-      <HelpTOCNode Id="2e163e52-b317-4295-8d27-487d5790f628" Title="IVssImplementation Interface" Url="html/ed860dc4-e774-a73f-e1ae-7b73d638c90c.htm">
-        <HelpTOCNode Id="6b6d0cea-3afc-4201-8d22-d33fcbcd9d86" Title="IVssImplementation Methods" Url="html/2a51c5c2-782e-5162-3f6c-9e20c577cc95.htm">
-          <HelpTOCNode Title="CreateVssBackupComponents Method " Url="html/ebf4ac69-5a4e-41ce-23f1-2e421135db2f.htm" />
-          <HelpTOCNode Title="CreateVssExamineWriterMetadata Method " Url="html/5864b838-e772-3a19-43a0-848a04086e0f.htm" />
-          <HelpTOCNode Title="GetSnapshotCompatibility Method " Url="html/556ea763-f6b6-a51a-de93-2e89f48f06eb.htm" />
-          <HelpTOCNode Title="GetSnapshotManagementInterface Method " Url="html/96ec58a0-b239-d4a5-23ab-f9c3f52bc7dc.htm" />
-          <HelpTOCNode Title="IsVolumeSnapshotted Method " Url="html/9e6d8e68-34f0-a874-10ab-d69bdfbe2b6b.htm" />
-          <HelpTOCNode Title="ShouldBlockRevert Method " Url="html/0378a76f-cdfc-f2bb-c0bb-b711a95717b8.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-      <HelpTOCNode Id="4cc142fe-2c09-45c8-8f4d-acfee3f3dd46" Title="IVssSnapshotManagement Interface" Url="html/b3619552-c195-c276-2011-35527e0c25e8.htm">
-        <HelpTOCNode Id="6ad72e5e-09aa-44df-afe9-b207b04cf283" Title="IVssSnapshotManagement Methods" Url="html/7c50d792-98fc-7d6c-56c2-cf4a120fde83.htm">
-          <HelpTOCNode Title="GetDifferentialSoftwareSnapshotManagementInterface Method " Url="html/68547f79-7a02-779f-a936-e5d1dd9ca645.htm" />
-          <HelpTOCNode Title="GetMinDiffAreaSize Method " Url="html/c91468c7-c545-f266-8c75-5fe4b39335b8.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-      <HelpTOCNode Id="13b2d0ac-904b-447a-af42-dc3d69a4d277" Title="IVssWMComponent Interface" Url="html/b19a5497-a74c-430e-1508-37091f77839a.htm">
-        <HelpTOCNode Id="811583e8-e1f0-47b8-b227-52acd91065af" Title="IVssWMComponent Methods" Url="html/51ab4c35-c9e9-65ea-5760-9e4079a97b05.htm">
-          <HelpTOCNode Title="GetIcon Method " Url="html/27252c20-8f36-0064-3376-15d7e3db2ef5.htm" />
-        </HelpTOCNode>
-        <HelpTOCNode Id="d82d9cdf-4b28-470d-bfc5-be7d99a1c8aa" Title="IVssWMComponent Properties" Url="html/7b4a578d-735b-9193-1943-6531a1b02c6c.htm">
-          <HelpTOCNode Title="Caption Property " Url="html/d1328135-bd7b-ec9b-f6d1-8966788ee7d8.htm" />
-          <HelpTOCNode Title="ComponentFlags Property " Url="html/8a088947-de9a-6935-e269-0afcbdbe55ab.htm" />
-          <HelpTOCNode Title="ComponentName Property " Url="html/0b3b9249-7ae8-36a8-4c41-c7fc0534bc62.htm" />
-          <HelpTOCNode Title="DatabaseFiles Property " Url="html/e55c13e9-d38b-5003-afbd-5ab494d677a2.htm" />
-          <HelpTOCNode Title="DatabaseLogFiles Property " Url="html/14e61635-1642-bb64-a4a1-1493f1206bae.htm" />
-          <HelpTOCNode Title="Dependencies Property " Url="html/d2a0900e-11ca-bc76-51d5-4475b8141f42.htm" />
-          <HelpTOCNode Title="Files Property " Url="html/b70ccac6-13e1-1c68-7fae-8e93f2cf42b9.htm" />
-          <HelpTOCNode Title="LogicalPath Property " Url="html/fd4508c9-50a2-86b9-5bf5-49b029aa029b.htm" />
-          <HelpTOCNode Title="NotifyOnBackupComplete Property " Url="html/86aee8c1-44fd-fb88-b48e-522f4297a2fc.htm" />
-          <HelpTOCNode Title="RestoreMetadata Property " Url="html/de384852-0c94-eab5-a623-3883d4eafe06.htm" />
-          <HelpTOCNode Title="Selectable Property " Url="html/f40afed0-2637-9361-77e7-7866aeba3d8c.htm" />
-          <HelpTOCNode Title="SelectableForRestore Property " Url="html/904fd04b-314f-2b6b-289e-20fb33afaf58.htm" />
-          <HelpTOCNode Title="Type Property " Url="html/710c3234-64b0-f8d2-5e14-290e27a18111.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-      <HelpTOCNode Id="f19d8b25-f75d-4171-8fc3-4d7017282ff1" Title="IVssWriterComponents Interface" Url="html/c5c9c815-fa87-dac7-fa6a-c2e316ad15d6.htm">
-        <HelpTOCNode Id="96254b4e-16e7-48b0-8980-c9344cb2afc7" Title="IVssWriterComponents Properties" Url="html/9e9953a4-8d75-e5a3-f0e8-96777f61e5d7.htm">
-          <HelpTOCNode Title="Components Property " Url="html/40eb3893-ae9c-fe7f-69c0-f47f2b23e007.htm" />
-          <HelpTOCNode Title="InstanceId Property " Url="html/bc56fcad-d2fe-12e6-2eee-9c6a21cfe509.htm" />
-          <HelpTOCNode Title="WriterId Property " Url="html/32b94490-bd9e-801c-52db-97f3bf37b840.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-      <HelpTOCNode Id="1db55333-e2c2-4e57-ba5d-afdde545cf6e" Title="OperatingSystemInfo Class" Url="html/5d61ec28-e649-36a4-96b4-c95241af8e59.htm">
-        <HelpTOCNode Id="5d731973-616b-4535-bfe0-63ec0c0569e5" Title="OperatingSystemInfo Methods" Url="html/39695179-0eb2-cb47-8d5a-7cd964361f69.htm">
-          <HelpTOCNode Id="8462da18-bfbc-4fc5-b94b-6518bda6074c" Title="IsAtLeast Method " Url="html/211f4bb3-696c-5de2-e464-a6d8f034733f.htm">
-            <HelpTOCNode Title="IsAtLeast Method (OSVersionName)" Url="html/5837b680-2636-867d-eb27-52ae47715bf6.htm" />
-            <HelpTOCNode Title="IsAtLeast Method (OSVersionName, Int32)" Url="html/2b742ee0-c93f-8835-7ab5-d9295a7e6ef6.htm" />
-          </HelpTOCNode>
-          <HelpTOCNode Title="IsWow64Process Method " Url="html/f3a0f0ff-c7d7-08b3-6df8-ff9adfef828f.htm" />
-          <HelpTOCNode Id="414131de-3574-4053-b067-c5d66128fc9b" Title="RequireAtLeast Method " Url="html/03a54001-45e4-3678-4ae2-4d99cb79c2f5.htm">
-            <HelpTOCNode Title="RequireAtLeast Method (OSVersionName)" Url="html/8f9b4098-8691-48c7-334e-89791399299b.htm" />
-            <HelpTOCNode Title="RequireAtLeast Method (OSVersionName, Int32)" Url="html/58068032-a325-728a-5137-9c33e0c879a9.htm" />
-          </HelpTOCNode>
-          <HelpTOCNode Title="RequireServer Method " Url="html/c124e343-a8ac-ba99-ed90-27b66a522719.htm" />
-          <HelpTOCNode Title="RequireServerOrClientAtLeast Method " Url="html/bb2f8b21-5a6b-910d-659c-b00d70fcbde0.htm" />
-        </HelpTOCNode>
-        <HelpTOCNode Id="84e9b854-cc8c-40a2-bace-86e128075989" Title="OperatingSystemInfo Properties" Url="html/158255ab-f704-3fc3-7e15-59c984cc48f5.htm">
-          <HelpTOCNode Title="IsServer Property " Url="html/48fe5d1b-024d-7772-cb27-9da16950370d.htm" />
-          <HelpTOCNode Title="OSVersion Property " Url="html/ea0d9923-2337-2aca-c071-ae9c0b9dfee2.htm" />
-          <HelpTOCNode Title="OSVersionName Property " Url="html/d13ff20c-f634-fded-b75b-979cc34cdccd.htm" />
-          <HelpTOCNode Title="ProcessorArchitecture Property " Url="html/a34114ce-7727-f379-9ddc-b5e2cb645649.htm" />
-          <HelpTOCNode Title="ServicePackVersion Property " Url="html/d6e252fb-016d-a950-6751-f09dfde82c73.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-      <HelpTOCNode Title="OSVersionName Enumeration" Url="html/fbc5c21c-d2ad-eaae-649c-964c6a80b061.htm" />
-      <HelpTOCNode Title="ProcessorArchitecture Enumeration" Url="html/26d6acb2-0bbe-9c42-f3f7-f97d4fbec105.htm" />
-      <HelpTOCNode Id="056ca491-b532-4d1e-b582-c79b45e3ad9b" Title="UnsupportedOperatingSystemException Class" Url="html/6756fc67-c452-4a4e-158e-63bdf36a9a09.htm">
-        <HelpTOCNode Id="ee26c306-740b-4b06-b101-a48153f0d670" Title="UnsupportedOperatingSystemException Constructor " Url="html/bc9c896d-cd7e-b056-9f95-58b0aff197fa.htm">
-          <HelpTOCNode Title="UnsupportedOperatingSystemException Constructor " Url="html/d5d34b11-10bf-255f-5974-d25ce2f1f3dc.htm" />
-          <HelpTOCNode Title="UnsupportedOperatingSystemException Constructor (String)" Url="html/2d9889bc-cc62-6f37-1d68-a9d1752bc7c2.htm" />
-          <HelpTOCNode Title="UnsupportedOperatingSystemException Constructor (String, Exception)" Url="html/4cb3764b-e769-87dc-fcf0-1e9b801a6577.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-      <HelpTOCNode Title="VssBackupSchema Enumeration" Url="html/f22ba651-dc95-1bc6-c6c4-c6bc4c9b822c.htm" />
-      <HelpTOCNode Title="VssBackupType Enumeration" Url="html/8a10c778-ba52-f195-d2d0-8bb60cc58d9a.htm" />
-      <HelpTOCNode Id="16603454-8c0c-4a2c-bb67-ad5c0a95a2ba" Title="VssBadStateException Class" Url="html/d29cf4d9-43eb-75f3-0215-d330f3a92abb.htm">
-        <HelpTOCNode Id="293197cd-2633-4cd2-bcee-2bc5fc4e8d03" Title="VssBadStateException Constructor " Url="html/d304adaa-422e-9dab-1eb1-34b06645fb18.htm">
-          <HelpTOCNode Title="VssBadStateException Constructor " Url="html/e4d8d277-d01c-211b-32e1-4706c9c9eec5.htm" />
-          <HelpTOCNode Title="VssBadStateException Constructor (String)" Url="html/13514779-a438-7ae6-7a5b-cc1cd020a7da.htm" />
-          <HelpTOCNode Title="VssBadStateException Constructor (SerializationInfo, StreamingContext)" Url="html/37ba855c-5ad1-66f2-8ac7-ac89262818d9.htm" />
-          <HelpTOCNode Title="VssBadStateException Constructor (String, Exception)" Url="html/16e24ce7-bea7-cdd4-4b0b-1337936c3381.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-      <HelpTOCNode Id="76f22216-d721-41cf-808f-dab136b6070a" Title="VssCannotRevertDiskIdException Class" Url="html/97d000ac-7f8f-1e08-db32-859e1700cf28.htm">
-        <HelpTOCNode Id="f20e82d8-c919-4012-9de8-b4306729f3e8" Title="VssCannotRevertDiskIdException Constructor " Url="html/65696058-2f09-bb0f-9083-9b63cf5bc393.htm">
-          <HelpTOCNode Title="VssCannotRevertDiskIdException Constructor " Url="html/9d88e4a4-12b7-dcf8-c879-b2c2a828761e.htm" />
-          <HelpTOCNode Title="VssCannotRevertDiskIdException Constructor (String)" Url="html/5a13f448-ccfc-29f0-2c4a-192f07ac76fd.htm" />
-          <HelpTOCNode Title="VssCannotRevertDiskIdException Constructor (SerializationInfo, StreamingContext)" Url="html/fe7c1586-b3f6-4d0b-65c6-c8a43797a49a.htm" />
-          <HelpTOCNode Title="VssCannotRevertDiskIdException Constructor (String, Exception)" Url="html/421e3618-473e-2bb9-f32d-cc254a0a14b4.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-      <HelpTOCNode Id="8ce60be9-c7be-45f2-890b-327df1f39e90" Title="VssComponentFailure Class" Url="html/73b5e648-2c60-a05d-cb37-efa6c4080d26.htm">
-        <HelpTOCNode Title="VssComponentFailure Constructor " Url="html/0d344590-1b6c-0eba-2a29-f6357a148c05.htm" />
-        <HelpTOCNode Id="f091fd54-3fe9-4d69-844a-7fc363c9351e" Title="VssComponentFailure Properties" Url="html/b326fb27-0a48-2c0b-146a-253404560726.htm">
-          <HelpTOCNode Title="ApplicationErrorCode Property " Url="html/52fae089-ac66-17d7-c32a-d74f42c3d78d.htm" />
-          <HelpTOCNode Title="ApplicationMessage Property " Url="html/3f491128-7efd-1f77-8093-c0f54cf02ecd.htm" />
-          <HelpTOCNode Title="ErrorCode Property " Url="html/73d19540-0d30-f259-8614-68a7dd559a5c.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-      <HelpTOCNode Title="VssComponentFlags Enumeration" Url="html/458d8cb2-41a1-cbc2-e799-f9e57832f914.htm" />
-      <HelpTOCNode Title="VssComponentType Enumeration" Url="html/c26f93e5-ff97-796e-581d-d074f6f7d4b0.htm" />
-      <HelpTOCNode Id="df525869-23d2-4fd2-9fb4-ef13970caf3e" Title="VssDeleteSnapshotsFailedException Class" Url="html/1f763a88-44da-799f-399a-4b8318f1041b.htm">
-        <HelpTOCNode Id="226aa6a9-6900-4426-bb90-2bc16aeba0e5" Title="VssDeleteSnapshotsFailedException Constructor " Url="html/972bcefd-acd5-a1cf-f1e8-819d3b9120fa.htm">
-          <HelpTOCNode Title="VssDeleteSnapshotsFailedException Constructor " Url="html/5dfaa701-73c7-ba65-f642-22a79b4c2612.htm" />
-          <HelpTOCNode Title="VssDeleteSnapshotsFailedException Constructor (String)" Url="html/97503b45-c832-14b3-83a0-aed1f61a6b20.htm" />
-          <HelpTOCNode Title="VssDeleteSnapshotsFailedException Constructor (String, Exception)" Url="html/f2e21f06-eb8f-553e-ad18-453d7afc5188.htm" />
-          <HelpTOCNode Title="VssDeleteSnapshotsFailedException Constructor (Int32, Guid, Exception)" Url="html/cdccc6fc-c4c5-d66c-5fcf-9c0510d7c6aa.htm" />
-        </HelpTOCNode>
-        <HelpTOCNode Id="f657e564-8675-4563-938a-bde622b4d223" Title="VssDeleteSnapshotsFailedException Methods" Url="html/a4763427-cc90-8102-cd93-6d627cf9d82c.htm">
-          <HelpTOCNode Title="GetObjectData Method " Url="html/e2c44a7a-bc01-5420-7488-1bceeca3ef6d.htm" />
-        </HelpTOCNode>
-        <HelpTOCNode Id="909a7c14-f091-4d96-94ba-6d7d841d4e4e" Title="VssDeleteSnapshotsFailedException Properties" Url="html/7a6b6502-9a37-c65d-5207-3cfeb525c8f5.htm">
-          <HelpTOCNode Title="DeletedSnapshotsCount Property " Url="html/f5c33707-ff82-865a-521c-b4f8297def93.htm" />
-          <HelpTOCNode Title="NonDeletedSnapshotId Property " Url="html/0d4f4759-f07c-4b02-ba95-bde10ccef061.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-      <HelpTOCNode Id="d45f5518-3be4-44d8-ba9b-fd723f9fc6d6" Title="VssDiffAreaProperties Class" Url="html/fa0e5928-baa7-df04-bf10-18133e240e18.htm">
-        <HelpTOCNode Title="VssDiffAreaProperties Constructor " Url="html/71e4c214-08cf-c660-2e79-2637b7ebfcc7.htm" />
-        <HelpTOCNode Id="ef0cea0f-c9ad-4fb8-87f4-909e22ee412a" Title="VssDiffAreaProperties Properties" Url="html/8fc490d7-8b39-495b-a030-1abe483f374a.htm">
-          <HelpTOCNode Title="AllocatedDiffSpace Property " Url="html/7eca2a98-4224-636b-bde2-ba0891f9da20.htm" />
-          <HelpTOCNode Title="DiffAreaVolumeName Property " Url="html/dd2676e7-9634-2a3b-e93f-6e7491cf9d43.htm" />
-          <HelpTOCNode Title="MaximumDiffSpace Property " Url="html/d88b9256-5291-4c5a-d916-0647df93c43d.htm" />
-          <HelpTOCNode Title="UsedDiffSpace Property " Url="html/13cca986-1836-c294-7d09-d2a088da9752.htm" />
-          <HelpTOCNode Title="VolumeName Property " Url="html/efc83d94-5f65-07d0-08e4-6939406cfd11.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-      <HelpTOCNode Id="6deb218c-9b95-4a5c-9ff1-7b2734be571f" Title="VssDifferencedFileInfo Class" Url="html/12cbfddd-e84a-7dbe-83e0-e4137a3a383a.htm">
-        <HelpTOCNode Title="VssDifferencedFileInfo Constructor " Url="html/26c125d1-0fd4-5e91-4312-a3131ce2a794.htm" />
-        <HelpTOCNode Id="84886980-2d5a-4551-8182-da897450a010" Title="VssDifferencedFileInfo Properties" Url="html/6faeae25-b059-aa35-2519-c25ab250f351.htm">
-          <HelpTOCNode Title="FileSpecification Property " Url="html/4c192e12-a47d-17a8-b693-76e1115e9619.htm" />
-          <HelpTOCNode Title="IsRecursive Property " Url="html/2f7f634c-a3af-47dd-f255-afa91bb23c71.htm" />
-          <HelpTOCNode Title="LastModifyTime Property " Url="html/d7bc55c3-a289-47cc-45f1-856469b9e98b.htm" />
-          <HelpTOCNode Title="Path Property " Url="html/72db0513-96d0-4d27-221b-8a23e8bffe09.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-      <HelpTOCNode Id="6093ba46-9fa1-4ff7-a085-31a6cea44722" Title="VssDiffVolumeProperties Class" Url="html/1e52f783-8daf-bf42-c0e6-80d85a096728.htm">
-        <HelpTOCNode Title="VssDiffVolumeProperties Constructor " Url="html/49aa207b-dd84-8cdf-27c8-9d97050b5042.htm" />
-        <HelpTOCNode Id="07904400-c21b-47e0-9251-f2303a8641eb" Title="VssDiffVolumeProperties Properties" Url="html/9c2f8aef-cda7-6bbd-5bbd-9e96a6e05098.htm">
-          <HelpTOCNode Title="VolumeDisplayName Property " Url="html/af808291-4d65-7bb8-eb43-c0ef41e9efea.htm" />
-          <HelpTOCNode Title="VolumeFreeSpace Property " Url="html/8423265c-f8d7-da12-38dc-fe27a5c207ae.htm" />
-          <HelpTOCNode Title="VolumeName Property " Url="html/24931b6c-4957-aaef-40e1-65e8a79cae53.htm" />
-          <HelpTOCNode Title="VolumeTotalSpace Property " Url="html/f5950832-7a07-bb67-59bb-7c2a09f1244d.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-      <HelpTOCNode Id="c5c4045c-bb27-455e-b447-34962c31ec13" Title="VssDirectedTargetInfo Class" Url="html/c2f09303-0288-32da-c2ba-a564afdb2316.htm">
-        <HelpTOCNode Title="VssDirectedTargetInfo Constructor " Url="html/2aec6468-3ad9-4ef8-e0dd-5fab5c72b17a.htm" />
-        <HelpTOCNode Id="22083827-5563-4baf-a867-e6ada9431d6e" Title="VssDirectedTargetInfo Properties" Url="html/c6b5d125-2894-d635-30c4-c8aa745514ac.htm">
-          <HelpTOCNode Title="DestinationFileName Property " Url="html/bd57d088-9d84-a3d4-d62f-f4dadfb9a7f6.htm" />
-          <HelpTOCNode Title="DestinationPath Property " Url="html/892b788b-0ca9-a6e7-4bb4-080ac80e7833.htm" />
-          <HelpTOCNode Title="DestinationRangeList Property " Url="html/194fee53-c6ac-737d-1a04-49f5bf4c04ec.htm" />
-          <HelpTOCNode Title="SourceFileName Property " Url="html/a69df733-52bd-8ff6-7567-14e3f53d17dd.htm" />
-          <HelpTOCNode Title="SourcePath Property " Url="html/c2534e52-6c1a-e107-6654-85caaae553c9.htm" />
-          <HelpTOCNode Title="SourceRangeList Property " Url="html/311cdfd1-2d73-0082-23f8-e76a0e62ee33.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-      <HelpTOCNode Title="VssError Enumeration" Url="html/b94765b3-efc6-7fcb-3336-727f60e38278.htm" />
-      <HelpTOCNode Id="ee9278bc-ea5d-4942-ad28-f0d9509d8983" Title="VssException Class" Url="html/36fea4e1-0694-ded3-be88-2c99dc284e40.htm">
-        <HelpTOCNode Id="a5f25807-715c-48ec-9db8-62abc36858f8" Title="VssException Constructor " Url="html/0d783826-daf5-dbc2-cb8b-377efd98ca27.htm">
-          <HelpTOCNode Title="VssException Constructor " Url="html/1be0701e-2601-5276-2405-4effddde27c7.htm" />
-          <HelpTOCNode Title="VssException Constructor (String)" Url="html/fec7daeb-af96-9848-7864-df248b97c298.htm" />
-          <HelpTOCNode Title="VssException Constructor (SerializationInfo, StreamingContext)" Url="html/4f608a96-1ef1-5e18-1b35-f80c65ac517c.htm" />
-          <HelpTOCNode Title="VssException Constructor (String, Exception)" Url="html/7ab27223-5b13-d711-9b8b-7404a7b96c1a.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-      <HelpTOCNode Title="VssFileRestoreStatus Enumeration" Url="html/dd441f6b-2e9a-286f-74ec-c3319a5a1f33.htm" />
-      <HelpTOCNode Title="VssFileSpecificationBackupType Enumeration" Url="html/d3773cc1-85a3-6011-c8dd-7739654a2423.htm" />
-      <HelpTOCNode Id="60ff1f60-424d-4d44-83c2-dc4bae75a2cb" Title="VssFlushWritesTimeoutException Class" Url="html/9e13d6d8-7201-33e8-50ca-fbd89775f30e.htm">
-        <HelpTOCNode Id="8a4045b4-0c0a-4fe4-bf7c-15e86c7632d3" Title="VssFlushWritesTimeoutException Constructor " Url="html/d634fc20-fc17-3aaf-51c1-8a7e13444c32.htm">
-          <HelpTOCNode Title="VssFlushWritesTimeoutException Constructor " Url="html/019b85b6-1977-c8f8-87ef-786e0c9338c6.htm" />
-          <HelpTOCNode Title="VssFlushWritesTimeoutException Constructor (String)" Url="html/ecb2341f-f6dd-4eaf-af51-401afffa8bfd.htm" />
-          <HelpTOCNode Title="VssFlushWritesTimeoutException Constructor (String, Exception)" Url="html/ed422609-56ad-998c-06e6-ac009ad0cb1f.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-      <HelpTOCNode Title="VssHardwareOptions Enumeration" Url="html/8fe968e4-36b3-82db-bb76-8b8abf9e66ea.htm" />
-      <HelpTOCNode Id="a72c55fa-1c19-4cff-bc19-ae55cbe650f6" Title="VssHoldWritesTimeoutException Class" Url="html/460984a0-09a5-db64-18c6-4c8d7f54a1eb.htm">
-        <HelpTOCNode Id="70d65e64-42fb-4be8-b2bb-fb808779324a" Title="VssHoldWritesTimeoutException Constructor " Url="html/b4351485-d791-b9bc-7fc8-0f352b8a3b5c.htm">
-          <HelpTOCNode Title="VssHoldWritesTimeoutException Constructor " Url="html/b2dc2ceb-f75b-ba70-6e32-5a61f9e63853.htm" />
-          <HelpTOCNode Title="VssHoldWritesTimeoutException Constructor (String)" Url="html/9e5d4c86-2e82-b1c5-bc38-486eaf87a549.htm" />
-          <HelpTOCNode Title="VssHoldWritesTimeoutException Constructor (String, Exception)" Url="html/965eb419-7d06-3f4c-8e26-209580f9b46d.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-      <HelpTOCNode Id="3b14a4f4-f2ca-49c8-ba22-56af98c7d517" Title="VssInconsistentSnapshotWriterException Class" Url="html/7d662682-8fef-6da7-b4df-6460d9fb2507.htm">
-        <HelpTOCNode Id="d4b122cd-fe62-475a-b21e-8f8809c1d08c" Title="VssInconsistentSnapshotWriterException Constructor " Url="html/55b970a5-8914-fd6c-bb01-e58948aed27f.htm">
-          <HelpTOCNode Title="VssInconsistentSnapshotWriterException Constructor " Url="html/3057a701-2b16-05c3-a4cb-f4ab62dc9bc8.htm" />
-          <HelpTOCNode Title="VssInconsistentSnapshotWriterException Constructor (String)" Url="html/0f0cace3-b603-c18e-88a0-ccdcf3b85a6c.htm" />
-          <HelpTOCNode Title="VssInconsistentSnapshotWriterException Constructor (SerializationInfo, StreamingContext)" Url="html/676cd38b-33e7-ee6e-2c34-fbd2eff762a8.htm" />
-          <HelpTOCNode Title="VssInconsistentSnapshotWriterException Constructor (String, Exception)" Url="html/6b0ed731-3634-fe1c-d3f1-6c099bafb2bb.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-      <HelpTOCNode Id="2f09b20a-89d6-4986-a0b8-83464fbe815c" Title="VssInsufficientStorageException Class" Url="html/497202a6-833c-07f6-8ca9-abcbcf26b04a.htm">
-        <HelpTOCNode Id="79e8d9d0-55b4-44af-8fa6-3027d233f93a" Title="VssInsufficientStorageException Constructor " Url="html/843077fa-9f4b-ae30-ce2a-0c3c0fe48061.htm">
-          <HelpTOCNode Title="VssInsufficientStorageException Constructor " Url="html/6c43da3c-e12e-e860-c8b8-d868cb13bc99.htm" />
-          <HelpTOCNode Title="VssInsufficientStorageException Constructor (String)" Url="html/308165ed-08e3-73b3-e687-f4107375ae0d.htm" />
-          <HelpTOCNode Title="VssInsufficientStorageException Constructor (String, Exception)" Url="html/0cf057cc-5b55-2c2d-037f-81114fd14953.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-      <HelpTOCNode Id="ff7afdc8-1072-4570-8e30-3b6e906d79ec" Title="VssInvalidXmlDocumentException Class" Url="html/a7ee78a4-029d-19ab-c751-203df2479a6a.htm">
-        <HelpTOCNode Id="712029f4-b0ef-4d2c-a6e9-1cd728f3e501" Title="VssInvalidXmlDocumentException Constructor " Url="html/a892b4f3-3c29-3b0a-fb0f-220909e2171b.htm">
-          <HelpTOCNode Title="VssInvalidXmlDocumentException Constructor " Url="html/9a86fd42-34e5-02f8-1676-43d4f86e65e4.htm" />
-          <HelpTOCNode Title="VssInvalidXmlDocumentException Constructor (String)" Url="html/35a93092-d86d-d107-42ee-fb8c04e22e34.htm" />
-          <HelpTOCNode Title="VssInvalidXmlDocumentException Constructor (String, Exception)" Url="html/b5d76a05-2ad3-6467-3d88-06d0d768bb4f.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-      <HelpTOCNode Id="32de7122-354d-478d-a2a5-5353f01cce58" Title="VssLegacyProviderException Class" Url="html/6b757f6b-2a21-c21b-72e6-d222a99761e6.htm">
-        <HelpTOCNode Id="44026346-371d-4898-964d-4e6ffa9ecb29" Title="VssLegacyProviderException Constructor " Url="html/d2c2af9b-330b-f1bb-10c5-ca53dcbfd2a7.htm">
-          <HelpTOCNode Title="VssLegacyProviderException Constructor " Url="html/d8618073-dda7-4238-28a5-f702b3575bee.htm" />
-          <HelpTOCNode Title="VssLegacyProviderException Constructor (String)" Url="html/35cd941d-3883-da0e-80c8-ab3d4dd8b9c9.htm" />
-          <HelpTOCNode Title="VssLegacyProviderException Constructor (SerializationInfo, StreamingContext)" Url="html/ad8f4254-9120-c673-3db4-27509f82c686.htm" />
-          <HelpTOCNode Title="VssLegacyProviderException Constructor (String, Exception)" Url="html/3eae8270-c099-f096-b60d-66d839a33ea7.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-      <HelpTOCNode Id="3290a528-96c7-4904-847e-ab0ec6414477" Title="VssMaximumDiffAreaAssociationsReachedException Class" Url="html/8ecee09c-d39d-9c21-b4ab-c8c59c11e05c.htm">
-        <HelpTOCNode Id="c1c94757-b1a8-4a20-b46c-308c2605b2d4" Title="VssMaximumDiffAreaAssociationsReachedException Constructor " Url="html/349581bc-c4e3-6cf8-0ee1-43523b93a202.htm">
-          <HelpTOCNode Title="VssMaximumDiffAreaAssociationsReachedException Constructor " Url="html/49bc0dad-de96-412e-0ace-3dbd4b201532.htm" />
-          <HelpTOCNode Title="VssMaximumDiffAreaAssociationsReachedException Constructor (String)" Url="html/6714f00f-d4b9-f66a-d360-2a95a69e5020.htm" />
-          <HelpTOCNode Title="VssMaximumDiffAreaAssociationsReachedException Constructor (String, Exception)" Url="html/444a99dc-e1cb-c938-9f92-33f33df2a9f4.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-      <HelpTOCNode Id="80c6f495-51e7-4ddc-a1b7-ec789f82dcb6" Title="VssMaximumNumberOfSnapshotsReachedException Class" Url="html/863c21c4-0a89-d468-b363-8fd7b542edf4.htm">
-        <HelpTOCNode Id="3b631568-9311-473d-bf75-fce595a7d153" Title="VssMaximumNumberOfSnapshotsReachedException Constructor " Url="html/8c63192b-2e30-343d-b077-12053293e7cb.htm">
-          <HelpTOCNode Title="VssMaximumNumberOfSnapshotsReachedException Constructor " Url="html/8aabc5f5-6818-3815-d272-56ebce36ce63.htm" />
-          <HelpTOCNode Title="VssMaximumNumberOfSnapshotsReachedException Constructor (String)" Url="html/ea0a9f46-8bb4-3879-12ba-7a1d26e97ce8.htm" />
-          <HelpTOCNode Title="VssMaximumNumberOfSnapshotsReachedException Constructor (String, Exception)" Url="html/a11f566b-43fa-9beb-c013-3c39d416ebb1.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-      <HelpTOCNode Id="774d1121-e13a-4bd6-b9fd-da65193ddbbb" Title="VssMaximumNumberOfVolumesReachedException Class" Url="html/ad0ce338-a248-b4d0-030d-052d8badf6ed.htm">
-        <HelpTOCNode Id="05cab453-f8a2-4eaa-bf8e-8c8dbbbe57ef" Title="VssMaximumNumberOfVolumesReachedException Constructor " Url="html/3b2fe8ed-e0d4-db7d-de05-2809a34f7695.htm">
-          <HelpTOCNode Title="VssMaximumNumberOfVolumesReachedException Constructor " Url="html/83895e97-850e-e2e4-7912-60fca517dec7.htm" />
-          <HelpTOCNode Title="VssMaximumNumberOfVolumesReachedException Constructor (String)" Url="html/b8d69641-c8d4-7b31-0d74-4d2bde828647.htm" />
-          <HelpTOCNode Title="VssMaximumNumberOfVolumesReachedException Constructor (String, Exception)" Url="html/c74b227b-3036-d708-0f28-3a8f60938c2c.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-      <HelpTOCNode Id="a5d9b47f-7bf0-4309-a830-8915a8dc39be" Title="VssNonRetryableWriterException Class" Url="html/1e9f8a52-8cdb-f24f-6cba-7230a30a21c7.htm">
-        <HelpTOCNode Id="c419557d-4c67-4dd9-9c07-9ad921012850" Title="VssNonRetryableWriterException Constructor " Url="html/76b88f83-d65a-0ef8-170c-2eef2fda82ed.htm">
-          <HelpTOCNode Title="VssNonRetryableWriterException Constructor " Url="html/60e6a6aa-a39c-29cf-bafe-a63653303737.htm" />
-          <HelpTOCNode Title="VssNonRetryableWriterException Constructor (String)" Url="html/4857b9ec-559c-2c43-8ea9-231ced321f0c.htm" />
-          <HelpTOCNode Title="VssNonRetryableWriterException Constructor (SerializationInfo, StreamingContext)" Url="html/8cfc99f4-3da8-a1dd-a4e9-c99f3a2135b2.htm" />
-          <HelpTOCNode Title="VssNonRetryableWriterException Constructor (String, Exception)" Url="html/05b3279c-deac-1df6-7d2b-10f3c3e61045.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-      <HelpTOCNode Id="0ea9a6c6-c972-4fb0-9390-e4ea2b29d2ca" Title="VssObjectAlreadyExistsException Class" Url="html/ae8a3908-d3af-b4aa-df78-d90c24008277.htm">
-        <HelpTOCNode Id="9ad8a5e6-6704-4960-a7f2-bc704c996d36" Title="VssObjectAlreadyExistsException Constructor " Url="html/81197196-51bf-bda9-963e-39fa66555636.htm">
-          <HelpTOCNode Title="VssObjectAlreadyExistsException Constructor " Url="html/505925a8-9732-d953-20aa-e29161bc9c6b.htm" />
-          <HelpTOCNode Title="VssObjectAlreadyExistsException Constructor (String)" Url="html/583b94ad-bb8b-d1cb-2c89-6bdaf9bdb6a5.htm" />
-          <HelpTOCNode Title="VssObjectAlreadyExistsException Constructor (String, Exception)" Url="html/d46eaf59-a072-b167-2d2b-ffbb40acd0d9.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-      <HelpTOCNode Id="339c354a-6b05-44d2-9123-eca78def0511" Title="VssObjectNotFoundException Class" Url="html/e1886a3d-d6c4-7520-5cf1-d60063a2340a.htm">
-        <HelpTOCNode Id="acdb4524-b0e2-4c49-a55c-e1435f528129" Title="VssObjectNotFoundException Constructor " Url="html/f05eade9-3365-a1c3-1ea5-0c052e092bd2.htm">
-          <HelpTOCNode Title="VssObjectNotFoundException Constructor " Url="html/79351b1e-a356-d5f4-9227-f10d264b1700.htm" />
-          <HelpTOCNode Title="VssObjectNotFoundException Constructor (String)" Url="html/df27f9a2-5080-86ff-f879-17425e8283aa.htm" />
-          <HelpTOCNode Title="VssObjectNotFoundException Constructor (String, Exception)" Url="html/1d47d4b8-7380-9db0-93d4-fe7b578edf3f.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-      <HelpTOCNode Title="VssObjectType Enumeration" Url="html/de482a35-2367-be24-4d65-61e28f1d9669.htm" />
-      <HelpTOCNode Id="55168f1e-6802-47c0-baac-bcefb2608be4" Title="VssOutOfResourcesWriterException Class" Url="html/97b977e6-71b7-dd96-b041-62960d660b01.htm">
-        <HelpTOCNode Id="60711a69-792d-43c2-9c40-3e33bf520831" Title="VssOutOfResourcesWriterException Constructor " Url="html/c977dffb-589b-b38d-4332-389052d02ae8.htm">
-          <HelpTOCNode Title="VssOutOfResourcesWriterException Constructor " Url="html/a27bcbf0-33e7-5e7b-77bc-fd60c827446e.htm" />
-          <HelpTOCNode Title="VssOutOfResourcesWriterException Constructor (String)" Url="html/91c4e5a8-7e0f-faf6-1ff3-3baa17e66789.htm" />
-          <HelpTOCNode Title="VssOutOfResourcesWriterException Constructor (SerializationInfo, StreamingContext)" Url="html/0941906a-ea3e-7e30-d850-4acd6923b1df.htm" />
-          <HelpTOCNode Title="VssOutOfResourcesWriterException Constructor (String, Exception)" Url="html/226033f1-3de2-598b-4110-9b16997ada78.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-      <HelpTOCNode Id="a10dbcf8-eb57-4d69-a4c3-1de0ad868e94" Title="VssPartialFailureWriterException Class" Url="html/8a103239-d9de-44dd-7020-81d819b91552.htm">
-        <HelpTOCNode Id="e3b7bc4b-f81c-4625-9154-9557fdc38b9b" Title="VssPartialFailureWriterException Constructor " Url="html/1cec0a19-6afd-0731-6ecb-5e2130a40b06.htm">
-          <HelpTOCNode Title="VssPartialFailureWriterException Constructor " Url="html/132e82e0-7192-dc99-2f9a-1e4484fc881a.htm" />
-          <HelpTOCNode Title="VssPartialFailureWriterException Constructor (String)" Url="html/d8588050-a453-db32-7a12-bd3a98519d8f.htm" />
-          <HelpTOCNode Title="VssPartialFailureWriterException Constructor (SerializationInfo, StreamingContext)" Url="html/2b188b18-8eda-fd1e-5300-6c6d82f63ba5.htm" />
-          <HelpTOCNode Title="VssPartialFailureWriterException Constructor (String, Exception)" Url="html/01707f04-6c13-e71b-7cfa-5bd4927456b8.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-      <HelpTOCNode Id="72edba25-dc63-4448-a331-91eb824bc24d" Title="VssPartialFileInfo Class" Url="html/a1b8ad13-5acf-282a-8c25-7e81a450cbac.htm">
-        <HelpTOCNode Title="VssPartialFileInfo Constructor " Url="html/6c9f8309-9c54-70b8-f817-3f793ae27f56.htm" />
-        <HelpTOCNode Id="3bc9a59e-640d-41c6-bf43-2679936e7ab0" Title="VssPartialFileInfo Properties" Url="html/1bf91ef6-9ff7-1a76-8cd0-3145ec669500.htm">
-          <HelpTOCNode Title="FileName Property " Url="html/ed27a7a2-ce55-e8b6-4221-79fac92e8622.htm" />
-          <HelpTOCNode Title="Metadata Property " Url="html/b4738a81-0568-f914-80d9-835e636f22fd.htm" />
-          <HelpTOCNode Title="Path Property " Url="html/3daed49e-081f-bd6e-c7a1-76a6bc4d0be1.htm" />
-          <HelpTOCNode Title="Range Property " Url="html/eaa5675f-07e6-62e0-59ae-0424675aa312.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-      <HelpTOCNode Title="VssProtectionFault Enumeration" Url="html/c8dd6131-d6b8-c5bf-374c-95fc7968ac6a.htm" />
-      <HelpTOCNode Title="VssProtectionLevel Enumeration" Url="html/72349f53-adca-87d7-0c08-9a1ac5de599b.htm" />
-      <HelpTOCNode Id="f64536b7-b32b-4340-970e-42f2c1fd1929" Title="VssProviderNotRegisteredException Class" Url="html/e60615b3-b028-e911-0265-282327efe423.htm">
-        <HelpTOCNode Id="c796eafb-adf7-4ade-b09e-acf411432d99" Title="VssProviderNotRegisteredException Constructor " Url="html/d2fdfc5c-07a9-917f-df21-c0351e050b60.htm">
-          <HelpTOCNode Title="VssProviderNotRegisteredException Constructor " Url="html/2cf7ddb6-a24a-5c53-ae29-2f5640404634.htm" />
-          <HelpTOCNode Title="VssProviderNotRegisteredException Constructor (String)" Url="html/e14bdaa6-2f85-8e44-45b7-63463fb16c6a.htm" />
-          <HelpTOCNode Title="VssProviderNotRegisteredException Constructor (String, Exception)" Url="html/8a5e881f-06ac-f982-1e7f-d9db169ef778.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-      <HelpTOCNode Id="5455257b-0c3e-4ef0-a954-cd7788a75143" Title="VssProviderProperties Class" Url="html/78794d64-c7a7-b6bc-c06f-8f6ac96ed079.htm">
-        <HelpTOCNode Title="VssProviderProperties Constructor " Url="html/9b85ece6-c7cd-46d2-0317-b18f956330c5.htm" />
-        <HelpTOCNode Id="923368ac-a14e-49f1-9c5f-20dc926884df" Title="VssProviderProperties Properties" Url="html/13acf412-c907-38d3-9286-8a36d2fdabea.htm">
-          <HelpTOCNode Title="ClassId Property " Url="html/a5c6947f-7412-ba1c-e869-671b2a756a04.htm" />
-          <HelpTOCNode Title="ProviderId Property " Url="html/edc32fe2-5f3b-88a5-1ec6-36cfeabad68f.htm" />
-          <HelpTOCNode Title="ProviderName Property " Url="html/03c601b1-a2e6-8400-12f6-a7d6d2ab7eb5.htm" />
-          <HelpTOCNode Title="ProviderType Property " Url="html/68857765-d2df-cbc9-62ea-955ab52e52b9.htm" />
-          <HelpTOCNode Title="ProviderVersion Property " Url="html/14dd387b-adb4-ab94-e526-0cbcf066ce94.htm" />
-          <HelpTOCNode Title="ProviderVersionId Property " Url="html/2fbd8e77-83cb-672c-1f9e-a0e388c57793.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-      <HelpTOCNode Title="VssProviderType Enumeration" Url="html/93488002-bcb4-0b8c-71b5-eef8ec0011c3.htm" />
-      <HelpTOCNode Id="e31caf06-f548-477d-ba7b-3cb650f852af" Title="VssProviderVetoException Class" Url="html/ee49a348-54bc-26cd-3406-ab34b28f85da.htm">
-        <HelpTOCNode Id="b4a957b7-b1e1-419b-9d05-34550ad3d9c0" Title="VssProviderVetoException Constructor " Url="html/6edec0a7-49ea-2ca6-268c-e6745d219757.htm">
-          <HelpTOCNode Title="VssProviderVetoException Constructor " Url="html/da28bb92-b6cb-d79d-32d5-c601544ba4ef.htm" />
-          <HelpTOCNode Title="VssProviderVetoException Constructor (String)" Url="html/55acf4d3-08f5-9471-5b88-26f0be4546d8.htm" />
-          <HelpTOCNode Title="VssProviderVetoException Constructor (String, Exception)" Url="html/84cda56b-edef-0dcb-31c8-d26807dc8959.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-      <HelpTOCNode Id="e2a550ce-917d-44b1-b328-ceb66cc0cdc9" Title="VssRebootRequiredException Class" Url="html/94529ea1-91a4-2efb-c645-373203b98e1b.htm">
-        <HelpTOCNode Id="00d4d169-1131-4623-9c37-9d29f6156b63" Title="VssRebootRequiredException Constructor " Url="html/9a1aad7c-0a52-0d2c-e3aa-88956f92a1df.htm">
-          <HelpTOCNode Title="VssRebootRequiredException Constructor " Url="html/3cc70655-d21b-0224-e3dc-2e088c970843.htm" />
-          <HelpTOCNode Title="VssRebootRequiredException Constructor (String)" Url="html/ddaccd68-575c-248a-0951-616373e998fe.htm" />
-          <HelpTOCNode Title="VssRebootRequiredException Constructor (String, Exception)" Url="html/e60f193c-490b-c1e4-a00e-17566485ed04.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-      <HelpTOCNode Title="VssRecoveryOptions Enumeration" Url="html/19e8122c-c2c9-56bd-5a92-676108cd5d86.htm" />
-      <HelpTOCNode Title="VssRestoreMethod Enumeration" Url="html/24c42455-4bf1-6932-0997-9780fad64177.htm" />
-      <HelpTOCNode Id="a972e1d6-87fd-4c66-ba2f-3f66eb2aebcc" Title="VssRestoreSubcomponentInfo Class" Url="html/43b4bf56-0edc-796d-9e0d-aee6fc97c1dc.htm">
-        <HelpTOCNode Title="VssRestoreSubcomponentInfo Constructor " Url="html/c6f6d458-06a5-3a2f-4462-f465b2d30cfe.htm" />
-        <HelpTOCNode Id="8b4591b5-c5c4-4a54-be36-d2c339fdd365" Title="VssRestoreSubcomponentInfo Properties" Url="html/2bbed880-3c0b-75b4-9ddb-b231e921eff4.htm">
-          <HelpTOCNode Title="ComponentName Property " Url="html/a8db7a92-b633-7208-7c84-eb8d2806a5dc.htm" />
-          <HelpTOCNode Title="LogicalPath Property " Url="html/3deefa85-164b-a8f3-90e4-7e7b886a64cf.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-      <HelpTOCNode Title="VssRestoreTarget Enumeration" Url="html/4d8e8837-ec24-6948-4a7a-ce690f337aae.htm" />
-      <HelpTOCNode Title="VssRestoreType Enumeration" Url="html/2057e401-0bef-53c6-4167-54a3d1389fda.htm" />
-      <HelpTOCNode Id="e76c7017-2417-4122-a766-f645e21bffd0" Title="VssResyncInProgressException Class" Url="html/d8b4f972-adfb-02e6-8b76-abc1034d17bc.htm">
-        <HelpTOCNode Id="07153d32-41be-4a3b-80a0-7e4ff0bcd446" Title="VssResyncInProgressException Constructor " Url="html/90b5cc46-a7f5-8a5f-aa40-52fb318ce6cd.htm">
-          <HelpTOCNode Title="VssResyncInProgressException Constructor " Url="html/c2c68ba1-1847-13d0-6040-ae29bca284c6.htm" />
-          <HelpTOCNode Title="VssResyncInProgressException Constructor (String)" Url="html/3b7ff0c2-f8e3-9ad0-07d6-0f2141d06a55.htm" />
-          <HelpTOCNode Title="VssResyncInProgressException Constructor (SerializationInfo, StreamingContext)" Url="html/781f9542-5f90-5140-8e2f-3df516887e9f.htm" />
-          <HelpTOCNode Title="VssResyncInProgressException Constructor (String, Exception)" Url="html/c2483654-e44b-0d2d-bd4c-b51a202ada37.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-      <HelpTOCNode Id="77bbcee4-0ce0-4057-a43f-5fc61646af3c" Title="VssRetryableWriterException Class" Url="html/fa949404-17a1-c337-bae2-1083a88a88ca.htm">
-        <HelpTOCNode Id="f4551b86-e72b-4e52-9056-2386c60c243d" Title="VssRetryableWriterException Constructor " Url="html/7e015073-34f5-19ac-0cbd-ca615055f370.htm">
-          <HelpTOCNode Title="VssRetryableWriterException Constructor " Url="html/957f1a3d-01bd-9bff-7fc5-8cfe09d3d03a.htm" />
-          <HelpTOCNode Title="VssRetryableWriterException Constructor (String)" Url="html/d9bdd103-d69b-8fa9-38f1-e36e557b1321.htm" />
-          <HelpTOCNode Title="VssRetryableWriterException Constructor (SerializationInfo, StreamingContext)" Url="html/3f7e65ed-e80e-a0c0-7cb7-2f994f3d0455.htm" />
-          <HelpTOCNode Title="VssRetryableWriterException Constructor (String, Exception)" Url="html/46d9b47f-1e66-83b2-83a3-9fa667314c62.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-      <HelpTOCNode Id="2759a209-a4df-4db7-b6f6-87db8ee34817" Title="VssRevertInProgressException Class" Url="html/d5871d80-c4ac-ec5c-4c6a-f97ac19c6fd8.htm">
-        <HelpTOCNode Id="b5f8a801-0f88-4ab5-a47d-09b08abe3cbc" Title="VssRevertInProgressException Constructor " Url="html/65e50534-0f21-f025-88d8-dabd295befbb.htm">
-          <HelpTOCNode Title="VssRevertInProgressException Constructor " Url="html/230a608e-ad95-5c27-1a40-e4ba76e948ca.htm" />
-          <HelpTOCNode Title="VssRevertInProgressException Constructor (String)" Url="html/6db1c879-8455-a3f9-009c-5d39f03e3984.htm" />
-          <HelpTOCNode Title="VssRevertInProgressException Constructor (String, Exception)" Url="html/87fba51c-75ac-c048-e3b5-1d5b4e4c753c.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-      <HelpTOCNode Title="VssRollForwardType Enumeration" Url="html/fc0ddc14-0f0f-1469-b9c6-ee878536d976.htm" />
-      <HelpTOCNode Title="VssSnapshotCompatibility Enumeration" Url="html/feb829d1-631e-f726-a2f4-e2cdb5ca41a8.htm" />
-      <HelpTOCNode Title="VssSnapshotContext Enumeration" Url="html/e4076f72-7bc1-c300-9b90-782bea55ae7f.htm" />
-      <HelpTOCNode Id="4d4a3327-d1ee-470f-865c-bb99ddbac1d0" Title="VssSnapshotNotInSetException Class" Url="html/6d7ecb92-5eb1-d5ac-68fc-d8496f1a7eec.htm">
-        <HelpTOCNode Id="6e8b7a15-924f-4136-8008-727487b22761" Title="VssSnapshotNotInSetException Constructor " Url="html/cb93d49e-2cfa-3d11-10a0-c98817c89cb8.htm">
-          <HelpTOCNode Title="VssSnapshotNotInSetException Constructor " Url="html/330416da-b2bd-baba-46fd-26336944d11a.htm" />
-          <HelpTOCNode Title="VssSnapshotNotInSetException Constructor (String)" Url="html/80dbb179-ff64-7877-5f30-9e2946318fc2.htm" />
-          <HelpTOCNode Title="VssSnapshotNotInSetException Constructor (SerializationInfo, StreamingContext)" Url="html/988dcae9-e1c9-6414-493f-063beeac4d22.htm" />
-          <HelpTOCNode Title="VssSnapshotNotInSetException Constructor (String, Exception)" Url="html/f5fe94fb-bc25-e446-775c-a1ea580703e4.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-      <HelpTOCNode Id="d7575aae-e8f6-409e-8e9a-e758d3b749dd" Title="VssSnapshotProperties Class" Url="html/be41b097-e967-b650-da31-2e326b17f3cd.htm">
-        <HelpTOCNode Title="VssSnapshotProperties Constructor " Url="html/b20ed463-a9a5-3100-ee4f-98373b97b81e.htm" />
-        <HelpTOCNode Id="014005ab-e97e-452f-b14f-9050e8de3dc0" Title="VssSnapshotProperties Properties" Url="html/519a679b-0d57-24b7-acca-d706f22e2161.htm">
-          <HelpTOCNode Title="CreationTimestamp Property " Url="html/624f3337-156a-b3fe-a36c-31cda5bd88ef.htm" />
-          <HelpTOCNode Title="ExposedName Property " Url="html/7e7304f6-6dfa-7810-5433-53c3b8b74d47.htm" />
-          <HelpTOCNode Title="ExposedPath Property " Url="html/7cf95e72-39d9-b188-3fbf-e341fe2d990c.htm" />
-          <HelpTOCNode Title="OriginalVolumeName Property " Url="html/5bcd2fc1-dcc6-a767-91c3-00f15373a3ff.htm" />
-          <HelpTOCNode Title="OriginatingMachine Property " Url="html/911ac4a3-f284-534e-e04e-0dd8109e54ff.htm" />
-          <HelpTOCNode Title="ProviderId Property " Url="html/f4e65841-286e-2caa-80a3-4489985b9a90.htm" />
-          <HelpTOCNode Title="ServiceMachine Property " Url="html/588b7216-236f-e80c-3be2-5295d3ed49f2.htm" />
-          <HelpTOCNode Title="SnapshotAttributes Property " Url="html/7b9e4533-19c3-4a39-d844-61ea5b9e59c2.htm" />
-          <HelpTOCNode Title="SnapshotDeviceObject Property " Url="html/96a07050-bfba-df12-2fe0-756eb2e53009.htm" />
-          <HelpTOCNode Title="SnapshotId Property " Url="html/e62647c0-f15c-0309-5ca1-52e14891595d.htm" />
-          <HelpTOCNode Title="SnapshotsCount Property " Url="html/2236b82d-fe63-79c7-ff54-9c397e6f700a.htm" />
-          <HelpTOCNode Title="SnapshotSetId Property " Url="html/36337395-331c-b94a-107e-1f8e9d5af6af.htm" />
-          <HelpTOCNode Title="Status Property " Url="html/de210496-5c79-44a9-b679-827274fa3303.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-      <HelpTOCNode Id="d05248d2-1ade-4f9f-b372-43e009636b95" Title="VssSnapshotSetInProgressException Class" Url="html/8f55cc8f-4b65-15c0-4a80-20e6dd136345.htm">
-        <HelpTOCNode Id="97311bae-2df1-4b9b-92c3-cbcd01e5f84c" Title="VssSnapshotSetInProgressException Constructor " Url="html/089c3f2a-9efc-3a4f-1a3f-633d849b9ea6.htm">
-          <HelpTOCNode Title="VssSnapshotSetInProgressException Constructor " Url="html/daa528f3-88f9-6385-fae3-ee75da08eb7c.htm" />
-          <HelpTOCNode Title="VssSnapshotSetInProgressException Constructor (String)" Url="html/157eeb8c-dcdf-17e8-bbd2-1bb3819ffa4e.htm" />
-          <HelpTOCNode Title="VssSnapshotSetInProgressException Constructor (String, Exception)" Url="html/6a8143d7-5e55-15c7-654d-f2f790d57faf.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-      <HelpTOCNode Title="VssSnapshotState Enumeration" Url="html/b5b9baba-8e19-eeb4-2ec6-bf8e3f9d9845.htm" />
-      <HelpTOCNode Title="VssSourceType Enumeration" Url="html/1577a7e5-13c7-c8ef-95d9-77ad93e3550b.htm" />
-      <HelpTOCNode Id="cdd9a6a4-35fd-4b78-9ba9-21ffa197c07f" Title="VssTimeoutWriterException Class" Url="html/6dede8d5-8a5d-c44a-3200-d0bd85cb024c.htm">
-        <HelpTOCNode Id="2df8d259-a66c-44e1-928e-b7647a3951d1" Title="VssTimeoutWriterException Constructor " Url="html/e0aaca5c-6c21-959b-716f-c49ba4a14e51.htm">
-          <HelpTOCNode Title="VssTimeoutWriterException Constructor " Url="html/bd2cedd2-fa79-3bf0-44a5-eb7f2d9bcd3f.htm" />
-          <HelpTOCNode Title="VssTimeoutWriterException Constructor (String)" Url="html/8ad09a43-c632-db86-967e-4bcdb6cc26a2.htm" />
-          <HelpTOCNode Title="VssTimeoutWriterException Constructor (SerializationInfo, StreamingContext)" Url="html/7d880aae-03c6-1d3f-e943-e8ca972a915c.htm" />
-          <HelpTOCNode Title="VssTimeoutWriterException Constructor (String, Exception)" Url="html/f2e6fab3-ca18-80ab-1710-140734c64d08.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-      <HelpTOCNode Id="37973abf-e60a-424a-925b-6211e710ef03" Title="VssTransactionFreezeTimeoutException Class" Url="html/83af1539-49e8-3e51-cadf-62cb99963e94.htm">
-        <HelpTOCNode Id="0f33ec80-d16f-4863-9fe2-8de2702fa146" Title="VssTransactionFreezeTimeoutException Constructor " Url="html/8d1e4c27-2dde-5439-640e-18f64eb92ee7.htm">
-          <HelpTOCNode Title="VssTransactionFreezeTimeoutException Constructor " Url="html/6fcdf0a3-0c4d-715d-586c-83d7d4cbd051.htm" />
-          <HelpTOCNode Title="VssTransactionFreezeTimeoutException Constructor (String)" Url="html/5651b738-ce85-1cb7-6a01-d29165b97b13.htm" />
-          <HelpTOCNode Title="VssTransactionFreezeTimeoutException Constructor (String, Exception)" Url="html/c1a0af5f-ed30-65fd-2de1-603467a1fcd9.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-      <HelpTOCNode Id="42664fc7-7478-403b-b36a-df534c9c1aad" Title="VssTransactionThawTimeoutException Class" Url="html/45a44f41-088e-dc32-6d2e-991cde8c466e.htm">
-        <HelpTOCNode Id="3dc76452-85eb-4e93-b26c-b3a9d03adb5e" Title="VssTransactionThawTimeoutException Constructor " Url="html/af5fc912-2c99-8c09-f42d-68609caa8a95.htm">
-          <HelpTOCNode Title="VssTransactionThawTimeoutException Constructor " Url="html/45e40da6-26a9-3dac-0bc2-fc4807566114.htm" />
-          <HelpTOCNode Title="VssTransactionThawTimeoutException Constructor (String)" Url="html/394a6e80-16da-54ff-1130-2ef814c223d6.htm" />
-          <HelpTOCNode Title="VssTransactionThawTimeoutException Constructor (String, Exception)" Url="html/22882f69-6abe-0a0f-a69f-f82fd86468be.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-      <HelpTOCNode Id="64b46ec0-c9a1-4707-b44c-139228434e42" Title="VssUnexpectedErrorException Class" Url="html/99512b81-d343-ff19-1d59-0036638a06ab.htm">
-        <HelpTOCNode Id="0079371e-4b98-4551-8aa5-bd7788ab4b45" Title="VssUnexpectedErrorException Constructor " Url="html/f1fff2e7-6567-5466-e863-54338791be18.htm">
-          <HelpTOCNode Title="VssUnexpectedErrorException Constructor " Url="html/5ced9d23-f3f5-f6cb-50ef-04302a21a352.htm" />
-          <HelpTOCNode Title="VssUnexpectedErrorException Constructor (String)" Url="html/5c9a0157-0d0a-1ace-5739-518f1a887397.htm" />
-          <HelpTOCNode Title="VssUnexpectedErrorException Constructor (SerializationInfo, StreamingContext)" Url="html/97c3a6ea-5739-f3d2-e656-0d3e9ef06862.htm" />
-          <HelpTOCNode Title="VssUnexpectedErrorException Constructor (String, Exception)" Url="html/b057dac0-aeae-d7be-9eb0-bd20b1ed79d7.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-      <HelpTOCNode Id="1a2100e7-1e6c-40b1-a477-21d31b7aed45" Title="VssUnexpectedProviderErrorException Class" Url="html/eea108a3-9750-acd5-ce5c-73dd0f93deca.htm">
-        <HelpTOCNode Id="e8ee562c-eee8-42ef-99e6-1e2881d8b91c" Title="VssUnexpectedProviderErrorException Constructor " Url="html/6586d0b8-a83e-0b78-d970-57fc5197444c.htm">
-          <HelpTOCNode Title="VssUnexpectedProviderErrorException Constructor " Url="html/61cd7d72-dd19-140f-5fe0-78642b3dc51b.htm" />
-          <HelpTOCNode Title="VssUnexpectedProviderErrorException Constructor (String)" Url="html/492aefdf-6daf-a277-dece-706bc854380c.htm" />
-          <HelpTOCNode Title="VssUnexpectedProviderErrorException Constructor (String, Exception)" Url="html/82598397-15c6-6fe0-460c-025ed5da2fd4.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-      <HelpTOCNode Id="4d7477d5-da86-4153-b47a-5441a7e28fc8" Title="VssUnexpectedWriterErrorException Class" Url="html/011aa140-d6ba-695b-c874-9503729ae8b8.htm">
-        <HelpTOCNode Id="e7758ffe-dfdf-463c-a10d-222cfa3ee5ca" Title="VssUnexpectedWriterErrorException Constructor " Url="html/872c9965-3550-8994-f677-fca74bebe03a.htm">
-          <HelpTOCNode Title="VssUnexpectedWriterErrorException Constructor " Url="html/fc65f67e-679b-371d-a6b0-f4626ea6b16b.htm" />
-          <HelpTOCNode Title="VssUnexpectedWriterErrorException Constructor (String)" Url="html/28cc680d-e0a8-8b7c-5a45-327a92213754.htm" />
-          <HelpTOCNode Title="VssUnexpectedWriterErrorException Constructor (String, Exception)" Url="html/eff257ae-0dd6-3c9f-f9b5-1c476889c991.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-      <HelpTOCNode Id="06531d3f-f2b1-4fb9-bf69-c5bcd6176eee" Title="VssUnselectedVolumeException Class" Url="html/93e395a8-1ef4-4c77-361e-522125863b13.htm">
-        <HelpTOCNode Id="151f97be-0977-43cb-8090-9880bb9a6086" Title="VssUnselectedVolumeException Constructor " Url="html/66264c38-ff7c-5cd7-d6e2-1226ae78ed62.htm">
-          <HelpTOCNode Title="VssUnselectedVolumeException Constructor " Url="html/82c63826-6a3c-1cc9-a67e-03be0023aca1.htm" />
-          <HelpTOCNode Title="VssUnselectedVolumeException Constructor (String)" Url="html/ff06ff57-1e08-ac35-d087-00ae4e8a9353.htm" />
-          <HelpTOCNode Title="VssUnselectedVolumeException Constructor (SerializationInfo, StreamingContext)" Url="html/b9289b34-4e9d-843e-95b5-bd9cc58f9b05.htm" />
-          <HelpTOCNode Title="VssUnselectedVolumeException Constructor (String, Exception)" Url="html/2452ae77-4012-cd9e-1a75-ce832ccd4dee.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-      <HelpTOCNode Id="c8b88299-bbd0-422d-b776-09672b35ac72" Title="VssUnsupportedContextException Class" Url="html/6f7ba033-a28a-f6c1-1d7b-83199027fd0a.htm">
-        <HelpTOCNode Id="ee74a610-449f-4876-96c8-40cfab09f538" Title="VssUnsupportedContextException Constructor " Url="html/96fbcb9f-5d9e-6726-0681-0e63946d4fcc.htm">
-          <HelpTOCNode Title="VssUnsupportedContextException Constructor " Url="html/0c2daf6c-a6f7-24c8-ec9f-289ce2530a43.htm" />
-          <HelpTOCNode Title="VssUnsupportedContextException Constructor (String)" Url="html/d696d08b-624d-9473-4ffe-240b6168b7fa.htm" />
-          <HelpTOCNode Title="VssUnsupportedContextException Constructor (String, Exception)" Url="html/2e445781-02b6-47ca-ad35-2053e9f81cbe.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-      <HelpTOCNode Title="VssUsageType Enumeration" Url="html/e4ed6c17-a6fe-9102-801f-98848d60dd23.htm" />
-      <HelpTOCNode Id="db9cb2c4-369a-45af-84f5-c1ecf0e7ceed" Title="VssUtils Class" Url="html/932990b0-f54e-3789-248f-b433770e3794.htm">
-        <HelpTOCNode Id="75681437-996a-489d-985e-6ce854ce17eb" Title="VssUtils Methods" Url="html/b6f72bbf-7d47-1515-a782-426a495bc033.htm">
-          <HelpTOCNode Title="GetPlatformSpecificAssemblyName Method " Url="html/6bdd09d1-5c47-14ed-835e-23ae81f5737f.htm" />
-          <HelpTOCNode Title="GetPlatformSpecificAssemblyShortName Method " Url="html/f5d7088a-7146-cc72-e3ec-a150761f07be.htm" />
-          <HelpTOCNode Title="LoadImplementation Method " Url="html/4b8ee3ed-ae81-e7ed-3f45-c30835629c73.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-      <HelpTOCNode Id="d1dedadb-f347-43d6-b935-d8cf11d9a568" Title="VssWMDependency Class" Url="html/f0cf1835-7b6d-4105-5172-c7d52fdc3273.htm">
-        <HelpTOCNode Title="VssWMDependency Constructor " Url="html/e0adebd1-736b-0c15-4199-44c83f85f06b.htm" />
-        <HelpTOCNode Id="f03f58f5-d5f1-47af-9a16-91493ad538fe" Title="VssWMDependency Properties" Url="html/7733728b-d781-afd2-e49b-4979fec8b5aa.htm">
-          <HelpTOCNode Title="ComponentName Property " Url="html/f5e3a469-fdc0-c9f9-5f09-e16defe2651b.htm" />
-          <HelpTOCNode Title="LogicalPath Property " Url="html/5fe7fe84-e938-b05b-8e5f-aa60766fc867.htm" />
-          <HelpTOCNode Title="WriterId Property " Url="html/86a24ef6-0dcc-524a-052b-fdfb865be0f9.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-      <HelpTOCNode Id="879e646f-4df0-4c85-84dc-af9e66895a37" Title="VssWMFileDescriptor Class" Url="html/23b52f32-8818-52ff-4229-4b3d3a5540f0.htm">
-        <HelpTOCNode Title="VssWMFileDescriptor Constructor " Url="html/37158f0e-d3c9-ff9d-4847-287c959bff64.htm" />
-        <HelpTOCNode Id="20278594-e8f7-4614-b564-10363800254c" Title="VssWMFileDescriptor Properties" Url="html/1fcb4e74-fd2c-c8fc-f00b-805e48b3dfd4.htm">
-          <HelpTOCNode Title="AlternateLocation Property " Url="html/80d58318-cbbb-6856-5ee9-f24ba7f66166.htm" />
-          <HelpTOCNode Title="BackupTypeMask Property " Url="html/8cf102fc-2d7e-0379-9aa0-5f3dbe786596.htm" />
-          <HelpTOCNode Title="FileSpecification Property " Url="html/8eaa2d43-66c2-09c5-95ea-843f7e838a67.htm" />
-          <HelpTOCNode Title="IsRecursive Property " Url="html/d430e965-9486-f33e-8670-c7a8739460fc.htm" />
-          <HelpTOCNode Title="Path Property " Url="html/d8b876d6-8f33-3b02-e536-7047a0582d2d.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-      <HelpTOCNode Id="c0a6505b-06fd-4343-9264-cd26e8b9f789" Title="VssWMRestoreMethod Class" Url="html/0f60597b-1db6-5f52-e8ab-2c5320036a5c.htm">
-        <HelpTOCNode Title="VssWMRestoreMethod Constructor " Url="html/f1faa32d-a358-232c-ccd6-5edec9828b0a.htm" />
-        <HelpTOCNode Id="b9e18875-0cde-4dd9-9d81-a34f91c55da9" Title="VssWMRestoreMethod Properties" Url="html/82ae169b-40dc-cbf5-eafe-e853d7ab35cc.htm">
-          <HelpTOCNode Title="MappingCount Property " Url="html/8f6db02d-8e23-f106-5e69-366c516c91b8.htm" />
-          <HelpTOCNode Title="Method Property " Url="html/e51418ae-b7c7-0ea9-cc1f-ce5ce4a19329.htm" />
-          <HelpTOCNode Title="RebootRequired Property " Url="html/8b54e110-6047-6e8f-0882-46c3ce134964.htm" />
-          <HelpTOCNode Title="Service Property " Url="html/784e84ff-69e2-4ba2-084d-c963c07a930f.htm" />
-          <HelpTOCNode Title="UserProcedure Property " Url="html/76086274-16ce-c1c4-9114-a2def77df6bd.htm" />
-          <HelpTOCNode Title="WriterRestore Property " Url="html/a5e4e678-58dc-b353-eff4-f11d5d640238.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-      <HelpTOCNode Id="ee62747f-88a2-4b6b-9f78-663d9cb1b1c0" Title="VssVolumeInUseException Class" Url="html/d98293c5-ead5-229b-4d19-7f730c024cde.htm">
-        <HelpTOCNode Id="eb98b450-5c2d-4f17-8b6d-2e2ccf583997" Title="VssVolumeInUseException Constructor " Url="html/0d7acf23-ad5f-8f54-beb3-dea7f3e10d27.htm">
-          <HelpTOCNode Title="VssVolumeInUseException Constructor " Url="html/65d472b9-7609-f8ba-b1bd-f4a70504dfda.htm" />
-          <HelpTOCNode Title="VssVolumeInUseException Constructor (String)" Url="html/57c1f0eb-0135-ab7e-1127-ce3693352191.htm" />
-          <HelpTOCNode Title="VssVolumeInUseException Constructor (String, Exception)" Url="html/471bc8a1-8488-8901-79bd-028225491d73.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-      <HelpTOCNode Id="7708c706-6c49-418a-bea9-9bef7ba9cbb6" Title="VssVolumeNotSupportedByProviderException Class" Url="html/c16ddd42-fa24-0d00-27da-4e038c1ada49.htm">
-        <HelpTOCNode Id="c29bb26f-4de0-4259-b079-695204d417ec" Title="VssVolumeNotSupportedByProviderException Constructor " Url="html/e4942701-8ea9-7115-6928-759d58099ef6.htm">
-          <HelpTOCNode Title="VssVolumeNotSupportedByProviderException Constructor " Url="html/ab5a99d0-0d37-2f84-5fff-2aa0b4307b16.htm" />
-          <HelpTOCNode Title="VssVolumeNotSupportedByProviderException Constructor (String)" Url="html/f182aa18-9a8f-34ad-392c-2cc6dace2f61.htm" />
-          <HelpTOCNode Title="VssVolumeNotSupportedByProviderException Constructor (String, Exception)" Url="html/1642aa5f-c395-79ad-2998-0d97910e04ba.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-      <HelpTOCNode Id="e3a1c4ab-1df2-485b-8dd2-76e254d2bf1b" Title="VssVolumeNotSupportedException Class" Url="html/f7e05048-7667-cc43-d858-76b665a3723f.htm">
-        <HelpTOCNode Id="1920f7de-69f4-4974-9e7e-760fdb3be7e3" Title="VssVolumeNotSupportedException Constructor " Url="html/d957c93f-776d-7316-a21d-8fd499af91de.htm">
-          <HelpTOCNode Title="VssVolumeNotSupportedException Constructor " Url="html/702816a4-2c34-dd10-40d7-52c4206145f6.htm" />
-          <HelpTOCNode Title="VssVolumeNotSupportedException Constructor (String)" Url="html/c576718e-2432-f3e9-6bda-8b2804d0f616.htm" />
-          <HelpTOCNode Title="VssVolumeNotSupportedException Constructor (String, Exception)" Url="html/fe3f0a94-cfd4-f20f-6173-2936facdba96.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-      <HelpTOCNode Id="b33aac51-63a4-417b-9f24-6e11a6fef3ec" Title="VssVolumeProperties Class" Url="html/d8fcbf65-0618-52f7-fd8f-85ec161707f0.htm">
-        <HelpTOCNode Title="VssVolumeProperties Constructor " Url="html/315ae63b-3e82-a83d-a546-1ec76fced6c5.htm" />
-        <HelpTOCNode Id="af5d2355-e30b-4672-b659-4872b75913b5" Title="VssVolumeProperties Properties" Url="html/7e779727-b82e-cd5d-fc80-0dd21efac5f9.htm">
-          <HelpTOCNode Title="VolumeDisplayName Property " Url="html/642a4b5f-d47a-b469-eed7-64ddc80bae77.htm" />
-          <HelpTOCNode Title="VolumeName Property " Url="html/b0c713b8-1aa1-2a5d-8642-32f866d79b1d.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-      <HelpTOCNode Id="f1efe1ae-1f21-42cb-9864-b921f36cfacf" Title="VssVolumeProtectionInfo Class" Url="html/f498e10c-3f82-f15c-a034-d32d3b477d0f.htm">
-        <HelpTOCNode Title="VssVolumeProtectionInfo Constructor " Url="html/7188edb1-0906-f5bf-0563-207b342092dc.htm" />
-        <HelpTOCNode Id="ac2cbeca-d03a-4b6a-aeea-1ef1fd3577fe" Title="VssVolumeProtectionInfo Properties" Url="html/45d3aef3-c04e-fdf1-3b17-32e8b7d3e154.htm">
-          <HelpTOCNode Title="FailureStatus Property " Url="html/3f16d2d6-55ef-6c49-65b2-3b14c1f3945e.htm" />
-          <HelpTOCNode Title="ProtectionFault Property " Url="html/c70ba8c4-b8b7-fe5b-f299-354a3cb015a7.htm" />
-          <HelpTOCNode Title="ProtectionLevel Property " Url="html/a16b5926-f870-524b-396f-591e23fb10b2.htm" />
-          <HelpTOCNode Title="VolumeHasUnusedDiffArea Property " Url="html/4f9bc246-6e16-2edb-9084-7c2f6fe67a90.htm" />
-          <HelpTOCNode Title="VolumeIsOfflineForProtection Property " Url="html/2d7a207b-095a-ddb0-6be6-b42357d2e7f2.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-      <HelpTOCNode Title="VssVolumeSnapshotAttributes Enumeration" Url="html/27f6ef93-4d42-cf5e-8aaf-fe7c819fec04.htm" />
-      <HelpTOCNode Id="db365d7b-4ed7-4f94-9a1e-469e21d822c3" Title="VssWriterException Class" Url="html/18b987bf-9e5c-273d-89ac-15b7499ea6f5.htm">
-        <HelpTOCNode Id="a60413d1-73d5-4b23-a5bc-aaecf31db0a2" Title="VssWriterException Constructor " Url="html/921fd8b9-1938-9bbf-e5da-72f2feddf116.htm">
-          <HelpTOCNode Title="VssWriterException Constructor " Url="html/e75e2efa-6b47-1362-86d7-10f7a77963ba.htm" />
-          <HelpTOCNode Title="VssWriterException Constructor (String)" Url="html/39e9d03c-c7b7-bf9a-8d34-e2e29e4f3f74.htm" />
-          <HelpTOCNode Title="VssWriterException Constructor (SerializationInfo, StreamingContext)" Url="html/8a342c43-c702-7484-f7b6-f1b728496624.htm" />
-          <HelpTOCNode Title="VssWriterException Constructor (String, Exception)" Url="html/781dcc1c-dec4-977c-6643-ee1f5752bc83.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-      <HelpTOCNode Id="0f39b81a-6f01-4bbe-b820-aa8d9d05a537" Title="VssWriterInfrastructureException Class" Url="html/60782674-a26b-febd-fda2-572560dff3f4.htm">
-        <HelpTOCNode Id="6a200ca8-ba04-4803-ae63-75738b795874" Title="VssWriterInfrastructureException Constructor " Url="html/16cfc16f-8151-50c7-cecd-ddd9d95a36f7.htm">
-          <HelpTOCNode Title="VssWriterInfrastructureException Constructor " Url="html/3a8ea451-1c7c-4336-7e1a-f633b78488b9.htm" />
-          <HelpTOCNode Title="VssWriterInfrastructureException Constructor (String)" Url="html/9c953983-4477-caf0-da1d-bfa31e3e2dbe.htm" />
-          <HelpTOCNode Title="VssWriterInfrastructureException Constructor (String, Exception)" Url="html/81af18a8-30dc-fc0f-abc5-7cc9c2d24c01.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-      <HelpTOCNode Id="bd852195-74ba-4b66-b072-75c2d2e07da4" Title="VssWriterNotRespondingException Class" Url="html/f24e969c-fb95-14d4-6b89-0acaa6dce531.htm">
-        <HelpTOCNode Id="38c2df9c-c663-4be4-bd2d-8b4e730c9aee" Title="VssWriterNotRespondingException Constructor " Url="html/07cc4871-10fc-6174-e71b-5a5fbd17f203.htm">
-          <HelpTOCNode Title="VssWriterNotRespondingException Constructor " Url="html/bc276c73-3a17-e558-b260-ffc12dc3937e.htm" />
-          <HelpTOCNode Title="VssWriterNotRespondingException Constructor (String)" Url="html/ac7c995c-3603-76fd-55d5-d410f466f9a8.htm" />
-          <HelpTOCNode Title="VssWriterNotRespondingException Constructor (SerializationInfo, StreamingContext)" Url="html/66e12a3d-2787-f8fb-14cf-8944466d0dd7.htm" />
-          <HelpTOCNode Title="VssWriterNotRespondingException Constructor (String, Exception)" Url="html/231396ba-de91-b987-5502-3f8134963901.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-      <HelpTOCNode Title="VssWriterRestore Enumeration" Url="html/644341ad-f1e1-d17b-d6c7-2f9b68d9c451.htm" />
-      <HelpTOCNode Title="VssWriterState Enumeration" Url="html/6517e5ab-71d6-6fd8-1266-b6c66d6b2a49.htm" />
-      <HelpTOCNode Id="a0747298-a61f-4a29-a57e-7def21acd526" Title="VssWriterStatusInfo Class" Url="html/5cad6584-f4b4-2530-3f2b-f1b38dc88320.htm">
-        <HelpTOCNode Id="cea24c9c-64e7-475b-8d8f-d0e9f47a85e8" Title="VssWriterStatusInfo Constructor " Url="html/65e25a27-b724-5dbe-bbf1-deafee853835.htm">
-          <HelpTOCNode Title="VssWriterStatusInfo Constructor (Guid, Guid, String, VssWriterState, VssError)" Url="html/d6479dbb-a1ec-0095-f666-a7f31e3e892c.htm" />
-          <HelpTOCNode Title="VssWriterStatusInfo Constructor (Guid, Guid, String, VssWriterState, VssError, Nullable(Int32), String)" Url="html/aa2e86ab-37c8-752c-1c10-a5195c041edf.htm" />
-        </HelpTOCNode>
-        <HelpTOCNode Id="a9ac05bb-31a2-4cc5-8e9f-c002d025584a" Title="VssWriterStatusInfo Properties" Url="html/3782e456-60df-70cf-39aa-4b56d84eff2e.htm">
-          <HelpTOCNode Title="ApplicationErrorCode Property " Url="html/7159910f-441d-e0a3-e40f-7c8f00fe2484.htm" />
-          <HelpTOCNode Title="ApplicationErrorMessage Property " Url="html/2d271059-e937-b6f3-e6f7-a9ca4eddff4d.htm" />
-          <HelpTOCNode Title="ClassId Property " Url="html/002657f3-c951-e861-85fe-08087c433b76.htm" />
-          <HelpTOCNode Title="Failure Property " Url="html/78f375f2-b8c8-7e8d-7402-de733ef6d419.htm" />
-          <HelpTOCNode Title="InstanceId Property " Url="html/af436e92-a15d-db68-fbfc-08b53bd7de2b.htm" />
-          <HelpTOCNode Title="Name Property " Url="html/face5f61-2d5b-93cf-b8ea-643b8356c409.htm" />
-          <HelpTOCNode Title="State Property " Url="html/2df8c3ca-9ce2-1013-fa81-efe4fb62f200.htm" />
-        </HelpTOCNode>
-      </HelpTOCNode>
-      <HelpTOCNode Id="150cb51c-51e1-4e40-8f48-4ef722216ccb" Title="VssWriterStatusNotAvailableException Class" Url="html/fc6d38ec-3055-d05a-562c-42de082829c1.htm">
-        <HelpTOCNode Id="8342b815-251d-4091-a1dd-1951ff08b8d4" Title="VssWriterStatusNotAvailableException Constructor " Url="html/5bfa8370-7f50-842c-3dba-5c06b36a755f.htm">
-          <HelpTOCNode Title="VssWriterStatusNotAvailableException Constructor " Url="html/133cf0cc-e92a-42f9-5ea5-7fb0320daa4c.htm" />
-          <HelpTOCNode Title="VssWriterStatusNotAvailableException Constructor (String)" Url="html/7b1fdb1c-ffd4-958f-62e1-b087dbb3a695.htm" />
-          <HelpTOCNode Title="VssWriterStatusNotAvailableException Constructor (SerializationInfo, StreamingContext)" Url="html/a1f96812-6d05-d495-a899-f17207986ff8.htm" />
-          <HelpTOCNode Title="VssWriterStatusNotAvailableException Constructor (String, Exception)" Url="html/e2a085d5-9061-7663-5fac-1da79edd49e9.htm" />
-        </HelpTOCNode>
+  <HelpTOCNode Id="59278ff7-4f3d-4568-beae-577e96fc811d" Title="Alphaleonis.Win32.Vss" Url="html/CB8FFC05.htm">
+    <HelpTOCNode Id="2247a4b0-2124-4c02-9841-fc5b51676408" Title="IVssAsyncResult Interface" Url="html/A559D0C1.htm">
+      <HelpTOCNode Id="2a3f8d2b-6196-4a72-8586-cda082338a39" Title="IVssAsyncResult Methods" Url="html/F9F4ECB.htm">
+        <HelpTOCNode Title="Cancel Method " Url="html/C79375D2.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="0c0d58ee-dd55-495c-8aef-a7f7b236218a" Title="IVssBackupComponents Interface" Url="html/1314A242.htm">
+      <HelpTOCNode Id="8de55a5f-375e-434b-a8ac-3b45715943f5" Title="IVssBackupComponents Methods" Url="html/FC88E9D6.htm">
+        <HelpTOCNode Title="AbortBackup Method " Url="html/DF849693.htm" />
+        <HelpTOCNode Title="AddAlternativeLocationMapping Method " Url="html/47E41BD0.htm" />
+        <HelpTOCNode Title="AddComponent Method " Url="html/87446EC5.htm" />
+        <HelpTOCNode Title="AddNewTarget Method " Url="html/C4B66A4F.htm" />
+        <HelpTOCNode Title="AddRestoreSubcomponent Method " Url="html/9817475.htm" />
+        <HelpTOCNode Title="AddSnapshotToRecoverySet Method " Url="html/F48D9AE8.htm" />
+        <HelpTOCNode Id="1333644a-0ade-47d5-9dbc-dc5966ccfef2" Title="AddToSnapshotSet Method " Url="html/AFFE8E68.htm">
+          <HelpTOCNode Title="AddToSnapshotSet Method (String)" Url="html/E175288F.htm" />
+          <HelpTOCNode Title="AddToSnapshotSet Method (String, Guid)" Url="html/DE6D3EC9.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Title="BackupComplete Method " Url="html/C48A5CDE.htm" />
+        <HelpTOCNode Title="BeginBackupComplete Method " Url="html/55B91A67.htm" />
+        <HelpTOCNode Title="BeginBreakSnapshotSet Method " Url="html/886A84FD.htm" />
+        <HelpTOCNode Title="BeginDoSnapshotSet Method " Url="html/CB75015D.htm" />
+        <HelpTOCNode Title="BeginGatherWriterMetadata Method " Url="html/B6BC796F.htm" />
+        <HelpTOCNode Title="BeginGatherWriterStatus Method " Url="html/2412F3D2.htm" />
+        <HelpTOCNode Title="BeginImportSnapshots Method " Url="html/48D3FD86.htm" />
+        <HelpTOCNode Title="BeginPostRestore Method " Url="html/86C34128.htm" />
+        <HelpTOCNode Title="BeginPrepareForBackup Method " Url="html/B1FF2568.htm" />
+        <HelpTOCNode Title="BeginPreRestore Method " Url="html/ABE32F77.htm" />
+        <HelpTOCNode Title="BeginQueryRevertStatus Method " Url="html/E5ED6230.htm" />
+        <HelpTOCNode Title="BeginRecoverSet Method " Url="html/5DD2C960.htm" />
+        <HelpTOCNode Id="02260782-7705-4f8a-a89e-a0e5455926c2" Title="BreakSnapshotSet Method " Url="html/98D93447.htm">
+          <HelpTOCNode Title="BreakSnapshotSet Method (Guid)" Url="html/EFC1A92A.htm" />
+          <HelpTOCNode Title="BreakSnapshotSet Method (Guid, VssHardwareOptions)" Url="html/A9DD978A.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Title="DeleteSnapshot Method " Url="html/1C17AE2C.htm" />
+        <HelpTOCNode Title="DeleteSnapshotSet Method " Url="html/5E45B6C.htm" />
+        <HelpTOCNode Title="DisableWriterClasses Method " Url="html/664E8C6A.htm" />
+        <HelpTOCNode Title="DisableWriterInstances Method " Url="html/F544577A.htm" />
+        <HelpTOCNode Title="DoSnapshotSet Method " Url="html/B2CF8A9E.htm" />
+        <HelpTOCNode Title="EnableWriterClasses Method " Url="html/3475E0DD.htm" />
+        <HelpTOCNode Title="EndBackupComplete Method " Url="html/53824577.htm" />
+        <HelpTOCNode Title="EndBreakSnapshotSet Method " Url="html/DDA64F71.htm" />
+        <HelpTOCNode Title="EndDoSnapshotSet Method " Url="html/F3EE0C79.htm" />
+        <HelpTOCNode Title="EndGatherWriterMetadata Method " Url="html/333FC1DF.htm" />
+        <HelpTOCNode Title="EndGatherWriterStatus Method " Url="html/52296BB2.htm" />
+        <HelpTOCNode Title="EndImportSnapshots Method " Url="html/97CB4856.htm" />
+        <HelpTOCNode Title="EndPostRestore Method " Url="html/5AE0EB44.htm" />
+        <HelpTOCNode Title="EndPrepareForBackup Method " Url="html/E1EAA2DC.htm" />
+        <HelpTOCNode Title="EndPreRestore Method " Url="html/6800F6D7.htm" />
+        <HelpTOCNode Title="EndQueryRevertStatus Method " Url="html/BF70C894.htm" />
+        <HelpTOCNode Title="EndRecoverSet Method " Url="html/B09216BC.htm" />
+        <HelpTOCNode Title="ExposeSnapshot Method " Url="html/62EDBF2F.htm" />
+        <HelpTOCNode Title="FreeWriterMetadata Method " Url="html/3F6C877D.htm" />
+        <HelpTOCNode Title="FreeWriterStatus Method " Url="html/C5593990.htm" />
+        <HelpTOCNode Title="GatherWriterMetadata Method " Url="html/59FC687A.htm" />
+        <HelpTOCNode Title="GatherWriterStatus Method " Url="html/3987624D.htm" />
+        <HelpTOCNode Title="GetSessionId Method " Url="html/6B966CF6.htm" />
+        <HelpTOCNode Title="GetSnapshotProperties Method " Url="html/C9AF9534.htm" />
+        <HelpTOCNode Title="ImportSnapshots Method " Url="html/D7741A9.htm" />
+        <HelpTOCNode Title="InitializeForBackup Method " Url="html/9ED6B936.htm" />
+        <HelpTOCNode Title="InitializeForRestore Method " Url="html/FD62FFEE.htm" />
+        <HelpTOCNode Id="3839c1d9-de73-41bf-8ed7-656060da95cd" Title="IsVolumeSupported Method " Url="html/F1305C4A.htm">
+          <HelpTOCNode Title="IsVolumeSupported Method (String)" Url="html/151C39E3.htm" />
+          <HelpTOCNode Title="IsVolumeSupported Method (String, Guid)" Url="html/DBE50DAD.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Title="PostRestore Method " Url="html/CEAF3FA7.htm" />
+        <HelpTOCNode Title="PrepareForBackup Method " Url="html/C61678CB.htm" />
+        <HelpTOCNode Title="PreRestore Method " Url="html/76BD9AE6.htm" />
+        <HelpTOCNode Title="QueryProviders Method " Url="html/FF0BFF5B.htm" />
+        <HelpTOCNode Title="QuerySnapshots Method " Url="html/60040F6.htm" />
+        <HelpTOCNode Title="RecoverSet Method " Url="html/4DE48CDF.htm" />
+        <HelpTOCNode Title="RevertToSnapshot Method " Url="html/E6E62094.htm" />
+        <HelpTOCNode Title="SaveAsXml Method " Url="html/C32ECB6D.htm" />
+        <HelpTOCNode Title="SetAdditionalRestores Method " Url="html/E6B62633.htm" />
+        <HelpTOCNode Title="SetAuthoritativeRestore Method " Url="html/7B1ECDB6.htm" />
+        <HelpTOCNode Title="SetBackupOptions Method " Url="html/3441E833.htm" />
+        <HelpTOCNode Title="SetBackupState Method " Url="html/1F7A5F70.htm" />
+        <HelpTOCNode Title="SetBackupSucceeded Method " Url="html/D551C600.htm" />
+        <HelpTOCNode Id="d3a198b2-06f9-4a4a-a4ca-9a0be7569d6b" Title="SetContext Method " Url="html/44C3193F.htm">
+          <HelpTOCNode Title="SetContext Method (VssSnapshotContext)" Url="html/A053188C.htm" />
+          <HelpTOCNode Title="SetContext Method (VssVolumeSnapshotAttributes)" Url="html/93E0CDEC.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Title="SetFileRestoreStatus Method " Url="html/F87901DB.htm" />
+        <HelpTOCNode Title="SetPreviousBackupStamp Method " Url="html/792A97E1.htm" />
+        <HelpTOCNode Title="SetRangesFilePath Method " Url="html/B0D447E6.htm" />
+        <HelpTOCNode Title="SetRestoreName Method " Url="html/49D4829E.htm" />
+        <HelpTOCNode Title="SetRestoreOptions Method " Url="html/B113B4C5.htm" />
+        <HelpTOCNode Title="SetRestoreState Method " Url="html/E543D8BE.htm" />
+        <HelpTOCNode Title="SetRollForward Method " Url="html/818C37AB.htm" />
+        <HelpTOCNode Id="78d66c2e-89e7-4cd8-a77a-e7115cf7eb76" Title="SetSelectedForRestore Method " Url="html/4F03C444.htm">
+          <HelpTOCNode Title="SetSelectedForRestore Method (Guid, VssComponentType, String, String, Boolean)" Url="html/308D7B03.htm" />
+          <HelpTOCNode Title="SetSelectedForRestore Method (Guid, VssComponentType, String, String, Boolean, Guid)" Url="html/1EFB438D.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Title="StartSnapshotSet Method " Url="html/A03D5945.htm" />
+        <HelpTOCNode Title="UnexposeSnapshot Method " Url="html/B137C038.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="73aea8d4-1401-4b41-88ab-8ba520dc4d73" Title="IVssBackupComponents Properties" Url="html/BF803AAF.htm">
+        <HelpTOCNode Title="WriterComponents Property " Url="html/6332AF61.htm" />
+        <HelpTOCNode Title="WriterMetadata Property " Url="html/AAA47D26.htm" />
+        <HelpTOCNode Title="WriterStatus Property " Url="html/30DC20C1.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="2845d2a7-ff07-4adb-a868-f174ff5e26a8" Title="IVssComponent Interface" Url="html/B5C84719.htm">
+      <HelpTOCNode Id="be223994-8dbe-4555-9416-a335832f62b8" Title="IVssComponent Properties" Url="html/5FEA975C.htm">
+        <HelpTOCNode Title="AdditionalRestores Property " Url="html/66E292F1.htm" />
+        <HelpTOCNode Title="AlternateLocationMappings Property " Url="html/659F30CD.htm" />
+        <HelpTOCNode Title="BackupOptions Property " Url="html/EAAA96B5.htm" />
+        <HelpTOCNode Title="BackupStamp Property " Url="html/2EBABD14.htm" />
+        <HelpTOCNode Title="BackupSucceeded Property " Url="html/2AB4A3E.htm" />
+        <HelpTOCNode Title="ComponentName Property " Url="html/B8705183.htm" />
+        <HelpTOCNode Title="ComponentType Property " Url="html/E34D0DD2.htm" />
+        <HelpTOCNode Title="DifferencedFiles Property " Url="html/6EAB9A31.htm" />
+        <HelpTOCNode Title="DirectedTargets Property " Url="html/B151E355.htm" />
+        <HelpTOCNode Title="Failure Property " Url="html/191B16F7.htm" />
+        <HelpTOCNode Title="FileRestoreStatus Property " Url="html/74ED6B9D.htm" />
+        <HelpTOCNode Title="IsAuthoritativeRestore Property " Url="html/A135B21C.htm" />
+        <HelpTOCNode Title="IsSelectedForRestore Property " Url="html/EF91DB17.htm" />
+        <HelpTOCNode Title="LogicalPath Property " Url="html/D2A3AB99.htm" />
+        <HelpTOCNode Title="NewTargets Property " Url="html/115B4A45.htm" />
+        <HelpTOCNode Title="PartialFiles Property " Url="html/A722C35D.htm" />
+        <HelpTOCNode Title="PostRestoreFailureMsg Property " Url="html/E22E09D2.htm" />
+        <HelpTOCNode Title="PostSnapshotFailureMsg Property " Url="html/83DE1E1E.htm" />
+        <HelpTOCNode Title="PrepareForBackupFailureMsg Property " Url="html/7D46A9AC.htm" />
+        <HelpTOCNode Title="PreRestoreFailureMsg Property " Url="html/A4BFBEA9.htm" />
+        <HelpTOCNode Title="PreviousBackupStamp Property " Url="html/A4C7EA63.htm" />
+        <HelpTOCNode Title="RestoreName Property " Url="html/F6CCFD60.htm" />
+        <HelpTOCNode Title="RestoreOptions Property " Url="html/F0832F03.htm" />
+        <HelpTOCNode Title="RestoreSubcomponents Property " Url="html/FD0E9963.htm" />
+        <HelpTOCNode Title="RestoreTarget Property " Url="html/410D836A.htm" />
+        <HelpTOCNode Title="RollForwardRestorePoint Property " Url="html/79F42CFD.htm" />
+        <HelpTOCNode Title="RollForwardType Property " Url="html/390D1235.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="4e5ff384-d731-4887-ad93-ec9537782c35" Title="IVssDifferentialSoftwareSnapshotManagement Interface" Url="html/59468B3F.htm">
+      <HelpTOCNode Id="fc9a162b-96a8-468f-8868-a335a98151f0" Title="IVssDifferentialSoftwareSnapshotManagement Methods" Url="html/24AD2CDD.htm">
+        <HelpTOCNode Title="AddDiffArea Method " Url="html/F007495F.htm" />
+        <HelpTOCNode Id="ecad8e14-3cb8-490f-a0c7-6d5ea2dc863e" Title="ChangeDiffAreaMaximumSize Method " Url="html/53FE9A42.htm">
+          <HelpTOCNode Title="ChangeDiffAreaMaximumSize Method (String, String, Int64)" Url="html/F2B6554D.htm" />
+          <HelpTOCNode Title="ChangeDiffAreaMaximumSize Method (String, String, Int64, Boolean)" Url="html/263F6703.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Title="ClearVolumeProtectFault Method " Url="html/74BB57A6.htm" />
+        <HelpTOCNode Title="DeleteUnusedDiffAreas Method " Url="html/2237C2F4.htm" />
+        <HelpTOCNode Title="GetVolumeProtectionLevel Method " Url="html/7332B2BB.htm" />
+        <HelpTOCNode Title="QueryDiffAreasForSnapshot Method " Url="html/DF16EE9E.htm" />
+        <HelpTOCNode Title="QueryDiffAreasForVolume Method " Url="html/6A279AEC.htm" />
+        <HelpTOCNode Title="QueryDiffAreasOnVolume Method " Url="html/DA2C6670.htm" />
+        <HelpTOCNode Title="QueryVolumesSupportedForDiffAreas Method " Url="html/87A06125.htm" />
+        <HelpTOCNode Title="SetVolumeProtectionLevel Method " Url="html/FECD261F.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="88ce2f41-6257-4bb0-9647-9744daa80b34" Title="IVssExamineWriterMetadata Interface" Url="html/D47AF8B7.htm">
+      <HelpTOCNode Id="540f2a44-a5b6-4687-9a6e-fcef09263b6b" Title="IVssExamineWriterMetadata Methods" Url="html/B5B70B81.htm">
+        <HelpTOCNode Title="LoadFromXml Method " Url="html/3015D75D.htm" />
+        <HelpTOCNode Title="SaveAsXml Method " Url="html/89B5E22.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="8343aad8-b8ca-461c-b12c-401ebf54ef6e" Title="IVssExamineWriterMetadata Properties" Url="html/93FB10BA.htm">
+        <HelpTOCNode Title="AlternateLocationMappings Property " Url="html/ACB7A437.htm" />
+        <HelpTOCNode Title="BackupSchema Property " Url="html/91B5DD80.htm" />
+        <HelpTOCNode Title="Components Property " Url="html/3AA17CB9.htm" />
+        <HelpTOCNode Title="ExcludeFiles Property " Url="html/81F3939C.htm" />
+        <HelpTOCNode Title="ExcludeFromSnapshotFiles Property " Url="html/DF6F3CD8.htm" />
+        <HelpTOCNode Title="InstanceId Property " Url="html/7CABC4E5.htm" />
+        <HelpTOCNode Title="InstanceName Property " Url="html/BE6A14CF.htm" />
+        <HelpTOCNode Title="RestoreMethod Property " Url="html/9C3A7358.htm" />
+        <HelpTOCNode Title="Source Property " Url="html/ECACDEB0.htm" />
+        <HelpTOCNode Title="Usage Property " Url="html/DB66EC20.htm" />
+        <HelpTOCNode Title="Version Property " Url="html/4D9973.htm" />
+        <HelpTOCNode Title="WriterId Property " Url="html/22885417.htm" />
+        <HelpTOCNode Title="WriterName Property " Url="html/C74D243D.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="8fd367c6-7e6b-4669-b4f6-07aa83dd3adf" Title="IVssImplementation Interface" Url="html/A835444E.htm">
+      <HelpTOCNode Id="e2ecb416-2e84-43f7-b9f0-5c1656351ffe" Title="IVssImplementation Methods" Url="html/8A87280E.htm">
+        <HelpTOCNode Title="CreateVssBackupComponents Method " Url="html/5D074DFB.htm" />
+        <HelpTOCNode Title="CreateVssExamineWriterMetadata Method " Url="html/2375FE.htm" />
+        <HelpTOCNode Title="GetSnapshotCompatibility Method " Url="html/AB07560B.htm" />
+        <HelpTOCNode Title="GetSnapshotManagementInterface Method " Url="html/4424517.htm" />
+        <HelpTOCNode Title="IsVolumeSnapshotted Method " Url="html/9F554EFA.htm" />
+        <HelpTOCNode Title="ShouldBlockRevert Method " Url="html/47DDA135.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="2875286c-d877-42cc-b577-4843bde24f76" Title="IVssSnapshotManagement Interface" Url="html/C20E365D.htm">
+      <HelpTOCNode Id="85470156-1513-4177-90cb-40655201fce2" Title="IVssSnapshotManagement Methods" Url="html/C4763AEB.htm">
+        <HelpTOCNode Title="GetDifferentialSoftwareSnapshotManagementInterface Method " Url="html/E4A24696.htm" />
+        <HelpTOCNode Title="GetMinDiffAreaSize Method " Url="html/50F064B5.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="17e6625e-afde-4e69-999d-e021cec6b63c" Title="IVssWMComponent Interface" Url="html/A1F8B90F.htm">
+      <HelpTOCNode Id="dda50cf0-4247-43a6-9829-ff62417ff3ea" Title="IVssWMComponent Methods" Url="html/F2281F6D.htm">
+        <HelpTOCNode Title="GetIcon Method " Url="html/770FF029.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="225a17a7-22f4-4168-a7b0-b66d82fd943d" Title="IVssWMComponent Properties" Url="html/30EF19C4.htm">
+        <HelpTOCNode Title="Caption Property " Url="html/1B68D223.htm" />
+        <HelpTOCNode Title="ComponentFlags Property " Url="html/F85BA649.htm" />
+        <HelpTOCNode Title="ComponentName Property " Url="html/CEA05B19.htm" />
+        <HelpTOCNode Title="DatabaseFiles Property " Url="html/867E1699.htm" />
+        <HelpTOCNode Title="DatabaseLogFiles Property " Url="html/2B209F9.htm" />
+        <HelpTOCNode Title="Dependencies Property " Url="html/740628B2.htm" />
+        <HelpTOCNode Title="Files Property " Url="html/1FBE8086.htm" />
+        <HelpTOCNode Title="LogicalPath Property " Url="html/EC2AA6BF.htm" />
+        <HelpTOCNode Title="NotifyOnBackupComplete Property " Url="html/CF2A22E6.htm" />
+        <HelpTOCNode Title="RestoreMetadata Property " Url="html/2F6A4F5A.htm" />
+        <HelpTOCNode Title="Selectable Property " Url="html/AF4612CB.htm" />
+        <HelpTOCNode Title="SelectableForRestore Property " Url="html/2C1F74E0.htm" />
+        <HelpTOCNode Title="Type Property " Url="html/423402A9.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="85e4dffe-0c63-414f-9551-f6450d7a509f" Title="IVssWriterComponents Interface" Url="html/5F3DE39D.htm">
+      <HelpTOCNode Id="99569f78-3c36-47a0-bd2a-8de5bdaa2817" Title="IVssWriterComponents Properties" Url="html/5E8B290A.htm">
+        <HelpTOCNode Title="Components Property " Url="html/F6D45B07.htm" />
+        <HelpTOCNode Title="InstanceId Property " Url="html/C21DE6BB.htm" />
+        <HelpTOCNode Title="WriterId Property " Url="html/3B6B9959.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="4298c0fb-c526-4234-9c59-800834b2db98" Title="OperatingSystemInfo Class" Url="html/DA6CF8E7.htm">
+      <HelpTOCNode Id="d1afac02-bd60-44fc-8900-7115818921db" Title="OperatingSystemInfo Methods" Url="html/2097C5A5.htm">
+        <HelpTOCNode Id="d8442e9e-8576-474b-8970-86cf449e7201" Title="IsAtLeast Method " Url="html/D59FDB79.htm">
+          <HelpTOCNode Title="IsAtLeast Method (OSVersionName)" Url="html/C81BA9C2.htm" />
+          <HelpTOCNode Title="IsAtLeast Method (OSVersionName, Int32)" Url="html/127982BE.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Title="IsWow64Process Method " Url="html/8E464002.htm" />
+        <HelpTOCNode Id="b9a42690-8df7-40ac-b14f-c1b30a27fd51" Title="RequireAtLeast Method " Url="html/488FE110.htm">
+          <HelpTOCNode Title="RequireAtLeast Method (OSVersionName)" Url="html/2E95DB7.htm" />
+          <HelpTOCNode Title="RequireAtLeast Method (OSVersionName, Int32)" Url="html/3CD37CDD.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Title="RequireServer Method " Url="html/BF60BE80.htm" />
+        <HelpTOCNode Title="RequireServerOrClientAtLeast Method " Url="html/88905E04.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="eca84880-0760-44a8-be18-ed5e657f2560" Title="OperatingSystemInfo Properties" Url="html/7B598CFE.htm">
+        <HelpTOCNode Title="IsServer Property " Url="html/B027D432.htm" />
+        <HelpTOCNode Title="OSVersion Property " Url="html/BF551E3B.htm" />
+        <HelpTOCNode Title="OSVersionName Property " Url="html/9683B96E.htm" />
+        <HelpTOCNode Title="ProcessorArchitecture Property " Url="html/67856FDC.htm" />
+        <HelpTOCNode Title="ServicePackVersion Property " Url="html/CDF592DB.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Title="OSVersionName Enumeration" Url="html/92A80FFA.htm" />
+    <HelpTOCNode Title="ProcessorArchitecture Enumeration" Url="html/B9AA48F0.htm" />
+    <HelpTOCNode Id="a6688ba9-d05c-4ec1-bcae-a3fa1ee457cc" Title="UnsupportedOperatingSystemException Class" Url="html/57C9283F.htm">
+      <HelpTOCNode Id="12bc5886-4b03-4291-8e1b-f1e0eb462d5f" Title="UnsupportedOperatingSystemException Constructor " Url="html/110F8EE8.htm">
+        <HelpTOCNode Title="UnsupportedOperatingSystemException Constructor " Url="html/68C19D45.htm" />
+        <HelpTOCNode Title="UnsupportedOperatingSystemException Constructor (String)" Url="html/1F3505A3.htm" />
+        <HelpTOCNode Title="UnsupportedOperatingSystemException Constructor (String, Exception)" Url="html/1F3505A0.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Title="VssBackupSchema Enumeration" Url="html/2B888CD2.htm" />
+    <HelpTOCNode Title="VssBackupType Enumeration" Url="html/69224FFD.htm" />
+    <HelpTOCNode Id="289e8e22-10f5-44d7-805d-f0906aefc7a7" Title="VssBadStateException Class" Url="html/1F55BF5C.htm">
+      <HelpTOCNode Id="392a720e-ac41-4270-916f-00cfef243fb7" Title="VssBadStateException Constructor " Url="html/77B06737.htm">
+        <HelpTOCNode Title="VssBadStateException Constructor " Url="html/BB32D40C.htm" />
+        <HelpTOCNode Title="VssBadStateException Constructor (String)" Url="html/3C64F53F.htm" />
+        <HelpTOCNode Title="VssBadStateException Constructor (SerializationInfo, StreamingContext)" Url="html/99BD80A4.htm" />
+        <HelpTOCNode Title="VssBadStateException Constructor (String, Exception)" Url="html/DF0C69DA.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="4c17baf7-f893-45b1-bbe0-c1ccfc2dda3e" Title="VssCannotRevertDiskIdException Class" Url="html/964A1073.htm">
+      <HelpTOCNode Id="8a82ee5b-6746-4522-82e0-89934402c5ab" Title="VssCannotRevertDiskIdException Constructor " Url="html/50D43ED0.htm">
+        <HelpTOCNode Title="VssCannotRevertDiskIdException Constructor " Url="html/3012090D.htm" />
+        <HelpTOCNode Title="VssCannotRevertDiskIdException Constructor (String)" Url="html/4D2ACA86.htm" />
+        <HelpTOCNode Title="VssCannotRevertDiskIdException Constructor (SerializationInfo, StreamingContext)" Url="html/AA8355EB.htm" />
+        <HelpTOCNode Title="VssCannotRevertDiskIdException Constructor (String, Exception)" Url="html/EFD23F21.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="9f42f3db-a83f-4f31-9499-f55042199411" Title="VssComponentFailure Class" Url="html/37F20164.htm">
+      <HelpTOCNode Title="VssComponentFailure Constructor " Url="html/968C3676.htm" />
+      <HelpTOCNode Id="b37cfdc0-7e53-48e8-b4de-9851ea40053e" Title="VssComponentFailure Properties" Url="html/DDB99B07.htm">
+        <HelpTOCNode Title="ApplicationErrorCode Property " Url="html/397AE2FD.htm" />
+        <HelpTOCNode Title="ApplicationMessage Property " Url="html/23239DDB.htm" />
+        <HelpTOCNode Title="ErrorCode Property " Url="html/68FFC80F.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Title="VssComponentFlags Enumeration" Url="html/122F26CF.htm" />
+    <HelpTOCNode Title="VssComponentType Enumeration" Url="html/2F8A5076.htm" />
+    <HelpTOCNode Id="8717469c-fab0-4a96-8819-e7a0bdce1071" Title="VssDeleteSnapshotsFailedException Class" Url="html/98C8F385.htm">
+      <HelpTOCNode Id="c00508ca-a7ea-44d1-b258-49931d66aeb9" Title="VssDeleteSnapshotsFailedException Constructor " Url="html/9C1FE6FE.htm">
+        <HelpTOCNode Title="VssDeleteSnapshotsFailedException Constructor " Url="html/DDB0C8DF.htm" />
+        <HelpTOCNode Title="VssDeleteSnapshotsFailedException Constructor (String)" Url="html/A76BD22E.htm" />
+        <HelpTOCNode Title="VssDeleteSnapshotsFailedException Constructor (String, Exception)" Url="html/A76BD22F.htm" />
+        <HelpTOCNode Title="VssDeleteSnapshotsFailedException Constructor (Int32, Guid, Exception)" Url="html/A76BD231.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="6c993f1c-8a23-4c9b-a865-d90ad72b8e2f" Title="VssDeleteSnapshotsFailedException Methods" Url="html/296616C7.htm">
+        <HelpTOCNode Title="GetObjectData Method " Url="html/BE47BAE5.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="c79c62fc-cf5c-4098-b5c7-72a2fe49b025" Title="VssDeleteSnapshotsFailedException Properties" Url="html/3F3F5C82.htm">
+        <HelpTOCNode Title="DeletedSnapshotsCount Property " Url="html/AE1A1EFE.htm" />
+        <HelpTOCNode Title="NonDeletedSnapshotId Property " Url="html/D0A6F8AC.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="5ea6e089-d6c7-42aa-8c23-6e8f2ff1d470" Title="VssDiffAreaProperties Class" Url="html/9ABCB14C.htm">
+      <HelpTOCNode Title="VssDiffAreaProperties Constructor " Url="html/5B2D0E6A.htm" />
+      <HelpTOCNode Id="770991a4-4ae5-440a-9030-9d8ca6744a26" Title="VssDiffAreaProperties Properties" Url="html/88FFBCB3.htm">
+        <HelpTOCNode Title="AllocatedDiffSpace Property " Url="html/48996146.htm" />
+        <HelpTOCNode Title="DiffAreaVolumeName Property " Url="html/1E701777.htm" />
+        <HelpTOCNode Title="MaximumDiffSpace Property " Url="html/688D64AF.htm" />
+        <HelpTOCNode Title="UsedDiffSpace Property " Url="html/5D394B26.htm" />
+        <HelpTOCNode Title="VolumeName Property " Url="html/F6385F45.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="5ab8f312-9a91-4756-9a58-ba67cdd48211" Title="VssDifferencedFileInfo Class" Url="html/ABDCCC82.htm">
+      <HelpTOCNode Title="VssDifferencedFileInfo Constructor " Url="html/37F98F22.htm" />
+      <HelpTOCNode Id="9c3526a4-e70a-49d3-8329-57d8ba4b15ce" Title="VssDifferencedFileInfo Properties" Url="html/33C885DF.htm">
+        <HelpTOCNode Title="FileSpecification Property " Url="html/FC4D26FD.htm" />
+        <HelpTOCNode Title="IsRecursive Property " Url="html/7ADB524.htm" />
+        <HelpTOCNode Title="LastModifyTime Property " Url="html/5186AB41.htm" />
+        <HelpTOCNode Title="Path Property " Url="html/22EAE2F.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="514063e1-a180-4165-ab5d-6974d2e3f7e0" Title="VssDiffVolumeProperties Class" Url="html/F50C9E2F.htm">
+      <HelpTOCNode Title="VssDiffVolumeProperties Constructor " Url="html/1D827C71.htm" />
+      <HelpTOCNode Id="38e51813-00f5-49b8-bb80-5da5b597ba58" Title="VssDiffVolumeProperties Properties" Url="html/BE7D5708.htm">
+        <HelpTOCNode Title="VolumeDisplayName Property " Url="html/4A1806F2.htm" />
+        <HelpTOCNode Title="VolumeFreeSpace Property " Url="html/FCFFBD35.htm" />
+        <HelpTOCNode Title="VolumeName Property " Url="html/53C2737E.htm" />
+        <HelpTOCNode Title="VolumeTotalSpace Property " Url="html/58FA67C3.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="3e3e6e81-5461-4959-bfac-047d0b2cd3d1" Title="VssDirectedTargetInfo Class" Url="html/C916459A.htm">
+      <HelpTOCNode Title="VssDirectedTargetInfo Constructor " Url="html/E6686548.htm" />
+      <HelpTOCNode Id="5ad147d6-1180-436f-9dfc-24456b4681c8" Title="VssDirectedTargetInfo Properties" Url="html/845C2C0F.htm">
+        <HelpTOCNode Title="DestinationFileName Property " Url="html/7724A94B.htm" />
+        <HelpTOCNode Title="DestinationPath Property " Url="html/273DB39B.htm" />
+        <HelpTOCNode Title="DestinationRangeList Property " Url="html/CA20672B.htm" />
+        <HelpTOCNode Title="SourceFileName Property " Url="html/4A646138.htm" />
+        <HelpTOCNode Title="SourcePath Property " Url="html/8E472F56.htm" />
+        <HelpTOCNode Title="SourceRangeList Property " Url="html/741E2F86.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Title="VssError Enumeration" Url="html/64CE9A4F.htm" />
+    <HelpTOCNode Id="e2e309fa-e587-4a44-a58a-5b7ceffbfbb5" Title="VssException Class" Url="html/9F640478.htm">
+      <HelpTOCNode Id="0cae4580-c0a7-43ed-8a19-bdaf33da06b1" Title="VssException Constructor " Url="html/F57BE3B7.htm">
+        <HelpTOCNode Title="VssException Constructor " Url="html/7BC50524.htm" />
+        <HelpTOCNode Title="VssException Constructor (String)" Url="html/2E7C9D3F.htm" />
+        <HelpTOCNode Title="VssException Constructor (SerializationInfo, StreamingContext)" Url="html/1672FB10.htm" />
+        <HelpTOCNode Title="VssException Constructor (String, Exception)" Url="html/D12411DA.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Title="VssFileRestoreStatus Enumeration" Url="html/B936148D.htm" />
+    <HelpTOCNode Title="VssFileSpecificationBackupType Enumeration" Url="html/E08AFBA0.htm" />
+    <HelpTOCNode Id="b0d58113-94cf-45f1-9feb-2a78eacd6c29" Title="VssFlushWritesTimeoutException Class" Url="html/7BA45FA1.htm">
+      <HelpTOCNode Id="aa12d111-7090-4177-90ad-ed781d727f55" Title="VssFlushWritesTimeoutException Constructor " Url="html/282B2D18.htm">
+        <HelpTOCNode Title="VssFlushWritesTimeoutException Constructor " Url="html/48C735A7.htm" />
+        <HelpTOCNode Title="VssFlushWritesTimeoutException Constructor (String)" Url="html/3FA09929.htm" />
+        <HelpTOCNode Title="VssFlushWritesTimeoutException Constructor (String, Exception)" Url="html/2796F6FA.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Title="VssHardwareOptions Enumeration" Url="html/A59FA015.htm" />
+    <HelpTOCNode Id="a15eacd5-e278-445d-9fcb-e18efb2d99ae" Title="VssHoldWritesTimeoutException Class" Url="html/34FA249A.htm">
+      <HelpTOCNode Id="1c8aaf3a-7bd4-42a9-9110-71d5b112f4de" Title="VssHoldWritesTimeoutException Constructor " Url="html/65C66BD.htm">
+        <HelpTOCNode Title="VssHoldWritesTimeoutException Constructor " Url="html/9D73CF24.htm" />
+        <HelpTOCNode Title="VssHoldWritesTimeoutException Constructor (String)" Url="html/846AEFD8.htm" />
+        <HelpTOCNode Title="VssHoldWritesTimeoutException Constructor (String, Exception)" Url="html/846AEFD9.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="16b75600-c680-4d57-a6ba-e1de0b49a75d" Title="VssInconsistentSnapshotWriterException Class" Url="html/16855020.htm">
+      <HelpTOCNode Id="a349f318-8f64-4186-a9c8-8cd3505c6ad9" Title="VssInconsistentSnapshotWriterException Constructor " Url="html/E64FEBCB.htm">
+        <HelpTOCNode Title="VssInconsistentSnapshotWriterException Constructor " Url="html/EDC82D68.htm" />
+        <HelpTOCNode Title="VssInconsistentSnapshotWriterException Constructor (String)" Url="html/6B82A0FB.htm" />
+        <HelpTOCNode Title="VssInconsistentSnapshotWriterException Constructor (SerializationInfo, StreamingContext)" Url="html/C8DB2C60.htm" />
+        <HelpTOCNode Title="VssInconsistentSnapshotWriterException Constructor (String, Exception)" Url="html/E2A1596.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="49e727ee-e2e8-4ee6-9096-fc38e8d7df50" Title="VssInsufficientStorageException Class" Url="html/D7AD909A.htm">
+      <HelpTOCNode Id="cac2b1d0-abd3-452f-bed7-a3652b902f96" Title="VssInsufficientStorageException Constructor " Url="html/49E0256B.htm">
+        <HelpTOCNode Title="VssInsufficientStorageException Constructor " Url="html/5FF43408.htm" />
+        <HelpTOCNode Title="VssInsufficientStorageException Constructor (String)" Url="html/FCBA74A4.htm" />
+        <HelpTOCNode Title="VssInsufficientStorageException Constructor (String, Exception)" Url="html/FCBA74A7.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="f5f05053-c6fa-4a3f-b25d-d925f2402b2d" Title="VssInvalidXmlDocumentException Class" Url="html/D079867F.htm">
+      <HelpTOCNode Id="ea3c7a65-bcba-4919-8a90-941e47fe06de" Title="VssInvalidXmlDocumentException Constructor " Url="html/3A812A0C.htm">
+        <HelpTOCNode Title="VssInvalidXmlDocumentException Constructor " Url="html/D57DEE1.htm" />
+        <HelpTOCNode Title="VssInvalidXmlDocumentException Constructor (String)" Url="html/DB95523F.htm" />
+        <HelpTOCNode Title="VssInvalidXmlDocumentException Constructor (String, Exception)" Url="html/7E3CC6DA.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="3927762a-c117-4228-914a-eb9b00c2bcd7" Title="VssLegacyProviderException Class" Url="html/D69C9966.htm">
+      <HelpTOCNode Id="db507b2d-b255-4aba-8983-8061dd8b5367" Title="VssLegacyProviderException Constructor " Url="html/86E84737.htm">
+        <HelpTOCNode Title="VssLegacyProviderException Constructor " Url="html/AF7E7152.htm" />
+        <HelpTOCNode Title="VssLegacyProviderException Constructor (String)" Url="html/6535A797.htm" />
+        <HelpTOCNode Title="VssLegacyProviderException Constructor (SerializationInfo, StreamingContext)" Url="html/7D3F49C6.htm" />
+        <HelpTOCNode Title="VssLegacyProviderException Constructor (String, Exception)" Url="html/C28E32FC.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="9252a0f8-4e02-4955-ac6a-0f53adfd1d14" Title="VssMaximumDiffAreaAssociationsReachedException Class" Url="html/B9D2ADD6.htm">
+      <HelpTOCNode Id="6a252dc5-bd33-46a2-9dae-9fd4ab97412e" Title="VssMaximumDiffAreaAssociationsReachedException Constructor " Url="html/53396CF7.htm">
+        <HelpTOCNode Title="VssMaximumDiffAreaAssociationsReachedException Constructor " Url="html/C689B21A.htm" />
+        <HelpTOCNode Title="VssMaximumDiffAreaAssociationsReachedException Constructor (String)" Url="html/75B2A3D6.htm" />
+        <HelpTOCNode Title="VssMaximumDiffAreaAssociationsReachedException Constructor (String, Exception)" Url="html/5DA901A7.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="638bea97-ecdd-436b-9946-e13ff066fd60" Title="VssMaximumNumberOfSnapshotsReachedException Class" Url="html/16662631.htm">
+      <HelpTOCNode Id="964fc20c-55ef-4905-bb6f-2ca662e20e10" Title="VssMaximumNumberOfSnapshotsReachedException Constructor " Url="html/FEDB9AE0.htm">
+        <HelpTOCNode Title="VssMaximumNumberOfSnapshotsReachedException Constructor " Url="html/8797DC87.htm" />
+        <HelpTOCNode Title="VssMaximumNumberOfSnapshotsReachedException Constructor (String)" Url="html/D384440D.htm" />
+        <HelpTOCNode Title="VssMaximumNumberOfSnapshotsReachedException Constructor (String, Exception)" Url="html/D3844410.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="b2ed4722-adf6-4e69-bb28-3427fac5c6c9" Title="VssMaximumNumberOfVolumesReachedException Class" Url="html/9F28E0B9.htm">
+      <HelpTOCNode Id="5cc7a080-6975-46f7-b84b-3214ce5b5e3e" Title="VssMaximumNumberOfVolumesReachedException Constructor " Url="html/5C94D7B6.htm">
+        <HelpTOCNode Title="VssMaximumNumberOfVolumesReachedException Constructor " Url="html/3CAFA61F.htm" />
+        <HelpTOCNode Title="VssMaximumNumberOfVolumesReachedException Constructor (String)" Url="html/45165C5.htm" />
+        <HelpTOCNode Title="VssMaximumNumberOfVolumesReachedException Constructor (String, Exception)" Url="html/45165C6.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="20b36103-37b5-4ca8-9b97-cb0d58ead25b" Title="VssNonRetryableWriterException Class" Url="html/9C8B7760.htm">
+      <HelpTOCNode Id="31a4fa17-4855-4ef9-81b8-f475f222d1da" Title="VssNonRetryableWriterException Constructor " Url="html/3F90031D.htm">
+        <HelpTOCNode Title="VssNonRetryableWriterException Constructor " Url="html/5733F35C.htm" />
+        <HelpTOCNode Title="VssNonRetryableWriterException Constructor (String)" Url="html/77C952FD.htm" />
+        <HelpTOCNode Title="VssNonRetryableWriterException Constructor (SerializationInfo, StreamingContext)" Url="html/1A70C798.htm" />
+        <HelpTOCNode Title="VssNonRetryableWriterException Constructor (String, Exception)" Url="html/D521DE62.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="ea3b01ea-d1b2-4d6a-8eb4-bf42573b972d" Title="VssObjectAlreadyExistsException Class" Url="html/76C98A13.htm">
+      <HelpTOCNode Id="7b02c6fe-e216-4ccf-9b3f-034d6ec6c003" Title="VssObjectAlreadyExistsException Constructor " Url="html/88CE585A.htm">
+        <HelpTOCNode Title="VssObjectAlreadyExistsException Constructor " Url="html/974AC85D.htm" />
+        <HelpTOCNode Title="VssObjectAlreadyExistsException Constructor (String)" Url="html/E264143F.htm" />
+        <HelpTOCNode Title="VssObjectAlreadyExistsException Constructor (String, Exception)" Url="html/E2641442.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="c30f0378-b643-41fe-92a8-36935c0526aa" Title="VssObjectNotFoundException Class" Url="html/824D4E0C.htm">
+      <HelpTOCNode Id="3da710d2-63c2-4a99-b52f-43f332904f66" Title="VssObjectNotFoundException Constructor " Url="html/11850C9.htm">
+        <HelpTOCNode Title="VssObjectNotFoundException Constructor " Url="html/BFFC69E0.htm" />
+        <HelpTOCNode Title="VssObjectNotFoundException Constructor (String)" Url="html/47597B4C.htm" />
+        <HelpTOCNode Title="VssObjectNotFoundException Constructor (String, Exception)" Url="html/A4B206B1.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Title="VssObjectType Enumeration" Url="html/A5257D60.htm" />
+    <HelpTOCNode Id="41116938-ed14-466c-ac6b-26fbcc0fd822" Title="VssOutOfResourcesWriterException Class" Url="html/82FA4A09.htm">
+      <HelpTOCNode Id="da483620-a84f-4738-bc1f-7d314df6a8f9" Title="VssOutOfResourcesWriterException Constructor " Url="html/70CE570.htm">
+        <HelpTOCNode Title="VssOutOfResourcesWriterException Constructor " Url="html/A7344037.htm" />
+        <HelpTOCNode Title="VssOutOfResourcesWriterException Constructor (String)" Url="html/53A55392.htm" />
+        <HelpTOCNode Title="VssOutOfResourcesWriterException Constructor (SerializationInfo, StreamingContext)" Url="html/6BAEF5C1.htm" />
+        <HelpTOCNode Title="VssOutOfResourcesWriterException Constructor (String, Exception)" Url="html/B0FDDEF7.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="484cae43-9f4e-4d96-a13f-09b2db4ac8cf" Title="VssPartialFailureWriterException Class" Url="html/D2087ABE.htm">
+      <HelpTOCNode Id="d5aad89a-215e-41d8-b4cf-435617ec7e1a" Title="VssPartialFailureWriterException Constructor " Url="html/B73EB28F.htm">
+        <HelpTOCNode Title="VssPartialFailureWriterException Constructor " Url="html/3F69026A.htm" />
+        <HelpTOCNode Title="VssPartialFailureWriterException Constructor (String)" Url="html/F13E162F.htm" />
+        <HelpTOCNode Title="VssPartialFailureWriterException Constructor (SerializationInfo, StreamingContext)" Url="html/947B85E.htm" />
+        <HelpTOCNode Title="VssPartialFailureWriterException Constructor (String, Exception)" Url="html/4E96A194.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="47218155-71de-437b-8604-42209dd1eb67" Title="VssPartialFileInfo Class" Url="html/D28C0F6E.htm">
+      <HelpTOCNode Title="VssPartialFileInfo Constructor " Url="html/3E73D54A.htm" />
+      <HelpTOCNode Id="3e5ab99f-4aa9-4978-a408-29b09216e679" Title="VssPartialFileInfo Properties" Url="html/448649F7.htm">
+        <HelpTOCNode Title="FileName Property " Url="html/A2DD9B1F.htm" />
+        <HelpTOCNode Title="Metadata Property " Url="html/1B74BEEB.htm" />
+        <HelpTOCNode Title="Path Property " Url="html/EFB4197.htm" />
+        <HelpTOCNode Title="Range Property " Url="html/1EEF5D3D.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Title="VssProtectionFault Enumeration" Url="html/2B194EEC.htm" />
+    <HelpTOCNode Title="VssProtectionLevel Enumeration" Url="html/7F169FAA.htm" />
+    <HelpTOCNode Id="b54ca309-e010-4040-b7eb-d8d0817ce2e3" Title="VssProviderNotRegisteredException Class" Url="html/D8C2C2CC.htm">
+      <HelpTOCNode Id="d7fbc543-320c-4107-af00-c6d0fe55be50" Title="VssProviderNotRegisteredException Constructor " Url="html/91EA685F.htm">
+        <HelpTOCNode Title="VssProviderNotRegisteredException Constructor " Url="html/71C45682.htm" />
+        <HelpTOCNode Title="VssProviderNotRegisteredException Constructor (String)" Url="html/41BEA632.htm" />
+        <HelpTOCNode Title="VssProviderNotRegisteredException Constructor (String, Exception)" Url="html/41BEA633.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="cabf4566-fb36-4672-b3bd-467ab5c33dc0" Title="VssProviderProperties Class" Url="html/2CBDC37B.htm">
+      <HelpTOCNode Title="VssProviderProperties Constructor " Url="html/191CD971.htm" />
+      <HelpTOCNode Id="448b3845-9412-48a3-9854-5b753032306b" Title="VssProviderProperties Properties" Url="html/DB442A98.htm">
+        <HelpTOCNode Title="ClassId Property " Url="html/AE7420B4.htm" />
+        <HelpTOCNode Title="ProviderId Property " Url="html/7F21826D.htm" />
+        <HelpTOCNode Title="ProviderName Property " Url="html/AC66A97.htm" />
+        <HelpTOCNode Title="ProviderType Property " Url="html/D4B5AA4A.htm" />
+        <HelpTOCNode Title="ProviderVersion Property " Url="html/491D7E36.htm" />
+        <HelpTOCNode Title="ProviderVersionId Property " Url="html/35844E0F.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Title="VssProviderType Enumeration" Url="html/530EA096.htm" />
+    <HelpTOCNode Id="9347a6ff-a7ec-4d65-9763-8ff42b975567" Title="VssProviderVetoException Class" Url="html/5D77D725.htm">
+      <HelpTOCNode Id="fffe42fd-bdd0-432a-9ed5-2d4434e8b052" Title="VssProviderVetoException Constructor " Url="html/66673E90.htm">
+        <HelpTOCNode Title="VssProviderVetoException Constructor " Url="html/63805C77.htm" />
+        <HelpTOCNode Title="VssProviderVetoException Constructor (String)" Url="html/5B5BC01D.htm" />
+        <HelpTOCNode Title="VssProviderVetoException Constructor (String, Exception)" Url="html/B8B44B82.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="4ef45317-12b9-4991-884b-2a15bede9b23" Title="VssRebootRequiredException Class" Url="html/2A1FDC60.htm">
+      <HelpTOCNode Id="e8a6e935-f523-40c4-a50a-c7ddc5046167" Title="VssRebootRequiredException Constructor " Url="html/FB0ACE8F.htm">
+        <HelpTOCNode Title="VssRebootRequiredException Constructor " Url="html/F0A3A1FC.htm" />
+        <HelpTOCNode Title="VssRebootRequiredException Constructor (String)" Url="html/285978B8.htm" />
+        <HelpTOCNode Title="VssRebootRequiredException Constructor (String, Exception)" Url="html/40631AE7.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Title="VssRecoveryOptions Enumeration" Url="html/BCC32106.htm" />
+    <HelpTOCNode Title="VssRestoreMethod Enumeration" Url="html/7630A04A.htm" />
+    <HelpTOCNode Id="c7a8c435-fb17-4425-bb4a-a63c2ef05117" Title="VssRestoreSubcomponentInfo Class" Url="html/C5D87FC2.htm">
+      <HelpTOCNode Title="VssRestoreSubcomponentInfo Constructor " Url="html/44414576.htm" />
+      <HelpTOCNode Id="646a7518-683c-4509-ae93-469265ec29c5" Title="VssRestoreSubcomponentInfo Properties" Url="html/B4C46FF1.htm">
+        <HelpTOCNode Title="ComponentName Property " Url="html/580784DC.htm" />
+        <HelpTOCNode Title="LogicalPath Property " Url="html/4D5137BC.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Title="VssRestoreTarget Enumeration" Url="html/54A3F33E.htm" />
+    <HelpTOCNode Title="VssRestoreType Enumeration" Url="html/7CFE296F.htm" />
+    <HelpTOCNode Id="975925a6-caf4-4552-b1dd-836b818fb571" Title="VssResyncInProgressException Class" Url="html/C552F142.htm">
+      <HelpTOCNode Id="6d8f78a7-bb21-4a93-95b3-65da8fcca9cc" Title="VssResyncInProgressException Constructor " Url="html/70898209.htm">
+        <HelpTOCNode Title="VssResyncInProgressException Constructor " Url="html/F97ED70A.htm" />
+        <HelpTOCNode Title="VssResyncInProgressException Constructor (String)" Url="html/64A4F1A9.htm" />
+        <HelpTOCNode Title="VssResyncInProgressException Constructor (SerializationInfo, StreamingContext)" Url="html/4C9B4F7A.htm" />
+        <HelpTOCNode Title="VssResyncInProgressException Constructor (String, Exception)" Url="html/74C6644.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="45f9325e-6e87-4813-88f0-613f3892fca0" Title="VssRetryableWriterException Class" Url="html/BFD33AD.htm">
+      <HelpTOCNode Id="0eb33b4c-0979-45c4-b008-f7442f728148" Title="VssRetryableWriterException Constructor " Url="html/B5642D96.htm">
+        <HelpTOCNode Title="VssRetryableWriterException Constructor " Url="html/9AE07FF.htm" />
+        <HelpTOCNode Title="VssRetryableWriterException Constructor (String)" Url="html/684C9A26.htm" />
+        <HelpTOCNode Title="VssRetryableWriterException Constructor (SerializationInfo, StreamingContext)" Url="html/684C9A29.htm" />
+        <HelpTOCNode Title="VssRetryableWriterException Constructor (String, Exception)" Url="html/684C9A27.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="7d84dfb4-9275-460a-90b1-8de0da31d7bc" Title="VssRevertInProgressException Class" Url="html/39CA2116.htm">
+      <HelpTOCNode Id="5898cc28-0efc-47d4-8142-c0e57b96d7ff" Title="VssRevertInProgressException Constructor " Url="html/ECC4B33B.htm">
+        <HelpTOCNode Title="VssRevertInProgressException Constructor " Url="html/876AD3C6.htm" />
+        <HelpTOCNode Title="VssRevertInProgressException Constructor (String)" Url="html/5183B4AE.htm" />
+        <HelpTOCNode Title="VssRevertInProgressException Constructor (String, Exception)" Url="html/AEDC4013.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Title="VssRollForwardType Enumeration" Url="html/80239E4D.htm" />
+    <HelpTOCNode Title="VssSnapshotCompatibility Enumeration" Url="html/DCD51205.htm" />
+    <HelpTOCNode Title="VssSnapshotContext Enumeration" Url="html/ECA08666.htm" />
+    <HelpTOCNode Id="0a606055-43fa-446f-a04f-07c569da532b" Title="VssSnapshotNotInSetException Class" Url="html/EB948ECE.htm">
+      <HelpTOCNode Id="7b3ffd6d-5810-410a-bc39-902d11d74bfc" Title="VssSnapshotNotInSetException Constructor " Url="html/9B66AAF.htm">
+        <HelpTOCNode Title="VssSnapshotNotInSetException Constructor " Url="html/1A1DD612.htm" />
+        <HelpTOCNode Title="VssSnapshotNotInSetException Constructor (String)" Url="html/23C1A43F.htm" />
+        <HelpTOCNode Title="VssSnapshotNotInSetException Constructor (SerializationInfo, StreamingContext)" Url="html/3BCB466E.htm" />
+        <HelpTOCNode Title="VssSnapshotNotInSetException Constructor (String, Exception)" Url="html/811A2FA4.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="5d454a65-0acd-451d-b5a3-eb1b876b957a" Title="VssSnapshotProperties Class" Url="html/C6F09A5A.htm">
+      <HelpTOCNode Title="VssSnapshotProperties Constructor " Url="html/500C9790.htm" />
+      <HelpTOCNode Id="4f226c86-9811-4e6e-8a8c-e7a670b436fd" Title="VssSnapshotProperties Properties" Url="html/38EE3295.htm">
+        <HelpTOCNode Title="CreationTimestamp Property " Url="html/7C39B943.htm" />
+        <HelpTOCNode Title="ExposedName Property " Url="html/A66B5493.htm" />
+        <HelpTOCNode Title="ExposedPath Property " Url="html/C2DCAB8D.htm" />
+        <HelpTOCNode Title="OriginalVolumeName Property " Url="html/7F6842AE.htm" />
+        <HelpTOCNode Title="OriginatingMachine Property " Url="html/8100CF5A.htm" />
+        <HelpTOCNode Title="ProviderId Property " Url="html/341B5B1C.htm" />
+        <HelpTOCNode Title="ServiceMachine Property " Url="html/28478DE0.htm" />
+        <HelpTOCNode Title="SnapshotAttributes Property " Url="html/AE9B5FC7.htm" />
+        <HelpTOCNode Title="SnapshotDeviceObject Property " Url="html/21E8CB5.htm" />
+        <HelpTOCNode Title="SnapshotId Property " Url="html/E01965E1.htm" />
+        <HelpTOCNode Title="SnapshotsCount Property " Url="html/582302A8.htm" />
+        <HelpTOCNode Title="SnapshotSetId Property " Url="html/86977993.htm" />
+        <HelpTOCNode Title="Status Property " Url="html/E406B16A.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="fc857f0c-2220-4e6f-b180-9d27618a5687" Title="VssSnapshotSetInProgressException Class" Url="html/2C2C03F6.htm">
+      <HelpTOCNode Id="33ff6f93-ef2a-4887-b13d-620e1c74f2ff" Title="VssSnapshotSetInProgressException Constructor " Url="html/7DD08763.htm">
+        <HelpTOCNode Title="VssSnapshotSetInProgressException Constructor " Url="html/9B41A0A8.htm" />
+        <HelpTOCNode Title="VssSnapshotSetInProgressException Constructor (String)" Url="html/1DBFE60.htm" />
+        <HelpTOCNode Title="VssSnapshotSetInProgressException Constructor (String, Exception)" Url="html/1DBFE5F.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Title="VssSnapshotState Enumeration" Url="html/82D4555C.htm" />
+    <HelpTOCNode Title="VssSourceType Enumeration" Url="html/3BBDA1EA.htm" />
+    <HelpTOCNode Id="64aeb466-2857-4707-8365-b1c764c92a21" Title="VssTimeoutWriterException Class" Url="html/3DC6D8AA.htm">
+      <HelpTOCNode Id="2c7ac6a8-2e1b-4766-ac1c-70126ee7dc04" Title="VssTimeoutWriterException Constructor " Url="html/DA380BCB.htm">
+        <HelpTOCNode Title="VssTimeoutWriterException Constructor " Url="html/B8E68D90.htm" />
+        <HelpTOCNode Title="VssTimeoutWriterException Constructor (String)" Url="html/7653B37.htm" />
+        <HelpTOCNode Title="VssTimeoutWriterException Constructor (SerializationInfo, StreamingContext)" Url="html/7653B34.htm" />
+        <HelpTOCNode Title="VssTimeoutWriterException Constructor (String, Exception)" Url="html/7653B36.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="624937e6-07f3-4027-82f1-35479f96d823" Title="VssTransactionFreezeTimeoutException Class" Url="html/BE724F3A.htm">
+      <HelpTOCNode Id="7b625164-0e90-4de7-a3f2-399e96a5e7a2" Title="VssTransactionFreezeTimeoutException Constructor " Url="html/F625E2AF.htm">
+        <HelpTOCNode Title="VssTransactionFreezeTimeoutException Constructor " Url="html/3D7ED52A.htm" />
+        <HelpTOCNode Title="VssTransactionFreezeTimeoutException Constructor (String)" Url="html/CA17E29A.htm" />
+        <HelpTOCNode Title="VssTransactionFreezeTimeoutException Constructor (String, Exception)" Url="html/27706DFF.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="61e0223e-008a-4222-8f1b-12b7bf3bfa85" Title="VssTransactionThawTimeoutException Class" Url="html/C3F0F6F5.htm">
+      <HelpTOCNode Id="33552635-312b-4c26-86f6-881ce0bb0727" Title="VssTransactionThawTimeoutException Constructor " Url="html/9B81CE9E.htm">
+        <HelpTOCNode Title="VssTransactionThawTimeoutException Constructor " Url="html/13D0ADA7.htm" />
+        <HelpTOCNode Title="VssTransactionThawTimeoutException Constructor (String)" Url="html/6168D95.htm" />
+        <HelpTOCNode Title="VssTransactionThawTimeoutException Constructor (String, Exception)" Url="html/1E202FC4.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="bb219fac-b153-4fce-b47c-f72fe5adeba7" Title="VssUnexpectedErrorException Class" Url="html/7BA7029D.htm">
+      <HelpTOCNode Id="ce0a6a85-7643-42e8-8708-b391a0293af6" Title="VssUnexpectedErrorException Constructor " Url="html/C06AC9F4.htm">
+        <HelpTOCNode Title="VssUnexpectedErrorException Constructor " Url="html/F1FD0E4B.htm" />
+        <HelpTOCNode Title="VssUnexpectedErrorException Constructor (String)" Url="html/60186484.htm" />
+        <HelpTOCNode Title="VssUnexpectedErrorException Constructor (SerializationInfo, StreamingContext)" Url="html/60186481.htm" />
+        <HelpTOCNode Title="VssUnexpectedErrorException Constructor (String, Exception)" Url="html/60186483.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="b7a66aec-57e3-48af-a117-7f7b156d4f1b" Title="VssUnexpectedProviderErrorException Class" Url="html/5238142E.htm">
+      <HelpTOCNode Id="fc35a159-c864-4017-9b6f-0b8906003cf3" Title="VssUnexpectedProviderErrorException Constructor " Url="html/4340748B.htm">
+        <HelpTOCNode Title="VssUnexpectedProviderErrorException Constructor " Url="html/D008E048.htm" />
+        <HelpTOCNode Title="VssUnexpectedProviderErrorException Constructor (String)" Url="html/F3E2028.htm" />
+        <HelpTOCNode Title="VssUnexpectedProviderErrorException Constructor (String, Exception)" Url="html/F3E2027.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="0603f012-ee67-422a-92a2-be55f7072acd" Title="VssUnexpectedWriterErrorException Class" Url="html/A3D17190.htm">
+      <HelpTOCNode Id="4cf197fd-a5b6-455b-8bd4-bd7f26ab6246" Title="VssUnexpectedWriterErrorException Constructor " Url="html/D40179B1.htm">
+        <HelpTOCNode Title="VssUnexpectedWriterErrorException Constructor " Url="html/EB914652.htm" />
+        <HelpTOCNode Title="VssUnexpectedWriterErrorException Constructor (String)" Url="html/C64A9162.htm" />
+        <HelpTOCNode Title="VssUnexpectedWriterErrorException Constructor (String, Exception)" Url="html/C64A9165.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="5c8d0936-27c5-4b52-b22d-c9af7258cc0d" Title="VssUnselectedVolumeException Class" Url="html/5233DAE0.htm">
+      <HelpTOCNode Id="857e5a89-4b25-4c95-91ff-487d1186f7ca" Title="VssUnselectedVolumeException Constructor " Url="html/57947F29.htm">
+        <HelpTOCNode Title="VssUnselectedVolumeException Constructor " Url="html/9FEA0400.htm" />
+        <HelpTOCNode Title="VssUnselectedVolumeException Constructor (String)" Url="html/63139069.htm" />
+        <HelpTOCNode Title="VssUnselectedVolumeException Constructor (SerializationInfo, StreamingContext)" Url="html/7B1D3298.htm" />
+        <HelpTOCNode Title="VssUnselectedVolumeException Constructor (String, Exception)" Url="html/C06C1BCE.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="6e73e060-ba47-4bce-929f-b4ef7c2178b7" Title="VssUnsupportedContextException Class" Url="html/9DBA04AA.htm">
+      <HelpTOCNode Id="7d678a0d-b792-4c82-a6f2-9fb31a96a5c9" Title="VssUnsupportedContextException Constructor " Url="html/6683973D.htm">
+        <HelpTOCNode Title="VssUnsupportedContextException Constructor " Url="html/C5346DF6.htm" />
+        <HelpTOCNode Title="VssUnsupportedContextException Constructor (String)" Url="html/E3F257E2.htm" />
+        <HelpTOCNode Title="VssUnsupportedContextException Constructor (String, Exception)" Url="html/8699CC7D.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Title="VssUsageType Enumeration" Url="html/359D1EA.htm" />
+    <HelpTOCNode Id="8bb6571f-c95c-487d-bd40-fa5b194ffaad" Title="VssUtils Class" Url="html/E1D0E91C.htm">
+      <HelpTOCNode Id="f46627ae-e674-4a6b-aef4-8a9e364e041d" Title="VssUtils Methods" Url="html/1C8EBCD0.htm">
+        <HelpTOCNode Title="GetPlatformSpecificAssemblyName Method " Url="html/52941C07.htm" />
+        <HelpTOCNode Title="GetPlatformSpecificAssemblyShortName Method " Url="html/346EC039.htm" />
+        <HelpTOCNode Title="LoadImplementation Method " Url="html/C46ED6C7.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="5dc6f21f-b313-48c2-bdec-d7110805a507" Title="VssWMDependency Class" Url="html/65753192.htm">
+      <HelpTOCNode Title="VssWMDependency Constructor " Url="html/CDBE02AC.htm" />
+      <HelpTOCNode Id="cf6bfe2f-4ca5-48ef-91d0-fd702f99202f" Title="VssWMDependency Properties" Url="html/D52F8189.htm">
+        <HelpTOCNode Title="ComponentName Property " Url="html/B7ECF368.htm" />
+        <HelpTOCNode Title="LogicalPath Property " Url="html/1D3678D4.htm" />
+        <HelpTOCNode Title="WriterId Property " Url="html/5DD893CA.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="9affd080-04ec-4e75-bf4c-b9783cd4a641" Title="VssWMFileDescriptor Class" Url="html/FCF12BE4.htm">
+      <HelpTOCNode Title="VssWMFileDescriptor Constructor " Url="html/7BCC40E6.htm" />
+      <HelpTOCNode Id="501d8533-5974-443c-beaf-300f3b94e7a2" Title="VssWMFileDescriptor Properties" Url="html/2455C477.htm">
+        <HelpTOCNode Title="AlternateLocation Property " Url="html/92565A4B.htm" />
+        <HelpTOCNode Title="BackupTypeMask Property " Url="html/EF12E3B0.htm" />
+        <HelpTOCNode Title="FileSpecification Property " Url="html/CF665A5.htm" />
+        <HelpTOCNode Title="IsRecursive Property " Url="html/953673EA.htm" />
+        <HelpTOCNode Title="Path Property " Url="html/3D30873.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="a5558b01-57b7-4538-9b04-7fc7f3de2769" Title="VssWMRestoreMethod Class" Url="html/F6219F1A.htm">
+      <HelpTOCNode Title="VssWMRestoreMethod Constructor " Url="html/29AA855A.htm" />
+      <HelpTOCNode Id="04bad8e4-8524-48d9-a79a-9c5fa76fb9f8" Title="VssWMRestoreMethod Properties" Url="html/9BE47975.htm">
+        <HelpTOCNode Title="MappingCount Property " Url="html/548329E7.htm" />
+        <HelpTOCNode Title="Method Property " Url="html/97362367.htm" />
+        <HelpTOCNode Title="RebootRequired Property " Url="html/5F800618.htm" />
+        <HelpTOCNode Title="Service Property " Url="html/9982B8A1.htm" />
+        <HelpTOCNode Title="UserProcedure Property " Url="html/FD75A938.htm" />
+        <HelpTOCNode Title="WriterRestore Property " Url="html/D8734317.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="26c6f7c0-ab1d-4ff6-a473-a847dadc834c" Title="VssVolumeInUseException Class" Url="html/1D6DB4E2.htm">
+      <HelpTOCNode Id="542b5245-016a-438b-8b40-281c5450f408" Title="VssVolumeInUseException Constructor " Url="html/14038BE3.htm">
+        <HelpTOCNode Title="VssVolumeInUseException Constructor " Url="html/EC2878A8.htm" />
+        <HelpTOCNode Title="VssVolumeInUseException Constructor (String)" Url="html/24B2F25C.htm" />
+        <HelpTOCNode Title="VssVolumeInUseException Constructor (String, Exception)" Url="html/24B2F25F.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="4154f144-2fe6-45ae-8e35-f9b06a352b87" Title="VssVolumeNotSupportedByProviderException Class" Url="html/29521255.htm">
+      <HelpTOCNode Id="c7b48fce-a185-48bd-abd0-996b2477c1b5" Title="VssVolumeNotSupportedByProviderException Constructor " Url="html/C96A2EAA.htm">
+        <HelpTOCNode Title="VssVolumeNotSupportedByProviderException Constructor " Url="html/F4575983.htm" />
+        <HelpTOCNode Title="VssVolumeNotSupportedByProviderException Constructor (String)" Url="html/F772B49D.htm" />
+        <HelpTOCNode Title="VssVolumeNotSupportedByProviderException Constructor (String, Exception)" Url="html/9A1A2938.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="0c8baeff-a9d6-4bf4-b5c0-c838f9df2451" Title="VssVolumeNotSupportedException Class" Url="html/DFC24DAF.htm">
+      <HelpTOCNode Id="dbbafd19-83ff-4d2f-b9b6-0fd7267a5b59" Title="VssVolumeNotSupportedException Constructor " Url="html/BDA6784E.htm">
+        <HelpTOCNode Title="VssVolumeNotSupportedException Constructor " Url="html/EA479E29.htm" />
+        <HelpTOCNode Title="VssVolumeNotSupportedException Constructor (String)" Url="html/BB0B38B7.htm" />
+        <HelpTOCNode Title="VssVolumeNotSupportedException Constructor (String, Exception)" Url="html/A3019688.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="d0967388-b054-4a12-96e9-b3e5ad013cbe" Title="VssVolumeProperties Class" Url="html/784C74E4.htm">
+      <HelpTOCNode Title="VssVolumeProperties Constructor " Url="html/6133C1A2.htm" />
+      <HelpTOCNode Id="03a75359-1098-49cd-af53-abc3d8e7b481" Title="VssVolumeProperties Properties" Url="html/9C1DC11D.htm">
+        <HelpTOCNode Title="VolumeDisplayName Property " Url="html/7E4A2DD1.htm" />
+        <HelpTOCNode Title="VolumeName Property " Url="html/930294D3.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="43a1edf5-9d1f-4265-afac-a29431139670" Title="VssVolumeProtectionInfo Class" Url="html/A3E241A.htm">
+      <HelpTOCNode Title="VssVolumeProtectionInfo Constructor " Url="html/96C68E88.htm" />
+      <HelpTOCNode Id="dfc02b5b-41a2-4b10-ad75-8aff9ae28476" Title="VssVolumeProtectionInfo Properties" Url="html/7239910D.htm">
+        <HelpTOCNode Title="FailureStatus Property " Url="html/D5828CF8.htm" />
+        <HelpTOCNode Title="ProtectionFault Property " Url="html/1600A45D.htm" />
+        <HelpTOCNode Title="ProtectionLevel Property " Url="html/4C738ED.htm" />
+        <HelpTOCNode Title="VolumeHasUnusedDiffArea Property " Url="html/FCE2A14E.htm" />
+        <HelpTOCNode Title="VolumeIsOfflineForProtection Property " Url="html/902A3E9B.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Title="VssVolumeSnapshotAttributes Enumeration" Url="html/C382B59C.htm" />
+    <HelpTOCNode Id="5f609cd2-2db5-443a-8a31-81caae36cf5c" Title="VssWriterException Class" Url="html/20C3872B.htm">
+      <HelpTOCNode Id="6960ee08-d52c-4bbb-af35-0599543eab2e" Title="VssWriterException Constructor " Url="html/9A25F98A.htm">
+        <HelpTOCNode Title="VssWriterException Constructor " Url="html/AEBD8B2D.htm" />
+        <HelpTOCNode Title="VssWriterException Constructor (String)" Url="html/4C57FC9C.htm" />
+        <HelpTOCNode Title="VssWriterException Constructor (SerializationInfo, StreamingContext)" Url="html/64619ECB.htm" />
+        <HelpTOCNode Title="VssWriterException Constructor (String, Exception)" Url="html/A9B08801.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="aacbf289-fd05-4940-808e-769d77087655" Title="VssWriterInfrastructureException Class" Url="html/1B9C0D8C.htm">
+      <HelpTOCNode Id="7d096f76-c992-4c09-9a33-a93881fa4a7f" Title="VssWriterInfrastructureException Constructor " Url="html/6951DBF7.htm">
+        <HelpTOCNode Title="VssWriterInfrastructureException Constructor " Url="html/8FBF87C4.htm" />
+        <HelpTOCNode Title="VssWriterInfrastructureException Constructor (String)" Url="html/54CF3EC4.htm" />
+        <HelpTOCNode Title="VssWriterInfrastructureException Constructor (String, Exception)" Url="html/F776B35F.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="5f060454-12e7-45b9-8a2f-63e129c66612" Title="VssWriterNotRespondingException Class" Url="html/21626ACF.htm">
+      <HelpTOCNode Id="cec36550-ea3c-4313-bf04-5594eff8e07f" Title="VssWriterNotRespondingException Constructor " Url="html/6CA36A7C.htm">
+        <HelpTOCNode Title="VssWriterNotRespondingException Constructor " Url="html/5A52B7A9.htm" />
+        <HelpTOCNode Title="VssWriterNotRespondingException Constructor (String)" Url="html/4BB8D624.htm" />
+        <HelpTOCNode Title="VssWriterNotRespondingException Constructor (SerializationInfo, StreamingContext)" Url="html/4BB8D623.htm" />
+        <HelpTOCNode Title="VssWriterNotRespondingException Constructor (String, Exception)" Url="html/4BB8D625.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Title="VssWriterRestore Enumeration" Url="html/FE2B15AE.htm" />
+    <HelpTOCNode Title="VssWriterState Enumeration" Url="html/E2F01733.htm" />
+    <HelpTOCNode Id="4d5f8266-877a-4114-bdca-38ebd6794974" Title="VssWriterStatusInfo Class" Url="html/1B895902.htm">
+      <HelpTOCNode Id="d8600f21-331b-411b-98f2-c8689892714e" Title="VssWriterStatusInfo Constructor " Url="html/DA97CB65.htm">
+        <HelpTOCNode Title="VssWriterStatusInfo Constructor (Guid, Guid, String, VssWriterState, VssError)" Url="html/C2B7F80C.htm" />
+        <HelpTOCNode Title="VssWriterStatusInfo Constructor (Guid, Guid, String, VssWriterState, VssError, Nullable(Int32), String)" Url="html/7B7739F0.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="ecd54d2d-e916-4ca7-b5c7-0a39b7cccd71" Title="VssWriterStatusInfo Properties" Url="html/5CB5C0C9.htm">
+        <HelpTOCNode Title="ApplicationErrorCode Property " Url="html/C3FAE3F3.htm" />
+        <HelpTOCNode Title="ApplicationErrorMessage Property " Url="html/34876331.htm" />
+        <HelpTOCNode Title="ClassId Property " Url="html/F1DC392B.htm" />
+        <HelpTOCNode Title="Failure Property " Url="html/E5F00652.htm" />
+        <HelpTOCNode Title="InstanceId Property " Url="html/80343E22.htm" />
+        <HelpTOCNode Title="Name Property " Url="html/AFFBA07F.htm" />
+        <HelpTOCNode Title="State Property " Url="html/856F383F.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="d3297cdc-ab4a-4ddb-8265-990f4a3a9aff" Title="VssWriterStatusNotAvailableException Class" Url="html/3F595ED7.htm">
+      <HelpTOCNode Id="9e864e3a-25ee-424b-8bdd-060f08d03f54" Title="VssWriterStatusNotAvailableException Constructor " Url="html/3E5DE6E8.htm">
+        <HelpTOCNode Title="VssWriterStatusNotAvailableException Constructor " Url="html/FFBD3B05.htm" />
+        <HelpTOCNode Title="VssWriterStatusNotAvailableException Constructor (String)" Url="html/32AFD526.htm" />
+        <HelpTOCNode Title="VssWriterStatusNotAvailableException Constructor (SerializationInfo, StreamingContext)" Url="html/1AA632F7.htm" />
+        <HelpTOCNode Title="VssWriterStatusNotAvailableException Constructor (String, Exception)" Url="html/D55749C1.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
   </HelpTOCNode>
