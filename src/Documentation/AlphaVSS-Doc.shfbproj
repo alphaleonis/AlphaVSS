@@ -35,10 +35,10 @@ This documentation describes the AlphaVSS managed interface to the VSS API.
     <BuildLogFile>
     </BuildLogFile>
     <FrameworkVersion>.NET Framework 4.5</FrameworkVersion>
-    <RootNamespaceContainer>True</RootNamespaceContainer>
+    <RootNamespaceContainer>False</RootNamespaceContainer>
     <RootNamespaceTitle>API Reference</RootNamespaceTitle>
     <HelpTitle>AlphaVSS 1.3</HelpTitle>
-    <FooterText>https://github.com/alphaleonis/AlphaVSS</FooterText>
+    <FooterText>&amp;lt%3ba href=&amp;quot%3bhttps://github.com/alphaleonis/AlphaVSS&amp;quot%3b&amp;gt%3bhttps://github.com/alphaleonis/AlphaVSS&amp;lt%3b/a&amp;gt%3b</FooterText>
     <PresentationStyle>VS2013</PresentationStyle>
     <HelpFileVersion>1.0.0.0</HelpFileVersion>
     <DocumentationSources>
@@ -62,52 +62,57 @@ The documentation provided here is provided for convenience only, and the offici
         <component id="API Token Resolution">{@TokenFiles}
 <replace elements="/*//token" item="string(.)" /></component>
       </ComponentConfig>
-<ComponentConfig id="Code Block Component" enabled="True"><component id="Code Block Component">
-  <basePath value="{@HtmlEncProjectFolder}" />
-  <outputPaths>{@HelpFormatOutputPaths}</outputPaths>
-  <allowMissingSource value="false" />
-  <removeRegionMarkers value="false" />
-  <colorizer syntaxFile="{@SHFBFolder}PresentationStyles\Colorizer\highlight.xml" styleFile="{@SHFBFolder}PresentationStyles\Colorizer\highlight.xsl" stylesheet="{@SHFBFolder}PresentationStyles\Colorizer\highlight.css" scriptFile="{@SHFBFolder}PresentationStyles\Colorizer\highlight.js" disabled="{@DisableCodeBlockComponent}" language="cs" tabSize="0" numberLines="false" outlining="false" keepSeeTags="false" defaultTitle="true" />
-</component></ComponentConfig>
-<ComponentConfig id="Syntax Component" enabled="True"><component id="Syntax Component">
-  <syntax input="/document/reference" output="/document/syntax" renderReferenceLinks="false" />
-  <generators>
+      <ComponentConfig id="Code Block Component" enabled="True">
+        <component id="Code Block Component">
+          <basePath value="{@HtmlEncProjectFolder}" />
+          <outputPaths>{@HelpFormatOutputPaths}</outputPaths>
+          <allowMissingSource value="false" />
+          <removeRegionMarkers value="false" />
+          <colorizer syntaxFile="{@SHFBFolder}PresentationStyles\Colorizer\highlight.xml" styleFile="{@SHFBFolder}PresentationStyles\Colorizer\highlight.xsl" stylesheet="{@SHFBFolder}PresentationStyles\Colorizer\highlight.css" scriptFile="{@SHFBFolder}PresentationStyles\Colorizer\highlight.js" disabled="{@DisableCodeBlockComponent}" language="cs" tabSize="0" numberLines="false" outlining="false" keepSeeTags="false" defaultTitle="true" />
+        </component>
+      </ComponentConfig>
+      <ComponentConfig id="Syntax Component" enabled="True">
+        <component id="Syntax Component">
+          <syntax input="/document/reference" output="/document/syntax" renderReferenceLinks="false" />
+          <generators>
     {@SyntaxFilters}
 </generators>
-  <containerElement name="codeSnippetGroup" addNoExampleTabs="true" includeOnSingleSnippets="false" groupingEnabled="{@CodeSnippetGrouping}" />
-  <configurations>
-    <generator id="C#" />
-    <generator id="Visual Basic">
-      <includeLineContinuation value="false" />
-    </generator>
-    <generator id="Visual Basic Usage">
-      <includeLineContinuation value="false" />
-    </generator>
-    <generator id="Managed C++" />
-    <generator id="F#" />
-    <generator id="J#" />
-    <generator id="JScript" />
-    <generator id="JavaScript" />
-    <generator id="XAML Usage" />
-    <generator id="ASP.NET" />
-  </configurations>
-</component></ComponentConfig></ComponentConfigurations>
-    <HelpFileFormat>HtmlHelp1, Website</HelpFileFormat>
+          <containerElement name="codeSnippetGroup" addNoExampleTabs="true" includeOnSingleSnippets="false" groupingEnabled="{@CodeSnippetGrouping}" />
+          <configurations>
+            <generator id="C#" />
+            <generator id="Visual Basic">
+              <includeLineContinuation value="false" />
+            </generator>
+            <generator id="Visual Basic Usage">
+              <includeLineContinuation value="false" />
+            </generator>
+            <generator id="Managed C++" />
+            <generator id="F#" />
+            <generator id="J#" />
+            <generator id="JScript" />
+            <generator id="JavaScript" />
+            <generator id="XAML Usage" />
+            <generator id="ASP.NET" />
+          </configurations>
+        </component>
+      </ComponentConfig>
+    </ComponentConfigurations>
+    <HelpFileFormat>Website</HelpFileFormat>
     <FeedbackEMailAddress>
     </FeedbackEMailAddress>
     <FeedbackEMailLinkText>
     </FeedbackEMailLinkText>
     <ShowFeedbackControl>False</ShowFeedbackControl>
     <MaximumGroupParts>2</MaximumGroupParts>
-    <NamespaceGrouping>False</NamespaceGrouping>
+    <NamespaceGrouping>True</NamespaceGrouping>
     <SyntaxFilters>C#, Visual Basic, Managed C++</SyntaxFilters>
     <SdkLinkTarget>Blank</SdkLinkTarget>
     <Preliminary>False</Preliminary>
-    <NamingMethod>Guid</NamingMethod>
+    <NamingMethod>HashedMemberName</NamingMethod>
     <Language>en-US</Language>
     <BuildAssemblerVerbosity>OnlyWarningsAndErrors</BuildAssemblerVerbosity>
     <IndentHtml>False</IndentHtml>
-    <KeepLogFile>True</KeepLogFile>
+    <KeepLogFile>False</KeepLogFile>
     <DisableCodeBlockComponent>False</DisableCodeBlockComponent>
     <CleanIntermediates>True</CleanIntermediates>
     <CatalogName>VisualStudio12</CatalogName>
@@ -119,7 +124,7 @@ The documentation provided here is provided for convenience only, and the offici
     <CatalogVersion>100</CatalogVersion>
     <CatalogProductId>VS</CatalogProductId>
     <TransformComponentArguments>
-      <Argument Key="logoFile" Value="AlphaVSS-Header.png" />
+      <Argument Key="logoFile" Value="" />
       <Argument Key="logoHeight" Value="" />
       <Argument Key="logoWidth" Value="" />
       <Argument Key="logoAltText" Value="" />
@@ -132,6 +137,7 @@ The documentation provided here is provided for convenience only, and the offici
     <CollectionTocStyle>Hierarchical</CollectionTocStyle>
     <MSHelp2SdkLinkType>Msdn</MSHelp2SdkLinkType>
     <IncludeStopWordList>True</IncludeStopWordList>
+    <PlugInConfigurations />
   </PropertyGroup>
   <!-- There are no properties for these two groups but they need to appear in
        order for Visual Studio to perform the build. -->
@@ -140,26 +146,7 @@ The documentation provided here is provided for convenience only, and the offici
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
   </PropertyGroup>
   <ItemGroup>
-    <ContentLayout Include="Content Layout.content" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Background.aml" />
-    <None Include="GettingStarted.aml" />
-    <None Include="ReleaseNotes.aml" />
-    <None Include="Orientation.aml" />
-    <None Include="License.aml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="AlphaVSS-Header.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="icons\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="icons\AlphaVSS-Header.png">
-      <ImageId>AlphaVSS-Header</ImageId>
-      <AlternateText>AlphaVSS-Header</AlternateText>
-    </Content>
   </ItemGroup>
   <!-- Import the SHFB build targets -->
   <Import Project="$(SHFBROOT)\SandcastleHelpFileBuilder.targets" />
