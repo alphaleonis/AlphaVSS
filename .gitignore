@@ -3,3 +3,6 @@
 _site
 Gemfile
 Gemfile.lock
+Bin/
+Obj/
+src/AlphaVSS.sdf
