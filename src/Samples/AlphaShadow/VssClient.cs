@@ -1326,5 +1326,25 @@ namespace AlphaShadow
          Host.WriteLine("Sending the PostRestore event...");
          m_backupComponents.PostRestore();
       }
+
+	   /* ZDOUGIE: placed here only as an example.
+	    * while this doesn't take advantage of awaits, it is configured so that other
+	    * processes can be improved if they are structured to use it.
+	    */
+	  async public System.Threading.Tasks.Task GatherWriterMetadata(TimeSpan TimeOut)
+	  {
+		  Host.WriteLine("Gathering writer metadata...");
+
+		  // Gathers writer metadata
+		  using (IVssAsyncResult result = m_backupComponents.GatherWriterMetadataAsync())
+		  {
+			  if (!await result.WaitAsync(TimeOut))
+				  throw new TimeoutException("Waiting for Gather Writer Metadata to complete");
+		  }
+
+		  Host.WriteLine("- Initialize writer metadata...");
+		  InitializeWriterMetadata();
+	  }
+
    }
 }

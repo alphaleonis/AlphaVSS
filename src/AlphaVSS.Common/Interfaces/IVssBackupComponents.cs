@@ -2222,5 +2222,31 @@ namespace Alphaleonis.Win32.Vss
       /// </remarks>
       void EndRecoverSet(IAsyncResult asyncResult);
       #endregion
+
+	  /// <summary>
+	  /// 	The <see cref="GatherWriterMetadataAsync"/> method asynchronously prompts each writer to send the metadata they have collected. 
+	  /// 	The method will generate an <c>Identify</c> event to communicate with writers.
+	  /// </summary>
+	  /// <remarks>
+	  /// <para><see cref="GatherWriterMetadataAsync"/> should be called only once during the lifetime of a given <see cref="IVssBackupComponents"/> object.</para>
+	  /// </remarks>      
+	  /// <returns>An <see cref="IVssAsyncResult"/> instance that represents this asynchronous operation.</returns>
+	  IVssAsyncResult GatherWriterMetadataAsync();
+
+	  /// <summary>
+	  /// 	The <see cref="BeginGatherWriterStatus"/> method asynchronously prompts each writer to send a status message.
+	  /// </summary>
+	  /// <remarks>
+	  /// <para>The caller of this method should also call <see cref="IVssBackupComponents.FreeWriterStatus"/> after receiving the status of each writer.</para>
+	  /// </remarks>      
+	  /// <returns>An <see cref="IVssAsyncResult"/> instance that represents this asynchronous operation.</returns>
+	  IVssAsyncResult GatherWriterStatusAsync();
+
+	  /// <summary>
+	  /// Commits all shadow copies in this set simultaneously as an asynchronous operation.
+	  /// </summary>
+	  /// <returns>An <see cref="IVssAsyncResult"/> instance that represents this asynchronous operation.</returns>
+	  IVssAsyncResult DoSnapshotSetAsync();
+
    }
 }

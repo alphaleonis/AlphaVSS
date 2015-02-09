@@ -818,5 +818,27 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
        VssAsyncResult^ result = safe_cast<VssAsyncResult^>(asyncResult);
        result->EndInvoke();
     }
+
+	IVssAsyncResult^ VssBackupComponents::GatherWriterMetadataAsync()
+	{
+		::IVssAsync *pAsync;
+		CheckCom(m_backup->GatherWriterMetadata(&pAsync));
+		return VssAsyncResult::Create(pAsync, nullptr, nullptr);
+	}
+
+	IVssAsyncResult^ VssBackupComponents::GatherWriterStatusAsync()
+	{
+		::IVssAsync *pAsync;
+		CheckCom(m_backup->GatherWriterStatus(&pAsync));
+		return VssAsyncResult::Create(pAsync, nullptr, nullptr);
+	}
+
+	IVssAsyncResult^ VssBackupComponents::DoSnapshotSetAsync()
+	{
+		::IVssAsync *pAsync;
+		CheckCom(m_backup->DoSnapshotSet(&pAsync));
+		return VssAsyncResult::Create(pAsync, nullptr, nullptr);
+	}
+
 }
 } }

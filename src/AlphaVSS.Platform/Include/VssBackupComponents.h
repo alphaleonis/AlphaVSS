@@ -144,6 +144,10 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
       virtual IVssAsyncResult^ BeginRecoverSet(VssRecoveryOptions options, AsyncCallback^ userCallback, Object^ stateObject);
       virtual void EndRecoverSet(IAsyncResult ^asyncResult);      
 
+	  virtual IVssAsyncResult^ GatherWriterMetadataAsync(void);
+	  virtual IVssAsyncResult^ GatherWriterStatusAsync();
+	  virtual IVssAsyncResult^ DoSnapshotSetAsync();
+
    private:
       ::IVssBackupComponents *m_backup;
 

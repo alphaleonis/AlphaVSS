@@ -24,14 +24,50 @@ using System.Text;
 
 namespace Alphaleonis.Win32.Vss
 {
-   /// <summary>
-   /// Represents the status of an asynchronous operation performed by the VSS framework.
-   /// </summary>
-   public interface IVssAsyncResult : IAsyncResult, IDisposable
-   {
-      /// <summary>
-      /// Cancels an incomplete asynchronous operation.
-      /// </summary>
-      void Cancel();
-   }
+	/// <summary>
+	/// Represents the status of an asynchronous operation performed by the VSS framework.
+	/// </summary>
+	public interface IVssAsyncResult : IAsyncResult, IDisposable
+	{
+		/// <summary>
+		/// Cancels an incomplete asynchronous operation.
+		/// </summary>
+		void Cancel();
+		/// <summary>Current status of the work</summary>
+		UInt32 QueryStatus();
+		/// <summary>Wait a period of time.  Result is true only if completed successfully.</summary>
+		bool Wait(TimeSpan TimeOut);
+
+	}
+
+	/// <summary>Provides extensions</summary>
+	public static partial class Extensions
+	{
+		[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2211:NonConstantFieldsShouldNotBeVisible")]
+		public static TimeSpan
+			TimeOut_Default = new TimeSpan(0, 5, 0);
+
+		/// <summary>Provides an awaitable process while running async operations</summary>
+		/// <param name="Async">Since this is an extension, this is the object being extended</param>
+		/// <param name="TimeOut">Maximum time to wait (default uses the static field "TimeOut_Default")</param>
+		/// <returns>If operation succeded before the timeout occured, true.  Otherwise false.</returns>
+		async static public System.Threading.Tasks.Task<bool> WaitAsync(this IVssAsyncResult Async, TimeSpan TimeOut)
+		{
+			if (Async == null || Async.IsCompleted)
+				return true;
+			if (TimeOut.Milliseconds <= 0)
+				TimeOut = TimeOut_Default;
+			System.Threading.Tasks.Task<bool>
+				tsk = new System.Threading.Tasks.Task<bool>(() => { return Async.Wait(TimeOut); });
+			if (tsk.Status == System.Threading.Tasks.TaskStatus.Created)
+				tsk.Start();
+
+			await tsk;
+
+			if (tsk.Exception != null)
+				throw tsk.Exception;
+
+			return tsk.Result;
+		}
+	}
 }

@@ -51,6 +51,9 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
       property WaitHandle^ AsyncWaitHandle { virtual WaitHandle^ get(); }
       property bool IsCompleted { virtual bool get(); }
       virtual void Cancel();
+	  virtual UInt32 QueryStatus();
+	  virtual bool Wait(TimeSpan TimeOut);
+
    internal:
       void EndInvoke();
 
