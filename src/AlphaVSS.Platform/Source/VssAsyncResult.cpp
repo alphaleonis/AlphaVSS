@@ -35,6 +35,9 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 
    void VssAsyncResult::WaitForAsyncCompletion(Object^ state)
    {
+	   if (IsCompleted || m_vssAsync == 0)
+		   return;
+
       HRESULT hrResult;
       
       hrResult = m_vssAsync->Wait();
@@ -46,6 +49,9 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 
       if (SUCCEEDED(hrResult))
       {
+		  // zDougie - something is wrong here.  m_vssAsync becomes null.
+		  // I've attempted isolating with if(m_vssAsync==0) after the wait, but it doesn't work
+		  // very intermittent
          HRESULT hr = m_vssAsync->QueryStatus(&hrResult, NULL);
          if (FAILED(hr))
             hrResult = hr;
@@ -144,5 +150,41 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 
    void VssAsyncResult::Cancel()
    {
+	   if (m_vssAsync != 0)
+	   {
+		   CheckCom(m_vssAsync->Cancel());
+	   }
    }
+
+   UInt32 VssAsyncResult::QueryStatus()
+   {
+	   if (m_vssAsync != 0)
+	   {
+		   HRESULT
+			   hr = 0;
+		   Int32
+			   resv = 0;
+		   CheckCom(m_vssAsync->QueryStatus(&hr, &resv));
+		   return hr;
+	   }
+	   return S_OK;
+   }
+
+   bool VssAsyncResult::Wait(TimeSpan TimeOut)
+   {
+	   if (m_vssAsync != 0)
+	   {
+		   UInt32
+			   ms = (UInt32)TimeOut.TotalMilliseconds;
+		   if (ms <= 0)
+			   ms = 1000 * 5 * 60;
+		   HRESULT
+			   result = m_vssAsync->Wait(ms);
+		   if (result == VSS_E_UNEXPECTED || result == E_ACCESSDENIED)
+			   throw gcnew System::Runtime::InteropServices::COMException("Waiting for Async Operation", result);
+		   return (UINT)result == S_OK;
+	   }
+	   return true;
+   }
+
 }}}
