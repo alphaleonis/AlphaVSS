@@ -32,8 +32,8 @@
 using System;
 using System.Diagnostics;
 using System.Collections.Generic;
+using System.IO;
 using Alphaleonis.Win32.Vss;
-using Alphaleonis.Win32.Filesystem;
 
 namespace VssSample
 {
@@ -180,17 +180,7 @@ namespace VssSample
          // the writers on the system.  It is possible before this step to
          // enable or disable specific writers via the BackupComponents'
          // Enable* and Disable* methods.
-         //
-         // Note the 'using' construct here to dispose of the asynchronous
-         // comm link once we no longer need it.
-         using (IVssAsync async = _backup.GatherWriterMetadata())
-         {
-            // Because allowing writers to prepare their metadata can take
-            // a while, we are given a VssAsync object that gives us some
-            // status on the background operation.  In this case, we just
-            // wait for it to finish.
-            async.Wait();
-         }
+         _backup.GatherWriterMetadata();
       }
 
       /// <summary>
@@ -258,7 +248,7 @@ namespace VssSample
                // If a component is available for backup, it's then up to us to
                // decide whether it is relevant to the current backup.  To do
                // this, we may examine the files each component manages.
-               foreach (VssWMFileDescription file in cmp.Files)
+               foreach (VssWMFileDescriptor file in cmp.Files)
                {
                   // The idea here is to find out whether these files are
                   // relevant to whatever purpose your application holds.  If
@@ -313,13 +303,8 @@ namespace VssSample
 
          // From here we just need to send messages to each writer that our
          // snapshot is imminent,
-         using (IVssAsync async = _backup.PrepareForBackup())
-         {
-            // As before, the 'using' statement automatically disposes of
-            // our comm link.  Also as before, we simply block while the
-            // writers to complete their background preparations.
-            async.Wait();
-         }
+         // We simply block while the writers to complete their background preparations.
+         _backup.PrepareForBackup();
 
          // It's now time to create the snapshot.  Each writer will have to
          // freeze its I/O to the selected volumes for up to 10 seconds
@@ -452,8 +437,7 @@ namespace VssSample
          try
          {
             // The BackupComplete event must be sent to all of the writers.
-            using (IVssAsync async = _backup.BackupComplete())
-               async.Wait();
+            _backup.BackupComplete();
          }
          // Not sure why, but this throws a VSS_BAD_STATE on XP and W2K3.
          // Per some forum posts about this, I'm just ignoring it.
@@ -474,7 +458,7 @@ namespace VssSample
       /// Returns a full path, potentially including DOS wildcards.  Eg.
       /// 'c:\windows\config\*'.
       /// </returns>
-      string FileToPathSpecification(VssWMFileDescription file)
+      string FileToPathSpecification(VssWMFileDescriptor file)
       {
          // Environment variables (eg. "%windir%") are common.
          string path = Environment.ExpandEnvironmentVariables(file.Path);

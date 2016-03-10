@@ -30,7 +30,6 @@
 #endregion
 
 using System;
-using System.Collections.Generic;
 using Alphaleonis.Win32.Vss;
 
 namespace VssSample
@@ -91,8 +90,7 @@ namespace VssSample
       /// </summary>
       public void Copy()
       {
-         using (IVssAsync async = _backup.DoSnapshotSet())
-            async.Wait();
+         _backup.DoSnapshotSet();
       }
 
       /// <summary>
