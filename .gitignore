@@ -190,3 +190,5 @@ doc/
 Gemfile
 Gemfile.lock
 _site/
+*.db
+*.opendb
