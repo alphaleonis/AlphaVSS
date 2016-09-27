@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Configuration Condition=" '$(Configuration)' == '' ">net45-debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
@@ -25,19 +25,20 @@
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <OutputPath>..\..\Bin\Debug\</OutputPath>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'net45-debug|AnyCPU' ">
+    <OutputPath>..\..\Bin\Debug\net45\</OutputPath>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <RunCodeAnalysis>true</RunCodeAnalysis>
-    <DocumentationFile>..\..\Bin\Debug\AlphaVSS.Common.XML</DocumentationFile>
+    <DocumentationFile>..\..\Bin\Debug\net45\AlphaVSS.Common.XML</DocumentationFile>
     <DefineConstants>TRACE;DEBUG;CODE_ANALYSIS</DefineConstants>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <CodeAnalysisRuleSet>..\AlphaVSS.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
+     <TargetFrameworkVersion>4.5</TargetFrameworkVersion>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <OutputPath>..\..\Bin\Release\</OutputPath>
-    <DocumentationFile>..\..\Bin\Release\AlphaVSS.Common.XML</DocumentationFile>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'net45|AnyCPU' ">
+    <OutputPath>..\..\Bin\Release\net45\</OutputPath>
+    <DocumentationFile>..\..\Bin\Release\net45\AlphaVSS.Common.XML</DocumentationFile>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <RegisterForComInterop>false</RegisterForComInterop>
     <Optimize>true</Optimize>
@@ -47,8 +48,38 @@
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
     <CodeAnalysisRuleSet>..\AlphaVSS.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+     <TargetFrameworkVersion>4.5</TargetFrameworkVersion>
   </PropertyGroup>
-  <ItemGroup>
+   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'net40-debug|AnyCPU' ">
+      <OutputPath>..\..\Bin\Debug\net40\</OutputPath>
+      <PlatformTarget>AnyCPU</PlatformTarget>
+      <RunCodeAnalysis>true</RunCodeAnalysis>
+      <DocumentationFile>..\..\Bin\Debug\net40\AlphaVSS.Common.XML</DocumentationFile>
+      <DefineConstants>TRACE;DEBUG;CODE_ANALYSIS</DefineConstants>
+      <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+      <CodeAnalysisRuleSet>..\AlphaVSS.ruleset</CodeAnalysisRuleSet>
+      <Prefer32Bit>false</Prefer32Bit>
+      <TargetFrameworkVersion>4.0</TargetFrameworkVersion>
+   </PropertyGroup>
+   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'net40|AnyCPU' ">
+      <OutputPath>..\..\Bin\Release\net40\</OutputPath>
+      <DocumentationFile>..\..\Bin\Release\net40\AlphaVSS.Common.XML</DocumentationFile>
+      <PlatformTarget>AnyCPU</PlatformTarget>
+      <RegisterForComInterop>false</RegisterForComInterop>
+      <Optimize>true</Optimize>
+      <UseVSHostingProcess>false</UseVSHostingProcess>
+      <DefineConstants>
+      </DefineConstants>
+      <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+      <CodeAnalysisRuleSet>..\AlphaVSS.ruleset</CodeAnalysisRuleSet>
+      <Prefer32Bit>false</Prefer32Bit>
+      <DebugType>pdbonly</DebugType>
+      <DebugSymbols>true</DebugSymbols>
+      <TargetFrameworkVersion>4.0</TargetFrameworkVersion>
+   </PropertyGroup>
+   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
   </ItemGroup>

@@ -22,9 +22,13 @@
       </references>
    </metadata>
    <files>
-      <file src="..\bin\Release\AlphaVSS.x64.dll" target="build\net45\AlphaVSS.x64.dll" />
-      <file src="..\bin\Release\AlphaVSS.x86.dll" target="build\net45\AlphaVSS.x86.dll" />
-      <file src="..\bin\Release\AlphaVSS.Common.dll" target="lib\net45\AlphaVSS.Common.dll" />
+      <file src="..\bin\Release\net45\AlphaVSS.x64.dll" target="build\net45\AlphaVSS.x64.dll" />
+      <file src="..\bin\Release\net45\AlphaVSS.x86.dll" target="build\net45\AlphaVSS.x86.dll" />
+      <file src="..\bin\Release\net45\AlphaVSS.Common.dll" target="lib\net45\AlphaVSS.Common.dll" />
+      <file src="..\bin\Release\net40\AlphaVSS.x64.dll" target="build\net40\AlphaVSS.x64.dll" />
+      <file src="..\bin\Release\net40\AlphaVSS.x86.dll" target="build\net40\AlphaVSS.x86.dll" />
+      <file src="..\bin\Release\net40\AlphaVSS.Common.dll" target="lib\net40\AlphaVSS.Common.dll" />
       <file src="AlphaVSS.targets" target="build\net45\AlphaVSS.targets" />
+      <file src="AlphaVSS.targets" target="build\net40\AlphaVSS.targets" />
    </files>
 </package>
