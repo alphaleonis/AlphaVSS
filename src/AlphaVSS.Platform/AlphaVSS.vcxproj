@@ -10,6 +10,14 @@
       <Configuration>net40-debug</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
+    <ProjectConfiguration Include="net40-release|Win32">
+      <Configuration>net40-release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="net40-release|x64">
+      <Configuration>net40-release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
     <ProjectConfiguration Include="net40|Win32">
       <Configuration>net40</Configuration>
       <Platform>Win32</Platform>
@@ -24,6 +32,14 @@
     </ProjectConfiguration>
     <ProjectConfiguration Include="net45-debug|x64">
       <Configuration>net45-debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="net45-release|Win32">
+      <Configuration>net45-release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="net45-release|x64">
+      <Configuration>net45-release</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
     <ProjectConfiguration Include="net45|Win32">
@@ -44,7 +60,7 @@
     <SccLocalPath>SAK</SccLocalPath>
     <SccProvider>SAK</SccProvider>
     <Keyword>ManagedCProj</Keyword>
-    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.14393.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='net45|Win32'" Label="Configuration">
@@ -53,7 +69,7 @@
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
     <PlatformToolset>v140</PlatformToolset>
-     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='net40|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
@@ -68,38 +84,64 @@
     <CLRSupport>true</CLRSupport>
     <CharacterSet>Unicode</CharacterSet>
     <PlatformToolset>v140</PlatformToolset>
-     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='net40-debug|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <CLRSupport>true</CLRSupport>
     <CharacterSet>Unicode</CharacterSet>
     <PlatformToolset>v140</PlatformToolset>
-     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='net40-release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CLRSupport>true</CLRSupport>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='net45-release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CLRSupport>true</CLRSupport>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='net45|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <CLRSupport>true</CLRSupport>
     <PlatformToolset>v140</PlatformToolset>
-     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='net40|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <CLRSupport>true</CLRSupport>
     <PlatformToolset>v140</PlatformToolset>
-     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='net45-debug|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <CLRSupport>true</CLRSupport>
     <PlatformToolset>v140</PlatformToolset>
-     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='net40-debug|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <CLRSupport>true</CLRSupport>
     <PlatformToolset>v140</PlatformToolset>
-     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='net40-release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CLRSupport>true</CLRSupport>
+    <PlatformToolset>v140</PlatformToolset>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='net45-release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CLRSupport>true</CLRSupport>
+    <PlatformToolset>v140</PlatformToolset>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -116,6 +158,12 @@
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='net40-debug|Win32'" Label="PropertySheets">
     <Import Project="AlphaVSS.props" />
   </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='net40-release|Win32'" Label="PropertySheets">
+    <Import Project="AlphaVSS.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='net45-release|Win32'" Label="PropertySheets">
+    <Import Project="AlphaVSS.props" />
+  </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='net45|x64'" Label="PropertySheets">
     <Import Project="AlphaVSS.props" />
   </ImportGroup>
@@ -128,54 +176,86 @@
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='net40-debug|x64'" Label="PropertySheets">
     <Import Project="AlphaVSS.props" />
   </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='net40-release|x64'" Label="PropertySheets">
+    <Import Project="AlphaVSS.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='net45-release|x64'" Label="PropertySheets">
+    <Import Project="AlphaVSS.props" />
+  </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
     <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='net45-debug|Win32'">
     </CodeAnalysisRules>
     <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='net40-debug|Win32'" />
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='net40-release|Win32'" />
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='net45-release|Win32'" />
     <RunCodeAnalysis Condition="'$(Configuration)|$(Platform)'=='net45-debug|Win32'">false</RunCodeAnalysis>
     <RunCodeAnalysis Condition="'$(Configuration)|$(Platform)'=='net40-debug|Win32'">false</RunCodeAnalysis>
+    <RunCodeAnalysis Condition="'$(Configuration)|$(Platform)'=='net40-release|Win32'">false</RunCodeAnalysis>
+    <RunCodeAnalysis Condition="'$(Configuration)|$(Platform)'=='net45-release|Win32'">false</RunCodeAnalysis>
     <CodeAnalysisIgnoreGeneratedCode Condition="'$(Configuration)|$(Platform)'=='net45-debug|Win32'">false</CodeAnalysisIgnoreGeneratedCode>
     <CodeAnalysisIgnoreGeneratedCode Condition="'$(Configuration)|$(Platform)'=='net40-debug|Win32'">false</CodeAnalysisIgnoreGeneratedCode>
-    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='net45-debug|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
-    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='net40-debug|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisIgnoreGeneratedCode Condition="'$(Configuration)|$(Platform)'=='net40-release|Win32'">false</CodeAnalysisIgnoreGeneratedCode>
+    <CodeAnalysisIgnoreGeneratedCode Condition="'$(Configuration)|$(Platform)'=='net45-release|Win32'">false</CodeAnalysisIgnoreGeneratedCode>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='net45-debug|Win32'">..\AlphaVSS.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='net40-debug|Win32'">..\AlphaVSS.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='net40-release|Win32'">..\AlphaVSS.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='net45-release|Win32'">..\AlphaVSS.ruleset</CodeAnalysisRuleSet>
     <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='net45-debug|Win32'" />
     <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='net40-debug|Win32'" />
-    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='net45-debug|x64'">AllRules.ruleset</CodeAnalysisRuleSet>
-    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='net40-debug|x64'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='net40-release|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='net45-release|Win32'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='net45-debug|x64'">..\AlphaVSS.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='net40-debug|x64'">..\AlphaVSS.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='net40-release|x64'">..\AlphaVSS.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='net45-release|x64'">..\AlphaVSS.ruleset</CodeAnalysisRuleSet>
     <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='net45-debug|x64'" />
     <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='net40-debug|x64'" />
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='net40-release|x64'" />
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='net45-release|x64'" />
     <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='net45-debug|x64'" />
     <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='net40-debug|x64'" />
-    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='net45|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
-    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='net40|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='net40-release|x64'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='net45-release|x64'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='net45|Win32'">..\AlphaVSS.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='net40|Win32'">..\AlphaVSS.ruleset</CodeAnalysisRuleSet>
     <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='net45|Win32'" />
     <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='net40|Win32'" />
     <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='net45|Win32'" />
     <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='net40|Win32'" />
-    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='net45|x64'">AllRules.ruleset</CodeAnalysisRuleSet>
-    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='net40|x64'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='net45|x64'">..\AlphaVSS.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='net40|x64'">..\AlphaVSS.ruleset</CodeAnalysisRuleSet>
     <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='net45|x64'" />
     <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='net40|x64'" />
     <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='net45|x64'" />
     <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='net40|x64'" />
     <TargetName Condition="'$(Configuration)|$(Platform)'=='net45-debug|Win32'">AlphaVSS.$(PlatformName)</TargetName>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='net40-debug|Win32'">AlphaVSS.$(PlatformName)</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='net40-release|Win32'">AlphaVSS.$(PlatformName)</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='net45-release|Win32'">AlphaVSS.$(PlatformName)</TargetName>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='net45-debug|x64'">AlphaVSS.$(PlatformName)</TargetName>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='net40-debug|x64'">AlphaVSS.$(PlatformName)</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='net40-release|x64'">AlphaVSS.$(PlatformName)</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='net45-release|x64'">AlphaVSS.$(PlatformName)</TargetName>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='net45|Win32'">AlphaVSS.$(PlatformName)</TargetName>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='net40|Win32'">AlphaVSS.$(PlatformName)</TargetName>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='net45|x64'">AlphaVSS.$(PlatformName)</TargetName>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='net40|x64'">AlphaVSS.$(PlatformName)</TargetName>
     <RunCodeAnalysis Condition="'$(Configuration)|$(Platform)'=='net45-debug|x64'">false</RunCodeAnalysis>
     <RunCodeAnalysis Condition="'$(Configuration)|$(Platform)'=='net40-debug|x64'">false</RunCodeAnalysis>
+    <RunCodeAnalysis Condition="'$(Configuration)|$(Platform)'=='net40-release|x64'">false</RunCodeAnalysis>
+    <RunCodeAnalysis Condition="'$(Configuration)|$(Platform)'=='net45-release|x64'">false</RunCodeAnalysis>
     <EnableManagedIncrementalBuild Condition="'$(Configuration)|$(Platform)'=='net45-debug|Win32'">false</EnableManagedIncrementalBuild>
     <EnableManagedIncrementalBuild Condition="'$(Configuration)|$(Platform)'=='net40-debug|Win32'">false</EnableManagedIncrementalBuild>
+    <EnableManagedIncrementalBuild Condition="'$(Configuration)|$(Platform)'=='net40-release|Win32'">false</EnableManagedIncrementalBuild>
+    <EnableManagedIncrementalBuild Condition="'$(Configuration)|$(Platform)'=='net45-release|Win32'">false</EnableManagedIncrementalBuild>
     <EnableManagedIncrementalBuild Condition="'$(Configuration)|$(Platform)'=='net45|Win32'">false</EnableManagedIncrementalBuild>
     <EnableManagedIncrementalBuild Condition="'$(Configuration)|$(Platform)'=='net40|Win32'">false</EnableManagedIncrementalBuild>
     <EnableManagedIncrementalBuild Condition="'$(Configuration)|$(Platform)'=='net45-debug|x64'">false</EnableManagedIncrementalBuild>
     <EnableManagedIncrementalBuild Condition="'$(Configuration)|$(Platform)'=='net40-debug|x64'">false</EnableManagedIncrementalBuild>
+    <EnableManagedIncrementalBuild Condition="'$(Configuration)|$(Platform)'=='net40-release|x64'">false</EnableManagedIncrementalBuild>
+    <EnableManagedIncrementalBuild Condition="'$(Configuration)|$(Platform)'=='net45-release|x64'">false</EnableManagedIncrementalBuild>
     <EnableManagedIncrementalBuild Condition="'$(Configuration)|$(Platform)'=='net45|x64'">false</EnableManagedIncrementalBuild>
     <EnableManagedIncrementalBuild Condition="'$(Configuration)|$(Platform)'=='net40|x64'">false</EnableManagedIncrementalBuild>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='net45|Win32'">$(ProjectDir)\..\..\Bin\Release\net45\</OutDir>
@@ -184,13 +264,23 @@
     <OutDir Condition="'$(Configuration)|$(Platform)'=='net40|x64'">$(ProjectDir)\..\..\Bin\Release\net40\</OutDir>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='net45-debug|Win32'">$(ProjectDir)\..\..\Bin\Debug\net45\</OutDir>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='net40-debug|Win32'">$(ProjectDir)\..\..\Bin\Debug\net40\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='net40-release|Win32'">$(ProjectDir)\..\..\Bin\Debug\net40\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='net45-release|Win32'">$(ProjectDir)\..\..\Bin\Debug\net45\</OutDir>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='net45-debug|x64'">$(ProjectDir)\..\..\Bin\Debug\net45\</OutDir>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='net40-debug|x64'">$(ProjectDir)\..\..\Bin\Debug\net40\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='net40-release|x64'">$(ProjectDir)\..\..\Bin\Debug\net40\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='net45-release|x64'">$(ProjectDir)\..\..\Bin\Debug\net45\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='net45-debug|Win32'">
     <LinkKeyFile>$(ProjectDir)..\AlphaVSS.snk</LinkKeyFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='net40-debug|Win32'">
+    <LinkKeyFile>$(ProjectDir)..\AlphaVSS.snk</LinkKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='net40-release|Win32'">
+    <LinkKeyFile>$(ProjectDir)..\AlphaVSS.snk</LinkKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='net45-release|Win32'">
     <LinkKeyFile>$(ProjectDir)..\AlphaVSS.snk</LinkKeyFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='net45|Win32'">
@@ -203,6 +293,12 @@
     <LinkKeyFile>$(ProjectDir)..\AlphaVSS.snk</LinkKeyFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='net40-debug|x64'">
+    <LinkKeyFile>$(ProjectDir)..\AlphaVSS.snk</LinkKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='net40-release|x64'">
+    <LinkKeyFile>$(ProjectDir)..\AlphaVSS.snk</LinkKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='net45-release|x64'">
     <LinkKeyFile>$(ProjectDir)..\AlphaVSS.snk</LinkKeyFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='net45|x64'">
@@ -255,6 +351,50 @@
       <SuppressStartupBanner>false</SuppressStartupBanner>
     </Xdcmake>
   </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='net40-release|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;ALPHAVSS_TARGET=0x0601;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <XMLDocumentationFileName>$(IntDir)</XMLDocumentationFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ForcedIncludeFiles>CodeAnalysis\SourceAnnotations.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <EnablePREfast>false</EnablePREfast>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>vssapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AssemblyDebug>true</AssemblyDebug>
+      <TargetMachine>MachineX86</TargetMachine>
+      <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
+    </Link>
+    <Xdcmake>
+      <SuppressStartupBanner>false</SuppressStartupBanner>
+    </Xdcmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='net45-release|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;ALPHAVSS_TARGET=0x0601;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <XMLDocumentationFileName>$(IntDir)</XMLDocumentationFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ForcedIncludeFiles>CodeAnalysis\SourceAnnotations.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <EnablePREfast>false</EnablePREfast>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>vssapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AssemblyDebug>true</AssemblyDebug>
+      <TargetMachine>MachineX86</TargetMachine>
+      <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
+    </Link>
+    <Xdcmake>
+      <SuppressStartupBanner>false</SuppressStartupBanner>
+    </Xdcmake>
+  </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='net45-debug|x64'">
     <Midl>
       <TargetEnvironment>X64</TargetEnvironment>
@@ -283,6 +423,60 @@
     </Xdcmake>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='net40-debug|x64'">
+    <Midl>
+      <TargetEnvironment>X64</TargetEnvironment>
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;ALPHAVSS_TARGET=0x0601;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ForcedIncludeFiles>CodeAnalysis\SourceAnnotations.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <EnablePREfast>false</EnablePREfast>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>vssapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ShowProgress>LinkVerboseLib</ShowProgress>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AssemblyDebug>true</AssemblyDebug>
+      <TargetMachine>MachineX64</TargetMachine>
+      <KeyContainer>
+      </KeyContainer>
+      <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
+    </Link>
+    <Xdcmake>
+      <SuppressStartupBanner>false</SuppressStartupBanner>
+    </Xdcmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='net40-release|x64'">
+    <Midl>
+      <TargetEnvironment>X64</TargetEnvironment>
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;ALPHAVSS_TARGET=0x0601;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ForcedIncludeFiles>CodeAnalysis\SourceAnnotations.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <EnablePREfast>false</EnablePREfast>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>vssapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ShowProgress>LinkVerboseLib</ShowProgress>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AssemblyDebug>true</AssemblyDebug>
+      <TargetMachine>MachineX64</TargetMachine>
+      <KeyContainer>
+      </KeyContainer>
+      <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
+    </Link>
+    <Xdcmake>
+      <SuppressStartupBanner>false</SuppressStartupBanner>
+    </Xdcmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='net45-release|x64'">
     <Midl>
       <TargetEnvironment>X64</TargetEnvironment>
     </Midl>
@@ -443,9 +637,17 @@
       </PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='net40-debug|Win32'">
       </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='net40-release|Win32'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='net45-release|Win32'">
+      </PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='net45-debug|x64'">
       </PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='net40-debug|x64'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='net40-release|x64'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='net45-release|x64'">
       </PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='net45|Win32'">
       </PrecompiledHeader>
@@ -459,8 +661,12 @@
     <ClCompile Include="Src\Stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='net45-debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='net40-debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='net40-release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='net45-release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='net45-debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='net40-debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='net40-release|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='net45-release|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='net45|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='net40|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='net45|x64'">Create</PrecompiledHeader>

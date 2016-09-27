@@ -38,13 +38,28 @@
       <ProjectsToBuild Include="$(SrcDir)AlphaVSS.Platform\AlphaVSS.vcxproj">
          <Configuration>net40</Configuration>
          <Platform>x64</Platform>
-      </ProjectsToBuild>      <ProjectsToBuild Include="$(SrcDir)Documentation\AlphaVSS-Doc.shfbproj">
+      </ProjectsToBuild>
+      <ProjectsToBuild Include="$(SrcDir)Samples\AlphaShadow\AlphaShadow.csproj">
+         <Configuration>net40-release</Configuration>
+         <Platform>AnyCPU</Platform>
+      </ProjectsToBuild>
+      <ProjectsToBuild Include="$(SrcDir)Samples\AlphaShadow\AlphaShadow.csproj">
+         <Configuration>net45-release</Configuration>
+         <Platform>AnyCPU</Platform>
+      </ProjectsToBuild>
+      <ProjectsToBuild Include="$(SrcDir)Documentation\AlphaVSS-Doc.shfbproj">
          <Configuration>Release</Configuration>
          <Platform>AnyCPU</Platform>
       </ProjectsToBuild>
    </ItemGroup>
 
    <Target Name="Rebuild">
+      <ItemGroup>
+         <OldFilesToClean Include="$(BinDir)\Release\**\*" Condition="Exists('$(BinDir)\Release')"/>
+      </ItemGroup>
+
+      <Delete Files="@(OldFilesToClean)" ContinueOnError="false"/>
+
       <MSBuild Projects="%(ProjectsToBuild.Identity)"
                Properties="CustomReleaseBuild=true;Configuration=%(ProjectsToBuild.Configuration);Platform=%(ProjectsToBuild.Platform)"
                Targets="Rebuild">
@@ -74,6 +89,7 @@
          <FilesToCopy Include="$(BinDir)Release\**\*.dll" />
          <FilesToCopy Include="$(BinDir)Release\**\*.pdb" />
          <FilesToCopy Include="$(BinDir)Release\**\*.xml" />
+         <FilesToCopy Include="$(BinDir)Release\**\*.exe" />
       </ItemGroup>
 
       <Move SourceFiles="$(SrcDir)..\Doc\AlphaVSS.chm" DestinationFiles="$(DistDir)\Zip\AlphaVSS.chm" />
@@ -84,7 +100,7 @@
          <StaticFiles Include="$(SrcDir)..\README.md" />
       </ItemGroup>
 
-      <Copy SourceFiles="@(FilesToCopy)" DestinationFiles="@(FilesToCopy->'$(DistDir)\Zip\Lib\%(RecursiveDir)\%(Filename)%(Extension)')" />
+      <Copy SourceFiles="@(FilesToCopy)" DestinationFiles="@(FilesToCopy->'$(DistDir)\Zip\Bin\%(RecursiveDir)\%(Filename)%(Extension)')" />
       <Copy SourceFiles="@(StaticFiles)" DestinationFolder="$(DistDir)\Zip" />
 
       <Exec Command="PowerShell -command Compress-Archive &quot;$(DistDir)\Zip\*&quot; $(DistDir)\AlphaVSS.%(AlphaFSASsembly.Version).zip" />
