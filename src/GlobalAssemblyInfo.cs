@@ -1,4 +1,4 @@
-/* Copyright (c) 2008-2012 Peter Palotas
+/* Copyright (c) 2008-2016 Peter Palotas
  *  
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -32,8 +32,8 @@ using System.Resources;
 
 [assembly: AssemblyCompany("Alphaleonis")]
 [assembly: AssemblyProduct("AlphaVSS")]
-[assembly: AssemblyCopyright("Copyright © Peter Palotas 2008-2012")]
+[assembly: AssemblyCopyright("Copyright © Peter Palotas 2008-2016")]
 [assembly: AssemblyTrademark("")]
 
-[assembly: AssemblyVersion("1.3.0.0")]
-[assembly: AssemblyFileVersion("1.3.0.0")]
+[assembly: AssemblyVersion("1.3.1.0")]
+[assembly: AssemblyFileVersion("1.3.1.0")]

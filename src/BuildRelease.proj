@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- This project file is used for building a release of AlphaFS. It will create a nuget package and a zip-file after building all 
+     configurations in release mode. These will be placed under the Dist\ directory. -->
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Rebuild" ToolsVersion="4.0">
+   <PropertyGroup>
+      <Configuration>Release</Configuration>
+      <Platform>AnyCPU</Platform>
+      <DistDir>$(MSBuildThisFileDirectory)..\Dist\</DistDir>
+      <SrcDir>$(MSBuildThisFileDirectory)</SrcDir>
+      <BinDir>$(MSBuildThisFileDirectory)..\Bin\</BinDir>
+   </PropertyGroup>
+
+   <ItemGroup>
+      <TargetList Condition="  '@(TargetList)' == '' " Include="Rebuild" />
+   </ItemGroup>
+
+   <ItemGroup>
+      <ProjectsToBuild Include="$(SrcDir)AlphaVSS.Common\AlphaVSS.Common.csproj">
+         <Configuration>net40</Configuration>
+         <Platform>AnyCPU</Platform>
+      </ProjectsToBuild>
+      <ProjectsToBuild Include="$(SrcDir)AlphaVSS.Common\AlphaVSS.Common.csproj">
+         <Configuration>net45</Configuration>
+         <Platform>AnyCPU</Platform>
+      </ProjectsToBuild>
+      <ProjectsToBuild Include="$(SrcDir)AlphaVSS.Platform\AlphaVSS.vcxproj">
+         <Configuration>net45</Configuration>
+         <Platform>Win32</Platform>
+      </ProjectsToBuild>
+      <ProjectsToBuild Include="$(SrcDir)AlphaVSS.Platform\AlphaVSS.vcxproj">
+         <Configuration>net45</Configuration>
+         <Platform>x64</Platform>
+      </ProjectsToBuild>
+      <ProjectsToBuild Include="$(SrcDir)AlphaVSS.Platform\AlphaVSS.vcxproj">
+         <Configuration>net40</Configuration>
+         <Platform>Win32</Platform>
+      </ProjectsToBuild>
+      <ProjectsToBuild Include="$(SrcDir)AlphaVSS.Platform\AlphaVSS.vcxproj">
+         <Configuration>net40</Configuration>
+         <Platform>x64</Platform>
+      </ProjectsToBuild>
+      <ProjectsToBuild Include="$(SrcDir)Samples\AlphaShadow\AlphaShadow.csproj">
+         <Configuration>net40-release</Configuration>
+         <Platform>AnyCPU</Platform>
+      </ProjectsToBuild>
+      <ProjectsToBuild Include="$(SrcDir)Samples\AlphaShadow\AlphaShadow.csproj">
+         <Configuration>net45-release</Configuration>
+         <Platform>AnyCPU</Platform>
+      </ProjectsToBuild>
+      <ProjectsToBuild Include="$(SrcDir)Documentation\AlphaVSS-Doc.shfbproj">
+         <Configuration>Release</Configuration>
+         <Platform>AnyCPU</Platform>
+      </ProjectsToBuild>
+   </ItemGroup>
+
+   <Target Name="Rebuild">
+      <ItemGroup>
+         <OldFilesToClean Include="$(BinDir)\Release\**\*" Condition="Exists('$(BinDir)\Release')"/>
+      </ItemGroup>
+
+      <Delete Files="@(OldFilesToClean)" ContinueOnError="false"/>
+
+      <MSBuild Projects="%(ProjectsToBuild.Identity)"
+               Properties="CustomReleaseBuild=true;Configuration=%(ProjectsToBuild.Configuration);Platform=%(ProjectsToBuild.Platform)"
+               Targets="Rebuild">
+         <Output TaskParameter="TargetOutputs" ItemName="CompilationTargets" />
+      </MSBuild>
+      
+      <GetAssemblyIdentity AssemblyFiles="$(BinDir)$(Configuration)\Net45\AlphaVSS.Common.dll">
+         <Output TaskParameter="Assemblies" ItemName="AlphaFSAssembly" />
+      </GetAssemblyIdentity>
+
+      <ItemGroup>
+         <FilesToClean Include="$(DistDir)\**\*" Condition="Exists('$(DistDir)')"/>
+         <Directories Include="$([System.IO.Directory]::GetDirectories('$(DistDir)', '*', System.IO.SearchOption.AllDirectories))"
+                      Exclude="$(DistDir)" Condition="Exists('$(DistDir)')"/>
+      </ItemGroup>
+
+      <Delete Files="@(FilesToClean)" ContinueOnError="false"/>
+
+      <RemoveDir Directories="$(DistDir)" />
+      <MakeDir Directories="$(DistDir)" />
+
+      <Exec Command="&quot;$(MSBuildThisFileDirectory)packages\NuGet.CommandLine.3.4.4-rtm-final\tools\NuGet.exe&quot; pack &quot;$(ProjectDir)AlphaVSS.nuspec&quot; -NoPackageAnalysis -Version %(AlphaFSAssembly.Version) -OutputDirectory $(DistDir)" WorkingDirectory="$(TargetDir)" LogStandardErrorAsError="true" ConsoleToMSBuild="true">
+         <Output TaskParameter="ConsoleOutput" PropertyName="OutputOfExec" />
+      </Exec>
+
+      <ItemGroup>
+         <FilesToCopy Include="$(BinDir)Release\**\*.dll" />
+         <FilesToCopy Include="$(BinDir)Release\**\*.pdb" />
+         <FilesToCopy Include="$(BinDir)Release\**\*.xml" />
+         <FilesToCopy Include="$(BinDir)Release\**\*.exe" />
+      </ItemGroup>
+
+      <Move SourceFiles="$(SrcDir)..\Doc\AlphaVSS.chm" DestinationFiles="$(DistDir)\Zip\AlphaVSS.chm" />
+
+      <ItemGroup>
+         <StaticFiles Include="$(SrcDir)..\CHANGELOG.md" />
+         <StaticFiles Include="$(SrcDir)..\LICENSE.md" />
+         <StaticFiles Include="$(SrcDir)..\README.md" />
+      </ItemGroup>
+
+      <Copy SourceFiles="@(FilesToCopy)" DestinationFiles="@(FilesToCopy->'$(DistDir)\Zip\Bin\%(RecursiveDir)\%(Filename)%(Extension)')" />
+      <Copy SourceFiles="@(StaticFiles)" DestinationFolder="$(DistDir)\Zip" />
+
+      <Exec Command="PowerShell -command Compress-Archive &quot;$(DistDir)\Zip\*&quot; $(DistDir)\AlphaVSS.%(AlphaFSASsembly.Version).zip" />
+
+   </Target>
+</Project>
