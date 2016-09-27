@@ -1,5 +1,6 @@
 Version 1.3.1
 -------------
+* Now requires Visual C++ Redistributable for Visual Studio 2015
 * Added a build targetting .NET 4.0
 * Internal reorganization of build process.
 * Distributed as a NuGet package.
