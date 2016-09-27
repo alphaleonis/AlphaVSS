@@ -1,4 +1,10 @@
-Version 1.3.0.0
+Version 1.3.1
+-------------
+* Added a build targetting .NET 4.0
+* Internal reorganization of build process.
+* Distributed as a NuGet package.
+
+Version 1.3.0
 ---------------
 
 * Moved source to GitHub, reorganized file structure of sources. 
