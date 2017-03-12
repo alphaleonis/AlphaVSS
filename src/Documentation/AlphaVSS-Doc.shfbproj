@@ -104,7 +104,7 @@ The documentation provided here is provided for convenience only, and the offici
     </FeedbackEMailLinkText>
     <ShowFeedbackControl>False</ShowFeedbackControl>
     <MaximumGroupParts>2</MaximumGroupParts>
-    <NamespaceGrouping>True</NamespaceGrouping>
+    <NamespaceGrouping>False</NamespaceGrouping>
     <SyntaxFilters>C#, Visual Basic, Managed C++</SyntaxFilters>
     <SdkLinkTarget>Blank</SdkLinkTarget>
     <Preliminary>False</Preliminary>

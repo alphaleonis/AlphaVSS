@@ -125,6 +125,8 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
       virtual IVssAsyncResult^ BeginRecoverSet(VssRecoveryOptions options, AsyncCallback^ userCallback, Object^ stateObject);
       virtual void EndRecoverSet(IAsyncResult ^asyncResult);      
 
+      virtual VssRootAndLogicalPrefixPaths^ GetRootAndLogicalPrefixPaths(String^ filePath, bool normalizeFQDNforRootPath);
+
    private:
       ::IVssBackupComponents *m_backup;
 
@@ -135,6 +137,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 #if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WINVISTAORLATER
       DEFINE_EX_INTERFACE_ACCESSOR(IVssBackupComponentsEx2, m_backup)
       DEFINE_EX_INTERFACE_ACCESSOR(IVssBackupComponentsEx3, m_backup)
+      DEFINE_EX_INTERFACE_ACCESSOR(IVssBackupComponentsEx4, m_backup)
 #endif
 
       ref class WriterMetadataList : VssListAdapter<IVssExamineWriterMetadata^>

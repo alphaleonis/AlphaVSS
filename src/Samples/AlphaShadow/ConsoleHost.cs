@@ -76,7 +76,7 @@ namespace AlphaShadow
          if (IsWordWrapEnabled)
          {
             StringBuilder sb = new StringBuilder();
-            string wrappedString = StringFormatter.WordWrap(String.Format(message, args), Console.WindowWidth - 5 - m_indent, StringFormatter.WordWrappingMethod.Greedy);
+            string wrappedString = StringFormatter.WordWrap((args == null || args.Length == 0) ? message : String.Format(message, args), Console.WindowWidth - 5 - m_indent, StringFormatter.WordWrappingMethod.Greedy);
             IList<string> splitString = StringFormatter.SplitAtLineBreaks(wrappedString);
             for (int i = 0; i < splitString.Count; i++)
             {

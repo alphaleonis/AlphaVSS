@@ -799,5 +799,16 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
        VssAsyncResult^ result = safe_cast<VssAsyncResult^>(asyncResult);
        result->EndInvoke();
     }
+
+    VssRootAndLogicalPrefixPaths^ VssBackupComponents::GetRootAndLogicalPrefixPaths(String^ filePath, bool normalizeFQDNforRootPath)
+    {
+#if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WINVISTAORLATER
+       AutoPwsz pwszRootPath, pwszLogicalPrefix;
+       CheckCom(RequireIVssBackupComponentsEx4()->GetRootAndLogicalPrefixPaths(AutoMStr(filePath), &pwszRootPath, &pwszLogicalPrefix, normalizeFQDNforRootPath));
+       return gcnew VssRootAndLogicalPrefixPaths(pwszRootPath, pwszLogicalPrefix);
+#else
+       UnsupportedOs();
+#endif
+    }
 }
 } }

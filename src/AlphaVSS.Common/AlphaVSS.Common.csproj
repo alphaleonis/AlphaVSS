@@ -83,6 +83,7 @@
     <Compile Include="Classes\VssDifferencedFileInfo.cs" />
     <Compile Include="Classes\VssDiffVolumeProperties.cs" />
     <Compile Include="Classes\VssDirectedTargetInfo.cs" />
+    <Compile Include="Classes\VssRootAndLogicalPrefixPaths.cs" />
     <Compile Include="Classes\VssSnapshotProperties.cs" />
     <Compile Include="Classes\VssVolumeProperties.cs" />
     <Compile Include="Classes\VssVolumeProtectionInfo.cs" />
