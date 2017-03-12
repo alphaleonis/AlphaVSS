@@ -32,24 +32,10 @@
     <CodeAnalysisRuleSet>..\AlphaVSS.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <TargetFrameworkVersion>4.5</TargetFrameworkVersion>
+     <DebugType>full</DebugType>
+     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'net45|AnyCPU' ">
-    <OutputPath>..\..\Bin\Release\net45\</OutputPath>
-    <DocumentationFile>..\..\Bin\Release\net45\AlphaVSS.Common.XML</DocumentationFile>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <RegisterForComInterop>false</RegisterForComInterop>
-    <Optimize>true</Optimize>
-    <UseVSHostingProcess>false</UseVSHostingProcess>
-    <DefineConstants>
-    </DefineConstants>
-    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
-    <CodeAnalysisRuleSet>..\AlphaVSS.ruleset</CodeAnalysisRuleSet>
-    <Prefer32Bit>false</Prefer32Bit>
-    <DebugType>pdbonly</DebugType>
-    <DebugSymbols>true</DebugSymbols>
-    <TargetFrameworkVersion>4.5</TargetFrameworkVersion>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'net40-debug|AnyCPU' ">
+   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'net40-debug|AnyCPU' ">
     <OutputPath>..\..\Bin\Debug\net40\</OutputPath>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <RunCodeAnalysis>true</RunCodeAnalysis>
@@ -59,26 +45,10 @@
     <CodeAnalysisRuleSet>..\AlphaVSS.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <TargetFrameworkVersion>4.0</TargetFrameworkVersion>
-    <DebugType>pdbonly</DebugType>
+    <DebugType>full</DebugType>
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'net40|AnyCPU' ">
-    <OutputPath>..\..\Bin\Release\net40\</OutputPath>
-    <DocumentationFile>..\..\Bin\Release\net40\AlphaVSS.Common.XML</DocumentationFile>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <RegisterForComInterop>false</RegisterForComInterop>
-    <Optimize>true</Optimize>
-    <UseVSHostingProcess>false</UseVSHostingProcess>
-    <DefineConstants>
-    </DefineConstants>
-    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
-    <CodeAnalysisRuleSet>..\AlphaVSS.ruleset</CodeAnalysisRuleSet>
-    <Prefer32Bit>false</Prefer32Bit>
-    <DebugType>pdbonly</DebugType>
-    <DebugSymbols>true</DebugSymbols>
-    <TargetFrameworkVersion>4.0</TargetFrameworkVersion>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'net45-release|AnyCPU'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'net45|AnyCPU'">
     <DebugSymbols>true</DebugSymbols>
     <OutputPath>..\..\Bin\Release\net45\</OutputPath>
     <DocumentationFile>..\..\Bin\Release\net45\AlphaVSS.Common.XML</DocumentationFile>
@@ -87,8 +57,9 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <CodeAnalysisRuleSet>..\AlphaVSS.ruleset</CodeAnalysisRuleSet>
+     <TargetFrameworkVersion>4.5</TargetFrameworkVersion>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'net40-release|AnyCPU'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'net40|AnyCPU'">
     <DebugSymbols>true</DebugSymbols>
     <OutputPath>..\..\Bin\Release\net40\</OutputPath>
     <DocumentationFile>..\..\Bin\Release\net45\AlphaVSS.Common.XML</DocumentationFile>
@@ -97,6 +68,7 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <CodeAnalysisRuleSet>..\AlphaVSS.ruleset</CodeAnalysisRuleSet>
+     <TargetFrameworkVersion>4.0</TargetFrameworkVersion>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />

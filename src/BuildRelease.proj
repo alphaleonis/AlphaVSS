@@ -40,11 +40,11 @@
          <Platform>x64</Platform>
       </ProjectsToBuild>
       <ProjectsToBuild Include="$(SrcDir)Samples\AlphaShadow\AlphaShadow.csproj">
-         <Configuration>net40-release</Configuration>
+         <Configuration>net40</Configuration>
          <Platform>AnyCPU</Platform>
       </ProjectsToBuild>
       <ProjectsToBuild Include="$(SrcDir)Samples\AlphaShadow\AlphaShadow.csproj">
-         <Configuration>net45-release</Configuration>
+         <Configuration>net45</Configuration>
          <Platform>AnyCPU</Platform>
       </ProjectsToBuild>
       <ProjectsToBuild Include="$(SrcDir)Documentation\AlphaVSS-Doc.shfbproj">
