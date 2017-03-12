@@ -13,8 +13,8 @@ using System.Resources;
 
 [assembly: AssemblyCompany("Alphaleonis")]
 [assembly: AssemblyProduct("AlphaVSS")]
-[assembly: AssemblyCopyright("Copyright © Peter Palotas 2008-2016")]
+[assembly: AssemblyCopyright("Copyright © Peter Palotas 2008-2017")]
 [assembly: AssemblyTrademark("")]
 
-[assembly: AssemblyVersion("1.3.1.0")]
-[assembly: AssemblyFileVersion("1.3.1.0")]
+[assembly: AssemblyVersion("1.4.0.0")]
+[assembly: AssemblyFileVersion("1.4.0.0")]
