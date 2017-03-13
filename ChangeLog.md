@@ -6,7 +6,15 @@ permalink: /changelog/
 title: Changelog
 ---
 
-Version 1.3.0.0
+Version 1.4.0 (2017-03-13)
+-------------
+* Now requires Visual C++ Redistributable for Visual Studio 2017
+* Added support for GetRootAndLogicalPrefixPaths from IVssBackupComponentsEx4.
+* Distributed as a NuGet package.
+* Added a build targetting .NET 4.0
+* Internal reorganization of build process.
+
+Version 1.3.0
 ---------------
 
 * Moved source to GitHub, reorganized file structure of sources. 
