@@ -40,11 +40,11 @@
          <Platform>x64</Platform>
       </ProjectsToBuild>
       <ProjectsToBuild Include="$(SrcDir)Samples\AlphaShadow\AlphaShadow.csproj">
-         <Configuration>net40-release</Configuration>
+         <Configuration>net40</Configuration>
          <Platform>AnyCPU</Platform>
       </ProjectsToBuild>
       <ProjectsToBuild Include="$(SrcDir)Samples\AlphaShadow\AlphaShadow.csproj">
-         <Configuration>net45-release</Configuration>
+         <Configuration>net45</Configuration>
          <Platform>AnyCPU</Platform>
       </ProjectsToBuild>
       <ProjectsToBuild Include="$(SrcDir)Documentation\AlphaVSS-Doc.shfbproj">
@@ -81,7 +81,7 @@
       <RemoveDir Directories="$(DistDir)" />
       <MakeDir Directories="$(DistDir)" />
 
-      <Exec Command="&quot;$(MSBuildThisFileDirectory)packages\NuGet.CommandLine.3.4.4-rtm-final\tools\NuGet.exe&quot; pack &quot;$(ProjectDir)AlphaVSS.nuspec&quot; -NoPackageAnalysis -Version %(AlphaFSAssembly.Version) -OutputDirectory $(DistDir)" WorkingDirectory="$(TargetDir)" LogStandardErrorAsError="true" ConsoleToMSBuild="true">
+      <Exec Command="&quot;$(MSBuildThisFileDirectory)packages\NuGet.CommandLine.3.5.0\tools\NuGet.exe&quot; pack &quot;$(ProjectDir)AlphaVSS.nuspec&quot; -NoPackageAnalysis -Version %(AlphaFSAssembly.Version) -OutputDirectory $(DistDir)" WorkingDirectory="$(TargetDir)" LogStandardErrorAsError="true" ConsoleToMSBuild="true">
          <Output TaskParameter="ConsoleOutput" PropertyName="OutputOfExec" />
       </Exec>
 

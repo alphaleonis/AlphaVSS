@@ -1,23 +1,4 @@
-/* Copyright (c) 2008-2016 Peter Palotas
- *  
- *  Permission is hereby granted, free of charge, to any person obtaining a copy
- *  of this software and associated documentation files (the "Software"), to deal
- *  in the Software without restriction, including without limitation the rights
- *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- *  copies of the Software, and to permit persons to whom the Software is
- *  furnished to do so, subject to the following conditions:
- *  
- *  The above copyright notice and this permission notice shall be included in
- *  all copies or substantial portions of the Software.
- *  
- *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- *  THE SOFTWARE.
- */
+﻿
 
 using System;
 using System.Collections.Generic;
@@ -213,6 +194,7 @@ namespace Alphaleonis.Win32.Vss
       /// <exception cref="VssInvalidXmlDocumentException">The XML document is not valid. Check the event log for details.</exception>
       void AddRestoreSubcomponent(Guid writerId, VssComponentType componentType, string logicalPath, string componentName, string subcomponentLogicalPath, string subcomponentName);
 
+      /// <overloads>Adds an original volume to the shadow copy set. </overloads>
       /// <summary>
       /// The <see cref="AddToSnapshotSet(string, System.Guid)"/> method adds an original volume to the shadow copy set. 
       /// </summary>
@@ -1159,21 +1141,26 @@ namespace Alphaleonis.Win32.Vss
       /// </remarks>
       IVssAsyncResult BeginQueryRevertStatus(string volumeName, AsyncCallback userCallback, object state);
 
-      /// <summary>
-      /// Waits for a pending asynchronous operation to complete.
-      /// </summary>
+      /// <summary>Waits for a pending asynchronous operation to complete.</summary>
       /// <remarks>
-      /// <b>EndQueryRevertStatus</b> can be called once on every <see cref="IVssAsyncResult"/> from <see cref="BeginQueryRevertStatus"/>.
+      /// <b>EndQueryRevertStatus</b> can be called once on every <see cref="IVssAsyncResult"/> from
+      /// <see cref="BeginQueryRevertStatus"/>.
       /// </remarks>
+      /// <param name="asyncResult">The reference to the pending asynchronous request to finish.</param>
       /// <exception cref="ArgumentException">One of the parameter values is not valid.</exception>
       /// <exception cref="UnauthorizedAccessException">The calling process has insufficient privileges.</exception>
       /// <exception cref="OutOfMemoryException">Out of memory or other system resources.</exception>
-      /// <exception cref="SystemException">Unexpected VSS system error. The error code is logged in the event log.</exception>
-      /// <exception cref="VssBadStateException">The backup components object is not initialized, this method has been called during a restore operation, or this method has not been called within the correct sequence.</exception>		
+      /// <exception cref="SystemException">Unexpected VSS system error. The error code is logged in the
+      /// event log.</exception>
+      /// <exception cref="VssBadStateException">The backup components object is not initialized, this
+      /// method has been called during a restore operation, or this method has not been called within
+      /// the correct sequence.</exception>
       /// <exception cref="VssObjectNotFoundException">The specified parameter is not a valid volume.</exception>
       /// <exception cref="VssVolumeNotSupportedException">Revert is not supported on this volume.</exception>
-      /// <exception cref="NotImplementedException">The provider for the volume does not support revert operations.</exception>
-      /// <exception cref="NotSupportedException">This operation is not supported on the current operating system.</exception>
+      /// <exception cref="NotImplementedException">The provider for the volume does not support revert
+      /// operations.</exception>
+      /// <exception cref="NotSupportedException">This operation is not supported on the current
+      /// operating system.</exception>
       void EndQueryRevertStatus(IAsyncResult asyncResult);
 
       /// <summary>
@@ -2222,5 +2209,38 @@ namespace Alphaleonis.Win32.Vss
       /// </remarks>
       void EndRecoverSet(IAsyncResult asyncResult);
       #endregion
+
+      #region IVssBackupComponentsEx4 methods
+
+      /// <summary>
+      /// Normalizes a local volume path or UNC share path so that it can be passed to the
+      /// <see cref="O:Alphaleonis.Win32.Vss.IVssBackupComponents.AddToSnapshotSet"/> method.
+      /// </summary>
+      /// <param name="filePath">The path to be normalized.</param>
+      /// <param name="normalizeFQDNforRootPath"><para>If <paramref name="filePath"/> is a UNC share
+      /// path, the server name portion can be
+      ///   <list type="bullet">
+      ///      <item><description>A host name</description></item>
+      ///      <item><description>A fully qualified domain name</description></item>
+      ///      <item><description>An IP address</description></item>
+      /// </list>
+      /// </para>
+      /// <para>
+      /// This parameter specifies whether host name format or fully qualified domain name format should
+      /// be used in the server name portion of the normalized root path that is returned in the
+      /// <see cref="VssRootAndLogicalPrefixPaths.RootPath"/> property of the returned instance.</para>
+      /// <para>
+      /// If this parameter is <see langword="false"/>, simple host name format will be used.</para>
+      /// <para>If this parameter is <see langword="true"/>, fully qualified domain name will be
+      /// used.</para>
+      /// <para>
+      /// In a deployment where a host name could exist in multiple domain suffixes, this parameter
+      /// should be <see langword="true"/>.
+      ///      </para></param>
+      /// <returns>The root and logical prefix paths.</returns>
+      VssRootAndLogicalPrefixPaths GetRootAndLogicalPrefixPaths(string filePath, bool normalizeFQDNforRootPath);
+
+      #endregion
+
    }
 }

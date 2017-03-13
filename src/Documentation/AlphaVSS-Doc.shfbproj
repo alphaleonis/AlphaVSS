@@ -37,10 +37,10 @@ This documentation describes the AlphaVSS managed interface to the VSS API.
     <FrameworkVersion>.NET Framework 4.5</FrameworkVersion>
     <RootNamespaceContainer>False</RootNamespaceContainer>
     <RootNamespaceTitle>API Reference</RootNamespaceTitle>
-    <HelpTitle>AlphaVSS 1.3</HelpTitle>
+    <HelpTitle>AlphaVSS 1.4</HelpTitle>
     <FooterText>&amp;lt%3ba href=&amp;quot%3bhttps://github.com/alphaleonis/AlphaVSS&amp;quot%3b&amp;gt%3bhttps://github.com/alphaleonis/AlphaVSS&amp;lt%3b/a&amp;gt%3b</FooterText>
     <PresentationStyle>VS2013</PresentationStyle>
-    <HelpFileVersion>1.3.1</HelpFileVersion>
+    <HelpFileVersion>1.4.0</HelpFileVersion>
     <DocumentationSources>
       <DocumentationSource sourceFile="..\..\Bin\$(Configuration)\net45\AlphaVSS.Common.dll" />
       <DocumentationSource sourceFile="..\..\Bin\$(Configuration)\net45\AlphaVSS.Common.xml" />
@@ -104,7 +104,7 @@ The documentation provided here is provided for convenience only, and the offici
     </FeedbackEMailLinkText>
     <ShowFeedbackControl>False</ShowFeedbackControl>
     <MaximumGroupParts>2</MaximumGroupParts>
-    <NamespaceGrouping>True</NamespaceGrouping>
+    <NamespaceGrouping>False</NamespaceGrouping>
     <SyntaxFilters>C#, Visual Basic, Managed C++</SyntaxFilters>
     <SdkLinkTarget>Blank</SdkLinkTarget>
     <Preliminary>False</Preliminary>

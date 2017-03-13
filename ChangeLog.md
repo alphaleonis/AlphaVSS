@@ -1,9 +1,10 @@
-Version 1.3.1
+Version 1.4.0
 -------------
-* Now requires Visual C++ Redistributable for Visual Studio 2015
+* Now requires Visual C++ Redistributable for Visual Studio 2017
+* Added support for GetRootAndLogicalPrefixPaths from IVssBackupComponentsEx4.
+* Distributed as a NuGet package.
 * Added a build targetting .NET 4.0
 * Internal reorganization of build process.
-* Distributed as a NuGet package.
 
 Version 1.3.0
 ---------------
