@@ -2,18 +2,18 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
    <metadata>
       <id>AlphaVSS</id>
-      <version>2.1.0.0</version>
-      <title>AlphaFS</title>
+      <version>1.4.0</version>
+      <title>AlphaVSS</title>
       <authors>Peter Palotas</authors>
       <owners>Peter Palotas</owners>
       <licenseUrl>https://github.com/alphaleonis/AlphaVSS/blob/master/LICENSE.md</licenseUrl>
       <projectUrl>https://alphavss.alphaleonis.com/</projectUrl>
       <iconUrl>http://alphaleonis.com/img/AlphaVSS-icon.png</iconUrl>
       <requireLicenseAcceptance>true</requireLicenseAcceptance>
-      <description>AlphaFS is a .NET library providing more complete Win32 file system functionality to the .NET platform than the standard System.IO classes. Features highlights: creating hardlinks, accessing hidden volumes, enumeration of volumes, transactional file operations and much more.</description>
-      <releaseNotes>Many bugfixes and new features.</releaseNotes>
-      <copyright>Copyright (C) 2008-2016 Peter Palotas</copyright>
-      <tags>Win32, Filesystem</tags>
+      <description>AlphaVSS is a .NET class library released under the MIT license providing a managed API for the Volume Shadow Copy Service also known as VSS.</description>
+      <releaseNotes>Distributed as NuGet package with support for IVssBackupComponentsEx4.</releaseNotes>
+      <copyright>Copyright (C) 2008-2017 Peter Palotas</copyright>
+      <tags>Win32, VSS</tags>
       <frameworkAssemblies>
          <frameworkAssembly assemblyName="System" targetFramework="" />
       </frameworkAssemblies>
