@@ -4,6 +4,7 @@ using System.Reflection;
 using System.Runtime.Remoting;
 using System.Text;
 using System.Globalization;
+using System.Threading.Tasks;
 
 namespace Alphaleonis.Win32.Vss
 {
@@ -79,5 +80,7 @@ namespace Alphaleonis.Win32.Vss
          Assembly assembly = Assembly.Load(GetPlatformSpecificAssemblyName());
          return (IVssImplementation)assembly.CreateInstance("Alphaleonis.Win32.Vss.VssImplementation");
       }
+
+      public static TaskFactory TaskFactory { get; set; } = new TaskFactory();
    }
 }

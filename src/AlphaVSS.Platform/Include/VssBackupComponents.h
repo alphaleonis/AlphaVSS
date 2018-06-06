@@ -4,9 +4,12 @@
 #include "VssWriterComponents.h"
 #include "VssExamineWriterMetadata.h"
 #include "Macros.h"
+#include "VssAsyncOperation.h"
 
 using namespace System;
 using namespace System::Collections::Generic;
+using namespace System::Threading;
+using namespace System::Threading::Tasks;
 
 
 namespace Alphaleonis { namespace Win32 { namespace Vss
@@ -30,12 +33,14 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
       virtual Guid AddToSnapshotSet(String^ volumeName);
 
       virtual void BackupComplete();
+      virtual Task^ BackupCompleteAsync(CancellationToken cancellationToken);
       virtual IVssAsyncResult^ BeginBackupComplete(AsyncCallback^ userCallback, Object^ stateObject);
       virtual void EndBackupComplete(IAsyncResult ^asyncResult);      
 
       virtual void BreakSnapshotSet(Guid snapshotSetId);
 
       virtual void BreakSnapshotSet(Guid snapshotSetId, VssHardwareOptions breakFlags);
+      virtual Task^ BreakSnapshotSetAsync(Guid snapshotSetId, VssHardwareOptions breakFlags, CancellationToken cancellationToken);
       virtual IVssAsyncResult^ BeginBreakSnapshotSet(Guid snapshotSetId, VssHardwareOptions breakFlags, AsyncCallback^ userCallback, Object^ stateObject);
       virtual void EndBreakSnapshotSet(IAsyncResult ^asyncResult);      
 
@@ -46,6 +51,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
       virtual void DisableWriterInstances(array<Guid> ^ writerInstanceIds);
       
       virtual void DoSnapshotSet();
+      virtual Task^ DoSnapshotSetAsync(CancellationToken cancellationToken);
       virtual IVssAsyncResult^ BeginDoSnapshotSet(AsyncCallback^ userCallback, Object^ stateObject);
       virtual void EndDoSnapshotSet(IAsyncResult ^asyncResult);      
 
@@ -55,10 +61,12 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
       virtual void FreeWriterStatus();
 
       virtual void GatherWriterMetadata();
+      virtual Task^ GatherWriterMetadataAsync(CancellationToken cancellationToken);
       virtual IVssAsyncResult^ BeginGatherWriterMetadata(AsyncCallback^ userCallback, Object^ stateObject);
       virtual void EndGatherWriterMetadata(IAsyncResult ^asyncResult);
 
       virtual void GatherWriterStatus();
+      virtual Task^ GatherWriterStatusAsync(CancellationToken cancellationToken);
       virtual IVssAsyncResult^ BeginGatherWriterStatus(AsyncCallback^ userCallback, Object^ stateObject);
       virtual void EndGatherWriterStatus(IAsyncResult ^asyncResult);      
 
@@ -68,6 +76,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
       property IList<VssWriterStatusInfo^>^ WriterStatus { virtual IList<VssWriterStatusInfo^>^ get(); }
       
       virtual void ImportSnapshots();
+      virtual Task^ ImportSnapshotsAsync(CancellationToken cancellationToken);
       virtual IVssAsyncResult^ BeginImportSnapshots(AsyncCallback^ userCallback, Object^ stateObject);
       virtual void EndImportSnapshots(IAsyncResult ^asyncResult);      
 
@@ -77,15 +86,18 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
       virtual bool IsVolumeSupported(String^ volumeName);
       
       virtual void PostRestore();
+      virtual Task^ PostRestoreAsync(CancellationToken cancellationToken);
       virtual IVssAsyncResult^ BeginPostRestore(AsyncCallback^ userCallback, Object^ stateObject);
       virtual void EndPostRestore(IAsyncResult ^asyncResult);      
       
       virtual void PrepareForBackup();
+      virtual Task^ PrepareForBackupAsync(CancellationToken cancellationToken);
       virtual IVssAsyncResult^ BeginPrepareForBackup(AsyncCallback^ userCallback, Object^ stateObject);
       virtual void EndPrepareForBackup(IAsyncResult ^asyncResult);      
       
 
       virtual void PreRestore();
+      virtual Task^ PreRestoreAsync(CancellationToken cancellationToken);
       virtual IVssAsyncResult^ BeginPreRestore(AsyncCallback^ userCallback, Object^ stateObject);
       virtual void EndPreRestore(IAsyncResult ^asyncResult);      
 
@@ -122,6 +134,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
       virtual void AddSnapshotToRecoverySet(Guid snapshotId, String^ destinationVolume);
       
       virtual void RecoverSet(VssRecoveryOptions options);
+      virtual Task^ RecoverSetAsync(VssRecoveryOptions options, CancellationToken cancellationToken);
       virtual IVssAsyncResult^ BeginRecoverSet(VssRecoveryOptions options, AsyncCallback^ userCallback, Object^ stateObject);
       virtual void EndRecoverSet(IAsyncResult ^asyncResult);      
 

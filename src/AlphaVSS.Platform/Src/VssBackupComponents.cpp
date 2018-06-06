@@ -10,6 +10,8 @@
 
 using namespace System::Collections::Generic;
 using namespace System::Security::Permissions;
+using namespace System::Threading;
+using namespace System::Threading::Tasks;
 
 namespace Alphaleonis { namespace Win32 { namespace Vss
 {
@@ -139,6 +141,14 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
       WaitCheckAndReleaseVssAsyncOperation(pAsync);
    }
 
+   [SecurityPermissionAttribute(SecurityAction::LinkDemand)]
+   Task^ VssBackupComponents::BackupCompleteAsync(CancellationToken cancellationToken)
+   {
+       ::IVssAsync *pAsync;
+       CheckCom(m_backup->BackupComplete(&pAsync));
+       return VssAsyncOperation::Create(pAsync, cancellationToken)->Task;
+   }
+
    IVssAsyncResult^ VssBackupComponents::BeginBackupComplete(AsyncCallback^ userCallback, Object^ stateObject)
    {
       ::IVssAsync *pAsync;
@@ -166,7 +176,18 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 #else
       UnsupportedOs();
 #endif
-   }   
+   }
+
+   Task^ VssBackupComponents::BreakSnapshotSetAsync(Guid snapshotSetId, VssHardwareOptions breakFlags, CancellationToken cancellationToken)
+   {
+#if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WINVISTAORLATER
+       ::IVssAsync *pAsync;
+       CheckCom(RequireIVssBackupComponentsEx2()->BreakSnapshotSetEx(ToVssId(snapshotSetId), (_VSS_HARDWARE_OPTIONS)breakFlags, &pAsync));
+       return VssAsyncOperation::Create(pAsync, cancellationToken)->Task;
+#else
+       UnsupportedOs();
+#endif
+   }
 
    IVssAsyncResult^ VssBackupComponents::BeginBreakSnapshotSet(Guid snapshotSetId, VssHardwareOptions breakFlags, AsyncCallback^ userCallback, Object^ stateObject)
    {
@@ -222,7 +243,13 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
       CheckCom(m_backup->DoSnapshotSet(&vssAsync));
       WaitCheckAndReleaseVssAsyncOperation(vssAsync);
    }
-   
+
+   Task^ VssBackupComponents::DoSnapshotSetAsync(CancellationToken cancellationToken)
+   {
+       ::IVssAsync *vssAsync;
+       CheckCom(m_backup->DoSnapshotSet(&vssAsync));
+       return VssAsyncOperation::Create(vssAsync, cancellationToken)->Task;
+   }
 
    IVssAsyncResult^ VssBackupComponents::BeginDoSnapshotSet(AsyncCallback^ userCallback, Object^ stateObject)
    {
@@ -269,6 +296,13 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
       WaitCheckAndReleaseVssAsyncOperation(pAsync);
    }
 
+   Task^ VssBackupComponents::GatherWriterMetadataAsync(CancellationToken cancellationToken)
+   {
+       ::IVssAsync *pAsync;
+       CheckCom(m_backup->GatherWriterMetadata(&pAsync));
+       return VssAsyncOperation::Create(pAsync, cancellationToken)->Task;
+   }
+
    IVssAsyncResult^ VssBackupComponents::BeginGatherWriterMetadata(AsyncCallback^ userCallback, Object^ stateObject)
    {
       ::IVssAsync *pAsync;
@@ -287,6 +321,13 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
       ::IVssAsync *pAsync;
       CheckCom(m_backup->GatherWriterStatus(&pAsync));
       WaitCheckAndReleaseVssAsyncOperation(pAsync);
+   }
+
+   Task^ VssBackupComponents::GatherWriterStatusAsync(CancellationToken cancellationToken)
+   {
+       ::IVssAsync *pAsync;
+       CheckCom(m_backup->GatherWriterStatus(&pAsync));
+       return VssAsyncOperation::Create(pAsync, cancellationToken)->Task;
    }
 
    IVssAsyncResult^ VssBackupComponents::BeginGatherWriterStatus(AsyncCallback^ userCallback, Object^ stateObject)
@@ -431,6 +472,12 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
       WaitCheckAndReleaseVssAsyncOperation(pAsync);
    }
 
+   Task^ VssBackupComponents::ImportSnapshotsAsync(CancellationToken cancellationToken)
+   {
+       ::IVssAsync *pAsync;
+       CheckCom(m_backup->ImportSnapshots(&pAsync));
+       return VssAsyncOperation::Create(pAsync, cancellationToken)->Task;
+   }
 
    IVssAsyncResult^ VssBackupComponents::BeginImportSnapshots(AsyncCallback^ userCallback, Object^ stateObject)
    {
@@ -476,6 +523,13 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
       WaitCheckAndReleaseVssAsyncOperation(pAsync);
    }
 
+   Task^ VssBackupComponents::PostRestoreAsync(CancellationToken cancellationToken)
+   {
+       ::IVssAsync *pAsync;
+       CheckCom(m_backup->PostRestore(&pAsync));
+       return VssAsyncOperation::Create(pAsync, cancellationToken)->Task;
+   }
+
    IVssAsyncResult^ VssBackupComponents::BeginPostRestore(AsyncCallback^ userCallback, Object^ stateObject)
    {
       ::IVssAsync *pAsync;
@@ -496,6 +550,13 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
       WaitCheckAndReleaseVssAsyncOperation(pAsync);      
    }
 
+   Task^ VssBackupComponents::PrepareForBackupAsync(CancellationToken cancellationToken)
+   {
+       ::IVssAsync *pAsync;
+       CheckCom(m_backup->PrepareForBackup(&pAsync));
+       return VssAsyncOperation::Create(pAsync, cancellationToken)->Task;
+   }
+
    IVssAsyncResult^ VssBackupComponents::BeginPrepareForBackup(AsyncCallback^ userCallback, Object^ stateObject)
    {
       ::IVssAsync *pAsync;
@@ -514,6 +575,13 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
       ::IVssAsync *pAsync;
       CheckCom(m_backup->PreRestore(&pAsync));
       WaitCheckAndReleaseVssAsyncOperation(pAsync);      
+   }
+
+   Task^ VssBackupComponents::PreRestoreAsync(CancellationToken cancellationToken)
+   {
+       ::IVssAsync *pAsync;
+       CheckCom(m_backup->PreRestore(&pAsync));
+       return VssAsyncOperation::Create(pAsync, cancellationToken)->Task;
    }
 
    IVssAsyncResult^ VssBackupComponents::BeginPreRestore(AsyncCallback^ userCallback, Object^ stateObject)
@@ -780,6 +848,17 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
        WaitCheckAndReleaseVssAsyncOperation(pAsync);
 #else
        UnsupportedOs();
+#endif
+    }
+
+    Task^ VssBackupComponents::RecoverSetAsync(VssRecoveryOptions options, CancellationToken cancellationToken)
+    {
+#if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WINVISTAORLATER
+        ::IVssAsync *pAsync;
+        CheckCom(RequireIVssBackupComponentsEx3()->RecoverSet((DWORD)options, &pAsync));
+        return VssAsyncOperation::Create(pAsync, cancellationToken)->Task;
+#else
+        UnsupportedOs();
 #endif
     }
 

@@ -475,6 +475,7 @@
     <ClCompile Include="Src\VssSnapshotManagement.cpp" />
     <ClCompile Include="Src\VssWMComponent.cpp" />
     <ClCompile Include="Src\VssWriterComponents.cpp" />
+    <ClCompile Include="Src\VssAsyncOperation.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Include\Config.h" />
@@ -493,6 +494,7 @@
     <ClInclude Include="Include\VssSnapshotManagement.h" />
     <ClInclude Include="Include\VssWMComponent.h" />
     <ClInclude Include="Include\VssWriterComponents.h" />
+    <ClInclude Include="Include\VssAsyncOperation.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resources\AlphaVSS.rc" />

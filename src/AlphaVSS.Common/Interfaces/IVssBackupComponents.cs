@@ -2,6 +2,8 @@
 
 using System;
 using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Alphaleonis.Win32.Vss
 {
@@ -274,6 +276,8 @@ namespace Alphaleonis.Win32.Vss
       /// <exception cref="VssUnexpectedWriterErrorException">An unexpected error occurred during communication with writers. The error code is logged in the error log file.</exception>
       void BackupComplete();
 
+      Task BackupCompleteAsync(CancellationToken cancellationToken);
+
       /// <summary>
       /// This method asynchronously causes VSS to generate a <b>BackupComplete</b> event, which signals writers that the backup
       /// process has completed.
@@ -439,6 +443,8 @@ namespace Alphaleonis.Win32.Vss
       /// <exception cref="VssUnexpectedProviderErrorException">The provider returned an unexpected error code. This can be a transient problem. It is recommended to wait ten minutes and try again, up to three times.</exception> 
       void DoSnapshotSet();
 
+      Task DoSnapshotSetAsync(CancellationToken cancellationToken);
+
       /// <summary>
       /// Commits all shadow copies in this set simultaneously as an asynchronous operation.
       /// </summary>
@@ -587,6 +593,8 @@ namespace Alphaleonis.Win32.Vss
       /// <exception cref="VssWriterInfrastructureException">The writer infrastructure is not operating properly. Check that the Event Service and VSS have been started, and check for errors associated with those services in the error log.</exception>
       void GatherWriterMetadata();
 
+      Task GatherWriterMetadataAsync(CancellationToken cancellationToken);
+
       /// <summary>
       /// 	The <see cref="BeginGatherWriterMetadata"/> method asynchronously prompts each writer to send the metadata they have collected. 
       /// 	The method will generate an <c>Identify</c> event to communicate with writers.
@@ -628,6 +636,8 @@ namespace Alphaleonis.Win32.Vss
       /// <exception cref="VssBadStateException">The backup components object is not initialized, this method has been called during a restore operation, or this method has not been called within the correct sequence.</exception>		
       /// <exception cref="VssWriterInfrastructureException">The writer infrastructure is not operating properly. Check that the Event Service and VSS have been started, and check for errors associated with those services in the error log.</exception>
       void GatherWriterStatus();
+
+      Task GatherWriterStatusAsync(CancellationToken cancellationToken);
 
       /// <summary>
       /// 	The <see cref="BeginGatherWriterStatus"/> method asynchronously prompts each writer to send a status message.
@@ -786,6 +796,8 @@ namespace Alphaleonis.Win32.Vss
       /// <exception cref="VssBadStateException">The backup components object is not initialized, this method has been called during a restore operation, or this method has not been called within the correct sequence.</exception>		
       void ImportSnapshots();
 
+      Task ImportSnapshotsAsync(CancellationToken cancellationToken);
+
       /// <summary>
       ///     The <see cref="BeginImportSnapshots"/> method asynchronously imports shadow copies transported from a different machine.
       /// </summary>
@@ -938,6 +950,8 @@ namespace Alphaleonis.Win32.Vss
       /// <exception cref="VssProviderVetoException">Expected provider error. The provider logged the error in the event log.</exception>
       void PostRestore();
 
+      Task PostRestoreAsync(CancellationToken cancellationToken);
+
       /// <summary>
       ///	The <see cref="BeginPostRestore"/> method will asynchronously cause VSS to generate a <c>PostRestore</c> event, signaling writers that the current 
       ///	restore operation has finished.
@@ -988,7 +1002,9 @@ namespace Alphaleonis.Win32.Vss
       /// <exception cref="SystemException">Unexpected VSS system error. The error code is logged in the event log.</exception>
       /// <exception cref="VssBadStateException">The backup components object is not initialized, this method has been called during a restore operation, or this method has not been called within the correct sequence.</exception>		
       void PrepareForBackup();
-      
+
+      Task PrepareForBackupAsync(CancellationToken cancellationToken);
+
       /// <summary>
       /// 	The <see cref="BeginPrepareForBackup"/> method will asynchronously cause VSS to generate a PrepareForBackup event, signaling writers to prepare for an upcoming 
       /// 	backup operation. This makes a requester's Backup Components Document available to writers.
@@ -1035,6 +1051,8 @@ namespace Alphaleonis.Win32.Vss
       /// <exception cref="SystemException">Unexpected VSS system error. The error code is logged in the event log.</exception>
       /// <exception cref="VssBadStateException">The backup components object is not initialized, this method has been called during a restore operation, or this method has not been called within the correct sequence.</exception>		
       void PreRestore();
+
+      Task PreRestoreAsync(CancellationToken cancellationToken);
 
       /// <summary>
       /// The <see cref="BeginPreRestore"/> method will asynchronously cause VSS to generate a <c>PreRestore</c> event, signaling writers to prepare for a 
@@ -2153,6 +2171,7 @@ namespace Alphaleonis.Win32.Vss
       /// </remarks>
       void RecoverSet(VssRecoveryOptions options);
 
+      Task RecoverSetAsync(VssRecoveryOptions options, CancellationToken cancellationToken);
 
       /// <summary>
       /// Begins an asynchronous operation that initiates a LUN resynchronization operation. This method is supported only on Windows server operating systems.
