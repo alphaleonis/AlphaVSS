@@ -144,13 +144,14 @@ namespace AlphaShadow
 
       public abstract void Run();
 
-       public virtual Task RunAsync(CancellationToken cancellationToken)
+#pragma warning disable 1998 // by design
+       public virtual async Task RunAsync(CancellationToken cancellationToken)
+#pragma warning restore 1998
        {
            // if this method is not overridden then assume the command does not run async
            // log a warning and run it synchronously
            Host.WriteWarning("This action is not async. It will be executed synchronously instead.");
            Run();
-           return Task.FromResult<object>(null);
        }
 
       public virtual void Initialize(IUIHost host, IEnumerable<string> args)

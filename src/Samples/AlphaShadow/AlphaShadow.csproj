@@ -13,6 +13,8 @@
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
+    <RequiresBclAsync>false</RequiresBclAsync>
+    <RequiresBclAsync Condition="$(Configuration.StartsWith('net40'))">true</RequiresBclAsync>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'net45-debug|AnyCPU'">
     <DebugSymbols>true</DebugSymbols>
@@ -122,8 +124,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Condition="$(RequiresBclAsync)" Project="AlphaShadow.Bcl.Async.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
