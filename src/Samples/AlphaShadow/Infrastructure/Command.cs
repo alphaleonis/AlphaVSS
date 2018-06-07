@@ -5,6 +5,8 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Collections.ObjectModel;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace AlphaShadow
 {
@@ -73,6 +75,8 @@ namespace AlphaShadow
             return Options.Where(opt => opt.Name.Length > 0);
          }
       }
+
+      public bool Async { get; protected set; }
       #endregion
 
       #region Protected Methods
@@ -140,6 +144,15 @@ namespace AlphaShadow
 
       public abstract void Run();
 
+       public virtual Task RunAsync(CancellationToken cancellationToken)
+       {
+           // if this method is not overridden then assume the command does not run async
+           // log a warning and run it synchronously
+           Host.WriteWarning("This action is not async. It will be executed synchronously instead.");
+           Run();
+           return Task.FromResult<object>(null);
+       }
+
       public virtual void Initialize(IUIHost host, IEnumerable<string> args)
       {
          if (host == null)
@@ -190,7 +203,7 @@ namespace AlphaShadow
             }
             else
             {
-               throw new ArgumentException(String.Format("Unrecognized option \"{0}\"", argument));
+                throw new ArgumentException(String.Format("Unrecognized option \"{0}\"", argument));
             }
          }
 
@@ -222,6 +235,6 @@ namespace AlphaShadow
 
       }
 
-      #endregion
+       #endregion
    }
 }

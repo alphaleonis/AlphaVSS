@@ -9,6 +9,7 @@ namespace AlphaShadow
    {
       protected static OptionSpec OptVerbose = new OptionSpec("verbose", OptionType.ValueProhibited, "Enables verbose tracing output.", false);
       protected static OptionSpec OptNoWrap = new OptionSpec("nowrap", OptionType.ValueProhibited, "Disables wordwrapping output text", false);
+      protected static OptionSpec OptAsync = new OptionSpec("async", OptionType.ValueProhibited, "Executes the command asynchronously.", false);
 
       public AlphaShadowCommand(string name, string description)
          : base(name, description)
@@ -27,7 +28,7 @@ namespace AlphaShadow
       {
          get
          {
-            return CommandSpecificOptions.Concat(new [] { OptVerbose, OptNoWrap });
+            return CommandSpecificOptions.Concat(new [] { OptVerbose, OptNoWrap, OptAsync });
          }
       }
 
@@ -35,6 +36,7 @@ namespace AlphaShadow
       {
          Host.VerboseOutputEnabled = HasOption(OptVerbose);
          Host.IsWordWrapEnabled = !HasOption(OptNoWrap);
+         Async = HasOption(OptAsync);
       }
    }  
 }

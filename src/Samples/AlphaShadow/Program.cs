@@ -12,6 +12,7 @@ using AlphaShadow.Commands;
 using Alphaleonis.Win32.Vss;
 using System.EnterpriseServices;
 using System.Runtime.InteropServices;
+using System.Threading;
 
 
 namespace AlphaShadow
@@ -77,11 +78,23 @@ namespace AlphaShadow
          {
             Command command = GetCommand(commandName);
             command.Initialize(Host, args.Skip(1));
-            command.Run();
+             if (!command.Async)
+             {
+                 command.Run();
+             }
+             else
+             {
+                 var task = command.RunAsync(CancellationToken.None);
+                 task.GetAwaiter().GetResult();
+             }
          }
          catch (CommandAbortedException)
          {
             Host.WriteError("Execution aborted.");
+         }
+         catch (OperationCanceledException)
+         {
+            Host.WriteWarning("Execution was canceled");
          }
          catch (Exception ex)
          {

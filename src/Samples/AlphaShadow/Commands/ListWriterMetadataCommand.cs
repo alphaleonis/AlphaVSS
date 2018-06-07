@@ -2,6 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
+
 namespace AlphaShadow.Commands
 {
    class ListWriterMetadataCommand : ContextCommand
@@ -47,5 +50,23 @@ namespace AlphaShadow.Commands
          }
       }
 
-   }
+       public override async Task RunAsync(CancellationToken cancellationToken)
+       {
+           UpdateFinalContext();
+           using (VssClient client = new VssClient(Host))
+           {
+               client.Initialize(Context);
+               if (HasOption(OptXml))
+               {
+                   await client.GatherWriterMetadataToScreenAsync(cancellationToken);
+               }
+               else
+               {
+                   await client.GatherWriterMetadataAsync(cancellationToken);
+                   client.ListWriterMetadata(HasOption(OptDetailed));
+               }
+           }
+       }
+
+    }
 }

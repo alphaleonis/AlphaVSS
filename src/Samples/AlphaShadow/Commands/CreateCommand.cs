@@ -6,6 +6,8 @@ using System.Text;
 using Alphaleonis.Win32.Filesystem;
 using Alphaleonis.Win32.Vss;
 using System.Diagnostics;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace AlphaShadow.Commands
 {
@@ -156,6 +158,57 @@ namespace AlphaShadow.Commands
          }         
       }
 
-      
+       public override async Task RunAsync(CancellationToken cancellationToken)
+       {
+           Host.WriteVerbose("- Attempting to create a shadow copy set for the volumes: {0}", String.Join(",", VolumeList.ToArray()));
+
+           UpdateFinalContext();
+           using (VssClient client = new VssClient(Host))
+           {
+               client.Initialize(Context);
+
+               // Create the shadow copy set
+               await client.CreateSnapshotAsync(VolumeList, BackupComponentsDoc, ExcludedWriters, IncludedWriters, cancellationToken);
+
+               // Execute BackupComplete, except in fast snapshot creation
+               if ((Context & VssVolumeSnapshotAttributes.DelayedPostSnapshot) == 0)
+               {
+
+                   try
+                   {
+                       if (HasOption(CommonOptions.OptSetVarScript))
+                       {
+                           client.GenerateSetvarScript(GetOptionValue<string>(CommonOptions.OptSetVarScript));
+                       }
+
+                       if (HasOption(OptExecCommand))
+                       {
+                           string arguments = String.Empty;
+                           if (HasOption(CommonOptions.OptExecCommandArgs))
+                           {
+                               arguments = GetOptionValue<string>(CommonOptions.OptExecCommandArgs);
+                           }
+                           Host.ExecCommand(GetOptionValue<string>(OptExecCommand), arguments);
+                       }
+                   }
+                   catch (Exception)
+                   {
+                       // Mark backup failure and exit
+                       if ((Context & VssVolumeSnapshotAttributes.NoWriters) == 0)
+                           await client.BackupCompleteAsync(false, cancellationToken);
+
+                       throw;
+                   }
+
+                   // Complete the backup
+                   // Note that this will notify writers that the backup is succesful! 
+                   // (which means eventually log truncation)
+                   if ((Context & VssVolumeSnapshotAttributes.NoWriters) == 0)
+                       await client.BackupCompleteAsync(true, cancellationToken);
+               }
+
+               Host.WriteLine("Snapshot creation done.");
+           }
+}
    }
 }

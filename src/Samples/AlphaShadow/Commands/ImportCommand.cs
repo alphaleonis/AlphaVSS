@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.IO;
+using System.Threading;
+using System.Threading.Tasks;
 using Alphaleonis.Win32.Vss;
 
 namespace AlphaShadow.Commands
@@ -60,6 +62,32 @@ namespace AlphaShadow.Commands
                Host.ExecCommand(GetOptionValue<string>(OptExecCommand), arguments);
             }
          }
-      }
-   }
+       }
+
+
+       public override async Task RunAsync(CancellationToken cancellationToken)
+       {
+           Host.WriteLine("Importing shadow copy set from file '{0}'", XmlDocFile);
+
+           string xmlDoc = File.ReadAllText(XmlDocFile);
+
+           Host.WriteVerbose("XML document:\n{0}", xmlDoc);
+
+           using (VssClient client = new VssClient(Host))
+           {
+               client.Initialize(VssSnapshotContext.All, xmlDoc);
+               await client.ImportSnapshotSetAsync(cancellationToken);
+
+               if (HasValue(OptExecCommand))
+               {
+                   string arguments = String.Empty;
+                   if (HasOption(CommonOptions.OptExecCommandArgs))
+                   {
+                       arguments = GetOptionValue<string>(CommonOptions.OptExecCommandArgs);
+                   }
+                   Host.ExecCommand(GetOptionValue<string>(OptExecCommand), arguments);
+               }
+           }
+       }
+    }
 }
