@@ -17,7 +17,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
         }
         catch (...)
         {
-            delete m_cancellation;
+            if (m_cancellation != nullptr) delete m_cancellation;
             throw;
         }
     }
