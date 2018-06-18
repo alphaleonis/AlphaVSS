@@ -13,11 +13,9 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
     private:
         IVssAsync *m_vssAsync;
         CancellationToken m_cancellationToken;
-        TaskCompletionSource<Object^>^ m_taskCompletionSource;
         CancellationTokenRegistration^ m_cancellation;
         
         VssAsyncOperation(IVssAsync *vssAsync, CancellationToken cancellationToken);
-        void ScheduleOperation();
         void ExecuteOperation();
         void CancelAsync();
     
@@ -28,7 +26,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
         /// <summary>Releases resources used by the <see cref="VssAsyncOperation"/> object.</summary>
         !VssAsyncOperation();
 
-        property Task^ Task { virtual System::Threading::Tasks::Task^ get(); }
+        Task^ Start();
 
     internal:
         static VssAsyncOperation^ Create(IVssAsync *vssAsync, CancellationToken cancellationToken);

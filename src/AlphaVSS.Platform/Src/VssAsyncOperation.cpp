@@ -7,18 +7,11 @@ using namespace System::Threading::Tasks;
 namespace Alphaleonis { namespace Win32 { namespace Vss
 {
     VssAsyncOperation::VssAsyncOperation(IVssAsync *vssAsync, CancellationToken cancellationToken)
-        : m_vssAsync(vssAsync), m_cancellationToken(cancellationToken), m_taskCompletionSource(gcnew TaskCompletionSource<Object^>()), m_cancellation(nullptr)
+        : m_vssAsync(vssAsync), m_cancellationToken(cancellationToken), m_cancellation(nullptr)
     {
-        if(cancellationToken != CancellationToken::None)
+        if (cancellationToken != CancellationToken::None)
+        {
             m_cancellation = cancellationToken.Register(gcnew Action(this, &VssAsyncOperation::CancelAsync));
-        try 
-        {
-            ScheduleOperation();
-        }
-        catch (...)
-        {
-            if (m_cancellation != nullptr) delete m_cancellation;
-            throw;
         }
     }
 
@@ -54,15 +47,9 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
         }
     }
 
-    Task^ VssAsyncOperation::Task::get()
+    Task^ VssAsyncOperation::Start()
     {
-        return m_taskCompletionSource->Task;
-    }
-
-    void VssAsyncOperation::ScheduleOperation()
-    {
-        VssUtils::TaskFactory->StartNew(gcnew Action(this, &VssAsyncOperation::ExecuteOperation)); 
-        // note: do not pass the cancellation token on StartNew. Even if cancellation was requested at this time, the operation needs to execute so that the result is VSS_S_ASYNC_CANCELLED.
+        return VssUtils::TaskFactory->StartNew(gcnew Action(this, &VssAsyncOperation::ExecuteOperation), m_cancellationToken);
     }
 
     void VssAsyncOperation::ExecuteOperation()
@@ -79,13 +66,13 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
         }
 
         if (FAILED(hrResult))
-            m_taskCompletionSource->SetException(GetExceptionForHr(hrResult));
+            throw GetExceptionForHr(hrResult);
         else if (hrResult == VSS_S_ASYNC_CANCELLED)
-            m_taskCompletionSource->SetCanceled();
+            throw gcnew OperationCanceledException(m_cancellationToken);
         else if (hrResult == VSS_S_ASYNC_FINISHED)
-            m_taskCompletionSource->SetResult(nullptr);
+            return;
         else // this really should not happen
-            m_taskCompletionSource->SetException(gcnew InvalidOperationException(String::Format("Operation is not complete. HResult is {0}.", hrResult)));
+            throw gcnew InvalidOperationException(String::Format("Operation is not complete. HResult is {0}.", hrResult));
     }
 
     void VssAsyncOperation::CancelAsync() 

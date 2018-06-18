@@ -146,7 +146,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
    {
        ::IVssAsync *pAsync;
        CheckCom(m_backup->BackupComplete(&pAsync));
-       return VssAsyncOperation::Create(pAsync, cancellationToken)->Task;
+       return VssAsyncOperation::Create(pAsync, cancellationToken)->Start();
    }
 
    IVssAsyncResult^ VssBackupComponents::BeginBackupComplete(AsyncCallback^ userCallback, Object^ stateObject)
@@ -183,7 +183,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 #if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WINVISTAORLATER
        ::IVssAsync *pAsync;
        CheckCom(RequireIVssBackupComponentsEx2()->BreakSnapshotSetEx(ToVssId(snapshotSetId), (_VSS_HARDWARE_OPTIONS)breakFlags, &pAsync));
-       return VssAsyncOperation::Create(pAsync, cancellationToken)->Task;
+       return VssAsyncOperation::Create(pAsync, cancellationToken)->Start();
 #else
        UnsupportedOs();
 #endif
@@ -248,7 +248,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
    {
        ::IVssAsync *vssAsync;
        CheckCom(m_backup->DoSnapshotSet(&vssAsync));
-       return VssAsyncOperation::Create(vssAsync, cancellationToken)->Task;
+       return VssAsyncOperation::Create(vssAsync, cancellationToken)->Start();
    }
 
    IVssAsyncResult^ VssBackupComponents::BeginDoSnapshotSet(AsyncCallback^ userCallback, Object^ stateObject)
@@ -300,7 +300,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
    {
        ::IVssAsync *pAsync;
        CheckCom(m_backup->GatherWriterMetadata(&pAsync));
-       return VssAsyncOperation::Create(pAsync, cancellationToken)->Task;
+       return VssAsyncOperation::Create(pAsync, cancellationToken)->Start();
    }
 
    IVssAsyncResult^ VssBackupComponents::BeginGatherWriterMetadata(AsyncCallback^ userCallback, Object^ stateObject)
@@ -327,7 +327,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
    {
        ::IVssAsync *pAsync;
        CheckCom(m_backup->GatherWriterStatus(&pAsync));
-       return VssAsyncOperation::Create(pAsync, cancellationToken)->Task;
+       return VssAsyncOperation::Create(pAsync, cancellationToken)->Start();
    }
 
    IVssAsyncResult^ VssBackupComponents::BeginGatherWriterStatus(AsyncCallback^ userCallback, Object^ stateObject)
@@ -476,7 +476,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
    {
        ::IVssAsync *pAsync;
        CheckCom(m_backup->ImportSnapshots(&pAsync));
-       return VssAsyncOperation::Create(pAsync, cancellationToken)->Task;
+       return VssAsyncOperation::Create(pAsync, cancellationToken)->Start();
    }
 
    IVssAsyncResult^ VssBackupComponents::BeginImportSnapshots(AsyncCallback^ userCallback, Object^ stateObject)
@@ -527,7 +527,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
    {
        ::IVssAsync *pAsync;
        CheckCom(m_backup->PostRestore(&pAsync));
-       return VssAsyncOperation::Create(pAsync, cancellationToken)->Task;
+       return VssAsyncOperation::Create(pAsync, cancellationToken)->Start();
    }
 
    IVssAsyncResult^ VssBackupComponents::BeginPostRestore(AsyncCallback^ userCallback, Object^ stateObject)
@@ -554,7 +554,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
    {
        ::IVssAsync *pAsync;
        CheckCom(m_backup->PrepareForBackup(&pAsync));
-       return VssAsyncOperation::Create(pAsync, cancellationToken)->Task;
+       return VssAsyncOperation::Create(pAsync, cancellationToken)->Start();
    }
 
    IVssAsyncResult^ VssBackupComponents::BeginPrepareForBackup(AsyncCallback^ userCallback, Object^ stateObject)
@@ -581,7 +581,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
    {
        ::IVssAsync *pAsync;
        CheckCom(m_backup->PreRestore(&pAsync));
-       return VssAsyncOperation::Create(pAsync, cancellationToken)->Task;
+       return VssAsyncOperation::Create(pAsync, cancellationToken)->Start();
    }
 
    IVssAsyncResult^ VssBackupComponents::BeginPreRestore(AsyncCallback^ userCallback, Object^ stateObject)
@@ -856,7 +856,7 @@ namespace Alphaleonis { namespace Win32 { namespace Vss
 #if ALPHAVSS_TARGET >= ALPHAVSS_TARGET_WINVISTAORLATER
         ::IVssAsync *pAsync;
         CheckCom(RequireIVssBackupComponentsEx3()->RecoverSet((DWORD)options, &pAsync));
-        return VssAsyncOperation::Create(pAsync, cancellationToken)->Task;
+        return VssAsyncOperation::Create(pAsync, cancellationToken)->Start();
 #else
         UnsupportedOs();
 #endif
