@@ -81,6 +81,6 @@ namespace Alphaleonis.Win32.Vss
          return (IVssImplementation)assembly.CreateInstance("Alphaleonis.Win32.Vss.VssImplementation");
       }
 
-      public static TaskFactory TaskFactory { get; set; } = new TaskFactory();
+       public static TaskFactory TaskFactory { get; set; } = new TaskFactory(TaskScheduler.Default);
    }
 }
