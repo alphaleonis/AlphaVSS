@@ -33,7 +33,7 @@ namespace Alphaleonis.Win32.Vss
       {
          StringBuilder result = new StringBuilder("AlphaVSS.");
 
-         if (Environment.Is64BitOperatingSystem)
+         if (IntPtr.Size == 8)
             result.Append("x64");
          else
             result.Append("x86");         
