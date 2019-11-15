@@ -253,7 +253,6 @@ namespace Alphaleonis.Win32.Vss
       /// </remarks>
       string RestoreName { get; }
 
-
       /// <summary>
       ///     Obtains the restore point for a partial roll-forward operation.
       /// </summary>

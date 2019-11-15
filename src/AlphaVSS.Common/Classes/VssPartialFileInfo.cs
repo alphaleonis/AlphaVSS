@@ -20,10 +20,10 @@ namespace Alphaleonis.Win32.Vss
       public VssPartialFileInfo(string path, string fileName, string range, string metadata)
       {
          if (path == null)
-            throw new ArgumentNullException("path");
+            throw new ArgumentNullException(nameof(path));
 
          if (fileName == null)
-            throw new ArgumentNullException("fileName");
+            throw new ArgumentNullException(nameof(fileName));
 
          Path = path;
          FileName = fileName;

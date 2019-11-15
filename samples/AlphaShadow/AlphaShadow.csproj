@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+   <PropertyGroup>
+      <OutputType>exe</OutputType>
+      <TargetFrameworks>net45;netcoreapp3.1</TargetFrameworks>
+      <IsPackable>false</IsPackable>
+      <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+   </PropertyGroup>
+   <PropertyGroup>
+      <Title>AlphaShadow</Title>
+      <Description>Alphaleonis Windows Volume Shadow Copy .NET Sample Project.</Description>
+      <Copyright>Copyright (C) Peter Palotas</Copyright>
+      <Authors>Peter Palotas</Authors>
+      <Product>AlphaVSS</Product>
+      <SignAssembly>true</SignAssembly>
+      <AssemblyOriginatorKeyFile>..\..\build\AlphaVSS.snk</AssemblyOriginatorKeyFile>
+      <DelaySign>false</DelaySign>
+      <OutputPath>..\..\artifacts</OutputPath>
+      <NeutralLanguage>en-US</NeutralLanguage>      
+   </PropertyGroup>
+   <ItemGroup>
+      <None Include="..\..\build\AlphaVSS.snk">
+         <Link>AlphaVSS.snk</Link>
+      </None>
+   </ItemGroup>
+   <ItemGroup>
+      <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.6">
+         <PrivateAssets>all</PrivateAssets>
+         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
+   </ItemGroup>
+   <ItemGroup>
+      <ProjectReference Include="..\..\src\AlphaVSS.Common\AlphaVSS.Common.csproj" />
+   </ItemGroup>
+</Project>

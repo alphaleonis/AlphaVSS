@@ -1,3 +1,23 @@
+Version 2.0.0
+-------------
+
+### Breaking Changes
+
+* Now requires Visual C++ Redistributables for Visual Studio 2019
+* No longer supports .NET 4.0
+* `VssUtils` has been removed and is replaced with `VssFactoryProvider`
+* `IVssImplementation` has been replaced by `IVssFactory` and `IVssInfoProvider`
+* Old APM Begin/End style asynchronous methods have been deprecated. Use new Async-methods instead.
+* Supports only .NET Framework version 4.5 and later, as well as .NET Core 3.1
+* `OSVersionName`, `ProcessorArchitecture` and `OperatingSystemInfo` classes have been removed.
+
+### New features
+
+* Supports .NET Core 3.1
+* Supports TPL style async methods with support for `CancellationToken` instead of the old  Asynchronous Programming Model (APM)
+* Supports extension point for loading of platform specific assemblies. (See `IVssAssemblyResolver` and `VssFactoryProvider`)
+
+
 Version 1.4.0
 -------------
 * Now requires Visual C++ Redistributable for Visual Studio 2017

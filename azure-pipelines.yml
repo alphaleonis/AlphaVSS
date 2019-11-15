@@ -3,17 +3,30 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
+
 trigger:
 - master
 
-pool:
-  vmImage: 'ubuntu-latest'
+pool: Default
+# vmImage: 'windows-latest'
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+jobs:
+- job: Nuke
+  displayName: Nuke
+  workspace:
+    clean: all
+  steps: 
+#    - task: UseDotNet@2
+#      displayName: 'Use .NET Core SDK 3.1'
+#      inputs: 
+#        packageType: sdk
+#        version: 3.1.x
+#        includePreviewVersions: true
+#        installationPath: $(Agent.ToolsDirectory)
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+    - task: PowerShell@2
+      inputs:
+        displayName: 'Nuke Build'
+        filePath: '$(Build.SourcesDirectory)/build.ps1'
+        arguments: '--target distbuild'
+        workingDirectory: '$(Build.SourcesDirectory)'

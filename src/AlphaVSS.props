@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+   <PropertyGroup Label="Versioning">
+      <AlphaVss_VersionMajor Condition="'$(AlphaVss_VersionMajor)' == ''">1</AlphaVss_VersionMajor>
+      <AlphaVss_VersionMinor Condition="'$(AlphaVss_VersionMinor)' == ''">0</AlphaVss_VersionMinor>
+      <AlphaVss_VersionPatch Condition="'$(AlphaVss_VersionPatch)' == ''">0</AlphaVss_VersionPatch>
+      <AssemblyVersion Condition="'$(AssemblyVersion)' == ''">1.0.0.0</AssemblyVersion>
+      <FileVersion Condition="'$(FileVersion)' == ''">1.0.0.0</FileVersion>
+      <InformationalVersion Condition="'$(InformationalVersion)' == ''">1.0.0.0-VSBuild</InformationalVersion>
+      <AlphaVss_Copyright Condition="'$(AlphaVss_Copyright)' == ''">Copyright © Peter Palotas</AlphaVss_Copyright>
+      <AlphaVss_Description Condition="'$(AlphaVss_Description)' == ''">Alphaleonis Windows Volume Shadow Copy Service .NET Library</AlphaVss_Description>
+   </PropertyGroup>
+</Project>

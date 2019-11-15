@@ -112,7 +112,7 @@ namespace Alphaleonis.Win32.Vss
       void AddDiffArea(string volumeName, string diffAreaVolumeName, Int64 maximumDiffSpace);
 
       /// <summary>
-      /// The <see cref="O:Alphaleonis.Win32.Vss.IVssDifferentialSoftwareSnapshotManagement.ChangeDiffAreaMaximumSize"/> method updates the shadow copy storage area maximum size 
+      /// The <see cref="IVssDifferentialSoftwareSnapshotManagement.ChangeDiffAreaMaximumSize(string, string, long)"/> method updates the shadow copy storage area maximum size 
       /// for a certain volume. This may not have an immediate effect.
       /// </summary>
       /// <overloads>
@@ -326,7 +326,7 @@ namespace Alphaleonis.Win32.Vss
       // From IVssDifferentialSoftwareSnapshotMgmt2
       //
       /// <summary>
-      /// The <see cref="O:Alphaleonis.Win32.Vss.IVssDifferentialSoftwareSnapshotManagement.ChangeDiffAreaMaximumSize"/> method updates the shadow copy storage area maximum size 
+      /// The <see cref="IVssDifferentialSoftwareSnapshotManagement.ChangeDiffAreaMaximumSize(string, string, long)"/> method updates the shadow copy storage area maximum size 
       /// for a certain volume. This may not have an immediate effect.
       /// </summary>
       /// <param name="volumeName">
@@ -390,7 +390,7 @@ namespace Alphaleonis.Win32.Vss
       /// <param name="isVolatile">
       ///     <para>
       ///         <see langword="true"/> to indicate that the effect of calling the 
-      ///         <see cref="O:Alphaleonis.Win32.Vss.IVssDifferentialSoftwareSnapshotManagement.ChangeDiffAreaMaximumSize"/> method should not continue if 
+      ///         <see cref="IVssDifferentialSoftwareSnapshotManagement.ChangeDiffAreaMaximumSize(string, string, long)"/> method should not continue if 
       ///         the computer is rebooted; otherwise, <see langword="false"/>.
       ///     </para>
       ///     <para>

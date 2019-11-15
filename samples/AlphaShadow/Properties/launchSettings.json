@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "AlphaShadow": {
+      "commandName": "Project",
+      "commandLineArgs": "lws",
+      "nativeDebugging": false
+    }
+  }
+}

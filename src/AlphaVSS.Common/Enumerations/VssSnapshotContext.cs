@@ -3,9 +3,9 @@
 namespace Alphaleonis.Win32.Vss
 {
    /// <summary>
-   /// The <see cref="VssSnapshotContext" /> enumeration enables a requester using <see cref="O:Alphaleonis.Win32.Vss.IVssBackupComponents.SetContext" /> to specify how a 
+   /// The <see cref="VssSnapshotContext" /> enumeration enables a requester using <see cref="IVssBackupComponents.SetContext(VssSnapshotContext)" /> to specify how a 
    /// shadow copy is to be created, queried, or deleted and the degree of writer involvement.
-   /// <see cref="IVssBackupComponents"/>::SetContext" method) may be modified by a bitmask that contains a valid combination of 
+   /// <see cref="IVssBackupComponents"/>::SetContext" method) may be modified by a bit mask that contains a valid combination of 
    /// <see cref="VssVolumeSnapshotAttributes"/> and <see cref="VssSnapshotContext"/> enumeration values.
    /// </summary>
    /// <remarks><see cref="VssSnapshotContext"/> is defined as a static class defining the base <see cref="VssVolumeSnapshotAttributes"/>
@@ -16,12 +16,12 @@ namespace Alphaleonis.Win32.Vss
    public enum VssSnapshotContext : uint
    {
       /// <summary>
-      /// The standard backup context. Specifies an auto-release, nonpersistent shadow copy in which writers are involved in the creation.
+      /// The standard backup context. Specifies an auto-release, non persistent shadow copy in which writers are involved in the creation.
       /// </summary>		
       Backup = 0,
 
       /// <summary>
-      /// Specifies a nonpersistent and auto-release shadow copy created without writer involvement.
+      /// Specifies a non persistent and auto-release shadow copy created without writer involvement.
       /// </summary>
       FileShareBackup = VssVolumeSnapshotAttributes.NoWriters,
 
