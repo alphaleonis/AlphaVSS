@@ -10,6 +10,7 @@ Version 2.0.0
 * Old APM Begin/End style asynchronous methods have been deprecated. Use new Async-methods instead.
 * Supports only .NET Framework version 4.5 and later, as well as .NET Core 3.1
 * `OSVersionName`, `ProcessorArchitecture` and `OperatingSystemInfo` classes have been removed.
+* License changed from MIT to Apache 2.0
 
 ### New features
 
