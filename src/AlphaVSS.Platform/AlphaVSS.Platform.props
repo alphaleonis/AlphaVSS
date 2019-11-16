@@ -16,7 +16,7 @@
       <Error Condition="'$(OutputFrameworkName)' == ''" Text="OutputFrameworkName was not set for configuration $(Configuration). Update or modify $(MSBuildThisFile)." />
    </Target>
    <PropertyGroup>
-      <OutDir>$(ProjectDir)\..\..\artifacts\$(OutputFrameworkName)\</OutDir>
+      <OutDir>$(ProjectDir)\..\..\artifacts\$(OutputFrameworkName)\$(PlatformName)\</OutDir>
       <IntDir>$(ProjectDir)\obj\$(Configuration)\$(PlatformName)\</IntDir>
       <TargetName>AlphaVSS.$(PlatformName)</TargetName>
       <LinkIncremental>false</LinkIncremental>

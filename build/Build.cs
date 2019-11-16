@@ -36,6 +36,12 @@ class AlphaVssBuild : NukeBuild
    [Parameter("Configuration to build - Default is 'Debug' (local) or 'Release' (server)")]
    readonly Configuration Configuration = IsLocalBuild ? Configuration.Debug : Configuration.Release;
 
+   [Parameter]
+   readonly string FeedUri;
+
+   [Parameter]
+   readonly string NuGetApiKey = "VSTS";
+
    [Solution] readonly Solution Solution;
    [GitRepository] readonly GitRepository GitRepository;
    [GitVersion] readonly GitVersion GitVersion;
@@ -44,7 +50,7 @@ class AlphaVssBuild : NukeBuild
 
    AbsolutePath SourceDirectory => RootDirectory / "src";
    AbsolutePath ArtifactsDirectory => RootDirectory / "artifacts";
-   AbsolutePath NuSpecPath => SourceDirectory / "AlphaVSS.nuspec";
+   AbsolutePath NuSpecDirectory => RootDirectory / "build" / "nuget";
    AbsolutePath DocFxFile => RootDirectory / "docs" / "docfx.json";
    AbsolutePath PackageArtifactsDirectory => ArtifactsDirectory / "package";
    AbsolutePath DocFxArtifactsDirectory => ArtifactsDirectory / "docs";
@@ -70,7 +76,7 @@ class AlphaVssBuild : NukeBuild
       MSBuildToolPath = Path.Combine(result, "MSBuild\\Current\\Bin\\MSBuild.exe");
       Logger.Normal($"Using MSBuild at \"{MSBuildToolPath}\"");
       MSBuildLogger = CustomMSBuildLogger;
-
+      NuGetLogger = CustomNuGetLogger;
       if (IsServerBuild)
       { 
          AzurePipelines.Instance.UpdateBuildNumber($"AlphaVSS-{GitVersion.SemVer}")
@@ -87,6 +93,16 @@ class AlphaVssBuild : NukeBuild
       else
          Logger.Normal(output);
 
+   }
+
+   internal static void CustomNuGetLogger(OutputType type, string output)
+   {
+      if (type == OutputType.Err || output.StartsWith("ERROR:", StringComparison.OrdinalIgnoreCase))
+         Logger.Error(output);
+      else if (output.StartsWith("WARNING:", StringComparison.OrdinalIgnoreCase))
+         Logger.Warn(output);
+      else
+         Logger.Normal(output);
    }
 
    Target Clean => _ => _
@@ -190,14 +206,35 @@ class AlphaVssBuild : NukeBuild
       .DependsOn(Build)
       .Executes(() =>
       {
-         NuGetPack(s => s
-            .SetMSBuildPath(MSBuildToolPath)
-            .SetOutputDirectory(ArtifactsDirectory)
-            .AddProperty("branch", GitVersion.BranchName)
-            .AddProperty("commit", GitVersion.Sha)
-            .SetVersion(GitVersion.NuGetVersion)
-            .SetTargetPath(NuSpecPath)
-         );
+         var version = GitVersion.NuGetVersion;
+         if (IsLocalBuild)
+            version += DateTime.UtcNow.ToString("yyMMddHHmmss");
+
+         foreach (var nuspec in GlobFiles(NuSpecDirectory, "*.nuspec"))
+         {
+            NuGetPack(s => s
+               .SetMSBuildPath(MSBuildToolPath)
+               .SetOutputDirectory(ArtifactsDirectory)
+               .AddProperty("branch", GitVersion.BranchName)
+               .AddProperty("commit", GitVersion.Sha)
+               .SetVersion(version)
+               .SetTargetPath(nuspec)
+            );
+         }
+      });
+
+   Target Push => _ => _
+      .DependsOn(Pack)
+      .Requires(() => FeedUri)
+      .Executes(() =>
+      {
+         foreach (var file in GlobFiles(ArtifactsDirectory, "*.nupkg"))
+         {
+            NuGetPush(s => s
+               .SetApiKey(NuGetApiKey)
+               .SetSource(FeedUri)
+               .SetTargetPath(file));
+         }
       });
 
    Target UploadArtifacts => _ => _
@@ -205,8 +242,10 @@ class AlphaVssBuild : NukeBuild
       .OnlyWhenStatic(() => IsServerBuild)
       .Executes(() =>
       {
-         var file = GlobFiles(ArtifactsDirectory, "*.nupkg").FirstOrDefault().NotNull("Failed to find nupkg");
-         AzurePipelines.Instance.UploadArtifacts("Package", "Package", file);
+         foreach (var file in GlobFiles(ArtifactsDirectory, "*.nupkg"))
+         {
+            AzurePipelines.Instance.UploadArtifacts("Package", Path.GetFileName(file), file);
+         }
          Thread.Sleep(2000);
          AzurePipelines.Instance.UploadArtifacts("docs", "docs", DocFxZipFilePath);         
       });

@@ -39,8 +39,7 @@
       <None Include="..\.nuke" LinkBase="config" />
       <None Include="..\global.json" LinkBase="config" Condition="Exists('..\global.json')" />
       <None Include="..\nuget.config" LinkBase="config" Condition="Exists('..\nuget.config')" />
-      <None Include="..\GitVersion.yml" LinkBase="config" Condition="Exists('..\GitVersion.yml')" />
-      <None Include="..\src\AlphaVSS.nuspec" LinkBase="nuget" />
+      <None Include="..\GitVersion.yml" LinkBase="config" Condition="Exists('..\GitVersion.yml')" />      
       <None Include="..\src\AlphaVSS.props" LinkBase="msbuild" />
       <None Include="..\src\AlphaVSS.targets" LinkBase="msbuild" />
       <None Include="..\.teamcity\settings.kts" LinkBase="ci" Condition="Exists('..\.teamcity\settings.kts')" />
