@@ -245,9 +245,9 @@ class AlphaVssBuild : NukeBuild
       {
          foreach (var file in GlobFiles(ArtifactsDirectory, "*.nupkg"))
          {
-            UploadAzureArtifact("Package", null, file);
+            UploadAzureArtifact("Package", "Package", file);
          }
-         UploadAzureArtifact("Package", "Package", null);
+         //UploadAzureArtifact("Package", "Package", null);
          
          Thread.Sleep(2000);
          AzurePipelines.Instance.UploadArtifacts("docs", "docs", DocFxZipFilePath);         
