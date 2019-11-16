@@ -24,6 +24,7 @@ using static Nuke.Common.IO.PathConstruction;
 using static Nuke.Common.Tools.MSBuild.MSBuildTasks;
 using Nuke.Common.CI.AzurePipelines;
 using System.Threading;
+using System.Text;
 
 [CheckBuildProjectConfigurations]
 [UnsetVisualStudioEnvironmentVariables]
@@ -244,11 +245,33 @@ class AlphaVssBuild : NukeBuild
       {
          foreach (var file in GlobFiles(ArtifactsDirectory, "*.nupkg"))
          {
-            AzurePipelines.Instance.UploadArtifacts("Package", Path.GetFileName(file), file);
+            UploadAzureArtifact("Package", null, file);
          }
+         UploadAzureArtifact("Package", "Package", null);
+         
          Thread.Sleep(2000);
          AzurePipelines.Instance.UploadArtifacts("docs", "docs", DocFxZipFilePath);         
       });
+
+   private void UploadAzureArtifact(string containerFolder, string artifactName, string fileName)
+   {
+      // ##vso[artifact.upload containerfolder=testresult;artifactname=uploadedresult;]c:\testresult.trx
+      StringBuilder command = new StringBuilder("##vso[artifact.upload containerfolder=");
+      command.Append(containerFolder);
+      command.Append(';');
+      if (!String.IsNullOrEmpty(artifactName))
+      {
+         command.Append("artifactname=");
+         command.Append(artifactName);
+         command.Append(';');
+      }
+
+      command.Append("]");
+      if (!String.IsNullOrEmpty(fileName))
+         command.Append(fileName);
+
+      Console.WriteLine(command.ToString());
+   }
 
    Target DistBuild => _ => _
       .DependsOn(Pack, UploadArtifacts);
