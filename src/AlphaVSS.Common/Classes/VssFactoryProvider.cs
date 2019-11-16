@@ -25,7 +25,7 @@ namespace Alphaleonis.Win32.Vss
       private readonly Lazy<Assembly> m_assembly;
 
       private static string PlatformSpecificAssemblyShortName => $"AlphaVSS.{(Environment.Is64BitOperatingSystem ? "x64" : "x86")}";
-      private static AssemblyName PlatformSpecificAssemblyName => new AssemblyName(String.Format(CultureInfo.InvariantCulture, "{0}, Version={1}, Culture=neutral, PublicKeyToken=959d3993561034e3", PlatformSpecificAssemblyShortName, Assembly.GetExecutingAssembly().GetName().Version.ToString()));
+      private static AssemblyName PlatformSpecificAssemblyName => new AssemblyName($"{PlatformSpecificAssemblyShortName}, Version={Assembly.GetExecutingAssembly().GetName().Version}, Culture=neutral, PublicKeyToken=959d3993561034e3");
 
       /// <summary>
       /// The default instance of <see cref="IVssFactoryProvider"/>. This attempts to load the platform specifiec AlphaVSS assembly from the same 
