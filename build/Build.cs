@@ -132,8 +132,6 @@ class AlphaVssBuild : NukeBuild
           BuildPlatformProject("core31");
           BuildPlatformProject("net45");
 
-          BuildProject("AlphaShadow", Configuration, "AnyCPU");
-
 
           void BuildPlatformProject(string projectConfigurationPrefix)
           {

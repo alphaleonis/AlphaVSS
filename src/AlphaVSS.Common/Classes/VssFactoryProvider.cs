@@ -5,6 +5,7 @@ using System.Text;
 using System.Globalization;
 using System.IO;
 using System.Threading;
+using System.Diagnostics;
 #if NETCOREAPP
 using System.Runtime.Loader;
 #endif
@@ -55,7 +56,12 @@ namespace Alphaleonis.Win32.Vss
 
       private Assembly LoadAssembly() => m_resolver.LoadAssembly(PlatformSpecificAssemblyName);
 
-      private class DefaultVssAssemblyResolver : IVssAssemblyResolver
+      private static void Log(string message)
+      {
+         Trace.WriteLine(message, "AlphaVSS");
+      }
+
+      class DefaultVssAssemblyResolver : IVssAssemblyResolver
       {
          public Assembly LoadAssembly(AssemblyName assemblyName)
          {
@@ -63,11 +69,59 @@ namespace Alphaleonis.Win32.Vss
                throw new ArgumentNullException(nameof(assemblyName), $"{nameof(assemblyName)} is null.");
 
 #if NETCOREAPP
+            Log($"Attempting to locate \"{assemblyName.FullName}\"");
+            string searchDirectories = AppContext.GetData("NATIVE_DLL_SEARCH_DIRECTORIES") as string;
+
+            if (searchDirectories == null)
+            {
+               searchDirectories = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+               Log($"Found no native search directories in AppContext, searching current directory \"{searchDirectories}\" only.");
+            }
+            else
+            {
+               Log($"Using native search directories: {searchDirectories}");
+            }
+
             string assemblyFileName = assemblyName.Name + ".dll";
-            string fullAssemblyFileName = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), assemblyFileName);
-            return AssemblyLoadContext.Default.LoadFromAssemblyPath(fullAssemblyFileName);
+            foreach (var searchDirectory in searchDirectories.Split(';'))
+            {
+               string fullAssemblyFileName = Path.Combine(searchDirectory, assemblyFileName);
+               if (File.Exists(fullAssemblyFileName))
+               {
+                  Log($"Found \"{fullAssemblyFileName}\"");
+                  try
+                  {
+                     Log($"Loading \"{fullAssemblyFileName}\".");
+                     var result = AssemblyLoadContext.Default.LoadFromAssemblyPath(fullAssemblyFileName);
+                     Log($"Loaded \"{result.FullName}\" from \"{result.Location}\".");
+                     return result;
+                  }
+                  catch (Exception ex)
+                  {
+                     Log($"Error loading \"{fullAssemblyFileName}\"; {ex}");
+                     throw;
+                  }
+               }
+               else
+               {
+                  Log($"File not found \"{fullAssemblyFileName}\"");
+               }
+            }
+
+            throw new FileNotFoundException($"Failed to find assembly \"{assemblyName.FullName}\"");
 #elif NETFRAMEWORK
-         return Assembly.Load(assemblyName);
+            Log($"Attempting to load assembly \"{assemblyName.FullName}\"");
+            try
+            {
+               var result = Assembly.Load(assemblyName);
+               Log($"Loaded \"{result.FullName}\" from \"{result.Location}\".");
+               return result;
+            }
+            catch (Exception ex)
+            {
+               Log($"Error loading \"{assemblyName.FullName}\"; {ex}");
+               throw;
+            }
 #endif
          }
       }
