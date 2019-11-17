@@ -13,6 +13,6 @@ AlphaVSS, written in C# and C++/CLI provides a managed interface to this API.
 
 The goal of AlphaVSS is to provide an interface that is simple to use from any .NET application, yet provides the full functionality of VSS.
 
-For more information see [http://alphavss.alphaleonis.com](http://alphavss.alphaleonis.com)
+For documentation and more information see [http://alphavss.alphaleonis.com](http://alphavss.alphaleonis.com)
 
 For samples, see https://github.com/alphaleonis/AlphaVSS-Samples.
