@@ -11,15 +11,19 @@ This section contains some basic information to get started developing an applic
 The easiest way to get started using AlphaVSS in a new project is to use the [AlphaVSS NuGet package](xref:AlphaVssNuGet).
 
 This will add a reference to the *AlphaVSS.Common* assembly which contains the interfaces and classes that your code should directly access. When building 
-the project, two additional assemblies containing the actual implementation are copied to the output directory, namely *AlphaVSS.x86.dll* and *AlphaVSS.x64.dll*,
-containing the 32-bit and 64-bit code respectively.  
+the project, one or more (depending on your target platform) additional assemblies containing the platform specific implementation are copied to the output directory.
+These are namely *AlphaVSS.x86.dll* and *AlphaVSS.x64.dll*, containing the 32-bit and 64-bit code respectively.  
 
-> [!IMPORTANT]
-> The `AlphaVSS.x86.dll` and `AlphaVSS.x64.dll` assemblies must be deployed together with your application and reside in the same directory as `AlphaVSS.Common`.
+# Deploying
 
-> [!IMPORTANT]
-> Your application must be built using "Prefer 32-bit" **unchecked** if the Platform Target is set to Any CPU to work on 64-bit systems.   Also note that your application must be built for 
-> 64-bit (or Any CPU with Prefer 32-bit off) to work on a 64-bit system, and in 32-bit to work on a 32-bit system.  An application built for x86 will *not* work on a 64-bit operating system.
+The `AlphaVSS.x86.dll` and `AlphaVSS.x64.dll` assemblies must be deployed together with your application. Their location is dependent on the target framework of your 
+application.  When deploying your application, ensure to include these in the same location relative to your application as they were put in when you built it,
+unless you also provide your own [`IVssAssemblyResolver`](xref:Alphaleonis.Win32.Vss.IVssAssemblyResolver) that locates these from somewhere else (see below).
+
+On .NET Framework these assemblies must be located in the same directory as `AlphaVSS.Common.dll` for the default assembly resolution to work.
+
+On .NET Core the assemblies are located in a `runtimes\win-x86\native` and `runtimes\win-64\native` folders respectively. Along with these is a file 
+called `Ijwhost.dll` which must also be distributed with your application. (This is needed to be able to execute C++/CLI code in .NET Core)
 
 
 # Getting an instance of `IVssFactory`
@@ -40,7 +44,7 @@ can retrieve an instance of `IVssFactory` which can then be used to create the o
 
 ## Advanced usage
 
-If you have specific requirements on how the implementation specific assemblies should be loaded, you can implement `IVssAssemblyResolver`(xref:Alphaleonis.Win32.Vss.IVssAssemblyResolver) and pass that to a new instance of
+If you have specific requirements on how the implementation specific assemblies should be loaded, you can implement [`IVssAssemblyResolver`](xref:Alphaleonis.Win32.Vss.IVssAssemblyResolver) and pass that to a new instance of
 `VssFactoryProvider` to load the platform specific assembly in the way that you want.
 
 ```cs
@@ -64,6 +68,35 @@ If you have specific requirements on how the implementation specific assemblies 
     // ...then use that to create an instance of IVssBackupComponents.
     var vssBackupComponents = vssFactory.CreateVssBackupComponents();    
 ```    
+
+## Troubleshooting
+
+If you encounter problems when running `VssFactoryProvider.Default.GetVssFactory()` you can subscribe to the @System.Diagnostics.Trace class to get some logs detailing the process of locating and
+loading the platform specific assemblies.
+
+```cs
+using System;
+using System.Diagnostics;
+
+class Test
+{
+    static void Main()
+    {
+       Trace.Listeners.Add(new TextWriterTraceListener(Console.Out));
+       Trace.AutoFlush = true;
+
+       // Logs detailing the assembly load process are now logged to the console.
+       // The category of any logs emitted is "AlphaVSS"
+       var vssFactory = VssFactoryProvider.Default.GetVssFactory();
+    }
+}
+```
+
+
+## Sample Projects
+
+There are currently three sample projects available for AlphaVSS. They can be found at https://github.com/alphaleonis/AlphaVSS-Samples or the source downloaded from the 
+AlphaVSS release page.
 
 # Further Reading
 
