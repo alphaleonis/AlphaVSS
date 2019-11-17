@@ -1,0 +1,1168 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Interface IVssComponent
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Interface IVssComponent
+   ">
+    <meta name="generator" content="docfx 2.47.0.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Alphaleonis.Win32.Vss.IVssComponent">
+  
+  
+  <h1 id="Alphaleonis_Win32_Vss_IVssComponent" data-uid="Alphaleonis.Win32.Vss.IVssComponent" class="text-break">Interface IVssComponent
+  </h1>
+  <div class="markdown level0 summary"><p>
+	Interface containing methods for examining and modifying information about components contained in a requester&apos;s Backup Components Document.
+</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.idisposable.dispose#System_IDisposable_Dispose">IDisposable.Dispose()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Alphaleonis.Win32.Vss.html">Alphaleonis.Win32.Vss</a></h6>
+  <h6><strong>Assembly</strong>: AlphaVSS.Common.dll</h6>
+  <h5 id="Alphaleonis_Win32_Vss_IVssComponent_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IVssComponent : IDisposable</code></pre>
+  </div>
+  <h5 id="Alphaleonis_Win32_Vss_IVssComponent_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>
+<a class="xref" href="Alphaleonis.Win32.Vss.IVssComponent.html">IVssComponent</a> objects can be obtained only for those components that have been explicitly added 
+to the Backup Components Document during a backup operation by the <a class="xref" href="Alphaleonis.Win32.Vss.IVssBackupComponents.html#Alphaleonis_Win32_Vss_IVssBackupComponents_AddComponent_System_Guid_System_Guid_Alphaleonis_Win32_Vss_VssComponentType_System_String_System_String_">AddComponent(Guid, Guid, VssComponentType, String, String)</a> 
+method.
+</p>
+<p>
+	Information about components explicitly added during a restore operation using 
+<a class="xref" href="Alphaleonis.Win32.Vss.IVssBackupComponents.html#Alphaleonis_Win32_Vss_IVssBackupComponents_AddRestoreSubcomponent_System_Guid_Alphaleonis_Win32_Vss_VssComponentType_System_String_System_String_System_String_System_String_">AddRestoreSubcomponent(Guid, VssComponentType, String, String, String, String)</a> are not available through the <a class="xref" href="Alphaleonis.Win32.Vss.IVssComponent.html">IVssComponent</a>
+interface.
+</p>
+<p>
+	For more information, see <a href="http://msdn.microsoft.com/en-us/library/aa382871(VS.85).aspx">the MSDN documentation on 
+	the IVssComponent Interface</a>.
+</p>
+</div>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/alphaleonis/AlphaVSS/new/develop/apiSpec/new?filename=Alphaleonis_Win32_Vss_IVssComponent_AdditionalRestores.md&amp;value=---%0Auid%3A%20Alphaleonis.Win32.Vss.IVssComponent.AdditionalRestores%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/alphaleonis/AlphaVSS/blob/develop/src/AlphaVSS.Common/Interfaces/IVssComponent.cs/#L41">View Source</a>
+  </span>
+  <a id="Alphaleonis_Win32_Vss_IVssComponent_AdditionalRestores_" data-uid="Alphaleonis.Win32.Vss.IVssComponent.AdditionalRestores*"></a>
+  <h4 id="Alphaleonis_Win32_Vss_IVssComponent_AdditionalRestores" data-uid="Alphaleonis.Win32.Vss.IVssComponent.AdditionalRestores">AdditionalRestores</h4>
+  <div class="markdown level1 summary"><p>The <a class="xref" href="Alphaleonis.Win32.Vss.IVssComponent.html#Alphaleonis_Win32_Vss_IVssComponent_AdditionalRestores">AdditionalRestores</a> is used by a writer during incremental or differential restore
+operations to determine whether a given component will require additional restore operations to completely retrieve it,
+but can also be called by a requester.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool AdditionalRestores { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><p>If <span class="xref">true</span>, additional restores will occur for the
+current component. If <span class="xref">false</span>, additional restores will not occur.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/alphaleonis/AlphaVSS/new/develop/apiSpec/new?filename=Alphaleonis_Win32_Vss_IVssComponent_AlternateLocationMappings.md&amp;value=---%0Auid%3A%20Alphaleonis.Win32.Vss.IVssComponent.AlternateLocationMappings%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/alphaleonis/AlphaVSS/blob/develop/src/AlphaVSS.Common/Interfaces/IVssComponent.cs/#L119">View Source</a>
+  </span>
+  <a id="Alphaleonis_Win32_Vss_IVssComponent_AlternateLocationMappings_" data-uid="Alphaleonis.Win32.Vss.IVssComponent.AlternateLocationMappings*"></a>
+  <h4 id="Alphaleonis_Win32_Vss_IVssComponent_AlternateLocationMappings" data-uid="Alphaleonis.Win32.Vss.IVssComponent.AlternateLocationMappings">AlternateLocationMappings</h4>
+  <div class="markdown level1 summary"><p>A collection of mapping information for the file set's alternate location for file restoration.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IList&lt;VssWMFileDescriptor&gt; AlternateLocationMappings { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;<a class="xref" href="Alphaleonis.Win32.Vss.VssWMFileDescriptor.html">VssWMFileDescriptor</a>&gt;</td>
+        <td><p>A read-only list containing the alternate location to which files were actually restored. <div class="CAUTION"><h5>caution</h5><p>This list must not be accessed after the <a class="xref" href="Alphaleonis.Win32.Vss.IVssComponent.html">IVssComponent</a> from which it was obtained has been disposed.</p></div></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Alphaleonis_Win32_Vss_IVssComponent_AlternateLocationMappings_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>See <a href="http://msdn.microsoft.com/en-us/library/aa383473(VS.85).aspx">the MSDN documentation on the IVssComponent::GetAlternateLocationMapping method</a> for more information.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/alphaleonis/AlphaVSS/new/develop/apiSpec/new?filename=Alphaleonis_Win32_Vss_IVssComponent_BackupOptions.md&amp;value=---%0Auid%3A%20Alphaleonis.Win32.Vss.IVssComponent.BackupOptions%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/alphaleonis/AlphaVSS/blob/develop/src/AlphaVSS.Common/Interfaces/IVssComponent.cs/#L50">View Source</a>
+  </span>
+  <a id="Alphaleonis_Win32_Vss_IVssComponent_BackupOptions_" data-uid="Alphaleonis.Win32.Vss.IVssComponent.BackupOptions*"></a>
+  <h4 id="Alphaleonis_Win32_Vss_IVssComponent_BackupOptions" data-uid="Alphaleonis.Win32.Vss.IVssComponent.BackupOptions">BackupOptions</h4>
+  <div class="markdown level1 summary"><p>
+	The backup options specified to the writer that manages the currently selected component or component set 
+	by a requester using <a class="xref" href="Alphaleonis.Win32.Vss.IVssBackupComponents.html#Alphaleonis_Win32_Vss_IVssBackupComponents_SetBackupOptions_System_Guid_Alphaleonis_Win32_Vss_VssComponentType_System_String_System_String_System_String_">SetBackupOptions(Guid, VssComponentType, String, String, String)</a>.
+</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">string BackupOptions { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><p>The backup options for the current writer.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/alphaleonis/AlphaVSS/new/develop/apiSpec/new?filename=Alphaleonis_Win32_Vss_IVssComponent_BackupStamp.md&amp;value=---%0Auid%3A%20Alphaleonis.Win32.Vss.IVssComponent.BackupStamp%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/alphaleonis/AlphaVSS/blob/develop/src/AlphaVSS.Common/Interfaces/IVssComponent.cs/#L54">View Source</a>
+  </span>
+  <a id="Alphaleonis_Win32_Vss_IVssComponent_BackupStamp_" data-uid="Alphaleonis.Win32.Vss.IVssComponent.BackupStamp*"></a>
+  <h4 id="Alphaleonis_Win32_Vss_IVssComponent_BackupStamp" data-uid="Alphaleonis.Win32.Vss.IVssComponent.BackupStamp">BackupStamp</h4>
+  <div class="markdown level1 summary"><p>The backup stamp string stored by a writer for a given component.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">string BackupStamp { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><p>The backup stamp indicating the time at which the component was backed up.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/alphaleonis/AlphaVSS/new/develop/apiSpec/new?filename=Alphaleonis_Win32_Vss_IVssComponent_BackupSucceeded.md&amp;value=---%0Auid%3A%20Alphaleonis.Win32.Vss.IVssComponent.BackupSucceeded%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/alphaleonis/AlphaVSS/blob/develop/src/AlphaVSS.Common/Interfaces/IVssComponent.cs/#L63">View Source</a>
+  </span>
+  <a id="Alphaleonis_Win32_Vss_IVssComponent_BackupSucceeded_" data-uid="Alphaleonis.Win32.Vss.IVssComponent.BackupSucceeded*"></a>
+  <h4 id="Alphaleonis_Win32_Vss_IVssComponent_BackupSucceeded" data-uid="Alphaleonis.Win32.Vss.IVssComponent.BackupSucceeded">BackupSucceeded</h4>
+  <div class="markdown level1 summary"><p>The status of a complete attempt at backing up all the files of a selected component or component set as a
+<a class="xref" href="Alphaleonis.Win32.Vss.VssFileRestoreStatus.html">VssFileRestoreStatus</a> enumeration.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool BackupSucceeded { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><p><span class="xref">true</span> if the backup was successful and <span class="xref">false</span> if it was not.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/alphaleonis/AlphaVSS/new/develop/apiSpec/new?filename=Alphaleonis_Win32_Vss_IVssComponent_ComponentName.md&amp;value=---%0Auid%3A%20Alphaleonis.Win32.Vss.IVssComponent.ComponentName%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/alphaleonis/AlphaVSS/blob/develop/src/AlphaVSS.Common/Interfaces/IVssComponent.cs/#L67">View Source</a>
+  </span>
+  <a id="Alphaleonis_Win32_Vss_IVssComponent_ComponentName_" data-uid="Alphaleonis.Win32.Vss.IVssComponent.ComponentName*"></a>
+  <h4 id="Alphaleonis_Win32_Vss_IVssComponent_ComponentName" data-uid="Alphaleonis.Win32.Vss.IVssComponent.ComponentName">ComponentName</h4>
+  <div class="markdown level1 summary"><p>The logical name of this component.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">string ComponentName { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><p>The logical name of this component.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/alphaleonis/AlphaVSS/new/develop/apiSpec/new?filename=Alphaleonis_Win32_Vss_IVssComponent_ComponentType.md&amp;value=---%0Auid%3A%20Alphaleonis.Win32.Vss.IVssComponent.ComponentType%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/alphaleonis/AlphaVSS/blob/develop/src/AlphaVSS.Common/Interfaces/IVssComponent.cs/#L71">View Source</a>
+  </span>
+  <a id="Alphaleonis_Win32_Vss_IVssComponent_ComponentType_" data-uid="Alphaleonis.Win32.Vss.IVssComponent.ComponentType*"></a>
+  <h4 id="Alphaleonis_Win32_Vss_IVssComponent_ComponentType" data-uid="Alphaleonis.Win32.Vss.IVssComponent.ComponentType">ComponentType</h4>
+  <div class="markdown level1 summary"><p>The type of this component in terms of the <a class="xref" href="Alphaleonis.Win32.Vss.IVssComponent.html#Alphaleonis_Win32_Vss_IVssComponent_ComponentType">ComponentType</a> enumeration.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">VssComponentType ComponentType { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Alphaleonis.Win32.Vss.VssComponentType.html">VssComponentType</a></td>
+        <td><p>The type of this component.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/alphaleonis/AlphaVSS/new/develop/apiSpec/new?filename=Alphaleonis_Win32_Vss_IVssComponent_DifferencedFiles.md&amp;value=---%0Auid%3A%20Alphaleonis.Win32.Vss.IVssComponent.DifferencedFiles%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/alphaleonis/AlphaVSS/blob/develop/src/AlphaVSS.Common/Interfaces/IVssComponent.cs/#L150">View Source</a>
+  </span>
+  <a id="Alphaleonis_Win32_Vss_IVssComponent_DifferencedFiles_" data-uid="Alphaleonis.Win32.Vss.IVssComponent.DifferencedFiles*"></a>
+  <h4 id="Alphaleonis_Win32_Vss_IVssComponent_DifferencedFiles" data-uid="Alphaleonis.Win32.Vss.IVssComponent.DifferencedFiles">DifferencedFiles</h4>
+  <div class="markdown level1 summary"><p>Information about the file sets (specified file or files) to participate in an incremental or differential backup or restore as a
+differenced file — that is, backup and restores associated with it are to be implemented as if entire files are copied to and from
+backup media (as opposed to using partial files).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IList&lt;VssDifferencedFileInfo&gt; DifferencedFiles { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;<a class="xref" href="Alphaleonis.Win32.Vss.VssDifferencedFileInfo.html">VssDifferencedFileInfo</a>&gt;</td>
+        <td><p>A read only list containing the diffrenced files associated with this component. <div class="CAUTION"><h5>caution</h5><p>This list must not be accessed after the <a class="xref" href="Alphaleonis.Win32.Vss.IVssComponent.html">IVssComponent</a> from which it was obtained has been disposed.</p></div></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Alphaleonis_Win32_Vss_IVssComponent_DifferencedFiles_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p><strong>Windows XP:</strong> This method requires Windows Server 2003 or later</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/alphaleonis/AlphaVSS/new/develop/apiSpec/new?filename=Alphaleonis_Win32_Vss_IVssComponent_DirectedTargets.md&amp;value=---%0Auid%3A%20Alphaleonis.Win32.Vss.IVssComponent.DirectedTargets%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/alphaleonis/AlphaVSS/blob/develop/src/AlphaVSS.Common/Interfaces/IVssComponent.cs/#L127">View Source</a>
+  </span>
+  <a id="Alphaleonis_Win32_Vss_IVssComponent_DirectedTargets_" data-uid="Alphaleonis.Win32.Vss.IVssComponent.DirectedTargets*"></a>
+  <h4 id="Alphaleonis_Win32_Vss_IVssComponent_DirectedTargets" data-uid="Alphaleonis.Win32.Vss.IVssComponent.DirectedTargets">DirectedTargets</h4>
+  <div class="markdown level1 summary"><p>Information stored by a writer, at backup time, to the Backup Components Document to indicate that when a file is to be
+restored, it (the source file) should be remapped. The file may be restored to a new restore target and/or ranges of its data
+restored to different locations with the restore target.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IList&lt;VssDirectedTargetInfo&gt; DirectedTargets { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;<a class="xref" href="Alphaleonis.Win32.Vss.VssDirectedTargetInfo.html">VssDirectedTargetInfo</a>&gt;</td>
+        <td><p>A read-only list containing the directed targets of this component. <div class="CAUTION"><h5>caution</h5><p>This list must not be accessed after the <a class="xref" href="Alphaleonis.Win32.Vss.IVssComponent.html">IVssComponent</a> from which it was obtained has been disposed.</p></div></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/alphaleonis/AlphaVSS/new/develop/apiSpec/new?filename=Alphaleonis_Win32_Vss_IVssComponent_Failure.md&amp;value=---%0Auid%3A%20Alphaleonis.Win32.Vss.IVssComponent.Failure%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/alphaleonis/AlphaVSS/blob/develop/src/AlphaVSS.Common/Interfaces/IVssComponent.cs/#L327">View Source</a>
+  </span>
+  <a id="Alphaleonis_Win32_Vss_IVssComponent_Failure_" data-uid="Alphaleonis.Win32.Vss.IVssComponent.Failure*"></a>
+  <h4 id="Alphaleonis_Win32_Vss_IVssComponent_Failure" data-uid="Alphaleonis.Win32.Vss.IVssComponent.Failure">Failure</h4>
+  <div class="markdown level1 summary"><p>VSS requesters read this property to retrieve component-level errors reported by writers.
+VSS writers set this property to report errors at the component level.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">VssComponentFailure Failure { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Alphaleonis.Win32.Vss.VssComponentFailure.html">VssComponentFailure</a></td>
+        <td><p>An instance of <a class="xref" href="Alphaleonis.Win32.Vss.VssComponentFailure.html">VssComponentFailure</a> containing the information reported by the writer.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Alphaleonis_Win32_Vss_IVssComponent_Failure_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Minimum supported client: Windows 7, Minimum supported server: Windows Server 2008 R2</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Alphaleonis.Win32.Vss.VssBadStateException.html">VssBadStateException</a></td>
+        <td><p>The backup components object is not initialized, this method has been called during a restore operation, or this method has not been called within the correct sequence.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/alphaleonis/AlphaVSS/new/develop/apiSpec/new?filename=Alphaleonis_Win32_Vss_IVssComponent_FileRestoreStatus.md&amp;value=---%0Auid%3A%20Alphaleonis.Win32.Vss.IVssComponent.FileRestoreStatus%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/alphaleonis/AlphaVSS/blob/develop/src/AlphaVSS.Common/Interfaces/IVssComponent.cs/#L80">View Source</a>
+  </span>
+  <a id="Alphaleonis_Win32_Vss_IVssComponent_FileRestoreStatus_" data-uid="Alphaleonis.Win32.Vss.IVssComponent.FileRestoreStatus*"></a>
+  <h4 id="Alphaleonis_Win32_Vss_IVssComponent_FileRestoreStatus" data-uid="Alphaleonis.Win32.Vss.IVssComponent.FileRestoreStatus">FileRestoreStatus</h4>
+  <div class="markdown level1 summary"><p>The status of a completed attempt to restore all the files of a selected component or component set
+as a <a class="xref" href="Alphaleonis.Win32.Vss.VssFileRestoreStatus.html">VssFileRestoreStatus</a> enumeration.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">VssFileRestoreStatus FileRestoreStatus { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Alphaleonis.Win32.Vss.VssFileRestoreStatus.html">VssFileRestoreStatus</a></td>
+        <td><p>A value of the <a class="xref" href="Alphaleonis.Win32.Vss.VssFileRestoreStatus.html">VssFileRestoreStatus</a> enumeration that specifies whether all files were successfully restored.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/alphaleonis/AlphaVSS/new/develop/apiSpec/new?filename=Alphaleonis_Win32_Vss_IVssComponent_IsAuthoritativeRestore.md&amp;value=---%0Auid%3A%20Alphaleonis.Win32.Vss.IVssComponent.IsAuthoritativeRestore%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/alphaleonis/AlphaVSS/blob/develop/src/AlphaVSS.Common/Interfaces/IVssComponent.cs/#L183">View Source</a>
+  </span>
+  <a id="Alphaleonis_Win32_Vss_IVssComponent_IsAuthoritativeRestore_" data-uid="Alphaleonis.Win32.Vss.IVssComponent.IsAuthoritativeRestore*"></a>
+  <h4 id="Alphaleonis_Win32_Vss_IVssComponent_IsAuthoritativeRestore" data-uid="Alphaleonis.Win32.Vss.IVssComponent.IsAuthoritativeRestore">IsAuthoritativeRestore</h4>
+  <div class="markdown level1 summary"><p>Gets a value indicating whether a requester has marked the restore of a component as authoritative for a replicated data store.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool IsAuthoritativeRestore { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><p><span class="xref">true</span> if the restore is authoritative; otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Alphaleonis_Win32_Vss_IVssComponent_IsAuthoritativeRestore_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+    A writer indicates that it supports authoritative restore by setting the 
+<a class="xref" href="Alphaleonis.Win32.Vss.VssBackupSchema.html#Alphaleonis_Win32_Vss_VssBackupSchema_AuthoritativeRestore">AuthoritativeRestore</a> flag in its backup schema mask.
+</p>
+<p>
+    For more information, see <a href="http://msdn.microsoft.com/en-us/library/aa384610(VS.85).aspx">Setting VSS Restore Options.</a>
+</p>
+<p>
+<div class="NOTE"><h5>note</h5><p>
+<p>
+<strong>Windows XP and Windows 2003:</strong> This property requires Windows Vista or later and will always return <span class="xref">false</span> 
+on unsupported operating systems.
+</p>
+</p></div>
+</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/alphaleonis/AlphaVSS/new/develop/apiSpec/new?filename=Alphaleonis_Win32_Vss_IVssComponent_IsSelectedForRestore.md&amp;value=---%0Auid%3A%20Alphaleonis.Win32.Vss.IVssComponent.IsSelectedForRestore%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/alphaleonis/AlphaVSS/blob/develop/src/AlphaVSS.Common/Interfaces/IVssComponent.cs/#L114">View Source</a>
+  </span>
+  <a id="Alphaleonis_Win32_Vss_IVssComponent_IsSelectedForRestore_" data-uid="Alphaleonis.Win32.Vss.IVssComponent.IsSelectedForRestore*"></a>
+  <h4 id="Alphaleonis_Win32_Vss_IVssComponent_IsSelectedForRestore" data-uid="Alphaleonis.Win32.Vss.IVssComponent.IsSelectedForRestore">IsSelectedForRestore</h4>
+  <div class="markdown level1 summary"><p>Determines whether the current component has been selected to be restored.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool IsSelectedForRestore { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><p>If the returned value of this parameter is <span class="xref">true</span>, the component has been selected to be restored. If <span class="xref">false</span>, it has not been selected.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/alphaleonis/AlphaVSS/new/develop/apiSpec/new?filename=Alphaleonis_Win32_Vss_IVssComponent_LogicalPath.md&amp;value=---%0Auid%3A%20Alphaleonis.Win32.Vss.IVssComponent.LogicalPath%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/alphaleonis/AlphaVSS/blob/develop/src/AlphaVSS.Common/Interfaces/IVssComponent.cs/#L84">View Source</a>
+  </span>
+  <a id="Alphaleonis_Win32_Vss_IVssComponent_LogicalPath_" data-uid="Alphaleonis.Win32.Vss.IVssComponent.LogicalPath*"></a>
+  <h4 id="Alphaleonis_Win32_Vss_IVssComponent_LogicalPath" data-uid="Alphaleonis.Win32.Vss.IVssComponent.LogicalPath">LogicalPath</h4>
+  <div class="markdown level1 summary"><p>The logical path of this component.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">string LogicalPath { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><p>The logical path of this component.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/alphaleonis/AlphaVSS/new/develop/apiSpec/new?filename=Alphaleonis_Win32_Vss_IVssComponent_NewTargets.md&amp;value=---%0Auid%3A%20Alphaleonis.Win32.Vss.IVssComponent.NewTargets%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/alphaleonis/AlphaVSS/blob/develop/src/AlphaVSS.Common/Interfaces/IVssComponent.cs/#L133">View Source</a>
+  </span>
+  <a id="Alphaleonis_Win32_Vss_IVssComponent_NewTargets_" data-uid="Alphaleonis.Win32.Vss.IVssComponent.NewTargets*"></a>
+  <h4 id="Alphaleonis_Win32_Vss_IVssComponent_NewTargets" data-uid="Alphaleonis.Win32.Vss.IVssComponent.NewTargets">NewTargets</h4>
+  <div class="markdown level1 summary"><p>The new file restoration locations for the selected component or component set.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IList&lt;VssWMFileDescriptor&gt; NewTargets { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;<a class="xref" href="Alphaleonis.Win32.Vss.VssWMFileDescriptor.html">VssWMFileDescriptor</a>&gt;</td>
+        <td><p>A read-only list contianing the new file restoration locations for the selected component or component set. <div class="CAUTION"><h5>caution</h5><p>This list must not be accessed after the <a class="xref" href="Alphaleonis.Win32.Vss.IVssComponent.html">IVssComponent</a> from which it was obtained has been disposed.</p></div></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/alphaleonis/AlphaVSS/new/develop/apiSpec/new?filename=Alphaleonis_Win32_Vss_IVssComponent_PartialFiles.md&amp;value=---%0Auid%3A%20Alphaleonis.Win32.Vss.IVssComponent.PartialFiles%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/alphaleonis/AlphaVSS/blob/develop/src/AlphaVSS.Common/Interfaces/IVssComponent.cs/#L139">View Source</a>
+  </span>
+  <a id="Alphaleonis_Win32_Vss_IVssComponent_PartialFiles_" data-uid="Alphaleonis.Win32.Vss.IVssComponent.PartialFiles*"></a>
+  <h4 id="Alphaleonis_Win32_Vss_IVssComponent_PartialFiles" data-uid="Alphaleonis.Win32.Vss.IVssComponent.PartialFiles">PartialFiles</h4>
+  <div class="markdown level1 summary"><p>Information about any partial files associated with this component.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IList&lt;VssPartialFileInfo&gt; PartialFiles { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;<a class="xref" href="Alphaleonis.Win32.Vss.VssPartialFileInfo.html">VssPartialFileInfo</a>&gt;</td>
+        <td><p>A read-only list containing information about any partial files associated with this component. <div class="CAUTION"><h5>caution</h5><p>This list must not be accessed after the <a class="xref" href="Alphaleonis.Win32.Vss.IVssComponent.html">IVssComponent</a> from which it was obtained has been disposed.</p></div></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/alphaleonis/AlphaVSS/new/develop/apiSpec/new?filename=Alphaleonis_Win32_Vss_IVssComponent_PostRestoreFailureMsg.md&amp;value=---%0Auid%3A%20Alphaleonis.Win32.Vss.IVssComponent.PostRestoreFailureMsg%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/alphaleonis/AlphaVSS/blob/develop/src/AlphaVSS.Common/Interfaces/IVssComponent.cs/#L88">View Source</a>
+  </span>
+  <a id="Alphaleonis_Win32_Vss_IVssComponent_PostRestoreFailureMsg_" data-uid="Alphaleonis.Win32.Vss.IVssComponent.PostRestoreFailureMsg*"></a>
+  <h4 id="Alphaleonis_Win32_Vss_IVssComponent_PostRestoreFailureMsg" data-uid="Alphaleonis.Win32.Vss.IVssComponent.PostRestoreFailureMsg">PostRestoreFailureMsg</h4>
+  <div class="markdown level1 summary"><p>The failure message generated by a writer while handling the <code>PostRestore</code> event if one was set.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">string PostRestoreFailureMsg { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><p>The failure message that describes an error that occurred while processing the <code>PostRestore</code> event.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/alphaleonis/AlphaVSS/new/develop/apiSpec/new?filename=Alphaleonis_Win32_Vss_IVssComponent_PostSnapshotFailureMsg.md&amp;value=---%0Auid%3A%20Alphaleonis.Win32.Vss.IVssComponent.PostSnapshotFailureMsg%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/alphaleonis/AlphaVSS/blob/develop/src/AlphaVSS.Common/Interfaces/IVssComponent.cs/#L203">View Source</a>
+  </span>
+  <a id="Alphaleonis_Win32_Vss_IVssComponent_PostSnapshotFailureMsg_" data-uid="Alphaleonis.Win32.Vss.IVssComponent.PostSnapshotFailureMsg*"></a>
+  <h4 id="Alphaleonis_Win32_Vss_IVssComponent_PostSnapshotFailureMsg" data-uid="Alphaleonis.Win32.Vss.IVssComponent.PostSnapshotFailureMsg">PostSnapshotFailureMsg</h4>
+  <div class="markdown level1 summary"><p>Gets the <code>PostSnapshot</code> failure message string that a writer has set for a given component.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">string PostSnapshotFailureMsg { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><p>A string containing the failure message that describes an error that occurred while processing a PostSnapshot event, or <span class="xref">null</span>
+if no value was set or the method is not supported on the current operating system.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Alphaleonis_Win32_Vss_IVssComponent_PostSnapshotFailureMsg_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+    Both writers and requesters can call this method.
+</p>
+<p>
+<div class="NOTE"><h5>note</h5><p>
+<p>
+<strong>Windows XP and Windows 2003:</strong> This property requires Windows Vista or later and will always return <span class="xref">false</span> 
+on unsupported operating systems.
+</p>
+</p></div>
+</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/alphaleonis/AlphaVSS/new/develop/apiSpec/new?filename=Alphaleonis_Win32_Vss_IVssComponent_PrepareForBackupFailureMsg.md&amp;value=---%0Auid%3A%20Alphaleonis.Win32.Vss.IVssComponent.PrepareForBackupFailureMsg%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/alphaleonis/AlphaVSS/blob/develop/src/AlphaVSS.Common/Interfaces/IVssComponent.cs/#L224">View Source</a>
+  </span>
+  <a id="Alphaleonis_Win32_Vss_IVssComponent_PrepareForBackupFailureMsg_" data-uid="Alphaleonis.Win32.Vss.IVssComponent.PrepareForBackupFailureMsg*"></a>
+  <h4 id="Alphaleonis_Win32_Vss_IVssComponent_PrepareForBackupFailureMsg" data-uid="Alphaleonis.Win32.Vss.IVssComponent.PrepareForBackupFailureMsg">PrepareForBackupFailureMsg</h4>
+  <div class="markdown level1 summary"><p>Gets the <code>PrepareForBackup</code> failure message string that a writer has set for a given component.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">string PrepareForBackupFailureMsg { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><p>A string containing the failure message that describes an error that occurred while processing a PrepareForBackup event,
+or <span class="xref">null</span> if no failure message was set for this component, or if the property is not supported on the
+current operating system.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Alphaleonis_Win32_Vss_IVssComponent_PrepareForBackupFailureMsg_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+    Both writers and requesters can call this method.
+</p>
+<p>
+<div class="NOTE"><h5>note</h5><p>
+<p>
+<strong>Windows XP and Windows 2003:</strong> This property requires Windows Vista or later and will always return <span class="xref">false</span> 
+on unsupported operating systems.
+</p>
+</p></div>
+</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/alphaleonis/AlphaVSS/new/develop/apiSpec/new?filename=Alphaleonis_Win32_Vss_IVssComponent_PreRestoreFailureMsg.md&amp;value=---%0Auid%3A%20Alphaleonis.Win32.Vss.IVssComponent.PreRestoreFailureMsg%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/alphaleonis/AlphaVSS/blob/develop/src/AlphaVSS.Common/Interfaces/IVssComponent.cs/#L92">View Source</a>
+  </span>
+  <a id="Alphaleonis_Win32_Vss_IVssComponent_PreRestoreFailureMsg_" data-uid="Alphaleonis.Win32.Vss.IVssComponent.PreRestoreFailureMsg*"></a>
+  <h4 id="Alphaleonis_Win32_Vss_IVssComponent_PreRestoreFailureMsg" data-uid="Alphaleonis.Win32.Vss.IVssComponent.PreRestoreFailureMsg">PreRestoreFailureMsg</h4>
+  <div class="markdown level1 summary"><p>The failure message generated by a writer while handling the <code>PreRestore</code> event if one was set.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">string PreRestoreFailureMsg { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><p>The failure message that describes an error that occurred while processing the <code>PreRestore</code> event.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/alphaleonis/AlphaVSS/new/develop/apiSpec/new?filename=Alphaleonis_Win32_Vss_IVssComponent_PreviousBackupStamp.md&amp;value=---%0Auid%3A%20Alphaleonis.Win32.Vss.IVssComponent.PreviousBackupStamp%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/alphaleonis/AlphaVSS/blob/develop/src/AlphaVSS.Common/Interfaces/IVssComponent.cs/#L101">View Source</a>
+  </span>
+  <a id="Alphaleonis_Win32_Vss_IVssComponent_PreviousBackupStamp_" data-uid="Alphaleonis.Win32.Vss.IVssComponent.PreviousBackupStamp*"></a>
+  <h4 id="Alphaleonis_Win32_Vss_IVssComponent_PreviousBackupStamp" data-uid="Alphaleonis.Win32.Vss.IVssComponent.PreviousBackupStamp">PreviousBackupStamp</h4>
+  <div class="markdown level1 summary"><p>A previous backup stamp loaded by a requester in the Backup Components Document. The value is used by a writer when
+deciding if files should participate in differential or incremental backup operation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">string PreviousBackupStamp { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><p>The time stamp of a previous backup so that a differential or incremental backup can be correctly implemented.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/alphaleonis/AlphaVSS/new/develop/apiSpec/new?filename=Alphaleonis_Win32_Vss_IVssComponent_RestoreName.md&amp;value=---%0Auid%3A%20Alphaleonis.Win32.Vss.IVssComponent.RestoreName%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/alphaleonis/AlphaVSS/blob/develop/src/AlphaVSS.Common/Interfaces/IVssComponent.cs/#L254">View Source</a>
+  </span>
+  <a id="Alphaleonis_Win32_Vss_IVssComponent_RestoreName_" data-uid="Alphaleonis.Win32.Vss.IVssComponent.RestoreName*"></a>
+  <h4 id="Alphaleonis_Win32_Vss_IVssComponent_RestoreName" data-uid="Alphaleonis.Win32.Vss.IVssComponent.RestoreName">RestoreName</h4>
+  <div class="markdown level1 summary"><p>Obtains the logical name assigned to a component that is being restored.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">string RestoreName { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><p>A string containing the restore name for the component, or <span class="xref">null</span> if the operation
+is not supported on the current operating system.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Alphaleonis_Win32_Vss_IVssComponent_RestoreName_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+    The <a class="xref" href="Alphaleonis.Win32.Vss.IVssComponent.html#Alphaleonis_Win32_Vss_IVssComponent_RestoreName">RestoreName</a> property can only be accessed during a restore operation.
+</p>
+<p>
+    A writer indicates that it supports this method by setting the <a class="xref" href="Alphaleonis.Win32.Vss.VssBackupSchema.html#Alphaleonis_Win32_Vss_VssBackupSchema_RestoreRename">RestoreRename</a> 
+    flag in its backup schema mask.
+</p>
+<p>
+    For more information, see <a href="http://msdn.microsoft.com/en-us/library/aa384610(VS.85).aspx">
+    Setting VSS Restore Options</a>.
+</p>
+<p>
+<div class="NOTE"><h5>note</h5><p>
+<p>
+<strong>Windows XP and Windows 2003:</strong> This property requires Windows Vista or later and will always return <span class="xref">false</span> 
+on unsupported operating systems.
+</p>
+</p></div>
+</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/alphaleonis/AlphaVSS/new/develop/apiSpec/new?filename=Alphaleonis_Win32_Vss_IVssComponent_RestoreOptions.md&amp;value=---%0Auid%3A%20Alphaleonis.Win32.Vss.IVssComponent.RestoreOptions%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/alphaleonis/AlphaVSS/blob/develop/src/AlphaVSS.Common/Interfaces/IVssComponent.cs/#L106">View Source</a>
+  </span>
+  <a id="Alphaleonis_Win32_Vss_IVssComponent_RestoreOptions_" data-uid="Alphaleonis.Win32.Vss.IVssComponent.RestoreOptions*"></a>
+  <h4 id="Alphaleonis_Win32_Vss_IVssComponent_RestoreOptions" data-uid="Alphaleonis.Win32.Vss.IVssComponent.RestoreOptions">RestoreOptions</h4>
+  <div class="markdown level1 summary"><p>The restore options specified to the current writer by a requester using
+<a class="xref" href="Alphaleonis.Win32.Vss.IVssBackupComponents.html#Alphaleonis_Win32_Vss_IVssBackupComponents_SetRestoreOptions_System_Guid_Alphaleonis_Win32_Vss_VssComponentType_System_String_System_String_System_String_">SetRestoreOptions(Guid, VssComponentType, String, String, String)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">string RestoreOptions { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><p>The restore options of the writer.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/alphaleonis/AlphaVSS/new/develop/apiSpec/new?filename=Alphaleonis_Win32_Vss_IVssComponent_RestoreSubcomponents.md&amp;value=---%0Auid%3A%20Alphaleonis.Win32.Vss.IVssComponent.RestoreSubcomponents%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/alphaleonis/AlphaVSS/blob/develop/src/AlphaVSS.Common/Interfaces/IVssComponent.cs/#L154">View Source</a>
+  </span>
+  <a id="Alphaleonis_Win32_Vss_IVssComponent_RestoreSubcomponents_" data-uid="Alphaleonis.Win32.Vss.IVssComponent.RestoreSubcomponents*"></a>
+  <h4 id="Alphaleonis_Win32_Vss_IVssComponent_RestoreSubcomponents" data-uid="Alphaleonis.Win32.Vss.IVssComponent.RestoreSubcomponents">RestoreSubcomponents</h4>
+  <div class="markdown level1 summary"><p>The subcomponents associated with this component.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IList&lt;VssRestoreSubcomponentInfo&gt; RestoreSubcomponents { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;<a class="xref" href="Alphaleonis.Win32.Vss.VssRestoreSubcomponentInfo.html">VssRestoreSubcomponentInfo</a>&gt;</td>
+        <td><p>A read only list containing the subcomponents associated with this component. <div class="CAUTION"><h5>caution</h5><p>This list must not be accessed after the <a class="xref" href="Alphaleonis.Win32.Vss.IVssComponent.html">IVssComponent</a> from which it was obtained has been disposed.</p></div></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/alphaleonis/AlphaVSS/new/develop/apiSpec/new?filename=Alphaleonis_Win32_Vss_IVssComponent_RestoreTarget.md&amp;value=---%0Auid%3A%20Alphaleonis.Win32.Vss.IVssComponent.RestoreTarget%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/alphaleonis/AlphaVSS/blob/develop/src/AlphaVSS.Common/Interfaces/IVssComponent.cs/#L110">View Source</a>
+  </span>
+  <a id="Alphaleonis_Win32_Vss_IVssComponent_RestoreTarget_" data-uid="Alphaleonis.Win32.Vss.IVssComponent.RestoreTarget*"></a>
+  <h4 id="Alphaleonis_Win32_Vss_IVssComponent_RestoreTarget" data-uid="Alphaleonis.Win32.Vss.IVssComponent.RestoreTarget">RestoreTarget</h4>
+  <div class="markdown level1 summary"><p>The restore target (in terms of the <a class="xref" href="Alphaleonis.Win32.Vss.VssRestoreTarget.html">VssRestoreTarget</a> enumeration) for the current component. Can only be called during a restore operation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">VssRestoreTarget RestoreTarget { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Alphaleonis.Win32.Vss.VssRestoreTarget.html">VssRestoreTarget</a></td>
+        <td><p>A value from the <a class="xref" href="Alphaleonis.Win32.Vss.VssRestoreTarget.html">VssRestoreTarget</a> enumeration containing the restore target information.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/alphaleonis/AlphaVSS/new/develop/apiSpec/new?filename=Alphaleonis_Win32_Vss_IVssComponent_RollForwardRestorePoint.md&amp;value=---%0Auid%3A%20Alphaleonis.Win32.Vss.IVssComponent.RollForwardRestorePoint%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/alphaleonis/AlphaVSS/blob/develop/src/AlphaVSS.Common/Interfaces/IVssComponent.cs/#L284">View Source</a>
+  </span>
+  <a id="Alphaleonis_Win32_Vss_IVssComponent_RollForwardRestorePoint_" data-uid="Alphaleonis.Win32.Vss.IVssComponent.RollForwardRestorePoint*"></a>
+  <h4 id="Alphaleonis_Win32_Vss_IVssComponent_RollForwardRestorePoint" data-uid="Alphaleonis.Win32.Vss.IVssComponent.RollForwardRestorePoint">RollForwardRestorePoint</h4>
+  <div class="markdown level1 summary"><p>Obtains the restore point for a partial roll-forward operation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">string RollForwardRestorePoint { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><p>A string specifying the roll-forward restore point,
+or <span class="xref">null</span> if the property is not supported in the current context.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Alphaleonis_Win32_Vss_IVssComponent_RollForwardRestorePoint_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+    The <a class="xref" href="Alphaleonis.Win32.Vss.IVssComponent.html#Alphaleonis_Win32_Vss_IVssComponent_RollForwardRestorePoint">RollForwardRestorePoint</a> property can only be accessed during a restore operation.
+</p>
+<p>
+    A writer indicates that it supports this method by setting the <a class="xref" href="Alphaleonis.Win32.Vss.VssBackupSchema.html#Alphaleonis_Win32_Vss_VssBackupSchema_RollForwardRestore">RollForwardRestore</a> 
+    flag in its backup schema mask.
+</p>
+<p>
+    For more information, see <a href="http://msdn.microsoft.com/en-us/library/aa384610(VS.85).aspx">
+    Setting VSS Restore Options</a>.
+</p>
+<p>
+<div class="NOTE"><h5>note</h5><p>
+<p>
+<strong>Windows XP and Windows 2003:</strong> This property requires Windows Vista or later and will always return <a class="xref" href="Alphaleonis.Win32.Vss.VssRollForwardType.html#Alphaleonis_Win32_Vss_VssRollForwardType_Undefined">Undefined</a>
+on unsupported operating systems.
+</p>
+</p></div>
+</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/alphaleonis/AlphaVSS/new/develop/apiSpec/new?filename=Alphaleonis_Win32_Vss_IVssComponent_RollForwardType.md&amp;value=---%0Auid%3A%20Alphaleonis.Win32.Vss.IVssComponent.RollForwardType%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/alphaleonis/AlphaVSS/blob/develop/src/AlphaVSS.Common/Interfaces/IVssComponent.cs/#L314">View Source</a>
+  </span>
+  <a id="Alphaleonis_Win32_Vss_IVssComponent_RollForwardType_" data-uid="Alphaleonis.Win32.Vss.IVssComponent.RollForwardType*"></a>
+  <h4 id="Alphaleonis_Win32_Vss_IVssComponent_RollForwardType" data-uid="Alphaleonis.Win32.Vss.IVssComponent.RollForwardType">RollForwardType</h4>
+  <div class="markdown level1 summary"><p>Obtains the roll-forward operation type for a component.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">VssRollForwardType RollForwardType { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Alphaleonis.Win32.Vss.VssRollForwardType.html">VssRollForwardType</a></td>
+        <td><p>A <a class="xref" href="Alphaleonis.Win32.Vss.VssRollForwardType.html">VssRollForwardType</a> enumeration value indicating the type of roll-forward operation to be performed,
+or <a class="xref" href="Alphaleonis.Win32.Vss.VssRollForwardType.html#Alphaleonis_Win32_Vss_VssRollForwardType_Undefined">Undefined</a> if the property is not supported in the current context.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Alphaleonis_Win32_Vss_IVssComponent_RollForwardType_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+    The <a class="xref" href="Alphaleonis.Win32.Vss.IVssComponent.html#Alphaleonis_Win32_Vss_IVssComponent_RollForwardType">RollForwardType</a> property can only be accessed during a restore operation.
+</p>
+<p>
+    A writer indicates that it supports this method by setting the <a class="xref" href="Alphaleonis.Win32.Vss.VssBackupSchema.html#Alphaleonis_Win32_Vss_VssBackupSchema_RollForwardRestore">RollForwardRestore</a> 
+    flag in its backup schema mask.
+</p>
+<p>
+    For more information, see <a href="http://msdn.microsoft.com/en-us/library/aa384610(VS.85).aspx">
+    Setting VSS Restore Options</a>.
+</p>
+<p>
+<div class="NOTE"><h5>note</h5><p>
+<p>
+<strong>Windows XP and Windows 2003:</strong> This property requires Windows Vista or later and will always return <a class="xref" href="Alphaleonis.Win32.Vss.VssRollForwardType.html#Alphaleonis_Win32_Vss_VssRollForwardType_Undefined">Undefined</a>
+on unsupported operating systems.
+</p>
+</p></div>
+</p>
+</div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/alphaleonis/AlphaVSS/new/develop/apiSpec/new?filename=Alphaleonis_Win32_Vss_IVssComponent.md&amp;value=---%0Auid%3A%20Alphaleonis.Win32.Vss.IVssComponent%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/alphaleonis/AlphaVSS/blob/develop/src/AlphaVSS.Common/Interfaces/IVssComponent.cs/#L28" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

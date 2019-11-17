@@ -1,0 +1,428 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class VssDirectedTargetInfo
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class VssDirectedTargetInfo
+   ">
+    <meta name="generator" content="docfx 2.47.0.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Alphaleonis.Win32.Vss.VssDirectedTargetInfo">
+  
+  
+  <h1 id="Alphaleonis_Win32_Vss_VssDirectedTargetInfo" data-uid="Alphaleonis.Win32.Vss.VssDirectedTargetInfo" class="text-break">Class VssDirectedTargetInfo
+  </h1>
+  <div class="markdown level0 summary"><p>Represents information stored by a writer, at backup time, to the Backup Components Document to indicate that when a
+file is to be restored, it (the source file) should be remapped. The file may be restored to a new restore target
+and/or ranges of its data restored to different locations with the restore target.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><span class="xref">VssDirectedTargetInfo</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.tostring#System_Object_ToString">Object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_">Object.Equals(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_System_Object_">Object.Equals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.referenceequals#System_Object_ReferenceEquals_System_Object_System_Object_">Object.ReferenceEquals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gethashcode#System_Object_GetHashCode">Object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gettype#System_Object_GetType">Object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.memberwiseclone#System_Object_MemberwiseClone">Object.MemberwiseClone()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Alphaleonis.Win32.Vss.html">Alphaleonis.Win32.Vss</a></h6>
+  <h6><strong>Assembly</strong>: AlphaVSS.Common.dll</h6>
+  <h5 id="Alphaleonis_Win32_Vss_VssDirectedTargetInfo_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Serializable]
+public class VssDirectedTargetInfo</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/alphaleonis/AlphaVSS/new/develop/apiSpec/new?filename=Alphaleonis_Win32_Vss_VssDirectedTargetInfo__ctor_System_String_System_String_System_String_System_String_System_String_System_String_.md&amp;value=---%0Auid%3A%20Alphaleonis.Win32.Vss.VssDirectedTargetInfo.%23ctor(System.String%2CSystem.String%2CSystem.String%2CSystem.String%2CSystem.String%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/alphaleonis/AlphaVSS/blob/develop/src/AlphaVSS.Common/Classes/VssDirectedTargetInfo.cs/#L21">View Source</a>
+  </span>
+  <a id="Alphaleonis_Win32_Vss_VssDirectedTargetInfo__ctor_" data-uid="Alphaleonis.Win32.Vss.VssDirectedTargetInfo.#ctor*"></a>
+  <h4 id="Alphaleonis_Win32_Vss_VssDirectedTargetInfo__ctor_System_String_System_String_System_String_System_String_System_String_System_String_" data-uid="Alphaleonis.Win32.Vss.VssDirectedTargetInfo.#ctor(System.String,System.String,System.String,System.String,System.String,System.String)">VssDirectedTargetInfo(String, String, String, String, String, String)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Alphaleonis.Win32.Vss.VssDirectedTargetInfo.html">VssDirectedTargetInfo</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public VssDirectedTargetInfo(string sourcePath, string sourceFileName, string sourceRangeList, string destinationPath, string destinationFileName, string destinationRangeList)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">sourcePath</span></td>
+        <td><p>The source path.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">sourceFileName</span></td>
+        <td><p>The source file name.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">sourceRangeList</span></td>
+        <td><p>The source range list.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">destinationPath</span></td>
+        <td><p>The destination path.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">destinationFileName</span></td>
+        <td><p>The destination file name.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">destinationRangeList</span></td>
+        <td><p>The destination range list.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/alphaleonis/AlphaVSS/new/develop/apiSpec/new?filename=Alphaleonis_Win32_Vss_VssDirectedTargetInfo_DestinationFileName.md&amp;value=---%0Auid%3A%20Alphaleonis.Win32.Vss.VssDirectedTargetInfo.DestinationFileName%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/alphaleonis/AlphaVSS/blob/develop/src/AlphaVSS.Common/Classes/VssDirectedTargetInfo.cs/#L68">View Source</a>
+  </span>
+  <a id="Alphaleonis_Win32_Vss_VssDirectedTargetInfo_DestinationFileName_" data-uid="Alphaleonis.Win32.Vss.VssDirectedTargetInfo.DestinationFileName*"></a>
+  <h4 id="Alphaleonis_Win32_Vss_VssDirectedTargetInfo_DestinationFileName" data-uid="Alphaleonis.Win32.Vss.VssDirectedTargetInfo.DestinationFileName">DestinationFileName</h4>
+  <div class="markdown level1 summary"><p>The name of the file to which source file data will be remapped at restore time.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string DestinationFileName { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/alphaleonis/AlphaVSS/new/develop/apiSpec/new?filename=Alphaleonis_Win32_Vss_VssDirectedTargetInfo_DestinationPath.md&amp;value=---%0Auid%3A%20Alphaleonis.Win32.Vss.VssDirectedTargetInfo.DestinationPath%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/alphaleonis/AlphaVSS/blob/develop/src/AlphaVSS.Common/Classes/VssDirectedTargetInfo.cs/#L63">View Source</a>
+  </span>
+  <a id="Alphaleonis_Win32_Vss_VssDirectedTargetInfo_DestinationPath_" data-uid="Alphaleonis.Win32.Vss.VssDirectedTargetInfo.DestinationPath*"></a>
+  <h4 id="Alphaleonis_Win32_Vss_VssDirectedTargetInfo_DestinationPath" data-uid="Alphaleonis.Win32.Vss.VssDirectedTargetInfo.DestinationPath">DestinationPath</h4>
+  <div class="markdown level1 summary"><p>The path to which source file data will be remapped at restore time.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string DestinationPath { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/alphaleonis/AlphaVSS/new/develop/apiSpec/new?filename=Alphaleonis_Win32_Vss_VssDirectedTargetInfo_DestinationRangeList.md&amp;value=---%0Auid%3A%20Alphaleonis.Win32.Vss.VssDirectedTargetInfo.DestinationRangeList%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/alphaleonis/AlphaVSS/blob/develop/src/AlphaVSS.Common/Classes/VssDirectedTargetInfo.cs/#L79">View Source</a>
+  </span>
+  <a id="Alphaleonis_Win32_Vss_VssDirectedTargetInfo_DestinationRangeList_" data-uid="Alphaleonis.Win32.Vss.VssDirectedTargetInfo.DestinationRangeList*"></a>
+  <h4 id="Alphaleonis_Win32_Vss_VssDirectedTargetInfo_DestinationRangeList" data-uid="Alphaleonis.Win32.Vss.VssDirectedTargetInfo.DestinationRangeList">DestinationRangeList</h4>
+  <div class="markdown level1 summary"><p>
+	A comma-separated list of file offsets and lengths indicating the destination file support range (locations to which 
+	the sections of the source file are to be restored).
+</p>
+<p>
+	The number and length of the destination file support ranges must match the number and size of source file support ranges.
+</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string DestinationRangeList { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/alphaleonis/AlphaVSS/new/develop/apiSpec/new?filename=Alphaleonis_Win32_Vss_VssDirectedTargetInfo_SourceFileName.md&amp;value=---%0Auid%3A%20Alphaleonis.Win32.Vss.VssDirectedTargetInfo.SourceFileName%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/alphaleonis/AlphaVSS/blob/develop/src/AlphaVSS.Common/Classes/VssDirectedTargetInfo.cs/#L47">View Source</a>
+  </span>
+  <a id="Alphaleonis_Win32_Vss_VssDirectedTargetInfo_SourceFileName_" data-uid="Alphaleonis.Win32.Vss.VssDirectedTargetInfo.SourceFileName*"></a>
+  <h4 id="Alphaleonis_Win32_Vss_VssDirectedTargetInfo_SourceFileName" data-uid="Alphaleonis.Win32.Vss.VssDirectedTargetInfo.SourceFileName">SourceFileName</h4>
+  <div class="markdown level1 summary"><p>The name of the file (at backup time) that is to be remapped during a restore (the source file).
+The name of this file should not contain any wildcard characters, and must be a member of the same
+file set as the source path (<a class="xref" href="Alphaleonis.Win32.Vss.VssDirectedTargetInfo.html#Alphaleonis_Win32_Vss_VssDirectedTargetInfo_SourcePath">SourcePath</a>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string SourceFileName { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/alphaleonis/AlphaVSS/new/develop/apiSpec/new?filename=Alphaleonis_Win32_Vss_VssDirectedTargetInfo_SourcePath.md&amp;value=---%0Auid%3A%20Alphaleonis.Win32.Vss.VssDirectedTargetInfo.SourcePath%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/alphaleonis/AlphaVSS/blob/develop/src/AlphaVSS.Common/Classes/VssDirectedTargetInfo.cs/#L40">View Source</a>
+  </span>
+  <a id="Alphaleonis_Win32_Vss_VssDirectedTargetInfo_SourcePath_" data-uid="Alphaleonis.Win32.Vss.VssDirectedTargetInfo.SourcePath*"></a>
+  <h4 id="Alphaleonis_Win32_Vss_VssDirectedTargetInfo_SourcePath" data-uid="Alphaleonis.Win32.Vss.VssDirectedTargetInfo.SourcePath">SourcePath</h4>
+  <div class="markdown level1 summary"><p>The path to the directory that at backup time contained the file to be restored (the source file). This path should
+match or be beneath the path of a file set already in the component or one of its Subcomponents
+(if the component defines a component set).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string SourcePath { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/alphaleonis/AlphaVSS/new/develop/apiSpec/new?filename=Alphaleonis_Win32_Vss_VssDirectedTargetInfo_SourceRangeList.md&amp;value=---%0Auid%3A%20Alphaleonis.Win32.Vss.VssDirectedTargetInfo.SourceRangeList%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/alphaleonis/AlphaVSS/blob/develop/src/AlphaVSS.Common/Classes/VssDirectedTargetInfo.cs/#L58">View Source</a>
+  </span>
+  <a id="Alphaleonis_Win32_Vss_VssDirectedTargetInfo_SourceRangeList_" data-uid="Alphaleonis.Win32.Vss.VssDirectedTargetInfo.SourceRangeList*"></a>
+  <h4 id="Alphaleonis_Win32_Vss_VssDirectedTargetInfo_SourceRangeList" data-uid="Alphaleonis.Win32.Vss.VssDirectedTargetInfo.SourceRangeList">SourceRangeList</h4>
+  <div class="markdown level1 summary"><p>
+	A comma-separated list of file offsets and lengths indicating the source file 
+	support range (the sections of the file to be restored).
+</p>
+<p>
+	The number and length of the source file support ranges must match the number and size of destination file support ranges.
+</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string SourceRangeList { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/alphaleonis/AlphaVSS/new/develop/apiSpec/new?filename=Alphaleonis_Win32_Vss_VssDirectedTargetInfo.md&amp;value=---%0Auid%3A%20Alphaleonis.Win32.Vss.VssDirectedTargetInfo%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/alphaleonis/AlphaVSS/blob/develop/src/AlphaVSS.Common/Classes/VssDirectedTargetInfo.cs/#L11" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

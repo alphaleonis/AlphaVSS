@@ -1,0 +1,191 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Enum VssSnapshotContext
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Enum VssSnapshotContext
+   ">
+    <meta name="generator" content="docfx 2.47.0.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Alphaleonis.Win32.Vss.VssSnapshotContext">
+  
+  
+  <h1 id="Alphaleonis_Win32_Vss_VssSnapshotContext" data-uid="Alphaleonis.Win32.Vss.VssSnapshotContext" class="text-break">Enum VssSnapshotContext
+  </h1>
+  <div class="markdown level0 summary"><p>The <a class="xref" href="Alphaleonis.Win32.Vss.VssSnapshotContext.html">VssSnapshotContext</a> enumeration enables a requester using <a class="xref" href="Alphaleonis.Win32.Vss.IVssBackupComponents.html#Alphaleonis_Win32_Vss_IVssBackupComponents_SetContext_Alphaleonis_Win32_Vss_VssSnapshotContext_">SetContext(VssSnapshotContext)</a> to specify how a
+shadow copy is to be created, queried, or deleted and the degree of writer involvement.
+<a class="xref" href="Alphaleonis.Win32.Vss.IVssBackupComponents.html">IVssBackupComponents</a>::SetContext&quot; method) may be modified by a bit mask that contains a valid combination of
+<a class="xref" href="Alphaleonis.Win32.Vss.VssVolumeSnapshotAttributes.html">VssVolumeSnapshotAttributes</a> and <a class="xref" href="Alphaleonis.Win32.Vss.VssSnapshotContext.html">VssSnapshotContext</a> enumeration values.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Alphaleonis.Win32.Vss.html">Alphaleonis.Win32.Vss</a></h6>
+  <h6><strong>Assembly</strong>: AlphaVSS.Common.dll</h6>
+  <h5 id="Alphaleonis_Win32_Vss_VssSnapshotContext_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public enum VssSnapshotContext : uint</code></pre>
+  </div>
+  <h5 id="Alphaleonis_Win32_Vss_VssSnapshotContext_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p><a class="xref" href="Alphaleonis.Win32.Vss.VssSnapshotContext.html">VssSnapshotContext</a> is defined as a static class defining the base <a class="xref" href="Alphaleonis.Win32.Vss.VssVolumeSnapshotAttributes.html">VssVolumeSnapshotAttributes</a>
+combination of values representing the VSS_CTX_XXXXXX constants defined in the VSS API.</p>
+</div>
+  <h3 id="fields">Fields
+  </h3>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    <thead>
+    <tbody>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssSnapshotContext_All">All</td>
+        <td><p>All types of currently live shadow copies are available for administrative operations, such as shadow copy queries
+(see the Query method in <a class="xref" href="Alphaleonis.Win32.Vss.IVssBackupComponents.html">IVssBackupComponents</a>). <a class="xref" href="Alphaleonis.Win32.Vss.VssSnapshotContext.html#Alphaleonis_Win32_Vss_VssSnapshotContext_All">All</a> is a valid context for all VSS interfaces except
+<a class="xref" href="Alphaleonis.Win32.Vss.IVssBackupComponents.html">IVssBackupComponents</a>::StartSnapshotSet and <a class="xref" href="Alphaleonis.Win32.Vss.IVssBackupComponents.html">IVssBackupComponents</a>::DoSnapshotSet.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssSnapshotContext_AppRollback">AppRollback</td>
+        <td><p>Specifies a persistent and non-auto-release shadow copy with writer involvement. This context is designed to be used when writers are needed to ensure that files are in a well-defined state prior to shadow copy. </p>
+<p>Automated file rollback mechanisms of system volumes and shadow copies to be used in data mining or restore operations might run under this context. This context is similar to VSS_CTX_BACKUP but allows a requester more control over the persistence of the shadow copy.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssSnapshotContext_Backup">Backup</td>
+        <td><p>The standard backup context. Specifies an auto-release, non persistent shadow copy in which writers are involved in the creation.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssSnapshotContext_ClientAccessible">ClientAccessible</td>
+        <td><p>Specifies a read-only, client-accessible shadow copy supporting Shadow Copies for Shared Folders and created without writer involvement. Only the system provider (the default provider available on the system) can create this type of shadow copy. </p>
+<p>Most requesters will want to use the <a class="xref" href="Alphaleonis.Win32.Vss.VssSnapshotContext.html#Alphaleonis_Win32_Vss_VssSnapshotContext_NasRollback">NasRollback</a> context for persistent, non-auto-release shadow copies without writer involvement.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssSnapshotContext_ClientAccessibleWriters">ClientAccessibleWriters</td>
+        <td><p>Specifies a read-only, client-accessible shadow copy supporting Shadow Copies for Shared Folders and created with writer involvement. Only the system provider (the default provider available on the system) can create this type of shadow copy. </p>
+<p>Most requesters will want to use the <a class="xref" href="Alphaleonis.Win32.Vss.VssSnapshotContext.html#Alphaleonis_Win32_Vss_VssSnapshotContext_AppRollback">AppRollback</a> context for persistent, non-auto-release shadow copies with writer involvement.</p>
+<p><strong>Windows Server 2003 and Windows XP:</strong> This context is not supported by Windows Server 2003 and Windows XP.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssSnapshotContext_FileShareBackup">FileShareBackup</td>
+        <td><p>Specifies a non persistent and auto-release shadow copy created without writer involvement.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssSnapshotContext_NasRollback">NasRollback</td>
+        <td><p>Specifies a persistent and non-auto-release shadow copy without writer involvement. This context should be used when there is no need for writer involvement to ensure that files are in a consistent state at the time of the shadow copy. </p>
+<p>Lightweight automated file rollback mechanisms or persistent shadow copies of file shares or data volumes that are not expected to contain any system-related files or databases might run under this context. For example, a requester could use this context for creating a shadow copy of a NAS volume hosting documents and simple user shares. Those types of data do not need writer involvement to create a consistent shadow copy.</p>
+</td>
+      </tr>
+    </tbody>
+  </thead></thead></table>
+  <h5 id="Alphaleonis_Win32_Vss_VssSnapshotContext_seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="Alphaleonis.Win32.Vss.VssVolumeSnapshotAttributes.html">VssVolumeSnapshotAttributes</a></div>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/alphaleonis/AlphaVSS/new/develop/apiSpec/new?filename=Alphaleonis_Win32_Vss_VssSnapshotContext.md&amp;value=---%0Auid%3A%20Alphaleonis.Win32.Vss.VssSnapshotContext%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/alphaleonis/AlphaVSS/blob/develop/src/AlphaVSS.Common/Enumerations/VssSnapshotContext.cs/#L15" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

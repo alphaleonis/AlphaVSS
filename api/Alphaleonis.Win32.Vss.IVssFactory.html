@@ -1,0 +1,324 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Interface IVssFactory
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Interface IVssFactory
+   ">
+    <meta name="generator" content="docfx 2.47.0.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Alphaleonis.Win32.Vss.IVssFactory">
+  
+  
+  <h1 id="Alphaleonis_Win32_Vss_IVssFactory" data-uid="Alphaleonis.Win32.Vss.IVssFactory" class="text-break">Interface IVssFactory
+  </h1>
+  <div class="markdown level0 summary"><p><code>IVssFactory</code> provides an interface to the global methods of the VSS API compiled for a specific
+platform.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Alphaleonis.Win32.Vss.html">Alphaleonis.Win32.Vss</a></h6>
+  <h6><strong>Assembly</strong>: AlphaVSS.Common.dll</h6>
+  <h5 id="Alphaleonis_Win32_Vss_IVssFactory_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IVssFactory</code></pre>
+  </div>
+  <h5 id="Alphaleonis_Win32_Vss_IVssFactory_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>An instance of <code>IVssFactory</code> can be obtained either by using the <a class="xref" href="Alphaleonis.Win32.Vss.VssFactoryProvider.html">VssFactoryProvider</a> (recommended), or in
+advanced scenarios by statically referencing the correct platform-specific assembly and manually creating an instance of <code>VssFactory</code>
+from that assembly.</p>
+</div>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/alphaleonis/AlphaVSS/new/develop/apiSpec/new?filename=Alphaleonis_Win32_Vss_IVssFactory_CreateVssBackupComponents.md&amp;value=---%0Auid%3A%20Alphaleonis.Win32.Vss.IVssFactory.CreateVssBackupComponents%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/alphaleonis/AlphaVSS/blob/develop/src/AlphaVSS.Common/Interfaces/IVssFactory.cs/#L31">View Source</a>
+  </span>
+  <a id="Alphaleonis_Win32_Vss_IVssFactory_CreateVssBackupComponents_" data-uid="Alphaleonis.Win32.Vss.IVssFactory.CreateVssBackupComponents*"></a>
+  <h4 id="Alphaleonis_Win32_Vss_IVssFactory_CreateVssBackupComponents" data-uid="Alphaleonis.Win32.Vss.IVssFactory.CreateVssBackupComponents">CreateVssBackupComponents()</h4>
+  <div class="markdown level1 summary"><p>The <code>CreateVssBackupComponents</code> method creates an <a class="xref" href="Alphaleonis.Win32.Vss.IVssBackupComponents.html">IVssBackupComponents</a> interface object
+for the current implementation and returns a reference to it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IVssBackupComponents CreateVssBackupComponents()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Alphaleonis.Win32.Vss.IVssBackupComponents.html">IVssBackupComponents</a></td>
+        <td><p>A reference to the newly created <a class="xref" href="Alphaleonis.Win32.Vss.IVssBackupComponents.html">IVssBackupComponents</a> instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Alphaleonis_Win32_Vss_IVssFactory_CreateVssBackupComponents_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The calling application is responsible for calling <code>Dispose&quot;</code> to release the
+resources held by the <a class="xref" href="Alphaleonis.Win32.Vss.IVssBackupComponents.html">IVssBackupComponents</a> instance when it is no longer needed.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.unauthorizedaccessexception">UnauthorizedAccessException</a></td>
+        <td><p>The caller does not have sufficient backup privileges or is not an administrator.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.outofmemoryexception">OutOfMemoryException</a></td>
+        <td><p>Out of memory or other system resources.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.systemexception">SystemException</a></td>
+        <td><p>Unexpected VSS system error. The error code is logged in the event log.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Alphaleonis_Win32_Vss_IVssFactory_CreateVssBackupComponents_seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="Alphaleonis.Win32.Vss.IVssBackupComponents.html">IVssBackupComponents</a></div>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/alphaleonis/AlphaVSS/new/develop/apiSpec/new?filename=Alphaleonis_Win32_Vss_IVssFactory_CreateVssExamineWriterMetadata_System_String_.md&amp;value=---%0Auid%3A%20Alphaleonis.Win32.Vss.IVssFactory.CreateVssExamineWriterMetadata(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/alphaleonis/AlphaVSS/blob/develop/src/AlphaVSS.Common/Interfaces/IVssFactory.cs/#L50">View Source</a>
+  </span>
+  <a id="Alphaleonis_Win32_Vss_IVssFactory_CreateVssExamineWriterMetadata_" data-uid="Alphaleonis.Win32.Vss.IVssFactory.CreateVssExamineWriterMetadata*"></a>
+  <h4 id="Alphaleonis_Win32_Vss_IVssFactory_CreateVssExamineWriterMetadata_System_String_" data-uid="Alphaleonis.Win32.Vss.IVssFactory.CreateVssExamineWriterMetadata(System.String)">CreateVssExamineWriterMetadata(String)</h4>
+  <div class="markdown level1 summary"><p>The <strong>CreateVssExamineWriterMetadata</strong> function creates a new <a class="xref" href="Alphaleonis.Win32.Vss.IVssExamineWriterMetadata.html">IVssExamineWriterMetadata</a> instance from an
+XML document for the current implementation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IVssExamineWriterMetadata CreateVssExamineWriterMetadata(string xml)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">xml</span></td>
+        <td><p>A string containing a Writer Metadata Document with which to initialize the returned <a class="xref" href="Alphaleonis.Win32.Vss.IVssExamineWriterMetadata.html">IVssExamineWriterMetadata</a> object.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Alphaleonis.Win32.Vss.IVssExamineWriterMetadata.html">IVssExamineWriterMetadata</a></td>
+        <td><p>a <a class="xref" href="Alphaleonis.Win32.Vss.IVssExamineWriterMetadata.html">IVssExamineWriterMetadata</a> instance initialized with the specified XML document.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Alphaleonis_Win32_Vss_IVssFactory_CreateVssExamineWriterMetadata_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This method attempts to load the returned <a class="xref" href="Alphaleonis.Win32.Vss.IVssExamineWriterMetadata.html">IVssExamineWriterMetadata</a> object with metadata previously stored by a call to
+<a class="xref" href="Alphaleonis.Win32.Vss.IVssExamineWriterMetadata.html#Alphaleonis_Win32_Vss_IVssExamineWriterMetadata_SaveAsXml">SaveAsXml()</a>. Users should not tamper with this metadata document.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/alphaleonis/AlphaVSS/new/develop/apiSpec/new?filename=Alphaleonis_Win32_Vss_IVssFactory_CreateVssSnapshotManagement.md&amp;value=---%0Auid%3A%20Alphaleonis.Win32.Vss.IVssFactory.CreateVssSnapshotManagement%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/alphaleonis/AlphaVSS/blob/develop/src/AlphaVSS.Common/Interfaces/IVssFactory.cs/#L37">View Source</a>
+  </span>
+  <a id="Alphaleonis_Win32_Vss_IVssFactory_CreateVssSnapshotManagement_" data-uid="Alphaleonis.Win32.Vss.IVssFactory.CreateVssSnapshotManagement*"></a>
+  <h4 id="Alphaleonis_Win32_Vss_IVssFactory_CreateVssSnapshotManagement" data-uid="Alphaleonis.Win32.Vss.IVssFactory.CreateVssSnapshotManagement">CreateVssSnapshotManagement()</h4>
+  <div class="markdown level1 summary"><p>Gets a snapshot management interface for the current implementation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IVssSnapshotManagement CreateVssSnapshotManagement()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Alphaleonis.Win32.Vss.IVssSnapshotManagement.html">IVssSnapshotManagement</a></td>
+        <td><p>A snapshot management interface for the current implementation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/alphaleonis/AlphaVSS/new/develop/apiSpec/new?filename=Alphaleonis_Win32_Vss_IVssFactory_GetInfoProvider.md&amp;value=---%0Auid%3A%20Alphaleonis.Win32.Vss.IVssFactory.GetInfoProvider%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/alphaleonis/AlphaVSS/blob/develop/src/AlphaVSS.Common/Interfaces/IVssFactory.cs/#L56">View Source</a>
+  </span>
+  <a id="Alphaleonis_Win32_Vss_IVssFactory_GetInfoProvider_" data-uid="Alphaleonis.Win32.Vss.IVssFactory.GetInfoProvider*"></a>
+  <h4 id="Alphaleonis_Win32_Vss_IVssFactory_GetInfoProvider" data-uid="Alphaleonis.Win32.Vss.IVssFactory.GetInfoProvider">GetInfoProvider()</h4>
+  <div class="markdown level1 summary"><p>Gets an instance of <a class="xref" href="Alphaleonis.Win32.Vss.IVssInfoProvider.html">IVssInfoProvider</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IVssInfoProvider GetInfoProvider()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Alphaleonis.Win32.Vss.IVssInfoProvider.html">IVssInfoProvider</a></td>
+        <td><p>An instance of <a class="xref" href="Alphaleonis.Win32.Vss.IVssInfoProvider.html">IVssInfoProvider</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="seealso">See Also</h3>
+  <div class="seealso">
+      <div><a class="xref" href="Alphaleonis.Win32.Vss.VssFactoryProvider.html">VssFactoryProvider</a></div>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/alphaleonis/AlphaVSS/new/develop/apiSpec/new?filename=Alphaleonis_Win32_Vss_IVssFactory.md&amp;value=---%0Auid%3A%20Alphaleonis.Win32.Vss.IVssFactory%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/alphaleonis/AlphaVSS/blob/develop/src/AlphaVSS.Common/Interfaces/IVssFactory.cs/#L16" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,311 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Enum VssBackupSchema
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Enum VssBackupSchema
+   ">
+    <meta name="generator" content="docfx 2.47.0.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Alphaleonis.Win32.Vss.VssBackupSchema">
+  
+  
+  <h1 id="Alphaleonis_Win32_Vss_VssBackupSchema" data-uid="Alphaleonis.Win32.Vss.VssBackupSchema" class="text-break">Enum VssBackupSchema
+  </h1>
+  <div class="markdown level0 summary"><p>The <a class="xref" href="Alphaleonis.Win32.Vss.VssBackupSchema.html">VssBackupSchema</a> enumeration is used by a writer to indicate the types of backup operations it can participate in.
+The supported kinds of backup are expressed as a bit mask (or bitwise OR) of <a class="xref" href="Alphaleonis.Win32.Vss.VssBackupSchema.html">VssBackupSchema</a> values.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Alphaleonis.Win32.Vss.html">Alphaleonis.Win32.Vss</a></h6>
+  <h6><strong>Assembly</strong>: AlphaVSS.Common.dll</h6>
+  <h5 id="Alphaleonis_Win32_Vss_VssBackupSchema_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Flags]
+public enum VssBackupSchema</code></pre>
+  </div>
+  <h5 id="Alphaleonis_Win32_Vss_VssBackupSchema_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>
+<div class="NOTE"><h5>note</h5><p>
+<strong>Windows XP:</strong> This enumeration is not available until Windows Server 2003 or later.
+</p></div>
+</p>
+<p>
+    Writer set their backup schemas with calls to <code>IVssCreateWriterMetadata.SetBackupSchema&quot;</code>.
+</p>
+<p>
+    Requesters use <a class="xref" href="Alphaleonis.Win32.Vss.IVssExamineWriterMetadata.html#Alphaleonis_Win32_Vss_IVssExamineWriterMetadata_BackupSchema">BackupSchema</a> to determine the backup schema that a writer supports.
+</p>
+<p>
+    For a specific kind of backup operation to be supported, the writer must support the corresponding schema, and the 
+    requester must set the corresponding backup type.
+</p>
+<p>
+    For example, to involve a writer in an incremental backup operation, the requester must set the backup type to 
+<a class="xref" href="Alphaleonis.Win32.Vss.VssBackupType.html#Alphaleonis_Win32_Vss_VssBackupType_Incremental">Incremental</a>, and the writer should have a backup schema that includes <a class="xref" href="Alphaleonis.Win32.Vss.VssBackupSchema.html#Alphaleonis_Win32_Vss_VssBackupSchema_Incremental">Incremental</a>.
+</p>
+<p>
+    A writer that does not support the backup schema corresponding to a requester&apos;s backup type should treat the backup operation 
+    that is being performed as if it were a default (full) backup. If the desired backup type is not supported by the writer&apos;s 
+    backup schema, the requester can either perform a full backup for this writer or exclude the writer from the backup operation. 
+    A requester can exclude a writer by selecting none of the writer&apos;s components, or by disabling the writer 
+    (see <a class="xref" href="Alphaleonis.Win32.Vss.IVssBackupComponents.html#Alphaleonis_Win32_Vss_IVssBackupComponents_DisableWriterClasses_System_Guid___">DisableWriterClasses(Guid[])</a> or 
+<a class="xref" href="Alphaleonis.Win32.Vss.IVssBackupComponents.html#Alphaleonis_Win32_Vss_IVssBackupComponents_DisableWriterInstances_System_Guid___">DisableWriterInstances(Guid[])</a>).
+</p>
+</div>
+  <h3 id="fields">Fields
+  </h3>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    <thead>
+    <tbody>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssBackupSchema_AuthoritativeRestore">AuthoritativeRestore</td>
+        <td><p>
+    The writer supports a requester setting authoritative restore using <a class="xref" href="Alphaleonis.Win32.Vss.IVssBackupComponents.html#Alphaleonis_Win32_Vss_IVssBackupComponents_SetAuthoritativeRestore_System_Guid_Alphaleonis_Win32_Vss_VssComponentType_System_String_System_String_System_Boolean_">SetAuthoritativeRestore(Guid, VssComponentType, String, String, Boolean)</a>.
+</p>
+<p>
+<strong>Windows Server 2003:</strong> This value is not supported until Windows Vista.
+</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssBackupSchema_Copy">Copy</td>
+        <td><p>Similar to the default backup schema (<a class="xref" href="Alphaleonis.Win32.Vss.VssBackupType.html#Alphaleonis_Win32_Vss_VssBackupType_Undefined">Undefined</a>), the writer supports copy backup operations
+(corresponding to <a class="xref" href="Alphaleonis.Win32.Vss.VssBackupType.html#Alphaleonis_Win32_Vss_VssBackupType_Copy">Copy</a>) where file access information (such as information as to when a file was
+last backed up) will not be updated either in the writer's own state information or in the file system information. This type of
+backup cannot be used as the basis of an incremental or differential backup.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssBackupSchema_Differential">Differential</td>
+        <td><p>The writer supports differential backups (corresponding to the <a class="xref" href="Alphaleonis.Win32.Vss.VssBackupType.html">VssBackupType</a> value <a class="xref" href="Alphaleonis.Win32.Vss.VssBackupType.html#Alphaleonis_Win32_Vss_VssBackupType_Differential">Differential</a>).
+Files created or changed since the last full backup are saved. Files are not marked as having been backed up. This setting does not preclude mixing of incremental and differential backups.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssBackupSchema_ExclusiveIncrementalDifferential">ExclusiveIncrementalDifferential</td>
+        <td><p>The writer supports both differential and incremental backup schemas, but only exclusively: for example, you cannot follow a differential backup with an incremental one.
+A writer cannot support this schema if it does not support both incremental and differential schemas (<a class="xref" href="Alphaleonis.Win32.Vss.VssBackupSchema.html#Alphaleonis_Win32_Vss_VssBackupSchema_Differential">Differential</a> | <a class="xref" href="Alphaleonis.Win32.Vss.VssBackupSchema.html#Alphaleonis_Win32_Vss_VssBackupSchema_Incremental">Incremental</a>).</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssBackupSchema_Incremental">Incremental</td>
+        <td><p>The writer supports incremental backups (corresponding to the <a class="xref" href="Alphaleonis.Win32.Vss.VssBackupType.html">VssBackupType</a> value <a class="xref" href="Alphaleonis.Win32.Vss.VssBackupType.html#Alphaleonis_Win32_Vss_VssBackupType_Incremental">Incremental</a>). Files created or changed since the last full or incremental backup are saved. Files are marked as having been backed up. This setting does not preclude mixing of incremental and differential backups.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssBackupSchema_IndependentSystemState">IndependentSystemState</td>
+        <td><p>
+    The writer supports backing up data that is part of the system state, but that can also 
+    be backed up independently of the system state.
+</p>
+<p>
+<strong>Windows Server 2003:</strong>  This value is not supported until Windows Vista.
+</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssBackupSchema_LastModify">LastModify</td>
+        <td><p>
+    When implementing incremental or differential backups with differenced files, a writer can provide last modification 
+    time information for files (using <code>IVssComponent.AddDifferencedFileByLastModifyTime</code>).
+    A requester then can use <a class="xref" href="Alphaleonis.Win32.Vss.IVssComponent.html#Alphaleonis_Win32_Vss_IVssComponent_DifferencedFiles">DifferencedFiles</a> to obtain candidate files and information 
+    about their last modification data. The requester can use this information (along with any records about 
+    previous backup operations it maintains) to decide if a file should be included in incremental and differential backups.
+</p>
+<p>
+    This scheme does not apply to partial file implementations of incremental and differential backup operations.
+</p>
+<p>
+    A writer cannot support this schema if it does not support either incremental or differential backup 
+    schemas (<a class="xref" href="Alphaleonis.Win32.Vss.VssBackupSchema.html#Alphaleonis_Win32_Vss_VssBackupSchema_Differential">Differential</a> or <a class="xref" href="Alphaleonis.Win32.Vss.VssBackupSchema.html#Alphaleonis_Win32_Vss_VssBackupSchema_Incremental">Incremental</a>.
+</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssBackupSchema_Log">Log</td>
+        <td><p>The writer supports backups that involve only the log files it manages (corresponding to a <a class="xref" href="Alphaleonis.Win32.Vss.VssBackupType.html">VssBackupType</a> value of <a class="xref" href="Alphaleonis.Win32.Vss.VssBackupType.html#Alphaleonis_Win32_Vss_VssBackupType_Log">Log</a>). </p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssBackupSchema_Lsn">Lsn</td>
+        <td><p>Reserved for system use.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssBackupSchema_RestoreRename">RestoreRename</td>
+        <td><p>
+    The writer supports a requester setting a restore name using <a class="xref" href="Alphaleonis.Win32.Vss.IVssBackupComponents.html#Alphaleonis_Win32_Vss_IVssBackupComponents_SetRestoreName_System_Guid_Alphaleonis_Win32_Vss_VssComponentType_System_String_System_String_System_String_">SetRestoreName(Guid, VssComponentType, String, String, String)</a>.
+</p>
+<p>
+<strong>Windows Server 2003:</strong>  This value is not supported until Windows Vista.
+</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssBackupSchema_RollForwardRestore">RollForwardRestore</td>
+        <td><p>
+    The writer supports a requester setting a roll-forward restore point using <a class="xref" href="Alphaleonis.Win32.Vss.IVssBackupComponents.html#Alphaleonis_Win32_Vss_IVssBackupComponents_SetRollForward_System_Guid_Alphaleonis_Win32_Vss_VssComponentType_System_String_System_String_Alphaleonis_Win32_Vss_VssRollForwardType_System_String_">SetRollForward(Guid, VssComponentType, String, String, VssRollForwardType, String)</a>.
+</p>
+<p>
+<strong>Windows Server 2003:</strong>  This value is not supported until Windows Vista.
+</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssBackupSchema_Timestamped">Timestamped</td>
+        <td><p>
+    A writer supports using the VSS time-stamp mechanism when evaluating if a file should be included in 
+    differential or incremental operations (corresponding to <a class="xref" href="Alphaleonis.Win32.Vss.VssBackupType.html#Alphaleonis_Win32_Vss_VssBackupType_Differential">Differential</a> and 
+<a class="xref" href="Alphaleonis.Win32.Vss.VssBackupType.html#Alphaleonis_Win32_Vss_VssBackupType_Incremental">Incremental</a>, respectively) using the <a class="xref" href="Alphaleonis.Win32.Vss.IVssComponent.html#Alphaleonis_Win32_Vss_IVssComponent_PreviousBackupStamp">PreviousBackupStamp</a>,
+<a class="xref" href="Alphaleonis.Win32.Vss.IVssComponent.html#Alphaleonis_Win32_Vss_IVssComponent_BackupStamp">BackupStamp</a> setters, and the <a class="xref" href="Alphaleonis.Win32.Vss.IVssBackupComponents.html#Alphaleonis_Win32_Vss_IVssBackupComponents_SetPreviousBackupStamp_System_Guid_Alphaleonis_Win32_Vss_VssComponentType_System_String_System_String_System_String_">SetPreviousBackupStamp(Guid, VssComponentType, String, String, String)</a> method.
+</p>
+<p>
+    A writer cannot support this schema if it does not support either differential or incremental backup schemas 
+    (<a class="xref" href="Alphaleonis.Win32.Vss.VssBackupSchema.html#Alphaleonis_Win32_Vss_VssBackupSchema_Differential">Differential</a> or <a class="xref" href="Alphaleonis.Win32.Vss.VssBackupSchema.html#Alphaleonis_Win32_Vss_VssBackupSchema_Incremental">Incremental</a>).
+</p>     
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssBackupSchema_Undefined">Undefined</td>
+        <td><p>The writer supports a simple full backup and restoration of entire files (as defined by a <a class="xref" href="Alphaleonis.Win32.Vss.VssBackupType.html">VssBackupType</a> value of <a class="xref" href="Alphaleonis.Win32.Vss.VssBackupType.html#Alphaleonis_Win32_Vss_VssBackupType_Full">Full</a>).
+This backup scheme can be used as the basis of an incremental or differential backup. This is the default value.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssBackupSchema_WriterSupportsNewTarget">WriterSupportsNewTarget</td>
+        <td><p>The writer supports a requester changing the target for file restoration using
+<a class="xref" href="Alphaleonis.Win32.Vss.IVssBackupComponents.html#Alphaleonis_Win32_Vss_IVssBackupComponents_AddNewTarget_System_Guid_Alphaleonis_Win32_Vss_VssComponentType_System_String_System_String_System_String_System_String_System_Boolean_System_String_">AddNewTarget(Guid, VssComponentType, String, String, String, String, Boolean, String)</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssBackupSchema_WriterSupportsParallelRestores">WriterSupportsParallelRestores</td>
+        <td><p>
+    The writer supports multiple unsynchronized restore events.
+</p>
+<p>
+<strong>Windows Vista and Windows Server 2003:</strong>  This value is not supported until Windows Server 2008.
+</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssBackupSchema_WriterSupportsRestoreWithMove">WriterSupportsRestoreWithMove</td>
+        <td><p>
+    The writer supports running multiple writer instances with the same class ID, and it supports a 
+    requester moving a component to a different writer instance at restore time using 
+<a class="xref" href="Alphaleonis.Win32.Vss.IVssBackupComponents.html#Alphaleonis_Win32_Vss_IVssBackupComponents_SetSelectedForRestore_System_Guid_Alphaleonis_Win32_Vss_VssComponentType_System_String_System_String_System_Boolean_">SetSelectedForRestore(Guid, VssComponentType, String, String, Boolean)</a>.
+</p>    
+<p>
+<strong>Windows Server 2003:</strong> This value is not supported until Windows Server 2003 SP1.
+</p>
+</td>
+      </tr>
+    </tbody>
+  </thead></thead></table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/alphaleonis/AlphaVSS/new/develop/apiSpec/new?filename=Alphaleonis_Win32_Vss_VssBackupSchema.md&amp;value=---%0Auid%3A%20Alphaleonis.Win32.Vss.VssBackupSchema%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/alphaleonis/AlphaVSS/blob/develop/src/AlphaVSS.Common/Enumerations/VssBackupSchema.cs/#L37" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

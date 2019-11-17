@@ -1,0 +1,216 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Enum VssBackupType
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Enum VssBackupType
+   ">
+    <meta name="generator" content="docfx 2.47.0.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Alphaleonis.Win32.Vss.VssBackupType">
+  
+  
+  <h1 id="Alphaleonis_Win32_Vss_VssBackupType" data-uid="Alphaleonis.Win32.Vss.VssBackupType" class="text-break">Enum VssBackupType
+  </h1>
+  <div class="markdown level0 summary"><p>The <a class="xref" href="Alphaleonis.Win32.Vss.VssBackupType.html">VssBackupType</a> enumeration indicates the type of backup to be performed using VSS writer/requester
+coordination.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Alphaleonis.Win32.Vss.html">Alphaleonis.Win32.Vss</a></h6>
+  <h6><strong>Assembly</strong>: AlphaVSS.Common.dll</h6>
+  <h5 id="Alphaleonis_Win32_Vss_VssBackupType_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public enum VssBackupType</code></pre>
+  </div>
+  <h5 id="Alphaleonis_Win32_Vss_VssBackupType_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>For more information see <a href="http://msdn.microsoft.com/en-us/library/aa384679(VS.85).aspx">MSDN documentation on
+VSS_BACKUP_TYPE Enumeration</a></p>
+</div>
+  <h3 id="fields">Fields
+  </h3>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    <thead>
+    <tbody>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssBackupType_Copy">Copy</td>
+        <td><p>
+    Files on disk will be copied to a backup medium regardless of the state of each file&apos;s backup history, and the backup history will not be updated.
+</p>
+<p>
+	A requester can implement this sort of backup on a particular writer only if it supports the <a class="xref" href="Alphaleonis.Win32.Vss.VssBackupSchema.html#Alphaleonis_Win32_Vss_VssBackupSchema_Copy">Copy</a> schema.
+</p>
+<p>
+	If a requester&apos;s backup type is <a class="xref" href="Alphaleonis.Win32.Vss.VssBackupType.html#Alphaleonis_Win32_Vss_VssBackupType_Copy">Copy</a> and a particular writer&apos;s backup schema does not support that sort of backup, the requester will always perform a full (<a class="xref" href="Alphaleonis.Win32.Vss.VssBackupType.html#Alphaleonis_Win32_Vss_VssBackupType_Full">Full</a>) backup on that writer&apos;s data.
+</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssBackupType_Differential">Differential</td>
+        <td><p>
+	Differential backup: files created or changed since the last full backup are saved. Files are not marked as having been backed up.
+</p>
+<p>
+	A requester can implement this sort of backup on a particular writer only if it supports the <a class="xref" href="Alphaleonis.Win32.Vss.VssBackupSchema.html#Alphaleonis_Win32_Vss_VssBackupSchema_Differential">Differential</a> schema.
+</p>
+<p>
+	If a requester&apos;s backup type is <a class="xref" href="Alphaleonis.Win32.Vss.VssBackupType.html#Alphaleonis_Win32_Vss_VssBackupType_Differential">Differential</a> and a particular writer&apos;s backup schema does not support that sort of backup, the requester will always perform a full (<a class="xref" href="Alphaleonis.Win32.Vss.VssBackupType.html#Alphaleonis_Win32_Vss_VssBackupType_Full">Full</a>) backup on that writer&apos;s data.
+</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssBackupType_Full">Full</td>
+        <td><p>Full backup: all files, regardless of whether they have been marked as backed up or not, are saved. This is the default backup type and schema, and all writers support it.</p>
+<p>Each file&apos;s backup history will be updated to reflect that it was backed up.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssBackupType_Incremental">Incremental</td>
+        <td><p>
+	Incremental backup: files created or changed since the last full or incremental backup are saved. Files are marked as having been backed up.
+</p>
+<p>
+A requester can implement this sort of backup on a particular writer only if it supports the <a class="xref" href="Alphaleonis.Win32.Vss.VssBackupSchema.html#Alphaleonis_Win32_Vss_VssBackupSchema_Incremental">Incremental</a> schema.
+</p>
+<p>
+	If a requester&apos;s backup type is <a class="xref" href="Alphaleonis.Win32.Vss.VssBackupType.html#Alphaleonis_Win32_Vss_VssBackupType_Incremental">Incremental</a> and a particular writer&apos;s backup schema does not support that sort of backup, the requester will always perform a full (<a class="xref" href="Alphaleonis.Win32.Vss.VssBackupType.html#Alphaleonis_Win32_Vss_VssBackupType_Full">Full</a>) backup on that writer&apos;s data.
+</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssBackupType_Log">Log</td>
+        <td><p>
+	The log file of a writer is to participate in backup or restore operations.
+</p>
+<p>
+	A requester can implement this sort of backup on a particular writer only if it supports the <a class="xref" href="Alphaleonis.Win32.Vss.VssBackupSchema.html#Alphaleonis_Win32_Vss_VssBackupSchema_Log">Log</a> schema.
+</p>
+<p>
+	If a requester&apos;s backup type is <a class="xref" href="Alphaleonis.Win32.Vss.VssBackupType.html#Alphaleonis_Win32_Vss_VssBackupType_Log">Log</a> and a particular writer&apos;s backup schema does not support that sort of backup, the requester will always perform a full (<a class="xref" href="Alphaleonis.Win32.Vss.VssBackupType.html#Alphaleonis_Win32_Vss_VssBackupType_Full">Full</a>) backup on that writer&apos;s data.
+</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssBackupType_Other">Other</td>
+        <td><p>Backup type that is not full, copy, log, incremental, or differential.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssBackupType_Undefined">Undefined</td>
+        <td><p>
+    The backup type is not known.
+</p>
+<p>
+    This value indicates an application error.
+</p>
+</td>
+      </tr>
+    </tbody>
+  </thead></thead></table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/alphaleonis/AlphaVSS/new/develop/apiSpec/new?filename=Alphaleonis_Win32_Vss_VssBackupType.md&amp;value=---%0Auid%3A%20Alphaleonis.Win32.Vss.VssBackupType%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/alphaleonis/AlphaVSS/blob/develop/src/AlphaVSS.Common/Enumerations/VssBackupType.cs/#L12" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

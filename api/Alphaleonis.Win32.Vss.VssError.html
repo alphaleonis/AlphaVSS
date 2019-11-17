@@ -1,0 +1,459 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Enum VssError
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Enum VssError
+   ">
+    <meta name="generator" content="docfx 2.47.0.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Alphaleonis.Win32.Vss.VssError">
+  
+  
+  <h1 id="Alphaleonis_Win32_Vss_VssError" data-uid="Alphaleonis.Win32.Vss.VssError" class="text-break">Enum VssError
+  </h1>
+  <div class="markdown level0 summary"><p>
+	The <a class="xref" href="Alphaleonis.Win32.Vss.VssError.html">VssError</a> enumeration represents error- and success codes that may be
+	returned by some Vss methods.
+</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Alphaleonis.Win32.Vss.html">Alphaleonis.Win32.Vss</a></h6>
+  <h6><strong>Assembly</strong>: AlphaVSS.Common.dll</h6>
+  <h5 id="Alphaleonis_Win32_Vss_VssError_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public enum VssError : uint</code></pre>
+  </div>
+  <h3 id="fields">Fields
+  </h3>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    <thead>
+    <tbody>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssError_AsrCriticalDisksTooSmall">AsrCriticalDisksTooSmall</td>
+        <td><p>There is not enough disk space on the system to perform the restore operation.
+Add another disk or replace one of the existing disks and retry the restore operation.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssError_AsrDatadiskRdisk0">AsrDatadiskRdisk0</td>
+        <td><p>A data disk is currently set as active in BIOS. Set some other disk as active or use the DiskPart utility to clean the
+data disk, and then retry the restore operation.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssError_AsrDiskAssignmentFailed">AsrDiskAssignmentFailed</td>
+        <td><p>There are too few disks on this computer or one or more of the disks is too small.
+Add or change disks so they match the disks in the backup, and try the restore again.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssError_AsrDiskRecreationFailed">AsrDiskRecreationFailed</td>
+        <td><p>Windows cannot create a disk on this computer needed to restore from the backup.
+Make sure the disks are properly connected, or add or change disks, and try the restore again.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssError_AsrMissingDynamicDisk">AsrMissingDynamicDisk</td>
+        <td><p>The backup failed due to a missing disk for a dynamic volume. Please ensure the disk is online and retry the backup.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssError_AsrNoArcPath">AsrNoArcPath</td>
+        <td><p>The computer needs to be restarted to finish preparing a hard disk for restore. To continue, restart your computer and run the restore again.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssError_AsrRdisk0TooSmall">AsrRdisk0TooSmall</td>
+        <td><p>The disk that is set as active in BIOS is too small to recover the original system disk.
+Replace the disk with a larger one and retry the restore operation.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssError_AsrSharedCriticalDiskError">AsrSharedCriticalDiskError</td>
+        <td><p>Automated System Recovery failed the shadow copy, because a selected critical volume is located on a cluster shared disk.
+This is an unsupported configuration.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssError_AsyncCanceled">AsyncCanceled</td>
+        <td><p>The asynchronous operation was cancelled.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssError_AsyncFinished">AsyncFinished</td>
+        <td><p>The asynchronous operation was completed successfully.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssError_AsyncPending">AsyncPending</td>
+        <td><p>The asynchronous operation is still running.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssError_BadState">BadState</td>
+        <td><p>A method call was made when the object was in an incorrect state
+for that method.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssError_BreakFailFromProvider">BreakFailFromProvider</td>
+        <td><p>At least one of the providers in this Shadow Copy Set failed the break operation for a snapshot.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssError_BreakRevertIdFailed">BreakRevertIdFailed</td>
+        <td><p>The shadow copy set break operation failed because the disk/partition identities could not be reverted.
+The target identity already exists on the machine or cluster and must be masked before this operation can succeed.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssError_FlushWritesTimeout">FlushWritesTimeout</td>
+        <td><p>The system was unable to flush I/O writes. This can be a transient problem. It is recommended to wait ten minutes and try again, up to three times.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssError_HoldWritesTimeout">HoldWritesTimeout</td>
+        <td><p>The system was unable to hold I/O writes. This can be a transient problem. It is recommended to wait ten minutes and try again, up to three times.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssError_InsufficientStorage">InsufficientStorage</td>
+        <td><p>The system or provider has insufficient storage space. If possible delete any old or unnecessary persistent shadow copies and try again.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssError_InvalidXmlDocument">InvalidXmlDocument</td>
+        <td><p>The given XML document is invalid.  It is either incorrectly-formed XML or it does not match the schema.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssError_LegacyProvider">LegacyProvider</td>
+        <td><p>This version of the hardware provider does not support this operation.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssError_MaximumDiffareaAssociationsReached">MaximumDiffareaAssociationsReached</td>
+        <td><p>Maximum number of shadow copy storage associations already reached.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssError_MaximumNumberOfRemoteMachinesReached">MaximumNumberOfRemoteMachinesReached</td>
+        <td><p>The maximum number of remote machines for this operation has been reached.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssError_MaximumNumberOfSnapshotsReached">MaximumNumberOfSnapshotsReached</td>
+        <td><p>The volume has been added to the maximum number of shadow copy sets. The specified volume was not added to the shadow copy set.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssError_MaximumNumberOfVolumesReached">MaximumNumberOfVolumesReached</td>
+        <td><p>The maximum number of volumes has been added to the shadow copy set. The specified volume was not added to the shadow copy set.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssError_NoSnapshotsImported">NoSnapshotsImported</td>
+        <td><p>No shadow copies were successfully imported.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssError_ObjectAlreadyExists">ObjectAlreadyExists</td>
+        <td><p>The object already exists.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssError_ObjectNotFound">ObjectNotFound</td>
+        <td><p>The specified object was not found.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssError_ProviderAlreadyRegistered">ProviderAlreadyRegistered</td>
+        <td><p>The provider has already been registered.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssError_ProviderInUse">ProviderInUse</td>
+        <td><p>The shadow copy provider is currently in use and cannot be unregistered.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssError_ProviderNotRegistered">ProviderNotRegistered</td>
+        <td><p>The specified identifier does not correspond to a registered provider.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssError_ProviderVeto">ProviderVeto</td>
+        <td><p>The provider was unable to perform the request at this time. This can be a transient problem. It is recommended to wait ten minutes and try again, up to three times.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssError_RebootRequired">RebootRequired</td>
+        <td><p>The provider encountered an error that requires the user to restart the computer.</p>
+<p><strong>Windows Server 2003 and Windows XP:</strong>This value is not supported until Windows Vista.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssError_RemoteServerUnavailable">RemoteServerUnavailable</td>
+        <td><p>The remote server is unavailable.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssError_RemoteServerUnsupported">RemoteServerUnsupported</td>
+        <td><p>The remote server is running a version of the Volume Shadow Copy Service that does not
+support remote shadow-copy creation.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssError_RevertInProgress">RevertInProgress</td>
+        <td><p>A revert is currently in progress for the specified volume.  Another revert
+cannot be initiated until the current revert completes.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssError_RevertVolumeLost">RevertVolumeLost</td>
+        <td><p>The volume being reverted was lost during revert.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssError_SnapshotSetInProgress">SnapshotSetInProgress</td>
+        <td><p>Another shadow copy creation is already in progress. Please wait a few moments and try again.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssError_SomeSnapshotsNotImportedError">SomeSnapshotsNotImportedError</td>
+        <td><p>Some shadow copies were not succesfully imported.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssError_SomeSnapshotsNotImportedSuccess">SomeSnapshotsNotImportedSuccess</td>
+        <td><p>Some shadow copies were not succesfully imported.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssError_Success">Success</td>
+        <td><p>Indication of a successful operation.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssError_TransactionFreezeTimeout">TransactionFreezeTimeout</td>
+        <td><p>The system was unable to freeze the Distributed Transaction Coordinator (DTC) or the Kernel Transaction Manager (KTM).</p>
+<p><strong>Windows Server 2003 and Windows XP:</strong>This value is not supported until Windows Vista.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssError_TransactionThawTimeout">TransactionThawTimeout</td>
+        <td><p>The system was unable to thaw the Distributed Transaction Coordinator (DTC) or the Kernel Transaction Manager (KTM).</p>
+<p><strong>Windows Server 2003 and Windows XP:</strong>This value is not supported until Windows Vista.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssError_Unexpected">Unexpected</td>
+        <td><p>Unexpected error. The error code is logged in the error log file.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssError_UnexpectedProviderError">UnexpectedProviderError</td>
+        <td><p>The provider returned an unexpected error code. This can be a transient problem. It is recommended to wait ten minutes and try again, up to three times.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssError_UnexpectedWriterError">UnexpectedWriterError</td>
+        <td><p>VSS encountered problems while sending events to writers.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssError_UnsupportedContext">UnsupportedContext</td>
+        <td><p>The shadow copy provider does not support the specified shadow copy type.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssError_VolumeInUse">VolumeInUse</td>
+        <td><p>The specified shadow copy storage association is in use and so can't be deleted.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssError_VolumeNotSupported">VolumeNotSupported</td>
+        <td><p>No VSS provider indicates that it supports the specified volume.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssError_VolumeNotSupportedByProvider">VolumeNotSupportedByProvider</td>
+        <td><p>The volume is not supported by the specified provider.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssError_WriterAlreadySubscribed">WriterAlreadySubscribed</td>
+        <td><p>The writer has already sucessfully called the Subscribe function.  It cannot call
+subscribe multiple times.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssError_WriterErrorInconsistentSnapshot">WriterErrorInconsistentSnapshot</td>
+        <td><p>The shadow copy contains only a subset of the volumes needed by the writer to correctly back
+up the application component.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssError_WriterErrorNonRetryable">WriterErrorNonRetryable</td>
+        <td><p>The writer experienced a non-transient error.  If the backup process is retried,
+the error is likely to reoccur.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssError_WriterErrorRecoveryFailed">WriterErrorRecoveryFailed</td>
+        <td><p>The writer experienced an error while trying to recover the shadow-copy volume.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssError_WriterErrorRetryable">WriterErrorRetryable</td>
+        <td><p>The writer failed due to an error that would likely not occur if the entire backup, restore, or shadow copy creation
+process was restarted. The recommended way to handle this error code is to wait ten minutes and then repeat
+the operation, up to three times.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssError_WriterInfrastructureError">WriterInfrastructureError</td>
+        <td><p>An error was detected in the Volume Shadow Copy Service (VSS). The problem occurred while trying to contact VSS writers.
+Please verify that the Event System service and the VSS service are running and check for associated errors in the event logs.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssError_WriterNotResponding">WriterNotResponding</td>
+        <td><p>A writer did not respond to a GatherWriterStatus call.  The writer may either have terminated
+or it may be stuck.  Check the system and application event logs for more information.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssError_WriterOutOfResources">WriterOutOfResources</td>
+        <td><p>The writer ran out of memory or other system resources. The recommended way to handle this error code is
+to wait ten minutes and then repeat the operation, up to three times.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssError_WriterStatusNotAvailable">WriterStatusNotAvailable</td>
+        <td><p>
+	The writer status is not available for one or more writers. A writer may have reached the maximum number of available backup 
+	and restore sessions.
+</p>
+<p>
+<strong>Windows Vista, Windows Server 2003, and Windows XP:</strong> This value is not supported.
+</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Alphaleonis_Win32_Vss_VssError_WriterTimeout">WriterTimeout</td>
+        <td><p>The writer operation failed because of a time-out between the Freeze and Thaw events.
+The recommended way to handle this error code is to wait ten minutes and then repeat the operation, up to three times.</p>
+</td>
+      </tr>
+    </tbody>
+  </thead></thead></table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/alphaleonis/AlphaVSS/new/develop/apiSpec/new?filename=Alphaleonis_Win32_Vss_VssError.md&amp;value=---%0Auid%3A%20Alphaleonis.Win32.Vss.VssError%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/alphaleonis/AlphaVSS/blob/develop/src/AlphaVSS.Common/Enumerations/VssError.cs/#L12" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
