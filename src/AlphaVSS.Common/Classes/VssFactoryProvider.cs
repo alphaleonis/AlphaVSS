@@ -1,4 +1,3 @@
-
 using System;
 using System.Reflection;
 using System.Text;
@@ -6,6 +5,7 @@ using System.Globalization;
 using System.IO;
 using System.Threading;
 using System.Diagnostics;
+using System.Linq;
 #if NETCOREAPP
 using System.Runtime.Loader;
 #endif
@@ -29,7 +29,7 @@ namespace Alphaleonis.Win32.Vss
       private static AssemblyName PlatformSpecificAssemblyName => new AssemblyName($"{PlatformSpecificAssemblyShortName}, Version={Assembly.GetExecutingAssembly().GetName().Version}, Culture=neutral, PublicKeyToken=959d3993561034e3");
 
       /// <summary>
-      /// The default instance of <see cref="IVssFactoryProvider"/>. This attempts to load the platform specifiec AlphaVSS assembly from the same 
+      /// The default instance of <see cref="IVssFactoryProvider"/>. This attempts to load the platform specific AlphaVSS assembly from the same 
       /// directory that the AlphaVSS.Common assembly is located in.
       /// </summary>
       public static readonly IVssFactoryProvider Default = new VssFactoryProvider(new DefaultVssAssemblyResolver());
@@ -45,16 +45,27 @@ namespace Alphaleonis.Win32.Vss
       }
 
       /// <summary>
-      /// Creates a new instance of <see cref="IVssFactory"/> corresponding to the current platform by loading the appropriate platform specifiec assembly, 
+      /// Creates a new instance of <see cref="IVssFactory"/> corresponding to the current platform by loading the appropriate platform specific assembly, 
       /// and instantiating the correct implementation of <see cref="IVssFactory"/>.
       /// </summary>
       /// <returns>An instance of <see cref="IVssFactory"/>.</returns>
+      /// <exception cref="UnsupportedOperatingSystemException">This exception is thrown if running as a 32-bit process on a 64-bit operating system.</exception>
       public IVssFactory GetVssFactory()
-      {
+      {         
          return (IVssFactory)m_assembly.Value.CreateInstance("Alphaleonis.Win32.Vss.VssFactory");
       }
 
-      private Assembly LoadAssembly() => m_resolver.LoadAssembly(PlatformSpecificAssemblyName);
+      private Assembly LoadAssembly()
+      {
+         Log($"Request loading AlphaVSS platform specific assembly...");
+         Log($"OS Version: {Environment.OSVersion}");
+         Log($"Is64BitOperatingSystem: {Environment.Is64BitOperatingSystem}");
+         Log($"Is64BitProcess: {Environment.Is64BitProcess}");
+         if (Environment.Is64BitOperatingSystem && !Environment.Is64BitProcess)
+            throw new UnsupportedOperatingSystemException($"Request to load AlphaVSS from a 32-bit process on a 64-bit operating system. This combination is not supported.");
+
+         return m_resolver.LoadAssembly(PlatformSpecificAssemblyName);
+      }
 
       private static void Log(string message)
       {
@@ -70,20 +81,33 @@ namespace Alphaleonis.Win32.Vss
 
 #if NETCOREAPP
             Log($"Attempting to locate \"{assemblyName.FullName}\"");
-            string searchDirectories = AppContext.GetData("NATIVE_DLL_SEARCH_DIRECTORIES") as string;
+            // In .NET Core the native binaries are placed under a runtimes\{rid}\native folder, which is where the platform 
+            // specific binaries are placed in AlphaVSS nuget packages. However the location after building is different if
+            // building a self-contained executable.  So we use the NATIVE_DLL_SEARCH_DIRECTORIES property from the
+            // AppContext to determine which directories to search.  This property is documented here:
+            // https://docs.microsoft.com/en-us/dotnet/core/dependency-loading/default-probing
+            string nativeSearchDirectories = AppContext.GetData("NATIVE_DLL_SEARCH_DIRECTORIES") as string;
 
-            if (searchDirectories == null)
+            string[] searchDirectories;
+            if (nativeSearchDirectories == null)
             {
-               searchDirectories = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+               // If no such property was found, just search the directory of this assembly.
+               searchDirectories = new string[] { Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) };
                Log($"Found no native search directories in AppContext, searching current directory \"{searchDirectories}\" only.");
             }
             else
             {
-               Log($"Using native search directories: {searchDirectories}");
+               // On non-windows systems, the ':' separator is used, but since we only run on windows we don't need to 
+               // take that into consideration.
+               searchDirectories = nativeSearchDirectories.Split(';', StringSplitOptions.RemoveEmptyEntries);
+               Log($"Using native search directories: {String.Join(", ", searchDirectories.Select(s => $"\"{s}\""))}");
             }
 
             string assemblyFileName = assemblyName.Name + ".dll";
-            foreach (var searchDirectory in searchDirectories.Split(';'))
+
+            // Attempt to locate a dll-file with the same short name in each of the search directories, and load the
+            // first one found. 
+            foreach (var searchDirectory in searchDirectories)
             {
                string fullAssemblyFileName = Path.Combine(searchDirectory, assemblyFileName);
                if (File.Exists(fullAssemblyFileName))

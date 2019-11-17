@@ -17,6 +17,7 @@ namespace Alphaleonis.Win32.Vss
       /// Gets the correct implementation of <see cref="IVssFactory"/> for the current platform.
       /// </summary>
       /// <returns>An instance of <see cref="IVssFactory"/>.</returns>
+      /// <exception cref="UnsupportedOperatingSystemException">This exception is thrown if running as a 32-bit process on a 64-bit operating system.</exception>
       IVssFactory GetVssFactory();
    }
 }
