@@ -7,8 +7,8 @@
 trigger:
 - master
 
-pool: Default
-# vmImage: 'windows-latest'
+#pool: Default
+vmImage: 'windows-latest'
 
 jobs:
 - job: Nuke
