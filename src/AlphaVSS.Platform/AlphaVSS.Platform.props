@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+   <ImportGroup Label="PropertySheets">
+      <Import Project="..\AlphaVSS.props" />
+   </ImportGroup>
+   <PropertyGroup Label="Custom">
+      <PlatformName Condition="'$(Platform)' == 'Win32'">x86</PlatformName>
+      <PlatformName Condition="'$(Platform)' == 'x64'">x64</PlatformName>
+      <VersionDefinitions>ALPHAVSS_VERSION_MAJOR=$(AlphaVss_VersionMajor);ALPHAVSS_VERSION_MINOR=$(AlphaVss_VersionMinor);ALPHAVSS_VERSION_PATCH=$(AlphaVss_VersionPatch);ALPHAVSS_COPYRIGHT=$(AlphaVss_Copyright);ALPHAVSS_DESCRIPTION=$(AlphaVss_Description);ALPHAVSS_ASSEMBLYVERSION=$(AssemblyVersion);ALPHAVSS_FILEVERSION=$(FileVersion);ALPHAVSS_INFORMATIONALVERSION=$(InformationalVersion)</VersionDefinitions>
+   </PropertyGroup>
+   <PropertyGroup Label="Output">
+      <OutputFrameworkName Condition="$(Configuration.StartsWith('core31'))">netcoreapp3.1</OutputFrameworkName>
+      <OutputFrameworkName Condition="$(Configuration.StartsWith('net45'))">net45</OutputFrameworkName>
+   </PropertyGroup>
+   <Target Name="EnsureOutputFrameworkNameSet" BeforeTargets="PrepareForBuild">
+      <Error Condition="'$(OutputFrameworkName)' == ''" Text="OutputFrameworkName was not set for configuration $(Configuration). Update or modify $(MSBuildThisFile)." />
+   </Target>
+   <PropertyGroup>
+      <OutDir>$(ProjectDir)\..\..\artifacts\$(OutputFrameworkName)\$(PlatformName)\</OutDir>
+      <IntDir>$(ProjectDir)\obj\$(Configuration)\$(PlatformName)\</IntDir>
+      <TargetName>AlphaVSS.$(PlatformName)</TargetName>
+      <LinkIncremental>false</LinkIncremental>
+      <LinkKeyFile>$(ProjectDir)..\..\build\AlphaVSS.snk</LinkKeyFile>
+      <LinkDelaySign>false</LinkDelaySign>
+   </PropertyGroup>   
+   <ItemDefinitionGroup>
+      <ClCompile>
+         <PrecompiledHeader>Use</PrecompiledHeader>
+         <AdditionalIncludeDirectories>$(ProjectDir)\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+         <PreprocessorDefinitions>_WINDLL;$(VersionDefinitions);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      </ClCompile>
+      <ResourceCompile>
+         <PreprocessorDefinitions>_UNICODE;UNICODE;$(VersionDefinitions);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      </ResourceCompile>
+      <Link>
+         <AdditionalDependencies>vssapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      </Link>
+   </ItemDefinitionGroup>
+   <ItemGroup>
+      <BuildMacro Include="PlatformName">
+         <Value>$(PlatformName)</Value>
+      </BuildMacro>
+   </ItemGroup>
+</Project>

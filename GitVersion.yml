@@ -1,0 +1,4 @@
+assembly-versioning-scheme: MajorMinor
+mode: ContinuousDeployment
+ignore:
+  sha: []

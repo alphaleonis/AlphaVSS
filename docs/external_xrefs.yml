@@ -1,0 +1,9 @@
+references:
+- uid: VSS
+  name: VSS
+  href: https://docs.microsoft.com/en-us/windows/win32/vss/volume-shadow-copy-service-portal
+  fullName: Volume Shadow Copy Service
+- uid: AlphaVssNuGet
+  name: AlphaVSS
+  href: https://www.nuget.org/packages/AlphaVSS/
+  

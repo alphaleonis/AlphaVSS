@@ -1,0 +1,87 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29505.145
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2D2D5045-46A9-490F-A79D-78B261C35231}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		src\AlphaVSS.nuspec = src\AlphaVSS.nuspec
+		src\AlphaVSS.props = src\AlphaVSS.props
+		azure-pipelines.yml = azure-pipelines.yml
+		CHANGELOG.md = CHANGELOG.md
+		docs\docfx.json = docs\docfx.json
+		GitVersion.yml = GitVersion.yml
+		global.json = global.json
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlphaVSS.Common", "src\AlphaVSS.Common\AlphaVSS.Common.csproj", "{2276E222-6841-4DA9-B5C9-549E9ADB33BE}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AlphaVSS.Platform", "src\AlphaVSS.Platform\AlphaVSS.Platform.vcxproj", "{3A977469-6361-469C-B180-5180CD9A15B4}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2276E222-6841-4DA9-B5C9-549E9ADB33BE} = {2276E222-6841-4DA9-B5C9-549E9ADB33BE}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "_build", "build\_build.csproj", "{8FFBC249-EDAC-40EA-84A4-FCB66D579A1A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		core31|x64 = core31|x64
+		core31|x86 = core31|x86
+		core31d|x64 = core31d|x64
+		core31d|x86 = core31d|x86
+		net45|x64 = net45|x64
+		net45|x86 = net45|x86
+		net45d|x64 = net45d|x64
+		net45d|x86 = net45d|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2276E222-6841-4DA9-B5C9-549E9ADB33BE}.core31|x64.ActiveCfg = Release|Any CPU
+		{2276E222-6841-4DA9-B5C9-549E9ADB33BE}.core31|x64.Build.0 = Release|Any CPU
+		{2276E222-6841-4DA9-B5C9-549E9ADB33BE}.core31|x86.ActiveCfg = Release|Any CPU
+		{2276E222-6841-4DA9-B5C9-549E9ADB33BE}.core31|x86.Build.0 = Release|Any CPU
+		{2276E222-6841-4DA9-B5C9-549E9ADB33BE}.core31d|x64.ActiveCfg = Debug|Any CPU
+		{2276E222-6841-4DA9-B5C9-549E9ADB33BE}.core31d|x64.Build.0 = Debug|Any CPU
+		{2276E222-6841-4DA9-B5C9-549E9ADB33BE}.core31d|x86.ActiveCfg = Debug|Any CPU
+		{2276E222-6841-4DA9-B5C9-549E9ADB33BE}.core31d|x86.Build.0 = Debug|Any CPU
+		{2276E222-6841-4DA9-B5C9-549E9ADB33BE}.net45|x64.ActiveCfg = Release|Any CPU
+		{2276E222-6841-4DA9-B5C9-549E9ADB33BE}.net45|x64.Build.0 = Release|Any CPU
+		{2276E222-6841-4DA9-B5C9-549E9ADB33BE}.net45|x86.ActiveCfg = Release|Any CPU
+		{2276E222-6841-4DA9-B5C9-549E9ADB33BE}.net45|x86.Build.0 = Release|Any CPU
+		{2276E222-6841-4DA9-B5C9-549E9ADB33BE}.net45d|x64.ActiveCfg = Debug|Any CPU
+		{2276E222-6841-4DA9-B5C9-549E9ADB33BE}.net45d|x64.Build.0 = Debug|Any CPU
+		{2276E222-6841-4DA9-B5C9-549E9ADB33BE}.net45d|x86.ActiveCfg = Debug|Any CPU
+		{2276E222-6841-4DA9-B5C9-549E9ADB33BE}.net45d|x86.Build.0 = Debug|Any CPU
+		{3A977469-6361-469C-B180-5180CD9A15B4}.core31|x64.ActiveCfg = core31|x64
+		{3A977469-6361-469C-B180-5180CD9A15B4}.core31|x64.Build.0 = core31|x64
+		{3A977469-6361-469C-B180-5180CD9A15B4}.core31|x86.ActiveCfg = core31|Win32
+		{3A977469-6361-469C-B180-5180CD9A15B4}.core31|x86.Build.0 = core31|Win32
+		{3A977469-6361-469C-B180-5180CD9A15B4}.core31d|x64.ActiveCfg = core31d|x64
+		{3A977469-6361-469C-B180-5180CD9A15B4}.core31d|x64.Build.0 = core31d|x64
+		{3A977469-6361-469C-B180-5180CD9A15B4}.core31d|x86.ActiveCfg = core31d|Win32
+		{3A977469-6361-469C-B180-5180CD9A15B4}.core31d|x86.Build.0 = core31d|Win32
+		{3A977469-6361-469C-B180-5180CD9A15B4}.net45|x64.ActiveCfg = net45|x64
+		{3A977469-6361-469C-B180-5180CD9A15B4}.net45|x64.Build.0 = net45|x64
+		{3A977469-6361-469C-B180-5180CD9A15B4}.net45|x86.ActiveCfg = net45|Win32
+		{3A977469-6361-469C-B180-5180CD9A15B4}.net45|x86.Build.0 = net45|Win32
+		{3A977469-6361-469C-B180-5180CD9A15B4}.net45d|x64.ActiveCfg = net45d|x64
+		{3A977469-6361-469C-B180-5180CD9A15B4}.net45d|x64.Build.0 = net45d|x64
+		{3A977469-6361-469C-B180-5180CD9A15B4}.net45d|x86.ActiveCfg = net45d|Win32
+		{3A977469-6361-469C-B180-5180CD9A15B4}.net45d|x86.Build.0 = net45d|Win32
+		{8FFBC249-EDAC-40EA-84A4-FCB66D579A1A}.core31|x64.ActiveCfg = Debug|Any CPU
+		{8FFBC249-EDAC-40EA-84A4-FCB66D579A1A}.core31|x86.ActiveCfg = Debug|Any CPU
+		{8FFBC249-EDAC-40EA-84A4-FCB66D579A1A}.core31d|x64.ActiveCfg = Debug|Any CPU
+		{8FFBC249-EDAC-40EA-84A4-FCB66D579A1A}.core31d|x86.ActiveCfg = Debug|Any CPU
+		{8FFBC249-EDAC-40EA-84A4-FCB66D579A1A}.net45|x64.ActiveCfg = Debug|Any CPU
+		{8FFBC249-EDAC-40EA-84A4-FCB66D579A1A}.net45|x86.ActiveCfg = Debug|Any CPU
+		{8FFBC249-EDAC-40EA-84A4-FCB66D579A1A}.net45d|x64.ActiveCfg = Debug|Any CPU
+		{8FFBC249-EDAC-40EA-84A4-FCB66D579A1A}.net45d|x86.ActiveCfg = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		VisualSVNWorkingCopyRoot = ..\..
+		SolutionGuid = {ECF0CB01-39FE-41E9-A5AE-BD7D5C76530A}
+	EndGlobalSection
+EndGlobal

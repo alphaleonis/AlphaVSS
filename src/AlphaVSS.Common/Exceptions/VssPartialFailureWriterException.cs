@@ -1,6 +1,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using System.Text;
 
 namespace Alphaleonis.Win32.Vss
@@ -36,17 +37,15 @@ namespace Alphaleonis.Win32.Vss
       /// <summary>
       /// Initializes a new instance of the <see cref="VssPartialFailureWriterException"/> class.
       /// </summary>
-      /// <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo"/> that holds the serialized object data about the exception being thrown.</param>
-      /// <param name="context">The <see cref="T:System.Runtime.Serialization.StreamingContext"/> that contains contextual information about the source or destination.</param>
-      /// <exception cref="T:System.ArgumentNullException">
+      /// <param name="info">The <see cref="SerializationInfo"/> that holds the serialized object data about the exception being thrown.</param>
+      /// <param name="context">The <see cref="StreamingContext"/> that contains contextual information about the source or destination.</param>
+      /// <exception cref="ArgumentNullException">
       /// The <paramref name="info"/> parameter is <see langword="null"/>.
       /// </exception>
-      /// <exception cref="T:System.Runtime.Serialization.SerializationException">
-      /// The class name is <see langword="null"/> or <see cref="P:System.Exception.HResult"/> is zero (0).
+      /// <exception cref="SerializationException">
+      /// The class name is <see langword="null"/> or <see cref="Exception.HResult"/> is zero (0).
       /// </exception>
-      protected VssPartialFailureWriterException(
-       System.Runtime.Serialization.SerializationInfo info,
-       System.Runtime.Serialization.StreamingContext context)
+      protected VssPartialFailureWriterException(SerializationInfo info, StreamingContext context)
          : base(info, context) { }
    }
 }

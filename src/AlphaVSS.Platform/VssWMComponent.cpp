@@ -1,0 +1,189 @@
+
+#include "pch.h"
+
+#include "VssWMComponent.h"
+
+namespace Alphaleonis { namespace Win32 { namespace Vss
+{
+	VssWMComponent^ VssWMComponent::Adopt(::IVssWMComponent *component)
+	{
+		try
+		{
+			return gcnew VssWMComponent(component);
+		}
+		catch (...)
+		{
+			component->Release();
+			throw;
+		}
+	}
+
+	VssWMComponent::VssWMComponent(::IVssWMComponent *component)
+		: m_component(component)
+	{		
+		PVSSCOMPONENTINFO info;
+		CheckCom((m_component->GetComponentInfo(&info)));
+		try
+		{
+			m_type = ((VssComponentType)info->type);
+			m_logicalPath = (FromBStr(info->bstrLogicalPath));
+			m_componentName = (FromBStr(info->bstrComponentName));
+			m_caption = (FromBStr(info->bstrCaption));
+			m_restoreMetadata = (info->bRestoreMetadata);
+			m_notifyOnBackupComplete = (info->bNotifyOnBackupComplete);
+			m_selectable = (info->bSelectable);
+
+
+			m_selectableForRestore = (info->bSelectableForRestore);
+			m_dependencyCount = (info->cDependencies);
+			m_componentFlags = ((VssComponentFlags)info->dwComponentFlags);
+
+			m_fileCount = (info->cFileCount);
+			m_databaseFileCount = (info->cDatabases);
+			m_databaseLogFileCount = (info->cLogFiles);
+			if (info->pbIcon != 0)
+			{
+				m_icon = gcnew array<byte>(info->cbIcon);
+				System::Runtime::InteropServices::Marshal::Copy((IntPtr)info->pbIcon, m_icon, 0, info->cbIcon);
+			}
+		}
+		finally
+		{
+			CheckCom(m_component->FreeComponentInfo(info));
+		}
+	}
+
+	VssWMComponent::~VssWMComponent()
+	{
+		this->!VssWMComponent();
+	}
+
+	VssWMComponent::!VssWMComponent()
+	{
+		if (m_component != 0)
+		{
+			m_component->Release();
+			m_component = 0;
+		}
+	}
+
+	VssComponentType VssWMComponent::Type::get()
+	{
+		return m_type; 
+	}
+
+	String^ VssWMComponent::LogicalPath::get()
+	{
+		return m_logicalPath; 
+	}
+
+	String^ VssWMComponent::ComponentName::get()
+	{
+		return m_componentName;
+	}
+
+	String^ VssWMComponent::Caption::get()
+	{
+		return m_caption;
+	}
+
+	array<byte>^ VssWMComponent::GetIcon()
+	{
+		return m_icon;
+	}
+
+	bool VssWMComponent::RestoreMetadata::get()
+	{
+		return m_restoreMetadata;
+	}
+
+	bool VssWMComponent::NotifyOnBackupComplete::get()
+	{
+		return m_notifyOnBackupComplete;
+	}
+
+	bool VssWMComponent::Selectable::get()
+	{
+		return m_selectable;
+	}
+
+	bool VssWMComponent::SelectableForRestore::get()
+	{
+		return m_selectableForRestore;
+	}
+
+	VssComponentFlags VssWMComponent::ComponentFlags::get()
+	{
+		return m_componentFlags;
+	}
+
+	IList<VssWMFileDescriptor^>^ VssWMComponent::Files::get()
+	{
+		if (m_files != nullptr)
+			return m_files;
+
+		List<VssWMFileDescriptor^>^ list = gcnew List<VssWMFileDescriptor^>(m_fileCount);
+
+		for (UINT i = 0; i < m_fileCount; i++)
+		{
+			IVssWMFiledesc *filedesc;
+			CheckCom(m_component->GetFile(i, &filedesc));
+			list->Add(CreateVssWMFileDescriptor(filedesc));
+		}
+		m_files = list->AsReadOnly();
+		return m_files;
+	}
+
+	IList<VssWMFileDescriptor^>^ VssWMComponent::DatabaseFiles::get()
+	{
+		if (m_databaseFiles != nullptr)
+			return m_databaseFiles;
+
+		List<VssWMFileDescriptor^>^ list = gcnew List<VssWMFileDescriptor^>(m_databaseFileCount);
+
+		for (UINT i = 0; i < m_databaseFileCount; i++)
+		{
+			IVssWMFiledesc *filedesc;
+			CheckCom(m_component->GetDatabaseFile(i, &filedesc));
+			list->Add(CreateVssWMFileDescriptor(filedesc));
+		}
+		m_databaseFiles = list->AsReadOnly();
+		return m_databaseFiles;
+	}
+
+	IList<VssWMFileDescriptor^>^ VssWMComponent::DatabaseLogFiles::get()
+	{
+		if (m_databaseLogFiles != nullptr)
+			return m_databaseLogFiles;
+
+		List<VssWMFileDescriptor^>^ list = gcnew List<VssWMFileDescriptor^>(m_databaseLogFileCount);
+
+		for (UINT i = 0; i < m_databaseLogFileCount; i++)
+		{
+			IVssWMFiledesc *filedesc;
+			CheckCom(m_component->GetDatabaseLogFile(i, &filedesc));
+			list->Add(CreateVssWMFileDescriptor(filedesc));
+		}
+		m_databaseLogFiles = list->AsReadOnly();
+		return m_databaseLogFiles;
+	}
+
+
+	IList<VssWMDependency^>^ VssWMComponent::Dependencies::get()
+	{
+		if (m_dependencies != nullptr)
+			return m_dependencies;
+
+		List<VssWMDependency^>^ list = gcnew List<VssWMDependency^>(m_dependencyCount);
+
+		for (UINT i = 0; i < m_dependencyCount; i++)
+		{
+			IVssWMDependency *dependency;
+			CheckCom(m_component->GetDependency(i, &dependency));
+			list->Add(CreateVssWMDependency(dependency));
+		}
+		m_dependencies = list->AsReadOnly();
+		return m_dependencies;
+	}
+}
+} }

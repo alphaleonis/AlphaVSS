@@ -117,7 +117,7 @@ namespace Alphaleonis.Win32.Vss
       ///     <para>
       ///         The writer supports running multiple writer instances with the same class ID, and it supports a 
       ///         requester moving a component to a different writer instance at restore time using 
-      ///         <see cref="O:Alphaleonis.Win32.Vss.IVssBackupComponents.SetSelectedForRestore"/>.
+      ///         <see cref="IVssBackupComponents.SetSelectedForRestore(Guid, VssComponentType, string, string, bool)"/>.
       ///     </para>    
       ///      <para>
       ///         <b>Windows Server 2003:</b> This value is not supported until Windows Server 2003 SP1.

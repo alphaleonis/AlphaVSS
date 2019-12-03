@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+   <metadata>
+      <id>AlphaVSS.Native.NetCore</id>
+      <version>1.0.0</version>
+      <title>AlphaVSS.Native.NetCore</title>
+      <authors>alphaleonis</authors>
+      <license type="expression">Apache-2.0</license>
+      <projectUrl>https://alphavss.alphaleonis.com/</projectUrl>
+      <requireLicenseAcceptance>true</requireLicenseAcceptance>
+      <description>
+         A package containing the native binaries for AlphaVSS targetting .NET Framework.
+Do not install this package manually, it will be added as a prerequisite by the AlphaVSS package when required.
+      </description>
+      <copyright>Copyright © Peter Palotas</copyright>
+      <tags>Win32, VSS</tags>
+      <repository type="git" url="https://github.com/alphaleonis/AlphaVSS.git" branch="$branch$" commit="$commit$" />
+      <dependencies>
+         <group targetFramework="netcoreapp3.1" />
+      </dependencies>
+   </metadata>   
+   <files>
+      <!-- netcoreapp3.1 -->
+      <file src="_._" target="lib\netcoreapp3.1" />
+      <file src="..\..\artifacts\netcoreapp3.1\x86\AlphaVSS.x86.dll" target="runtimes\win-x86\native" />
+      <file src="..\..\artifacts\netcoreapp3.1\x86\Ijwhost.dll" target="runtimes\win-x86\native" />
+      <file src="..\..\artifacts\netcoreapp3.1\x64\AlphaVSS.x64.dll" target="runtimes\win-x64\native" />
+      <file src="..\..\artifacts\netcoreapp3.1\x64\Ijwhost.dll" target="runtimes\win-x64\native" />
+   </files>
+</package>

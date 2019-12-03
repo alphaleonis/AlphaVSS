@@ -1,0 +1,9 @@
+- name: Documentation
+  href: articles/
+- name: API Reference
+  href: api/  
+  topicUid: Alphaleonis.Win32.Vss.VssFactoryProvider
+- name: GitHub
+  href: https://github.com/alphaleonis/AlphaVSS/
+- name: NuGet
+  href: https://www.nuget.org/packages/AlphaVSS/

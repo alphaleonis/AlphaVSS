@@ -2,18 +2,18 @@
 
 using System;
 using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Alphaleonis.Win32.Vss
 {
    /// <summary>
    /// The <see cref="IVssBackupComponents"/> class is used by a requester to poll writers about file status and to run backup/restore operations.
    /// </summary>
-   /// <seealso cref="VssUtils"/>
-   ///   
-   /// <seealso cref="IVssImplementation"/>
+   /// <seealso cref="IVssFactory"/>
    /// <remarks>
    ///   <para>
-   /// A <see cref="IVssBackupComponents"/> object can be used for only a single backup, restore, or Query operation.
+   ///      <note type="note">A <see cref="IVssBackupComponents"/> object can be used for only a <i>single</i> backup, restore, or Query operation.</note>
    ///   </para>
    ///   <para>
    /// After the backup, restore, or Query operation has either successfully finished or been explicitly terminated, a requester must
@@ -22,8 +22,8 @@ namespace Alphaleonis.Win32.Vss
    /// same <see cref="IVssBackupComponents"/> object that you have already used for a Query operation.
    ///   </para>
    ///   <para>
-   /// For information on how to retrieve an instance of <see cref="IVssBackupComponents"/> for the current operating system, see
-   ///   <see cref="VssUtils"/> and <see cref="IVssImplementation"/>.
+   ///      For information on how to retrieve an instance of <see cref="IVssBackupComponents"/> for the current operating system, see
+   ///   <see cref="IVssFactory"/>.
    ///   </para>
    /// </remarks>
    public interface IVssBackupComponents : IDisposable
@@ -264,6 +264,8 @@ namespace Alphaleonis.Win32.Vss
       /// <exception cref="VssUnexpectedProviderErrorException">The provider returned an unexpected error code.</exception>        
       Guid AddToSnapshotSet(string volumeName);
 
+      #region BackupComplete
+
       /// <summary>
       /// This method causes VSS to generate a <b>BackupComplete</b> event, which signals writers that the backup 
       /// process has completed. 
@@ -273,6 +275,21 @@ namespace Alphaleonis.Win32.Vss
       /// <exception cref="VssBadStateException">The backup components object is not initialized, this method has been called during a restore operation, or this method has not been called within the correct sequence.</exception>
       /// <exception cref="VssUnexpectedWriterErrorException">An unexpected error occurred during communication with writers. The error code is logged in the error log file.</exception>
       void BackupComplete();
+
+      /// <summary>
+      /// This method asynchronously causes VSS to generate a <b>BackupComplete</b> event, which signals writers that the backup
+      /// process has completed.
+      /// </summary>
+      /// <param name="cancellationToken">The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None"/>.</param>
+      /// <returns>
+      /// A <see cref="Task"/> that represents the asynchronous operation.
+      /// </returns>
+      /// <exception cref="OperationCanceledException">Thrown if the operation was canceled by the <paramref name="cancellationToken"/></exception>
+      /// <exception cref="OutOfMemoryException">Out of memory or other system resources.</exception>
+      /// <exception cref="SystemException">Unexpected VSS system error. The error code is logged in the event log.</exception>
+      /// <exception cref="VssBadStateException">The backup components object is not initialized, this method has been called during a restore operation, or this method has not been called within the correct sequence.</exception>
+      /// <exception cref="VssUnexpectedWriterErrorException">An unexpected error occurred during communication with writers. The error code is logged in the error log file.</exception>
+      Task BackupCompleteAsync(CancellationToken cancellationToken = default);
 
       /// <summary>
       /// This method asynchronously causes VSS to generate a <b>BackupComplete</b> event, which signals writers that the backup
@@ -288,6 +305,7 @@ namespace Alphaleonis.Win32.Vss
       /// <returns>
       /// An <see cref="IVssAsyncResult"/> instance that represents this asynchronous operation.
       /// </returns>
+      [Obsolete("This API has been deprecated and will be removed in a future version of AlphaVSS.  Consider using BackupCompleteAsync instead.")]
       IVssAsyncResult BeginBackupComplete(AsyncCallback userCallback, object state);
 
       /// <summary>
@@ -301,8 +319,10 @@ namespace Alphaleonis.Win32.Vss
       /// <exception cref="SystemException">Unexpected VSS system error. The error code is logged in the event log.</exception>
       /// <exception cref="VssBadStateException">The backup components object is not initialized, this method has been called during a restore operation, or this method has not been called within the correct sequence.</exception>
       /// <exception cref="VssUnexpectedWriterErrorException">An unexpected error occurred during communication with writers. The error code is logged in the error log file.</exception>
+      [Obsolete("This API has been deprecated and will be removed in a future version of AlphaVSS.  Consider using BackupCompleteAsync instead.")]
       void EndBackupComplete(IAsyncResult asyncResult);
 
+      #endregion
 
       /// <overloads>
       /// <summary>
@@ -401,6 +421,8 @@ namespace Alphaleonis.Win32.Vss
       /// <exception cref="VssBadStateException">The backup components object is not initialized, this method has been called during a restore operation, or this method has not been called within the correct sequence.</exception>
       void DisableWriterInstances(params Guid[] writerInstanceIds);
 
+      #region DoSnapshotSet
+
       /// <summary>
       /// Commits all shadow copies in this set simultaneously. 
       /// </summary>
@@ -442,6 +464,28 @@ namespace Alphaleonis.Win32.Vss
       /// <summary>
       /// Commits all shadow copies in this set simultaneously as an asynchronous operation.
       /// </summary>
+      /// <param name="cancellationToken">The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None"/>.</param>
+      /// <returns>
+      /// A <see cref="Task"/> that represents the asynchronous operation.
+      /// </returns>
+      /// <exception cref="OperationCanceledException">Thrown if the operation was canceled by the <paramref name="cancellationToken"/></exception>
+      /// <exception cref="UnauthorizedAccessException">The caller does not have sufficient backup privileges or is not an administrator.</exception>
+      /// <exception cref="OutOfMemoryException">Out of memory or other system resources.</exception>
+      /// <exception cref="SystemException">Unexpected VSS system error. The error code is logged in the event log.</exception>
+      /// <exception cref="VssBadStateException">The backup components object has not been initialized or the prerequisite calls for a given shadow copy context have not been made prior to calling <b>DoSnapshotSet</b>. </exception>
+      /// <exception cref="VssInsufficientStorageException">The system or provider has insufficient storage space. If possible delete any old or unnecessary persistent shadow copies and try again.</exception>
+      /// <exception cref="VssFlushWritesTimeoutException">The system was unable to flush I/O writes. This can be a transient problem. It is recommended to wait ten minutes and try again, up to three times.</exception>
+      /// <exception cref="VssHoldWritesTimeoutException">The system was unable to hold I/O writes. This can be a transient problem. It is recommended to wait ten minutes and try again, up to three times.</exception>
+      /// <exception cref="VssProviderVetoException">The provider was unable to perform the request at this time. This can be a transient problem. It is recommended to wait ten minutes and try again, up to three times.</exception>
+      /// <exception cref="VssRebootRequiredException">The provider encountered an error that requires the user to restart the computer.</exception>
+      /// <exception cref="VssTransactionFreezeTimeoutException">The system was unable to freeze the Distributed Transaction Coordinator (DTC) or the Kernel Transaction Manager (KTM).</exception>
+      /// <exception cref="VssTransactionThawTimeoutException">The system was unable to freeze the Distributed Transaction Coordinator (DTC) or the Kernel Transaction Manager (KTM).</exception>
+      /// <exception cref="VssUnexpectedProviderErrorException">The provider returned an unexpected error code. This can be a transient problem. It is recommended to wait ten minutes and try again, up to three times.</exception> 
+      Task DoSnapshotSetAsync(CancellationToken cancellationToken = default);
+
+      /// <summary>
+      /// Commits all shadow copies in this set simultaneously as an asynchronous operation.
+      /// </summary>
       /// <param name="userCallback">An optional asynchronous callback, to be called when the read is complete.</param>
       /// <param name="state">A user-provided object that distinguishes this particular asynchronous read request from other requests.</param>
       /// <returns>An <see cref="IVssAsyncResult"/> instance that represents this asynchronous operation.</returns>
@@ -450,6 +494,7 @@ namespace Alphaleonis.Win32.Vss
       /// <see cref="EndDoSnapshotSet"/> must be called once for every call to <see cref="BeginDoSnapshotSet"/>. You can do this either by using the same code that called <b>BeginDoSnapshotSet</b> or
       /// in a callback passed to <b>BeginDoSnapshotSet</b>.
       /// </remarks>
+      [Obsolete("This API has been deprecated and will be removed in a future version of AlphaVSS.  Consider using DoSnapshotSetAsync instead.")]
       IVssAsyncResult BeginDoSnapshotSet(AsyncCallback userCallback, object state);
 
       /// <summary>
@@ -492,7 +537,9 @@ namespace Alphaleonis.Win32.Vss
       ///		</para>
       /// </exception>
       /// <exception cref="VssUnexpectedProviderErrorException">The provider returned an unexpected error code. This can be a transient problem. It is recommended to wait ten minutes and try again, up to three times.</exception> 
+      [Obsolete("This API has been deprecated and will be removed in a future version of AlphaVSS.  Consider using DoSnapshotSetAsync instead.")]
       void EndDoSnapshotSet(IAsyncResult asyncResult);
+      #endregion
 
       /// <summary>
       /// The <b>EnableWriterClasses</b> method enables the specified writers to receive all events.
@@ -576,6 +623,8 @@ namespace Alphaleonis.Win32.Vss
       /// <exception cref="VssBadStateException">The backup components object is not initialized, this method has been called during a restore operation, or this method has not been called within the correct sequence.</exception>
       void FreeWriterStatus();
 
+      #region GatherWriterMetadata
+
       /// <summary>
       /// 	The <see cref="GatherWriterMetadata"/> method prompts each writer to send the metadata they have collected. The method will generate an <c>Identify</c> event to communicate with writers.
       /// </summary>
@@ -587,7 +636,7 @@ namespace Alphaleonis.Win32.Vss
       /// <exception cref="VssWriterInfrastructureException">The writer infrastructure is not operating properly. Check that the Event Service and VSS have been started, and check for errors associated with those services in the error log.</exception>
       void GatherWriterMetadata();
 
-      /// <summary>
+      /// <summary>      
       /// 	The <see cref="BeginGatherWriterMetadata"/> method asynchronously prompts each writer to send the metadata they have collected. 
       /// 	The method will generate an <c>Identify</c> event to communicate with writers.
       /// </summary>
@@ -598,10 +647,11 @@ namespace Alphaleonis.Win32.Vss
       /// <see cref="EndGatherWriterMetadata"/> must be called once for every call to <see cref="BeginGatherWriterMetadata"/>. You can do this either by using the same code that called <b>BeginGatherWriterMetadata</b> or
       /// in a callback passed to <b>BeginGatherWriterMetadata</b>.
       /// </para>
-      /// </remarks>      
+      /// </remarks>        
       /// <param name="userCallback">An optional asynchronous callback, to be called when the read is complete.</param>
       /// <param name="state">A user-provided object that distinguishes this particular asynchronous read request from other requests.</param>
       /// <returns>An <see cref="IVssAsyncResult"/> instance that represents this asynchronous operation.</returns>
+      [Obsolete("This API has been deprecated and will be removed in a future version of AlphaVSS.  Consider using GatherWriterMetadataAsync instead.")]
       IVssAsyncResult BeginGatherWriterMetadata(AsyncCallback userCallback, object state);
 
       /// <summary>
@@ -616,7 +666,31 @@ namespace Alphaleonis.Win32.Vss
       /// <exception cref="SystemException">Unexpected VSS system error. The error code is logged in the event log.</exception>
       /// <exception cref="VssBadStateException">The backup components object is not initialized, this method has been called during a restore operation, or this method has not been called within the correct sequence.</exception>		
       /// <exception cref="VssWriterInfrastructureException">The writer infrastructure is not operating properly. Check that the Event Service and VSS have been started, and check for errors associated with those services in the error log.</exception>
+      [Obsolete("This API has been deprecated and will be removed in a future version of AlphaVSS.  Consider using GatherWriterMetadataAsync instead.")]
       void EndGatherWriterMetadata(IAsyncResult asyncResult);
+
+      /// <summary>      
+      /// 	The <see cref="GatherWriterMetadataAsync"/> method asynchronously prompts each writer to send the metadata they have collected. 
+      /// 	The method will generate an <c>Identify</c> event to communicate with writers.
+      /// </summary>
+      /// <remarks>
+      /// <para><see cref="GatherWriterMetadataAsync"/> should be called only once during the lifetime of a given <see cref="IVssBackupComponents"/> object.</para>
+      /// </remarks>
+      /// <param name="cancellationToken">The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None"/>.</param>      
+      /// <returns>
+      /// A <see cref="Task"/> that represents the asynchronous operation.
+      /// </returns>
+      /// <exception cref="OperationCanceledException">Thrown if the operation was canceled by the <paramref name="cancellationToken"/></exception>  
+      /// <exception cref="UnauthorizedAccessException">The caller does not have sufficient backup privileges or is not an administrator.</exception>
+      /// <exception cref="OutOfMemoryException">Out of memory or other system resources.</exception>
+      /// <exception cref="SystemException">Unexpected VSS system error. The error code is logged in the event log.</exception>
+      /// <exception cref="VssBadStateException">The backup components object is not initialized, this method has been called during a restore operation, or this method has not been called within the correct sequence.</exception>		
+      /// <exception cref="VssWriterInfrastructureException">The writer infrastructure is not operating properly. Check that the Event Service and VSS have been started, and check for errors associated with those services in the error log.</exception>
+      Task GatherWriterMetadataAsync(CancellationToken cancellationToken = default);
+
+      #endregion
+
+      #region GatherWriterStatus
 
       /// <summary>
       /// 	The <see cref="GatherWriterStatus"/> method prompts each writer to send a status message.
@@ -628,6 +702,24 @@ namespace Alphaleonis.Win32.Vss
       /// <exception cref="VssBadStateException">The backup components object is not initialized, this method has been called during a restore operation, or this method has not been called within the correct sequence.</exception>		
       /// <exception cref="VssWriterInfrastructureException">The writer infrastructure is not operating properly. Check that the Event Service and VSS have been started, and check for errors associated with those services in the error log.</exception>
       void GatherWriterStatus();
+
+      /// <summary>
+      /// 	The <see cref="GatherWriterStatusAsync"/> method asynchronously prompts each writer to send a status message.
+      /// </summary>
+      /// <remarks>
+      /// <para>The caller of this method should also call <see cref="IVssBackupComponents.FreeWriterStatus"/> after receiving the status of each writer.</para>
+      /// <param name="cancellationToken">The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None"/>.</param>
+      /// </remarks>
+      /// <returns>
+      /// A <see cref="Task"/> that represents the asynchronous operation.
+      /// </returns>
+      /// <exception cref="OperationCanceledException">Thrown if the operation was canceled by the <paramref name="cancellationToken"/></exception>
+      /// <exception cref="UnauthorizedAccessException">The caller does not have sufficient backup privileges or is not an administrator.</exception>
+      /// <exception cref="OutOfMemoryException">Out of memory or other system resources.</exception>
+      /// <exception cref="SystemException">Unexpected VSS system error. The error code is logged in the event log.</exception>
+      /// <exception cref="VssBadStateException">The backup components object is not initialized, this method has been called during a restore operation, or this method has not been called within the correct sequence.</exception>		
+      /// <exception cref="VssWriterInfrastructureException">The writer infrastructure is not operating properly. Check that the Event Service and VSS have been started, and check for errors associated with those services in the error log.</exception>
+      Task GatherWriterStatusAsync(CancellationToken cancellationToken = default);
 
       /// <summary>
       /// 	The <see cref="BeginGatherWriterStatus"/> method asynchronously prompts each writer to send a status message.
@@ -643,6 +735,7 @@ namespace Alphaleonis.Win32.Vss
       /// <param name="userCallback">An optional asynchronous callback, to be called when the read is complete.</param>
       /// <param name="state">A user-provided object that distinguishes this particular asynchronous read request from other requests.</param>
       /// <returns>An <see cref="IVssAsyncResult"/> instance that represents this asynchronous operation.</returns>
+      [Obsolete("This API has been deprecated and will be removed in a future version of AlphaVSS.  Consider using GatherWriterStatusAsync instead.")]
       IVssAsyncResult BeginGatherWriterStatus(AsyncCallback userCallback, object state);
 
       /// <summary>
@@ -657,7 +750,10 @@ namespace Alphaleonis.Win32.Vss
       /// <exception cref="SystemException">Unexpected VSS system error. The error code is logged in the event log.</exception>
       /// <exception cref="VssBadStateException">The backup components object is not initialized, this method has been called during a restore operation, or this method has not been called within the correct sequence.</exception>		
       /// <exception cref="VssWriterInfrastructureException">The writer infrastructure is not operating properly. Check that the Event Service and VSS have been started, and check for errors associated with those services in the error log.</exception>
+      [Obsolete("This API has been deprecated and will be removed in a future version of AlphaVSS.  Consider using GatherWriterStatusAsync instead.")]
       void EndGatherWriterStatus(IAsyncResult asyncResult);
+
+      #endregion
 
       /// <summary>
       /// 	The <see cref="GetSnapshotProperties"/> method gets the properties of the specified shadow copy. 
@@ -705,11 +801,13 @@ namespace Alphaleonis.Win32.Vss
       /// 		<see cref="WriterComponents"/>, you cannot reuse that instance, because it is no longer valid. Instead, you must call 
       /// 		<see cref="WriterComponents"/> again to retrieve a new <see cref="IVssWriterComponents"/> instance.
       /// 	</para>
+      /// 	<para>
+      ///		<note type="caution">This list must not be accessed after the <see cref="IVssBackupComponents"/> from which it 
+      ///     was obtained has been disposed.</note>
+      ///     </para>
       /// </remarks>
       /// <value>
       ///     A read-only list containing information about the components of each writer that has been stored in a requester's Backup Components Document.
-      ///		<note type="caution">This list must not be accessed after the <see cref="IVssBackupComponents"/> from which it 
-      ///     was obtained has been disposed.</note>
       /// </value>
       /// <exception cref="OutOfMemoryException">Out of memory or other system resources.</exception>
       /// <exception cref="SystemException">Unexpected VSS system error. The error code is logged in the event log.</exception>
@@ -769,6 +867,8 @@ namespace Alphaleonis.Win32.Vss
       /// <exception cref="VssBadStateException">The backup components object is not initialized, this method has been called during a restore operation, or this method has not been called within the correct sequence.</exception>		
       /// <exception cref="VssObjectNotFoundException">The specified shadow copy does not exist.</exception>
       IList<VssWriterStatusInfo> WriterStatus { get; }
+      
+      #region ImportSnapshots
 
       /// <summary>
       ///     The ImportSnapshots method imports shadow copies transported from a different machine.
@@ -785,6 +885,26 @@ namespace Alphaleonis.Win32.Vss
       /// <exception cref="SystemException">Unexpected VSS system error. The error code is logged in the event log.</exception>
       /// <exception cref="VssBadStateException">The backup components object is not initialized, this method has been called during a restore operation, or this method has not been called within the correct sequence.</exception>		
       void ImportSnapshots();
+
+      /// <summary>
+      ///     The <see cref="ImportSnapshotsAsync"/> method asynchronously imports shadow copies transported from a different machine.
+      /// </summary>
+      /// <note>This method is supported only on Windows Server operating systems.</note>      
+      /// <remarks>
+      /// 	<para>Only one shadow copy can be imported at a time.</para>
+      /// 	<para>The requester is responsible for serializing the import shadow copy operation.</para>
+      ///   <para>For more information see the <see href="http://msdn.microsoft.com/en-us/library/aa382683(VS.85).aspx">MSDN documentation on IIVssBackupComponents::ImportSnapshots Method</see></para>
+      /// </remarks>      
+      /// <param name="cancellationToken">The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None"/>.</param>
+      /// <returns>
+      /// A <see cref="Task"/> that represents the asynchronous operation.
+      /// </returns>
+      /// <exception cref="OperationCanceledException">Thrown if the operation was canceled by the <paramref name="cancellationToken"/></exception>
+      /// <exception cref="UnauthorizedAccessException">The caller does not have sufficient backup privileges or is not an administrator.</exception>
+      /// <exception cref="OutOfMemoryException">Out of memory or other system resources.</exception>
+      /// <exception cref="SystemException">Unexpected VSS system error. The error code is logged in the event log.</exception>
+      /// <exception cref="VssBadStateException">The backup components object is not initialized, this method has been called during a restore operation, or this method has not been called within the correct sequence.</exception>		
+      Task ImportSnapshotsAsync(CancellationToken cancellationToken = default);
 
       /// <summary>
       ///     The <see cref="BeginImportSnapshots"/> method asynchronously imports shadow copies transported from a different machine.
@@ -806,8 +926,6 @@ namespace Alphaleonis.Win32.Vss
       /// <returns>An <see cref="IVssAsyncResult"/> instance that represents this asynchronous operation.</returns>
       IVssAsyncResult BeginImportSnapshots(AsyncCallback userCallback, object state);
 
-
-
       /// <summary>
       /// Waits for a pending asynchronous operation to complete.
       /// </summary>
@@ -820,7 +938,7 @@ namespace Alphaleonis.Win32.Vss
       /// <exception cref="SystemException">Unexpected VSS system error. The error code is logged in the event log.</exception>
       /// <exception cref="VssBadStateException">The backup components object is not initialized, this method has been called during a restore operation, or this method has not been called within the correct sequence.</exception>		
       void EndImportSnapshots(IAsyncResult asyncResult);
-
+      #endregion
 
       /// <summary>
       /// 	The <see cref="InitializeForBackup"/> method initializes the backup components metadata in preparation for backup.
@@ -926,6 +1044,8 @@ namespace Alphaleonis.Win32.Vss
       /// <exception cref="VssObjectNotFoundException">The specified volume was not found or was not available.</exception>
       bool IsVolumeSupported(string volumeName);
 
+      #region PostRestore
+
       /// <summary>
       ///	The <see cref="PostRestore"/> method will cause VSS to generate a <c>PostRestore</c> event, signaling writers that the current 
       ///	restore operation has finished.
@@ -937,6 +1057,23 @@ namespace Alphaleonis.Win32.Vss
       /// <exception cref="VssObjectNotFoundException">The specified volume was not found or was not available.</exception>
       /// <exception cref="VssProviderVetoException">Expected provider error. The provider logged the error in the event log.</exception>
       void PostRestore();
+
+      /// <summary>
+      ///	The <see cref="PostRestoreAsync"/> method will asynchronously cause VSS to generate a <c>PostRestore</c> event, signaling writers that the current 
+      ///	restore operation has finished.
+      /// </summary>
+      /// <param name="cancellationToken">The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None"/>.</param>
+      /// <returns>
+      /// A <see cref="Task"/> that represents the asynchronous operation.
+      /// </returns>
+      /// <exception cref="OperationCanceledException">Thrown if the operation was canceled by the <paramref name="cancellationToken"/></exception>
+      /// <exception cref="UnauthorizedAccessException">The caller does not have sufficient backup privileges or is not an administrator.</exception>
+      /// <exception cref="OutOfMemoryException">Out of memory or other system resources.</exception>
+      /// <exception cref="SystemException">Unexpected VSS system error. The error code is logged in the event log.</exception>
+      /// <exception cref="VssBadStateException">The backup components object is not initialized, this method has been called during a restore operation, or this method has not been called within the correct sequence.</exception>		
+      /// <exception cref="VssObjectNotFoundException">The specified volume was not found or was not available.</exception>
+      /// <exception cref="VssProviderVetoException">Expected provider error. The provider logged the error in the event log.</exception>
+      Task PostRestoreAsync(CancellationToken cancellationToken = default);
 
       /// <summary>
       ///	The <see cref="BeginPostRestore"/> method will asynchronously cause VSS to generate a <c>PostRestore</c> event, signaling writers that the current 
@@ -952,8 +1089,8 @@ namespace Alphaleonis.Win32.Vss
       /// <param name="userCallback">An optional asynchronous callback, to be called when the read is complete.</param>
       /// <param name="state">A user-provided object that distinguishes this particular asynchronous read request from other requests.</param>
       /// <returns>An <see cref="IVssAsyncResult"/> instance that represents this asynchronous operation.</returns>
+      [Obsolete("This API has been deprecated and will be removed in a future version of AlphaVSS.  Consider using PostRestoreAsync instead.")]
       IVssAsyncResult BeginPostRestore(AsyncCallback userCallback, object state);
-
 
       /// <summary>
       /// Waits for a pending asynchronous operation to complete.
@@ -968,7 +1105,12 @@ namespace Alphaleonis.Win32.Vss
       /// <exception cref="VssBadStateException">The backup components object is not initialized, this method has been called during a restore operation, or this method has not been called within the correct sequence.</exception>		
       /// <exception cref="VssObjectNotFoundException">The specified volume was not found or was not available.</exception>
       /// <exception cref="VssProviderVetoException">Expected provider error. The provider logged the error in the event log.</exception>
+      [Obsolete("This API has been deprecated and will be removed in a future version of AlphaVSS.  Consider using PostRestoreAsync instead.")]
       void EndPostRestore(IAsyncResult asyncResult);
+
+      #endregion
+
+      #region PrepareForBackup
 
       /// <summary>
       /// 	The <see cref="PrepareForBackup"/> method will cause VSS to generate a PrepareForBackup event, signaling writers to prepare for an upcoming 
@@ -990,6 +1132,30 @@ namespace Alphaleonis.Win32.Vss
       void PrepareForBackup();
       
       /// <summary>
+      /// 	The <see cref="PrepareForBackupAsync"/> method will asynchronously cause VSS to generate a PrepareForBackup event, signaling writers to prepare for an upcoming 
+      /// 	backup operation. This makes a requester's Backup Components Document available to writers.
+      /// </summary>
+      /// <remarks>
+      /// 	<para>
+      /// 		<see cref="PrepareForBackupAsync"/> generates a <c>PrepareForBackup</c> event, which is handled by each instance of each writer 
+      /// 		through the CVssWriter::OnPrepareBackup method.
+      /// 	</para>
+      /// 	<para>
+      /// 		Before PrepareForBackup can be called, <see cref="SetBackupState"/> must be called.
+      /// 	</para>
+      /// </remarks>
+      /// <param name="cancellationToken">The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None"/>.</param>
+      /// <returns>
+      /// A <see cref="Task"/> that represents the asynchronous operation.
+      /// </returns>
+      /// <exception cref="OperationCanceledException">Thrown if the operation was canceled by the <paramref name="cancellationToken"/></exception>
+      /// <exception cref="UnauthorizedAccessException">The caller does not have sufficient backup privileges or is not an administrator.</exception>
+      /// <exception cref="OutOfMemoryException">Out of memory or other system resources.</exception>
+      /// <exception cref="SystemException">Unexpected VSS system error. The error code is logged in the event log.</exception>
+      /// <exception cref="VssBadStateException">The backup components object is not initialized, this method has been called during a restore operation, or this method has not been called within the correct sequence.</exception>		
+      Task PrepareForBackupAsync(CancellationToken cancellationToken = default);
+
+      /// <summary>
       /// 	The <see cref="BeginPrepareForBackup"/> method will asynchronously cause VSS to generate a PrepareForBackup event, signaling writers to prepare for an upcoming 
       /// 	backup operation. This makes a requester's Backup Components Document available to writers.
       /// </summary>
@@ -1010,8 +1176,8 @@ namespace Alphaleonis.Win32.Vss
       /// <param name="userCallback">An optional asynchronous callback, to be called when the read is complete.</param>
       /// <param name="state">A user-provided object that distinguishes this particular asynchronous read request from other requests.</param>
       /// <returns>An <see cref="IVssAsyncResult"/> instance that represents this asynchronous operation.</returns>
+      [Obsolete("This API has been deprecated and will be removed in a future version of AlphaVSS.  Consider using PrepareForBackupAsync instead.")]
       IVssAsyncResult BeginPrepareForBackup(AsyncCallback userCallback, object state);
-
 
       /// <summary>
       /// Waits for a pending asynchronous operation to complete.
@@ -1024,7 +1190,12 @@ namespace Alphaleonis.Win32.Vss
       /// <exception cref="OutOfMemoryException">Out of memory or other system resources.</exception>
       /// <exception cref="SystemException">Unexpected VSS system error. The error code is logged in the event log.</exception>
       /// <exception cref="VssBadStateException">The backup components object is not initialized, this method has been called during a restore operation, or this method has not been called within the correct sequence.</exception>		
+      [Obsolete("This API has been deprecated and will be removed in a future version of AlphaVSS.  Consider using PrepareForBackupAsync instead.")]
       void EndPrepareForBackup(IAsyncResult asyncResult);
+
+      #endregion
+
+      #region PreRestore
 
       /// <summary>
       /// The <see cref="PreRestore"/> method will cause VSS to generate a <c>PreRestore</c> event, signaling writers to prepare for a 
@@ -1035,6 +1206,21 @@ namespace Alphaleonis.Win32.Vss
       /// <exception cref="SystemException">Unexpected VSS system error. The error code is logged in the event log.</exception>
       /// <exception cref="VssBadStateException">The backup components object is not initialized, this method has been called during a restore operation, or this method has not been called within the correct sequence.</exception>		
       void PreRestore();
+
+      /// <summary>
+      /// The <see cref="PreRestoreAsync"/> method will asynchronously cause VSS to generate a <c>PreRestore</c> event, signaling writers to prepare for a 
+      /// coming restore operation.
+      /// </summary>
+      /// <param name="cancellationToken">The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None"/>.</param>
+      /// <returns>
+      /// A <see cref="Task"/> that represents the asynchronous operation.
+      /// </returns>
+      /// <exception cref="OperationCanceledException">Thrown if the operation was canceled by the <paramref name="cancellationToken"/></exception>
+      /// <exception cref="UnauthorizedAccessException">The caller does not have sufficient backup privileges or is not an administrator.</exception>
+      /// <exception cref="OutOfMemoryException">Out of memory or other system resources.</exception>
+      /// <exception cref="SystemException">Unexpected VSS system error. The error code is logged in the event log.</exception>
+      /// <exception cref="VssBadStateException">The backup components object is not initialized, this method has been called during a restore operation, or this method has not been called within the correct sequence.</exception>		
+      Task PreRestoreAsync(CancellationToken cancellationToken = default);
 
       /// <summary>
       /// The <see cref="BeginPreRestore"/> method will asynchronously cause VSS to generate a <c>PreRestore</c> event, signaling writers to prepare for a 
@@ -1050,8 +1236,8 @@ namespace Alphaleonis.Win32.Vss
       /// <param name="userCallback">An optional asynchronous callback, to be called when the read is complete.</param>
       /// <param name="state">A user-provided object that distinguishes this particular asynchronous read request from other requests.</param>
       /// <returns>An <see cref="IVssAsyncResult"/> instance that represents this asynchronous operation.</returns>
+      [Obsolete("This API has been deprecated and will be removed in a future version of AlphaVSS.  Consider using PreRestoreAsync instead.")]
       IVssAsyncResult BeginPreRestore(AsyncCallback userCallback, object state);
-
 
       /// <summary>
       /// Waits for a pending asynchronous operation to complete.
@@ -1064,7 +1250,10 @@ namespace Alphaleonis.Win32.Vss
       /// <exception cref="OutOfMemoryException">Out of memory or other system resources.</exception>
       /// <exception cref="SystemException">Unexpected VSS system error. The error code is logged in the event log.</exception>
       /// <exception cref="VssBadStateException">The backup components object is not initialized, this method has been called during a restore operation, or this method has not been called within the correct sequence.</exception>		
+      [Obsolete("This API has been deprecated and will be removed in a future version of AlphaVSS.  Consider using PreRestoreAsync instead.")]
       void EndPreRestore(IAsyncResult asyncResult);
+
+      #endregion
 
       /// <summary>
       /// 	The <see cref="QuerySnapshots"/> method queries the completed shadow copies in the system that reside in the current context. 
@@ -1078,11 +1267,11 @@ namespace Alphaleonis.Win32.Vss
       /// 	 </para>
       /// 	 <para>
       /// 		The method may be called only during backup operations and must be preceded by calls to <see cref="InitializeForBackup"/> and 
-      /// 		<see cref="O:Alphaleonis.Win32.Vss.IVssBackupComponents.SetContext"/>.
+      /// 		<see cref="IVssBackupComponents.SetContext(VssSnapshotContext)"/>.
       /// 	 </para>
       /// 	 <para>
       /// 		The method will return only information 
-      /// 		about shadow copies with the current context (set by <see cref="O:Alphaleonis.Win32.Vss.IVssBackupComponents.SetContext"/>). For instance, if the 
+      /// 		about shadow copies with the current context (set by <see cref="IVssBackupComponents.SetContext(VssSnapshotContext)"/>). For instance, if the 
       /// 		<see cref="VssSnapshotContext"/> context is set to <see cref="VssSnapshotContext.Backup"/>, <see cref="QuerySnapshots"/> will not 
       /// 		return information on a shadow copy created with a context of <see cref="VssSnapshotContext.FileShareBackup" />.
       /// 	 </para>
@@ -1105,7 +1294,7 @@ namespace Alphaleonis.Win32.Vss
       /// <remarks>
       /// 	 <para>
       /// 		The method may be called only during backup operations and must be preceded by calls to <see cref="InitializeForBackup"/> and 
-      /// 		<see cref="O:Alphaleonis.Win32.Vss.IVssBackupComponents.SetContext"/>.
+      /// 		<see cref="IVssBackupComponents.SetContext(VssSnapshotContext)"/>.
       /// 	 </para>
       /// </remarks>
       /// <exception cref="ArgumentException">One of the parameter values is not valid.</exception>
@@ -1117,6 +1306,43 @@ namespace Alphaleonis.Win32.Vss
       /// <exception cref="VssProviderVetoException">Expected provider error. The provider logged the error in the event log.</exception>
       /// <exception cref="VssUnexpectedProviderErrorException">Unexpected provider error. The error code is logged in the error log.</exception>
       IEnumerable<VssProviderProperties> QueryProviders();
+
+      #region QueryReturnStatus
+
+      /// <summary>
+      /// The <see cref="QueryRevertStatusAsync"/> method begins an asynchronous operation to determine the status of the revert operation. The 
+      /// returned <see cref="IVssAsyncResult"/> can be used to determine the outcome of the operation.
+      /// </summary>      
+      /// <remarks>
+      /// 	The revert operation will continue even if the computer is rebooted, and cannot be canceled or undone, except by restoring a 
+      /// 	backup created using another method.
+      /// </remarks>
+      /// <param name="volumeName">Name of the volume. The name of the volume to be checked must be in one of the following formats:
+      /// <list type="bullet">
+      /// <item><description>The path of a volume mount point with a backslash (\)</description></item>
+      /// <item><description>A drive letter with backslash (\), for example, D:\</description></item>
+      /// <item><description>A unique volume name of the form \\?\Volume{GUID}\ (where GUID is the unique global identifier of the volume) with a backslash (\)</description></item>
+      /// </list></param>
+      /// <param name="cancellationToken">The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None"/>.</param>
+      /// <returns>
+      /// A <see cref="Task"/> that represents the asynchronous operation.
+      /// </returns>
+      /// <exception cref="OperationCanceledException">Thrown if the operation was canceled by the <paramref name="cancellationToken"/></exception>
+      /// <exception cref="ArgumentException">One of the parameter values is not valid.</exception>
+      /// <exception cref="UnauthorizedAccessException">The calling process has insufficient privileges.</exception>
+      /// <exception cref="OutOfMemoryException">Out of memory or other system resources.</exception>
+      /// <exception cref="SystemException">Unexpected VSS system error. The error code is logged in the
+      /// event log.</exception>
+      /// <exception cref="VssBadStateException">The backup components object is not initialized, this
+      /// method has been called during a restore operation, or this method has not been called within
+      /// the correct sequence.</exception>
+      /// <exception cref="VssObjectNotFoundException">The specified parameter is not a valid volume.</exception>
+      /// <exception cref="VssVolumeNotSupportedException">Revert is not supported on this volume.</exception>
+      /// <exception cref="NotImplementedException">The provider for the volume does not support revert
+      /// operations.</exception>
+      /// <exception cref="NotSupportedException">This operation is not supported on the current
+      /// operating system.</exception>
+      Task QueryRevertStatusAsync(string volumeName, CancellationToken cancellationToken = default);
 
       /// <summary>
       /// The <see cref="BeginQueryRevertStatus"/> method begins an asynchronous operation to determine the status of the revert operation. The 
@@ -1139,6 +1365,7 @@ namespace Alphaleonis.Win32.Vss
       /// 	backup created using another method.
       /// <note><b>Windows XP, Windows Server 2003 and Windows Vista:</b> This method requires Windows Server 2008 or Windows Server 2003 SP1</note>
       /// </remarks>
+      [Obsolete("This API has been deprecated and will be removed in a future version of AlphaVSS.  Consider using QueryRevertStatusAsync instead.")]
       IVssAsyncResult BeginQueryRevertStatus(string volumeName, AsyncCallback userCallback, object state);
 
       /// <summary>Waits for a pending asynchronous operation to complete.</summary>
@@ -1161,7 +1388,10 @@ namespace Alphaleonis.Win32.Vss
       /// operations.</exception>
       /// <exception cref="NotSupportedException">This operation is not supported on the current
       /// operating system.</exception>
+      [Obsolete("This API has been deprecated and will be removed in a future version of AlphaVSS.  Consider using QueryRevertStatusAsync instead.")]
       void EndQueryRevertStatus(IAsyncResult asyncResult);
+
+      #endregion
 
       /// <summary>
       /// 	The <see cref="RevertToSnapshot"/> method reverts a volume to a previous shadow copy. Only shadow copies created with persistent 
@@ -1724,9 +1954,9 @@ namespace Alphaleonis.Win32.Vss
       /// </param>
       /// <remarks>
       ///		<para>SetSelectedForRestore has meaning only for restores taking place in component mode.</para>
-      /// 	<para><see cref="O:Alphaleonis.Win32.Vss.IVssBackupComponents.SetSelectedForRestore"/> can only be called for components that were explicitly added to the 
+      /// 	<para><see cref="IVssBackupComponents.SetSelectedForRestore(Guid, VssComponentType, string, string, bool)"/> can only be called for components that were explicitly added to the 
       /// 	backup document at backup time using <see cref="AddComponent"/>. Restoring a component that was implicitly 
-      /// 	selected for backup as part of a component set must be done by calling <see cref="O:Alphaleonis.Win32.Vss.IVssBackupComponents.SetSelectedForRestore"/> on the closest 
+      /// 	selected for backup as part of a component set must be done by calling <see cref="IVssBackupComponents.SetSelectedForRestore(Guid, VssComponentType, string, string, bool)"/> on the closest 
       /// 	ancestor component that was added to the document. If only this component's data is to be restored, 
       /// 	that should be accomplished through <see cref="AddRestoreSubcomponent"/>; this can only be done if the component 
       /// 	is selectable for restore.</para>
@@ -1847,6 +2077,8 @@ namespace Alphaleonis.Win32.Vss
 
       #region IVssBackupComponentsEx2 methods
 
+      #region BreakSnapshotSet
+
       /// <summary>
       /// Breaks a shadow copy set according to requester-specified options.
       /// </summary>
@@ -1869,6 +2101,31 @@ namespace Alphaleonis.Win32.Vss
       [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1726:UsePreferredTerms", MessageId = "Flags")]
       void BreakSnapshotSet(Guid snapshotSetId, VssHardwareOptions breakFlags);
 
+      /// <summary>
+      /// Begins an asynchronous operation to break a shadow copy set according to requester-specified options.
+      /// </summary>
+      /// <param name="snapshotSetId">A shadow copy set identifier.</param>
+      /// <param name="breakFlags">A bitmask of <see cref="VssHardwareOptions"/> flags that specify how the shadow copy set is broken.</param>
+      /// <remarks>
+      ///     <para>
+      ///         This method is similar to <see cref="BreakSnapshotSet(System.Guid)"/>, except that is has an extra parameter to specify
+      ///         how the shadow copy set is broken.
+      ///     </para>
+      ///     <para>
+      ///         Like <see cref="BreakSnapshotSet(System.Guid)"/>, this method can be used only for shadow copies that were created by 
+      ///         a hardware shadow copy provider.
+      ///     </para>
+      ///     <para>
+      ///         After this method returns, the shadow copy volume is still a volume, but it is no longer a shadow copy. 
+      ///         For more information, see <see href="http://msdn.microsoft.com/en-us/library/aa381505(VS.85).aspx">Breaking Shadow Copies</see>.
+      ///     </para>
+      /// </remarks>
+      /// <param name="cancellationToken">The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None"/>.</param>
+      /// <returns>
+      /// A <see cref="Task"/> that represents the asynchronous operation.
+      /// </returns>
+      /// <exception cref="OperationCanceledException">Thrown if the operation was canceled by the <paramref name="cancellationToken"/></exception>
+      Task BreakSnapshotSetAsync(Guid snapshotSetId, VssHardwareOptions breakFlags, CancellationToken cancellationToken = default);
 
       /// <summary>
       /// Begins an asynchronous operation to break a shadow copy set according to requester-specified options.
@@ -1894,6 +2151,7 @@ namespace Alphaleonis.Win32.Vss
       /// <returns>
       /// An <see cref="IVssAsyncResult"/> instance that represents this asynchronous operation.
       /// </returns>
+      [Obsolete("This API has been deprecated and will be removed in a future version of AlphaVSS.  Consider using BreakSnapshotSetAsync instead.")]
       IVssAsyncResult BeginBreakSnapshotSet(Guid snapshotSetId, VssHardwareOptions breakFlags, AsyncCallback userCallback, object state);
 
       /// <summary>
@@ -1903,7 +2161,10 @@ namespace Alphaleonis.Win32.Vss
       /// <b>EndBreakSnapshotSet</b> can be called once on every <see cref="IVssAsyncResult"/> from <see cref="BeginBreakSnapshotSet"/>.
       /// </remarks>
       /// <param name="asyncResult">The reference to the pending asynchronous request to finish. </param>      
+      [Obsolete("This API has been deprecated and will be removed in a future version of AlphaVSS.  Consider using BreakSnapshotSetAsync instead.")]
       void EndBreakSnapshotSet(IAsyncResult asyncResult);
+
+      #endregion
 
       /// <summary>
       /// Marks the restore of a component as authoritative for a replicated data store.
@@ -2153,6 +2414,51 @@ namespace Alphaleonis.Win32.Vss
       /// </remarks>
       void RecoverSet(VssRecoveryOptions options);
 
+      /// <summary>
+      /// Begins an asynchronous operation that initiates a LUN resynchronization operation. This method is supported only on Windows server operating systems.
+      /// </summary>
+      /// <param name="options"><see cref="VssRecoveryOptions"/> flags that specify how the resynchronization is to be performed.</param>
+      /// <param name="cancellationToken">The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None"/>.</param>      
+      /// <returns>
+      /// A <see cref="Task"/> that represents the asynchronous operation.
+      /// </returns>
+      /// <remarks>
+      /// <para>
+      /// Pass the <see cref="IVssAsyncResult"/> value returned to the <see cref="EndRecoverSet"/> method to release operating system resources used for this asynchronous operation.
+      ///   <see cref="EndRecoverSet"/> must be called once for every call to <see cref="BeginRecoverSet"/>. You can do this either by using the same code that called <b>BeginRecoverSet</b> or
+      /// in a callback passed to <b>BeginRecoverSet</b>.
+      ///   </para>
+      ///   <para>
+      ///   <note>
+      ///   <b>Windows Vista, Windows 2008, Windows 7:</b> This method requires Windows Server 2008 R2.
+      ///   </note>
+      ///   </para>
+      /// </remarks>
+      /// <exception cref="OperationCanceledException">Thrown if the operation was canceled by the <paramref name="cancellationToken"/></exception>
+      /// <exception cref="ArgumentException">One of the parameter values is not valid.</exception>
+      /// <exception cref="UnauthorizedAccessException">The caller does not have sufficient backup privileges or is not an administrator.</exception>
+      /// <exception cref="OutOfMemoryException">Out of memory or other system resources.</exception>
+      /// <exception cref="NotImplementedException">The provider for the volume does not support LUN resynchronization.</exception>
+      /// <exception cref="VssBadStateException">Possible reasons for this return value include:
+      ///		<list type="bullet">
+      ///			<item><description>There is no hardware provider that supports the operation.</description></item>
+      ///			<item><description>The requester did not successfully add any volumes to the recovery set.</description></item>
+      ///			<item><description>The method was called in WinPE or in Safe mode.</description></item>
+      ///			<item><description>he caller did not call the <see cref="InitializeForRestore"/> method before calling this method.</description></item>
+      ///		</list>
+      /// </exception>
+      /// <exception cref="VssLegacyProviderException">This version of the hardware provider does not support this operation.</exception>
+      /// <exception cref="VssProviderVetoException">An unexpected provider error occurred. If this error code is returned, the error must be described in an entry in the application event log, giving the user information on how to resolve the problem.</exception>
+      /// <exception cref="VssUnselectedVolumeException">The resynchronization destination contained a volume that was not explicitly included.</exception>
+      /// <exception cref="VssCannotRevertDiskIdException">The MBR signature or GPT ID for one or more disks could not be set to the intended value. Check the Application event log for more information.</exception>
+      /// <remarks>
+      ///     <para>
+      ///         <note>
+      ///             <b>Windows Vista, Windows 2008, Windows 7:</b> This method requires Windows Server 2008 R2.
+      ///         </note>
+      ///     </para>
+      /// </remarks>
+      Task RecoverSetAsync(VssRecoveryOptions options, CancellationToken cancellationToken = default);
 
       /// <summary>
       /// Begins an asynchronous operation that initiates a LUN resynchronization operation. This method is supported only on Windows server operating systems.
@@ -2175,6 +2481,7 @@ namespace Alphaleonis.Win32.Vss
       ///   </note>
       ///   </para>
       /// </remarks>
+      [Obsolete("This API has been deprecated and will be removed in a future version of AlphaVSS.  Consider using RecoverSetAsync instead.")]
       IVssAsyncResult BeginRecoverSet(VssRecoveryOptions options, AsyncCallback userCallback, object state);
 
       /// <summary>
@@ -2184,7 +2491,7 @@ namespace Alphaleonis.Win32.Vss
       /// <b>EndRecoverSet</b> can be called once on every <see cref="IVssAsyncResult"/> from <see cref="BeginRecoverSet"/>.
       /// </remarks>
       /// <param name="asyncResult">The reference to the pending asynchronous request to finish. </param>
-      /// /// <exception cref="ArgumentException">One of the parameter values is not valid.</exception>
+      /// <exception cref="ArgumentException">One of the parameter values is not valid.</exception>
       /// <exception cref="UnauthorizedAccessException">The caller does not have sufficient backup privileges or is not an administrator.</exception>
       /// <exception cref="OutOfMemoryException">Out of memory or other system resources.</exception>
       /// <exception cref="NotImplementedException">The provider for the volume does not support LUN resynchronization.</exception>
@@ -2207,14 +2514,16 @@ namespace Alphaleonis.Win32.Vss
       ///         </note>
       ///     </para>
       /// </remarks>
+      [Obsolete("This API has been deprecated and will be removed in a future version of AlphaVSS.  Consider using RecoverSetAsync instead.")]
       void EndRecoverSet(IAsyncResult asyncResult);
+
       #endregion
 
       #region IVssBackupComponentsEx4 methods
 
       /// <summary>
       /// Normalizes a local volume path or UNC share path so that it can be passed to the
-      /// <see cref="O:Alphaleonis.Win32.Vss.IVssBackupComponents.AddToSnapshotSet"/> method.
+      /// <see cref="IVssBackupComponents.AddToSnapshotSet(string)"/> method.
       /// </summary>
       /// <param name="filePath">The path to be normalized.</param>
       /// <param name="normalizeFQDNforRootPath"><para>If <paramref name="filePath"/> is a UNC share

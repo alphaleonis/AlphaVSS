@@ -9,7 +9,7 @@ namespace Alphaleonis.Win32.Vss
    public sealed class VssRootAndLogicalPrefixPaths
    {
       /// <summary>Constructor.</summary>
-      /// <param name="rootPath">The root path that should be passed to the <see cref="O:Alphaleonis.Win32.Vss.IVssBackupComponents.AddToSnapshotSet" /> method.</param>
+      /// <param name="rootPath">The root path that should be passed to the <see cref="IVssBackupComponents.AddToSnapshotSet(string)" /> method.</param>
       /// <param name="logicalPrefix">The logical prefix.</param>
       public VssRootAndLogicalPrefixPaths(string rootPath, string logicalPrefix)
       {
@@ -17,7 +17,7 @@ namespace Alphaleonis.Win32.Vss
          LogicalPrefix = logicalPrefix;
       }
 
-      /// <summary>The root path that should be passed to the <see cref="O:Alphaleonis.Win32.Vss.IVssBackupComponents.AddToSnapshotSet" /> method.</summary>
+      /// <summary>The root path that should be passed to the <see cref="IVssBackupComponents.AddToSnapshotSet(string)" /> method.</summary>
       public string RootPath { get; }
 
       /// <summary>If the original file path was a local path, this property contains the volume GUID name. If it was a UNC path, this property contains a fully evaluated share path.</summary>      

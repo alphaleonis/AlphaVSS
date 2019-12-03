@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+   <metadata>
+      <id>AlphaVSS</id>
+      <version>1.0.0</version>
+      <title>AlphaVSS</title>
+      <authors>alphaleonis</authors>
+      <license type="expression">Apache-2.0</license>
+      <projectUrl>https://alphavss.alphaleonis.com/</projectUrl>
+      <requireLicenseAcceptance>true</requireLicenseAcceptance>
+      <description>AlphaVSS is a .NET class library providing a managed API for the Windows Volume Shadow Copy Service also known as VSS.</description>
+      <releaseNotes>- Added support for .NET Core 3.1.
+- Added TPL style async methods for asynchronous methods on IVssBackupComponents.</releaseNotes>
+      <copyright>Copyright © Peter Palotas</copyright>      
+      <tags>Win32, VSS</tags>
+      <repository type="git" url="https://github.com/alphaleonis/AlphaVSS.git" branch="$branch$" commit="$commit$" />
+      <dependencies>
+         <group targetFramework="net45">
+            <dependency id="AlphaVSS.Native.NetFx" version="[$version$]" />
+         </group>
+         <group targetFramework="netcoreapp3.1" >
+            <dependency id="AlphaVSS.Native.NetCore"  version="[$version$]" />
+         </group>
+      </dependencies>
+   </metadata>   
+   <files>
+      <!-- net45 -->
+      <file src="..\..\artifacts\net45\AlphaVSS.Common.dll" target="lib\net45" />
+      <file src="..\..\artifacts\net45\AlphaVSS.Common.xml" target="lib\net45" />
+      <file src="..\..\artifacts\net45\AlphaVSS.Common.pdb" target="lib\net45" />
+
+      <!-- netcoreapp3.1 -->
+      <file src="..\..\artifacts\netcoreapp3.1\AlphaVSS.Common.dll" target="lib\netcoreapp3.1" />
+      <file src="..\..\artifacts\netcoreapp3.1\AlphaVSS.Common.pdb" target="lib\netcoreapp3.1" />
+      <file src="..\..\artifacts\netcoreapp3.1\AlphaVSS.Common.xml" target="lib\netcoreapp3.1" />
+   </files>
+</package>
