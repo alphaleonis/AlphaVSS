@@ -8,7 +8,7 @@ trigger:
 - master
 
 pool: 
-   name: Default
+  name: Default
 #  vmImage: 'windows-latest'
 
 jobs:
@@ -18,12 +18,10 @@ jobs:
     clean: all
   steps: 
     - task: UseDotNet@2
-      displayName: 'Use .NET Core SDK 3.1'
-      inputs: 
-        packageType: sdk
+      inputs:
+        packageType: 'sdk'
         useGlobalJson: true
-        includePreviewVersions: true
-        installationPath: $(Agent.ToolsDirectory)
+        performMultiLevelLookup: true
 #
 
     - task: PowerShell@2
