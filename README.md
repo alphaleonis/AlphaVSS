@@ -15,4 +15,4 @@ The goal of AlphaVSS is to provide an interface that is simple to use from any .
 
 For documentation and more information see [http://alphavss.alphaleonis.com](http://alphavss.alphaleonis.com)
 
-For samples, see https://github.com/alphaleonis/AlphaVSS-Samples.
+For samples, see https://github.com/alphaleonis/AlphaVSS-Samples
