@@ -1,6 +1,7 @@
 AlphaVSS
 ========
 
+[![Inactively Maintained](https://img.shields.io/badge/Maintenance%20Level-Inactively%20Maintained-yellowgreen.svg)](https://gist.github.com/cheerfulstoic/d107229326a01ff0f333a1d3476e068d)
 [![License](https://img.shields.io/github/license/alphaleonis/AlphaVSS)](https://github.com/alphaleonis/AlphaVSS/blob/develop/LICENSE)
 [![Build](https://img.shields.io/azure-devops/build/alphaleonis-pp/d105224a-eec8-4a24-a7e2-aea090bdc782/2/develop?logo=azuredevops)](https://dev.azure.com/alphaleonis-pp/AlphaVSS/_build) 
 [![Latest](https://img.shields.io/nuget/v/AlphaVSS?color=blue&label=stable&logo=nuget&cacheSeconds=3600)](https://www.nuget.org/packages/AlphaVSS/)
