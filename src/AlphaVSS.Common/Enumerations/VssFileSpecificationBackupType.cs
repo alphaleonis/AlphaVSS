@@ -103,6 +103,11 @@ namespace Alphaleonis.Win32.Vss
       LogSnapshotRequired = 0x00000800,
 
       /// <summary>
+      /// 	A writer tags a file set with this value to indicate to the requester that they expect the file to be created during the snapshot sequence.
+      /// </summary>
+      CreatedDuringBackup = 0x00010000,
+
+      /// <summary>
       /// 	The default file backup specification type. A file set tagged with this value must always participate in backup and restore operations.
       /// </summary>
       AllBackupRequired = 0x0000000F,

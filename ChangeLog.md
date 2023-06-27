@@ -15,7 +15,7 @@ Version 2.0.0
 ### New features
 
   * Supports .NET Core 3.1
-  * Supports TPL style async methods with support for `CancellationToken` instead of the old  Asynchronous Programming Model (APM)
+  * Supports Task-based asynchronous pattern (TAP) with support for `CancellationToken` instead of the old  Asynchronous Programming Model (APM).
   * Supports extension point for loading of platform specific assemblies. (See `IVssAssemblyResolver` and `VssFactoryProvider`)
 
 
