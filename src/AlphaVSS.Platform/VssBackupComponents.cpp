@@ -64,6 +64,12 @@ namespace Alphaleonis {
                m_IVssBackupComponentsEx3->Release();
                m_IVssBackupComponentsEx3 = 0;
             }
+
+            if (m_IVssBackupComponentsEx4 != 0)
+            {
+               m_IVssBackupComponentsEx4->Release();
+               m_IVssBackupComponentsEx4 = 0;
+            }
          }
 
 
