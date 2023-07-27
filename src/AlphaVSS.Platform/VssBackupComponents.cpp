@@ -20,6 +20,7 @@ namespace Alphaleonis {
             m_IVssBackupComponentsEx(0),
             m_IVssBackupComponentsEx2(0),
             m_IVssBackupComponentsEx3(0),
+            m_IVssBackupComponentsEx4(0),
             m_writerMetadata(nullptr),
             m_writerComponents(nullptr),
             m_writerStatus(nullptr)
